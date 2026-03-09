@@ -28,7 +28,7 @@ import jakarta.annotation.Nullable;
 /**
  * These APIs allow you to create hooks. When triggered, a hook sends a request to your service to
  * get updated data related to the related Cvent object.
- * 
+ *
  * <p>For more information on using hooks, see the
  * [getting started guide](https://developers.cvent.com/docs/cid/attendee-identification-service).
  */
@@ -44,7 +44,7 @@ public class Hooks {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncHooks async() {
@@ -53,11 +53,11 @@ public class Hooks {
 
     /**
      * List Contact Hooks
-     * 
+     *
      * <p>Gets a list of contact hooks configured in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListContactHooksRequestBuilder listContactHooks() {
@@ -66,29 +66,29 @@ public class Hooks {
 
     /**
      * List Contact Hooks
-     * 
+     *
      * <p>Gets a list of contact hooks configured in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListContactHooksResponse listContactHooks(@Nonnull ListContactHooksRequest request) {
-        RequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation
-              = new ListContactHooks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation =
+                new ListContactHooks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateContactHookRequestBuilder createContactHook() {
@@ -97,12 +97,12 @@ public class Hooks {
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -112,29 +112,29 @@ public class Hooks {
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateContactHookResponse createContactHook(@Nullable HookInput request) {
-        RequestOperation<HookInput, CreateContactHookResponse> operation
-              = new CreateContactHook.Sync(sdkConfiguration, _headers);
+        RequestOperation<HookInput, CreateContactHookResponse> operation =
+                new CreateContactHook.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Contact Hook
-     * 
+     *
      * <p>Update a contact hook's details, including its associated callback URI.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateContactHookRequestBuilder updateContactHook() {
@@ -143,28 +143,28 @@ public class Hooks {
 
     /**
      * Update Contact Hook
-     * 
+     *
      * <p>Update a contact hook's details, including its associated callback URI.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateContactHookResponse updateContactHook(@Nonnull UpdateContactHookRequest request) {
-        RequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation
-              = new UpdateContactHook.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation =
+                new UpdateContactHook.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Contact Hook
-     * 
+     *
      * <p>Delete a contact hook's details.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteContactHookRequestBuilder deleteContactHook() {
@@ -173,19 +173,18 @@ public class Hooks {
 
     /**
      * Delete Contact Hook
-     * 
+     *
      * <p>Delete a contact hook's details.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteContactHookResponse deleteContactHook(@Nonnull DeleteContactHookRequest request) {
-        RequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation
-              = new DeleteContactHook.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation =
+                new DeleteContactHook.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

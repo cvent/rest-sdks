@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * CommunicationLogMessageJson
- * 
+ *
  * <p>A communication log message.
  */
 public class CommunicationLogMessageJson {
@@ -69,25 +69,22 @@ public class CommunicationLogMessageJson {
             @JsonProperty("tags") @Nullable Map<String, String> tags,
             @JsonProperty("message") @Nonnull Message message,
             @JsonProperty("attachments") @Nullable List<AttachmentJson1> attachments) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.created = Optional.ofNullable(created)
-            .orElseThrow(() -> new IllegalArgumentException("created cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.created =
+                Optional.ofNullable(created).orElseThrow(() -> new IllegalArgumentException("created cannot be null"));
         this.tags = tags;
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.attachments = attachments;
     }
-    
+
     public CommunicationLogMessageJson(
             @Nonnull String id,
             @Nonnull CommunicationLogMessageTypeJson type,
             @Nonnull OffsetDateTime created,
             @Nonnull Message message) {
-        this(id, type, created,
-            null, message, null);
+        this(id, type, created, null, message, null);
     }
 
     /**
@@ -136,7 +133,6 @@ public class CommunicationLogMessageJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the communication log message.
      */
@@ -144,7 +140,6 @@ public class CommunicationLogMessageJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The type of communication log message.
@@ -154,7 +149,6 @@ public class CommunicationLogMessageJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -162,7 +156,6 @@ public class CommunicationLogMessageJson {
         this.created = Utils.checkNotNull(created, "created");
         return this;
     }
-
 
     /**
      * Key/value pairs used for searching/filtering messages.
@@ -172,7 +165,6 @@ public class CommunicationLogMessageJson {
         return this;
     }
 
-
     /**
      * An object that contains the message itself or a link to the message allowing it to be downloaded
      */
@@ -181,7 +173,6 @@ public class CommunicationLogMessageJson {
         return this;
     }
 
-
     /**
      * A collection of attachments that are associated with this message.
      */
@@ -189,7 +180,6 @@ public class CommunicationLogMessageJson {
         this.attachments = attachments;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -200,35 +190,39 @@ public class CommunicationLogMessageJson {
             return false;
         }
         CommunicationLogMessageJson other = (CommunicationLogMessageJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.tags, other.tags) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.attachments, other.attachments);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.tags, other.tags)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.attachments, other.attachments);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, created,
-            tags, message, attachments);
+        return Utils.enhancedHash(id, type, created, tags, message, attachments);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CommunicationLogMessageJson.class,
-                "id", id,
-                "type", type,
-                "created", created,
-                "tags", tags,
-                "message", message,
-                "attachments", attachments);
+        return Utils.toString(
+                CommunicationLogMessageJson.class,
+                "id",
+                id,
+                "type",
+                type,
+                "created",
+                created,
+                "tags",
+                tags,
+                "message",
+                message,
+                "attachments",
+                attachments);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -243,7 +237,7 @@ public class CommunicationLogMessageJson {
         private List<AttachmentJson1> attachments;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -295,10 +289,7 @@ public class CommunicationLogMessageJson {
         }
 
         public CommunicationLogMessageJson build() {
-            return new CommunicationLogMessageJson(
-                id, type, created,
-                tags, message, attachments);
+            return new CommunicationLogMessageJson(id, type, created, tags, message, attachments);
         }
-
     }
 }

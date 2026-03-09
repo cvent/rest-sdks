@@ -2,6 +2,14 @@
 
 The gender of the contact.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = GenderJson.Male;
+```
+
 
 ## Values
 

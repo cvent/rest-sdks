@@ -30,7 +30,7 @@ public class UpdateTextTrackRequestBuilder {
     private UpdateTextTrackRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateTextTrackRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateTextTrackRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateTextTrackResponse> call() {
-        AsyncRequestOperation<UpdateTextTrackRequest, UpdateTextTrackResponse> operation
-              = new UpdateTextTrack.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateTextTrackRequest, UpdateTextTrackResponse> operation =
+                new UpdateTextTrack.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

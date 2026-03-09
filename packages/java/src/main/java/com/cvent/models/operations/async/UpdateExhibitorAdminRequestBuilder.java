@@ -30,7 +30,7 @@ public class UpdateExhibitorAdminRequestBuilder {
     private UpdateExhibitorAdminRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExhibitorAdminRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateExhibitorAdminRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateExhibitorAdminResponse> call() {
-        AsyncRequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation
-              = new UpdateExhibitorAdmin.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation =
+                new UpdateExhibitorAdmin.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

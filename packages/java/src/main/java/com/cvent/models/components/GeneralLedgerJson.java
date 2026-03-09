@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * GeneralLedgerJson
- * 
+ *
  * <p>This is used to denote the general ledger detail in an order item
  */
 public class GeneralLedgerJson {
@@ -68,10 +68,9 @@ public class GeneralLedgerJson {
         this.description = description;
         this.allocationPercentage = allocationPercentage;
     }
-    
+
     public GeneralLedgerJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +112,6 @@ public class GeneralLedgerJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier for the general ledger.
      */
@@ -121,7 +119,6 @@ public class GeneralLedgerJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * This denotes the name of the general ledger.
@@ -131,7 +128,6 @@ public class GeneralLedgerJson {
         return this;
     }
 
-
     /**
      * This denotes the code of the general ledger.
      */
@@ -139,7 +135,6 @@ public class GeneralLedgerJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * This denotes the description of the general ledger.
@@ -149,7 +144,6 @@ public class GeneralLedgerJson {
         return this;
     }
 
-
     /**
      * This denotes the percentage allocation of the general ledger code for an order item.
      */
@@ -157,7 +151,6 @@ public class GeneralLedgerJson {
         this.allocationPercentage = allocationPercentage;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,33 +161,36 @@ public class GeneralLedgerJson {
             return false;
         }
         GeneralLedgerJson other = (GeneralLedgerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.allocationPercentage, other.allocationPercentage);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.allocationPercentage, other.allocationPercentage);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            description, allocationPercentage);
+        return Utils.enhancedHash(id, name, code, description, allocationPercentage);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GeneralLedgerJson.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "description", description,
-                "allocationPercentage", allocationPercentage);
+        return Utils.toString(
+                GeneralLedgerJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "description",
+                description,
+                "allocationPercentage",
+                allocationPercentage);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -207,7 +203,7 @@ public class GeneralLedgerJson {
         private Double allocationPercentage;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -251,10 +247,7 @@ public class GeneralLedgerJson {
         }
 
         public GeneralLedgerJson build() {
-            return new GeneralLedgerJson(
-                id, name, code,
-                description, allocationPercentage);
+            return new GeneralLedgerJson(id, name, code, description, allocationPercentage);
         }
-
     }
 }

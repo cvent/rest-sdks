@@ -2,6 +2,14 @@
 
 Suffix of the flight requester.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = RequesterSuffix.Ii;
+```
+
 
 ## Values
 

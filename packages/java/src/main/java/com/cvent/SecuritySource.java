@@ -8,7 +8,7 @@ import com.cvent.utils.HasSecurity;
 public interface SecuritySource {
 
     HasSecurity getSecurity();
-    
+
     public static SecuritySource of(HasSecurity security) {
         return new DefaultSecuritySource(security);
     }

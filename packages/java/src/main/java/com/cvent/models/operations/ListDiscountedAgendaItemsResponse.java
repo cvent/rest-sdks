@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListDiscountedAgendaItemsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListDiscountedAgendaItemsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.discountAgendaItemsPaginatedResponse = discountAgendaItemsPaginatedResponse;
     }
-    
+
     public ListDiscountedAgendaItemsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -93,7 +89,6 @@ public class ListDiscountedAgendaItemsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -101,7 +96,6 @@ public class ListDiscountedAgendaItemsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -111,7 +105,6 @@ public class ListDiscountedAgendaItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -120,16 +113,15 @@ public class ListDiscountedAgendaItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of agenda items that are associated with discounts in the
      * event.
      */
-    public ListDiscountedAgendaItemsResponse withDiscountAgendaItemsPaginatedResponse(@Nullable DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse) {
+    public ListDiscountedAgendaItemsResponse withDiscountAgendaItemsPaginatedResponse(
+            @Nullable DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse) {
         this.discountAgendaItemsPaginatedResponse = discountAgendaItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -140,31 +132,33 @@ public class ListDiscountedAgendaItemsResponse implements Response {
             return false;
         }
         ListDiscountedAgendaItemsResponse other = (ListDiscountedAgendaItemsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.discountAgendaItemsPaginatedResponse, other.discountAgendaItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.discountAgendaItemsPaginatedResponse, other.discountAgendaItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            discountAgendaItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, discountAgendaItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListDiscountedAgendaItemsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "discountAgendaItemsPaginatedResponse", discountAgendaItemsPaginatedResponse);
+        return Utils.toString(
+                ListDiscountedAgendaItemsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "discountAgendaItemsPaginatedResponse",
+                discountAgendaItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -175,7 +169,7 @@ public class ListDiscountedAgendaItemsResponse implements Response {
         private DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -206,16 +200,15 @@ public class ListDiscountedAgendaItemsResponse implements Response {
          * Successfully retrieved a paginated list of agenda items that are associated with discounts in the
          * event.
          */
-        public Builder discountAgendaItemsPaginatedResponse(@Nullable DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse) {
+        public Builder discountAgendaItemsPaginatedResponse(
+                @Nullable DiscountAgendaItemsPaginatedResponse discountAgendaItemsPaginatedResponse) {
             this.discountAgendaItemsPaginatedResponse = discountAgendaItemsPaginatedResponse;
             return this;
         }
 
         public ListDiscountedAgendaItemsResponse build() {
             return new ListDiscountedAgendaItemsResponse(
-                contentType, statusCode, rawResponse,
-                discountAgendaItemsPaginatedResponse);
+                    contentType, statusCode, rawResponse, discountAgendaItemsPaginatedResponse);
         }
-
     }
 }

@@ -20,7 +20,8 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DeleteUserFromAccountUserGroupRequestBuilder request(@Nonnull DeleteUserFromAccountUserGroupRequest request) {
+    public DeleteUserFromAccountUserGroupRequestBuilder request(
+            @Nonnull DeleteUserFromAccountUserGroupRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
     private DeleteUserFromAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteUserFromAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteUserFromAccountUserGroupResponse call() {
-        RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation
-              = new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
+                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

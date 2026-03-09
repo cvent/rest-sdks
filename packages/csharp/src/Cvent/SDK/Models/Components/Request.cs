@@ -20,30 +20,72 @@ namespace Cvent.SDK.Models.Components
 
     public class RequestType
     {
-        private RequestType(string value) { Value = value; }
+        private RequestType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static RequestType MeetingRequestBulkResponseItemJsonRequest { get { return new RequestType("meeting-request-bulk-response-item.json_request"); } }
+        public static RequestType MeetingRequestBulkResponseItemJsonRequest
+        {
+            get {
+                return new RequestType("meeting-request-bulk-response-item.json_request");
+            }
+        }
 
-        public static RequestType Str { get { return new RequestType("str"); } }
+        public static RequestType Str
+        {
+            get {
+                return new RequestType("str");
+            }
+        }
 
-        public static RequestType Number { get { return new RequestType("number"); } }
+        public static RequestType Number
+        {
+            get {
+                return new RequestType("number");
+            }
+        }
 
-        public static RequestType Integer { get { return new RequestType("integer"); } }
+        public static RequestType Integer
+        {
+            get {
+                return new RequestType("integer");
+            }
+        }
 
-        public static RequestType Boolean { get { return new RequestType("boolean"); } }
+        public static RequestType Boolean
+        {
+            get {
+                return new RequestType("boolean");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(RequestType v) { return v.Value; }
-        public static RequestType FromString(string v) {
-            switch(v) {
-                case "meeting-request-bulk-response-item.json_request": return MeetingRequestBulkResponseItemJsonRequest;
-                case "str": return Str;
-                case "number": return Number;
-                case "integer": return Integer;
-                case "boolean": return Boolean;
-                default: throw new ArgumentException("Invalid value for RequestType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(RequestType v)
+        {
+            return v.Value;
+        }
+        public static RequestType FromString(string v)
+        {
+            switch (v)
+            {
+                case "meeting-request-bulk-response-item.json_request":
+                    return MeetingRequestBulkResponseItemJsonRequest;
+                case "str":
+                    return Str;
+                case "number":
+                    return Number;
+                case "integer":
+                    return Integer;
+                case "boolean":
+                    return Boolean;
+                default:
+                    throw new ArgumentException("Invalid value for RequestType");
             }
         }
         public override bool Equals(object? obj)
@@ -147,8 +189,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Request(RequestType.MeetingRequestBulkResponseItemJsonRequest)
-                    {
+                    return new Request(RequestType.MeetingRequestBulkResponseItemJsonRequest) {
                         MeetingRequestBulkResponseItemJsonRequest = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<MeetingRequestBulkResponseItemJsonRequest>(json)
                     };
                 }
@@ -165,18 +206,17 @@ namespace Cvent.SDK.Models.Components
                     throw;
                 }
 
-                if (json[0] == '"' && json[^1] == '"'){
-                    return new Request(RequestType.Str)
-                    {
-                        Str = json[1..^1]
+                if (json[0] == '"' && json[^1] == '"')
+                {
+                    return new Request(RequestType.Str) {
+                        Str = json[1.. ^ 1]
                     };
                 }
 
                 try
                 {
                     var converted = Convert.ToDouble(json);
-                    return new Request(RequestType.Number)
-                    {
+                    return new Request(RequestType.Number) {
                         Number = converted
                     };
                 }
@@ -188,8 +228,7 @@ namespace Cvent.SDK.Models.Components
                 try
                 {
                     var converted = Convert.ToInt64(json);
-                    return new Request(RequestType.Integer)
-                    {
+                    return new Request(RequestType.Integer) {
                         Integer = converted
                     };
                 }
@@ -201,8 +240,7 @@ namespace Cvent.SDK.Models.Components
                 try
                 {
                     var converted = Convert.ToBoolean(json);
-                    return new Request(RequestType.Boolean)
-                    {
+                    return new Request(RequestType.Boolean) {
                         Boolean = converted
                     };
                 }
@@ -214,7 +252,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -273,8 +311,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

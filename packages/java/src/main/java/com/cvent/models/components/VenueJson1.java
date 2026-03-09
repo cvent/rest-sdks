@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * VenueJson1
- * 
+ *
  * <p>Event venue details.
  */
 public class VenueJson1 {
@@ -35,12 +35,11 @@ public class VenueJson1 {
 
     @JsonCreator
     public VenueJson1(
-            @JsonProperty("name") @Nullable String name,
-            @JsonProperty("address") @Nullable VenueAddressJson1 address) {
+            @JsonProperty("name") @Nullable String name, @JsonProperty("address") @Nullable VenueAddressJson1 address) {
         this.name = name;
         this.address = address;
     }
-    
+
     public VenueJson1() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class VenueJson1 {
         return new Builder();
     }
 
-
     /**
      * Venue name.
      */
@@ -72,7 +70,6 @@ public class VenueJson1 {
         return this;
     }
 
-
     /**
      * Address details for venue.
      */
@@ -80,7 +77,6 @@ public class VenueJson1 {
         this.address = address;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class VenueJson1 {
             return false;
         }
         VenueJson1 other = (VenueJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.address, other.address);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.address, other.address);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, address);
+        return Utils.enhancedHash(name, address);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VenueJson1.class,
-                "name", name,
-                "address", address);
+        return Utils.toString(VenueJson1.class, "name", name, "address", address);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private VenueAddressJson1 address;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class VenueJson1 {
         }
 
         public VenueJson1 build() {
-            return new VenueJson1(
-                name, address);
+            return new VenueJson1(name, address);
         }
-
     }
 }

@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * RoomIdJson
- * 
+ *
  * <p>Contains unique ID of the room.
  */
 public class RoomIdJson {
@@ -22,8 +22,7 @@ public class RoomIdJson {
     private long id;
 
     @JsonCreator
-    public RoomIdJson(
-            @JsonProperty("id") long id) {
+    public RoomIdJson(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class RoomIdJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the room.
      */
@@ -46,7 +44,6 @@ public class RoomIdJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class RoomIdJson {
             return false;
         }
         RoomIdJson other = (RoomIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RoomIdJson.class,
-                "id", id);
+        return Utils.toString(RoomIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class RoomIdJson {
         }
 
         public RoomIdJson build() {
-            return new RoomIdJson(
-                id);
+            return new RoomIdJson(id);
         }
-
     }
 }

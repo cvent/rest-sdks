@@ -40,7 +40,7 @@ public class ListSpeakersCategoriesRequestBuilder {
     private ListSpeakersCategoriesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSpeakersCategoriesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListSpeakersCategoriesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSpeakersCategoriesResponse> call() {
-        AsyncRequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation
-              = new ListSpeakersCategories.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation =
+                new ListSpeakersCategories.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListSpeakersCategoriesRequestBuilder {
      */
     public Publisher<ListSpeakersCategoriesResponse> callAsPublisher() {
         ListSpeakersCategoriesRequest request = this.request;
-        AsyncRequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation
-              = new ListSpeakersCategories.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation =
+                new ListSpeakersCategories.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSpeakersCategoriesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSpeakersCategoriesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListSpeakersCategoriesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListSpeakersCategoriesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

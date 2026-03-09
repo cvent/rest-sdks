@@ -28,7 +28,7 @@ public class UnlinkReservationRequestBuilder {
     private UnlinkReservationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UnlinkReservationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UnlinkReservationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UnlinkReservationResponse call() {
-        RequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation
-              = new UnlinkReservation.Sync(sdkConfiguration, _headers);
+        RequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation =
+                new UnlinkReservation.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

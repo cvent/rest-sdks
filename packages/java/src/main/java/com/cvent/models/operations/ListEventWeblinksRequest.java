@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListEventWeblinksRequest {
     /**
      * Unique Id of an event
@@ -44,22 +43,15 @@ public class ListEventWeblinksRequest {
 
     @JsonCreator
     public ListEventWeblinksRequest(
-            @Nonnull String id,
-            @Nullable String token,
-            @Nullable String locale,
-            @Nullable Long limit) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nullable String token, @Nullable String locale, @Nullable Long limit) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.token = token;
         this.locale = locale;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
     }
-    
-    public ListEventWeblinksRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListEventWeblinksRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -95,7 +87,6 @@ public class ListEventWeblinksRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of an event
      */
@@ -103,7 +94,6 @@ public class ListEventWeblinksRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -114,7 +104,6 @@ public class ListEventWeblinksRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -123,7 +112,6 @@ public class ListEventWeblinksRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -131,7 +119,6 @@ public class ListEventWeblinksRequest {
         this.limit = limit;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +129,25 @@ public class ListEventWeblinksRequest {
             return false;
         }
         ListEventWeblinksRequest other = (ListEventWeblinksRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.limit, other.limit);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, token, locale,
-            limit);
+        return Utils.enhancedHash(id, token, locale, limit);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListEventWeblinksRequest.class,
-                "id", id,
-                "token", token,
-                "locale", locale,
-                "limit", limit);
+        return Utils.toString(
+                ListEventWeblinksRequest.class, "id", id, "token", token, "locale", locale, "limit", limit);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +158,7 @@ public class ListEventWeblinksRequest {
         private Long limit;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,16 +195,10 @@ public class ListEventWeblinksRequest {
         }
 
         public ListEventWeblinksRequest build() {
-            return new ListEventWeblinksRequest(
-                id, token, locale,
-                limit);
+            return new ListEventWeblinksRequest(id, token, locale, limit);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

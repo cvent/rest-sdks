@@ -3,12 +3,11 @@
  */
 package com.cvent.models.errors;
 
-import jakarta.annotation.Nullable;
 import com.cvent.utils.Utils;
-
+import jakarta.annotation.Nullable;
 import java.io.IOException;
-import java.net.http.HttpResponse;
 import java.io.InputStream;
+import java.net.http.HttpResponse;
 
 /**
  * Thrown by a service call when an error response occurs. Contains details about the response.
@@ -36,11 +35,10 @@ public class APIException extends CventSDKError {
         } catch (IOException e) {
             // Gracefully handle IOExceptions that occur while reading the body
             // by returning an error without a body.
-            return new APIException(
-                    message, rawResponse.statusCode(), null, rawResponse, cause);
+            return new APIException(message, rawResponse.statusCode(), null, rawResponse, cause);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public HttpResponse<InputStream> rawResponse() {

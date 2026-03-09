@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RegistrationFeatureConfig
- * 
+ *
  * <p>Denote the configuration for the registration feature.
  */
 public class RegistrationFeatureConfig {
@@ -27,11 +27,10 @@ public class RegistrationFeatureConfig {
     private PricingConfigJson pricing;
 
     @JsonCreator
-    public RegistrationFeatureConfig(
-            @JsonProperty("pricing") @Nullable PricingConfigJson pricing) {
+    public RegistrationFeatureConfig(@JsonProperty("pricing") @Nullable PricingConfigJson pricing) {
         this.pricing = pricing;
     }
-    
+
     public RegistrationFeatureConfig() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class RegistrationFeatureConfig {
         return new Builder();
     }
 
-
     /**
      * Represents the configuration of the event's pricing feature.
      */
@@ -55,7 +53,6 @@ public class RegistrationFeatureConfig {
         this.pricing = pricing;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class RegistrationFeatureConfig {
             return false;
         }
         RegistrationFeatureConfig other = (RegistrationFeatureConfig) o;
-        return 
-            Utils.enhancedDeepEquals(this.pricing, other.pricing);
+        return Utils.enhancedDeepEquals(this.pricing, other.pricing);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            pricing);
+        return Utils.enhancedHash(pricing);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RegistrationFeatureConfig.class,
-                "pricing", pricing);
+        return Utils.toString(RegistrationFeatureConfig.class, "pricing", pricing);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PricingConfigJson pricing;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class RegistrationFeatureConfig {
         }
 
         public RegistrationFeatureConfig build() {
-            return new RegistrationFeatureConfig(
-                pricing);
+            return new RegistrationFeatureConfig(pricing);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelBreakOutRoomJson
- * 
+ *
  * <p>Break-out room information.
  */
 public class TravelBreakOutRoomJson {
@@ -69,10 +69,9 @@ public class TravelBreakOutRoomJson {
         this.price25PersonRoom = price25PersonRoom;
         this.permanentBoardRoomSetUp = permanentBoardRoomSetUp;
     }
-    
+
     public TravelBreakOutRoomJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class TravelBreakOutRoomJson {
         return new Builder();
     }
 
-
     /**
      * True indicates a 10 person room is included.
      */
@@ -122,7 +120,6 @@ public class TravelBreakOutRoomJson {
         this.tenPersonRoomIncluded = tenPersonRoomIncluded;
         return this;
     }
-
 
     /**
      * Price for 10 person room.
@@ -132,7 +129,6 @@ public class TravelBreakOutRoomJson {
         return this;
     }
 
-
     /**
      * True indicates a 25 person room included.
      */
@@ -140,7 +136,6 @@ public class TravelBreakOutRoomJson {
         this.twentyFivePersonRoomIncluded = twentyFivePersonRoomIncluded;
         return this;
     }
-
 
     /**
      * Price for 25 person room.
@@ -150,7 +145,6 @@ public class TravelBreakOutRoomJson {
         return this;
     }
 
-
     /**
      * True indicates there is a permanent board room set up.
      */
@@ -158,7 +152,6 @@ public class TravelBreakOutRoomJson {
         this.permanentBoardRoomSetUp = permanentBoardRoomSetUp;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,33 +162,41 @@ public class TravelBreakOutRoomJson {
             return false;
         }
         TravelBreakOutRoomJson other = (TravelBreakOutRoomJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.tenPersonRoomIncluded, other.tenPersonRoomIncluded) &&
-            Utils.enhancedDeepEquals(this.price10PersonRoom, other.price10PersonRoom) &&
-            Utils.enhancedDeepEquals(this.twentyFivePersonRoomIncluded, other.twentyFivePersonRoomIncluded) &&
-            Utils.enhancedDeepEquals(this.price25PersonRoom, other.price25PersonRoom) &&
-            Utils.enhancedDeepEquals(this.permanentBoardRoomSetUp, other.permanentBoardRoomSetUp);
+        return Utils.enhancedDeepEquals(this.tenPersonRoomIncluded, other.tenPersonRoomIncluded)
+                && Utils.enhancedDeepEquals(this.price10PersonRoom, other.price10PersonRoom)
+                && Utils.enhancedDeepEquals(this.twentyFivePersonRoomIncluded, other.twentyFivePersonRoomIncluded)
+                && Utils.enhancedDeepEquals(this.price25PersonRoom, other.price25PersonRoom)
+                && Utils.enhancedDeepEquals(this.permanentBoardRoomSetUp, other.permanentBoardRoomSetUp);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            tenPersonRoomIncluded, price10PersonRoom, twentyFivePersonRoomIncluded,
-            price25PersonRoom, permanentBoardRoomSetUp);
+                tenPersonRoomIncluded,
+                price10PersonRoom,
+                twentyFivePersonRoomIncluded,
+                price25PersonRoom,
+                permanentBoardRoomSetUp);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBreakOutRoomJson.class,
-                "tenPersonRoomIncluded", tenPersonRoomIncluded,
-                "price10PersonRoom", price10PersonRoom,
-                "twentyFivePersonRoomIncluded", twentyFivePersonRoomIncluded,
-                "price25PersonRoom", price25PersonRoom,
-                "permanentBoardRoomSetUp", permanentBoardRoomSetUp);
+        return Utils.toString(
+                TravelBreakOutRoomJson.class,
+                "tenPersonRoomIncluded",
+                tenPersonRoomIncluded,
+                "price10PersonRoom",
+                price10PersonRoom,
+                "twentyFivePersonRoomIncluded",
+                twentyFivePersonRoomIncluded,
+                "price25PersonRoom",
+                price25PersonRoom,
+                "permanentBoardRoomSetUp",
+                permanentBoardRoomSetUp);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean tenPersonRoomIncluded;
 
@@ -208,7 +209,7 @@ public class TravelBreakOutRoomJson {
         private Boolean permanentBoardRoomSetUp;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -253,9 +254,11 @@ public class TravelBreakOutRoomJson {
 
         public TravelBreakOutRoomJson build() {
             return new TravelBreakOutRoomJson(
-                tenPersonRoomIncluded, price10PersonRoom, twentyFivePersonRoomIncluded,
-                price25PersonRoom, permanentBoardRoomSetUp);
+                    tenPersonRoomIncluded,
+                    price10PersonRoom,
+                    twentyFivePersonRoomIncluded,
+                    price25PersonRoom,
+                    permanentBoardRoomSetUp);
         }
-
     }
 }

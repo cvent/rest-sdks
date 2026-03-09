@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateReservationRequestRequest {
     /**
      * Unique room reservation request ID.
@@ -32,9 +31,9 @@ public class UpdateReservationRequestRequest {
             @Nonnull String reservationRequestsId,
             @Nonnull ExistingReservationRequestInput existingReservationRequest) {
         this.reservationRequestsId = Optional.ofNullable(reservationRequestsId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
         this.existingReservationRequest = Optional.ofNullable(existingReservationRequest)
-            .orElseThrow(() -> new IllegalArgumentException("existingReservationRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("existingReservationRequest cannot be null"));
     }
 
     /**
@@ -56,7 +55,6 @@ public class UpdateReservationRequestRequest {
         return new Builder();
     }
 
-
     /**
      * Unique room reservation request ID.
      */
@@ -65,16 +63,15 @@ public class UpdateReservationRequestRequest {
         return this;
     }
 
-
     /**
      * Reservation request details. This data will overwrite the current version of the reservation request
      * for the given ID.
      */
-    public UpdateReservationRequestRequest withExistingReservationRequest(@Nonnull ExistingReservationRequestInput existingReservationRequest) {
+    public UpdateReservationRequestRequest withExistingReservationRequest(
+            @Nonnull ExistingReservationRequestInput existingReservationRequest) {
         this.existingReservationRequest = Utils.checkNotNull(existingReservationRequest, "existingReservationRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +82,34 @@ public class UpdateReservationRequestRequest {
             return false;
         }
         UpdateReservationRequestRequest other = (UpdateReservationRequestRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId) &&
-            Utils.enhancedDeepEquals(this.existingReservationRequest, other.existingReservationRequest);
+        return Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId)
+                && Utils.enhancedDeepEquals(this.existingReservationRequest, other.existingReservationRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reservationRequestsId, existingReservationRequest);
+        return Utils.enhancedHash(reservationRequestsId, existingReservationRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateReservationRequestRequest.class,
-                "reservationRequestsId", reservationRequestsId,
-                "existingReservationRequest", existingReservationRequest);
+        return Utils.toString(
+                UpdateReservationRequestRequest.class,
+                "reservationRequestsId",
+                reservationRequestsId,
+                "existingReservationRequest",
+                existingReservationRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reservationRequestsId;
 
         private ExistingReservationRequestInput existingReservationRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,14 +125,13 @@ public class UpdateReservationRequestRequest {
          * for the given ID.
          */
         public Builder existingReservationRequest(@Nonnull ExistingReservationRequestInput existingReservationRequest) {
-            this.existingReservationRequest = Utils.checkNotNull(existingReservationRequest, "existingReservationRequest");
+            this.existingReservationRequest = Utils.checkNotNull(
+                    existingReservationRequest, "existingReservationRequest");
             return this;
         }
 
         public UpdateReservationRequestRequest build() {
-            return new UpdateReservationRequestRequest(
-                reservationRequestsId, existingReservationRequest);
+            return new UpdateReservationRequestRequest(reservationRequestsId, existingReservationRequest);
         }
-
     }
 }

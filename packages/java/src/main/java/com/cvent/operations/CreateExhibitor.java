@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class CreateExhibitor {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class CreateExhibitor {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,28 +85,18 @@ public class CreateExhibitor {
                     java.util.Optional.of(java.util.List.of("exhibitor/exhibitors:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/events/{id}/exhibitors",
-                    request, null);
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/events/{id}/exhibitors", request, null);
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "exhibitorRequest",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "exhibitorRequest", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -115,22 +104,22 @@ public class CreateExhibitor {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<CreateExhibitorRequest, CreateExhibitorResponse> {
+    public static class Sync extends Base implements RequestOperation<CreateExhibitorRequest, CreateExhibitorResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private HttpRequest onBuildRequest(CreateExhibitorRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreateExhibitorRequest.class, new TypeReference<CreateExhibitorRequest>() {});
+            HttpRequest req =
+                    buildRequest(request, CreateExhibitorRequest.class, new TypeReference<CreateExhibitorRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -155,25 +144,20 @@ public class CreateExhibitor {
             return httpRes;
         }
 
-
         @Override
         public CreateExhibitorResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            CreateExhibitorResponse.Builder resBuilder =
-                    CreateExhibitorResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            CreateExhibitorResponse.Builder resBuilder = CreateExhibitorResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             CreateExhibitorResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withExhibitorResponse(Utils.unmarshal(response, new TypeReference<ExhibitorResponse>() {}));
+                    return res.withExhibitorResponse(
+                            Utils.unmarshal(response, new TypeReference<ExhibitorResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -196,15 +180,18 @@ public class CreateExhibitor {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<CreateExhibitorRequest, com.cvent.models.operations.async.CreateExhibitorResponse> {
+            implements AsyncRequestOperation<
+                    CreateExhibitorRequest, com.cvent.models.operations.async.CreateExhibitorResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(CreateExhibitorRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreateExhibitorRequest.class, new TypeReference<CreateExhibitorRequest>() {});
+            HttpRequest req =
+                    buildRequest(request, CreateExhibitorRequest.class, new TypeReference<CreateExhibitorRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -218,7 +205,9 @@ public class CreateExhibitor {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(CreateExhibitorRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -235,19 +224,15 @@ public class CreateExhibitor {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.CreateExhibitorResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.CreateExhibitorResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.CreateExhibitorResponse
-                            .builder()
+                    com.cvent.models.operations.async.CreateExhibitorResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.CreateExhibitorResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<ExhibitorResponse>() {})
@@ -258,8 +243,7 @@ public class CreateExhibitor {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

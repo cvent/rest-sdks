@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeletePaymentRequest {
     /**
      * Unique ID of an event.
@@ -32,16 +31,12 @@ public class DeletePaymentRequest {
     private String paymentId;
 
     @JsonCreator
-    public DeletePaymentRequest(
-            @Nonnull String id,
-            @Nonnull String budgetItemId,
-            @Nonnull String paymentId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeletePaymentRequest(@Nonnull String id, @Nonnull String budgetItemId, @Nonnull String paymentId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.paymentId = Optional.ofNullable(paymentId)
-            .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class DeletePaymentRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -77,7 +71,6 @@ public class DeletePaymentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -87,7 +80,6 @@ public class DeletePaymentRequest {
         return this;
     }
 
-
     /**
      * Unique ID of a payment.
      */
@@ -95,7 +87,6 @@ public class DeletePaymentRequest {
         this.paymentId = Utils.checkNotNull(paymentId, "paymentId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,24 @@ public class DeletePaymentRequest {
             return false;
         }
         DeletePaymentRequest other = (DeletePaymentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.paymentId, other.paymentId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.paymentId, other.paymentId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, paymentId);
+        return Utils.enhancedHash(id, budgetItemId, paymentId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeletePaymentRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "paymentId", paymentId);
+        return Utils.toString(
+                DeletePaymentRequest.class, "id", id, "budgetItemId", budgetItemId, "paymentId", paymentId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +123,7 @@ public class DeletePaymentRequest {
         private String paymentId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +151,7 @@ public class DeletePaymentRequest {
         }
 
         public DeletePaymentRequest build() {
-            return new DeletePaymentRequest(
-                id, budgetItemId, paymentId);
+            return new DeletePaymentRequest(id, budgetItemId, paymentId);
         }
-
     }
 }

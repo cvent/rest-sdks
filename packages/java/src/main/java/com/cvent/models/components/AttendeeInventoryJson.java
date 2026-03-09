@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInventoryJson
- * 
+ *
  * <p>Inventory allocation for specific attendee type.
  */
 public class AttendeeInventoryJson {
@@ -157,8 +157,7 @@ public class AttendeeInventoryJson {
             @JsonProperty("guaranteed") @Nullable Boolean guaranteed,
             @JsonProperty("arrivals") @Nullable Long arrivals) {
         this.hideRates = hideRates;
-        this.rate = Optional.ofNullable(rate)
-            .orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
+        this.rate = Optional.ofNullable(rate).orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
         this.originalBlock = originalBlock;
         this.currentBlock = currentBlock;
         this.pickup = pickup;
@@ -168,7 +167,7 @@ public class AttendeeInventoryJson {
         this.waitListRequests = waitListRequests;
         this.available = available;
         this.attendeeType = Optional.ofNullable(attendeeType)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
         this.openForReservation = openForReservation;
         this.freeSellEnabled = freeSellEnabled;
         this.sellHighestRate = sellHighestRate;
@@ -176,7 +175,7 @@ public class AttendeeInventoryJson {
         this.guaranteed = guaranteed;
         this.arrivals = arrivals;
     }
-    
+
     public AttendeeInventoryJson(
             @Nonnull NightRateJson rate,
             long currentBlock,
@@ -184,12 +183,24 @@ public class AttendeeInventoryJson {
             long available,
             @Nonnull AttendeeTypeIdJson attendeeType,
             boolean openForReservation) {
-        this(null, rate, null,
-            currentBlock, pickup, null,
-            null, null, null,
-            available, attendeeType, openForReservation,
-            null, null, null,
-            null, null);
+        this(
+                null,
+                rate,
+                null,
+                currentBlock,
+                pickup,
+                null,
+                null,
+                null,
+                null,
+                available,
+                attendeeType,
+                openForReservation,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -317,7 +328,6 @@ public class AttendeeInventoryJson {
         return new Builder();
     }
 
-
     /**
      * Indicates if rates are hidden on booking site for this night.
      */
@@ -325,7 +335,6 @@ public class AttendeeInventoryJson {
         this.hideRates = hideRates;
         return this;
     }
-
 
     /**
      * Rate details for single night.
@@ -335,7 +344,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Number of inventory blocked on event creation.
      */
@@ -343,7 +351,6 @@ public class AttendeeInventoryJson {
         this.originalBlock = originalBlock;
         return this;
     }
-
 
     /**
      * Current inventory number.
@@ -353,7 +360,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Number of rooms sold.
      */
@@ -361,7 +367,6 @@ public class AttendeeInventoryJson {
         this.pickup = pickup;
         return this;
     }
-
 
     /**
      * Reported number of sold rooms.
@@ -371,7 +376,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Maximum number of guests the room can accommodate.
      */
@@ -379,7 +383,6 @@ public class AttendeeInventoryJson {
         this.maxGuests = maxGuests;
         return this;
     }
-
 
     /**
      * Minimum number nights of stay when starting from this night.
@@ -389,7 +392,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Number of reservations in wait list.
      */
@@ -397,7 +399,6 @@ public class AttendeeInventoryJson {
         this.waitListRequests = waitListRequests;
         return this;
     }
-
 
     /**
      * Number of unsold rooms.
@@ -407,7 +408,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Contains the unique ID of the attendee type.
      */
@@ -416,7 +416,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Indicates if this night is available for sale.
      */
@@ -424,7 +423,6 @@ public class AttendeeInventoryJson {
         this.openForReservation = openForReservation;
         return this;
     }
-
 
     /**
      * Indicates if free-sell is enabled for this night, which allows any attendee type to purchase the
@@ -435,7 +433,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Indicates if this night inventory should be sold by highest possible rate.
      */
@@ -444,7 +441,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Indicates if wait list is enabled for this night.
      */
@@ -452,7 +448,6 @@ public class AttendeeInventoryJson {
         this.waitListEnabled = waitListEnabled;
         return this;
     }
-
 
     /**
      * Indicates if attendee has guaranteed their blocks. Enabling this option will ensure that any unsold
@@ -463,7 +458,6 @@ public class AttendeeInventoryJson {
         return this;
     }
 
-
     /**
      * Number of reservations starting from this night.
      */
@@ -471,7 +465,6 @@ public class AttendeeInventoryJson {
         this.arrivals = arrivals;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -482,61 +475,89 @@ public class AttendeeInventoryJson {
             return false;
         }
         AttendeeInventoryJson other = (AttendeeInventoryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.hideRates, other.hideRates) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate) &&
-            Utils.enhancedDeepEquals(this.originalBlock, other.originalBlock) &&
-            Utils.enhancedDeepEquals(this.currentBlock, other.currentBlock) &&
-            Utils.enhancedDeepEquals(this.pickup, other.pickup) &&
-            Utils.enhancedDeepEquals(this.finalPickup, other.finalPickup) &&
-            Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests) &&
-            Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay) &&
-            Utils.enhancedDeepEquals(this.waitListRequests, other.waitListRequests) &&
-            Utils.enhancedDeepEquals(this.available, other.available) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.openForReservation, other.openForReservation) &&
-            Utils.enhancedDeepEquals(this.freeSellEnabled, other.freeSellEnabled) &&
-            Utils.enhancedDeepEquals(this.sellHighestRate, other.sellHighestRate) &&
-            Utils.enhancedDeepEquals(this.waitListEnabled, other.waitListEnabled) &&
-            Utils.enhancedDeepEquals(this.guaranteed, other.guaranteed) &&
-            Utils.enhancedDeepEquals(this.arrivals, other.arrivals);
+        return Utils.enhancedDeepEquals(this.hideRates, other.hideRates)
+                && Utils.enhancedDeepEquals(this.rate, other.rate)
+                && Utils.enhancedDeepEquals(this.originalBlock, other.originalBlock)
+                && Utils.enhancedDeepEquals(this.currentBlock, other.currentBlock)
+                && Utils.enhancedDeepEquals(this.pickup, other.pickup)
+                && Utils.enhancedDeepEquals(this.finalPickup, other.finalPickup)
+                && Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests)
+                && Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay)
+                && Utils.enhancedDeepEquals(this.waitListRequests, other.waitListRequests)
+                && Utils.enhancedDeepEquals(this.available, other.available)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.openForReservation, other.openForReservation)
+                && Utils.enhancedDeepEquals(this.freeSellEnabled, other.freeSellEnabled)
+                && Utils.enhancedDeepEquals(this.sellHighestRate, other.sellHighestRate)
+                && Utils.enhancedDeepEquals(this.waitListEnabled, other.waitListEnabled)
+                && Utils.enhancedDeepEquals(this.guaranteed, other.guaranteed)
+                && Utils.enhancedDeepEquals(this.arrivals, other.arrivals);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            hideRates, rate, originalBlock,
-            currentBlock, pickup, finalPickup,
-            maxGuests, minLengthOfStay, waitListRequests,
-            available, attendeeType, openForReservation,
-            freeSellEnabled, sellHighestRate, waitListEnabled,
-            guaranteed, arrivals);
+                hideRates,
+                rate,
+                originalBlock,
+                currentBlock,
+                pickup,
+                finalPickup,
+                maxGuests,
+                minLengthOfStay,
+                waitListRequests,
+                available,
+                attendeeType,
+                openForReservation,
+                freeSellEnabled,
+                sellHighestRate,
+                waitListEnabled,
+                guaranteed,
+                arrivals);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeInventoryJson.class,
-                "hideRates", hideRates,
-                "rate", rate,
-                "originalBlock", originalBlock,
-                "currentBlock", currentBlock,
-                "pickup", pickup,
-                "finalPickup", finalPickup,
-                "maxGuests", maxGuests,
-                "minLengthOfStay", minLengthOfStay,
-                "waitListRequests", waitListRequests,
-                "available", available,
-                "attendeeType", attendeeType,
-                "openForReservation", openForReservation,
-                "freeSellEnabled", freeSellEnabled,
-                "sellHighestRate", sellHighestRate,
-                "waitListEnabled", waitListEnabled,
-                "guaranteed", guaranteed,
-                "arrivals", arrivals);
+        return Utils.toString(
+                AttendeeInventoryJson.class,
+                "hideRates",
+                hideRates,
+                "rate",
+                rate,
+                "originalBlock",
+                originalBlock,
+                "currentBlock",
+                currentBlock,
+                "pickup",
+                pickup,
+                "finalPickup",
+                finalPickup,
+                "maxGuests",
+                maxGuests,
+                "minLengthOfStay",
+                minLengthOfStay,
+                "waitListRequests",
+                waitListRequests,
+                "available",
+                available,
+                "attendeeType",
+                attendeeType,
+                "openForReservation",
+                openForReservation,
+                "freeSellEnabled",
+                freeSellEnabled,
+                "sellHighestRate",
+                sellHighestRate,
+                "waitListEnabled",
+                waitListEnabled,
+                "guaranteed",
+                guaranteed,
+                "arrivals",
+                arrivals);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean hideRates;
 
@@ -573,7 +594,7 @@ public class AttendeeInventoryJson {
         private Long arrivals;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -716,13 +737,23 @@ public class AttendeeInventoryJson {
 
         public AttendeeInventoryJson build() {
             return new AttendeeInventoryJson(
-                hideRates, rate, originalBlock,
-                currentBlock, pickup, finalPickup,
-                maxGuests, minLengthOfStay, waitListRequests,
-                available, attendeeType, openForReservation,
-                freeSellEnabled, sellHighestRate, waitListEnabled,
-                guaranteed, arrivals);
+                    hideRates,
+                    rate,
+                    originalBlock,
+                    currentBlock,
+                    pickup,
+                    finalPickup,
+                    maxGuests,
+                    minLengthOfStay,
+                    waitListRequests,
+                    available,
+                    attendeeType,
+                    openForReservation,
+                    freeSellEnabled,
+                    sellHighestRate,
+                    waitListEnabled,
+                    guaranteed,
+                    arrivals);
         }
-
     }
 }

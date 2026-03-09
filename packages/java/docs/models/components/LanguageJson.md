@@ -2,6 +2,14 @@
 
 IETF language code used to specify a target language for the translation.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.LanguageJson;
+
+LanguageJson value = LanguageJson.AF_ZA;
+```
+
 
 ## Values
 

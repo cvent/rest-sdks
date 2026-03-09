@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetBadgeResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class GetBadgeResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable BadgePaginatedResponse badgePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.badgePaginatedResponse = badgePaginatedResponse;
     }
-    
-    public GetBadgeResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetBadgeResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class GetBadgeResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class GetBadgeResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class GetBadgeResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +111,6 @@ public class GetBadgeResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully get badges.
      */
@@ -127,7 +118,6 @@ public class GetBadgeResponse implements AsyncResponse {
         this.badgePaginatedResponse = badgePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +128,33 @@ public class GetBadgeResponse implements AsyncResponse {
             return false;
         }
         GetBadgeResponse other = (GetBadgeResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.badgePaginatedResponse, other.badgePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.badgePaginatedResponse, other.badgePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            badgePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, badgePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgeResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "badgePaginatedResponse", badgePaginatedResponse);
+        return Utils.toString(
+                GetBadgeResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "badgePaginatedResponse",
+                badgePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +165,7 @@ public class GetBadgeResponse implements AsyncResponse {
         private BadgePaginatedResponse badgePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +201,7 @@ public class GetBadgeResponse implements AsyncResponse {
         }
 
         public GetBadgeResponse build() {
-            return new GetBadgeResponse(
-                contentType, statusCode, rawResponse,
-                badgePaginatedResponse);
+            return new GetBadgeResponse(contentType, statusCode, rawResponse, badgePaginatedResponse);
         }
-
     }
 }

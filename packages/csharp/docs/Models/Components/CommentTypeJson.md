@@ -2,6 +2,14 @@
 
 Bid comment type
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CommentTypeJson.Promotions;
+```
+
 
 ## Values
 

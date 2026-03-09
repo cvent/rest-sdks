@@ -40,7 +40,7 @@ public class ListEventDiscountsRequestBuilder {
     private ListEventDiscountsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListEventDiscountsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListEventDiscountsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListEventDiscountsResponse> call() {
-        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation
-              = new ListEventDiscounts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation =
+                new ListEventDiscounts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListEventDiscountsRequestBuilder {
      */
     public Publisher<ListEventDiscountsResponse> callAsPublisher() {
         ListEventDiscountsRequest request = this.request;
-        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation
-              = new ListEventDiscounts.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation =
+                new ListEventDiscounts.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListEventDiscountsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListEventDiscountsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListEventDiscountsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

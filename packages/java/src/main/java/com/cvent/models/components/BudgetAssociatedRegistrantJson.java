@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetAssociatedRegistrantJson
- * 
+ *
  * <p>Contains information about a registrant associated with a budget.
  */
 public class BudgetAssociatedRegistrantJson {
@@ -68,10 +68,9 @@ public class BudgetAssociatedRegistrantJson {
         this.inviteeId = inviteeId;
         this.contactId = contactId;
     }
-    
+
     public BudgetAssociatedRegistrantJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +112,6 @@ public class BudgetAssociatedRegistrantJson {
         return new Builder();
     }
 
-
     /**
      * First name of associated registrant.
      */
@@ -121,7 +119,6 @@ public class BudgetAssociatedRegistrantJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * Last name of associated registrant.
@@ -131,7 +128,6 @@ public class BudgetAssociatedRegistrantJson {
         return this;
     }
 
-
     /**
      * True indicates the associated registrant is a HCP (Health Care Practitioner).
      */
@@ -139,7 +135,6 @@ public class BudgetAssociatedRegistrantJson {
         this.hcpStatus = hcpStatus;
         return this;
     }
-
 
     /**
      * Unique identifier for the invitee associated with the budget.
@@ -149,7 +144,6 @@ public class BudgetAssociatedRegistrantJson {
         return this;
     }
 
-
     /**
      * Unique identifier for the contact associated with the budget.
      */
@@ -157,7 +151,6 @@ public class BudgetAssociatedRegistrantJson {
         this.contactId = contactId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,33 +161,36 @@ public class BudgetAssociatedRegistrantJson {
             return false;
         }
         BudgetAssociatedRegistrantJson other = (BudgetAssociatedRegistrantJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.hcpStatus, other.hcpStatus) &&
-            Utils.enhancedDeepEquals(this.inviteeId, other.inviteeId) &&
-            Utils.enhancedDeepEquals(this.contactId, other.contactId);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.hcpStatus, other.hcpStatus)
+                && Utils.enhancedDeepEquals(this.inviteeId, other.inviteeId)
+                && Utils.enhancedDeepEquals(this.contactId, other.contactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, hcpStatus,
-            inviteeId, contactId);
+        return Utils.enhancedHash(firstName, lastName, hcpStatus, inviteeId, contactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetAssociatedRegistrantJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "hcpStatus", hcpStatus,
-                "inviteeId", inviteeId,
-                "contactId", contactId);
+        return Utils.toString(
+                BudgetAssociatedRegistrantJson.class,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "hcpStatus",
+                hcpStatus,
+                "inviteeId",
+                inviteeId,
+                "contactId",
+                contactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -207,7 +203,7 @@ public class BudgetAssociatedRegistrantJson {
         private String contactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -251,10 +247,7 @@ public class BudgetAssociatedRegistrantJson {
         }
 
         public BudgetAssociatedRegistrantJson build() {
-            return new BudgetAssociatedRegistrantJson(
-                firstName, lastName, hcpStatus,
-                inviteeId, contactId);
+            return new BudgetAssociatedRegistrantJson(firstName, lastName, hcpStatus, inviteeId, contactId);
         }
-
     }
 }

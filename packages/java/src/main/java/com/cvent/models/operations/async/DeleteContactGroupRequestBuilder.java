@@ -30,7 +30,7 @@ public class DeleteContactGroupRequestBuilder {
     private DeleteContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteContactGroupResponse> call() {
-        AsyncRequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation
-              = new DeleteContactGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation =
+                new DeleteContactGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

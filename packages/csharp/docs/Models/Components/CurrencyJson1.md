@@ -2,6 +2,14 @@
 
 The ISO 4217 standard format currency code used for RFPs.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CurrencyJson1.Usd;
+```
+
 
 ## Values
 

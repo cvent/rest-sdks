@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExistingVolumeDiscountJsonLevel
- * 
+ *
  * <p>Whether the discount is created at event level or account level.
  */
 public enum ExistingVolumeDiscountJsonLevel {
@@ -23,13 +23,13 @@ public enum ExistingVolumeDiscountJsonLevel {
     ExistingVolumeDiscountJsonLevel(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExistingVolumeDiscountJsonLevel> fromValue(String value) {
-        for (ExistingVolumeDiscountJsonLevel o: ExistingVolumeDiscountJsonLevel.values()) {
+        for (ExistingVolumeDiscountJsonLevel o : ExistingVolumeDiscountJsonLevel.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ExistingVolumeDiscountJsonLevel {
         return Optional.empty();
     }
 }
-

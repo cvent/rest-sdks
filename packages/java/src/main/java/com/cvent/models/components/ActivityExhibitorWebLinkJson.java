@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityExhibitorWebLinkJson
- * 
+ *
  * <p>A web-link for an activity exhibitor.
  */
 public class ActivityExhibitorWebLinkJson {
@@ -35,12 +35,11 @@ public class ActivityExhibitorWebLinkJson {
 
     @JsonCreator
     public ActivityExhibitorWebLinkJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("name") @Nullable String name) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("name") @Nullable String name) {
         this.id = id;
         this.name = name;
     }
-    
+
     public ActivityExhibitorWebLinkJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class ActivityExhibitorWebLinkJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the weblink.
      */
@@ -72,7 +70,6 @@ public class ActivityExhibitorWebLinkJson {
         return this;
     }
 
-
     /**
      * The name of the weblink.
      */
@@ -80,7 +77,6 @@ public class ActivityExhibitorWebLinkJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class ActivityExhibitorWebLinkJson {
             return false;
         }
         ActivityExhibitorWebLinkJson other = (ActivityExhibitorWebLinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityExhibitorWebLinkJson.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(ActivityExhibitorWebLinkJson.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class ActivityExhibitorWebLinkJson {
         }
 
         public ActivityExhibitorWebLinkJson build() {
-            return new ActivityExhibitorWebLinkJson(
-                id, name);
+            return new ActivityExhibitorWebLinkJson(id, name);
         }
-
     }
 }

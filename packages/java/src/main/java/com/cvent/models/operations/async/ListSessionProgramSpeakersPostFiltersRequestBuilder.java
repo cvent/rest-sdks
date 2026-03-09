@@ -32,7 +32,8 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public ListSessionProgramSpeakersPostFiltersRequestBuilder request(@Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
+    public ListSessionProgramSpeakersPostFiltersRequestBuilder request(
+            @Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
     private ListSessionProgramSpeakersPostFiltersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSessionProgramSpeakersPostFiltersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,17 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSessionProgramSpeakersPostFiltersResponse> call() {
-        AsyncRequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation
-              = new ListSessionProgramSpeakersPostFilters.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse>
+                operation = new ListSessionProgramSpeakersPostFilters.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +77,18 @@ public class ListSessionProgramSpeakersPostFiltersRequestBuilder {
      */
     public Publisher<ListSessionProgramSpeakersPostFiltersResponse> callAsPublisher() {
         ListSessionProgramSpeakersPostFiltersRequest request = this.request;
-        AsyncRequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation
-              = new ListSessionProgramSpeakersPostFilters.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<
+                        ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse>
+                operation = new ListSessionProgramSpeakersPostFilters.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSessionProgramSpeakersPostFiltersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSessionProgramSpeakersPostFiltersRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListSessionProgramSpeakersPostFiltersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListSessionProgramSpeakersPostFiltersResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -30,7 +30,7 @@ public class GetSupplierAccountRequestBuilder {
     private GetSupplierAccountRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSupplierAccountRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetSupplierAccountRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSupplierAccountResponse> call() {
-        AsyncRequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation
-              = new GetSupplierAccount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation =
+                new GetSupplierAccount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

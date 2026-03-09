@@ -17,7 +17,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListSegmentAssociatedAttendeesRequest {
     /**
      * ID of an audience segment.
@@ -56,7 +55,7 @@ public class ListSegmentAssociatedAttendeesRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * These are comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
      */
@@ -80,22 +79,18 @@ public class ListSegmentAssociatedAttendeesRequest {
             @Nullable String filter,
             @Nullable Boolean includeDisassociated) {
         this.audienceSegmentId = Optional.ofNullable(audienceSegmentId)
-            .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.before = before;
         this.after = after;
         this.filter = filter;
-        this.includeDisassociated = Optional.ofNullable(includeDisassociated)
-            .orElse(Builder._SINGLETON_VALUE_IncludeDisassociated.value());
+        this.includeDisassociated =
+                Optional.ofNullable(includeDisassociated).orElse(Builder._SINGLETON_VALUE_IncludeDisassociated.value());
     }
-    
-    public ListSegmentAssociatedAttendeesRequest(
-            @Nonnull String audienceSegmentId) {
-        this(audienceSegmentId, null, null,
-            null, null, null,
-            null);
+
+    public ListSegmentAssociatedAttendeesRequest(@Nonnull String audienceSegmentId) {
+        this(audienceSegmentId, null, null, null, null, null, null);
     }
 
     /**
@@ -140,7 +135,7 @@ public class ListSegmentAssociatedAttendeesRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * These are comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
      */
@@ -160,7 +155,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an audience segment.
      */
@@ -169,7 +163,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -177,7 +170,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -188,7 +180,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -196,7 +187,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -207,13 +197,12 @@ public class ListSegmentAssociatedAttendeesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * These are comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
      */
@@ -221,7 +210,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         this.filter = filter;
         return this;
     }
-
 
     /**
      * Use the `includeDisassociated` query parameter to include disassociated attendees in the result.
@@ -232,7 +220,6 @@ public class ListSegmentAssociatedAttendeesRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -242,38 +229,42 @@ public class ListSegmentAssociatedAttendeesRequest {
             return false;
         }
         ListSegmentAssociatedAttendeesRequest other = (ListSegmentAssociatedAttendeesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.includeDisassociated, other.includeDisassociated);
+        return Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.includeDisassociated, other.includeDisassociated);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            audienceSegmentId, limit, token,
-            before, after, filter,
-            includeDisassociated);
+        return Utils.enhancedHash(audienceSegmentId, limit, token, before, after, filter, includeDisassociated);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSegmentAssociatedAttendeesRequest.class,
-                "audienceSegmentId", audienceSegmentId,
-                "limit", limit,
-                "token", token,
-                "before", before,
-                "after", after,
-                "filter", filter,
-                "includeDisassociated", includeDisassociated);
+        return Utils.toString(
+                ListSegmentAssociatedAttendeesRequest.class,
+                "audienceSegmentId",
+                audienceSegmentId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "before",
+                before,
+                "after",
+                after,
+                "filter",
+                filter,
+                "includeDisassociated",
+                includeDisassociated);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String audienceSegmentId;
 
@@ -290,7 +281,7 @@ public class ListSegmentAssociatedAttendeesRequest {
         private Boolean includeDisassociated;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -340,7 +331,7 @@ public class ListSegmentAssociatedAttendeesRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * These are comparison types that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
          */
@@ -360,22 +351,13 @@ public class ListSegmentAssociatedAttendeesRequest {
 
         public ListSegmentAssociatedAttendeesRequest build() {
             return new ListSegmentAssociatedAttendeesRequest(
-                audienceSegmentId, limit, token,
-                before, after, filter,
-                includeDisassociated);
+                    audienceSegmentId, limit, token, before, after, filter, includeDisassociated);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludeDisassociated =
-                new LazySingletonValue<>(
-                        "includeDisassociated",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includeDisassociated", "false", new TypeReference<Boolean>() {});
     }
 }

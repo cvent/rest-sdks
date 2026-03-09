@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionResponseDataTypeJson
- * 
+ *
  * <p>Code representing the expected data type of the question response.
  */
 public enum QuestionResponseDataTypeJson {
@@ -28,13 +28,13 @@ public enum QuestionResponseDataTypeJson {
     QuestionResponseDataTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionResponseDataTypeJson> fromValue(String value) {
-        for (QuestionResponseDataTypeJson o: QuestionResponseDataTypeJson.values()) {
+        for (QuestionResponseDataTypeJson o : QuestionResponseDataTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum QuestionResponseDataTypeJson {
         return Optional.empty();
     }
 }
-

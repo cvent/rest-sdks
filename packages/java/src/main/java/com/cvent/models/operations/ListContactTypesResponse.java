@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListContactTypesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListContactTypesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ContactTypePaginatedResponse contactTypePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.contactTypePaginatedResponse = contactTypePaginatedResponse;
     }
-    
+
     public ListContactTypesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListContactTypesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListContactTypesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListContactTypesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListContactTypesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of contact types.
      */
-    public ListContactTypesResponse withContactTypePaginatedResponse(@Nullable ContactTypePaginatedResponse contactTypePaginatedResponse) {
+    public ListContactTypesResponse withContactTypePaginatedResponse(
+            @Nullable ContactTypePaginatedResponse contactTypePaginatedResponse) {
         this.contactTypePaginatedResponse = contactTypePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListContactTypesResponse implements Response {
             return false;
         }
         ListContactTypesResponse other = (ListContactTypesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.contactTypePaginatedResponse, other.contactTypePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.contactTypePaginatedResponse, other.contactTypePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            contactTypePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactTypePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListContactTypesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "contactTypePaginatedResponse", contactTypePaginatedResponse);
+        return Utils.toString(
+                ListContactTypesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "contactTypePaginatedResponse",
+                contactTypePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListContactTypesResponse implements Response {
         private ContactTypePaginatedResponse contactTypePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class ListContactTypesResponse implements Response {
         /**
          * Successfully retrieved a paginated list of contact types.
          */
-        public Builder contactTypePaginatedResponse(@Nullable ContactTypePaginatedResponse contactTypePaginatedResponse) {
+        public Builder contactTypePaginatedResponse(
+                @Nullable ContactTypePaginatedResponse contactTypePaginatedResponse) {
             this.contactTypePaginatedResponse = contactTypePaginatedResponse;
             return this;
         }
 
         public ListContactTypesResponse build() {
-            return new ListContactTypesResponse(
-                contentType, statusCode, rawResponse,
-                contactTypePaginatedResponse);
+            return new ListContactTypesResponse(contentType, statusCode, rawResponse, contactTypePaginatedResponse);
         }
-
     }
 }

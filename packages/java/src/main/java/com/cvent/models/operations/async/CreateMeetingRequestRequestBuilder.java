@@ -30,7 +30,7 @@ public class CreateMeetingRequestRequestBuilder {
     private CreateMeetingRequestRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateMeetingRequestRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateMeetingRequestRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateMeetingRequestResponse> call() {
-        AsyncRequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation
-              = new CreateMeetingRequest.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation =
+                new CreateMeetingRequest.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

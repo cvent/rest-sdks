@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateProgramItemRequest {
     /**
      * Unique ID of a session program item.
@@ -28,12 +27,11 @@ public class UpdateProgramItemRequest {
 
     @JsonCreator
     public UpdateProgramItemRequest(
-            @Nonnull String programItemId,
-            @Nonnull ProgramItemUpdateRequest programItemUpdateRequest) {
+            @Nonnull String programItemId, @Nonnull ProgramItemUpdateRequest programItemUpdateRequest) {
         this.programItemId = Optional.ofNullable(programItemId)
-            .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
         this.programItemUpdateRequest = Optional.ofNullable(programItemUpdateRequest)
-            .orElseThrow(() -> new IllegalArgumentException("programItemUpdateRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemUpdateRequest cannot be null"));
     }
 
     /**
@@ -54,7 +52,6 @@ public class UpdateProgramItemRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a session program item.
      */
@@ -63,15 +60,14 @@ public class UpdateProgramItemRequest {
         return this;
     }
 
-
     /**
      * Session program item to be updated.
      */
-    public UpdateProgramItemRequest withProgramItemUpdateRequest(@Nonnull ProgramItemUpdateRequest programItemUpdateRequest) {
+    public UpdateProgramItemRequest withProgramItemUpdateRequest(
+            @Nonnull ProgramItemUpdateRequest programItemUpdateRequest) {
         this.programItemUpdateRequest = Utils.checkNotNull(programItemUpdateRequest, "programItemUpdateRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +78,34 @@ public class UpdateProgramItemRequest {
             return false;
         }
         UpdateProgramItemRequest other = (UpdateProgramItemRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programItemId, other.programItemId) &&
-            Utils.enhancedDeepEquals(this.programItemUpdateRequest, other.programItemUpdateRequest);
+        return Utils.enhancedDeepEquals(this.programItemId, other.programItemId)
+                && Utils.enhancedDeepEquals(this.programItemUpdateRequest, other.programItemUpdateRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programItemId, programItemUpdateRequest);
+        return Utils.enhancedHash(programItemId, programItemUpdateRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateProgramItemRequest.class,
-                "programItemId", programItemId,
-                "programItemUpdateRequest", programItemUpdateRequest);
+        return Utils.toString(
+                UpdateProgramItemRequest.class,
+                "programItemId",
+                programItemId,
+                "programItemUpdateRequest",
+                programItemUpdateRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programItemId;
 
         private ProgramItemUpdateRequest programItemUpdateRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +125,7 @@ public class UpdateProgramItemRequest {
         }
 
         public UpdateProgramItemRequest build() {
-            return new UpdateProgramItemRequest(
-                programItemId, programItemUpdateRequest);
+            return new UpdateProgramItemRequest(programItemId, programItemUpdateRequest);
         }
-
     }
 }

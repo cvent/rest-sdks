@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CheckinJson
- * 
+ *
  * <p>Represents event check-in details.
  */
 public class CheckinJson {
@@ -62,20 +62,16 @@ public class CheckinJson {
             @JsonProperty("device") @Nullable String device,
             @JsonProperty("checkOut") @Nullable OffsetDateTime checkOut,
             @JsonProperty("duration") @Nullable Long duration) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.checkIn = Optional.ofNullable(checkIn)
-            .orElseThrow(() -> new IllegalArgumentException("checkIn cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.checkIn =
+                Optional.ofNullable(checkIn).orElseThrow(() -> new IllegalArgumentException("checkIn cannot be null"));
         this.device = device;
         this.checkOut = checkOut;
         this.duration = duration;
     }
-    
-    public CheckinJson(
-            @Nonnull String id,
-            @Nonnull OffsetDateTime checkIn) {
-        this(id, checkIn, null,
-            null, null);
+
+    public CheckinJson(@Nonnull String id, @Nonnull OffsetDateTime checkIn) {
+        this(id, checkIn, null, null, null);
     }
 
     /**
@@ -117,7 +113,6 @@ public class CheckinJson {
         return new Builder();
     }
 
-
     /**
      * ID of the attendee to be checked-in to an event.
      */
@@ -125,7 +120,6 @@ public class CheckinJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time when the attendee was checked-in to an event.
@@ -135,7 +129,6 @@ public class CheckinJson {
         return this;
     }
 
-
     /**
      * Name of the device used for check-in.
      */
@@ -143,7 +136,6 @@ public class CheckinJson {
         this.device = device;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time when the attendee checked out of an event.
@@ -153,7 +145,6 @@ public class CheckinJson {
         return this;
     }
 
-
     /**
      * Duration (in milliseconds) the attendee was present at the event.
      */
@@ -161,7 +152,6 @@ public class CheckinJson {
         this.duration = duration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,33 +162,36 @@ public class CheckinJson {
             return false;
         }
         CheckinJson other = (CheckinJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.checkIn, other.checkIn) &&
-            Utils.enhancedDeepEquals(this.device, other.device) &&
-            Utils.enhancedDeepEquals(this.checkOut, other.checkOut) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.checkIn, other.checkIn)
+                && Utils.enhancedDeepEquals(this.device, other.device)
+                && Utils.enhancedDeepEquals(this.checkOut, other.checkOut)
+                && Utils.enhancedDeepEquals(this.duration, other.duration);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, checkIn, device,
-            checkOut, duration);
+        return Utils.enhancedHash(id, checkIn, device, checkOut, duration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CheckinJson.class,
-                "id", id,
-                "checkIn", checkIn,
-                "device", device,
-                "checkOut", checkOut,
-                "duration", duration);
+        return Utils.toString(
+                CheckinJson.class,
+                "id",
+                id,
+                "checkIn",
+                checkIn,
+                "device",
+                device,
+                "checkOut",
+                checkOut,
+                "duration",
+                duration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -211,7 +204,7 @@ public class CheckinJson {
         private Long duration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,10 +248,7 @@ public class CheckinJson {
         }
 
         public CheckinJson build() {
-            return new CheckinJson(
-                id, checkIn, device,
-                checkOut, duration);
+            return new CheckinJson(id, checkIn, device, checkOut, duration);
         }
-
     }
 }

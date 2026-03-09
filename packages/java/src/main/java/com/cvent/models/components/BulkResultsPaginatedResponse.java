@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BulkResultsPaginatedResponse
- * 
+ *
  * <p>The response from a request to get the list of results from a Bulk Job run. This includes the paging
  * object as well
  * as the collection of bulk results.
@@ -41,12 +41,10 @@ public class BulkResultsPaginatedResponse {
             @JsonProperty("paging") @Nullable PagingJson paging,
             @JsonProperty("data") @Nonnull List<BulkResultJson> data) {
         this.paging = paging;
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
-    
-    public BulkResultsPaginatedResponse(
-            @Nonnull List<BulkResultJson> data) {
+
+    public BulkResultsPaginatedResponse(@Nonnull List<BulkResultJson> data) {
         this(null, data);
     }
 
@@ -68,7 +66,6 @@ public class BulkResultsPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -77,7 +74,6 @@ public class BulkResultsPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of bulk result objects.
      */
@@ -85,7 +81,6 @@ public class BulkResultsPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -96,33 +91,28 @@ public class BulkResultsPaginatedResponse {
             return false;
         }
         BulkResultsPaginatedResponse other = (BulkResultsPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkResultsPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(BulkResultsPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<BulkResultJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -142,9 +132,7 @@ public class BulkResultsPaginatedResponse {
         }
 
         public BulkResultsPaginatedResponse build() {
-            return new BulkResultsPaginatedResponse(
-                paging, data);
+            return new BulkResultsPaginatedResponse(paging, data);
         }
-
     }
 }

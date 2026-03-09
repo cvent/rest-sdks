@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * ResponseJson
- * 
+ *
  * <p>Response object for survey responses.
  */
 public class ResponseJson {
@@ -60,7 +60,6 @@ public class ResponseJson {
     @JsonProperty("id")
     private String id;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("respondent")
     private ResponseJsonUUID respondent;
@@ -79,7 +78,7 @@ public class ResponseJson {
 
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -162,9 +161,9 @@ public class ResponseJson {
         this.id = id;
         this.respondent = respondent;
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
         this.score = score;
         this.event = event;
         this.session = session;
@@ -174,16 +173,9 @@ public class ResponseJson {
         this.loopingChoice = loopingChoice;
         this.attempt = attempt;
     }
-    
-    public ResponseJson(
-            @Nonnull UuidJson question,
-            @Nonnull List<AnswerJson1> answers) {
-        this(null, null, null,
-            null, null, null,
-            question, answers, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public ResponseJson(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+        this(null, null, null, null, null, null, question, answers, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -241,7 +233,7 @@ public class ResponseJson {
 
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -303,7 +295,6 @@ public class ResponseJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -311,7 +302,6 @@ public class ResponseJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -321,7 +311,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -329,7 +318,6 @@ public class ResponseJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -339,7 +327,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * Response ID
      */
@@ -348,12 +335,10 @@ public class ResponseJson {
         return this;
     }
 
-
     public ResponseJson withRespondent(@Nullable ResponseJsonUUID respondent) {
         this.respondent = respondent;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -363,7 +348,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * List of responded survey answers.
      */
@@ -372,10 +356,9 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * Answer score (This property is not supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -383,7 +366,6 @@ public class ResponseJson {
         this.score = score;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -393,7 +375,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -401,7 +382,6 @@ public class ResponseJson {
         this.session = session;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -411,7 +391,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -420,7 +399,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -428,7 +406,6 @@ public class ResponseJson {
         this.speaker = speaker;
         return this;
     }
-
 
     /**
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
@@ -439,7 +416,6 @@ public class ResponseJson {
         return this;
     }
 
-
     /**
      * Counts the number of times a respondent has attempted the survey and answered the question.
      */
@@ -447,7 +423,6 @@ public class ResponseJson {
         this.attempt = attempt;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -458,59 +433,85 @@ public class ResponseJson {
             return false;
         }
         ResponseJson other = (ResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.respondent, other.respondent) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.chapter, other.chapter) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker) &&
-            Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice) &&
-            Utils.enhancedDeepEquals(this.attempt, other.attempt);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.respondent, other.respondent)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.chapter, other.chapter)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker)
+                && Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice)
+                && Utils.enhancedDeepEquals(this.attempt, other.attempt);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, respondent,
-            question, answers, score,
-            event, session, chapter,
-            survey, speaker, loopingChoice,
-            attempt);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                respondent,
+                question,
+                answers,
+                score,
+                event,
+                session,
+                chapter,
+                survey,
+                speaker,
+                loopingChoice,
+                attempt);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ResponseJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "respondent", respondent,
-                "question", question,
-                "answers", answers,
-                "score", score,
-                "event", event,
-                "session", session,
-                "chapter", chapter,
-                "survey", survey,
-                "speaker", speaker,
-                "loopingChoice", loopingChoice,
-                "attempt", attempt);
+        return Utils.toString(
+                ResponseJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "respondent",
+                respondent,
+                "question",
+                question,
+                "answers",
+                answers,
+                "score",
+                score,
+                "event",
+                event,
+                "session",
+                session,
+                "chapter",
+                chapter,
+                "survey",
+                survey,
+                "speaker",
+                speaker,
+                "loopingChoice",
+                loopingChoice,
+                "attempt",
+                attempt);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -546,7 +547,7 @@ public class ResponseJson {
         private Integer attempt;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -612,7 +613,7 @@ public class ResponseJson {
 
         /**
          * Answer score (This property is not supported).
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -680,13 +681,22 @@ public class ResponseJson {
 
         public ResponseJson build() {
             return new ResponseJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, respondent,
-                question, answers, score,
-                event, session, chapter,
-                survey, speaker, loopingChoice,
-                attempt);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    respondent,
+                    question,
+                    answers,
+                    score,
+                    event,
+                    session,
+                    chapter,
+                    survey,
+                    speaker,
+                    loopingChoice,
+                    attempt);
         }
-
     }
 }

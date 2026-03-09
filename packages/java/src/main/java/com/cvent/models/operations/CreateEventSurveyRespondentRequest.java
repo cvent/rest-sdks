@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateEventSurveyRespondentRequest {
     /**
      * Id of an event
@@ -34,15 +33,12 @@ public class CreateEventSurveyRespondentRequest {
 
     @JsonCreator
     public CreateEventSurveyRespondentRequest(
-            @Nonnull String id,
-            @Nonnull String surveyId,
-            @Nonnull EventSurveyRespondentInput eventSurveyRespondent) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String surveyId, @Nonnull EventSurveyRespondentInput eventSurveyRespondent) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.eventSurveyRespondent = Optional.ofNullable(eventSurveyRespondent)
-            .orElseThrow(() -> new IllegalArgumentException("eventSurveyRespondent cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventSurveyRespondent cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class CreateEventSurveyRespondentRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -78,7 +73,6 @@ public class CreateEventSurveyRespondentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Id of a survey or Id of a chapter in event survey
@@ -88,15 +82,14 @@ public class CreateEventSurveyRespondentRequest {
         return this;
     }
 
-
     /**
      * Used to create respondent for an event survey.
      */
-    public CreateEventSurveyRespondentRequest withEventSurveyRespondent(@Nonnull EventSurveyRespondentInput eventSurveyRespondent) {
+    public CreateEventSurveyRespondentRequest withEventSurveyRespondent(
+            @Nonnull EventSurveyRespondentInput eventSurveyRespondent) {
         this.eventSurveyRespondent = Utils.checkNotNull(eventSurveyRespondent, "eventSurveyRespondent");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +100,30 @@ public class CreateEventSurveyRespondentRequest {
             return false;
         }
         CreateEventSurveyRespondentRequest other = (CreateEventSurveyRespondentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.eventSurveyRespondent, other.eventSurveyRespondent);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.eventSurveyRespondent, other.eventSurveyRespondent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, surveyId, eventSurveyRespondent);
+        return Utils.enhancedHash(id, surveyId, eventSurveyRespondent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateEventSurveyRespondentRequest.class,
-                "id", id,
-                "surveyId", surveyId,
-                "eventSurveyRespondent", eventSurveyRespondent);
+        return Utils.toString(
+                CreateEventSurveyRespondentRequest.class,
+                "id",
+                id,
+                "surveyId",
+                surveyId,
+                "eventSurveyRespondent",
+                eventSurveyRespondent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +132,7 @@ public class CreateEventSurveyRespondentRequest {
         private EventSurveyRespondentInput eventSurveyRespondent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +160,7 @@ public class CreateEventSurveyRespondentRequest {
         }
 
         public CreateEventSurveyRespondentRequest build() {
-            return new CreateEventSurveyRespondentRequest(
-                id, surveyId, eventSurveyRespondent);
+            return new CreateEventSurveyRespondentRequest(id, surveyId, eventSurveyRespondent);
         }
-
     }
 }

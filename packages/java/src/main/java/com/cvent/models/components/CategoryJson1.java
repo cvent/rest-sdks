@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CategoryJson1
- * 
+ *
  * <p>A category of items.
  */
 public class CategoryJson1 {
@@ -60,10 +60,9 @@ public class CategoryJson1 {
         this.totalCost = totalCost;
         this.items = items;
     }
-    
+
     public CategoryJson1() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -98,7 +97,6 @@ public class CategoryJson1 {
         return new Builder();
     }
 
-
     /**
      * The category type.
      */
@@ -106,7 +104,6 @@ public class CategoryJson1 {
         this.type = type;
         return this;
     }
-
 
     /**
      * The name of the category.
@@ -116,7 +113,6 @@ public class CategoryJson1 {
         return this;
     }
 
-
     /**
      * Total cost for all items within this category.
      */
@@ -125,7 +121,6 @@ public class CategoryJson1 {
         return this;
     }
 
-
     /**
      * List of items in this category.
      */
@@ -133,7 +128,6 @@ public class CategoryJson1 {
         this.items = items;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -144,31 +138,24 @@ public class CategoryJson1 {
             return false;
         }
         CategoryJson1 other = (CategoryJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.totalCost, other.totalCost) &&
-            Utils.enhancedDeepEquals(this.items, other.items);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost)
+                && Utils.enhancedDeepEquals(this.items, other.items);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, name, totalCost,
-            items);
+        return Utils.enhancedHash(type, name, totalCost, items);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CategoryJson1.class,
-                "type", type,
-                "name", name,
-                "totalCost", totalCost,
-                "items", items);
+        return Utils.toString(CategoryJson1.class, "type", type, "name", name, "totalCost", totalCost, "items", items);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
@@ -179,7 +166,7 @@ public class CategoryJson1 {
         private List<ItemJson> items;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -215,10 +202,7 @@ public class CategoryJson1 {
         }
 
         public CategoryJson1 build() {
-            return new CategoryJson1(
-                type, name, totalCost,
-                items);
+            return new CategoryJson1(type, name, totalCost, items);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyRespondentAttendee
- * 
+ *
  * <p>Associated attendee.
  */
 public class EventSurveyRespondentAttendee {
@@ -27,11 +27,10 @@ public class EventSurveyRespondentAttendee {
     private String id;
 
     @JsonCreator
-    public EventSurveyRespondentAttendee(
-            @JsonProperty("id") @Nullable String id) {
+    public EventSurveyRespondentAttendee(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventSurveyRespondentAttendee() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class EventSurveyRespondentAttendee {
         return new Builder();
     }
 
-
     /**
      * Id of the attendee
      */
@@ -55,7 +53,6 @@ public class EventSurveyRespondentAttendee {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class EventSurveyRespondentAttendee {
             return false;
         }
         EventSurveyRespondentAttendee other = (EventSurveyRespondentAttendee) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyRespondentAttendee.class,
-                "id", id);
+        return Utils.toString(EventSurveyRespondentAttendee.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class EventSurveyRespondentAttendee {
         }
 
         public EventSurveyRespondentAttendee build() {
-            return new EventSurveyRespondentAttendee(
-                id);
+            return new EventSurveyRespondentAttendee(id);
         }
-
     }
 }

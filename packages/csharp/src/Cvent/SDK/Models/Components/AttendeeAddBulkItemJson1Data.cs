@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class AttendeeAddBulkItemJson1DataType
     {
-        private AttendeeAddBulkItemJson1DataType(string value) { Value = value; }
+        private AttendeeAddBulkItemJson1DataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static AttendeeAddBulkItemJson1DataType ZeroOneOf2 { get { return new AttendeeAddBulkItemJson1DataType("0_OneOf_2"); } }
+        public static AttendeeAddBulkItemJson1DataType ZeroOneOf2
+        {
+            get {
+                return new AttendeeAddBulkItemJson1DataType("0_OneOf_2");
+            }
+        }
 
-        public static AttendeeAddBulkItemJson1DataType ErrorResponse { get { return new AttendeeAddBulkItemJson1DataType("error-response"); } }
+        public static AttendeeAddBulkItemJson1DataType ErrorResponse
+        {
+            get {
+                return new AttendeeAddBulkItemJson1DataType("error-response");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(AttendeeAddBulkItemJson1DataType v) { return v.Value; }
-        public static AttendeeAddBulkItemJson1DataType FromString(string v) {
-            switch(v) {
-                case "0_OneOf_2": return ZeroOneOf2;
-                case "error-response": return ErrorResponse;
-                default: throw new ArgumentException("Invalid value for AttendeeAddBulkItemJson1DataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(AttendeeAddBulkItemJson1DataType v)
+        {
+            return v.Value;
+        }
+        public static AttendeeAddBulkItemJson1DataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_OneOf_2":
+                    return ZeroOneOf2;
+                case "error-response":
+                    return ErrorResponse;
+                default:
+                    throw new ArgumentException("Invalid value for AttendeeAddBulkItemJson1DataType");
             }
         }
         public override bool Equals(object? obj)
@@ -102,8 +126,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemJson1Data(AttendeeAddBulkItemJson1DataType.ZeroOneOf2)
-                    {
+                    return new AttendeeAddBulkItemJson1Data(AttendeeAddBulkItemJson1DataType.ZeroOneOf2) {
                         ZeroOneOf2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf2>(json)
                     };
                 }
@@ -122,8 +145,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemJson1Data(AttendeeAddBulkItemJson1DataType.ErrorResponse)
-                    {
+                    return new AttendeeAddBulkItemJson1Data(AttendeeAddBulkItemJson1DataType.ErrorResponse) {
                         ErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse>(json)
                     };
                 }
@@ -143,7 +165,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -184,8 +206,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

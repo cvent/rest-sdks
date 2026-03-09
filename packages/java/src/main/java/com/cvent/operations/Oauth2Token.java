@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -23,8 +23,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class Oauth2Token {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final Oauth2TokenSecurity security;
@@ -50,10 +49,9 @@ public class Oauth2Token {
         final Headers _headers;
 
         public Base(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security,
-                Headers _headers) {
+                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.security = security;
             // hooks will be passed method level security only
@@ -67,47 +65,26 @@ public class Oauth2Token {
 
         BeforeRequestContextImpl createBeforeRequestContext() {
             return new BeforeRequestContextImpl(
-                    this.sdkConfiguration,
-                    this.baseUrl,
-                    "oauth2Token",
-                    java.util.Optional.empty(),
-                    securitySource());
+                    this.sdkConfiguration, this.baseUrl, "oauth2Token", java.util.Optional.empty(), securitySource());
         }
 
         AfterSuccessContextImpl createAfterSuccessContext() {
             return new AfterSuccessContextImpl(
-                    this.sdkConfiguration,
-                    this.baseUrl,
-                    "oauth2Token",
-                    java.util.Optional.empty(),
-                    securitySource());
+                    this.sdkConfiguration, this.baseUrl, "oauth2Token", java.util.Optional.empty(), securitySource());
         }
 
         AfterErrorContextImpl createAfterErrorContext() {
             return new AfterErrorContextImpl(
-                    this.sdkConfiguration,
-                    this.baseUrl,
-                    "oauth2Token",
-                    java.util.Optional.empty(),
-                    securitySource());
+                    this.sdkConfiguration, this.baseUrl, "oauth2Token", java.util.Optional.empty(), securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/oauth2/token");
+
+        <T, U> HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(this.baseUrl, "/oauth2/token");
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "",
-                    "form",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody = Utils.serializeRequestBody(convertedRequest, "", "form", false);
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, security);
 
@@ -115,14 +92,10 @@ public class Oauth2Token {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> {
+    public static class Sync extends Base implements RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> {
         public Sync(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security,
-                Headers _headers) {
-            super(
-                  sdkConfiguration, security,
-                  _headers);
+                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
+            super(sdkConfiguration, security, _headers);
         }
 
         private HttpRequest onBuildRequest(Oauth2TokenRequest request) throws Exception {
@@ -130,11 +103,11 @@ public class Oauth2Token {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -159,22 +132,16 @@ public class Oauth2Token {
             return httpRes;
         }
 
-
         @Override
         public Oauth2TokenResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            Oauth2TokenResponse.Builder resBuilder =
-                    Oauth2TokenResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            Oauth2TokenResponse.Builder resBuilder = Oauth2TokenResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             Oauth2TokenResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withObject(Utils.unmarshal(response, new TypeReference<Oauth2TokenResponseBody>() {}));
@@ -200,15 +167,14 @@ public class Oauth2Token {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<Oauth2TokenRequest, com.cvent.models.operations.async.Oauth2TokenResponse> {
+            implements AsyncRequestOperation<
+                    Oauth2TokenRequest, com.cvent.models.operations.async.Oauth2TokenResponse> {
 
         public Async(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security,
-                Headers _headers) {
-            super(
-                  sdkConfiguration, security,
-                  _headers);
+                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
+            super(sdkConfiguration, security, _headers);
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(Oauth2TokenRequest request) throws Exception {
@@ -226,7 +192,9 @@ public class Oauth2Token {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(Oauth2TokenRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -243,19 +211,15 @@ public class Oauth2Token {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.Oauth2TokenResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.Oauth2TokenResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.Oauth2TokenResponse
-                            .builder()
+                    com.cvent.models.operations.async.Oauth2TokenResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.Oauth2TokenResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<Oauth2TokenResponseBody>() {})
@@ -266,8 +230,7 @@ public class Oauth2Token {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return BadRequestException.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return BadRequestException.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

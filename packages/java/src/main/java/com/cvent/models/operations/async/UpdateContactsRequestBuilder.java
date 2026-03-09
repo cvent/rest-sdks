@@ -31,7 +31,7 @@ public class UpdateContactsRequestBuilder {
     private List<ContactUpdate> _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateContactsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -40,14 +40,13 @@ public class UpdateContactsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateContactsResponse> call() {
-        AsyncRequestOperation<List<ContactUpdate>, UpdateContactsResponse> operation
-              = new UpdateContacts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<List<ContactUpdate>, UpdateContactsResponse> operation =
+                new UpdateContacts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

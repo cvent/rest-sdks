@@ -2,6 +2,14 @@
 
 Proposal format.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.FormatTypeJson;
+
+FormatTypeJson value = FormatTypeJson.GBTA2013;
+```
+
 
 ## Values
 

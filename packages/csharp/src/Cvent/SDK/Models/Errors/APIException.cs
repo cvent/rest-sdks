@@ -26,6 +26,8 @@ namespace Cvent.SDK.Models.Errors
             HttpRequestMessage request,
             HttpResponseMessage response,
             string body
-        ): base(message, request, response, body) {}
+        ) : base(message, request, response, body)
+        {
+        }
     }
 }

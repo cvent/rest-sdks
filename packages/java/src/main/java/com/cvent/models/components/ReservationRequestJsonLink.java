@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ReservationRequestJsonLink
- * 
+ *
  * <p>Represents a link to a related resource.
  */
 public class ReservationRequestJsonLink {
@@ -24,10 +24,8 @@ public class ReservationRequestJsonLink {
     private String href;
 
     @JsonCreator
-    public ReservationRequestJsonLink(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public ReservationRequestJsonLink(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ReservationRequestJsonLink {
         return new Builder();
     }
 
-
     /**
      * URL of the booking site for this reservation request.
      */
@@ -49,7 +46,6 @@ public class ReservationRequestJsonLink {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ReservationRequestJsonLink {
             return false;
         }
         ReservationRequestJsonLink other = (ReservationRequestJsonLink) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationRequestJsonLink.class,
-                "href", href);
+        return Utils.toString(ReservationRequestJsonLink.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ReservationRequestJsonLink {
         }
 
         public ReservationRequestJsonLink build() {
-            return new ReservationRequestJsonLink(
-                href);
+            return new ReservationRequestJsonLink(href);
         }
-
     }
 }

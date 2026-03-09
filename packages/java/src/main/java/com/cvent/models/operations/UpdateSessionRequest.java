@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateSessionRequest {
     /**
      * Unique Id of a session
@@ -30,13 +29,10 @@ public class UpdateSessionRequest {
     private SessionUpdate sessionUpdate;
 
     @JsonCreator
-    public UpdateSessionRequest(
-            @Nonnull String id,
-            @Nonnull SessionUpdate sessionUpdate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateSessionRequest(@Nonnull String id, @Nonnull SessionUpdate sessionUpdate) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.sessionUpdate = Optional.ofNullable(sessionUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("sessionUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("sessionUpdate cannot be null"));
     }
 
     /**
@@ -60,7 +56,6 @@ public class UpdateSessionRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a session
      */
@@ -68,7 +63,6 @@ public class UpdateSessionRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Contains values that you'll update the session with.
@@ -81,7 +75,6 @@ public class UpdateSessionRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -91,33 +84,29 @@ public class UpdateSessionRequest {
             return false;
         }
         UpdateSessionRequest other = (UpdateSessionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.sessionUpdate, other.sessionUpdate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.sessionUpdate, other.sessionUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, sessionUpdate);
+        return Utils.enhancedHash(id, sessionUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateSessionRequest.class,
-                "id", id,
-                "sessionUpdate", sessionUpdate);
+        return Utils.toString(UpdateSessionRequest.class, "id", id, "sessionUpdate", sessionUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private SessionUpdate sessionUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -140,9 +129,7 @@ public class UpdateSessionRequest {
         }
 
         public UpdateSessionRequest build() {
-            return new UpdateSessionRequest(
-                id, sessionUpdate);
+            return new UpdateSessionRequest(id, sessionUpdate);
         }
-
     }
 }

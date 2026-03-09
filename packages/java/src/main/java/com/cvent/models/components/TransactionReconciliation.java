@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -18,9 +18,9 @@ import java.util.Optional;
 
 /**
  * TransactionReconciliation
- * 
+ *
  * <p>This property is deprecated to support more then one items. Use 'reconciliations'.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -73,10 +73,9 @@ public class TransactionReconciliation {
         this.reconciledBy = reconciledBy;
         this.reconciledDate = reconciledDate;
     }
-    
+
     public TransactionReconciliation() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -118,7 +117,6 @@ public class TransactionReconciliation {
         return new Builder();
     }
 
-
     /**
      * The identifier of reconciled budget item.
      */
@@ -126,7 +124,6 @@ public class TransactionReconciliation {
         this.budgetItem = budgetItem;
         return this;
     }
-
 
     /**
      * This is used to denote the reconciliation status for a transaction.
@@ -136,7 +133,6 @@ public class TransactionReconciliation {
         return this;
     }
 
-
     /**
      * Reconciliation amount.
      */
@@ -144,7 +140,6 @@ public class TransactionReconciliation {
         this.amount = amount;
         return this;
     }
-
 
     /**
      * Reconciled by user.
@@ -154,7 +149,6 @@ public class TransactionReconciliation {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time for Reconciled date.
      */
@@ -162,7 +156,6 @@ public class TransactionReconciliation {
         this.reconciledDate = reconciledDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -173,33 +166,36 @@ public class TransactionReconciliation {
             return false;
         }
         TransactionReconciliation other = (TransactionReconciliation) o;
-        return 
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy) &&
-            Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
+        return Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.reconciledBy, other.reconciledBy)
+                && Utils.enhancedDeepEquals(this.reconciledDate, other.reconciledDate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            budgetItem, status, amount,
-            reconciledBy, reconciledDate);
+        return Utils.enhancedHash(budgetItem, status, amount, reconciledBy, reconciledDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionReconciliation.class,
-                "budgetItem", budgetItem,
-                "status", status,
-                "amount", amount,
-                "reconciledBy", reconciledBy,
-                "reconciledDate", reconciledDate);
+        return Utils.toString(
+                TransactionReconciliation.class,
+                "budgetItem",
+                budgetItem,
+                "status",
+                status,
+                "amount",
+                amount,
+                "reconciledBy",
+                reconciledBy,
+                "reconciledDate",
+                reconciledDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CardTransactionJson1BudgetItem budgetItem;
 
@@ -212,7 +208,7 @@ public class TransactionReconciliation {
         private OffsetDateTime reconciledDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -256,10 +252,7 @@ public class TransactionReconciliation {
         }
 
         public TransactionReconciliation build() {
-            return new TransactionReconciliation(
-                budgetItem, status, amount,
-                reconciledBy, reconciledDate);
+            return new TransactionReconciliation(budgetItem, status, amount, reconciledBy, reconciledDate);
         }
-
     }
 }

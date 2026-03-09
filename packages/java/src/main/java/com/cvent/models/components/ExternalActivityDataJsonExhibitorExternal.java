@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivityDataJsonExhibitorExternal
- * 
+ *
  * <p>Additional fields for external activities.
  */
 public class ExternalActivityDataJsonExhibitorExternal {
@@ -46,16 +46,13 @@ public class ExternalActivityDataJsonExhibitorExternal {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("externalActivityDate") @Nonnull OffsetDateTime externalActivityDate,
             @JsonProperty("additionalFields") @Nullable Map<String, String> additionalFields) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.externalActivityDate = Optional.ofNullable(externalActivityDate)
-            .orElseThrow(() -> new IllegalArgumentException("externalActivityDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("externalActivityDate cannot be null"));
         this.additionalFields = additionalFields;
     }
-    
-    public ExternalActivityDataJsonExhibitorExternal(
-            @Nonnull String id,
-            @Nonnull OffsetDateTime externalActivityDate) {
+
+    public ExternalActivityDataJsonExhibitorExternal(@Nonnull String id, @Nonnull OffsetDateTime externalActivityDate) {
         this(id, externalActivityDate, null);
     }
 
@@ -84,7 +81,6 @@ public class ExternalActivityDataJsonExhibitorExternal {
         return new Builder();
     }
 
-
     /**
      * The identifier to the related entity i.e. Event, Session, Appointment or Exhibitor
      */
@@ -93,24 +89,23 @@ public class ExternalActivityDataJsonExhibitorExternal {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when the external activity was created.
      */
-    public ExternalActivityDataJsonExhibitorExternal withExternalActivityDate(@Nonnull OffsetDateTime externalActivityDate) {
+    public ExternalActivityDataJsonExhibitorExternal withExternalActivityDate(
+            @Nonnull OffsetDateTime externalActivityDate) {
         this.externalActivityDate = Utils.checkNotNull(externalActivityDate, "externalActivityDate");
         return this;
     }
 
-
     /**
      * Additional fields provided for the external attendee activity
      */
-    public ExternalActivityDataJsonExhibitorExternal withAdditionalFields(@Nullable Map<String, String> additionalFields) {
+    public ExternalActivityDataJsonExhibitorExternal withAdditionalFields(
+            @Nullable Map<String, String> additionalFields) {
         this.additionalFields = additionalFields;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -121,28 +116,30 @@ public class ExternalActivityDataJsonExhibitorExternal {
             return false;
         }
         ExternalActivityDataJsonExhibitorExternal other = (ExternalActivityDataJsonExhibitorExternal) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.externalActivityDate, other.externalActivityDate) &&
-            Utils.enhancedDeepEquals(this.additionalFields, other.additionalFields);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.externalActivityDate, other.externalActivityDate)
+                && Utils.enhancedDeepEquals(this.additionalFields, other.additionalFields);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, externalActivityDate, additionalFields);
+        return Utils.enhancedHash(id, externalActivityDate, additionalFields);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivityDataJsonExhibitorExternal.class,
-                "id", id,
-                "externalActivityDate", externalActivityDate,
-                "additionalFields", additionalFields);
+        return Utils.toString(
+                ExternalActivityDataJsonExhibitorExternal.class,
+                "id",
+                id,
+                "externalActivityDate",
+                externalActivityDate,
+                "additionalFields",
+                additionalFields);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -151,7 +148,7 @@ public class ExternalActivityDataJsonExhibitorExternal {
         private Map<String, String> additionalFields;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -179,9 +176,7 @@ public class ExternalActivityDataJsonExhibitorExternal {
         }
 
         public ExternalActivityDataJsonExhibitorExternal build() {
-            return new ExternalActivityDataJsonExhibitorExternal(
-                id, externalActivityDate, additionalFields);
+            return new ExternalActivityDataJsonExhibitorExternal(id, externalActivityDate, additionalFields);
         }
-
     }
 }

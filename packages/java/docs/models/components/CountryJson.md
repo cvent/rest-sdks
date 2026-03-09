@@ -2,6 +2,14 @@
 
 ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CountryJson;
+
+CountryJson value = CountryJson.BLANK;
+```
+
 
 ## Values
 

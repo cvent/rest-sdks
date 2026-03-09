@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EmailUndelivered
- * 
+ *
  * <p>An email-undelivered activity.
  */
 public class EmailUndelivered {
@@ -50,7 +50,7 @@ public class EmailUndelivered {
         this.contact = contact;
         this.undelivered = undelivered;
     }
-    
+
     public EmailUndelivered() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class EmailUndelivered {
         return new Builder();
     }
 
-
     /**
      * Type of the email.
      */
@@ -88,7 +87,6 @@ public class EmailUndelivered {
         this.type = type;
         return this;
     }
-
 
     /**
      * An activity contact.
@@ -98,7 +96,6 @@ public class EmailUndelivered {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an email was undelivered.
      */
@@ -106,7 +103,6 @@ public class EmailUndelivered {
         this.undelivered = undelivered;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,23 @@ public class EmailUndelivered {
             return false;
         }
         EmailUndelivered other = (EmailUndelivered) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.undelivered, other.undelivered);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.undelivered, other.undelivered);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, contact, undelivered);
+        return Utils.enhancedHash(type, contact, undelivered);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailUndelivered.class,
-                "type", type,
-                "contact", contact,
-                "undelivered", undelivered);
+        return Utils.toString(EmailUndelivered.class, "type", type, "contact", contact, "undelivered", undelivered);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
@@ -147,7 +138,7 @@ public class EmailUndelivered {
         private OffsetDateTime undelivered;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +166,7 @@ public class EmailUndelivered {
         }
 
         public EmailUndelivered build() {
-            return new EmailUndelivered(
-                type, contact, undelivered);
+            return new EmailUndelivered(type, contact, undelivered);
         }
-
     }
 }

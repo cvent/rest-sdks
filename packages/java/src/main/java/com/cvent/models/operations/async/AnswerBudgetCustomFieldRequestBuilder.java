@@ -30,7 +30,7 @@ public class AnswerBudgetCustomFieldRequestBuilder {
     private AnswerBudgetCustomFieldRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AnswerBudgetCustomFieldRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AnswerBudgetCustomFieldRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AnswerBudgetCustomFieldResponse> call() {
-        AsyncRequestOperation<AnswerBudgetCustomFieldRequest, AnswerBudgetCustomFieldResponse> operation
-              = new AnswerBudgetCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AnswerBudgetCustomFieldRequest, AnswerBudgetCustomFieldResponse> operation =
+                new AnswerBudgetCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

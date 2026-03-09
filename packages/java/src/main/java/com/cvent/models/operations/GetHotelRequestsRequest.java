@@ -18,7 +18,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetHotelRequestsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -50,7 +49,7 @@ public class GetHotelRequestsRequest {
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * hotelRequestDetails.hotelRequestAnswers.question (<a href="#operation/getEventQuestions">List
      * Event Questions</a>)
@@ -61,11 +60,11 @@ public class GetHotelRequestsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * hotelRequestDetails.requesterFirstName
      * * hotelRequestDetails.requesterLastName
@@ -78,15 +77,15 @@ public class GetHotelRequestsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -111,21 +110,16 @@ public class GetHotelRequestsRequest {
             @Nonnull String id) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.expand = expand;
         this.sort = sort;
         this.filter = filter;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
-    public GetHotelRequestsRequest(
-            @Nonnull String id) {
-        this(null, null, null,
-            null, null, null,
-            null, id);
+
+    public GetHotelRequestsRequest(@Nonnull String id) {
+        this(null, null, null, null, null, null, null, id);
     }
 
     /**
@@ -162,7 +156,7 @@ public class GetHotelRequestsRequest {
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * hotelRequestDetails.hotelRequestAnswers.question (<a href="#operation/getEventQuestions">List
      * Event Questions</a>)
@@ -174,11 +168,11 @@ public class GetHotelRequestsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * hotelRequestDetails.requesterFirstName
      * * hotelRequestDetails.requesterLastName
@@ -192,15 +186,15 @@ public class GetHotelRequestsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -219,7 +213,6 @@ public class GetHotelRequestsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -229,7 +222,6 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -238,7 +230,6 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -246,7 +237,6 @@ public class GetHotelRequestsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -257,12 +247,11 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * hotelRequestDetails.hotelRequestAnswers.question (<a href="#operation/getEventQuestions">List
      * Event Questions</a>)
@@ -272,15 +261,14 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * hotelRequestDetails.requesterFirstName
      * * hotelRequestDetails.requesterLastName
@@ -291,20 +279,19 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -313,7 +300,6 @@ public class GetHotelRequestsRequest {
         return this;
     }
 
-
     /**
      * ID of an event.
      */
@@ -321,7 +307,6 @@ public class GetHotelRequestsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -332,40 +317,45 @@ public class GetHotelRequestsRequest {
             return false;
         }
         GetHotelRequestsRequest other = (GetHotelRequestsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, expand, sort,
-            filter, id);
+        return Utils.enhancedHash(after, before, limit, token, expand, sort, filter, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHotelRequestsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "expand", expand,
-                "sort", sort,
-                "filter", filter,
-                "id", id);
+        return Utils.toString(
+                GetHotelRequestsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "expand",
+                expand,
+                "sort",
+                sort,
+                "filter",
+                filter,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -384,7 +374,7 @@ public class GetHotelRequestsRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -425,7 +415,7 @@ public class GetHotelRequestsRequest {
          * A list of fields to be expanded, returning additional information alongside the specified fields.
          * The expanded entity is retrieved and displayed inline for each specified expansion field. The
          * respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * hotelRequestDetails.hotelRequestAnswers.question (<a href="#operation/getEventQuestions">List
          * Event Questions</a>)
@@ -438,11 +428,11 @@ public class GetHotelRequestsRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * hotelRequestDetails.requesterFirstName
          * * hotelRequestDetails.requesterLastName
@@ -457,15 +447,15 @@ public class GetHotelRequestsRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field            | Operators                          | Notes
          * |
          * |------------------|-------------------------------------|------------------------------------------------|
          * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
          * filter     |
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * or
          */
@@ -483,17 +473,10 @@ public class GetHotelRequestsRequest {
         }
 
         public GetHotelRequestsRequest build() {
-            return new GetHotelRequestsRequest(
-                after, before, limit,
-                token, expand, sort,
-                filter, id);
+            return new GetHotelRequestsRequest(after, before, limit, token, expand, sort, filter, id);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

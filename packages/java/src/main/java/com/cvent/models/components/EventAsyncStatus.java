@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventAsyncStatus
- * 
+ *
  * <p>Status of an event asynchronous operation.
  */
 public class EventAsyncStatus {
@@ -44,16 +44,13 @@ public class EventAsyncStatus {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("status") @Nonnull EventAsyncStatusStatus status,
             @JsonProperty("event") @Nullable EventAsyncStatusEvent event) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.event = event;
     }
-    
-    public EventAsyncStatus(
-            @Nonnull String id,
-            @Nonnull EventAsyncStatusStatus status) {
+
+    public EventAsyncStatus(@Nonnull String id, @Nonnull EventAsyncStatusStatus status) {
         this(id, status, null);
     }
 
@@ -82,7 +79,6 @@ public class EventAsyncStatus {
         return new Builder();
     }
 
-
     /**
      * The identifier to be used to get the async status of the event being created or copied.
      */
@@ -90,7 +86,6 @@ public class EventAsyncStatus {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The status of the event being created or copied.
@@ -100,7 +95,6 @@ public class EventAsyncStatus {
         return this;
     }
 
-
     /**
      * The event for the operation.
      */
@@ -108,7 +102,6 @@ public class EventAsyncStatus {
         this.event = event;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +112,23 @@ public class EventAsyncStatus {
             return false;
         }
         EventAsyncStatus other = (EventAsyncStatus) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, event);
+        return Utils.enhancedHash(id, status, event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventAsyncStatus.class,
-                "id", id,
-                "status", status,
-                "event", event);
+        return Utils.toString(EventAsyncStatus.class, "id", id, "status", status, "event", event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -149,7 +137,7 @@ public class EventAsyncStatus {
         private EventAsyncStatusEvent event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -177,9 +165,7 @@ public class EventAsyncStatus {
         }
 
         public EventAsyncStatus build() {
-            return new EventAsyncStatus(
-                id, status, event);
+            return new EventAsyncStatus(id, status, event);
         }
-
     }
 }

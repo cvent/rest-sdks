@@ -15,20 +15,19 @@ namespace Cvent.SDK.Models.Components
 
     public enum ProcessFormExpand
     {
-        [JsonProperty("process-form")]
-        ProcessForm,
+        [JsonProperty("process-form")] ProcessForm,
     }
 
     public static class ProcessFormExpandExtension
     {
         public static string Value(this ProcessFormExpand value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProcessFormExpand ToEnum(this string value)
         {
-            foreach(var field in typeof(ProcessFormExpand).GetFields())
+            foreach (var field in typeof(ProcessFormExpand).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

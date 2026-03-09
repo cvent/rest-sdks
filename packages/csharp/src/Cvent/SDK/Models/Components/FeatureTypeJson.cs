@@ -18,44 +18,31 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum FeatureTypeJson
     {
-        [JsonProperty("Website")]
-        Website,
-        [JsonProperty("Registration")]
-        Registration,
-        [JsonProperty("OnArrival")]
-        OnArrival,
-        [JsonProperty("AttendeeHub")]
-        AttendeeHub,
-        [JsonProperty("Appointments")]
-        Appointments,
-        [JsonProperty("Planning")]
-        Planning,
-        [JsonProperty("Agenda")]
-        Agenda,
-        [JsonProperty("Travel")]
-        Travel,
-        [JsonProperty("Marketing")]
-        Marketing,
-        [JsonProperty("Surveys")]
-        Surveys,
-        [JsonProperty("Speakers")]
-        Speakers,
-        [JsonProperty("Exhibitors")]
-        Exhibitors,
-        [JsonProperty("Vendors")]
-        Vendors,
+        [JsonProperty("Website")] Website,
+        [JsonProperty("Registration")] Registration,
+        [JsonProperty("OnArrival")] OnArrival,
+        [JsonProperty("AttendeeHub")] AttendeeHub,
+        [JsonProperty("Appointments")] Appointments,
+        [JsonProperty("Planning")] Planning,
+        [JsonProperty("Agenda")] Agenda,
+        [JsonProperty("Travel")] Travel,
+        [JsonProperty("Marketing")] Marketing,
+        [JsonProperty("Surveys")] Surveys,
+        [JsonProperty("Speakers")] Speakers,
+        [JsonProperty("Exhibitors")] Exhibitors,
+        [JsonProperty("Vendors")] Vendors,
     }
 
     public static class FeatureTypeJsonExtension
     {
         public static string Value(this FeatureTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static FeatureTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(FeatureTypeJson).GetFields())
+            foreach (var field in typeof(FeatureTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

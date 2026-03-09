@@ -41,7 +41,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request);
+        public Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request);
 
         /// <summary>
         /// Token.
@@ -59,7 +59,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="BadRequestException">A bad token response. Thrown when the API returns a 400 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<Oauth2TokenResponse> Oauth2TokenAsync(
+        public Task<Oauth2TokenResponse> Oauth2TokenAsync(
             Oauth2TokenSecurity security,
             Oauth2TokenRequest? request = null
         );
@@ -76,13 +76,13 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ValidateTokenResponse> ValidateTokenAsync();
+        public Task<ValidateTokenResponse> ValidateTokenAsync();
     }
 
     /// <summary>
     /// Available endpoints used to initiate an authentication request to obtain and validate an access token.
     /// </summary>
-    public class Authentication: IAuthentication
+    public class Authentication : IAuthentication
     {
         /// <summary>
         /// SDK Configuration.
@@ -109,7 +109,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request)
+        public async Task<Oauth2AuthorizeResponse> Oauth2AuthorizeAsync(Oauth2AuthorizeRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -129,7 +129,7 @@ namespace Cvent.SDK
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "oauth2Authorize", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "oauth2Authorize", new List<string> {}, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -165,30 +165,27 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 302)
+            if (responseStatusCode == 302)
             {
-                return new Oauth2AuthorizeResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new Oauth2AuthorizeResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     },
                     Headers = Utilities.CollectHeaders(httpResponse.Headers)
                 };
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Token.
@@ -206,7 +203,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="BadRequestException">A bad token response. Thrown when the API returns a 400 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<Oauth2TokenResponse> Oauth2TokenAsync(
+        public async Task<Oauth2TokenResponse> Oauth2TokenAsync(
             Oauth2TokenSecurity security,
             Oauth2TokenRequest? request = null
         )
@@ -272,9 +269,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Oauth2TokenResponseBody obj;
@@ -287,10 +284,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Oauth2TokenResponseBody.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new Oauth2TokenResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new Oauth2TokenResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -301,9 +296,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode == 400)
+            else if (responseStatusCode == 400)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     BadRequestExceptionPayload payload;
@@ -316,8 +311,7 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into BadRequestExceptionPayload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    payload.HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                    payload.HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     };
@@ -327,18 +321,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Validate Token<br/>
@@ -352,7 +345,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ValidateTokenResponse> ValidateTokenAsync()
+        public async Task<ValidateTokenResponse> ValidateTokenAsync()
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = baseUrl + "/token-validation";
@@ -370,7 +363,7 @@ namespace Cvent.SDK
                 httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
             }
 
-            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "validateToken", new List<string> {  }, SDKConfiguration.SecuritySource);
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "validateToken", new List<string> {}, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
 
@@ -406,9 +399,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ValidToken obj;
@@ -421,10 +414,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ValidToken.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ValidateTokenResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ValidateTokenResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -435,9 +426,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -455,17 +446,16 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
     }
 }

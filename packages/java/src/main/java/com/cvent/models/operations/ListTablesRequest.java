@@ -17,7 +17,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class ListTablesRequest {
     /**
      * ID of an event.
@@ -48,7 +47,7 @@ public class ListTablesRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -59,10 +58,10 @@ public class ListTablesRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -74,13 +73,13 @@ public class ListTablesRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -97,22 +96,17 @@ public class ListTablesRequest {
             @Nullable String token,
             @Nullable String filter,
             @Nullable List<TableExpand> expand) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.seatingId = Optional.ofNullable(seatingId)
-            .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+                .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
         this.expand = expand;
     }
-    
-    public ListTablesRequest(
-            @Nonnull String id,
-            @Nonnull String seatingId) {
-        this(id, seatingId, null,
-            null, null, null);
+
+    public ListTablesRequest(@Nonnull String id, @Nonnull String seatingId) {
+        this(id, seatingId, null, null, null, null);
     }
 
     /**
@@ -148,7 +142,7 @@ public class ListTablesRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -159,10 +153,10 @@ public class ListTablesRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -175,13 +169,13 @@ public class ListTablesRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -195,7 +189,6 @@ public class ListTablesRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -203,7 +196,6 @@ public class ListTablesRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of a seating.
@@ -213,7 +205,6 @@ public class ListTablesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -221,7 +212,6 @@ public class ListTablesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -232,12 +222,11 @@ public class ListTablesRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -248,10 +237,10 @@ public class ListTablesRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -261,18 +250,17 @@ public class ListTablesRequest {
         return this;
     }
 
-
     /**
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a table will
      * have the list of seats IDs associated with the table. You can expand these objects in-line using the
      * expand query parameter.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seats
      * * **Scope**: seating/seats:read
@@ -283,7 +271,6 @@ public class ListTablesRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -293,35 +280,39 @@ public class ListTablesRequest {
             return false;
         }
         ListTablesRequest other = (ListTablesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seatingId, other.seatingId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.seatingId, other.seatingId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, seatingId, limit,
-            token, filter, expand);
+        return Utils.enhancedHash(id, seatingId, limit, token, filter, expand);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTablesRequest.class,
-                "id", id,
-                "seatingId", seatingId,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "expand", expand);
+        return Utils.toString(
+                ListTablesRequest.class,
+                "id",
+                id,
+                "seatingId",
+                seatingId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "expand",
+                expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -336,7 +327,7 @@ public class ListTablesRequest {
         private List<TableExpand> expand;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -376,7 +367,7 @@ public class ListTablesRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are eight comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -387,10 +378,10 @@ public class ListTablesRequest {
          * * starts with: sw
          * * contains a value: contains
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -404,13 +395,13 @@ public class ListTablesRequest {
          * This endpoint allows you to request additional information as an expanded response using the expand
          * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
          * value.
-         * 
+         *
          * <p>An object contains the ID of a related object in its response properties. For example, a table will
          * have the list of seats IDs associated with the table. You can expand these objects in-line using the
          * expand query parameter.
-         * 
+         *
          * <p>The respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * seats
          * * **Scope**: seating/seats:read
@@ -422,16 +413,10 @@ public class ListTablesRequest {
         }
 
         public ListTablesRequest build() {
-            return new ListTablesRequest(
-                id, seatingId, limit,
-                token, filter, expand);
+            return new ListTablesRequest(id, seatingId, limit, token, filter, expand);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

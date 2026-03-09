@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SendEmailStatusJson
     {
-        [JsonProperty("Sent")]
-        Sent,
-        [JsonProperty("In-Progress")]
-        InProgress,
-        [JsonProperty("Error")]
-        Error,
-        [JsonProperty("Opted-Out")]
-        OptedOut,
+        [JsonProperty("Sent")] Sent,
+        [JsonProperty("In-Progress")] InProgress,
+        [JsonProperty("Error")] Error,
+        [JsonProperty("Opted-Out")] OptedOut,
     }
 
     public static class SendEmailStatusJsonExtension
     {
         public static string Value(this SendEmailStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SendEmailStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SendEmailStatusJson).GetFields())
+            foreach (var field in typeof(SendEmailStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

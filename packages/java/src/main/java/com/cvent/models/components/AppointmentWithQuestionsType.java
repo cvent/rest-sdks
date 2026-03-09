@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AppointmentWithQuestionsType
- * 
+ *
  * <p>The type of the appointment.
  */
 public class AppointmentWithQuestionsType {
@@ -27,11 +27,10 @@ public class AppointmentWithQuestionsType {
     private String name;
 
     @JsonCreator
-    public AppointmentWithQuestionsType(
-            @JsonProperty("name") @Nullable String name) {
+    public AppointmentWithQuestionsType(@JsonProperty("name") @Nullable String name) {
         this.name = name;
     }
-    
+
     public AppointmentWithQuestionsType() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class AppointmentWithQuestionsType {
         return new Builder();
     }
 
-
     /**
      * The name of the appointment type.
      */
@@ -55,7 +53,6 @@ public class AppointmentWithQuestionsType {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class AppointmentWithQuestionsType {
             return false;
         }
         AppointmentWithQuestionsType other = (AppointmentWithQuestionsType) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name);
+        return Utils.enhancedHash(name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentWithQuestionsType.class,
-                "name", name);
+        return Utils.toString(AppointmentWithQuestionsType.class, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class AppointmentWithQuestionsType {
         }
 
         public AppointmentWithQuestionsType build() {
-            return new AppointmentWithQuestionsType(
-                name);
+            return new AppointmentWithQuestionsType(name);
         }
-
     }
 }

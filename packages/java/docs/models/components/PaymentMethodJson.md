@@ -2,6 +2,14 @@
 
 This denotes the payment method in a transaction.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.PaymentMethodJson;
+
+PaymentMethodJson value = PaymentMethodJson.AIRPLUS;
+```
+
 
 ## Values
 

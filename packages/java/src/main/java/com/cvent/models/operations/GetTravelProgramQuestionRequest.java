@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetTravelProgramQuestionRequest {
     /**
      * A uuid used to uniquely identify the program.
@@ -26,13 +25,11 @@ public class GetTravelProgramQuestionRequest {
     private String questionId;
 
     @JsonCreator
-    public GetTravelProgramQuestionRequest(
-            @Nonnull String programId,
-            @Nonnull String questionId) {
+    public GetTravelProgramQuestionRequest(@Nonnull String programId, @Nonnull String questionId) {
         this.programId = Optional.ofNullable(programId)
-            .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
         this.questionId = Optional.ofNullable(questionId)
-            .orElseThrow(() -> new IllegalArgumentException("questionId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("questionId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class GetTravelProgramQuestionRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid used to uniquely identify the program.
      */
@@ -62,7 +58,6 @@ public class GetTravelProgramQuestionRequest {
         return this;
     }
 
-
     /**
      * Unique ID for a question
      */
@@ -70,7 +65,6 @@ public class GetTravelProgramQuestionRequest {
         this.questionId = Utils.checkNotNull(questionId, "questionId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,29 @@ public class GetTravelProgramQuestionRequest {
             return false;
         }
         GetTravelProgramQuestionRequest other = (GetTravelProgramQuestionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programId, other.programId) &&
-            Utils.enhancedDeepEquals(this.questionId, other.questionId);
+        return Utils.enhancedDeepEquals(this.programId, other.programId)
+                && Utils.enhancedDeepEquals(this.questionId, other.questionId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programId, questionId);
+        return Utils.enhancedHash(programId, questionId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetTravelProgramQuestionRequest.class,
-                "programId", programId,
-                "questionId", questionId);
+        return Utils.toString(GetTravelProgramQuestionRequest.class, "programId", programId, "questionId", questionId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programId;
 
         private String questionId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +117,7 @@ public class GetTravelProgramQuestionRequest {
         }
 
         public GetTravelProgramQuestionRequest build() {
-            return new GetTravelProgramQuestionRequest(
-                programId, questionId);
+            return new GetTravelProgramQuestionRequest(programId, questionId);
         }
-
     }
 }

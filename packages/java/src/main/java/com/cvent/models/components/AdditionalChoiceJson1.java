@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AdditionalChoiceJson1
- * 
+ *
  * <p>Contains text of additional choice
  */
 public class AdditionalChoiceJson1 {
@@ -27,11 +27,10 @@ public class AdditionalChoiceJson1 {
     private String text;
 
     @JsonCreator
-    public AdditionalChoiceJson1(
-            @JsonProperty("text") @Nullable String text) {
+    public AdditionalChoiceJson1(@JsonProperty("text") @Nullable String text) {
         this.text = text;
     }
-    
+
     public AdditionalChoiceJson1() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class AdditionalChoiceJson1 {
         return new Builder();
     }
 
-
     /**
      * Text Value of additional choice
      */
@@ -55,7 +53,6 @@ public class AdditionalChoiceJson1 {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class AdditionalChoiceJson1 {
             return false;
         }
         AdditionalChoiceJson1 other = (AdditionalChoiceJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            text);
+        return Utils.enhancedHash(text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AdditionalChoiceJson1.class,
-                "text", text);
+        return Utils.toString(AdditionalChoiceJson1.class, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class AdditionalChoiceJson1 {
         }
 
         public AdditionalChoiceJson1 build() {
-            return new AdditionalChoiceJson1(
-                text);
+            return new AdditionalChoiceJson1(text);
         }
-
     }
 }

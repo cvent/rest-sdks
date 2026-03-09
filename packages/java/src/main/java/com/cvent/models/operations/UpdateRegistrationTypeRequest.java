@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateRegistrationTypeRequest {
     /**
      * Unique ID of an event.
@@ -37,12 +36,11 @@ public class UpdateRegistrationTypeRequest {
             @Nonnull String id,
             @Nonnull String registrationTypeId,
             @Nonnull RegistrationTypeUpdateInput registrationTypeUpdate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.registrationTypeId = Optional.ofNullable(registrationTypeId)
-            .orElseThrow(() -> new IllegalArgumentException("registrationTypeId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationTypeId cannot be null"));
         this.registrationTypeUpdate = Optional.ofNullable(registrationTypeUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("registrationTypeUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationTypeUpdate cannot be null"));
     }
 
     /**
@@ -70,7 +68,6 @@ public class UpdateRegistrationTypeRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -78,7 +75,6 @@ public class UpdateRegistrationTypeRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a registration type.
@@ -88,15 +84,14 @@ public class UpdateRegistrationTypeRequest {
         return this;
     }
 
-
     /**
      * Registration type details to be updated.
      */
-    public UpdateRegistrationTypeRequest withRegistrationTypeUpdate(@Nonnull RegistrationTypeUpdateInput registrationTypeUpdate) {
+    public UpdateRegistrationTypeRequest withRegistrationTypeUpdate(
+            @Nonnull RegistrationTypeUpdateInput registrationTypeUpdate) {
         this.registrationTypeUpdate = Utils.checkNotNull(registrationTypeUpdate, "registrationTypeUpdate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +102,30 @@ public class UpdateRegistrationTypeRequest {
             return false;
         }
         UpdateRegistrationTypeRequest other = (UpdateRegistrationTypeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.registrationTypeId, other.registrationTypeId) &&
-            Utils.enhancedDeepEquals(this.registrationTypeUpdate, other.registrationTypeUpdate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.registrationTypeId, other.registrationTypeId)
+                && Utils.enhancedDeepEquals(this.registrationTypeUpdate, other.registrationTypeUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, registrationTypeId, registrationTypeUpdate);
+        return Utils.enhancedHash(id, registrationTypeId, registrationTypeUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateRegistrationTypeRequest.class,
-                "id", id,
-                "registrationTypeId", registrationTypeId,
-                "registrationTypeUpdate", registrationTypeUpdate);
+        return Utils.toString(
+                UpdateRegistrationTypeRequest.class,
+                "id",
+                id,
+                "registrationTypeId",
+                registrationTypeId,
+                "registrationTypeUpdate",
+                registrationTypeUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +134,7 @@ public class UpdateRegistrationTypeRequest {
         private RegistrationTypeUpdateInput registrationTypeUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +162,7 @@ public class UpdateRegistrationTypeRequest {
         }
 
         public UpdateRegistrationTypeRequest build() {
-            return new UpdateRegistrationTypeRequest(
-                id, registrationTypeId, registrationTypeUpdate);
+            return new UpdateRegistrationTypeRequest(id, registrationTypeId, registrationTypeUpdate);
         }
-
     }
 }

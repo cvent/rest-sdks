@@ -28,7 +28,7 @@ public class UpdateExhibitorCategoryRequestBuilder {
     private UpdateExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateExhibitorCategoryResponse call() {
-        RequestOperation<UpdateExhibitorCategoryRequest, UpdateExhibitorCategoryResponse> operation
-              = new UpdateExhibitorCategory.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateExhibitorCategoryRequest, UpdateExhibitorCategoryResponse> operation =
+                new UpdateExhibitorCategory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

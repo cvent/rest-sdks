@@ -4,6 +4,14 @@ Method by which the attendee was invited to the event. Note: This field is depre
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DeprecatedAttendeeInvitedByJson.PlannerInvited;
+```
+
 
 ## Values
 

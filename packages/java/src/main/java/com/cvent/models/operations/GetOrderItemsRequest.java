@@ -17,7 +17,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetOrderItemsRequest {
     /**
      * Unique ID of an Event.
@@ -61,7 +60,7 @@ public class GetOrderItemsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * attendee.id (eq|ne)
@@ -71,7 +70,7 @@ public class GetOrderItemsRequest {
      * * product.type (eq|ne)
      * * created (eq|ne|lt|le|gt|ge)
      * * lastModified (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -95,23 +94,17 @@ public class GetOrderItemsRequest {
             @Nullable String token,
             @Nullable String filter,
             @Nullable Boolean deleted) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
-    
-    public GetOrderItemsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null,
-            null);
+
+    public GetOrderItemsRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null, null);
     }
 
     /**
@@ -161,7 +154,7 @@ public class GetOrderItemsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * attendee.id (eq|ne)
@@ -171,7 +164,7 @@ public class GetOrderItemsRequest {
      * * product.type (eq|ne)
      * * created (eq|ne|lt|le|gt|ge)
      * * lastModified (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -192,7 +185,6 @@ public class GetOrderItemsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an Event.
      */
@@ -200,7 +192,6 @@ public class GetOrderItemsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -211,7 +202,6 @@ public class GetOrderItemsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -219,7 +209,6 @@ public class GetOrderItemsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * The maximum number of records to return per page.
@@ -229,7 +218,6 @@ public class GetOrderItemsRequest {
         return this;
     }
 
-
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
      * This will override any other pageable parameters provided.
@@ -238,7 +226,6 @@ public class GetOrderItemsRequest {
         this.token = token;
         return this;
     }
-
 
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
@@ -250,7 +237,7 @@ public class GetOrderItemsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * attendee.id (eq|ne)
@@ -260,7 +247,7 @@ public class GetOrderItemsRequest {
      * * product.type (eq|ne)
      * * created (eq|ne|lt|le|gt|ge)
      * * lastModified (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -269,7 +256,6 @@ public class GetOrderItemsRequest {
         this.filter = filter;
         return this;
     }
-
 
     /**
      * This sets whether or not to fetch deleted order items in the response. If set to true, the response
@@ -280,7 +266,6 @@ public class GetOrderItemsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -290,38 +275,42 @@ public class GetOrderItemsRequest {
             return false;
         }
         GetOrderItemsRequest other = (GetOrderItemsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, after, before,
-            limit, token, filter,
-            deleted);
+        return Utils.enhancedHash(id, after, before, limit, token, filter, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetOrderItemsRequest.class,
-                "id", id,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "deleted", deleted);
+        return Utils.toString(
+                GetOrderItemsRequest.class,
+                "id",
+                id,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -338,7 +327,7 @@ public class GetOrderItemsRequest {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -393,7 +382,7 @@ public class GetOrderItemsRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          * * attendee.id (eq|ne)
@@ -403,7 +392,7 @@ public class GetOrderItemsRequest {
          * * product.type (eq|ne)
          * * created (eq|ne|lt|le|gt|ge)
          * * lastModified (eq|ne|lt|le|gt|ge)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -423,23 +412,13 @@ public class GetOrderItemsRequest {
         }
 
         public GetOrderItemsRequest build() {
-            return new GetOrderItemsRequest(
-                id, after, before,
-                limit, token, filter,
-                deleted);
+            return new GetOrderItemsRequest(id, after, before, limit, token, filter, deleted);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

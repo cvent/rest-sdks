@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BannerLinkTargetJson
- * 
+ *
  * <p>The target of the link clicked on the banner.
  */
 public class BannerLinkTargetJson {
@@ -40,7 +40,7 @@ public class BannerLinkTargetJson {
         this.type = type;
         this.details = details;
     }
-    
+
     public BannerLinkTargetJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class BannerLinkTargetJson {
         return new Builder();
     }
 
-
     /**
      * The type of target associated with the banner link.
      */
@@ -72,7 +71,6 @@ public class BannerLinkTargetJson {
         return this;
     }
 
-
     /**
      * The details of the target associated with the banner link.
      */
@@ -80,7 +78,6 @@ public class BannerLinkTargetJson {
         this.details = details;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class BannerLinkTargetJson {
             return false;
         }
         BannerLinkTargetJson other = (BannerLinkTargetJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.details, other.details);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.details, other.details);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, details);
+        return Utils.enhancedHash(type, details);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BannerLinkTargetJson.class,
-                "type", type,
-                "details", details);
+        return Utils.toString(BannerLinkTargetJson.class, "type", type, "details", details);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private BannerLinkTargetJsonType type;
 
         private String details;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class BannerLinkTargetJson {
         }
 
         public BannerLinkTargetJson build() {
-            return new BannerLinkTargetJson(
-                type, details);
+            return new BannerLinkTargetJson(type, details);
         }
-
     }
 }

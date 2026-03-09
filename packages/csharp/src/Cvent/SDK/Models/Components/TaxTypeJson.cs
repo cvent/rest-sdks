@@ -18,36 +18,27 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TaxTypeJson
     {
-        [JsonProperty("city_tax")]
-        CityTax,
-        [JsonProperty("lodging_tax")]
-        LodgingTax,
-        [JsonProperty("occupancy_tax")]
-        OccupancyTax,
-        [JsonProperty("service_fee")]
-        ServiceFee,
-        [JsonProperty("state_tax")]
-        StateTax,
-        [JsonProperty("vat_tax")]
-        VatTax,
-        [JsonProperty("vatfb_tax")]
-        VatfbTax,
-        [JsonProperty("other_tax")]
-        OtherTax,
-        [JsonProperty("resort_fee")]
-        ResortFee,
+        [JsonProperty("city_tax")] CityTax,
+        [JsonProperty("lodging_tax")] LodgingTax,
+        [JsonProperty("occupancy_tax")] OccupancyTax,
+        [JsonProperty("service_fee")] ServiceFee,
+        [JsonProperty("state_tax")] StateTax,
+        [JsonProperty("vat_tax")] VatTax,
+        [JsonProperty("vatfb_tax")] VatfbTax,
+        [JsonProperty("other_tax")] OtherTax,
+        [JsonProperty("resort_fee")] ResortFee,
     }
 
     public static class TaxTypeJsonExtension
     {
         public static string Value(this TaxTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TaxTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TaxTypeJson).GetFields())
+            foreach (var field in typeof(TaxTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

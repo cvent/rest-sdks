@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * ContactGroupTypeJson
- * 
+ *
  * <p>Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events.
  * `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to.
- * 
+ *
  * <p>`STANDARD` is a multi-purpose group for organizing contacts.
  */
 public enum ContactGroupTypeJson {
@@ -27,13 +27,13 @@ public enum ContactGroupTypeJson {
     ContactGroupTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ContactGroupTypeJson> fromValue(String value) {
-        for (ContactGroupTypeJson o: ContactGroupTypeJson.values()) {
+        for (ContactGroupTypeJson o : ContactGroupTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum ContactGroupTypeJson {
         return Optional.empty();
     }
 }
-

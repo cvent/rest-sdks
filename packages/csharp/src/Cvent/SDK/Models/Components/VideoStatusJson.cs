@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum VideoStatusJson
     {
-        [JsonProperty("Started")]
-        Started,
-        [JsonProperty("Uploaded")]
-        Uploaded,
-        [JsonProperty("Scanning")]
-        Scanning,
-        [JsonProperty("Scanned")]
-        Scanned,
-        [JsonProperty("Syncing")]
-        Syncing,
-        [JsonProperty("Rejected")]
-        Rejected,
-        [JsonProperty("Error")]
-        Error,
-        [JsonProperty("Available")]
-        Available,
-        [JsonProperty("Upcoming")]
-        Upcoming,
-        [JsonProperty("ReSyncing")]
-        ReSyncing,
+        [JsonProperty("Started")] Started,
+        [JsonProperty("Uploaded")] Uploaded,
+        [JsonProperty("Scanning")] Scanning,
+        [JsonProperty("Scanned")] Scanned,
+        [JsonProperty("Syncing")] Syncing,
+        [JsonProperty("Rejected")] Rejected,
+        [JsonProperty("Error")] Error,
+        [JsonProperty("Available")] Available,
+        [JsonProperty("Upcoming")] Upcoming,
+        [JsonProperty("ReSyncing")] ReSyncing,
     }
 
     public static class VideoStatusJsonExtension
     {
         public static string Value(this VideoStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static VideoStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(VideoStatusJson).GetFields())
+            foreach (var field in typeof(VideoStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

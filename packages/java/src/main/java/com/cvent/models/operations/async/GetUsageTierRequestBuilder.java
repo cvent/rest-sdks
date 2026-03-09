@@ -19,7 +19,6 @@ public class GetUsageTierRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetUsageTierRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -28,14 +27,12 @@ public class GetUsageTierRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetUsageTierResponse> call() {
-        AsyncRequestlessOperation<GetUsageTierResponse> operation
-            = new GetUsageTier.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

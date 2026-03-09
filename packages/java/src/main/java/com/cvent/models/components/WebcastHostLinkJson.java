@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * WebcastHostLinkJson
- * 
+ *
  * <p>Link details for a webcast host.
  */
 public class WebcastHostLinkJson {
@@ -49,7 +49,7 @@ public class WebcastHostLinkJson {
         this.code = code;
         this.key = key;
     }
-    
+
     public WebcastHostLinkJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class WebcastHostLinkJson {
         return new Builder();
     }
 
-
     /**
      * A url to the webcast.
      */
@@ -87,7 +86,6 @@ public class WebcastHostLinkJson {
         this.href = href;
         return this;
     }
-
 
     /**
      * Access code of webcast link.
@@ -97,7 +95,6 @@ public class WebcastHostLinkJson {
         return this;
     }
 
-
     /**
      * Host key for the webcast.
      */
@@ -105,7 +102,6 @@ public class WebcastHostLinkJson {
         this.key = key;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class WebcastHostLinkJson {
             return false;
         }
         WebcastHostLinkJson other = (WebcastHostLinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.key, other.key);
+        return Utils.enhancedDeepEquals(this.href, other.href)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.key, other.key);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href, code, key);
+        return Utils.enhancedHash(href, code, key);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(WebcastHostLinkJson.class,
-                "href", href,
-                "code", code,
-                "key", key);
+        return Utils.toString(WebcastHostLinkJson.class, "href", href, "code", code, "key", key);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
@@ -146,7 +137,7 @@ public class WebcastHostLinkJson {
         private String key;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class WebcastHostLinkJson {
         }
 
         public WebcastHostLinkJson build() {
-            return new WebcastHostLinkJson(
-                href, code, key);
+            return new WebcastHostLinkJson(href, code, key);
         }
-
     }
 }

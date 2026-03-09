@@ -40,7 +40,7 @@ public class ListAppointmentAttendeesRequestBuilder {
     private ListAppointmentAttendeesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAppointmentAttendeesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListAppointmentAttendeesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListAppointmentAttendeesResponse> call() {
-        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation
-              = new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation =
+                new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListAppointmentAttendeesRequestBuilder {
      */
     public Publisher<ListAppointmentAttendeesResponse> callAsPublisher() {
         ListAppointmentAttendeesRequest request = this.request;
-        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation
-              = new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation =
+                new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListAppointmentAttendeesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListAppointmentAttendeesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListAppointmentAttendeesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListAppointmentAttendeesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

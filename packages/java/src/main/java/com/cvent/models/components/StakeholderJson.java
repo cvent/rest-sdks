@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * StakeholderJson
- * 
+ *
  * <p>Represents an event stakeholder.
  */
 public class StakeholderJson {
@@ -83,7 +83,7 @@ public class StakeholderJson {
 
     /**
      * The work fax of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -93,7 +93,7 @@ public class StakeholderJson {
 
     /**
      * The work address of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -103,7 +103,7 @@ public class StakeholderJson {
 
     /**
      * The nickname of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -112,7 +112,7 @@ public class StakeholderJson {
     private String nickname;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -122,7 +122,7 @@ public class StakeholderJson {
 
     /**
      * Pager phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -131,7 +131,7 @@ public class StakeholderJson {
     private String pager;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -141,7 +141,7 @@ public class StakeholderJson {
 
     /**
      * Indicates if a given contact is active or not.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -151,7 +151,7 @@ public class StakeholderJson {
 
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -161,7 +161,7 @@ public class StakeholderJson {
 
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -170,7 +170,7 @@ public class StakeholderJson {
     private String ccEmail;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -180,7 +180,7 @@ public class StakeholderJson {
 
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -190,7 +190,7 @@ public class StakeholderJson {
 
     /**
      * Type of the stakeholder.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -199,7 +199,7 @@ public class StakeholderJson {
     private StakeholderJsonType type;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -208,7 +208,7 @@ public class StakeholderJson {
     private StakeholderJsonContactMembership membership;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -217,7 +217,7 @@ public class StakeholderJson {
     private StakeholderJsonAddressType primaryAddressType;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -227,7 +227,7 @@ public class StakeholderJson {
 
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -237,7 +237,7 @@ public class StakeholderJson {
 
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -248,7 +248,7 @@ public class StakeholderJson {
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -258,7 +258,7 @@ public class StakeholderJson {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -268,7 +268,7 @@ public class StakeholderJson {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -278,7 +278,7 @@ public class StakeholderJson {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -288,7 +288,7 @@ public class StakeholderJson {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -342,8 +342,7 @@ public class StakeholderJson {
         this.optOut = optOut;
         this.pager = pager;
         this.links = links;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.middleName = middleName;
         this.ccEmail = ccEmail;
         this.gender = gender;
@@ -360,18 +359,39 @@ public class StakeholderJson {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
     }
-    
+
     public StakeholderJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -432,7 +452,7 @@ public class StakeholderJson {
 
     /**
      * The work fax of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -442,7 +462,7 @@ public class StakeholderJson {
 
     /**
      * The work address of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -452,7 +472,7 @@ public class StakeholderJson {
 
     /**
      * The nickname of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -461,7 +481,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -471,7 +491,7 @@ public class StakeholderJson {
 
     /**
      * Pager phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -480,7 +500,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -490,7 +510,7 @@ public class StakeholderJson {
 
     /**
      * Indicates if a given contact is active or not.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -500,7 +520,7 @@ public class StakeholderJson {
 
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -510,7 +530,7 @@ public class StakeholderJson {
 
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -519,7 +539,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -529,7 +549,7 @@ public class StakeholderJson {
 
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -539,7 +559,7 @@ public class StakeholderJson {
 
     /**
      * Type of the stakeholder.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -548,7 +568,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -557,7 +577,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -566,7 +586,7 @@ public class StakeholderJson {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -576,7 +596,7 @@ public class StakeholderJson {
 
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -586,7 +606,7 @@ public class StakeholderJson {
 
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -597,7 +617,7 @@ public class StakeholderJson {
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -607,7 +627,7 @@ public class StakeholderJson {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -617,7 +637,7 @@ public class StakeholderJson {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -627,7 +647,7 @@ public class StakeholderJson {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -637,7 +657,7 @@ public class StakeholderJson {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -649,7 +669,6 @@ public class StakeholderJson {
         return new Builder();
     }
 
-
     /**
      * The first name of the stakeholder.
      */
@@ -657,7 +676,6 @@ public class StakeholderJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the stakeholder.
@@ -667,7 +685,6 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The company/organization the stakeholder belongs to.
      */
@@ -675,7 +692,6 @@ public class StakeholderJson {
         this.company = company;
         return this;
     }
-
 
     /**
      * The job title of the stakeholder.
@@ -685,7 +701,6 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The email address of the stakeholder.
      */
@@ -693,7 +708,6 @@ public class StakeholderJson {
         this.email = email;
         return this;
     }
-
 
     /**
      * Work phone number.
@@ -703,7 +717,6 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Home phone number.
      */
@@ -711,7 +724,6 @@ public class StakeholderJson {
         this.homePhone = homePhone;
         return this;
     }
-
 
     /**
      * Mobile phone number.
@@ -721,10 +733,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The work fax of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -733,10 +744,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The work address of the stakeholder (no longer supported).
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -745,10 +755,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The nickname of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -757,9 +766,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -768,10 +776,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Pager phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -780,9 +787,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -791,10 +797,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Indicates if a given contact is active or not.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -803,10 +808,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -815,10 +819,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -827,9 +830,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -838,10 +840,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -850,10 +851,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Type of the stakeholder.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -862,9 +862,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -873,9 +872,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -884,9 +882,8 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -895,10 +892,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -907,10 +903,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -919,11 +914,10 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -932,10 +926,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -944,10 +937,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -956,10 +948,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -968,10 +959,9 @@ public class StakeholderJson {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -979,7 +969,6 @@ public class StakeholderJson {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -990,91 +979,141 @@ public class StakeholderJson {
             return false;
         }
         StakeholderJson other = (StakeholderJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.workFax, other.workFax) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.nickname, other.nickname) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut) &&
-            Utils.enhancedDeepEquals(this.pager, other.pager) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.membership, other.membership) &&
-            Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.workFax, other.workFax)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.nickname, other.nickname)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut)
+                && Utils.enhancedDeepEquals(this.pager, other.pager)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.membership, other.membership)
+                && Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            firstName, lastName, company,
-            title, email, workPhone,
-            homePhone, mobilePhone, workFax,
-            workAddress, nickname, optOut,
-            pager, links, deleted,
-            middleName, ccEmail, gender,
-            designation, type, membership,
-            primaryAddressType, homeAddress, homeFax,
-            customFields, sourceId, created,
-            createdBy, lastModified, lastModifiedBy);
+                firstName,
+                lastName,
+                company,
+                title,
+                email,
+                workPhone,
+                homePhone,
+                mobilePhone,
+                workFax,
+                workAddress,
+                nickname,
+                optOut,
+                pager,
+                links,
+                deleted,
+                middleName,
+                ccEmail,
+                gender,
+                designation,
+                type,
+                membership,
+                primaryAddressType,
+                homeAddress,
+                homeFax,
+                customFields,
+                sourceId,
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StakeholderJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "company", company,
-                "title", title,
-                "email", email,
-                "workPhone", workPhone,
-                "homePhone", homePhone,
-                "mobilePhone", mobilePhone,
-                "workFax", workFax,
-                "workAddress", workAddress,
-                "nickname", nickname,
-                "optOut", optOut,
-                "pager", pager,
-                "links", links,
-                "deleted", deleted,
-                "middleName", middleName,
-                "ccEmail", ccEmail,
-                "gender", gender,
-                "designation", designation,
-                "type", type,
-                "membership", membership,
-                "primaryAddressType", primaryAddressType,
-                "homeAddress", homeAddress,
-                "homeFax", homeFax,
-                "customFields", customFields,
-                "sourceId", sourceId,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy);
+        return Utils.toString(
+                StakeholderJson.class,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "company",
+                company,
+                "title",
+                title,
+                "email",
+                email,
+                "workPhone",
+                workPhone,
+                "homePhone",
+                homePhone,
+                "mobilePhone",
+                mobilePhone,
+                "workFax",
+                workFax,
+                "workAddress",
+                workAddress,
+                "nickname",
+                nickname,
+                "optOut",
+                optOut,
+                "pager",
+                pager,
+                "links",
+                links,
+                "deleted",
+                deleted,
+                "middleName",
+                middleName,
+                "ccEmail",
+                ccEmail,
+                "gender",
+                gender,
+                "designation",
+                designation,
+                "type",
+                type,
+                "membership",
+                membership,
+                "primaryAddressType",
+                primaryAddressType,
+                "homeAddress",
+                homeAddress,
+                "homeFax",
+                homeFax,
+                "customFields",
+                customFields,
+                "sourceId",
+                sourceId,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -1159,7 +1198,7 @@ public class StakeholderJson {
         private String lastModifiedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1228,7 +1267,7 @@ public class StakeholderJson {
 
         /**
          * The work fax of the stakeholder (no longer supported).
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1239,7 +1278,7 @@ public class StakeholderJson {
 
         /**
          * The work address of the stakeholder (no longer supported).
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1250,7 +1289,7 @@ public class StakeholderJson {
 
         /**
          * The nickname of the contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1260,7 +1299,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1271,7 +1310,7 @@ public class StakeholderJson {
 
         /**
          * Pager phone number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1281,7 +1320,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1292,7 +1331,7 @@ public class StakeholderJson {
 
         /**
          * Indicates if a given contact is active or not.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1303,7 +1342,7 @@ public class StakeholderJson {
 
         /**
          * The middle name of the contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1314,7 +1353,7 @@ public class StakeholderJson {
 
         /**
          * An alternate email address of the contact that will be cc'd on all email communications.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1324,7 +1363,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1335,7 +1374,7 @@ public class StakeholderJson {
 
         /**
          * The designation of the contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1346,7 +1385,7 @@ public class StakeholderJson {
 
         /**
          * Type of the stakeholder.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1356,7 +1395,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1366,7 +1405,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1376,7 +1415,7 @@ public class StakeholderJson {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1387,7 +1426,7 @@ public class StakeholderJson {
 
         /**
          * Home fax number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1398,7 +1437,7 @@ public class StakeholderJson {
 
         /**
          * Collection of custom fields.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1410,7 +1449,7 @@ public class StakeholderJson {
         /**
          * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1421,7 +1460,7 @@ public class StakeholderJson {
 
         /**
          * The ISO 8601 zoned date time when this record was created.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1432,7 +1471,7 @@ public class StakeholderJson {
 
         /**
          * The identifier of the user that created this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1443,7 +1482,7 @@ public class StakeholderJson {
 
         /**
          * The ISO 8601 zoned date time when this record was updated.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1454,7 +1493,7 @@ public class StakeholderJson {
 
         /**
          * The identifier of the user that last updated this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1465,23 +1504,39 @@ public class StakeholderJson {
 
         public StakeholderJson build() {
             return new StakeholderJson(
-                firstName, lastName, company,
-                title, email, workPhone,
-                homePhone, mobilePhone, workFax,
-                workAddress, nickname, optOut,
-                pager, links, deleted,
-                middleName, ccEmail, gender,
-                designation, type, membership,
-                primaryAddressType, homeAddress, homeFax,
-                customFields, sourceId, created,
-                createdBy, lastModified, lastModifiedBy);
+                    firstName,
+                    lastName,
+                    company,
+                    title,
+                    email,
+                    workPhone,
+                    homePhone,
+                    mobilePhone,
+                    workFax,
+                    workAddress,
+                    nickname,
+                    optOut,
+                    pager,
+                    links,
+                    deleted,
+                    middleName,
+                    ccEmail,
+                    gender,
+                    designation,
+                    type,
+                    membership,
+                    primaryAddressType,
+                    homeAddress,
+                    homeFax,
+                    customFields,
+                    sourceId,
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "true", new TypeReference<Boolean>() {});
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * LinkJson
- * 
+ *
  * <p>Represents a link to a related resource.
  */
 public class LinkJson {
@@ -24,10 +24,8 @@ public class LinkJson {
     private String href;
 
     @JsonCreator
-    public LinkJson(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public LinkJson(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class LinkJson {
         return new Builder();
     }
 
-
     /**
      * A url provided that can be followed for linking
      */
@@ -49,7 +46,6 @@ public class LinkJson {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class LinkJson {
             return false;
         }
         LinkJson other = (LinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LinkJson.class,
-                "href", href);
+        return Utils.toString(LinkJson.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class LinkJson {
         }
 
         public LinkJson build() {
-            return new LinkJson(
-                href);
+            return new LinkJson(href);
         }
-
     }
 }

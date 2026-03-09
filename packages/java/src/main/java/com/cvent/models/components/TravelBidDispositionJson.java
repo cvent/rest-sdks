@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * TravelBidDispositionJson
- * 
+ *
  * <p>Represents bid disposition details.
  */
 public class TravelBidDispositionJson {
@@ -50,10 +50,9 @@ public class TravelBidDispositionJson {
             @JsonProperty("rateType") @Nullable RateTypeJson rateType) {
         this.bid = bid;
         this.acceptedBidRooms = acceptedBidRooms;
-        this.rateType = Optional.ofNullable(rateType)
-            .orElse(Builder._SINGLETON_VALUE_RateType.value());
+        this.rateType = Optional.ofNullable(rateType).orElse(Builder._SINGLETON_VALUE_RateType.value());
     }
-    
+
     public TravelBidDispositionJson() {
         this(null, null, null);
     }
@@ -83,7 +82,6 @@ public class TravelBidDispositionJson {
         return new Builder();
     }
 
-
     /**
      * A travel proposal bid.
      */
@@ -92,15 +90,14 @@ public class TravelBidDispositionJson {
         return this;
     }
 
-
     /**
      * List of accepted bid rooms.
      */
-    public TravelBidDispositionJson withAcceptedBidRooms(@Nullable List<TravelBidDispositionAcceptedRoomJson> acceptedBidRooms) {
+    public TravelBidDispositionJson withAcceptedBidRooms(
+            @Nullable List<TravelBidDispositionAcceptedRoomJson> acceptedBidRooms) {
         this.acceptedBidRooms = acceptedBidRooms;
         return this;
     }
-
 
     /**
      * Rate type.
@@ -109,7 +106,6 @@ public class TravelBidDispositionJson {
         this.rateType = rateType;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +116,24 @@ public class TravelBidDispositionJson {
             return false;
         }
         TravelBidDispositionJson other = (TravelBidDispositionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.bid, other.bid) &&
-            Utils.enhancedDeepEquals(this.acceptedBidRooms, other.acceptedBidRooms) &&
-            Utils.enhancedDeepEquals(this.rateType, other.rateType);
+        return Utils.enhancedDeepEquals(this.bid, other.bid)
+                && Utils.enhancedDeepEquals(this.acceptedBidRooms, other.acceptedBidRooms)
+                && Utils.enhancedDeepEquals(this.rateType, other.rateType);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            bid, acceptedBidRooms, rateType);
+        return Utils.enhancedHash(bid, acceptedBidRooms, rateType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidDispositionJson.class,
-                "bid", bid,
-                "acceptedBidRooms", acceptedBidRooms,
-                "rateType", rateType);
+        return Utils.toString(
+                TravelBidDispositionJson.class, "bid", bid, "acceptedBidRooms", acceptedBidRooms, "rateType", rateType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelProposalBidIdJson bid;
 
@@ -150,7 +142,7 @@ public class TravelBidDispositionJson {
         private RateTypeJson rateType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,15 +170,10 @@ public class TravelBidDispositionJson {
         }
 
         public TravelBidDispositionJson build() {
-            return new TravelBidDispositionJson(
-                bid, acceptedBidRooms, rateType);
+            return new TravelBidDispositionJson(bid, acceptedBidRooms, rateType);
         }
 
-
         private static final LazySingletonValue<RateTypeJson> _SINGLETON_VALUE_RateType =
-                new LazySingletonValue<>(
-                        "rateType",
-                        "\"fixed\"",
-                        new TypeReference<RateTypeJson>() {});
+                new LazySingletonValue<>("rateType", "\"fixed\"", new TypeReference<RateTypeJson>() {});
     }
 }

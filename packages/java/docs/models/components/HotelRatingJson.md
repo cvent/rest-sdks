@@ -2,6 +2,14 @@
 
 The hotel's rating, used to classify the hotel's quality.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.HotelRatingJson;
+
+HotelRatingJson value = HotelRatingJson.NA;
+```
+
 
 ## Values
 

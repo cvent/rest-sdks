@@ -18,7 +18,7 @@ namespace Cvent.SDK.Utils
     {
         public override bool CanConvert(Type objectType)
         {
-            var  nullableType = Nullable.GetUnderlyingType(objectType);
+            var nullableType = Nullable.GetUnderlyingType(objectType);
             if (nullableType != null)
             {
                 return nullableType == typeof(Decimal);
@@ -39,9 +39,12 @@ namespace Cvent.SDK.Utils
                 return null;
             }
 
-            try {
+            try
+            {
                 return Decimal.Parse(reader.Value.ToString()!);
-            } catch (System.FormatException ex) {
+            }
+            catch (System.FormatException ex)
+            {
                 throw new Newtonsoft.Json.JsonSerializationException("Could not parse Decimal", ex);
             }
         }

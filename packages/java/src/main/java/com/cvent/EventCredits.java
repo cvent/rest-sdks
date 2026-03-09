@@ -16,7 +16,7 @@ import jakarta.annotation.Nonnull;
  * Event Credits reward attendees for participating in your events. Planners can award credits for the
  * entire event, specific sessions, or both. You can also award credits after attendees complete
  * surveys.
- * 
+ *
  * <p>Use these APIs to retrieve credit details for your attendees.
  */
 public class EventCredits {
@@ -31,7 +31,7 @@ public class EventCredits {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncEventCredits async() {
@@ -40,11 +40,11 @@ public class EventCredits {
 
     /**
      * List Attendee Event Credits
-     * 
+     *
      * <p>Gets a paginated list of attendee event credits in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAttendeeCreditsRequestBuilder getAttendeeCredits() {
@@ -53,19 +53,18 @@ public class EventCredits {
 
     /**
      * List Attendee Event Credits
-     * 
+     *
      * <p>Gets a paginated list of attendee event credits in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAttendeeCreditsResponse getAttendeeCredits(@Nonnull GetAttendeeCreditsRequest request) {
-        RequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation
-              = new GetAttendeeCredits.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation =
+                new GetAttendeeCredits.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

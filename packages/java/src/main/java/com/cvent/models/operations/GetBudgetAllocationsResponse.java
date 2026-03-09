@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetBudgetAllocationsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetBudgetAllocationsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.budgetAllocationsPaginatedListResponse = budgetAllocationsPaginatedListResponse;
     }
-    
+
     public GetBudgetAllocationsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetBudgetAllocationsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetBudgetAllocationsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetBudgetAllocationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetBudgetAllocationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of budget allocations for all budget items within an event.
      */
-    public GetBudgetAllocationsResponse withBudgetAllocationsPaginatedListResponse(@Nullable BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse) {
+    public GetBudgetAllocationsResponse withBudgetAllocationsPaginatedListResponse(
+            @Nullable BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse) {
         this.budgetAllocationsPaginatedListResponse = budgetAllocationsPaginatedListResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class GetBudgetAllocationsResponse implements Response {
             return false;
         }
         GetBudgetAllocationsResponse other = (GetBudgetAllocationsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.budgetAllocationsPaginatedListResponse, other.budgetAllocationsPaginatedListResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.budgetAllocationsPaginatedListResponse, other.budgetAllocationsPaginatedListResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            budgetAllocationsPaginatedListResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, budgetAllocationsPaginatedListResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBudgetAllocationsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "budgetAllocationsPaginatedListResponse", budgetAllocationsPaginatedListResponse);
+        return Utils.toString(
+                GetBudgetAllocationsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "budgetAllocationsPaginatedListResponse",
+                budgetAllocationsPaginatedListResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class GetBudgetAllocationsResponse implements Response {
         private BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class GetBudgetAllocationsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of budget allocations for all budget items within an event.
          */
-        public Builder budgetAllocationsPaginatedListResponse(@Nullable BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse) {
+        public Builder budgetAllocationsPaginatedListResponse(
+                @Nullable BudgetAllocationsPaginatedListResponse budgetAllocationsPaginatedListResponse) {
             this.budgetAllocationsPaginatedListResponse = budgetAllocationsPaginatedListResponse;
             return this;
         }
 
         public GetBudgetAllocationsResponse build() {
             return new GetBudgetAllocationsResponse(
-                contentType, statusCode, rawResponse,
-                budgetAllocationsPaginatedListResponse);
+                    contentType, statusCode, rawResponse, budgetAllocationsPaginatedListResponse);
         }
-
     }
 }

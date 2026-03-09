@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ContactFieldJsonType
     {
-        [JsonProperty("String")]
-        String,
-        [JsonProperty("Integer")]
-        Integer,
-        [JsonProperty("Decimal")]
-        Decimal,
-        [JsonProperty("Double")]
-        Double,
-        [JsonProperty("DateTime")]
-        DateTime,
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
+        [JsonProperty("String")] String,
+        [JsonProperty("Integer")] Integer,
+        [JsonProperty("Decimal")] Decimal,
+        [JsonProperty("Double")] Double,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
     }
 
     public static class ContactFieldJsonTypeExtension
     {
         public static string Value(this ContactFieldJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ContactFieldJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(ContactFieldJsonType).GetFields())
+            foreach (var field in typeof(ContactFieldJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyRespondentsPaginatedResponse
- * 
+ *
  * <p>Response includes paging and respondents data for a event survey
  */
 public class EventSurveyRespondentsPaginatedResponse {
@@ -34,10 +34,9 @@ public class EventSurveyRespondentsPaginatedResponse {
     public EventSurveyRespondentsPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
             @JsonProperty("data") @Nonnull List<EventSurveyRespondent> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +57,6 @@ public class EventSurveyRespondentsPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +65,6 @@ public class EventSurveyRespondentsPaginatedResponse {
         return this;
     }
 
-
     /**
      * Respondent information for an event survey
      */
@@ -75,7 +72,6 @@ public class EventSurveyRespondentsPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +82,28 @@ public class EventSurveyRespondentsPaginatedResponse {
             return false;
         }
         EventSurveyRespondentsPaginatedResponse other = (EventSurveyRespondentsPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyRespondentsPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(EventSurveyRespondentsPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<EventSurveyRespondent> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +123,7 @@ public class EventSurveyRespondentsPaginatedResponse {
         }
 
         public EventSurveyRespondentsPaginatedResponse build() {
-            return new EventSurveyRespondentsPaginatedResponse(
-                paging, data);
+            return new EventSurveyRespondentsPaginatedResponse(paging, data);
         }
-
     }
 }

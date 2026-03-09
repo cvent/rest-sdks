@@ -48,7 +48,9 @@ namespace Cvent.SDK.Utils.Retries
         /// </summary>
         public sealed class PermanentException : Exception
         {
-            public PermanentException(Exception innerException) : base("NonRetryable error.", innerException) { }
+            public PermanentException(Exception innerException) : base("NonRetryable error.", innerException)
+            {
+            }
         }
 
         /// <summary>
@@ -58,11 +60,14 @@ namespace Cvent.SDK.Utils.Retries
         {
             public HttpResponseMessage? Response = null;
 
-            public RetryableException(HttpResponseMessage response) {
+            public RetryableException(HttpResponseMessage response)
+            {
                 Response = response;
-                                                                    }
+            }
 
-            public RetryableException(Exception innerException) : base("An error occurred.", innerException) { }
+            public RetryableException(Exception innerException) : base("An error occurred.", innerException)
+            {
+            }
         }
 
         /// <summary>
@@ -72,7 +77,8 @@ namespace Cvent.SDK.Utils.Retries
         /// <exception cref="ArgumentException">Thrown when the retry strategy is invalid.</exception>
         public async Task<HttpResponseMessage> Run()
         {
-            switch(retryConfig.Strategy) {
+            switch (retryConfig.Strategy)
+            {
                 case RetryConfig.RetryStrategy.BACKOFF:
                     return await retryWithBackoff(retryConfig.RetryConnectionErrors);
 
@@ -130,7 +136,8 @@ namespace Cvent.SDK.Utils.Retries
         private async Task<HttpResponseMessage> retryWithBackoff(bool retryConnectionErrors)
         {
             var backoff = retryConfig.Backoff;
-            if(backoff == null){
+            if (backoff == null)
+            {
                 throw new ArgumentException("Backoff strategy is not defined");
             }
 
@@ -152,7 +159,7 @@ namespace Cvent.SDK.Utils.Retries
                     var nowMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
                     if (nowMs - startMs > backoff.MaxElapsedTimeMs)
                     {
-                        if(ex.Response != null)
+                        if (ex.Response != null)
                         {
                             return ex.Response;
                         }

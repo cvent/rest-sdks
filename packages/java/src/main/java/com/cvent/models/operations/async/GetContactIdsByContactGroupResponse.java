@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetContactIdsByContactGroupResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ContactIdPaginatedResponse contactIdPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.contactIdPaginatedResponse = contactIdPaginatedResponse;
     }
-    
+
     public GetContactIdsByContactGroupResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved Contact ids.
      */
-    public GetContactIdsByContactGroupResponse withContactIdPaginatedResponse(@Nullable ContactIdPaginatedResponse contactIdPaginatedResponse) {
+    public GetContactIdsByContactGroupResponse withContactIdPaginatedResponse(
+            @Nullable ContactIdPaginatedResponse contactIdPaginatedResponse) {
         this.contactIdPaginatedResponse = contactIdPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
             return false;
         }
         GetContactIdsByContactGroupResponse other = (GetContactIdsByContactGroupResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.contactIdPaginatedResponse, other.contactIdPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.contactIdPaginatedResponse, other.contactIdPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            contactIdPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactIdPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetContactIdsByContactGroupResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "contactIdPaginatedResponse", contactIdPaginatedResponse);
+        return Utils.toString(
+                GetContactIdsByContactGroupResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "contactIdPaginatedResponse",
+                contactIdPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
         private ContactIdPaginatedResponse contactIdPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -210,9 +204,7 @@ public class GetContactIdsByContactGroupResponse implements AsyncResponse {
 
         public GetContactIdsByContactGroupResponse build() {
             return new GetContactIdsByContactGroupResponse(
-                contentType, statusCode, rawResponse,
-                contactIdPaginatedResponse);
+                    contentType, statusCode, rawResponse, contactIdPaginatedResponse);
         }
-
     }
 }

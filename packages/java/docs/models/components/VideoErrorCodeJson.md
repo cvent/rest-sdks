@@ -2,6 +2,14 @@
 
 This is used to denote the error codes for a video entity.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.VideoErrorCodeJson;
+
+VideoErrorCodeJson value = VideoErrorCodeJson.SIX_HUNDRED;
+```
+
 
 ## Values
 

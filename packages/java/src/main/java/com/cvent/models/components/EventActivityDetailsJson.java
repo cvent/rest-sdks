@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventActivityDetailsJson
- * 
+ *
  * <p>Details for an event activity.
  */
 public class EventActivityDetailsJson {
@@ -58,10 +58,9 @@ public class EventActivityDetailsJson {
         this.code = code;
         this.timezone = timezone;
     }
-    
+
     public EventActivityDetailsJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventActivityDetailsJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of the event.
      */
@@ -104,7 +102,6 @@ public class EventActivityDetailsJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The title of the event.
@@ -114,7 +111,6 @@ public class EventActivityDetailsJson {
         return this;
     }
 
-
     /**
      * The code of the event.
      */
@@ -123,7 +119,6 @@ public class EventActivityDetailsJson {
         return this;
     }
 
-
     /**
      * The timezone of the event.
      */
@@ -131,7 +126,6 @@ public class EventActivityDetailsJson {
         this.timezone = timezone;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class EventActivityDetailsJson {
             return false;
         }
         EventActivityDetailsJson other = (EventActivityDetailsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, title, code,
-            timezone);
+        return Utils.enhancedHash(id, title, code, timezone);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventActivityDetailsJson.class,
-                "id", id,
-                "title", title,
-                "code", code,
-                "timezone", timezone);
+        return Utils.toString(
+                EventActivityDetailsJson.class, "id", id, "title", title, "code", code, "timezone", timezone);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +165,7 @@ public class EventActivityDetailsJson {
         private String timezone;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class EventActivityDetailsJson {
         }
 
         public EventActivityDetailsJson build() {
-            return new EventActivityDetailsJson(
-                id, title, code,
-                timezone);
+            return new EventActivityDetailsJson(id, title, code, timezone);
         }
-
     }
 }

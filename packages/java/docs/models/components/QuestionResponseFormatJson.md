@@ -2,6 +2,14 @@
 
 Code representing the format the text of the response will be in.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.QuestionResponseFormatJson;
+
+QuestionResponseFormatJson value = QuestionResponseFormatJson.LOWER_CASE;
+```
+
 
 ## Values
 

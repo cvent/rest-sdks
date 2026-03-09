@@ -30,7 +30,7 @@ public class DeleteContactHookRequestBuilder {
     private DeleteContactHookRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteContactHookRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteContactHookRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteContactHookResponse> call() {
-        AsyncRequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation
-              = new DeleteContactHook.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation =
+                new DeleteContactHook.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

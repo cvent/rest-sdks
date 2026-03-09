@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetGratuityJson
- * 
+ *
  * <p>Budget item gratuity details.
  */
 public class BudgetGratuityJson {
@@ -41,9 +41,8 @@ public class BudgetGratuityJson {
         this.gratuity = gratuity;
         this.appliedGratuityValue = appliedGratuityValue;
     }
-    
-    public BudgetGratuityJson(
-            double gratuity) {
+
+    public BudgetGratuityJson(double gratuity) {
         this(gratuity, null);
     }
 
@@ -66,7 +65,6 @@ public class BudgetGratuityJson {
         return new Builder();
     }
 
-
     /**
      * Gratuity applied to the budget item. This value can be a percentage of the cost or a flat dollar
      * amount.
@@ -76,7 +74,6 @@ public class BudgetGratuityJson {
         return this;
     }
 
-
     /**
      * Calculated gratuity amount based on gratuity field.
      */
@@ -84,7 +81,6 @@ public class BudgetGratuityJson {
         this.appliedGratuityValue = appliedGratuityValue;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -95,33 +91,30 @@ public class BudgetGratuityJson {
             return false;
         }
         BudgetGratuityJson other = (BudgetGratuityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.gratuity, other.gratuity) &&
-            Utils.enhancedDeepEquals(this.appliedGratuityValue, other.appliedGratuityValue);
+        return Utils.enhancedDeepEquals(this.gratuity, other.gratuity)
+                && Utils.enhancedDeepEquals(this.appliedGratuityValue, other.appliedGratuityValue);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            gratuity, appliedGratuityValue);
+        return Utils.enhancedHash(gratuity, appliedGratuityValue);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetGratuityJson.class,
-                "gratuity", gratuity,
-                "appliedGratuityValue", appliedGratuityValue);
+        return Utils.toString(
+                BudgetGratuityJson.class, "gratuity", gratuity, "appliedGratuityValue", appliedGratuityValue);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double gratuity;
 
         private Double appliedGratuityValue;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -142,9 +135,7 @@ public class BudgetGratuityJson {
         }
 
         public BudgetGratuityJson build() {
-            return new BudgetGratuityJson(
-                gratuity, appliedGratuityValue);
+            return new BudgetGratuityJson(gratuity, appliedGratuityValue);
         }
-
     }
 }

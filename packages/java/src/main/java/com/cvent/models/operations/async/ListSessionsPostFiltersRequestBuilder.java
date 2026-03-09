@@ -40,7 +40,7 @@ public class ListSessionsPostFiltersRequestBuilder {
     private ListSessionsPostFiltersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSessionsPostFiltersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListSessionsPostFiltersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSessionsPostFiltersResponse> call() {
-        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation
-              = new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation =
+                new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListSessionsPostFiltersRequestBuilder {
      */
     public Publisher<ListSessionsPostFiltersResponse> callAsPublisher() {
         ListSessionsPostFiltersRequest request = this.request;
-        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation
-              = new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation =
+                new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSessionsPostFiltersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSessionsPostFiltersRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListSessionsPostFiltersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListSessionsPostFiltersResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

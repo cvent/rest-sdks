@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AlternateTravelDetailJson
- * 
+ *
  * <p>Details of an alternate travel answer submitted by an attendee who opted out of air or hotel
  * bookings.
  */
@@ -117,12 +117,9 @@ public class AlternateTravelDetailJson {
         this.question = question;
         this.answer = answer;
     }
-    
+
     public AlternateTravelDetailJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -202,7 +199,6 @@ public class AlternateTravelDetailJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -210,7 +206,6 @@ public class AlternateTravelDetailJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -220,7 +215,6 @@ public class AlternateTravelDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -228,7 +222,6 @@ public class AlternateTravelDetailJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -238,7 +231,6 @@ public class AlternateTravelDetailJson {
         return this;
     }
 
-
     /**
      * Representation of the attendee
      */
@@ -246,7 +238,6 @@ public class AlternateTravelDetailJson {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * ID of the entity this alternate travel belongs to. For an event attendee, this field is contact ID.
@@ -257,7 +248,6 @@ public class AlternateTravelDetailJson {
         return this;
     }
 
-
     /**
      * Attendee type of the entity this alternate travel belongs to. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
@@ -267,7 +257,6 @@ public class AlternateTravelDetailJson {
         return this;
     }
 
-
     /**
      * Type of travel alternate question
      */
@@ -275,7 +264,6 @@ public class AlternateTravelDetailJson {
         this.travelType = travelType;
         return this;
     }
-
 
     /**
      * Represents a reference to an alternate travel question entity, containing only the question ID and
@@ -286,7 +274,6 @@ public class AlternateTravelDetailJson {
         return this;
     }
 
-
     /**
      * Represents the answer(s) to an alternate travel question submitted by an attendee.
      */
@@ -294,7 +281,6 @@ public class AlternateTravelDetailJson {
         this.answer = answer;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -305,45 +291,61 @@ public class AlternateTravelDetailJson {
             return false;
         }
         AlternateTravelDetailJson other = (AlternateTravelDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.requesterId, other.requesterId) &&
-            Utils.enhancedDeepEquals(this.requesterType, other.requesterType) &&
-            Utils.enhancedDeepEquals(this.travelType, other.travelType) &&
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answer, other.answer);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.requesterId, other.requesterId)
+                && Utils.enhancedDeepEquals(this.requesterType, other.requesterType)
+                && Utils.enhancedDeepEquals(this.travelType, other.travelType)
+                && Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answer, other.answer);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, attendee, requesterId,
-            requesterType, travelType, question,
-            answer);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                attendee,
+                requesterId,
+                requesterType,
+                travelType,
+                question,
+                answer);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AlternateTravelDetailJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "attendee", attendee,
-                "requesterId", requesterId,
-                "requesterType", requesterType,
-                "travelType", travelType,
-                "question", question,
-                "answer", answer);
+        return Utils.toString(
+                AlternateTravelDetailJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "attendee",
+                attendee,
+                "requesterId",
+                requesterId,
+                "requesterType",
+                requesterType,
+                "travelType",
+                travelType,
+                "question",
+                question,
+                "answer",
+                answer);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -366,7 +368,7 @@ public class AlternateTravelDetailJson {
         private AlternateAnswerJson answer;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -454,11 +456,16 @@ public class AlternateTravelDetailJson {
 
         public AlternateTravelDetailJson build() {
             return new AlternateTravelDetailJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, attendee, requesterId,
-                requesterType, travelType, question,
-                answer);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    attendee,
+                    requesterId,
+                    requesterType,
+                    travelType,
+                    question,
+                    answer);
         }
-
     }
 }

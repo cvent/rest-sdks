@@ -2,6 +2,14 @@
 
 Type of journey
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = JourneyType.Oneway;
+```
+
 
 ## Values
 

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * HookInput
- * 
+ *
  * <p>A hook with a callback URI.
  */
 public class HookInput {
@@ -42,12 +42,11 @@ public class HookInput {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("callback") @Nonnull String callback,
             @JsonProperty("security") @Nonnull HookSecurityJson security) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.callback = Optional.ofNullable(callback)
-            .orElseThrow(() -> new IllegalArgumentException("callback cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("callback cannot be null"));
         this.security = Optional.ofNullable(security)
-            .orElseThrow(() -> new IllegalArgumentException("security cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("security cannot be null"));
     }
 
     /**
@@ -77,7 +76,6 @@ public class HookInput {
         return new Builder();
     }
 
-
     /**
      * Name of the contact hook.
      */
@@ -85,7 +83,6 @@ public class HookInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * A client hosted callback URI to which callback would be invoked. TLS is mandatory. Callback URL
@@ -96,7 +93,6 @@ public class HookInput {
         return this;
     }
 
-
     /**
      * Describe security for a web hook callback. Each option corresponds to an Authorization header
      * variant.
@@ -105,7 +101,6 @@ public class HookInput {
         this.security = Utils.checkNotNull(security, "security");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +111,23 @@ public class HookInput {
             return false;
         }
         HookInput other = (HookInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.callback, other.callback) &&
-            Utils.enhancedDeepEquals(this.security, other.security);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.callback, other.callback)
+                && Utils.enhancedDeepEquals(this.security, other.security);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, callback, security);
+        return Utils.enhancedHash(name, callback, security);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HookInput.class,
-                "name", name,
-                "callback", callback,
-                "security", security);
+        return Utils.toString(HookInput.class, "name", name, "callback", callback, "security", security);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -146,7 +136,7 @@ public class HookInput {
         private HookSecurityJson security;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,9 +166,7 @@ public class HookInput {
         }
 
         public HookInput build() {
-            return new HookInput(
-                name, callback, security);
+            return new HookInput(name, callback, security);
         }
-
     }
 }

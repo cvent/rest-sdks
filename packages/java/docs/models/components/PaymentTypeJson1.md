@@ -2,6 +2,14 @@
 
 Denotes the method of payment.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.PaymentTypeJson1;
+
+PaymentTypeJson1 value = PaymentTypeJson1.AIRPLUS;
+```
+
 
 ## Values
 

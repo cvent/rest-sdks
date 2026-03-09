@@ -2,6 +2,14 @@
 
 The state province code used for contact information.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.StateProvinceJson;
+
+StateProvinceJson value = StateProvinceJson.BLANK;
+```
+
 
 ## Values
 

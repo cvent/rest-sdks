@@ -41,7 +41,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiListBrandsResponse> PropertyApiListBrandsAsync(
+        public Task<PropertyApiListBrandsResponse> PropertyApiListBrandsAsync(
             PropertyApiListBrandsRequest? request = null
         );
 
@@ -58,7 +58,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiGetBrandResponse> PropertyApiGetBrandAsync(PropertyApiGetBrandRequest request);
+        public Task<PropertyApiGetBrandResponse> PropertyApiGetBrandAsync(PropertyApiGetBrandRequest request);
 
         /// <summary>
         /// List Supplier Chains.
@@ -72,7 +72,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiListChainsResponse> PropertyApiListChainsAsync(
+        public Task<PropertyApiListChainsResponse> PropertyApiListChainsAsync(
             PropertyApiListChainsRequest? request = null
         );
 
@@ -89,7 +89,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiGetChainResponse> PropertyApiGetChainAsync(PropertyApiGetChainRequest request);
+        public Task<PropertyApiGetChainResponse> PropertyApiGetChainAsync(PropertyApiGetChainRequest request);
 
         /// <summary>
         /// List Supplier Properties.
@@ -103,7 +103,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiListPropertiesResponse> PropertyApiListPropertiesAsync(
+        public Task<PropertyApiListPropertiesResponse> PropertyApiListPropertiesAsync(
             PropertyApiListPropertiesRequest? request = null
         );
 
@@ -120,7 +120,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiGetPropertyResponse> PropertyApiGetPropertyAsync(PropertyApiGetPropertyRequest request);
+        public Task<PropertyApiGetPropertyResponse> PropertyApiGetPropertyAsync(PropertyApiGetPropertyRequest request);
 
         /// <summary>
         /// List Supplier Property Rooms.
@@ -134,7 +134,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<BtApiGetPropertyRoomsResponse> BtApiGetPropertyRoomsAsync(
+        public Task<BtApiGetPropertyRoomsResponse> BtApiGetPropertyRoomsAsync(
             BtApiGetPropertyRoomsRequest? request = null
         );
 
@@ -151,7 +151,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PropertyApiGetPropertyRoomResponse> PropertyApiGetPropertyRoomAsync(
+        public Task<PropertyApiGetPropertyRoomResponse> PropertyApiGetPropertyRoomAsync(
             PropertyApiGetPropertyRoomRequest request
         );
     }
@@ -159,7 +159,7 @@ namespace Cvent.SDK
     /// <summary>
     /// The Travel Supplier APIs provide access to Cvent data related to hotels, apartments, and other travel providers. This includes information related to properties, and sleeping rooms.
     /// </summary>
-    public class TravelSuppliers: ITravelSuppliers
+    public class TravelSuppliers : ITravelSuppliers
     {
         /// <summary>
         /// SDK Configuration.
@@ -184,7 +184,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiListBrandsResponse> PropertyApiListBrandsAsync(
+        public async Task<PropertyApiListBrandsResponse> PropertyApiListBrandsAsync(
             PropertyApiListBrandsRequest? request = null
         )
         {
@@ -243,7 +243,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -254,8 +254,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new PropertyApiListBrandsRequest
-                {
+                var newRequest = new PropertyApiListBrandsRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -263,16 +262,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await PropertyApiListBrandsAsync (
+                return await PropertyApiListBrandsAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     BrandPaginatedResponse obj;
@@ -285,10 +284,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into BrandPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiListBrandsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiListBrandsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -300,9 +297,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -320,18 +317,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Supplier Brand.
@@ -346,7 +342,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiGetBrandResponse> PropertyApiGetBrandAsync(PropertyApiGetBrandRequest request)
+        public async Task<PropertyApiGetBrandResponse> PropertyApiGetBrandAsync(PropertyApiGetBrandRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -402,9 +398,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Brand obj;
@@ -417,10 +413,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Brand.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiGetBrandResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiGetBrandResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -431,9 +425,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -451,18 +445,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Supplier Chains.
@@ -476,7 +469,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiListChainsResponse> PropertyApiListChainsAsync(
+        public async Task<PropertyApiListChainsResponse> PropertyApiListChainsAsync(
             PropertyApiListChainsRequest? request = null
         )
         {
@@ -535,7 +528,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -546,8 +539,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new PropertyApiListChainsRequest
-                {
+                var newRequest = new PropertyApiListChainsRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -555,16 +547,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await PropertyApiListChainsAsync (
+                return await PropertyApiListChainsAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ChainPaginatedResponse obj;
@@ -577,10 +569,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ChainPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiListChainsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiListChainsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -592,9 +582,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -612,18 +602,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Supplier Chain.
@@ -638,7 +627,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiGetChainResponse> PropertyApiGetChainAsync(PropertyApiGetChainRequest request)
+        public async Task<PropertyApiGetChainResponse> PropertyApiGetChainAsync(PropertyApiGetChainRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -694,9 +683,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Chain obj;
@@ -709,10 +698,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Chain.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiGetChainResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiGetChainResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -723,9 +710,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -743,18 +730,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Supplier Properties.
@@ -768,7 +754,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiListPropertiesResponse> PropertyApiListPropertiesAsync(
+        public async Task<PropertyApiListPropertiesResponse> PropertyApiListPropertiesAsync(
             PropertyApiListPropertiesRequest? request = null
         )
         {
@@ -827,7 +813,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -838,8 +824,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new PropertyApiListPropertiesRequest
-                {
+                var newRequest = new PropertyApiListPropertiesRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -847,16 +832,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await PropertyApiListPropertiesAsync (
+                return await PropertyApiListPropertiesAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     PropertyPaginatedResponse obj;
@@ -869,10 +854,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into PropertyPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiListPropertiesResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiListPropertiesResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -884,9 +867,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -904,18 +887,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Supplier Property.
@@ -930,7 +912,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiGetPropertyResponse> PropertyApiGetPropertyAsync(
+        public async Task<PropertyApiGetPropertyResponse> PropertyApiGetPropertyAsync(
             PropertyApiGetPropertyRequest request
         )
         {
@@ -988,9 +970,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Property obj;
@@ -1003,10 +985,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Property.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiGetPropertyResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiGetPropertyResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -1017,9 +997,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1037,18 +1017,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Supplier Property Rooms.
@@ -1062,7 +1041,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<BtApiGetPropertyRoomsResponse> BtApiGetPropertyRoomsAsync(
+        public async Task<BtApiGetPropertyRoomsResponse> BtApiGetPropertyRoomsAsync(
             BtApiGetPropertyRoomsRequest? request = null
         )
         {
@@ -1121,7 +1100,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -1132,8 +1111,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new BtApiGetPropertyRoomsRequest
-                {
+                var newRequest = new BtApiGetPropertyRoomsRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -1141,16 +1119,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await BtApiGetPropertyRoomsAsync (
+                return await BtApiGetPropertyRoomsAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     PropertyRoomPaginatedResponse obj;
@@ -1163,10 +1141,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into PropertyRoomPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new BtApiGetPropertyRoomsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new BtApiGetPropertyRoomsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -1178,9 +1154,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1198,18 +1174,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Supplier Property Room.
@@ -1224,7 +1199,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PropertyApiGetPropertyRoomResponse> PropertyApiGetPropertyRoomAsync(
+        public async Task<PropertyApiGetPropertyRoomResponse> PropertyApiGetPropertyRoomAsync(
             PropertyApiGetPropertyRoomRequest request
         )
         {
@@ -1282,9 +1257,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     PropertyRoom obj;
@@ -1297,10 +1272,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into PropertyRoom.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PropertyApiGetPropertyRoomResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PropertyApiGetPropertyRoomResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -1311,9 +1284,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1331,17 +1304,16 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
     }
 }

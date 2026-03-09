@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ChoicesDisplayTypeJson
     {
-        [JsonProperty("Dropdown")]
-        Dropdown,
-        [JsonProperty("Vertical")]
-        Vertical,
-        [JsonProperty("Horizontal")]
-        Horizontal,
-        [JsonProperty("MultiSelectBox")]
-        MultiSelectBox,
+        [JsonProperty("Dropdown")] Dropdown,
+        [JsonProperty("Vertical")] Vertical,
+        [JsonProperty("Horizontal")] Horizontal,
+        [JsonProperty("MultiSelectBox")] MultiSelectBox,
     }
 
     public static class ChoicesDisplayTypeJsonExtension
     {
         public static string Value(this ChoicesDisplayTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ChoicesDisplayTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ChoicesDisplayTypeJson).GetFields())
+            foreach (var field in typeof(ChoicesDisplayTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateWebcastRequest {
     /**
      * The identifier of the webcast.
@@ -20,18 +19,14 @@ public class UpdateWebcastRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExistingWebcastInput existingWebcast;
 
     @JsonCreator
-    public UpdateWebcastRequest(
-            @Nonnull String id,
-            @Nonnull ExistingWebcastInput existingWebcast) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateWebcastRequest(@Nonnull String id, @Nonnull ExistingWebcastInput existingWebcast) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.existingWebcast = Optional.ofNullable(existingWebcast)
-            .orElseThrow(() -> new IllegalArgumentException("existingWebcast cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("existingWebcast cannot be null"));
     }
 
     /**
@@ -49,7 +44,6 @@ public class UpdateWebcastRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of the webcast.
      */
@@ -58,12 +52,10 @@ public class UpdateWebcastRequest {
         return this;
     }
 
-
     public UpdateWebcastRequest withExistingWebcast(@Nonnull ExistingWebcastInput existingWebcast) {
         this.existingWebcast = Utils.checkNotNull(existingWebcast, "existingWebcast");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +66,29 @@ public class UpdateWebcastRequest {
             return false;
         }
         UpdateWebcastRequest other = (UpdateWebcastRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.existingWebcast, other.existingWebcast);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.existingWebcast, other.existingWebcast);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, existingWebcast);
+        return Utils.enhancedHash(id, existingWebcast);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateWebcastRequest.class,
-                "id", id,
-                "existingWebcast", existingWebcast);
+        return Utils.toString(UpdateWebcastRequest.class, "id", id, "existingWebcast", existingWebcast);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ExistingWebcastInput existingWebcast;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +105,7 @@ public class UpdateWebcastRequest {
         }
 
         public UpdateWebcastRequest build() {
-            return new UpdateWebcastRequest(
-                id, existingWebcast);
+            return new UpdateWebcastRequest(id, existingWebcast);
         }
-
     }
 }

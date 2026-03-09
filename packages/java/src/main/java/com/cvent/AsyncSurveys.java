@@ -118,19 +118,18 @@ public class AsyncSurveys {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Surveys sync() {
         return syncSDK;
     }
 
-
     /**
      * List All Event Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for all events and surveys.
-     * 
+     *
      * @return The async call builder
      */
     public GetAllEventSurveyResponsesRequestBuilder getAllEventSurveyResponses() {
@@ -139,26 +138,25 @@ public class AsyncSurveys {
 
     /**
      * List All Event Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for all events and surveys.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAllEventSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<GetAllEventSurveyResponsesResponse> getAllEventSurveyResponses(@Nonnull GetAllEventSurveyResponsesRequest request) {
-        AsyncRequestOperation<GetAllEventSurveyResponsesRequest, GetAllEventSurveyResponsesResponse> operation
-              = new GetAllEventSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAllEventSurveyResponsesResponse> getAllEventSurveyResponses(
+            @Nonnull GetAllEventSurveyResponsesRequest request) {
+        AsyncRequestOperation<GetAllEventSurveyResponsesRequest, GetAllEventSurveyResponsesResponse> operation =
+                new GetAllEventSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Event Surveys
-     * 
+     *
      * <p>Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated
      * to a single event.
-     * 
+     *
      * @return The async call builder
      */
     public GetEventSurveysRequestBuilder getEventSurveys() {
@@ -167,28 +165,26 @@ public class AsyncSurveys {
 
     /**
      * List Event Surveys
-     * 
+     *
      * <p>Gets a paginated list of surveys (id refers to chapter id and parentId is the survey id) associated
      * to a single event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventSurveysResponse>} - The async response
      */
     public CompletableFuture<GetEventSurveysResponse> getEventSurveys(@Nonnull GetEventSurveysRequest request) {
-        AsyncRequestOperation<GetEventSurveysRequest, GetEventSurveysResponse> operation
-              = new GetEventSurveys.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventSurveysRequest, GetEventSurveysResponse> operation =
+                new GetEventSurveys.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Event Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of event survey questions for a given event and survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The async call builder
      */
     public GetEventSurveyQuestionsRequestBuilder getEventSurveyQuestions() {
@@ -197,27 +193,26 @@ public class AsyncSurveys {
 
     /**
      * List Event Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of event survey questions for a given event and survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventSurveyQuestionsResponse>} - The async response
      */
-    public CompletableFuture<GetEventSurveyQuestionsResponse> getEventSurveyQuestions(@Nonnull GetEventSurveyQuestionsRequest request) {
-        AsyncRequestOperation<GetEventSurveyQuestionsRequest, GetEventSurveyQuestionsResponse> operation
-              = new GetEventSurveyQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEventSurveyQuestionsResponse> getEventSurveyQuestions(
+            @Nonnull GetEventSurveyQuestionsRequest request) {
+        AsyncRequestOperation<GetEventSurveyQuestionsRequest, GetEventSurveyQuestionsResponse> operation =
+                new GetEventSurveyQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Event Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of event survey respondents for a single event and survey.
-     * 
+     *
      * @return The async call builder
      */
     public GetEventSurveyRespondentsRequestBuilder getEventSurveyRespondents() {
@@ -226,25 +221,24 @@ public class AsyncSurveys {
 
     /**
      * List Event Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of event survey respondents for a single event and survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventSurveyRespondentsResponse>} - The async response
      */
-    public CompletableFuture<GetEventSurveyRespondentsResponse> getEventSurveyRespondents(@Nonnull GetEventSurveyRespondentsRequest request) {
-        AsyncRequestOperation<GetEventSurveyRespondentsRequest, GetEventSurveyRespondentsResponse> operation
-              = new GetEventSurveyRespondents.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEventSurveyRespondentsResponse> getEventSurveyRespondents(
+            @Nonnull GetEventSurveyRespondentsRequest request) {
+        AsyncRequestOperation<GetEventSurveyRespondentsRequest, GetEventSurveyRespondentsResponse> operation =
+                new GetEventSurveyRespondents.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Event Survey Respondent
-     * 
+     *
      * <p>Create a respondent for an event survey.
-     * 
+     *
      * @return The async call builder
      */
     public CreateEventSurveyRespondentRequestBuilder createEventSurveyRespondent() {
@@ -253,25 +247,24 @@ public class AsyncSurveys {
 
     /**
      * Create Event Survey Respondent
-     * 
+     *
      * <p>Create a respondent for an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateEventSurveyRespondentResponse>} - The async response
      */
-    public CompletableFuture<CreateEventSurveyRespondentResponse> createEventSurveyRespondent(@Nonnull CreateEventSurveyRespondentRequest request) {
-        AsyncRequestOperation<CreateEventSurveyRespondentRequest, CreateEventSurveyRespondentResponse> operation
-              = new CreateEventSurveyRespondent.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateEventSurveyRespondentResponse> createEventSurveyRespondent(
+            @Nonnull CreateEventSurveyRespondentRequest request) {
+        AsyncRequestOperation<CreateEventSurveyRespondentRequest, CreateEventSurveyRespondentResponse> operation =
+                new CreateEventSurveyRespondent.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Event Survey Respondent
-     * 
+     *
      * <p>Update respondent for an event survey.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateEventSurveyRespondentRequestBuilder updateEventSurveyRespondent() {
@@ -280,25 +273,24 @@ public class AsyncSurveys {
 
     /**
      * Update Event Survey Respondent
-     * 
+     *
      * <p>Update respondent for an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateEventSurveyRespondentResponse>} - The async response
      */
-    public CompletableFuture<UpdateEventSurveyRespondentResponse> updateEventSurveyRespondent(@Nonnull UpdateEventSurveyRespondentRequest request) {
-        AsyncRequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation
-              = new UpdateEventSurveyRespondent.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateEventSurveyRespondentResponse> updateEventSurveyRespondent(
+            @Nonnull UpdateEventSurveyRespondentRequest request) {
+        AsyncRequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation =
+                new UpdateEventSurveyRespondent.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Event Survey Responses
-     * 
+     *
      * <p>Create responses for a particular respondent in an event survey.
-     * 
+     *
      * @return The async call builder
      */
     public CreateEventSurveyResponsesRequestBuilder createEventSurveyResponses() {
@@ -307,25 +299,24 @@ public class AsyncSurveys {
 
     /**
      * Create Event Survey Responses
-     * 
+     *
      * <p>Create responses for a particular respondent in an event survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateEventSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<CreateEventSurveyResponsesResponse> createEventSurveyResponses(@Nonnull CreateEventSurveyResponsesRequest request) {
-        AsyncRequestOperation<CreateEventSurveyResponsesRequest, CreateEventSurveyResponsesResponse> operation
-              = new CreateEventSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateEventSurveyResponsesResponse> createEventSurveyResponses(
+            @Nonnull CreateEventSurveyResponsesRequest request) {
+        AsyncRequestOperation<CreateEventSurveyResponsesRequest, CreateEventSurveyResponsesResponse> operation =
+                new CreateEventSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Event Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for a single event and survey.
-     * 
+     *
      * @return The async call builder
      */
     public GetEventSurveyResponsesRequestBuilder getEventSurveyResponses() {
@@ -334,25 +325,24 @@ public class AsyncSurveys {
 
     /**
      * List Event Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of event survey responses for a single event and survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<GetEventSurveyResponsesResponse> getEventSurveyResponses(@Nonnull GetEventSurveyResponsesRequest request) {
-        AsyncRequestOperation<GetEventSurveyResponsesRequest, GetEventSurveyResponsesResponse> operation
-              = new GetEventSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEventSurveyResponsesResponse> getEventSurveyResponses(
+            @Nonnull GetEventSurveyResponsesRequest request) {
+        AsyncRequestOperation<GetEventSurveyResponsesRequest, GetEventSurveyResponsesResponse> operation =
+                new GetEventSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Large Choices
-     * 
+     *
      * <p>Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
-     * 
+     *
      * @return The async call builder
      */
     public GetLargeChoicesRequestBuilder getLargeChoices() {
@@ -361,27 +351,25 @@ public class AsyncSurveys {
 
     /**
      * List Large Choices
-     * 
+     *
      * <p>Gets a paginated list of choices for large choice question`type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetLargeChoicesResponse>} - The async response
      */
     public CompletableFuture<GetLargeChoicesResponse> getLargeChoices(@Nonnull GetLargeChoicesRequest request) {
-        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation
-              = new GetLargeChoices.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation =
+                new GetLargeChoices.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Questions
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey questions. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The async call builder
      */
     public GetQuestionsRequestBuilder getQuestions() {
@@ -390,27 +378,25 @@ public class AsyncSurveys {
 
     /**
      * List Questions
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey questions. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetQuestionsResponse>} - The async response
      */
     public CompletableFuture<GetQuestionsResponse> getQuestions(@Nonnull GetQuestionsRequest request) {
-        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation
-              = new GetQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation =
+                new GetQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Respondents
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys respondents.
-     * 
+     *
      * @return The async call builder
      */
     public GetRespondentsRequestBuilder getRespondents() {
@@ -419,25 +405,23 @@ public class AsyncSurveys {
 
     /**
      * List Respondents
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys respondents.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetRespondentsResponse>} - The async response
      */
     public CompletableFuture<GetRespondentsResponse> getRespondents(@Nonnull GetRespondentsRequest request) {
-        AsyncRequestOperation<GetRespondentsRequest, GetRespondentsResponse> operation
-              = new GetRespondents.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetRespondentsRequest, GetRespondentsResponse> operation =
+                new GetRespondents.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Responses
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey responses.
-     * 
+     *
      * @return The async call builder
      */
     public GetResponsesRequestBuilder getResponses() {
@@ -446,25 +430,23 @@ public class AsyncSurveys {
 
     /**
      * List Responses
-     * 
+     *
      * <p>Gets a paginated list of event and standalone survey responses.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetResponsesResponse>} - The async response
      */
     public CompletableFuture<GetResponsesResponse> getResponses(@Nonnull GetResponsesRequest request) {
-        AsyncRequestOperation<GetResponsesRequest, GetResponsesResponse> operation
-              = new GetResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetResponsesRequest, GetResponsesResponse> operation =
+                new GetResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Standalone Surveys
-     * 
+     *
      * <p>Gets a paginated list of standalone surveys not associated with an event.
-     * 
+     *
      * @return The async call builder
      */
     public GetStandardSurveysRequestBuilder getStandardSurveys() {
@@ -473,25 +455,24 @@ public class AsyncSurveys {
 
     /**
      * List Standalone Surveys
-     * 
+     *
      * <p>Gets a paginated list of standalone surveys not associated with an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetStandardSurveysResponse>} - The async response
      */
-    public CompletableFuture<GetStandardSurveysResponse> getStandardSurveys(@Nonnull GetStandardSurveysRequest request) {
-        AsyncRequestOperation<GetStandardSurveysRequest, GetStandardSurveysResponse> operation
-              = new GetStandardSurveys.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetStandardSurveysResponse> getStandardSurveys(
+            @Nonnull GetStandardSurveysRequest request) {
+        AsyncRequestOperation<GetStandardSurveysRequest, GetStandardSurveysResponse> operation =
+                new GetStandardSurveys.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Stdl. Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of standalone survey responses.
-     * 
+     *
      * @return The async call builder
      */
     public GetStandardSurveyResponsesRequestBuilder getStandardSurveyResponses() {
@@ -500,25 +481,24 @@ public class AsyncSurveys {
 
     /**
      * List Stdl. Survey Responses
-     * 
+     *
      * <p>Gets a paginated list of standalone survey responses.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetStandardSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<GetStandardSurveyResponsesResponse> getStandardSurveyResponses(@Nonnull GetStandardSurveyResponsesRequest request) {
-        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation
-              = new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetStandardSurveyResponsesResponse> getStandardSurveyResponses(
+            @Nonnull GetStandardSurveyResponsesRequest request) {
+        AsyncRequestOperation<GetStandardSurveyResponsesRequest, GetStandardSurveyResponsesResponse> operation =
+                new GetStandardSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Stdl. Survey Email Templ.
-     * 
+     *
      * <p>Gets a paginated list of standalone survey email templates for a single survey.
-     * 
+     *
      * @return The async call builder
      */
     public GetStandardSurveyEmailTemplatesRequestBuilder getStandardSurveyEmailTemplates() {
@@ -527,27 +507,26 @@ public class AsyncSurveys {
 
     /**
      * List Stdl. Survey Email Templ.
-     * 
+     *
      * <p>Gets a paginated list of standalone survey email templates for a single survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetStandardSurveyEmailTemplatesResponse>} - The async response
      */
-    public CompletableFuture<GetStandardSurveyEmailTemplatesResponse> getStandardSurveyEmailTemplates(@Nonnull GetStandardSurveyEmailTemplatesRequest request) {
-        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation
-              = new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetStandardSurveyEmailTemplatesResponse> getStandardSurveyEmailTemplates(
+            @Nonnull GetStandardSurveyEmailTemplatesRequest request) {
+        AsyncRequestOperation<GetStandardSurveyEmailTemplatesRequest, GetStandardSurveyEmailTemplatesResponse> operation =
+                new GetStandardSurveyEmailTemplates.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Stdl. Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of standalone survey questions for a single standalone survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @return The async call builder
      */
     public GetStandardSurveyQuestionsRequestBuilder getStandardSurveyQuestions() {
@@ -556,27 +535,26 @@ public class AsyncSurveys {
 
     /**
      * List Stdl. Survey Questions
-     * 
+     *
      * <p>Gets a paginated list of standalone survey questions for a single standalone survey. The <a
      * href="#operation/getLargeChoices"> GET List Large Choices </a> endpoint returns choices for the
      * large choice question `type` (`LargeChoices`).
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetStandardSurveyQuestionsResponse>} - The async response
      */
-    public CompletableFuture<GetStandardSurveyQuestionsResponse> getStandardSurveyQuestions(@Nonnull GetStandardSurveyQuestionsRequest request) {
-        AsyncRequestOperation<GetStandardSurveyQuestionsRequest, GetStandardSurveyQuestionsResponse> operation
-              = new GetStandardSurveyQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetStandardSurveyQuestionsResponse> getStandardSurveyQuestions(
+            @Nonnull GetStandardSurveyQuestionsRequest request) {
+        AsyncRequestOperation<GetStandardSurveyQuestionsRequest, GetStandardSurveyQuestionsResponse> operation =
+                new GetStandardSurveyQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Stdl. Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of standalone survey respondents for a single standalone survey.
-     * 
+     *
      * @return The async call builder
      */
     public GetStandardSurveyRespondentsRequestBuilder getStandardSurveyRespondents() {
@@ -585,25 +563,24 @@ public class AsyncSurveys {
 
     /**
      * List Stdl. Survey Respondents
-     * 
+     *
      * <p>Gets a paginated list of standalone survey respondents for a single standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetStandardSurveyRespondentsResponse>} - The async response
      */
-    public CompletableFuture<GetStandardSurveyRespondentsResponse> getStandardSurveyRespondents(@Nonnull GetStandardSurveyRespondentsRequest request) {
-        AsyncRequestOperation<GetStandardSurveyRespondentsRequest, GetStandardSurveyRespondentsResponse> operation
-              = new GetStandardSurveyRespondents.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetStandardSurveyRespondentsResponse> getStandardSurveyRespondents(
+            @Nonnull GetStandardSurveyRespondentsRequest request) {
+        AsyncRequestOperation<GetStandardSurveyRespondentsRequest, GetStandardSurveyRespondentsResponse> operation =
+                new GetStandardSurveyRespondents.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Stdl. Survey Respondent
-     * 
+     *
      * <p>Creates a respondent for a standalone survey.
-     * 
+     *
      * @return The async call builder
      */
     public CreateStandardSurveyRespondentRequestBuilder createStandardSurveyRespondent() {
@@ -612,25 +589,24 @@ public class AsyncSurveys {
 
     /**
      * Create Stdl. Survey Respondent
-     * 
+     *
      * <p>Creates a respondent for a standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateStandardSurveyRespondentResponse>} - The async response
      */
-    public CompletableFuture<CreateStandardSurveyRespondentResponse> createStandardSurveyRespondent(@Nonnull CreateStandardSurveyRespondentRequest request) {
-        AsyncRequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation
-              = new CreateStandardSurveyRespondent.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateStandardSurveyRespondentResponse> createStandardSurveyRespondent(
+            @Nonnull CreateStandardSurveyRespondentRequest request) {
+        AsyncRequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation =
+                new CreateStandardSurveyRespondent.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Stdl. Survey Respondent
-     * 
+     *
      * <p>Update respondent for a standalone survey.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateStandardSurveyRespondentRequestBuilder updateStandardSurveyRespondent() {
@@ -639,25 +615,24 @@ public class AsyncSurveys {
 
     /**
      * Update Stdl. Survey Respondent
-     * 
+     *
      * <p>Update respondent for a standalone survey.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateStandardSurveyRespondentResponse>} - The async response
      */
-    public CompletableFuture<UpdateStandardSurveyRespondentResponse> updateStandardSurveyRespondent(@Nonnull UpdateStandardSurveyRespondentRequest request) {
-        AsyncRequestOperation<UpdateStandardSurveyRespondentRequest, UpdateStandardSurveyRespondentResponse> operation
-              = new UpdateStandardSurveyRespondent.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateStandardSurveyRespondentResponse> updateStandardSurveyRespondent(
+            @Nonnull UpdateStandardSurveyRespondentRequest request) {
+        AsyncRequestOperation<UpdateStandardSurveyRespondentRequest, UpdateStandardSurveyRespondentResponse> operation =
+                new UpdateStandardSurveyRespondent.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Send Standalone Survey Email
-     * 
+     *
      * <p>Sends standalone survey email.
-     * 
+     *
      * @return The async call builder
      */
     public SendStandardSurveyEmailRequestBuilder sendStandardSurveyEmail() {
@@ -666,25 +641,24 @@ public class AsyncSurveys {
 
     /**
      * Send Standalone Survey Email
-     * 
+     *
      * <p>Sends standalone survey email.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<SendStandardSurveyEmailResponse>} - The async response
      */
-    public CompletableFuture<SendStandardSurveyEmailResponse> sendStandardSurveyEmail(@Nonnull SendStandardSurveyEmailRequest request) {
-        AsyncRequestOperation<SendStandardSurveyEmailRequest, SendStandardSurveyEmailResponse> operation
-              = new SendStandardSurveyEmail.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<SendStandardSurveyEmailResponse> sendStandardSurveyEmail(
+            @Nonnull SendStandardSurveyEmailRequest request) {
+        AsyncRequestOperation<SendStandardSurveyEmailRequest, SendStandardSurveyEmailResponse> operation =
+                new SendStandardSurveyEmail.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Stdl. Survey Responses
-     * 
+     *
      * <p>Create responses for a particular standalone survey respondent.
-     * 
+     *
      * @return The async call builder
      */
     public CreateStandardSurveyResponsesRequestBuilder createStandardSurveyResponses() {
@@ -693,25 +667,24 @@ public class AsyncSurveys {
 
     /**
      * Create Stdl. Survey Responses
-     * 
+     *
      * <p>Create responses for a particular standalone survey respondent.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateStandardSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<CreateStandardSurveyResponsesResponse> createStandardSurveyResponses(@Nonnull CreateStandardSurveyResponsesRequest request) {
-        AsyncRequestOperation<CreateStandardSurveyResponsesRequest, CreateStandardSurveyResponsesResponse> operation
-              = new CreateStandardSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateStandardSurveyResponsesResponse> createStandardSurveyResponses(
+            @Nonnull CreateStandardSurveyResponsesRequest request) {
+        AsyncRequestOperation<CreateStandardSurveyResponsesRequest, CreateStandardSurveyResponsesResponse> operation =
+                new CreateStandardSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Stdl. Survey Responses
-     * 
+     *
      * <p>Update responses for a particular standalone survey respondent.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateStandardSurveyResponsesRequestBuilder updateStandardSurveyResponses() {
@@ -720,25 +693,24 @@ public class AsyncSurveys {
 
     /**
      * Update Stdl. Survey Responses
-     * 
+     *
      * <p>Update responses for a particular standalone survey respondent.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateStandardSurveyResponsesResponse>} - The async response
      */
-    public CompletableFuture<UpdateStandardSurveyResponsesResponse> updateStandardSurveyResponses(@Nonnull UpdateStandardSurveyResponsesRequest request) {
-        AsyncRequestOperation<UpdateStandardSurveyResponsesRequest, UpdateStandardSurveyResponsesResponse> operation
-              = new UpdateStandardSurveyResponses.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateStandardSurveyResponsesResponse> updateStandardSurveyResponses(
+            @Nonnull UpdateStandardSurveyResponsesRequest request) {
+        AsyncRequestOperation<UpdateStandardSurveyResponsesRequest, UpdateStandardSurveyResponsesResponse> operation =
+                new UpdateStandardSurveyResponses.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Surveys
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys associated to an account.
-     * 
+     *
      * @return The async call builder
      */
     public GetSurveyRequestBuilder getSurvey() {
@@ -747,17 +719,15 @@ public class AsyncSurveys {
 
     /**
      * List Surveys
-     * 
+     *
      * <p>Gets a paginated list of event and standalone surveys associated to an account.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSurveyResponse>} - The async response
      */
     public CompletableFuture<GetSurveyResponse> getSurvey(@Nonnull GetSurveyRequest request) {
-        AsyncRequestOperation<GetSurveyRequest, GetSurveyResponse> operation
-              = new GetSurvey.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
+                new GetSurvey.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

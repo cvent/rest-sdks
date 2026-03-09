@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * QuestionIdJson
- * 
+ *
  * <p>An object that holds the ID of the question.
  */
 public class QuestionIdJson {
@@ -27,11 +27,10 @@ public class QuestionIdJson {
     private String id;
 
     @JsonCreator
-    public QuestionIdJson(
-            @JsonProperty("id") @Nullable String id) {
+    public QuestionIdJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public QuestionIdJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class QuestionIdJson {
         return new Builder();
     }
 
-
     /**
      * ID of the question in a survey.
      */
@@ -55,7 +53,6 @@ public class QuestionIdJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class QuestionIdJson {
             return false;
         }
         QuestionIdJson other = (QuestionIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionIdJson.class,
-                "id", id);
+        return Utils.toString(QuestionIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class QuestionIdJson {
         }
 
         public QuestionIdJson build() {
-            return new QuestionIdJson(
-                id);
+            return new QuestionIdJson(id);
         }
-
     }
 }

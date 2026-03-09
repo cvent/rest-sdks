@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateContactCustomFieldAnswersRequest {
     /**
      * ID of a contact.
@@ -50,7 +49,7 @@ public class UpdateContactCustomFieldAnswersRequest {
      * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
      * more
      * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
-     * 
+     *
      * <p>To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
@@ -58,15 +57,12 @@ public class UpdateContactCustomFieldAnswersRequest {
 
     @JsonCreator
     public UpdateContactCustomFieldAnswersRequest(
-            @Nonnull String id,
-            @Nonnull String customFieldId,
-            @Nonnull CustomFieldInput customField) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomFieldInput customField) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.customField = Optional.ofNullable(customField)
-            .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
     }
 
     /**
@@ -107,7 +103,7 @@ public class UpdateContactCustomFieldAnswersRequest {
      * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
      * more
      * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
-     * 
+     *
      * <p>To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.
      */
     public CustomFieldInput customField() {
@@ -118,7 +114,6 @@ public class UpdateContactCustomFieldAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact.
      */
@@ -127,7 +122,6 @@ public class UpdateContactCustomFieldAnswersRequest {
         return this;
     }
 
-
     /**
      * ID of a custom field.
      */
@@ -135,7 +129,6 @@ public class UpdateContactCustomFieldAnswersRequest {
         this.customFieldId = Utils.checkNotNull(customFieldId, "customFieldId");
         return this;
     }
-
 
     /**
      * Custom Field answers to be updated. Answer values must be formatted correctly for a given Custom
@@ -161,14 +154,13 @@ public class UpdateContactCustomFieldAnswersRequest {
      * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
      * more
      * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
-     * 
+     *
      * <p>To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.
      */
     public UpdateContactCustomFieldAnswersRequest withCustomField(@Nonnull CustomFieldInput customField) {
         this.customField = Utils.checkNotNull(customField, "customField");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -179,28 +171,30 @@ public class UpdateContactCustomFieldAnswersRequest {
             return false;
         }
         UpdateContactCustomFieldAnswersRequest other = (UpdateContactCustomFieldAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.customField, other.customField);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, customFieldId, customField);
+        return Utils.enhancedHash(id, customFieldId, customField);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateContactCustomFieldAnswersRequest.class,
-                "id", id,
-                "customFieldId", customFieldId,
-                "customField", customField);
+        return Utils.toString(
+                UpdateContactCustomFieldAnswersRequest.class,
+                "id",
+                id,
+                "customFieldId",
+                customFieldId,
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -209,7 +203,7 @@ public class UpdateContactCustomFieldAnswersRequest {
         private CustomFieldInput customField;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -252,7 +246,7 @@ public class UpdateContactCustomFieldAnswersRequest {
          * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
          * more
          * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
-         * 
+         *
          * <p>To delete a Custom Field Answer, send an empty list of answers for a given Custom Field ID.
          */
         public Builder customField(@Nonnull CustomFieldInput customField) {
@@ -261,9 +255,7 @@ public class UpdateContactCustomFieldAnswersRequest {
         }
 
         public UpdateContactCustomFieldAnswersRequest build() {
-            return new UpdateContactCustomFieldAnswersRequest(
-                id, customFieldId, customField);
+            return new UpdateContactCustomFieldAnswersRequest(id, customFieldId, customField);
         }
-
     }
 }

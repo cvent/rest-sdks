@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf8
- * 
+ *
  * <p>Represents an error response for the checkin APIs that includes a unique id.
  */
 public class ZeroAllOf8 {
@@ -54,16 +54,13 @@ public class ZeroAllOf8 {
             @JsonProperty("target") @Nullable String target) {
         this.id = id;
         this.code = code;
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.target = target;
     }
-    
-    public ZeroAllOf8(
-            long code,
-            @Nonnull String message) {
-        this(null, code, message,
-            null);
+
+    public ZeroAllOf8(long code, @Nonnull String message) {
+        this(null, code, message, null);
     }
 
     /**
@@ -98,7 +95,6 @@ public class ZeroAllOf8 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier for the error response.
      */
@@ -106,7 +102,6 @@ public class ZeroAllOf8 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The HTTP status code representing the error.
@@ -116,7 +111,6 @@ public class ZeroAllOf8 {
         return this;
     }
 
-
     /**
      * A brief description of the error.
      */
@@ -125,7 +119,6 @@ public class ZeroAllOf8 {
         return this;
     }
 
-
     /**
      * The target resource of the error.
      */
@@ -133,7 +126,6 @@ public class ZeroAllOf8 {
         this.target = target;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -144,31 +136,24 @@ public class ZeroAllOf8 {
             return false;
         }
         ZeroAllOf8 other = (ZeroAllOf8) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.target, other.target);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, message,
-            target);
+        return Utils.enhancedHash(id, code, message, target);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf8.class,
-                "id", id,
-                "code", code,
-                "message", message,
-                "target", target);
+        return Utils.toString(ZeroAllOf8.class, "id", id, "code", code, "message", message, "target", target);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -179,7 +164,7 @@ public class ZeroAllOf8 {
         private String target;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -215,10 +200,7 @@ public class ZeroAllOf8 {
         }
 
         public ZeroAllOf8 build() {
-            return new ZeroAllOf8(
-                id, code, message,
-                target);
+            return new ZeroAllOf8(id, code, message, target);
         }
-
     }
 }

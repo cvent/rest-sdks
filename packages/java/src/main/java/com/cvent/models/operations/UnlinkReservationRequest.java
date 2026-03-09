@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UnlinkReservationRequest {
     /**
      * Unique room reservation request ID.
@@ -26,13 +25,11 @@ public class UnlinkReservationRequest {
     private String reservationId;
 
     @JsonCreator
-    public UnlinkReservationRequest(
-            @Nonnull String reservationRequestsId,
-            @Nonnull String reservationId) {
+    public UnlinkReservationRequest(@Nonnull String reservationRequestsId, @Nonnull String reservationId) {
         this.reservationRequestsId = Optional.ofNullable(reservationRequestsId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationRequestsId cannot be null"));
         this.reservationId = Optional.ofNullable(reservationId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class UnlinkReservationRequest {
         return new Builder();
     }
 
-
     /**
      * Unique room reservation request ID.
      */
@@ -62,7 +58,6 @@ public class UnlinkReservationRequest {
         return this;
     }
 
-
     /**
      * Cvent Passkey confirmation number.
      */
@@ -70,7 +65,6 @@ public class UnlinkReservationRequest {
         this.reservationId = Utils.checkNotNull(reservationId, "reservationId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,34 @@ public class UnlinkReservationRequest {
             return false;
         }
         UnlinkReservationRequest other = (UnlinkReservationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId) &&
-            Utils.enhancedDeepEquals(this.reservationId, other.reservationId);
+        return Utils.enhancedDeepEquals(this.reservationRequestsId, other.reservationRequestsId)
+                && Utils.enhancedDeepEquals(this.reservationId, other.reservationId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reservationRequestsId, reservationId);
+        return Utils.enhancedHash(reservationRequestsId, reservationId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UnlinkReservationRequest.class,
-                "reservationRequestsId", reservationRequestsId,
-                "reservationId", reservationId);
+        return Utils.toString(
+                UnlinkReservationRequest.class,
+                "reservationRequestsId",
+                reservationRequestsId,
+                "reservationId",
+                reservationId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reservationRequestsId;
 
         private String reservationId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +122,7 @@ public class UnlinkReservationRequest {
         }
 
         public UnlinkReservationRequest build() {
-            return new UnlinkReservationRequest(
-                reservationRequestsId, reservationId);
+            return new UnlinkReservationRequest(reservationRequestsId, reservationId);
         }
-
     }
 }

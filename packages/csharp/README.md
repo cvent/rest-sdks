@@ -72,7 +72,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 
@@ -115,7 +115,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 
@@ -765,7 +765,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 
@@ -813,14 +813,14 @@ try
 
     GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-    while(res != null)
+    while (res != null)
     {
         // handle items
 
         res = await res.Next!();
     }
 }
-catch (CventSDKException ex)  // all SDK exceptions inherit from CventSDKException
+catch (CventSDKException ex) // all SDK exceptions inherit from CventSDKException
 {
     // ex.ToString() provides a detailed error message
     System.Console.WriteLine(ex);
@@ -910,7 +910,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 
@@ -945,7 +945,7 @@ GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
 
 GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
 
-while(res != null)
+while (res != null)
 {
     // handle items
 

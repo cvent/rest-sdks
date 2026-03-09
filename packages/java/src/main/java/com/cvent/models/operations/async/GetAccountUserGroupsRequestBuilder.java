@@ -40,7 +40,7 @@ public class GetAccountUserGroupsRequestBuilder {
     private GetAccountUserGroupsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetAccountUserGroupsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetAccountUserGroupsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetAccountUserGroupsResponse> call() {
-        AsyncRequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation
-              = new GetAccountUserGroups.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation =
+                new GetAccountUserGroups.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetAccountUserGroupsRequestBuilder {
      */
     public Publisher<GetAccountUserGroupsResponse> callAsPublisher() {
         GetAccountUserGroupsRequest request = this.request;
-        AsyncRequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation
-              = new GetAccountUserGroups.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation =
+                new GetAccountUserGroups.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetAccountUserGroupsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetAccountUserGroupsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetAccountUserGroupsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetAccountUserGroupsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

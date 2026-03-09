@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateSessionResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class CreateSessionResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable Session session) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.session = session;
     }
-    
-    public CreateSessionResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public CreateSessionResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class CreateSessionResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class CreateSessionResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class CreateSessionResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +111,6 @@ public class CreateSessionResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully created a session with the provided details.
      */
@@ -127,7 +118,6 @@ public class CreateSessionResponse implements AsyncResponse {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +128,33 @@ public class CreateSessionResponse implements AsyncResponse {
             return false;
         }
         CreateSessionResponse other = (CreateSessionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            session);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateSessionResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "session", session);
+        return Utils.toString(
+                CreateSessionResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "session",
+                session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +165,7 @@ public class CreateSessionResponse implements AsyncResponse {
         private Session session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +201,7 @@ public class CreateSessionResponse implements AsyncResponse {
         }
 
         public CreateSessionResponse build() {
-            return new CreateSessionResponse(
-                contentType, statusCode, rawResponse,
-                session);
+            return new CreateSessionResponse(contentType, statusCode, rawResponse, session);
         }
-
     }
 }

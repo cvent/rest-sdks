@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RecipientsDataJson
- * 
+ *
  * <p>Recipient data contains the recipient's details like ID, name and status of email sent to that
  * recipient.
  */
@@ -50,7 +50,7 @@ public class RecipientsDataJson {
         this.recipientName = recipientName;
         this.status = status;
     }
-    
+
     public RecipientsDataJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class RecipientsDataJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a recipient.
      */
@@ -88,7 +87,6 @@ public class RecipientsDataJson {
         this.recipientId = recipientId;
         return this;
     }
-
 
     /**
      * Name of the recipient.
@@ -98,7 +96,6 @@ public class RecipientsDataJson {
         return this;
     }
 
-
     /**
      * It is used to denote the status of the sent email.
      */
@@ -106,7 +103,6 @@ public class RecipientsDataJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,24 @@ public class RecipientsDataJson {
             return false;
         }
         RecipientsDataJson other = (RecipientsDataJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.recipientId, other.recipientId) &&
-            Utils.enhancedDeepEquals(this.recipientName, other.recipientName) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.recipientId, other.recipientId)
+                && Utils.enhancedDeepEquals(this.recipientName, other.recipientName)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            recipientId, recipientName, status);
+        return Utils.enhancedHash(recipientId, recipientName, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RecipientsDataJson.class,
-                "recipientId", recipientId,
-                "recipientName", recipientName,
-                "status", status);
+        return Utils.toString(
+                RecipientsDataJson.class, "recipientId", recipientId, "recipientName", recipientName, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String recipientId;
 
@@ -147,7 +139,7 @@ public class RecipientsDataJson {
         private SendEmailStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +167,7 @@ public class RecipientsDataJson {
         }
 
         public RecipientsDataJson build() {
-            return new RecipientsDataJson(
-                recipientId, recipientName, status);
+            return new RecipientsDataJson(recipientId, recipientName, status);
         }
-
     }
 }

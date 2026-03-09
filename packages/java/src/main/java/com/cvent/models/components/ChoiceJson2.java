@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ChoiceJson2
- * 
+ *
  * <p>A schema representing a choice object
  */
 public class ChoiceJson2 {
@@ -49,7 +49,7 @@ public class ChoiceJson2 {
         this.text = text;
         this.label = label;
     }
-    
+
     public ChoiceJson2() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ChoiceJson2 {
         return new Builder();
     }
 
-
     /**
      * Unique identifier for the choice
      */
@@ -87,7 +86,6 @@ public class ChoiceJson2 {
         this.id = id;
         return this;
     }
-
 
     /**
      * Text value of the field
@@ -97,7 +95,6 @@ public class ChoiceJson2 {
         return this;
     }
 
-
     /**
      * Label of choice
      */
@@ -105,7 +102,6 @@ public class ChoiceJson2 {
         this.label = label;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class ChoiceJson2 {
             return false;
         }
         ChoiceJson2 other = (ChoiceJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.label, other.label);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.label, other.label);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, label);
+        return Utils.enhancedHash(id, text, label);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson2.class,
-                "id", id,
-                "text", text,
-                "label", label);
+        return Utils.toString(ChoiceJson2.class, "id", id, "text", text, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class ChoiceJson2 {
         private String label;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class ChoiceJson2 {
         }
 
         public ChoiceJson2 build() {
-            return new ChoiceJson2(
-                id, text, label);
+            return new ChoiceJson2(id, text, label);
         }
-
     }
 }

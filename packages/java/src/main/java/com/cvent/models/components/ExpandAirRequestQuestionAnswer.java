@@ -17,13 +17,13 @@ public enum ExpandAirRequestQuestionAnswer {
     ExpandAirRequestQuestionAnswer(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExpandAirRequestQuestionAnswer> fromValue(String value) {
-        for (ExpandAirRequestQuestionAnswer o: ExpandAirRequestQuestionAnswer.values()) {
+        for (ExpandAirRequestQuestionAnswer o : ExpandAirRequestQuestionAnswer.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -31,4 +31,3 @@ public enum ExpandAirRequestQuestionAnswer {
         return Optional.empty();
     }
 }
-

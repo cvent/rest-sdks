@@ -30,7 +30,7 @@ public class EventCheckInRequestBuilder {
     private EventCheckInRequest _buildRequest() {
         return this.request;
     }
-    
+
     public EventCheckInRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class EventCheckInRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<EventCheckInResponse> call() {
-        AsyncRequestOperation<EventCheckInRequest, EventCheckInResponse> operation
-              = new EventCheckIn.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<EventCheckInRequest, EventCheckInResponse> operation =
+                new EventCheckIn.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

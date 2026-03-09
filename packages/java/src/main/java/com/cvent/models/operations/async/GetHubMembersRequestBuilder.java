@@ -40,7 +40,7 @@ public class GetHubMembersRequestBuilder {
     private GetHubMembersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHubMembersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetHubMembersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHubMembersResponse> call() {
-        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation
-              = new GetHubMembers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
+                new GetHubMembers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetHubMembersRequestBuilder {
      */
     public Publisher<GetHubMembersResponse> callAsPublisher() {
         GetHubMembersRequest request = this.request;
-        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation
-              = new GetHubMembers.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
+                new GetHubMembers.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetHubMembersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetHubMembersRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetHubMembersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

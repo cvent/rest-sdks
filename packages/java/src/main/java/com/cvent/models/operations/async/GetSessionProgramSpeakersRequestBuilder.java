@@ -40,7 +40,7 @@ public class GetSessionProgramSpeakersRequestBuilder {
     private GetSessionProgramSpeakersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSessionProgramSpeakersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetSessionProgramSpeakersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSessionProgramSpeakersResponse> call() {
-        AsyncRequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation
-              = new GetSessionProgramSpeakers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation =
+                new GetSessionProgramSpeakers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetSessionProgramSpeakersRequestBuilder {
      */
     public Publisher<GetSessionProgramSpeakersResponse> callAsPublisher() {
         GetSessionProgramSpeakersRequest request = this.request;
-        AsyncRequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation
-              = new GetSessionProgramSpeakers.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation =
+                new GetSessionProgramSpeakers.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetSessionProgramSpeakersRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetSessionProgramSpeakersRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetSessionProgramSpeakersResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetSessionProgramSpeakersResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

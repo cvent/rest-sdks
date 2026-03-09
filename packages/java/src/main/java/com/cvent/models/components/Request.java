@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -20,7 +20,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * Request
- * 
+ *
  * <p>The processed request tied to this response. This field is only sent when processing fails.
  */
 @JsonDeserialize(using = Request._Deserializer.class)
@@ -28,33 +28,33 @@ public class Request {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private Request(TypedObject value) {
         this.value = value;
     }
 
     public static Request of(MeetingRequestBulkResponseItemJsonRequest value) {
         Utils.checkNotNull(value, "value");
-        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Request of(String value) {
         Utils.checkNotNull(value, "value");
-        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Request of(double value) {
-        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Request of(long value) {
-        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Request of(boolean value) {
-        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Request(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
@@ -64,22 +64,22 @@ public class Request {
      * <li>{@code long}</li>
      * <li>{@code boolean}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -91,30 +91,30 @@ public class Request {
         Request other = (Request) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<Request> {
 
         public _Deserializer() {
-            super(Request.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<MeetingRequestBulkResponseItemJsonRequest>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<String>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<Double>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<Long>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<Boolean>() {}, JsonShape.DEFAULT));
+            super(
+                    Request.class,
+                    false,
+                    TypeReferenceWithShape.of(
+                            new TypeReference<MeetingRequestBulkResponseItemJsonRequest>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<String>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<Double>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<Long>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<Boolean>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Request.class,
-                "value", value);
+        return Utils.toString(Request.class, "value", value);
     }
-
 }
-

@@ -51,7 +51,9 @@ namespace Cvent.SDK.Hooks
     public class BeforeRequestContext : HookContext
     {
         public BeforeRequestContext(HookContext hookCtx)
-            : base(hookCtx) { }
+            : base(hookCtx)
+        {
+        }
     }
 
     /// <summary>
@@ -60,7 +62,9 @@ namespace Cvent.SDK.Hooks
     public class AfterSuccessContext : HookContext
     {
         public AfterSuccessContext(HookContext hookCtx)
-            : base(hookCtx) { }
+            : base(hookCtx)
+        {
+        }
     }
 
     /// <summary>
@@ -69,7 +73,9 @@ namespace Cvent.SDK.Hooks
     public class AfterErrorContext : HookContext
     {
         public AfterErrorContext(HookContext hookCtx)
-            : base(hookCtx) { }
+            : base(hookCtx)
+        {
+        }
     }
 
     /// <summary>
@@ -115,12 +121,12 @@ namespace Cvent.SDK.Hooks
     /// </summary>
     public interface IHooks
     {
-       void RegisterSDKInitHook(ISDKInitHook hook);
+        void RegisterSDKInitHook(ISDKInitHook hook);
 
-       void RegisterBeforeRequestHook(IBeforeRequestHook hook);
+        void RegisterBeforeRequestHook(IBeforeRequestHook hook);
 
-       void RegisterAfterSuccessHook(IAfterSuccessHook hook);
+        void RegisterAfterSuccessHook(IAfterSuccessHook hook);
 
-       void RegisterAfterErrorHook(IAfterErrorHook hook);
+        void RegisterAfterErrorHook(IAfterErrorHook hook);
     }
 }

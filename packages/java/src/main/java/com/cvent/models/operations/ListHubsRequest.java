@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListHubsRequest {
     /**
      * The maximum number of records to return per page.
@@ -33,15 +32,15 @@ public class ListHubsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field | Operators  |
      * |-------|------------|
      * | id    | `eq`, `ne` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -49,16 +48,12 @@ public class ListHubsRequest {
     private String filter;
 
     @JsonCreator
-    public ListHubsRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListHubsRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListHubsRequest() {
         this(null, null, null);
     }
@@ -82,15 +77,15 @@ public class ListHubsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field | Operators  |
      * |-------|------------|
      * | id    | `eq`, `ne` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -102,7 +97,6 @@ public class ListHubsRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -110,7 +104,6 @@ public class ListHubsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -121,20 +114,19 @@ public class ListHubsRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field | Operators  |
      * |-------|------------|
      * | id    | `eq`, `ne` |
-     * 
+     *
      * <p>Limit for the number of fields that can be passed in a filter is 35.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -142,7 +134,6 @@ public class ListHubsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -153,28 +144,23 @@ public class ListHubsRequest {
             return false;
         }
         ListHubsRequest other = (ListHubsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListHubsRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListHubsRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -183,7 +169,7 @@ public class ListHubsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,15 +193,15 @@ public class ListHubsRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field | Operators  |
          * |-------|------------|
          * | id    | `eq`, `ne` |
-         * 
+         *
          * <p>Limit for the number of fields that can be passed in a filter is 35.
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * or
          */
@@ -225,15 +211,10 @@ public class ListHubsRequest {
         }
 
         public ListHubsRequest build() {
-            return new ListHubsRequest(
-                limit, token, filter);
+            return new ListHubsRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

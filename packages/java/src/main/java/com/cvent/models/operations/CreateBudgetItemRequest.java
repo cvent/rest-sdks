@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateBudgetItemRequest {
     /**
      * Unique ID of an event.
@@ -27,13 +26,10 @@ public class CreateBudgetItemRequest {
     private BudgetItemInput budgetItem;
 
     @JsonCreator
-    public CreateBudgetItemRequest(
-            @Nonnull String id,
-            @Nonnull BudgetItemInput budgetItem) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreateBudgetItemRequest(@Nonnull String id, @Nonnull BudgetItemInput budgetItem) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItem = Optional.ofNullable(budgetItem)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItem cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItem cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class CreateBudgetItemRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -63,7 +58,6 @@ public class CreateBudgetItemRequest {
         return this;
     }
 
-
     /**
      * Budget Item to be created
      */
@@ -71,7 +65,6 @@ public class CreateBudgetItemRequest {
         this.budgetItem = Utils.checkNotNull(budgetItem, "budgetItem");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,28 @@ public class CreateBudgetItemRequest {
             return false;
         }
         CreateBudgetItemRequest other = (CreateBudgetItemRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItem);
+        return Utils.enhancedHash(id, budgetItem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateBudgetItemRequest.class,
-                "id", id,
-                "budgetItem", budgetItem);
+        return Utils.toString(CreateBudgetItemRequest.class, "id", id, "budgetItem", budgetItem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private BudgetItemInput budgetItem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +116,7 @@ public class CreateBudgetItemRequest {
         }
 
         public CreateBudgetItemRequest build() {
-            return new CreateBudgetItemRequest(
-                id, budgetItem);
+            return new CreateBudgetItemRequest(id, budgetItem);
         }
-
     }
 }

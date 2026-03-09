@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventStatusJson
- * 
+ *
  * <p>Event status denotes if the event is in the past, present or future. Also can denote if the event
  * was cancelled or deleted.
  */
@@ -29,13 +29,13 @@ public enum EventStatusJson {
     EventStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventStatusJson> fromValue(String value) {
-        for (EventStatusJson o: EventStatusJson.values()) {
+        for (EventStatusJson o : EventStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum EventStatusJson {
         return Optional.empty();
     }
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EncodingProfileJson
- * 
+ *
  * <p>Denotes the profile to use when encoding the video. Planner profile is for encoding high-quality
  * event content, like session videos. Attendee profile is for encoding lower-quality content intended
  * to go on attendee profiles and social feeds in the event.
@@ -25,13 +25,13 @@ public enum EncodingProfileJson {
     EncodingProfileJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EncodingProfileJson> fromValue(String value) {
-        for (EncodingProfileJson o: EncodingProfileJson.values()) {
+        for (EncodingProfileJson o : EncodingProfileJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum EncodingProfileJson {
         return Optional.empty();
     }
 }
-

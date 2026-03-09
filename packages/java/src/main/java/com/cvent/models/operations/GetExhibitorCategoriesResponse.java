@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetExhibitorCategoriesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetExhibitorCategoriesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.exhibitorCategoriesPaginatedResponse = exhibitorCategoriesPaginatedResponse;
     }
-    
+
     public GetExhibitorCategoriesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetExhibitorCategoriesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetExhibitorCategoriesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetExhibitorCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetExhibitorCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved exhibitor categories.
      */
-    public GetExhibitorCategoriesResponse withExhibitorCategoriesPaginatedResponse(@Nullable ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse) {
+    public GetExhibitorCategoriesResponse withExhibitorCategoriesPaginatedResponse(
+            @Nullable ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse) {
         this.exhibitorCategoriesPaginatedResponse = exhibitorCategoriesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetExhibitorCategoriesResponse implements Response {
             return false;
         }
         GetExhibitorCategoriesResponse other = (GetExhibitorCategoriesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoriesPaginatedResponse, other.exhibitorCategoriesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoriesPaginatedResponse, other.exhibitorCategoriesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            exhibitorCategoriesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, exhibitorCategoriesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorCategoriesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "exhibitorCategoriesPaginatedResponse", exhibitorCategoriesPaginatedResponse);
+        return Utils.toString(
+                GetExhibitorCategoriesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "exhibitorCategoriesPaginatedResponse",
+                exhibitorCategoriesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetExhibitorCategoriesResponse implements Response {
         private ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetExhibitorCategoriesResponse implements Response {
         /**
          * Successfully retrieved exhibitor categories.
          */
-        public Builder exhibitorCategoriesPaginatedResponse(@Nullable ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse) {
+        public Builder exhibitorCategoriesPaginatedResponse(
+                @Nullable ExhibitorCategoriesPaginatedResponse exhibitorCategoriesPaginatedResponse) {
             this.exhibitorCategoriesPaginatedResponse = exhibitorCategoriesPaginatedResponse;
             return this;
         }
 
         public GetExhibitorCategoriesResponse build() {
             return new GetExhibitorCategoriesResponse(
-                contentType, statusCode, rawResponse,
-                exhibitorCategoriesPaginatedResponse);
+                    contentType, statusCode, rawResponse, exhibitorCategoriesPaginatedResponse);
         }
-
     }
 }

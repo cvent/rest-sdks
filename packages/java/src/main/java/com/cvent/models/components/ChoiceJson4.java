@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ChoiceJson4
- * 
+ *
  * <p>This is used to denote the choice of custom field.
  */
 public class ChoiceJson4 {
@@ -36,16 +36,12 @@ public class ChoiceJson4 {
     private String text;
 
     @JsonCreator
-    public ChoiceJson4(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nonnull String text) {
+    public ChoiceJson4(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nonnull String text) {
         this.id = id;
-        this.text = Optional.ofNullable(text)
-            .orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
     }
-    
-    public ChoiceJson4(
-            @Nonnull String text) {
+
+    public ChoiceJson4(@Nonnull String text) {
         this(null, text);
     }
 
@@ -69,7 +65,6 @@ public class ChoiceJson4 {
         return new Builder();
     }
 
-
     /**
      * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice
      * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
@@ -80,7 +75,6 @@ public class ChoiceJson4 {
         return this;
     }
 
-
     /**
      * The text for the custom field choice.
      */
@@ -88,7 +82,6 @@ public class ChoiceJson4 {
         this.text = Utils.checkNotNull(text, "text");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -99,33 +92,28 @@ public class ChoiceJson4 {
             return false;
         }
         ChoiceJson4 other = (ChoiceJson4) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text);
+        return Utils.enhancedHash(id, text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson4.class,
-                "id", id,
-                "text", text);
+        return Utils.toString(ChoiceJson4.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -147,9 +135,7 @@ public class ChoiceJson4 {
         }
 
         public ChoiceJson4 build() {
-            return new ChoiceJson4(
-                id, text);
+            return new ChoiceJson4(id, text);
         }
-
     }
 }

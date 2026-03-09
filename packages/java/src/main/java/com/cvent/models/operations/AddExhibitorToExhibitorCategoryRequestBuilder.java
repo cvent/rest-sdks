@@ -20,7 +20,8 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public AddExhibitorToExhibitorCategoryRequestBuilder request(@Nonnull AddExhibitorToExhibitorCategoryRequest request) {
+    public AddExhibitorToExhibitorCategoryRequestBuilder request(
+            @Nonnull AddExhibitorToExhibitorCategoryRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
     private AddExhibitorToExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddExhibitorToExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public AddExhibitorToExhibitorCategoryResponse call() {
-        RequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation
-              = new AddExhibitorToExhibitorCategory.Sync(sdkConfiguration, _headers);
+        RequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation =
+                new AddExhibitorToExhibitorCategory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

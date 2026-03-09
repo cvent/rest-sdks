@@ -28,7 +28,7 @@ public class DeleteBudgetAllocationsRequestBuilder {
     private DeleteBudgetAllocationsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteBudgetAllocationsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteBudgetAllocationsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteBudgetAllocationsResponse call() {
-        RequestOperation<DeleteBudgetAllocationsRequest, DeleteBudgetAllocationsResponse> operation
-              = new DeleteBudgetAllocations.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteBudgetAllocationsRequest, DeleteBudgetAllocationsResponse> operation =
+                new DeleteBudgetAllocations.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

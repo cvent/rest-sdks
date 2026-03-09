@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EmailMessage
- * 
+ *
  * <p>An email message
  */
 public class EmailMessage {
@@ -24,10 +24,8 @@ public class EmailMessage {
     private String link;
 
     @JsonCreator
-    public EmailMessage(
-            @JsonProperty("link") @Nonnull String link) {
-        this.link = Optional.ofNullable(link)
-            .orElseThrow(() -> new IllegalArgumentException("link cannot be null"));
+    public EmailMessage(@JsonProperty("link") @Nonnull String link) {
+        this.link = Optional.ofNullable(link).orElseThrow(() -> new IllegalArgumentException("link cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class EmailMessage {
         return new Builder();
     }
 
-
     /**
      * A link to a stored email message.
      */
@@ -49,7 +46,6 @@ public class EmailMessage {
         this.link = Utils.checkNotNull(link, "link");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class EmailMessage {
             return false;
         }
         EmailMessage other = (EmailMessage) o;
-        return 
-            Utils.enhancedDeepEquals(this.link, other.link);
+        return Utils.enhancedDeepEquals(this.link, other.link);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            link);
+        return Utils.enhancedHash(link);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailMessage.class,
-                "link", link);
+        return Utils.toString(EmailMessage.class, "link", link);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String link;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class EmailMessage {
         }
 
         public EmailMessage build() {
-            return new EmailMessage(
-                link);
+            return new EmailMessage(link);
         }
-
     }
 }

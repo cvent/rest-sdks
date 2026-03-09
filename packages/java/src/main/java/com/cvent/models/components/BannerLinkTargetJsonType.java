@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BannerLinkTargetJsonType
- * 
+ *
  * <p>The type of target associated with the banner link.
  */
 public enum BannerLinkTargetJsonType {
@@ -28,13 +28,13 @@ public enum BannerLinkTargetJsonType {
     BannerLinkTargetJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BannerLinkTargetJsonType> fromValue(String value) {
-        for (BannerLinkTargetJsonType o: BannerLinkTargetJsonType.values()) {
+        for (BannerLinkTargetJsonType o : BannerLinkTargetJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum BannerLinkTargetJsonType {
         return Optional.empty();
     }
 }
-

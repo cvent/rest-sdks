@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelBidDiscountJson
- * 
+ *
  * <p>Discount for a travel bid.
  */
 public class TravelBidDiscountJson {
@@ -51,7 +51,7 @@ public class TravelBidDiscountJson {
         this.discount = discount;
         this.status = status;
     }
-    
+
     public TravelBidDiscountJson() {
         this(null, null, null);
     }
@@ -82,7 +82,6 @@ public class TravelBidDiscountJson {
         return new Builder();
     }
 
-
     /**
      * ID of the property's room.
      */
@@ -91,7 +90,6 @@ public class TravelBidDiscountJson {
         return this;
     }
 
-
     /**
      * Discount percentage for the dynamic rate.
      */
@@ -99,7 +97,6 @@ public class TravelBidDiscountJson {
         this.discount = discount;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -110,7 +107,6 @@ public class TravelBidDiscountJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -120,28 +116,24 @@ public class TravelBidDiscountJson {
             return false;
         }
         TravelBidDiscountJson other = (TravelBidDiscountJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom) &&
-            Utils.enhancedDeepEquals(this.discount, other.discount) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom)
+                && Utils.enhancedDeepEquals(this.discount, other.discount)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            propertyRoom, discount, status);
+        return Utils.enhancedHash(propertyRoom, discount, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidDiscountJson.class,
-                "propertyRoom", propertyRoom,
-                "discount", discount,
-                "status", status);
+        return Utils.toString(
+                TravelBidDiscountJson.class, "propertyRoom", propertyRoom, "discount", discount, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelBidDiscountJsonPropertyRoom propertyRoom;
 
@@ -150,7 +142,7 @@ public class TravelBidDiscountJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -179,9 +171,7 @@ public class TravelBidDiscountJson {
         }
 
         public TravelBidDiscountJson build() {
-            return new TravelBidDiscountJson(
-                propertyRoom, discount, status);
+            return new TravelBidDiscountJson(propertyRoom, discount, status);
         }
-
     }
 }

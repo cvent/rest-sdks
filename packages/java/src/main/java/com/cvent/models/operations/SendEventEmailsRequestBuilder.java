@@ -29,7 +29,7 @@ public class SendEventEmailsRequestBuilder {
     private SendEmailEventRequest _buildRequest() {
         return this.request;
     }
-    
+
     public SendEventEmailsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class SendEventEmailsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public SendEventEmailsResponse call() {
-        RequestOperation<SendEmailEventRequest, SendEventEmailsResponse> operation
-              = new SendEventEmails.Sync(sdkConfiguration, _headers);
+        RequestOperation<SendEmailEventRequest, SendEventEmailsResponse> operation =
+                new SendEventEmails.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

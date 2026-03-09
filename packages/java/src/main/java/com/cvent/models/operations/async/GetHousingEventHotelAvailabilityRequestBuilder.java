@@ -22,7 +22,8 @@ public class GetHousingEventHotelAvailabilityRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public GetHousingEventHotelAvailabilityRequestBuilder request(@Nonnull GetHousingEventHotelAvailabilityRequest request) {
+    public GetHousingEventHotelAvailabilityRequestBuilder request(
+            @Nonnull GetHousingEventHotelAvailabilityRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class GetHousingEventHotelAvailabilityRequestBuilder {
     private GetHousingEventHotelAvailabilityRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventHotelAvailabilityRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class GetHousingEventHotelAvailabilityRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHousingEventHotelAvailabilityResponse> call() {
-        AsyncRequestOperation<GetHousingEventHotelAvailabilityRequest, GetHousingEventHotelAvailabilityResponse> operation
-              = new GetHousingEventHotelAvailability.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHousingEventHotelAvailabilityRequest, GetHousingEventHotelAvailabilityResponse> operation =
+                new GetHousingEventHotelAvailability.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

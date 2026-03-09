@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BudgetCostTypeJson
     {
-        [JsonProperty("FIXED")]
-        Fixed,
-        [JsonProperty("VARIABLE")]
-        Variable,
+        [JsonProperty("FIXED")] Fixed,
+        [JsonProperty("VARIABLE")] Variable,
     }
 
     public static class BudgetCostTypeJsonExtension
     {
         public static string Value(this BudgetCostTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BudgetCostTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BudgetCostTypeJson).GetFields())
+            foreach (var field in typeof(BudgetCostTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

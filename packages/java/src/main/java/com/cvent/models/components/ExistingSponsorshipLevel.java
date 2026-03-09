@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingSponsorshipLevel
- * 
+ *
  * <p>Existing sponsorship level model
  */
 public class ExistingSponsorshipLevel {
@@ -90,20 +90,14 @@ public class ExistingSponsorshipLevel {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.id = id;
         this.rank = rank;
     }
-    
-    public ExistingSponsorshipLevel(
-            @Nonnull EventJson5 event,
-            @Nonnull String name) {
-        this(null, null, null,
-            null, event, name,
-            null, null);
+
+    public ExistingSponsorshipLevel(@Nonnull EventJson5 event, @Nonnull String name) {
+        this(null, null, null, null, event, name, null, null);
     }
 
     /**
@@ -166,7 +160,6 @@ public class ExistingSponsorshipLevel {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -174,7 +167,6 @@ public class ExistingSponsorshipLevel {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -184,7 +176,6 @@ public class ExistingSponsorshipLevel {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -192,7 +183,6 @@ public class ExistingSponsorshipLevel {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -202,7 +192,6 @@ public class ExistingSponsorshipLevel {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -210,7 +199,6 @@ public class ExistingSponsorshipLevel {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Name of the sponsorship level
@@ -220,7 +208,6 @@ public class ExistingSponsorshipLevel {
         return this;
     }
 
-
     /**
      * ID of event sponsorship level.
      */
@@ -229,7 +216,6 @@ public class ExistingSponsorshipLevel {
         return this;
     }
 
-
     /**
      * Represents the order sponsors appear in a list.
      */
@@ -237,7 +223,6 @@ public class ExistingSponsorshipLevel {
         this.rank = rank;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -248,40 +233,45 @@ public class ExistingSponsorshipLevel {
             return false;
         }
         ExistingSponsorshipLevel other = (ExistingSponsorshipLevel) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.rank, other.rank);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.rank, other.rank);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, name,
-            id, rank);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, event, name, id, rank);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingSponsorshipLevel.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "name", name,
-                "id", id,
-                "rank", rank);
+        return Utils.toString(
+                ExistingSponsorshipLevel.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "name",
+                name,
+                "id",
+                id,
+                "rank",
+                rank);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -300,7 +290,7 @@ public class ExistingSponsorshipLevel {
         private Long rank;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -369,10 +359,7 @@ public class ExistingSponsorshipLevel {
 
         public ExistingSponsorshipLevel build() {
             return new ExistingSponsorshipLevel(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, name,
-                id, rank);
+                    created, createdBy, lastModified, lastModifiedBy, event, name, id, rank);
         }
-
     }
 }

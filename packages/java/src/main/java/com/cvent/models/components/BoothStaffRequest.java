@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BoothStaffRequest
- * 
+ *
  * <p>A JSON schema representing booth staff.
  */
 public class BoothStaffRequest {
@@ -41,11 +41,10 @@ public class BoothStaffRequest {
             @JsonProperty("event") @Nonnull EventJson5 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor) {
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
     }
 
     /**
@@ -73,7 +72,6 @@ public class BoothStaffRequest {
         return new Builder();
     }
 
-
     /**
      * A JSON Schema for an Attendee object
      */
@@ -81,7 +79,6 @@ public class BoothStaffRequest {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * The Associated Event.
@@ -91,7 +88,6 @@ public class BoothStaffRequest {
         return this;
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -99,7 +95,6 @@ public class BoothStaffRequest {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -110,28 +105,23 @@ public class BoothStaffRequest {
             return false;
         }
         BoothStaffRequest other = (BoothStaffRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, event, exhibitor);
+        return Utils.enhancedHash(attendee, event, exhibitor);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BoothStaffRequest.class,
-                "attendee", attendee,
-                "event", event,
-                "exhibitor", exhibitor);
+        return Utils.toString(BoothStaffRequest.class, "attendee", attendee, "event", event, "exhibitor", exhibitor);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeJson3 attendee;
 
@@ -140,7 +130,7 @@ public class BoothStaffRequest {
         private ExhibitorJson exhibitor;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -168,9 +158,7 @@ public class BoothStaffRequest {
         }
 
         public BoothStaffRequest build() {
-            return new BoothStaffRequest(
-                attendee, event, exhibitor);
+            return new BoothStaffRequest(attendee, event, exhibitor);
         }
-
     }
 }

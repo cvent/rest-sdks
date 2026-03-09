@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttendeeStatusJson
- * 
+ *
  * <p>This is used to denote the status of an attendee.
  */
 public enum AttendeeStatusJson {
@@ -29,13 +29,13 @@ public enum AttendeeStatusJson {
     AttendeeStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeStatusJson> fromValue(String value) {
-        for (AttendeeStatusJson o: AttendeeStatusJson.values()) {
+        for (AttendeeStatusJson o : AttendeeStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum AttendeeStatusJson {
         return Optional.empty();
     }
 }
-

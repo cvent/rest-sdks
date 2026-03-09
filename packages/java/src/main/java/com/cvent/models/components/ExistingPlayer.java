@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExistingPlayer
- * 
+ *
  * <p>An existing webcast player.
  */
 public class ExistingPlayer {
@@ -159,13 +159,9 @@ public class ExistingPlayer {
         this.simuliveOffset = simuliveOffset;
         this.id = id;
     }
-    
+
     public ExistingPlayer() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -277,7 +273,6 @@ public class ExistingPlayer {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -285,7 +280,6 @@ public class ExistingPlayer {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -295,7 +289,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -303,7 +296,6 @@ public class ExistingPlayer {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -313,7 +305,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -321,7 +312,6 @@ public class ExistingPlayer {
         this.webcast = webcast;
         return this;
     }
-
 
     /**
      * ID of the video to be played.
@@ -331,7 +321,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * URL to play video
      */
@@ -339,7 +328,6 @@ public class ExistingPlayer {
         this.videoUrl = videoUrl;
         return this;
     }
-
 
     /**
      * Password to access the video.
@@ -349,7 +337,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * A webcast Live Stream.
      */
@@ -357,7 +344,6 @@ public class ExistingPlayer {
         this.stream = stream;
         return this;
     }
-
 
     /**
      * Region where the live stream originates (These regions are only for Brightcove player)
@@ -367,7 +353,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * Video duration (milliseconds)
      */
@@ -375,7 +360,6 @@ public class ExistingPlayer {
         this.duration = duration;
         return this;
     }
-
 
     /**
      * A scheduled action.
@@ -385,7 +369,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * This is used to denote the type of a video player used for the Cvent Video Player
      */
@@ -393,7 +376,6 @@ public class ExistingPlayer {
         this.playerTypeProvider = playerTypeProvider;
         return this;
     }
-
 
     /**
      * Offset (seconds) to determine start date for simulated live video.
@@ -403,7 +385,6 @@ public class ExistingPlayer {
         return this;
     }
 
-
     /**
      * Player ID
      */
@@ -411,7 +392,6 @@ public class ExistingPlayer {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -422,56 +402,81 @@ public class ExistingPlayer {
             return false;
         }
         ExistingPlayer other = (ExistingPlayer) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.webcast, other.webcast) &&
-            Utils.enhancedDeepEquals(this.videoId, other.videoId) &&
-            Utils.enhancedDeepEquals(this.videoUrl, other.videoUrl) &&
-            Utils.enhancedDeepEquals(this.password, other.password) &&
-            Utils.enhancedDeepEquals(this.stream, other.stream) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.schedule, other.schedule) &&
-            Utils.enhancedDeepEquals(this.playerTypeProvider, other.playerTypeProvider) &&
-            Utils.enhancedDeepEquals(this.simuliveOffset, other.simuliveOffset) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.webcast, other.webcast)
+                && Utils.enhancedDeepEquals(this.videoId, other.videoId)
+                && Utils.enhancedDeepEquals(this.videoUrl, other.videoUrl)
+                && Utils.enhancedDeepEquals(this.password, other.password)
+                && Utils.enhancedDeepEquals(this.stream, other.stream)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.schedule, other.schedule)
+                && Utils.enhancedDeepEquals(this.playerTypeProvider, other.playerTypeProvider)
+                && Utils.enhancedDeepEquals(this.simuliveOffset, other.simuliveOffset)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, webcast, videoId,
-            videoUrl, password, stream,
-            region, duration, schedule,
-            playerTypeProvider, simuliveOffset, id);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                webcast,
+                videoId,
+                videoUrl,
+                password,
+                stream,
+                region,
+                duration,
+                schedule,
+                playerTypeProvider,
+                simuliveOffset,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingPlayer.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "webcast", webcast,
-                "videoId", videoId,
-                "videoUrl", videoUrl,
-                "password", password,
-                "stream", stream,
-                "region", region,
-                "duration", duration,
-                "schedule", schedule,
-                "playerTypeProvider", playerTypeProvider,
-                "simuliveOffset", simuliveOffset,
-                "id", id);
+        return Utils.toString(
+                ExistingPlayer.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "webcast",
+                webcast,
+                "videoId",
+                videoId,
+                "videoUrl",
+                videoUrl,
+                "password",
+                password,
+                "stream",
+                stream,
+                "region",
+                region,
+                "duration",
+                duration,
+                "schedule",
+                schedule,
+                "playerTypeProvider",
+                playerTypeProvider,
+                "simuliveOffset",
+                simuliveOffset,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -504,7 +509,7 @@ public class ExistingPlayer {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -629,12 +634,21 @@ public class ExistingPlayer {
 
         public ExistingPlayer build() {
             return new ExistingPlayer(
-                created, createdBy, lastModified,
-                lastModifiedBy, webcast, videoId,
-                videoUrl, password, stream,
-                region, duration, schedule,
-                playerTypeProvider, simuliveOffset, id);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    webcast,
+                    videoId,
+                    videoUrl,
+                    password,
+                    stream,
+                    region,
+                    duration,
+                    schedule,
+                    playerTypeProvider,
+                    simuliveOffset,
+                    id);
         }
-
     }
 }

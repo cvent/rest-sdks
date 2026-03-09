@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateTextTrackRequest {
     /**
      * The identifier of a video.
@@ -20,18 +19,15 @@ public class CreateTextTrackRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=videoId")
     private String videoId;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private VideoTextTrack videoTextTrack;
 
     @JsonCreator
-    public CreateTextTrackRequest(
-            @Nonnull String videoId,
-            @Nonnull VideoTextTrack videoTextTrack) {
-        this.videoId = Optional.ofNullable(videoId)
-            .orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
+    public CreateTextTrackRequest(@Nonnull String videoId, @Nonnull VideoTextTrack videoTextTrack) {
+        this.videoId =
+                Optional.ofNullable(videoId).orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
         this.videoTextTrack = Optional.ofNullable(videoTextTrack)
-            .orElseThrow(() -> new IllegalArgumentException("videoTextTrack cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("videoTextTrack cannot be null"));
     }
 
     /**
@@ -49,7 +45,6 @@ public class CreateTextTrackRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of a video.
      */
@@ -58,12 +53,10 @@ public class CreateTextTrackRequest {
         return this;
     }
 
-
     public CreateTextTrackRequest withVideoTextTrack(@Nonnull VideoTextTrack videoTextTrack) {
         this.videoTextTrack = Utils.checkNotNull(videoTextTrack, "videoTextTrack");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +67,29 @@ public class CreateTextTrackRequest {
             return false;
         }
         CreateTextTrackRequest other = (CreateTextTrackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.videoId, other.videoId) &&
-            Utils.enhancedDeepEquals(this.videoTextTrack, other.videoTextTrack);
+        return Utils.enhancedDeepEquals(this.videoId, other.videoId)
+                && Utils.enhancedDeepEquals(this.videoTextTrack, other.videoTextTrack);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            videoId, videoTextTrack);
+        return Utils.enhancedHash(videoId, videoTextTrack);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateTextTrackRequest.class,
-                "videoId", videoId,
-                "videoTextTrack", videoTextTrack);
+        return Utils.toString(CreateTextTrackRequest.class, "videoId", videoId, "videoTextTrack", videoTextTrack);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String videoId;
 
         private VideoTextTrack videoTextTrack;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +106,7 @@ public class CreateTextTrackRequest {
         }
 
         public CreateTextTrackRequest build() {
-            return new CreateTextTrackRequest(
-                videoId, videoTextTrack);
+            return new CreateTextTrackRequest(videoId, videoTextTrack);
         }
-
     }
 }

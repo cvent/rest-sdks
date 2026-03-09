@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UploadBulkJobDataRequest {
     /**
      * A uuid path parameter.
@@ -20,18 +19,14 @@ public class UploadBulkJobDataRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private BulkData bulkData;
 
     @JsonCreator
-    public UploadBulkJobDataRequest(
-            @Nonnull String id,
-            @Nonnull BulkData bulkData) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UploadBulkJobDataRequest(@Nonnull String id, @Nonnull BulkData bulkData) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.bulkData = Optional.ofNullable(bulkData)
-            .orElseThrow(() -> new IllegalArgumentException("bulkData cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("bulkData cannot be null"));
     }
 
     /**
@@ -49,7 +44,6 @@ public class UploadBulkJobDataRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid path parameter.
      */
@@ -58,12 +52,10 @@ public class UploadBulkJobDataRequest {
         return this;
     }
 
-
     public UploadBulkJobDataRequest withBulkData(@Nonnull BulkData bulkData) {
         this.bulkData = Utils.checkNotNull(bulkData, "bulkData");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +66,28 @@ public class UploadBulkJobDataRequest {
             return false;
         }
         UploadBulkJobDataRequest other = (UploadBulkJobDataRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.bulkData, other.bulkData);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.bulkData, other.bulkData);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, bulkData);
+        return Utils.enhancedHash(id, bulkData);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UploadBulkJobDataRequest.class,
-                "id", id,
-                "bulkData", bulkData);
+        return Utils.toString(UploadBulkJobDataRequest.class, "id", id, "bulkData", bulkData);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private BulkData bulkData;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +104,7 @@ public class UploadBulkJobDataRequest {
         }
 
         public UploadBulkJobDataRequest build() {
-            return new UploadBulkJobDataRequest(
-                id, bulkData);
+            return new UploadBulkJobDataRequest(id, bulkData);
         }
-
     }
 }

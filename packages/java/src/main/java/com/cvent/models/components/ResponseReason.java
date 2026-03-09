@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * ResponseReason
- * 
+ *
  * <p>The reason for the response.
  */
 @JsonDeserialize(using = ResponseReason._Deserializer.class)
@@ -25,43 +25,43 @@ public class ResponseReason {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private ResponseReason(TypedObject value) {
         this.value = value;
     }
 
     public static ResponseReason of(DeclinedReason value) {
         Utils.checkNotNull(value, "value");
-        return new ResponseReason(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ResponseReason(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static ResponseReason of(CancelledReason value) {
         Utils.checkNotNull(value, "value");
-        return new ResponseReason(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new ResponseReason(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.DeclinedReason}</li>
      * <li>{@code com.cvent.models.components.CancelledReason}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -73,27 +73,26 @@ public class ResponseReason {
         ResponseReason other = (ResponseReason) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<ResponseReason> {
 
         public _Deserializer() {
-            super(ResponseReason.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<DeclinedReason>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<CancelledReason>() {}, JsonShape.DEFAULT));
+            super(
+                    ResponseReason.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<DeclinedReason>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<CancelledReason>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ResponseReason.class,
-                "value", value);
+        return Utils.toString(ResponseReason.class, "value", value);
     }
-
 }
-

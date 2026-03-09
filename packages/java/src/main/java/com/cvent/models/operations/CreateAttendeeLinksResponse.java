@@ -16,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
-
 public class CreateAttendeeLinksResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class CreateAttendeeLinksResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
     }
-    
+
     public CreateAttendeeLinksResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class CreateAttendeeLinksResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class CreateAttendeeLinksResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class CreateAttendeeLinksResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class CreateAttendeeLinksResponse implements Response {
         return this;
     }
 
-
     /**
      * Attendee links successfully created.
      */
-    public CreateAttendeeLinksResponse withAttendeeLinkBulkResponse(@Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+    public CreateAttendeeLinksResponse withAttendeeLinkBulkResponse(
+            @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
         this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class CreateAttendeeLinksResponse implements Response {
             return false;
         }
         CreateAttendeeLinksResponse other = (CreateAttendeeLinksResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeLinkBulkResponse, other.attendeeLinkBulkResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeLinkBulkResponse, other.attendeeLinkBulkResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeLinkBulkResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeLinkBulkResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateAttendeeLinksResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeLinkBulkResponse", attendeeLinkBulkResponse);
+        return Utils.toString(
+                CreateAttendeeLinksResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeLinkBulkResponse",
+                attendeeLinkBulkResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class CreateAttendeeLinksResponse implements Response {
         private List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class CreateAttendeeLinksResponse implements Response {
         /**
          * Attendee links successfully created.
          */
-        public Builder attendeeLinkBulkResponse(@Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
+        public Builder attendeeLinkBulkResponse(
+                @Nullable List<AttendeeLinkBulkResponseItemJson> attendeeLinkBulkResponse) {
             this.attendeeLinkBulkResponse = attendeeLinkBulkResponse;
             return this;
         }
 
         public CreateAttendeeLinksResponse build() {
-            return new CreateAttendeeLinksResponse(
-                contentType, statusCode, rawResponse,
-                attendeeLinkBulkResponse);
+            return new CreateAttendeeLinksResponse(contentType, statusCode, rawResponse, attendeeLinkBulkResponse);
         }
-
     }
 }

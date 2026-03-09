@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * SessionsAttendanceResponseJson
- * 
+ *
  * <p>Represents session attendance details.
  */
 public class SessionsAttendanceResponseJson {
@@ -104,7 +104,7 @@ public class SessionsAttendanceResponseJson {
      * DEPRECATED - Duration is now found by using the [List Attendance Duration
      * API](#operation/listDurations). The duration of attendance set by the session check-In request.
      * Duration is in milliseconds.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -139,12 +139,9 @@ public class SessionsAttendanceResponseJson {
         this.checkOut = checkOut;
         this.duration = duration;
     }
-    
+
     public SessionsAttendanceResponseJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -228,7 +225,7 @@ public class SessionsAttendanceResponseJson {
      * DEPRECATED - Duration is now found by using the [List Attendance Duration
      * API](#operation/listDurations). The duration of attendance set by the session check-In request.
      * Duration is in milliseconds.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -240,7 +237,6 @@ public class SessionsAttendanceResponseJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -248,7 +244,6 @@ public class SessionsAttendanceResponseJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -258,7 +253,6 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -266,7 +260,6 @@ public class SessionsAttendanceResponseJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -276,7 +269,6 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * The identifier of the session attendance record.
      */
@@ -284,7 +276,6 @@ public class SessionsAttendanceResponseJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -294,7 +285,6 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -302,7 +292,6 @@ public class SessionsAttendanceResponseJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -312,7 +301,6 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * True indicates the attendance record is deleted.
      */
@@ -320,7 +308,6 @@ public class SessionsAttendanceResponseJson {
         this.deleted = deleted;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time when the attendee checked in to a session.
@@ -330,7 +317,6 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time when the attendee checked out from a session.
      */
@@ -339,12 +325,11 @@ public class SessionsAttendanceResponseJson {
         return this;
     }
 
-
     /**
      * DEPRECATED - Duration is now found by using the [List Attendance Duration
      * API](#operation/listDurations). The duration of attendance set by the session check-In request.
      * Duration is in milliseconds.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -352,7 +337,6 @@ public class SessionsAttendanceResponseJson {
         this.duration = duration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -363,49 +347,69 @@ public class SessionsAttendanceResponseJson {
             return false;
         }
         SessionsAttendanceResponseJson other = (SessionsAttendanceResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.checkIn, other.checkIn) &&
-            Utils.enhancedDeepEquals(this.checkOut, other.checkOut) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.checkIn, other.checkIn)
+                && Utils.enhancedDeepEquals(this.checkOut, other.checkOut)
+                && Utils.enhancedDeepEquals(this.duration, other.duration);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, session,
-            event, attendee, deleted,
-            checkIn, checkOut, duration);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                session,
+                event,
+                attendee,
+                deleted,
+                checkIn,
+                checkOut,
+                duration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionsAttendanceResponseJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "session", session,
-                "event", event,
-                "attendee", attendee,
-                "deleted", deleted,
-                "checkIn", checkIn,
-                "checkOut", checkOut,
-                "duration", duration);
+        return Utils.toString(
+                SessionsAttendanceResponseJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "session",
+                session,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "deleted",
+                deleted,
+                "checkIn",
+                checkIn,
+                "checkOut",
+                checkOut,
+                "duration",
+                duration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -433,7 +437,7 @@ public class SessionsAttendanceResponseJson {
         private Long duration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -528,7 +532,7 @@ public class SessionsAttendanceResponseJson {
          * DEPRECATED - Duration is now found by using the [List Attendance Duration
          * API](#operation/listDurations). The duration of attendance set by the session check-In request.
          * Duration is in milliseconds.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -539,11 +543,18 @@ public class SessionsAttendanceResponseJson {
 
         public SessionsAttendanceResponseJson build() {
             return new SessionsAttendanceResponseJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, session,
-                event, attendee, deleted,
-                checkIn, checkOut, duration);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    session,
+                    event,
+                    attendee,
+                    deleted,
+                    checkIn,
+                    checkOut,
+                    duration);
         }
-
     }
 }

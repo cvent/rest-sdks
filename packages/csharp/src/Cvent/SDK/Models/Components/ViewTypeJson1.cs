@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ViewTypeJson1
     {
-        [JsonProperty("LIVE")]
-        Live,
-        [JsonProperty("RECORDING")]
-        Recording,
+        [JsonProperty("LIVE")] Live,
+        [JsonProperty("RECORDING")] Recording,
     }
 
     public static class ViewTypeJson1Extension
     {
         public static string Value(this ViewTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ViewTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(ViewTypeJson1).GetFields())
+            foreach (var field in typeof(ViewTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListSessionsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -46,11 +45,11 @@ public class ListSessionsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      * * end
@@ -74,9 +73,9 @@ public class ListSessionsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                              | Operators                                    |
      * |------------------------------------|----------------------------------------------|
      * | id                                 | `eq`, `ne`, `in`                             |
@@ -106,11 +105,11 @@ public class ListSessionsRequest {
      * | group.id                           | `eq`, `ne`                                   |
      * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
      * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
-     * 
+     *
      * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
      * session in the list and, by default, sort results by relevance. Higher scores represent a higher
      * relevance to the filter string.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -129,18 +128,15 @@ public class ListSessionsRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.locale = locale;
         this.filter = filter;
     }
-    
+
     public ListSessionsRequest() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -176,11 +172,11 @@ public class ListSessionsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      * * end
@@ -206,9 +202,9 @@ public class ListSessionsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                              | Operators                                    |
      * |------------------------------------|----------------------------------------------|
      * | id                                 | `eq`, `ne`, `in`                             |
@@ -238,11 +234,11 @@ public class ListSessionsRequest {
      * | group.id                           | `eq`, `ne`                                   |
      * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
      * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
-     * 
+     *
      * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
      * session in the list and, by default, sort results by relevance. Higher scores represent a higher
      * relevance to the filter string.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -255,7 +251,6 @@ public class ListSessionsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -265,7 +260,6 @@ public class ListSessionsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -274,7 +268,6 @@ public class ListSessionsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -282,7 +275,6 @@ public class ListSessionsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -293,15 +285,14 @@ public class ListSessionsRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      * * end
@@ -317,7 +308,6 @@ public class ListSessionsRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -326,14 +316,13 @@ public class ListSessionsRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field                              | Operators                                    |
      * |------------------------------------|----------------------------------------------|
      * | id                                 | `eq`, `ne`, `in`                             |
@@ -363,11 +352,11 @@ public class ListSessionsRequest {
      * | group.id                           | `eq`, `ne`                                   |
      * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
      * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
-     * 
+     *
      * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
      * session in the list and, by default, sort results by relevance. Higher scores represent a higher
      * relevance to the filter string.
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
@@ -376,7 +365,6 @@ public class ListSessionsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -387,38 +375,42 @@ public class ListSessionsRequest {
             return false;
         }
         ListSessionsRequest other = (ListSessionsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, sort, locale,
-            filter);
+        return Utils.enhancedHash(after, before, limit, token, sort, locale, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "locale", locale,
-                "filter", filter);
+        return Utils.toString(
+                ListSessionsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "locale",
+                locale,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -435,7 +427,7 @@ public class ListSessionsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -475,11 +467,11 @@ public class ListSessionsRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * start
          * * end
@@ -507,9 +499,9 @@ public class ListSessionsRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field                              | Operators                                    |
          * |------------------------------------|----------------------------------------------|
          * | id                                 | `eq`, `ne`, `in`                             |
@@ -539,11 +531,11 @@ public class ListSessionsRequest {
          * | group.id                           | `eq`, `ne`                                   |
          * | admissionItems                     | `contains`, `is empty`, `is not empty`       |
          * | segments                           | `contains`, `in`, `is empty`, `is not empty` |
-         * 
+         *
          * <p>**Note:** If the "match" filter is passed, the endpoint will return a relevance score for each
          * session in the list and, by default, sort results by relevance. Higher scores represent a higher
          * relevance to the filter string.
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
@@ -554,17 +546,10 @@ public class ListSessionsRequest {
         }
 
         public ListSessionsRequest build() {
-            return new ListSessionsRequest(
-                after, before, limit,
-                token, sort, locale,
-                filter);
+            return new ListSessionsRequest(after, before, limit, token, sort, locale, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

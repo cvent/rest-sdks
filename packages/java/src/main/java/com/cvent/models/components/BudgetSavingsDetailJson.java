@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BudgetSavingsDetailJson
- * 
+ *
  * <p>Budget savings detail information.
  */
 public class BudgetSavingsDetailJson {
@@ -52,7 +52,7 @@ public class BudgetSavingsDetailJson {
         this.name = name;
         this.value = value;
     }
-    
+
     public BudgetSavingsDetailJson() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class BudgetSavingsDetailJson {
         return new Builder();
     }
 
-
     /**
      * Budget savings detail ID.
      */
@@ -91,7 +90,6 @@ public class BudgetSavingsDetailJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Denotes a mathematical formula to calculate savings. For example, Budgeted Amount - Actual amount =
@@ -102,7 +100,6 @@ public class BudgetSavingsDetailJson {
         return this;
     }
 
-
     /**
      * Calculated value based on the savings formula.
      */
@@ -110,7 +107,6 @@ public class BudgetSavingsDetailJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -121,28 +117,23 @@ public class BudgetSavingsDetailJson {
             return false;
         }
         BudgetSavingsDetailJson other = (BudgetSavingsDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, value);
+        return Utils.enhancedHash(id, name, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetSavingsDetailJson.class,
-                "id", id,
-                "name", name,
-                "value", value);
+        return Utils.toString(BudgetSavingsDetailJson.class, "id", id, "name", name, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long id;
 
@@ -151,7 +142,7 @@ public class BudgetSavingsDetailJson {
         private Double value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -180,9 +171,7 @@ public class BudgetSavingsDetailJson {
         }
 
         public BudgetSavingsDetailJson build() {
-            return new BudgetSavingsDetailJson(
-                id, name, value);
+            return new BudgetSavingsDetailJson(id, name, value);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Bid stay type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BidStatusTypeJson;
+
+BidStatusTypeJson value = BidStatusTypeJson.IN_PROGRESS;
+```
+
 
 ## Values
 

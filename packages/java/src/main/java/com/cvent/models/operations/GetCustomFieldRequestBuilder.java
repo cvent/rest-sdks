@@ -28,7 +28,7 @@ public class GetCustomFieldRequestBuilder {
     private GetCustomFieldRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetCustomFieldRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetCustomFieldRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetCustomFieldResponse call() {
-        RequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation
-              = new GetCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation =
+                new GetCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

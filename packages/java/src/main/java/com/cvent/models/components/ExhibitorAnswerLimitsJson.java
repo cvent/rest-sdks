@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorAnswerLimitsJson
- * 
+ *
  * <p>Defines the limits for answers to exhibitor questions.
  */
 public class ExhibitorAnswerLimitsJson {
@@ -59,17 +59,14 @@ public class ExhibitorAnswerLimitsJson {
             @JsonProperty("maxLength") @Nullable Long maxLength,
             @JsonProperty("minSelections") @Nullable Long minSelections,
             @JsonProperty("maxSelections") @Nullable Long maxSelections) {
-        this.minLength = Optional.ofNullable(minLength)
-            .orElse(Builder._SINGLETON_VALUE_MinLength.value());
-        this.maxLength = Optional.ofNullable(maxLength)
-            .orElse(Builder._SINGLETON_VALUE_MaxLength.value());
+        this.minLength = Optional.ofNullable(minLength).orElse(Builder._SINGLETON_VALUE_MinLength.value());
+        this.maxLength = Optional.ofNullable(maxLength).orElse(Builder._SINGLETON_VALUE_MaxLength.value());
         this.minSelections = minSelections;
         this.maxSelections = maxSelections;
     }
-    
+
     public ExhibitorAnswerLimitsJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -107,7 +104,6 @@ public class ExhibitorAnswerLimitsJson {
         return new Builder();
     }
 
-
     /**
      * Minimum length of the answer for OpenEndedTextCommentBox questions. It must be less than or equal to
      * maxLength.
@@ -117,7 +113,6 @@ public class ExhibitorAnswerLimitsJson {
         return this;
     }
 
-
     /**
      * Maximum length of the answer for OpenEndedTextCommentBox questions.
      */
@@ -125,7 +120,6 @@ public class ExhibitorAnswerLimitsJson {
         this.maxLength = maxLength;
         return this;
     }
-
 
     /**
      * Minimum number of choices required for MultiChoice questions. It must be less than or equal to
@@ -136,7 +130,6 @@ public class ExhibitorAnswerLimitsJson {
         return this;
     }
 
-
     /**
      * Maximum number of choices allowed for MultiChoice questions. It cannot exceed the total number of
      * available choices.
@@ -145,7 +138,6 @@ public class ExhibitorAnswerLimitsJson {
         this.maxSelections = maxSelections;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -156,31 +148,33 @@ public class ExhibitorAnswerLimitsJson {
             return false;
         }
         ExhibitorAnswerLimitsJson other = (ExhibitorAnswerLimitsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.minLength, other.minLength) &&
-            Utils.enhancedDeepEquals(this.maxLength, other.maxLength) &&
-            Utils.enhancedDeepEquals(this.minSelections, other.minSelections) &&
-            Utils.enhancedDeepEquals(this.maxSelections, other.maxSelections);
+        return Utils.enhancedDeepEquals(this.minLength, other.minLength)
+                && Utils.enhancedDeepEquals(this.maxLength, other.maxLength)
+                && Utils.enhancedDeepEquals(this.minSelections, other.minSelections)
+                && Utils.enhancedDeepEquals(this.maxSelections, other.maxSelections);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            minLength, maxLength, minSelections,
-            maxSelections);
+        return Utils.enhancedHash(minLength, maxLength, minSelections, maxSelections);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorAnswerLimitsJson.class,
-                "minLength", minLength,
-                "maxLength", maxLength,
-                "minSelections", minSelections,
-                "maxSelections", maxSelections);
+        return Utils.toString(
+                ExhibitorAnswerLimitsJson.class,
+                "minLength",
+                minLength,
+                "maxLength",
+                maxLength,
+                "minSelections",
+                minSelections,
+                "maxSelections",
+                maxSelections);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long minLength;
 
@@ -191,7 +185,7 @@ public class ExhibitorAnswerLimitsJson {
         private Long maxSelections;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -230,22 +224,13 @@ public class ExhibitorAnswerLimitsJson {
         }
 
         public ExhibitorAnswerLimitsJson build() {
-            return new ExhibitorAnswerLimitsJson(
-                minLength, maxLength, minSelections,
-                maxSelections);
+            return new ExhibitorAnswerLimitsJson(minLength, maxLength, minSelections, maxSelections);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_MinLength =
-                new LazySingletonValue<>(
-                        "minLength",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("minLength", "1", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_MaxLength =
-                new LazySingletonValue<>(
-                        "maxLength",
-                        "2000",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("maxLength", "2000", new TypeReference<Long>() {});
     }
 }

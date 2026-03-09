@@ -3,6 +3,17 @@
  */
 package com.cvent.utils;
 
+import com.cvent.models.errors.APIException;
+import com.cvent.models.errors.AsyncAPIException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.IntNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.TextNode;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -11,6 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
+import java.lang.Iterable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -35,7 +47,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.lang.Iterable;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -46,66 +57,51 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.BiPredicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-import java.util.concurrent.CompletableFuture;
-
 import javax.net.ssl.SSLSession;
-
 import org.apache.commons.io.IOUtils;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.IntNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-
-import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.AsyncAPIException;
-
-
 public final class Utils {
-    
+
     private Utils() {
-         // prevent instantiation
+        // prevent instantiation
     }
 
-    // this method exists because primitive comparisons with objects can 
+    // this method exists because primitive comparisons with objects can
     // give compile errors. By calling this method we force autobox to object
-    // version of primitive     
+    // version of primitive
     public static boolean referenceEquals(Object a, Object b) {
         return a == b;
     }
-    
-    public static String generateURL(String baseURL, String path)
-            throws IllegalArgumentException {
+
+    public static String generateURL(String baseURL, String path) throws IllegalArgumentException {
         if (baseURL != null && baseURL.endsWith("/")) {
             baseURL = baseURL.substring(0, baseURL.length() - 1);
         }
 
         return baseURL + path;
     }
-    
-    public static <T> String generateURL(Class<T> type, String baseURL, String path, JsonNullable<? extends T> params,
-            Globals globals) throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
+
+    public static <T> String generateURL(
+            Class<T> type, String baseURL, String path, JsonNullable<? extends T> params, Globals globals)
+            throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
         if (params.isPresent() && params.get() != null) {
             return generateURL(type, baseURL, path, params.get(), globals);
         } else {
             return baseURL;
         }
     }
-    
-    public static <T> String generateURL(Class<T> type, String baseURL, String path, Optional<? extends T> params,
-            Globals globals) throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
+
+    public static <T> String generateURL(
+            Class<T> type, String baseURL, String path, Optional<? extends T> params, Globals globals)
+            throws JsonProcessingException, IllegalArgumentException, IllegalAccessException {
         if (params.isPresent()) {
             return generateURL(type, baseURL, path, params.get(), globals);
         } else {
@@ -113,8 +109,7 @@ public final class Utils {
         }
     }
 
-    public static <T> String generateURL(Class<T> type, String baseURL, String path, T params,
-            Globals globals)
+    public static <T> String generateURL(Class<T> type, String baseURL, String path, T params, Globals globals)
             throws IllegalArgumentException, IllegalAccessException, JsonProcessingException {
         if (baseURL != null && baseURL.endsWith("/")) {
             baseURL = baseURL.substring(0, baseURL.length() - 1);
@@ -151,8 +146,10 @@ public final class Utils {
                                     continue;
                                 }
 
-                                pathParams.put(pathParamsMetadata.name,
-                                        String.join(",",
+                                pathParams.put(
+                                        pathParamsMetadata.name,
+                                        String.join(
+                                                ",",
                                                 array.stream()
                                                         .map(v -> valToString(v))
                                                         .map(v -> pathEncode(v, pathParamsMetadata.allowReserved))
@@ -164,27 +161,35 @@ public final class Utils {
                                     continue;
                                 }
 
-                                pathParams.put(pathParamsMetadata.name,
-                                        String.join(",", map.entrySet().stream().map(e -> {
-                                            if (pathParamsMetadata.explode) {
-                                                return String.format("%s=%s", pathEncode(valToString(e.getKey()), false),
-                                                        pathEncode(valToString(e.getValue()), false));
-                                            } else {
-                                                return String.format("%s,%s", pathEncode(valToString(e.getKey()), false),
-                                                        pathEncode(valToString(e.getValue()), false));
-                                            }
-                                        }).collect(Collectors.toList())));
+                                pathParams.put(
+                                        pathParamsMetadata.name,
+                                        String.join(
+                                                ",",
+                                                map.entrySet().stream().map(e -> {
+                                                    if (pathParamsMetadata.explode) {
+                                                        return String.format(
+                                                                "%s=%s",
+                                                                pathEncode(valToString(e.getKey()), false),
+                                                                pathEncode(valToString(e.getValue()), false));
+                                                    } else {
+                                                        return String.format(
+                                                                "%s,%s",
+                                                                pathEncode(valToString(e.getKey()), false),
+                                                                pathEncode(valToString(e.getValue()), false));
+                                                    }
+                                                }).collect(Collectors.toList())));
                                 break;
                             case OBJECT:
                                 if (!allowIntrospection(value.getClass())) {
-                                    pathParams.put(pathParamsMetadata.name, pathEncode(valToString(value), pathParamsMetadata.allowReserved));
+                                    pathParams.put(
+                                            pathParamsMetadata.name, pathEncode(valToString(value), pathParamsMetadata.allowReserved));
                                     break;
                                 }
                                 Optional<?> unwrappedEnumValue = Reflections.getUnwrappedEnumValue(value.getClass(), value);
                                 if (unwrappedEnumValue.isPresent()) {
-                                    pathParams.put(pathParamsMetadata.name, pathEncode(
-                                            valToString(unwrappedEnumValue.get()),
-                                            pathParamsMetadata.allowReserved));
+                                    pathParams.put(
+                                            pathParamsMetadata.name,
+                                            pathEncode(valToString(unwrappedEnumValue.get()), pathParamsMetadata.allowReserved));
                                     break;
                                 }
                                 List<String> values = new ArrayList<>();
@@ -204,10 +209,14 @@ public final class Utils {
                                     }
 
                                     if (pathParamsMetadata.explode) {
-                                        values.add(String.format("%s=%s", valuePathParamsMetadata.name,
+                                        values.add(String.format(
+                                                "%s=%s",
+                                                valuePathParamsMetadata.name,
                                                 pathEncode(valToString(val), valuePathParamsMetadata.allowReserved)));
                                     } else {
-                                        values.add(String.format("%s,%s", valuePathParamsMetadata.name,
+                                        values.add(String.format(
+                                                "%s,%s",
+                                                valuePathParamsMetadata.name,
                                                 pathEncode(valToString(val), valuePathParamsMetadata.allowReserved)));
                                     }
                                 }
@@ -215,7 +224,8 @@ public final class Utils {
                                 pathParams.put(pathParamsMetadata.name, String.join(",", values));
                                 break;
                             default:
-                                pathParams.put(pathParamsMetadata.name, pathEncode(valToString(value), pathParamsMetadata.allowReserved));
+                                pathParams.put(
+                                        pathParamsMetadata.name, pathEncode(valToString(value), pathParamsMetadata.allowReserved));
                                 break;
                         }
                 }
@@ -224,14 +234,13 @@ public final class Utils {
         // include all global params in pathParams if not already present
         if (globals != null) {
             globals.pathParamsAsStream()
-                .filter(entry -> !pathParams.containsKey(entry.getKey()))
-                .forEach(entry -> pathParams.put(entry.getKey(), //
-                            pathEncode(entry.getValue(), false)));
+                    .filter(entry -> !pathParams.containsKey(entry.getKey()))
+                    .forEach(entry -> pathParams.put(entry.getKey(), pathEncode(entry.getValue(), false)));
         }
-        
+
         return baseURL + templateUrl(path, pathParams);
     }
-    
+
     private static String pathEncode(String s, boolean allowReserved) {
         return Utf8UrlEncoder.allowReserved(allowReserved).encode(s);
     }
@@ -265,37 +274,39 @@ public final class Utils {
 
         return false;
     }
-    
+
     public static boolean allowIntrospection(Class<?> cls) {
-        return !cls.equals(BigInteger.class) 
-            && !cls.equals(BigDecimal.class)
-            && !cls.equals(BigIntegerString.class)
-            && !cls.equals(BigDecimalString.class)
-            && !cls.equals(LocalDate.class)
-            && !cls.equals(OffsetDateTime.class);
+        return !cls.equals(BigInteger.class)
+                && !cls.equals(BigDecimal.class)
+                && !cls.equals(BigIntegerString.class)
+                && !cls.equals(BigDecimalString.class)
+                && !cls.equals(LocalDate.class)
+                && !cls.equals(OffsetDateTime.class);
     }
 
     public enum JsonShape {
-        STRING, DEFAULT;
+        STRING,
+        DEFAULT;
     }
- 
-    public static SerializedBody serializeRequestBody(Object request, String requestField, String serializationMethod, boolean nullable)
-            throws NoSuchFieldException,
-            IllegalArgumentException, IllegalAccessException, UnsupportedOperationException, IOException {
+
+    public static SerializedBody serializeRequestBody(
+            Object request, String requestField, String serializationMethod, boolean nullable)
+            throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, UnsupportedOperationException,
+                    IOException {
         return RequestBody.serialize(request, requestField, serializationMethod, nullable);
     }
-    
-    public static <T extends Object> List<QueryParameter> getQueryParams(Class<T> type, Optional<? extends T> params,
-            Globals globals) throws Exception {
+
+    public static <T extends Object> List<QueryParameter> getQueryParams(
+            Class<T> type, Optional<? extends T> params, Globals globals) throws Exception {
         if (params.isEmpty()) {
             return Collections.emptyList();
         } else {
             return getQueryParams(type, params.get(), globals);
         }
     }
-    
-    public static <T extends Object> List<QueryParameter> getQueryParams(Class<T> type, JsonNullable<? extends T> params,
-            Globals globals) throws Exception {
+
+    public static <T extends Object> List<QueryParameter> getQueryParams(
+            Class<T> type, JsonNullable<? extends T> params, Globals globals) throws Exception {
         if (!params.isPresent() || params.get() == null) {
             return Collections.emptyList();
         } else {
@@ -303,15 +314,14 @@ public final class Utils {
         }
     }
 
-    public static <T extends Object> List<QueryParameter> getQueryParams(Class<T> type, T params,
-            Globals globals) throws Exception {
+    public static <T extends Object> List<QueryParameter> getQueryParams(Class<T> type, T params, Globals globals) throws Exception {
         return QueryParameters.parseQueryParams(type, params, globals);
     }
 
     public static HTTPRequest configureSecurity(HTTPRequest request, Object security) throws Exception {
         return Security.configureSecurity(request, security);
     }
-    
+
     private static final String DOLLAR_MARKER = "D9qPtyhOYzkHGu3c";
 
     public static String templateUrl(String url, Map<String, String> params) {
@@ -325,9 +335,9 @@ public final class Utils {
             String key = match.substring(1, match.length() - 1);
             String value = params.get(key);
             if (value != null) {
-                // note that we replace $ characters in values with a marker 
+                // note that we replace $ characters in values with a marker
                 // and then replace the markers at the end with the $ characters
-                // because the presence of dollar signs can stuff up the next 
+                // because the presence of dollar signs can stuff up the next
                 // regex find
                 m.appendReplacement(sb, value.replace("$", DOLLAR_MARKER));
             }
@@ -379,7 +389,8 @@ public final class Utils {
                     for (Field valueField : valueFields) {
                         valueField.setAccessible(true);
                         HeaderMetadata valueHeaderMetadata = HeaderMetadata.parse(valueField);
-                        if (valueHeaderMetadata == null || valueHeaderMetadata.name == null
+                        if (valueHeaderMetadata == null
+                                || valueHeaderMetadata.name == null
                                 || valueHeaderMetadata.name.isBlank()) {
                             continue;
                         }
@@ -391,9 +402,7 @@ public final class Utils {
                         }
 
                         if (headerMetadata.explode) {
-                            items.add(
-                                    String.format("%s=%s", valueHeaderMetadata.name,
-                                            valToString(valueFieldValue)));
+                            items.add(String.format("%s=%s", valueHeaderMetadata.name, valToString(valueFieldValue)));
                         } else {
                             items.add(valueHeaderMetadata.name);
                             items.add(valToString(valueFieldValue));
@@ -417,10 +426,10 @@ public final class Utils {
 
                     List<String> items = new ArrayList<>();
 
-                    for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    for (Map.Entry<
+                                    ?, ?> entry : map.entrySet()) {
                         if (headerMetadata.explode) {
-                            items.add(String.format("%s=%s", valToString(entry.getKey()),
-                                    valToString(entry.getValue())));
+                            items.add(String.format("%s=%s", valToString(entry.getKey()), valToString(entry.getValue())));
                         } else {
                             items.add(valToString(entry.getKey()));
                             items.add(valToString(entry.getValue()));
@@ -472,8 +481,7 @@ public final class Utils {
     }
 
     private static void upsertHeader(Map<String, List<String>> headers, String key, Object val) {
-        headers.computeIfAbsent(key, k -> new ArrayList<>())
-                .add(valToString(val));
+        headers.computeIfAbsent(key, k -> new ArrayList<>()).add(valToString(val));
     }
 
     private static void mergeGlobalHeaders(Map<String, List<String>> headers, Globals globals) {
@@ -482,8 +490,7 @@ public final class Utils {
         }
         globals.headerParamsAsStream()
                 .filter(entry -> !headers.containsKey(entry.getKey()))
-                .forEach(entry -> headers.put(entry.getKey(),
-                        Collections.singletonList(entry.getValue())));
+                .forEach(entry -> headers.put(entry.getKey(), Collections.singletonList(entry.getValue())));
     }
 
     public static String valToString(Object value) {
@@ -515,11 +522,10 @@ public final class Utils {
         return "Bearer " + authHeaderValue;
     }
 
-    public static Object populateGlobal(Object value, String fieldName, String paramType,
-            Globals globals) {
+    public static Object populateGlobal(Object value, String fieldName, String paramType, Globals globals) {
         if (value == null && globals != null) {
             return globals.getParam(paramType, fieldName).orElse(null);
-        } 
+        }
         return value;
     }
 
@@ -532,30 +538,30 @@ public final class Utils {
                 String json = mapper.writeValueAsString(value);
                 params.put(pathParamsMetadata.name, pathEncode(json, pathParamsMetadata.allowReserved));
                 break;
-            default: 
+            default:
                 break;
         }
         return params;
     }
-    
+
     public static <T> T checkNotNull(T object, String name) {
         if (object == null) {
             // IAE better than NPE in this use-case (NPE can suggest internal troubles)
             throw new IllegalArgumentException(name + " cannot be null");
         }
         return object;
-    }    
-    
+    }
+
     public static void checkArgument(boolean expression, String message) {
         if (!expression) {
             throw new IllegalArgumentException(message);
         }
-    } 
-    
-    public static <K, V> Map<K, V> emptyMapIfNull(Map<K, V> map) {
-        return map == null ? java.util.Collections.emptyMap() : map; 
     }
-    
+
+    public static <K, V> Map<K, V> emptyMapIfNull(Map<K, V> map) {
+        return map == null ? java.util.Collections.emptyMap() : map;
+    }
+
     public static String toString(Class<?> cls, Object... items) {
         if (items.length % 2 != 0) {
             throw new IllegalArgumentException("items must have an even length");
@@ -572,14 +578,14 @@ public final class Utils {
             i += 2;
         }
         return cls.getSimpleName() + "[" + s + "]";
-    }    
+    }
 
     public static Object resolveOptionals(Object o) {
         if (o instanceof Optional) {
             return ((Optional<?>) o).orElse(null);
         } else if (o instanceof JsonNullable) {
             // TODO if JsonNullable.of(null) then we probably want an explicit null
-            // to be used by the caller of this so should probably return an EXPLICIT_NULL 
+            // to be used by the caller of this so should probably return an EXPLICIT_NULL
             // (a singleton constant object that represents this scenario without us being
             // coupled to JsonNullable).
             return ((JsonNullable<?>) o).orElse(null);
@@ -587,7 +593,7 @@ public final class Utils {
             return o;
         }
     }
-    
+
     public static List<?> toList(Object o) {
         if (o == null) {
             return null;
@@ -599,23 +605,27 @@ public final class Utils {
             throw new IllegalArgumentException("argument must be List or array");
         }
     }
-    
+
     public static <T> T readDefaultOrConstValue(String name, String json, TypeReference<T> typeReference) {
         try {
             return readValue(json, typeReference);
         } catch (JsonProcessingException e) {
-            throw new IllegalArgumentException("default/const value did not match the expected type, name=" + name + ",json=\n" + json, e); 
+            throw new IllegalArgumentException(
+                    "default/const value did not match the expected type, name="
+                            + name
+                            + ",json=\n"
+                            + json, e);
         }
     }
-    
+
     private static <T> T readValue(String json, TypeReference<T> typeReference) throws JsonProcessingException {
         return JSON.getMapper().readValue(json, typeReference);
     }
-    
+
     public static byte[] extractByteArrayFromBody(HttpResponse<InputStream> response) throws IOException {
-        return toByteArrayAndClose(response.body());   
+        return toByteArrayAndClose(response.body());
     }
-    
+
     public static byte[] toByteArrayAndClose(InputStream in) throws IOException {
         try {
             return IOUtils.toByteArray(in);
@@ -623,7 +633,7 @@ public final class Utils {
             in.close();
         }
     }
-    
+
     public static String toUtf8AndClose(InputStream in) throws IOException {
         return new String(toByteArrayAndClose(in), StandardCharsets.UTF_8);
     }
@@ -632,32 +642,32 @@ public final class Utils {
         if (shape == JsonShape.STRING) {
             return convertToStringShape(o, typeReference);
         } else {
-            return o; 
-        } 
+            return o;
+        }
     }
-    
-    private static final Map<Class<?>, java.util.function.Function<Object, Object>> STRING_CONVERSIONS = Map.of(//
-            BigInteger.class, o -> new BigIntegerString((BigInteger) o), //
-            BigDecimal.class, o -> new BigDecimalString((BigDecimal) o));
-            
-    private static final Map<Class<?>, java.util.function.Function<Object, Object>> STRING_INVERSE_CONVERSIONS = Map.of(//
-            BigIntegerString.class, o -> ((BigIntegerString) o).value(), //
-            BigDecimalString.class, o -> ((BigDecimalString) o).value());
 
+    private static final Map<Class<?>, java.util.function.Function<Object, Object>> STRING_CONVERSIONS = Map.of(
+            BigInteger.class,
+            o -> new BigIntegerString((BigInteger) o),
+            BigDecimal.class,
+            o -> new BigDecimalString((BigDecimal) o));
+
+    private static final Map<Class<?>, java.util.function.Function<Object, Object>> STRING_INVERSE_CONVERSIONS = Map.of(
+            BigIntegerString.class,
+            o -> ((BigIntegerString) o).value(),
+            BigDecimalString.class,
+            o -> ((BigDecimalString) o).value());
 
     private static Object convertToStringShape(Object o, TypeReference<?> typeReference) {
-        JavaType jt = JSON
-            .getMapper()
-            .getTypeFactory()
-            .resolveMemberType(typeReference.getType(), null);
+        JavaType jt = JSON.getMapper().getTypeFactory().resolveMemberType(typeReference.getType(), null);
         return convertToStringShape(o, jt);
     }
-    
+
     private static Object convertToStringShape(Object o, JavaType jt) {
         if (jt.getRawClass().equals(List.class)) {
             List<?> list = (List<?>) o;
-            return list.stream() //
-                    .map(x -> convertToStringShape(x, jt.getContentType())) //
+            return list.stream()
+                    .map(x -> convertToStringShape(x, jt.getContentType()))
                     .collect(Collectors.toList());
         } else if (jt.getRawClass().equals(Map.class)) {
             Map<?, ?> map = (Map<?, ?>) o;
@@ -690,12 +700,12 @@ public final class Utils {
             return o;
         }
     }
-    
+
     private static Object convertToStringShapeInverse(Object o, JavaType jt) {
         if (jt.getRawClass().equals(List.class)) {
             List<?> list = (List<?>) o;
-            return list.stream() //
-                    .map(x -> convertToStringShapeInverse(x, jt.getContentType())) //
+            return list.stream()
+                    .map(x -> convertToStringShapeInverse(x, jt.getContentType()))
                     .collect(Collectors.toList());
         } else if (jt.getRawClass().equals(Map.class)) {
             Map<?, ?> map = (Map<?, ?>) o;
@@ -728,7 +738,7 @@ public final class Utils {
             return o;
         }
     }
-    
+
     // used for deserialization
     static JavaType convertToShape(TypeFactory f, TypeReference<?> typeReference, JsonShape shape) {
         JavaType jt = f.resolveMemberType(typeReference.getType(), null);
@@ -738,7 +748,7 @@ public final class Utils {
             return jt;
         }
     }
-    
+
     static Object convertToShapeInverse(Object o, JsonShape shape, JavaType jt) {
         if (shape == JsonShape.STRING) {
             return convertToStringShapeInverse(o, jt);
@@ -746,7 +756,7 @@ public final class Utils {
             return o;
         }
     }
-    
+
     // VisibleForTesting
     public static JavaType convertToStringShape(TypeFactory f, JavaType a) {
         if (a.getRawClass().equals(List.class)) {
@@ -770,29 +780,29 @@ public final class Utils {
             return a;
         }
     }
-    
+
     public static final class TypeReferenceWithShape {
         private final TypeReference<?> typeReference;
         private final JsonShape shape;
-        
+
         private TypeReferenceWithShape(TypeReference<?> typeReference, JsonShape shape) {
             this.typeReference = typeReference;
             this.shape = shape;
         }
-        
+
         public static TypeReferenceWithShape of(TypeReference<?> typeReference, JsonShape shape) {
-            return new TypeReferenceWithShape(typeReference, shape); 
+            return new TypeReferenceWithShape(typeReference, shape);
         }
-        
+
         public TypeReference<?> typeReference() {
             return typeReference;
         }
-        
+
         public JsonShape shape() {
             return shape;
         }
     }
-    
+
     static <T> Object resolveStringShape(Class<T> type, String fieldName, Object value) throws IllegalAccessException {
         if (value == null) {
             return value;
@@ -800,7 +810,7 @@ public final class Utils {
 
         try {
             // the presence of this TypeReference field indicates that the parameter
-            // has a JsonShape of String and that we should convert BigInteger to 
+            // has a JsonShape of String and that we should convert BigInteger to
             // BigIntegerString and BigDecimal to BigDecimalString
             // where explicitly mentioned in the TypeReference
             Field tr = type.getDeclaredField(fieldName + "_typeReference");
@@ -812,7 +822,7 @@ public final class Utils {
             return value;
         }
     }
-    
+
     public static <T> Stream<T> stream(Callable<Optional<T>> first, Function<T, Optional<T>> next) {
         return StreamSupport.stream(iterable(first, next).spliterator(), false);
     }
@@ -821,12 +831,11 @@ public final class Utils {
         return StreamSupport.stream(iterable.spliterator(), false);
     }
 
-
     // need a Function method that throws
     public interface Function<S, T> {
         T apply(S value) throws Exception;
     }
-    
+
     private static <T> Iterable<T> iterable(Callable<Optional<T>> first, Function<T, Optional<T>> next) {
         return new Iterable<T>() {
 
@@ -862,7 +871,7 @@ public final class Utils {
                                     nxt = first.call();
                                 } else if (nxt.isPresent()) {
                                     nxt = next.apply(nxt.get());
-                                } 
+                                }
                                 pending = false;
                             }
                         } catch (Exception e) {
@@ -875,10 +884,9 @@ public final class Utils {
     }
 
     public static boolean statusCodeMatches(int statusCode, String... expectedStatusCodes) {
-        return Arrays.stream(expectedStatusCodes)
-            .anyMatch(expected -> statusCodeMatchesOne(statusCode, expected));
+        return Arrays.stream(expectedStatusCodes).anyMatch(expected -> statusCodeMatchesOne(statusCode, expected));
     }
-    
+
     // VisibleForTesting
     public static boolean statusCodeMatchesOne(int statusCode, String expectedStatusCode) {
         checkNotNull(expectedStatusCode, "expectedStatusCode");
@@ -901,22 +909,22 @@ public final class Utils {
             return expectedStatusCode.equals(String.valueOf(statusCode));
         }
     }
-    
+
     /**
-     * Returns an {@link HttpRequest.Builder} which is initialized with the 
+     * Returns an {@link HttpRequest.Builder} which is initialized with the
      * state of the given {@link HttpRequest}.
-     * 
+     *
      * @param request request to copy
      * @return a builder initialized with values from {@code request}
      */
     public static HttpRequest.Builder copy(HttpRequest request) {
         return copy(request, (k, v) -> true);
     }
-    
+
     /**
-     * Returns an {@link HttpRequest.Builder} which is initialized with the 
+     * Returns an {@link HttpRequest.Builder} which is initialized with the
      * state of the given {@link HttpRequest}.
-     * 
+     *
      * @param request request to copy
      * @param filter selects which header key-values to include in the copied request
      * @return a builder initialized with values from {@code request}
@@ -930,38 +938,43 @@ public final class Utils {
         builder.uri(request.uri());
         builder.expectContinue(request.expectContinue());
 
-        request.headers() 
-            .map() 
-            .forEach((name, values) ->
-                values.stream()
-                    .filter(v -> filter.test(name, v))
-                    .forEach(value -> builder.header(name, value)));
+        request.headers()
+                .map()
+                .forEach((name, values) -> values.stream().filter(v -> filter.test(name, v)).forEach(value -> builder.header(name, value)));
 
         request.version().ifPresent(builder::version);
         request.timeout().ifPresent(builder::timeout);
         var method = request.method();
-        request.bodyPublisher().ifPresentOrElse(
-                // if body is present, set it
-                bodyPublisher -> builder.method(method, bodyPublisher),
-                // otherwise, the body is absent, special case for GET/DELETE,
-                // or else use empty body
-                () -> {
-                    switch (method) {
-                        case "GET": builder.GET();break;
-                        case "DELETE" : builder.DELETE();break;
-                        default : builder.method(method, HttpRequest.BodyPublishers.noBody());
-                    }
-                }
-        );
+        request.bodyPublisher()
+                .ifPresentOrElse(
+                        // if body is present, set it
+
+                        bodyPublisher -> builder.method(method, bodyPublisher),
+                        // otherwise, the body is absent, special case for GET/DELETE,
+
+                        // or else use empty body
+
+                        () -> {
+                            switch (method) {
+                                case "GET":
+                                    builder.GET();
+                                    break;
+                                case "DELETE":
+                                    builder.DELETE();
+                                    break;
+                                default:
+                                    builder.method(method, HttpRequest.BodyPublishers.noBody());
+                            }
+                        });
         return builder;
     }
-    
-    // convenience method so that classes don't need to import a possibly colliding name of JSON 
+
+    // convenience method so that classes don't need to import a possibly colliding name of JSON
     // (Utils is a very common import)
     public static ObjectMapper mapper() {
         return JSON.getMapper();
     }
-    
+
     public static <T> T asType(EventStreamMessage x, ObjectMapper mapper, TypeReference<T> typeReference) {
         try {
             try {
@@ -997,20 +1010,20 @@ public final class Utils {
         });
         return mapper.writeValueAsString(node);
     }
-    
+
     /**
      * Fully reads the body of the given response and caches it in memory. The
      * returned response has utility methods to view the body
      * ({@code bodyAsUtf8(), bodyAsBytes()} and the {@code body()} method can be
      * called multiple times, each returning a fresh {@link InputStream} that will
      * read from the cached byte array.
-     * 
+     *
      * <p>
      * This method is most likely to be used in a diagnostic/logging situtation so
      * that the contents of a response can be viewed without affecting processing.
      * Using this method with a very large body may be problematic in
      * terms of memory use.
-     * 
+     *
      * @param response response to cache
      * @return response with a cached body
      * @throws IOException
@@ -1018,12 +1031,12 @@ public final class Utils {
     public static HttpResponseCached cache(HttpResponse<InputStream> response) throws IOException {
         return new HttpResponseCached(response);
     }
-    
+
     public static final class HttpResponseCached implements HttpResponse<InputStream> {
 
         private final HttpResponse<InputStream> response;
         private final byte[] bytes;
-        
+
         public HttpResponseCached(HttpResponse<InputStream> response) throws IOException {
             this.response = response;
             this.bytes = toByteArrayAndClose(response.body());
@@ -1032,7 +1045,7 @@ public final class Utils {
         public String bodyAsUtf8() {
             return new String(bytes, StandardCharsets.UTF_8);
         }
-        
+
         public byte[] bodyAsBytes() {
             return bytes;
         }
@@ -1051,7 +1064,7 @@ public final class Utils {
         public Optional<HttpResponse<InputStream>> previousResponse() {
             return response.previousResponse();
         }
-        
+
         @Override
         public HttpHeaders headers() {
             return response.headers();
@@ -1076,23 +1089,23 @@ public final class Utils {
         public Version version() {
             return response.version();
         }
-        
+
         @Override
         public String toString() {
             return response.toString();
         }
     }
-    
+
     private static final char[] HEX_ARRAY = "0123456789ABCDEF".toCharArray();
 
     public static byte[] readBytes(String filename) {
         return readBytes(new File(filename));
     }
-    
+
     public static String readString(String filename) {
         return readString(new File(filename));
     }
-    
+
     public static byte[] readBytes(File file) {
         try {
             return readBytesAndClose(new FileInputStream(file));
@@ -1100,12 +1113,12 @@ public final class Utils {
             throw new UncheckedIOException(e);
         }
     }
-    
+
     public static String readString(File file) {
         byte[] bytes = readBytes(file);
         return new String(bytes, StandardCharsets.UTF_8);
     }
-    
+
     public static byte[] readBytesAndClose(InputStream in) {
         try {
             return readBytes(in);
@@ -1123,7 +1136,7 @@ public final class Utils {
         byte[] buffer = new byte[8192];
         int n;
         try {
-            while ((n = in.read(buffer))!= -1) {
+            while ((n = in.read(buffer)) != -1) {
                 bytes.write(buffer, 0, n);
             }
         } catch (IOException e) {
@@ -1131,11 +1144,11 @@ public final class Utils {
         }
         return bytes.toByteArray();
     }
-    
+
     public static String toHex(byte[] bytes) {
         return toHex(bytes, bytes.length);
     }
-    
+
     private static String toHex(byte[] bytes, int length) {
         char[] hexChars = new char[length * 2];
         for (int j = 0; j < length; j++) {
@@ -1145,7 +1158,7 @@ public final class Utils {
         }
         return new String(hexChars);
     }
-    
+
     @SuppressWarnings("unchecked")
     public static String discriminatorToString(Object o) {
         // expects o to be either an Optional<String>, Enum (with a String value() method),
@@ -1167,7 +1180,10 @@ public final class Utils {
             try {
                 Method m = cls.getMethod("value");
                 return (String) m.invoke(o);
-            } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
+            } catch (NoSuchMethodException
+                    | SecurityException
+                    | IllegalAccessException
+                    | IllegalArgumentException
                     | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
@@ -1176,21 +1192,24 @@ public final class Utils {
         // Fall back to String cast
         return (String) o;
     }
-    
+
     public static void recordTest(String id) {
         try {
             new File("build").mkdir();
-            Files.writeString(Paths.get("build/test-javav2-record.txt"), id + "\n", StandardOpenOption.CREATE,
+            Files.writeString(
+                    Paths.get("build/test-javav2-record.txt"),
+                    id + "\n",
+                    StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     }
-    
+
     /**
      * Returns an equivalent url with query parameters sorted by name. Sort is
-     * stable in that parameters with the same name will not be reordered. 
-     * 
+     * stable in that parameters with the same name will not be reordered.
+     *
      * @param url input
      * @return url with query parameters sorted by name
      */
@@ -1227,7 +1246,7 @@ public final class Utils {
             @SuppressWarnings("unchecked")
             Map<Object, Object> a = (Map<Object, Object>) input;
             Map<String, String> b = new LinkedHashMap<>();
-            for (Entry<Object, Object> entry: a.entrySet()) {
+            for (Entry<Object, Object> entry : a.entrySet()) {
                 if (!(entry.getKey() instanceof String)) {
                     throw new IllegalArgumentException("expected map key type of String, found " + entry.getKey());
                 }
@@ -1241,7 +1260,7 @@ public final class Utils {
             throw new IllegalArgumentException("unexpected type: " + input.getClass());
         }
     }
-    
+
     private static String sortMapString(String input, String regex, String delim) {
         return Pattern.compile(regex).matcher(input).replaceAll(m -> {
             String escapedDelim = Pattern.quote(delim);
@@ -1270,7 +1289,7 @@ public final class Utils {
             return result;
         });
     }
-    
+
     private static void sortByDelimitedKey(String[] array, String delim) {
         Arrays.sort(array, (a, b) -> {
             String escapedDelim = Pattern.quote(delim);
@@ -1281,9 +1300,9 @@ public final class Utils {
     }
 
     public static boolean isPresentAndNotNull(Optional<?> x) {
-        return x.isPresent();    
+        return x.isPresent();
     }
-    
+
     public static boolean isPresentAndNotNull(JsonNullable<?> x) {
         return x.isPresent() && x.get() != null;
     }
@@ -1301,7 +1320,7 @@ public final class Utils {
             }
         }
     }
-    
+
     public static String sessionKey(String... items) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -1313,12 +1332,12 @@ public final class Utils {
             throw new RuntimeException(e);
         }
     }
-    
+
     // internal API
     public static HTTPClient createTestHTTPClient(String testName) {
         return createTestHTTPClient(new SpeakeasyHTTPClient(), testName);
     }
-    
+
     // internal API
     public static HTTPClient createTestHTTPClient(SpeakeasyHTTPClient client, String testName) {
         return new TestHTTPClient(client, testName, randomLetters(16));
@@ -1329,7 +1348,7 @@ public final class Utils {
         private final HTTPClient client;
         private final String testName;
         private final String testInstanceId;
-        
+
         TestHTTPClient(HTTPClient client, String testName, String testInstanceId) {
             checkNotNull(client, "client");
             checkNotNull(testName, "name");
@@ -1342,25 +1361,27 @@ public final class Utils {
         @Override
         public HttpResponse<InputStream> send(HttpRequest request)
                 throws IOException, InterruptedException, URISyntaxException {
-            HttpRequest r = Utils.copy(request) //
-              .header("x-speakeasy-test-name", testName) //
-              .header("x-speakeasy-test-instance-id", testInstanceId) //
-              .build();
+            HttpRequest r = Utils.copy(request)
+                    .header("x-speakeasy-test-name", testName)
+                    .header("x-speakeasy-test-instance-id", testInstanceId)
+                    .build();
             return client.send(r);
         }
     }
-    
+
     private static final Random RANDOM = new Random();
-    
+
     private static String randomLetters(int length) {
-        return RANDOM.ints(length).mapToObj(x -> (char) (Math.abs(x) % 26 + 'a') + "").collect(Collectors.joining());
+        return RANDOM.ints(length)
+                .mapToObj(x -> (char) (Math.abs(x) % 26 + 'a') + "")
+                .collect(Collectors.joining());
     }
 
     /**
      * Internal use. Returns the system property with {@code key = "env." + name}
      * and if doesn't exist returns the value of the environment variable with the
      * given name of if it doesn't exist returns {@code defaultValue}.
-     * 
+     *
      * @param name         variable name
      * @param defaultValue default value if system property and environment variable
      *                     don't exist
@@ -1380,7 +1401,7 @@ public final class Utils {
         }
     }
 
-    // internal use    
+    // internal use
     public static <T> Optional<T> toOptional(JsonNullable<T> a) {
         if (a.isPresent() && a.get() != null) {
             return Optional.of(a.get());
@@ -1388,7 +1409,7 @@ public final class Utils {
             return Optional.empty();
         }
     }
-    
+
     // internal use
     public static String sortJSONObjectKeys(String json, String... fields) {
         var fieldList = List.of(fields);
@@ -1402,8 +1423,8 @@ public final class Utils {
             } else {
                 var node = (ObjectNode) tree;
                 var list = toList(node.fields());
-                list.stream() //
-                        .filter(entry -> fieldList.contains(entry.getKey())) //
+                list.stream()
+                        .filter(entry -> fieldList.contains(entry.getKey()))
                         .forEach(entry -> node.set(entry.getKey(), sortKeys(m, entry.getValue())));
                 return m.writeValueAsString(node);
             }
@@ -1493,16 +1514,16 @@ public final class Utils {
             }
         };
     }
-   
+
     /**
      * Returns true if and only if the two objects are deeply equal, uses
      * mathematical equivalence for Number subclasses ({@code 2 == 2.0}) instead of
      * {@code Number.equals}.
-     * 
+     *
      * <p>
      * Should be paired with {@link #enhancedHashCode(Object)} to ensure the
      * equals/hashCode contract.
-     * 
+     *
      * @param a the first object to compare
      * @param b the second object to compare
      * @return true if the objects are deeply equal bearing in mind mathematical
@@ -1558,15 +1579,15 @@ public final class Utils {
             return x.compareTo(y) == 0;
         } else {
             // we use deepEquals so that byte[] fields are compared appropriately
-            return Objects.deepEquals(a,  b);
-        }    
+            return Objects.deepEquals(a, b);
+        }
     }
-    
+
     /**
      * Returns a combined hash code (applying {@link #enhancedHashCode}) for the
      * given objects (usually the fields of an object whose hashCode we want to
      * be calculated).
-     * 
+     *
      * @param objects
      * @return combined hash code for the objects, 0 if the objects are null
      */
@@ -1576,15 +1597,15 @@ public final class Utils {
         }
         int result = 1;
         for (Object o : objects) {
-            result = 31 * result + (o == null ? 0 :enhancedHashCode(o));
+            result = 31 * result + (o == null ? 0 : enhancedHashCode(o));
         }
         return result;
     }
-    
+
     /**
      * Returns a hash code that complies with the equals/hashCode contract when
      * equals is implemented by {@link #enhancedDeepEquals(Object, Object)}.
-     * 
+     *
      * @param o object to calculate the hash code for (can be null)
      * @return hash code for the object, 0 if the object is null
      */
@@ -1602,9 +1623,8 @@ public final class Utils {
         } else if (o instanceof Map) {
             // don't expect number keys, just Strings and enums
             Map<?, ?> m = (Map<?, ?>) o;
-            return m.entrySet() //
-                    .stream() //
-                    .mapToInt(entry -> Objects.hashCode(entry.getKey()) + Utils.enhancedHashCode(entry.getValue())) //
+            return m.entrySet().stream()
+                    .mapToInt(entry -> Objects.hashCode(entry.getKey()) + Utils.enhancedHashCode(entry.getValue()))
                     .sum();
         } else if (o instanceof Number) {
             return toBigDecimal((Number) o).stripTrailingZeros().hashCode();
@@ -1618,8 +1638,10 @@ public final class Utils {
             return (BigDecimal) number;
         } else if (number instanceof BigInteger) {
             return new BigDecimal((BigInteger) number);
-        } else if (number instanceof Byte || number instanceof Short ||
-                   number instanceof Integer || number instanceof Long) {
+        } else if (number instanceof Byte
+                || number instanceof Short
+                || number instanceof Integer
+                || number instanceof Long) {
             return BigDecimal.valueOf(number.longValue());
         } else if (number instanceof Float || number instanceof Double) {
             // Prevent precision issues for float/double
@@ -1635,52 +1657,37 @@ public final class Utils {
      * Uses the Blob to read the response body asynchronously.
      */
     public static <T> CompletableFuture<T> createAsyncApiError(
-            HttpResponse<com.cvent.utils.Blob> response,
-            String reason) {
-        return response.body().toByteArray()
-                .thenApply(bodyBytes -> {
-                    throw new AsyncAPIException(
-                            reason,
-                            response.statusCode(),
-                            bodyBytes,
-                            response,
-                            null);
-                });
+            HttpResponse<com.cvent.utils.Blob> response, String reason) {
+        return response.body().toByteArray().thenApply(bodyBytes -> {
+            throw new AsyncAPIException(reason, response.statusCode(), bodyBytes, response, null);
+        });
     }
 
-        public static <T> T unmarshal(HttpResponse<InputStream> response, TypeReference<T> typeReference) {
+    public static <T> T unmarshal(HttpResponse<InputStream> response, TypeReference<T> typeReference) {
         try {
-            return mapper().readValue(
-                    Utils.extractByteArrayFromBody(response),
-                    typeReference);
+            return mapper().readValue(Utils.extractByteArrayFromBody(response), typeReference);
         } catch (Exception e) {
-            throw APIException.from(
-                    "Error deserializing response body: " + e.getMessage(), response, e);
+            throw APIException.from("Error deserializing response body: " + e.getMessage(), response, e);
         }
     }
+
     public static <T> CompletableFuture<T> unmarshalAsync(HttpResponse<Blob> response, TypeReference<T> typeReference) {
-        return response.body()
-                .toByteArray()
-                .handle((bytes, err) -> {
-                    // if a body read error occurs, we want to transform the exception
-                    if (err != null) {
-                        throw new AsyncAPIException(
-                                "Error reading response body: " + err.getMessage(),
-                                response.statusCode(),
-                                null,
-                                response,
-                                err);
-                    }
-                    try {
-                        return mapper().readValue(bytes, typeReference);
-                    } catch (Exception e) {
-                        throw new AsyncAPIException(
-                                "Error deserializing response body: " + e.getMessage(),
-                                response.statusCode(),
-                                bytes,
-                                response,
-                                e);
-                    }
-                });
+        return response.body().toByteArray().handle((bytes, err) -> {
+            // if a body read error occurs, we want to transform the exception
+            if (err != null) {
+                throw new AsyncAPIException(
+                        "Error reading response body: " + err.getMessage(), response.statusCode(), null, response, err);
+            }
+            try {
+                return mapper().readValue(bytes, typeReference);
+            } catch (Exception e) {
+                throw new AsyncAPIException(
+                        "Error deserializing response body: " + e.getMessage(),
+                        response.statusCode(),
+                        bytes,
+                        response,
+                        e);
+            }
+        });
     }
 }

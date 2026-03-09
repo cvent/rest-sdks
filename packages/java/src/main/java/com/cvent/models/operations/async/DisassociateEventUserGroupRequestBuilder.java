@@ -30,7 +30,7 @@ public class DisassociateEventUserGroupRequestBuilder {
     private DisassociateEventUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DisassociateEventUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DisassociateEventUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DisassociateEventUserGroupResponse> call() {
-        AsyncRequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation
-              = new DisassociateEventUserGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation =
+                new DisassociateEventUserGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

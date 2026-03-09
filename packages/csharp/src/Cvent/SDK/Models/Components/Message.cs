@@ -20,24 +20,54 @@ namespace Cvent.SDK.Models.Components
 
     public class MessageType
     {
-        private MessageType(string value) { Value = value; }
+        private MessageType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static MessageType EmailMessage { get { return new MessageType("EmailMessage"); } }
+        public static MessageType EmailMessage
+        {
+            get {
+                return new MessageType("EmailMessage");
+            }
+        }
 
-        public static MessageType ChatMessage { get { return new MessageType("ChatMessage"); } }
+        public static MessageType ChatMessage
+        {
+            get {
+                return new MessageType("ChatMessage");
+            }
+        }
 
-        public static MessageType SessionQaMessage { get { return new MessageType("SessionQaMessage"); } }
+        public static MessageType SessionQaMessage
+        {
+            get {
+                return new MessageType("SessionQaMessage");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(MessageType v) { return v.Value; }
-        public static MessageType FromString(string v) {
-            switch(v) {
-                case "EmailMessage": return EmailMessage;
-                case "ChatMessage": return ChatMessage;
-                case "SessionQaMessage": return SessionQaMessage;
-                default: throw new ArgumentException("Invalid value for MessageType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(MessageType v)
+        {
+            return v.Value;
+        }
+        public static MessageType FromString(string v)
+        {
+            switch (v)
+            {
+                case "EmailMessage":
+                    return EmailMessage;
+                case "ChatMessage":
+                    return ChatMessage;
+                case "SessionQaMessage":
+                    return SessionQaMessage;
+                default:
+                    throw new ArgumentException("Invalid value for MessageType");
             }
         }
         public override bool Equals(object? obj)
@@ -119,8 +149,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Message(MessageType.EmailMessage)
-                    {
+                    return new Message(MessageType.EmailMessage) {
                         EmailMessage = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<EmailMessage>(json)
                     };
                 }
@@ -139,8 +168,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Message(MessageType.SessionQaMessage)
-                    {
+                    return new Message(MessageType.SessionQaMessage) {
                         SessionQaMessage = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<SessionQaMessage>(json)
                     };
                 }
@@ -159,8 +187,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Message(MessageType.ChatMessage)
-                    {
+                    return new Message(MessageType.ChatMessage) {
                         ChatMessage = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ChatMessage>(json)
                     };
                 }
@@ -180,7 +207,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -227,8 +254,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

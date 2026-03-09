@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CountryJson
- * 
+ *
  * <p>ISO 3166 two-letter (alpha-2) country codes with some additional non-standard cvent specific codes.
  */
 public enum CountryJson {
@@ -278,13 +278,13 @@ public enum CountryJson {
     CountryJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CountryJson> fromValue(String value) {
-        for (CountryJson o: CountryJson.values()) {
+        for (CountryJson o : CountryJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -292,4 +292,3 @@ public enum CountryJson {
         return Optional.empty();
     }
 }
-

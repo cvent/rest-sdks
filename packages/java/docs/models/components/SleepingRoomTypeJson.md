@@ -2,6 +2,14 @@
 
 Sleeping room type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.SleepingRoomTypeJson;
+
+SleepingRoomTypeJson value = SleepingRoomTypeJson.ANY;
+```
+
 
 ## Values
 

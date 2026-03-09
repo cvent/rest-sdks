@@ -30,7 +30,7 @@ public class CancelAppointmentRequestBuilder {
     private CancelAppointmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CancelAppointmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CancelAppointmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CancelAppointmentResponse> call() {
-        AsyncRequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation
-              = new CancelAppointment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation =
+                new CancelAppointment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyAvailabilityJson
- * 
+ *
  * <p>Describes the availability of the event survey
  */
 public enum EventSurveyAvailabilityJson {
@@ -25,13 +25,13 @@ public enum EventSurveyAvailabilityJson {
     EventSurveyAvailabilityJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventSurveyAvailabilityJson> fromValue(String value) {
-        for (EventSurveyAvailabilityJson o: EventSurveyAvailabilityJson.values()) {
+        for (EventSurveyAvailabilityJson o : EventSurveyAvailabilityJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum EventSurveyAvailabilityJson {
         return Optional.empty();
     }
 }
-

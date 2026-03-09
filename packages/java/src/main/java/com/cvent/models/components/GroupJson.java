@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * GroupJson
- * 
+ *
  * <p>Generic sample name. Not a real model used by any Cvent service.
  */
 public class GroupJson {
@@ -34,16 +34,12 @@ public class GroupJson {
     private String display;
 
     @JsonCreator
-    public GroupJson(
-            @JsonProperty("value") @Nonnull String value,
-            @JsonProperty("display") @Nullable String display) {
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+    public GroupJson(@JsonProperty("value") @Nonnull String value, @JsonProperty("display") @Nullable String display) {
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.display = display;
     }
-    
-    public GroupJson(
-            @Nonnull String value) {
+
+    public GroupJson(@Nonnull String value) {
         this(value, null);
     }
 
@@ -65,7 +61,6 @@ public class GroupJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the SCIM group.
      */
@@ -74,7 +69,6 @@ public class GroupJson {
         return this;
     }
 
-
     /**
      * The name of the user role.
      */
@@ -82,7 +76,6 @@ public class GroupJson {
         this.display = display;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +86,28 @@ public class GroupJson {
             return false;
         }
         GroupJson other = (GroupJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.display, other.display);
+        return Utils.enhancedDeepEquals(this.value, other.value) && Utils.enhancedDeepEquals(this.display, other.display);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            value, display);
+        return Utils.enhancedHash(value, display);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GroupJson.class,
-                "value", value,
-                "display", display);
+        return Utils.toString(GroupJson.class, "value", value, "display", display);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String value;
 
         private String display;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +127,7 @@ public class GroupJson {
         }
 
         public GroupJson build() {
-            return new GroupJson(
-                value, display);
+            return new GroupJson(value, display);
         }
-
     }
 }

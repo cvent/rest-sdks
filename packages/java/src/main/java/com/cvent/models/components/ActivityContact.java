@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 /**
  * ActivityContact
- * 
+ *
  * <p>Related contact.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -53,7 +53,7 @@ public class ActivityContact {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public ActivityContact() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class ActivityContact {
         return new Builder();
     }
 
-
     /**
      * The first name of the attendee.
      */
@@ -91,7 +90,6 @@ public class ActivityContact {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the attendee.
@@ -101,7 +99,6 @@ public class ActivityContact {
         return this;
     }
 
-
     /**
      * The email address of the attendee.
      */
@@ -109,7 +106,6 @@ public class ActivityContact {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +116,23 @@ public class ActivityContact {
             return false;
         }
         ActivityContact other = (ActivityContact) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, email);
+        return Utils.enhancedHash(firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityContact.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(ActivityContact.class, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -150,7 +141,7 @@ public class ActivityContact {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +169,7 @@ public class ActivityContact {
         }
 
         public ActivityContact build() {
-            return new ActivityContact(
-                firstName, lastName, email);
+            return new ActivityContact(firstName, lastName, email);
         }
-
     }
 }

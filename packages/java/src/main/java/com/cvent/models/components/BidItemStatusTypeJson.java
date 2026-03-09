@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BidItemStatusTypeJson
- * 
+ *
  * <p>The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
  * and the hotel, if they agree, can update the item to deleted.
  */
@@ -26,13 +26,13 @@ public enum BidItemStatusTypeJson {
     BidItemStatusTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BidItemStatusTypeJson> fromValue(String value) {
-        for (BidItemStatusTypeJson o: BidItemStatusTypeJson.values()) {
+        for (BidItemStatusTypeJson o : BidItemStatusTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum BidItemStatusTypeJson {
         return Optional.empty();
     }
 }
-

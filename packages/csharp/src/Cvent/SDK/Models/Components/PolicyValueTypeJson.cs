@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum PolicyValueTypeJson
     {
-        [JsonProperty("selection_list")]
-        SelectionList,
-        [JsonProperty("integer")]
-        Integer,
-        [JsonProperty("money")]
-        Money,
-        [JsonProperty("percent")]
-        Percent,
-        [JsonProperty("multi_select")]
-        MultiSelect,
-        [JsonProperty("text_multi_line")]
-        TextMultiLine,
-        [JsonProperty("percent_or_money")]
-        PercentOrMoney,
+        [JsonProperty("selection_list")] SelectionList,
+        [JsonProperty("integer")] Integer,
+        [JsonProperty("money")] Money,
+        [JsonProperty("percent")] Percent,
+        [JsonProperty("multi_select")] MultiSelect,
+        [JsonProperty("text_multi_line")] TextMultiLine,
+        [JsonProperty("percent_or_money")] PercentOrMoney,
     }
 
     public static class PolicyValueTypeJsonExtension
     {
         public static string Value(this PolicyValueTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static PolicyValueTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(PolicyValueTypeJson).GetFields())
+            foreach (var field in typeof(PolicyValueTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

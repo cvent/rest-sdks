@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BudgetAllocationJson
- * 
+ *
  * <p>Budget allocations within a budget item for an event.
  */
 public class BudgetAllocationJson {
@@ -67,11 +67,9 @@ public class BudgetAllocationJson {
         this.value = value;
         this.note = note;
     }
-    
-    public BudgetAllocationJson(
-            double value) {
-        this(null, null, null,
-            value, null);
+
+    public BudgetAllocationJson(double value) {
+        this(null, null, null, value, null);
     }
 
     /**
@@ -114,7 +112,6 @@ public class BudgetAllocationJson {
         return new Builder();
     }
 
-
     /**
      * Allocation category in which budget item cost is allocated.
      */
@@ -122,7 +119,6 @@ public class BudgetAllocationJson {
         this.category = category;
         return this;
     }
-
 
     /**
      * Allocation subcategory in which budget item cost is allocated.
@@ -132,7 +128,6 @@ public class BudgetAllocationJson {
         return this;
     }
 
-
     /**
      * General Ledger to which the budget of a budget item is allocated.
      */
@@ -140,7 +135,6 @@ public class BudgetAllocationJson {
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * Amount from the actual budget allocated to this category or subcategory. Note: The sum of amounts
@@ -151,7 +145,6 @@ public class BudgetAllocationJson {
         return this;
     }
 
-
     /**
      * Remark by an allocator for an allocation.
      */
@@ -159,7 +152,6 @@ public class BudgetAllocationJson {
         this.note = note;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -170,33 +162,36 @@ public class BudgetAllocationJson {
             return false;
         }
         BudgetAllocationJson other = (BudgetAllocationJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subcategory, other.subcategory) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.note, other.note);
+        return Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subcategory, other.subcategory)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.note, other.note);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            category, subcategory, generalLedger,
-            value, note);
+        return Utils.enhancedHash(category, subcategory, generalLedger, value, note);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetAllocationJson.class,
-                "category", category,
-                "subcategory", subcategory,
-                "generalLedger", generalLedger,
-                "value", value,
-                "note", note);
+        return Utils.toString(
+                BudgetAllocationJson.class,
+                "category",
+                category,
+                "subcategory",
+                subcategory,
+                "generalLedger",
+                generalLedger,
+                "value",
+                value,
+                "note",
+                note);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AllocationCategoryJson category;
 
@@ -209,7 +204,7 @@ public class BudgetAllocationJson {
         private String note;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +249,7 @@ public class BudgetAllocationJson {
         }
 
         public BudgetAllocationJson build() {
-            return new BudgetAllocationJson(
-                category, subcategory, generalLedger,
-                value, note);
+            return new BudgetAllocationJson(category, subcategory, generalLedger, value, note);
         }
-
     }
 }

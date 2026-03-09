@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AudioTracksResponse
- * 
+ *
  * <p>The response from a request to get the list of audio tracks.
  */
 public class AudioTracksResponse {
@@ -28,11 +28,10 @@ public class AudioTracksResponse {
     private List<ExistingAudioTrack> data;
 
     @JsonCreator
-    public AudioTracksResponse(
-            @JsonProperty("data") @Nullable List<ExistingAudioTrack> data) {
+    public AudioTracksResponse(@JsonProperty("data") @Nullable List<ExistingAudioTrack> data) {
         this.data = data;
     }
-    
+
     public AudioTracksResponse() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class AudioTracksResponse {
         return new Builder();
     }
 
-
     /**
      * Collection of audio tracks.
      */
@@ -56,7 +54,6 @@ public class AudioTracksResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class AudioTracksResponse {
             return false;
         }
         AudioTracksResponse other = (AudioTracksResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AudioTracksResponse.class,
-                "data", data);
+        return Utils.toString(AudioTracksResponse.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ExistingAudioTrack> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class AudioTracksResponse {
         }
 
         public AudioTracksResponse build() {
-            return new AudioTracksResponse(
-                data);
+            return new AudioTracksResponse(data);
         }
-
     }
 }

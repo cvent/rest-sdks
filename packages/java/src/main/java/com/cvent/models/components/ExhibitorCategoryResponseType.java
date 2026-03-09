@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryResponseType
- * 
+ *
  * <p>Type of exhibitor category
  */
 public enum ExhibitorCategoryResponseType {
@@ -23,13 +23,13 @@ public enum ExhibitorCategoryResponseType {
     ExhibitorCategoryResponseType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExhibitorCategoryResponseType> fromValue(String value) {
-        for (ExhibitorCategoryResponseType o: ExhibitorCategoryResponseType.values()) {
+        for (ExhibitorCategoryResponseType o : ExhibitorCategoryResponseType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ExhibitorCategoryResponseType {
         return Optional.empty();
     }
 }
-

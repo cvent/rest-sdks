@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * QuantityItemUpdateAttendee
- * 
+ *
  * <p>The reference to the attendee. Contains only the ID of the attendee.
  */
 public class QuantityItemUpdateAttendee {
@@ -27,11 +27,10 @@ public class QuantityItemUpdateAttendee {
     private String id;
 
     @JsonCreator
-    public QuantityItemUpdateAttendee(
-            @JsonProperty("id") @Nullable String id) {
+    public QuantityItemUpdateAttendee(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public QuantityItemUpdateAttendee() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class QuantityItemUpdateAttendee {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of the attendee.
      */
@@ -55,7 +53,6 @@ public class QuantityItemUpdateAttendee {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class QuantityItemUpdateAttendee {
             return false;
         }
         QuantityItemUpdateAttendee other = (QuantityItemUpdateAttendee) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuantityItemUpdateAttendee.class,
-                "id", id);
+        return Utils.toString(QuantityItemUpdateAttendee.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class QuantityItemUpdateAttendee {
         }
 
         public QuantityItemUpdateAttendee build() {
-            return new QuantityItemUpdateAttendee(
-                id);
+            return new QuantityItemUpdateAttendee(id);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 The user action that just occurred
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ChatActionTypeJson.MessageCreated;
+```
+
 
 ## Values
 

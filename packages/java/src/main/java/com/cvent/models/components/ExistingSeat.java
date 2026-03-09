@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExistingSeat
- * 
+ *
  * <p>The response from a request to get the event seat for the event.
  */
 public class ExistingSeat {
@@ -46,14 +46,12 @@ public class ExistingSeat {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("id") @Nullable String id) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.sourceId = sourceId;
         this.id = id;
     }
-    
-    public ExistingSeat(
-            @Nonnull String name) {
+
+    public ExistingSeat(@Nonnull String name) {
         this(name, null, null);
     }
 
@@ -83,7 +81,6 @@ public class ExistingSeat {
         return new Builder();
     }
 
-
     /**
      * Seat's plain name.
      */
@@ -91,7 +88,6 @@ public class ExistingSeat {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * This is a ID for the seat in an external system. Use this field to supply your own ID for tracking
@@ -102,7 +98,6 @@ public class ExistingSeat {
         return this;
     }
 
-
     /**
      * The unique ID of the seat.
      */
@@ -110,7 +105,6 @@ public class ExistingSeat {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -121,28 +115,23 @@ public class ExistingSeat {
             return false;
         }
         ExistingSeat other = (ExistingSeat) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, sourceId, id);
+        return Utils.enhancedHash(name, sourceId, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingSeat.class,
-                "name", name,
-                "sourceId", sourceId,
-                "id", id);
+        return Utils.toString(ExistingSeat.class, "name", name, "sourceId", sourceId, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -151,7 +140,7 @@ public class ExistingSeat {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -180,9 +169,7 @@ public class ExistingSeat {
         }
 
         public ExistingSeat build() {
-            return new ExistingSeat(
-                name, sourceId, id);
+            return new ExistingSeat(name, sourceId, id);
         }
-
     }
 }

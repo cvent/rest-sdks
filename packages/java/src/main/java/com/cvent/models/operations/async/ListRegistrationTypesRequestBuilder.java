@@ -40,7 +40,7 @@ public class ListRegistrationTypesRequestBuilder {
     private ListRegistrationTypesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListRegistrationTypesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListRegistrationTypesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListRegistrationTypesResponse> call() {
-        AsyncRequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation
-              = new ListRegistrationTypes.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation =
+                new ListRegistrationTypes.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListRegistrationTypesRequestBuilder {
      */
     public Publisher<ListRegistrationTypesResponse> callAsPublisher() {
         ListRegistrationTypesRequest request = this.request;
-        AsyncRequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation
-              = new ListRegistrationTypes.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation =
+                new ListRegistrationTypes.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListRegistrationTypesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListRegistrationTypesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListRegistrationTypesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListRegistrationTypesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

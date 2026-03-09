@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestUpdateJson
- * 
+ *
  * <p>An updated meeting request.
  */
 public class MeetingRequestUpdateJson {
@@ -72,19 +72,16 @@ public class MeetingRequestUpdateJson {
             @JsonProperty("status") @Nullable String status,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("statusNote") @Nullable String statusNote) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.questions = questions;
         this.status = status;
         this.sourceId = sourceId;
         this.statusNote = statusNote;
     }
-    
-    public MeetingRequestUpdateJson(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
+
+    public MeetingRequestUpdateJson(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
@@ -135,7 +132,6 @@ public class MeetingRequestUpdateJson {
         return new Builder();
     }
 
-
     /**
      * The ID of a meeting request.
      */
@@ -143,7 +139,6 @@ public class MeetingRequestUpdateJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The name of the specific meeting request.
@@ -153,7 +148,6 @@ public class MeetingRequestUpdateJson {
         return this;
     }
 
-
     /**
      * Questions for the meeting request.
      */
@@ -161,7 +155,6 @@ public class MeetingRequestUpdateJson {
         this.questions = questions;
         return this;
     }
-
 
     /**
      * The user-defined status of the meeting request. Possible statuses for requests are defined by the
@@ -172,7 +165,6 @@ public class MeetingRequestUpdateJson {
         return this;
     }
 
-
     /**
      * The ID for the meeting request in an external system. NOTE: This value is expected to be unique for
      * each meeting request within an account. Consider adding the external system name as part of the ID.
@@ -182,7 +174,6 @@ public class MeetingRequestUpdateJson {
         return this;
     }
 
-
     /**
      * The note about the status.
      */
@@ -190,7 +181,6 @@ public class MeetingRequestUpdateJson {
         this.statusNote = statusNote;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -201,35 +191,39 @@ public class MeetingRequestUpdateJson {
             return false;
         }
         MeetingRequestUpdateJson other = (MeetingRequestUpdateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.statusNote, other.statusNote);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.questions, other.questions)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.statusNote, other.statusNote);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, questions,
-            status, sourceId, statusNote);
+        return Utils.enhancedHash(id, name, questions, status, sourceId, statusNote);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestUpdateJson.class,
-                "id", id,
-                "name", name,
-                "questions", questions,
-                "status", status,
-                "sourceId", sourceId,
-                "statusNote", statusNote);
+        return Utils.toString(
+                MeetingRequestUpdateJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "questions",
+                questions,
+                "status",
+                status,
+                "sourceId",
+                sourceId,
+                "statusNote",
+                statusNote);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -244,7 +238,7 @@ public class MeetingRequestUpdateJson {
         private String statusNote;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -298,10 +292,7 @@ public class MeetingRequestUpdateJson {
         }
 
         public MeetingRequestUpdateJson build() {
-            return new MeetingRequestUpdateJson(
-                id, name, questions,
-                status, sourceId, statusNote);
+            return new MeetingRequestUpdateJson(id, name, questions, status, sourceId, statusNote);
         }
-
     }
 }

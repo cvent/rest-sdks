@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ExistingSpeakerCategory
- * 
+ *
  * <p>An existing speaker category.
  */
 public class ExistingSpeakerCategory {
@@ -47,13 +47,11 @@ public class ExistingSpeakerCategory {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("active") @Nullable Boolean active) {
         this.name = name;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.active = active;
     }
-    
-    public ExistingSpeakerCategory(
-            @Nonnull String id) {
+
+    public ExistingSpeakerCategory(@Nonnull String id) {
         this(null, id, null);
     }
 
@@ -82,7 +80,6 @@ public class ExistingSpeakerCategory {
         return new Builder();
     }
 
-
     /**
      * The name of the speaker category
      */
@@ -90,7 +87,6 @@ public class ExistingSpeakerCategory {
         this.name = name;
         return this;
     }
-
 
     /**
      * A string that has to be a format matching the industry standard uuid
@@ -100,7 +96,6 @@ public class ExistingSpeakerCategory {
         return this;
     }
 
-
     /**
      * The speaker category is active or not active
      */
@@ -108,7 +103,6 @@ public class ExistingSpeakerCategory {
         this.active = active;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +113,23 @@ public class ExistingSpeakerCategory {
             return false;
         }
         ExistingSpeakerCategory other = (ExistingSpeakerCategory) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.active, other.active);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.active, other.active);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, id, active);
+        return Utils.enhancedHash(name, id, active);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingSpeakerCategory.class,
-                "name", name,
-                "id", id,
-                "active", active);
+        return Utils.toString(ExistingSpeakerCategory.class, "name", name, "id", id, "active", active);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -149,7 +138,7 @@ public class ExistingSpeakerCategory {
         private Boolean active;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -177,9 +166,7 @@ public class ExistingSpeakerCategory {
         }
 
         public ExistingSpeakerCategory build() {
-            return new ExistingSpeakerCategory(
-                name, id, active);
+            return new ExistingSpeakerCategory(name, id, active);
         }
-
     }
 }

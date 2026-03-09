@@ -18,52 +18,35 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DeclinedReason
     {
-        [JsonProperty("DID_NOT_MEET_REQUIREMENTS")]
-        DidNotMeetRequirements,
-        [JsonProperty("EVENT_CANCELLED")]
-        EventCancelled,
-        [JsonProperty("FOOD_AND_BEVERAGE_MINIMUM_TOO_HIGH")]
-        FoodAndBeverageMinimumTooHigh,
-        [JsonProperty("INCOMPLETE_RFP")]
-        IncompleteRfp,
-        [JsonProperty("LATE_RESPONSE")]
-        LateResponse,
-        [JsonProperty("MEETING_ROOM_RENTAL_TOO_HIGH")]
-        MeetingRoomRentalTooHigh,
-        [JsonProperty("MEETING_SPACE_CEILING_HEIGHT")]
-        MeetingSpaceCeilingHeight,
-        [JsonProperty("OTHER")]
-        Other,
-        [JsonProperty("PREFERRED_OR_ALTERNATE_DATES_UNAVAILABLE")]
-        PreferredOrAlternateDatesUnavailable,
-        [JsonProperty("PROPERTY_AMENITIES_OR_SERVICES")]
-        PropertyAmenitiesOrServices,
-        [JsonProperty("PROPERTY_LOCATION")]
-        PropertyLocation,
-        [JsonProperty("RENOVATIONS")]
-        Renovations,
-        [JsonProperty("SELECTED_OTHER_CITY")]
-        SelectedOtherCity,
-        [JsonProperty("SELECTED_OTHER_HOTEL_OR_VENUE")]
-        SelectedOtherHotelOrVenue,
-        [JsonProperty("SIZE_OF_MEETING_SPACE")]
-        SizeOfMeetingSpace,
-        [JsonProperty("SLEEPING_ROOM_RATE_TOO_HIGH")]
-        SleepingRoomRateTooHigh,
-        [JsonProperty("SUITE_AVAILABILITY")]
-        SuiteAvailability,
+        [JsonProperty("DID_NOT_MEET_REQUIREMENTS")] DidNotMeetRequirements,
+        [JsonProperty("EVENT_CANCELLED")] EventCancelled,
+        [JsonProperty("FOOD_AND_BEVERAGE_MINIMUM_TOO_HIGH")] FoodAndBeverageMinimumTooHigh,
+        [JsonProperty("INCOMPLETE_RFP")] IncompleteRfp,
+        [JsonProperty("LATE_RESPONSE")] LateResponse,
+        [JsonProperty("MEETING_ROOM_RENTAL_TOO_HIGH")] MeetingRoomRentalTooHigh,
+        [JsonProperty("MEETING_SPACE_CEILING_HEIGHT")] MeetingSpaceCeilingHeight,
+        [JsonProperty("OTHER")] Other,
+        [JsonProperty("PREFERRED_OR_ALTERNATE_DATES_UNAVAILABLE")] PreferredOrAlternateDatesUnavailable,
+        [JsonProperty("PROPERTY_AMENITIES_OR_SERVICES")] PropertyAmenitiesOrServices,
+        [JsonProperty("PROPERTY_LOCATION")] PropertyLocation,
+        [JsonProperty("RENOVATIONS")] Renovations,
+        [JsonProperty("SELECTED_OTHER_CITY")] SelectedOtherCity,
+        [JsonProperty("SELECTED_OTHER_HOTEL_OR_VENUE")] SelectedOtherHotelOrVenue,
+        [JsonProperty("SIZE_OF_MEETING_SPACE")] SizeOfMeetingSpace,
+        [JsonProperty("SLEEPING_ROOM_RATE_TOO_HIGH")] SleepingRoomRateTooHigh,
+        [JsonProperty("SUITE_AVAILABILITY")] SuiteAvailability,
     }
 
     public static class DeclinedReasonExtension
     {
         public static string Value(this DeclinedReason value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DeclinedReason ToEnum(this string value)
         {
-            foreach(var field in typeof(DeclinedReason).GetFields())
+            foreach (var field in typeof(DeclinedReason).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

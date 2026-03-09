@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DisassociateExhibitorFileRequest {
     /**
      * ID of an event.
@@ -32,16 +31,12 @@ public class DisassociateExhibitorFileRequest {
     private String fileId;
 
     @JsonCreator
-    public DisassociateExhibitorFileRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String fileId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DisassociateExhibitorFileRequest(@Nonnull String id, @Nonnull String exhibitorId, @Nonnull String fileId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class DisassociateExhibitorFileRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +71,6 @@ public class DisassociateExhibitorFileRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -87,7 +80,6 @@ public class DisassociateExhibitorFileRequest {
         return this;
     }
 
-
     /**
      * ID of a file.
      */
@@ -95,7 +87,6 @@ public class DisassociateExhibitorFileRequest {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,24 @@ public class DisassociateExhibitorFileRequest {
             return false;
         }
         DisassociateExhibitorFileRequest other = (DisassociateExhibitorFileRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.fileId, other.fileId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, fileId);
+        return Utils.enhancedHash(id, exhibitorId, fileId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DisassociateExhibitorFileRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "fileId", fileId);
+        return Utils.toString(
+                DisassociateExhibitorFileRequest.class, "id", id, "exhibitorId", exhibitorId, "fileId", fileId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +123,7 @@ public class DisassociateExhibitorFileRequest {
         private String fileId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +151,7 @@ public class DisassociateExhibitorFileRequest {
         }
 
         public DisassociateExhibitorFileRequest build() {
-            return new DisassociateExhibitorFileRequest(
-                id, exhibitorId, fileId);
+            return new DisassociateExhibitorFileRequest(id, exhibitorId, fileId);
         }
-
     }
 }

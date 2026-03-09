@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ChainBrand
- * 
+ *
  * <p>The brand that the chain belongs to.
  */
 public class ChainBrand {
@@ -27,11 +27,10 @@ public class ChainBrand {
     private String id;
 
     @JsonCreator
-    public ChainBrand(
-            @JsonProperty("id") @Nullable String id) {
+    public ChainBrand(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ChainBrand() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class ChainBrand {
         return new Builder();
     }
 
-
     /**
      * The ID of the brand that the chain belongs to.
      */
@@ -55,7 +53,6 @@ public class ChainBrand {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class ChainBrand {
             return false;
         }
         ChainBrand other = (ChainBrand) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChainBrand.class,
-                "id", id);
+        return Utils.toString(ChainBrand.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class ChainBrand {
         }
 
         public ChainBrand build() {
-            return new ChainBrand(
-                id);
+            return new ChainBrand(id);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * CurrencyConversionRateListResponseJson
- * 
+ *
  * <p>Currency conversion rate list response for a currency in an account.
  */
 public class CurrencyConversionRateListResponseJson {
@@ -91,23 +91,18 @@ public class CurrencyConversionRateListResponseJson {
             @JsonProperty("currentConversionRate") @Nullable Boolean currentConversionRate) {
         this.conversionRate = conversionRate;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
         this.endDate = endDate;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.baseCurrency = baseCurrency;
         this.currency = currency;
         this.lastModified = lastModified;
         this.currentConversionRate = currentConversionRate;
     }
-    
+
     public CurrencyConversionRateListResponseJson(
-            double conversionRate,
-            @Nonnull LocalDate startDate,
-            @Nonnull String id) {
-        this(conversionRate, startDate, null,
-            id, null, null,
-            null, null);
+            double conversionRate, @Nonnull LocalDate startDate, @Nonnull String id) {
+        this(conversionRate, startDate, null, id, null, null, null, null);
     }
 
     /**
@@ -173,7 +168,6 @@ public class CurrencyConversionRateListResponseJson {
         return new Builder();
     }
 
-
     /**
      * Currency conversion rate from accounts base currency to the other defined currency in this
      * conversion rate.
@@ -182,7 +176,6 @@ public class CurrencyConversionRateListResponseJson {
         this.conversionRate = conversionRate;
         return this;
     }
-
 
     /**
      * The ISO 8601 date format assigned for the currency conversion, typically denotes start date from
@@ -193,7 +186,6 @@ public class CurrencyConversionRateListResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 date format for the currency conversion, typically denotes end date till when defined
      * conversion rate is applicable.
@@ -203,7 +195,6 @@ public class CurrencyConversionRateListResponseJson {
         return this;
     }
 
-
     /**
      * The unique ID for this defined conversion rate.
      */
@@ -211,7 +202,6 @@ public class CurrencyConversionRateListResponseJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The ISO 4217 standard format currency code for account base currency.
@@ -221,7 +211,6 @@ public class CurrencyConversionRateListResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code of currency for which conversion rate is defined.
      */
@@ -229,7 +218,6 @@ public class CurrencyConversionRateListResponseJson {
         this.currency = currency;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time when the conversion rate was last modified.
@@ -239,7 +227,6 @@ public class CurrencyConversionRateListResponseJson {
         return this;
     }
 
-
     /**
      * True indicates this conversion rate is current applicable.
      */
@@ -247,7 +234,6 @@ public class CurrencyConversionRateListResponseJson {
         this.currentConversionRate = currentConversionRate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -258,40 +244,46 @@ public class CurrencyConversionRateListResponseJson {
             return false;
         }
         CurrencyConversionRateListResponseJson other = (CurrencyConversionRateListResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.baseCurrency, other.baseCurrency) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.currentConversionRate, other.currentConversionRate);
+        return Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.baseCurrency, other.baseCurrency)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.currentConversionRate, other.currentConversionRate);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            conversionRate, startDate, endDate,
-            id, baseCurrency, currency,
-            lastModified, currentConversionRate);
+                conversionRate, startDate, endDate, id, baseCurrency, currency, lastModified, currentConversionRate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CurrencyConversionRateListResponseJson.class,
-                "conversionRate", conversionRate,
-                "startDate", startDate,
-                "endDate", endDate,
-                "id", id,
-                "baseCurrency", baseCurrency,
-                "currency", currency,
-                "lastModified", lastModified,
-                "currentConversionRate", currentConversionRate);
+        return Utils.toString(
+                CurrencyConversionRateListResponseJson.class,
+                "conversionRate",
+                conversionRate,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "id",
+                id,
+                "baseCurrency",
+                baseCurrency,
+                "currency",
+                currency,
+                "lastModified",
+                lastModified,
+                "currentConversionRate",
+                currentConversionRate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double conversionRate;
 
@@ -310,7 +302,7 @@ public class CurrencyConversionRateListResponseJson {
         private Boolean currentConversionRate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -382,10 +374,14 @@ public class CurrencyConversionRateListResponseJson {
 
         public CurrencyConversionRateListResponseJson build() {
             return new CurrencyConversionRateListResponseJson(
-                conversionRate, startDate, endDate,
-                id, baseCurrency, currency,
-                lastModified, currentConversionRate);
+                    conversionRate,
+                    startDate,
+                    endDate,
+                    id,
+                    baseCurrency,
+                    currency,
+                    lastModified,
+                    currentConversionRate);
         }
-
     }
 }

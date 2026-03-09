@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAudienceSegmentsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListAudienceSegmentsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.audienceSegmentsPaginatedResponse = audienceSegmentsPaginatedResponse;
     }
-    
+
     public ListAudienceSegmentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListAudienceSegmentsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListAudienceSegmentsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListAudienceSegmentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListAudienceSegmentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved list of audience segments.
      */
-    public ListAudienceSegmentsResponse withAudienceSegmentsPaginatedResponse(@Nullable AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse) {
+    public ListAudienceSegmentsResponse withAudienceSegmentsPaginatedResponse(
+            @Nullable AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse) {
         this.audienceSegmentsPaginatedResponse = audienceSegmentsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListAudienceSegmentsResponse implements Response {
             return false;
         }
         ListAudienceSegmentsResponse other = (ListAudienceSegmentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.audienceSegmentsPaginatedResponse, other.audienceSegmentsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.audienceSegmentsPaginatedResponse, other.audienceSegmentsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            audienceSegmentsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, audienceSegmentsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAudienceSegmentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "audienceSegmentsPaginatedResponse", audienceSegmentsPaginatedResponse);
+        return Utils.toString(
+                ListAudienceSegmentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "audienceSegmentsPaginatedResponse",
+                audienceSegmentsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListAudienceSegmentsResponse implements Response {
         private AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListAudienceSegmentsResponse implements Response {
         /**
          * Successfully retrieved list of audience segments.
          */
-        public Builder audienceSegmentsPaginatedResponse(@Nullable AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse) {
+        public Builder audienceSegmentsPaginatedResponse(
+                @Nullable AudienceSegmentsPaginatedResponse audienceSegmentsPaginatedResponse) {
             this.audienceSegmentsPaginatedResponse = audienceSegmentsPaginatedResponse;
             return this;
         }
 
         public ListAudienceSegmentsResponse build() {
             return new ListAudienceSegmentsResponse(
-                contentType, statusCode, rawResponse,
-                audienceSegmentsPaginatedResponse);
+                    contentType, statusCode, rawResponse, audienceSegmentsPaginatedResponse);
         }
-
     }
 }

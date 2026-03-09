@@ -41,7 +41,7 @@ import jakarta.annotation.Nonnull;
  * tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used
  * and venue where the video is watched. Use these APIs to view and manage videos, related text tracks,
  * and audio files.
- * 
+ *
  * <p>Use these APIs also to get insight into video viewership.
  */
 public class Video {
@@ -56,7 +56,7 @@ public class Video {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncVideo async() {
@@ -65,9 +65,9 @@ public class Video {
 
     /**
      * List Videos
-     * 
+     *
      * <p>Gets a paginated list of videos associated with your account or event.
-     * 
+     *
      * @return The call builder
      */
     public ListVideosRequestBuilder listVideos() {
@@ -76,26 +76,26 @@ public class Video {
 
     /**
      * List Videos
-     * 
+     *
      * <p>Gets a paginated list of videos associated with your account or event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListVideosResponse listVideos(@Nonnull ListVideosRequest request) {
-        RequestOperation<ListVideosRequest, ListVideosResponse> operation
-              = new ListVideos.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListVideosRequest, ListVideosResponse> operation =
+                new ListVideos.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Video Views
-     * 
+     *
      * <p>Gets a paginated list of video views
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetVideoViewsRequestBuilder getVideoViews() {
@@ -104,26 +104,26 @@ public class Video {
 
     /**
      * List Video Views
-     * 
+     *
      * <p>Gets a paginated list of video views
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetVideoViewsResponse getVideoViews(@Nonnull GetVideoViewsRequest request) {
-        RequestOperation<GetVideoViewsRequest, GetVideoViewsResponse> operation
-              = new GetVideoViews.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetVideoViewsRequest, GetVideoViewsResponse> operation =
+                new GetVideoViews.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Audio Tracks
-     * 
+     *
      * <p>Gets a list of audio tracks for a specific video ID.
-     * 
+     *
      * @return The call builder
      */
     public ListAudioTracksRequestBuilder listAudioTracks() {
@@ -132,24 +132,24 @@ public class Video {
 
     /**
      * List Audio Tracks
-     * 
+     *
      * <p>Gets a list of audio tracks for a specific video ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAudioTracksResponse listAudioTracks(@Nonnull ListAudioTracksRequest request) {
-        RequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation
-              = new ListAudioTracks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation =
+                new ListAudioTracks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Video Renditions
-     * 
+     *
      * <p>Gets a list of video renditions for a specific video ID.
-     * 
+     *
      * @return The call builder
      */
     public ListVideoRenditionsRequestBuilder listVideoRenditions() {
@@ -158,25 +158,25 @@ public class Video {
 
     /**
      * List Video Renditions
-     * 
+     *
      * <p>Gets a list of video renditions for a specific video ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListVideoRenditionsResponse listVideoRenditions(@Nonnull ListVideoRenditionsRequest request) {
-        RequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation
-              = new ListVideoRenditions.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation =
+                new ListVideoRenditions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Text Track
-     * 
+     *
      * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
      * the upload of VTT files but instead returns a location URL that you use to perform the upload.
-     * 
+     *
      * @return The call builder
      */
     public CreateTextTrackRequestBuilder createTextTrack() {
@@ -185,25 +185,25 @@ public class Video {
 
     /**
      * Create Text Track
-     * 
+     *
      * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
      * the upload of VTT files but instead returns a location URL that you use to perform the upload.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateTextTrackResponse createTextTrack(@Nonnull CreateTextTrackRequest request) {
-        RequestOperation<CreateTextTrackRequest, CreateTextTrackResponse> operation
-              = new CreateTextTrack.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateTextTrackRequest, CreateTextTrackResponse> operation =
+                new CreateTextTrack.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Text Tracks
-     * 
+     *
      * <p>Gets a list of video text tracks for a specific video ID.
-     * 
+     *
      * @return The call builder
      */
     public ListVideoTextTracksRequestBuilder listVideoTextTracks() {
@@ -212,26 +212,26 @@ public class Video {
 
     /**
      * List Text Tracks
-     * 
+     *
      * <p>Gets a list of video text tracks for a specific video ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListVideoTextTracksResponse listVideoTextTracks(@Nonnull ListVideoTextTracksRequest request) {
-        RequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation
-              = new ListVideoTextTracks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation =
+                new ListVideoTextTracks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Text Track
-     * 
+     *
      * <p>Updates a specific video text track by ID. This is done by setting the status to Updating within the
      * body of this call,
      * which will prompt the service to return a signed upload link in the returned entity.
-     * 
+     *
      * @return The call builder
      */
     public UpdateTextTrackRequestBuilder updateTextTrack() {
@@ -240,19 +240,18 @@ public class Video {
 
     /**
      * Update Text Track
-     * 
+     *
      * <p>Updates a specific video text track by ID. This is done by setting the status to Updating within the
      * body of this call,
      * which will prompt the service to return a signed upload link in the returned entity.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateTextTrackResponse updateTextTrack(@Nonnull UpdateTextTrackRequest request) {
-        RequestOperation<UpdateTextTrackRequest, UpdateTextTrackResponse> operation
-              = new UpdateTextTrack.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateTextTrackRequest, UpdateTextTrackResponse> operation =
+                new UpdateTextTrack.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

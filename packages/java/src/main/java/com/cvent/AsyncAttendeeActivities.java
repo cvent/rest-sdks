@@ -41,7 +41,7 @@ import java.util.concurrent.CompletableFuture;
  * breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified
  * customer
  * profile that integrates with your external systems and data.
- * 
+ *
  * <p>By gathering all this info into a single interface, the API allows you to see your customer's
  * engagement
  * at every step of the journey, create engagement models, and integrate that data with your external
@@ -49,10 +49,10 @@ import java.util.concurrent.CompletableFuture;
  * You can use this data to understand what your customers are looking for, keep them engaged, build
  * loyalty,
  * drive upsell, and increase the long-term value of your events.
- * 
+ *
  * <p>Please note that attendee activities data is retained for a maximum of 2 years and is purged
  * thereafter.
- * 
+ *
  * <p>For more details on [attendee
  * activities](https://developers.cvent.com/docs/rest-api/explanation/attendee-activities).
  */
@@ -68,21 +68,20 @@ public class AsyncAttendeeActivities {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public AttendeeActivities sync() {
         return syncSDK;
     }
 
-
     /**
      * List Activities
-     * 
+     *
      * <p>Gets a paginated list of attendee activities.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAttendeeActivitiesRequestBuilder listAttendeeActivities() {
@@ -91,29 +90,28 @@ public class AsyncAttendeeActivities {
 
     /**
      * List Activities
-     * 
+     *
      * <p>Gets a paginated list of attendee activities.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAttendeeActivitiesResponse>} - The async response
      */
-    public CompletableFuture<ListAttendeeActivitiesResponse> listAttendeeActivities(@Nonnull ListAttendeeActivitiesRequest request) {
-        AsyncRequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation
-              = new ListAttendeeActivities.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAttendeeActivitiesResponse> listAttendeeActivities(
+            @Nonnull ListAttendeeActivitiesRequest request) {
+        AsyncRequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation =
+                new ListAttendeeActivities.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add External Activity
-     * 
+     *
      * <p>Create an external attendee activity.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateAttendeeActivityRequestBuilder createAttendeeActivity() {
@@ -122,29 +120,28 @@ public class AsyncAttendeeActivities {
 
     /**
      * Add External Activity
-     * 
+     *
      * <p>Create an external attendee activity.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateAttendeeActivityResponse>} - The async response
      */
-    public CompletableFuture<CreateAttendeeActivityResponse> createAttendeeActivity(@Nonnull ExternalActivityInput request) {
-        AsyncRequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation
-              = new CreateAttendeeActivity.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateAttendeeActivityResponse> createAttendeeActivity(
+            @Nonnull ExternalActivityInput request) {
+        AsyncRequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation =
+                new CreateAttendeeActivity.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Ext. Activities Metadata
-     * 
+     *
      * <p>Gets a paginated list of external attendee activities metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListExternalAttendeeActivitiesMetadataRequestBuilder listExternalAttendeeActivitiesMetadata() {
@@ -153,29 +150,29 @@ public class AsyncAttendeeActivities {
 
     /**
      * List Ext. Activities Metadata
-     * 
+     *
      * <p>Gets a paginated list of external attendee activities metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListExternalAttendeeActivitiesMetadataResponse>} - The async response
      */
-    public CompletableFuture<ListExternalAttendeeActivitiesMetadataResponse> listExternalAttendeeActivitiesMetadata(@Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
-        AsyncRequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation
-              = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListExternalAttendeeActivitiesMetadataResponse> listExternalAttendeeActivitiesMetadata(
+            @Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
+        AsyncRequestOperation<
+                        ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse>
+                operation = new ListExternalAttendeeActivitiesMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add Ext. Activities Metadata
-     * 
+     *
      * <p>Creates external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateExternalAttendeeActivityMetadataRequestBuilder createExternalAttendeeActivityMetadata() {
@@ -184,29 +181,28 @@ public class AsyncAttendeeActivities {
 
     /**
      * Add Ext. Activities Metadata
-     * 
+     *
      * <p>Creates external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateExternalAttendeeActivityMetadataResponse>} - The async response
      */
-    public CompletableFuture<CreateExternalAttendeeActivityMetadataResponse> createExternalAttendeeActivityMetadata(@Nonnull ExternalActivityMetadataInput request) {
-        AsyncRequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation
-              = new CreateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateExternalAttendeeActivityMetadataResponse> createExternalAttendeeActivityMetadata(
+            @Nonnull ExternalActivityMetadataInput request) {
+        AsyncRequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation =
+                new CreateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Ext Activities Metadata
-     * 
+     *
      * <p>Deletes external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteExternalAttendeeActivityMetadataRequestBuilder deleteExternalAttendeeActivityMetadata() {
@@ -215,29 +211,29 @@ public class AsyncAttendeeActivities {
 
     /**
      * Delete Ext Activities Metadata
-     * 
+     *
      * <p>Deletes external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteExternalAttendeeActivityMetadataResponse>} - The async response
      */
-    public CompletableFuture<DeleteExternalAttendeeActivityMetadataResponse> deleteExternalAttendeeActivityMetadata(@Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
-        AsyncRequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation
-              = new DeleteExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DeleteExternalAttendeeActivityMetadataResponse> deleteExternalAttendeeActivityMetadata(
+            @Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
+        AsyncRequestOperation<
+                        DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse>
+                operation = new DeleteExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Ext Activities Metadata
-     * 
+     *
      * <p>Update external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateExternalAttendeeActivityMetadataRequestBuilder updateExternalAttendeeActivityMetadata() {
@@ -246,19 +242,19 @@ public class AsyncAttendeeActivities {
 
     /**
      * Update Ext Activities Metadata
-     * 
+     *
      * <p>Update external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateExternalAttendeeActivityMetadataResponse>} - The async response
      */
-    public CompletableFuture<UpdateExternalAttendeeActivityMetadataResponse> updateExternalAttendeeActivityMetadata(@Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
-        AsyncRequestOperation<UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse> operation
-              = new UpdateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateExternalAttendeeActivityMetadataResponse> updateExternalAttendeeActivityMetadata(
+            @Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
+        AsyncRequestOperation<
+                        UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse>
+                operation = new UpdateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

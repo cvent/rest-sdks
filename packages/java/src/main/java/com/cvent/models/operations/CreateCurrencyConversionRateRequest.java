@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateCurrencyConversionRateRequest {
     /**
      * The ISO 4217 standard format currency code.
@@ -28,12 +27,11 @@ public class CreateCurrencyConversionRateRequest {
 
     @JsonCreator
     public CreateCurrencyConversionRateRequest(
-            @Nonnull String currency,
-            @Nonnull CurrencyConversionRate currencyConversionRate) {
+            @Nonnull String currency, @Nonnull CurrencyConversionRate currencyConversionRate) {
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.currencyConversionRate = Optional.ofNullable(currencyConversionRate)
-            .orElseThrow(() -> new IllegalArgumentException("currencyConversionRate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currencyConversionRate cannot be null"));
     }
 
     /**
@@ -54,7 +52,6 @@ public class CreateCurrencyConversionRateRequest {
         return new Builder();
     }
 
-
     /**
      * The ISO 4217 standard format currency code.
      */
@@ -63,15 +60,14 @@ public class CreateCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * Currency conversion rate to be created.
      */
-    public CreateCurrencyConversionRateRequest withCurrencyConversionRate(@Nonnull CurrencyConversionRate currencyConversionRate) {
+    public CreateCurrencyConversionRateRequest withCurrencyConversionRate(
+            @Nonnull CurrencyConversionRate currencyConversionRate) {
         this.currencyConversionRate = Utils.checkNotNull(currencyConversionRate, "currencyConversionRate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +78,34 @@ public class CreateCurrencyConversionRateRequest {
             return false;
         }
         CreateCurrencyConversionRateRequest other = (CreateCurrencyConversionRateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.currencyConversionRate, other.currencyConversionRate);
+        return Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.currencyConversionRate, other.currencyConversionRate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            currency, currencyConversionRate);
+        return Utils.enhancedHash(currency, currencyConversionRate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateCurrencyConversionRateRequest.class,
-                "currency", currency,
-                "currencyConversionRate", currencyConversionRate);
+        return Utils.toString(
+                CreateCurrencyConversionRateRequest.class,
+                "currency",
+                currency,
+                "currencyConversionRate",
+                currencyConversionRate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String currency;
 
         private CurrencyConversionRate currencyConversionRate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +125,7 @@ public class CreateCurrencyConversionRateRequest {
         }
 
         public CreateCurrencyConversionRateRequest build() {
-            return new CreateCurrencyConversionRateRequest(
-                currency, currencyConversionRate);
+            return new CreateCurrencyConversionRateRequest(currency, currencyConversionRate);
         }
-
     }
 }

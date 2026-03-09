@@ -2,6 +2,14 @@
 
 Denotes the method of payment.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = PaymentTypeJson1.Airplus;
+```
+
 
 ## Values
 

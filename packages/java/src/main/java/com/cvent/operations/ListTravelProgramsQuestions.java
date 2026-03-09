@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -34,10 +34,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class ListTravelProgramsQuestions {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -46,7 +45,7 @@ public class ListTravelProgramsQuestions {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -82,19 +81,14 @@ public class ListTravelProgramsQuestions {
                     java.util.Optional.of(java.util.List.of("business-transient/travel-program-questions:read")),
                     securitySource());
         }
-        <T>HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/travel-programs/questions");
+
+        <T> HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
+            String url = Utils.generateURL(this.baseUrl, "/travel-programs/questions");
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
 
-            req.addQueryParams(Utils.getQueryParams(
-                    klass,
-                    request,
-                    null));
+            req.addQueryParams(Utils.getQueryParams(klass, request, null));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
             return req.build();
@@ -112,11 +106,11 @@ public class ListTravelProgramsQuestions {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -141,25 +135,20 @@ public class ListTravelProgramsQuestions {
             return httpRes;
         }
 
-
         @Override
         public ListTravelProgramsQuestionsResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            ListTravelProgramsQuestionsResponse.Builder resBuilder =
-                    ListTravelProgramsQuestionsResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            ListTravelProgramsQuestionsResponse.Builder resBuilder = ListTravelProgramsQuestionsResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             ListTravelProgramsQuestionsResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withQuestionsPaginatedResponse1(Utils.unmarshal(response, new TypeReference<QuestionsPaginatedResponse1>() {}));
+                    return res.withQuestionsPaginatedResponse1(
+                            Utils.unmarshal(response, new TypeReference<QuestionsPaginatedResponse1>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -182,14 +171,18 @@ public class ListTravelProgramsQuestions {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<ListTravelProgramsQuestionsRequest, com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse> {
+            implements AsyncRequestOperation<
+                    ListTravelProgramsQuestionsRequest,
+                    com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(ListTravelProgramsQuestionsRequest request) throws Exception {
+        private CompletableFuture<HttpRequest> onBuildRequest(ListTravelProgramsQuestionsRequest request)
+                throws Exception {
             HttpRequest req = buildRequest(request, ListTravelProgramsQuestionsRequest.class);
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
@@ -204,7 +197,9 @@ public class ListTravelProgramsQuestions {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(ListTravelProgramsQuestionsRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -221,19 +216,15 @@ public class ListTravelProgramsQuestions {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse
-                            .builder()
+                    com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.ListTravelProgramsQuestionsResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<QuestionsPaginatedResponse1>() {})
@@ -244,8 +235,7 @@ public class ListTravelProgramsQuestions {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

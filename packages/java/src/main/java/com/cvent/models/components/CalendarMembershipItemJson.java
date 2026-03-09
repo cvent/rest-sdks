@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * CalendarMembershipItemJson
- * 
+ *
  * <p>Represents a calendar-based membership item that renews according to calendar periods.
  */
 public class CalendarMembershipItemJson implements MembershipItemsPaginatedResponseData {
@@ -170,18 +170,12 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.generalLedger = generalLedger;
         this.currency = currency;
         this.renewalType = Optional.ofNullable(renewalType)
-            .orElseThrow(() -> new IllegalArgumentException("renewalType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("renewalType cannot be null"));
         this.proRated = proRated;
     }
-    
-    public CalendarMembershipItemJson(
-            @Nonnull String renewalType) {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, renewalType,
-            null);
+
+    public CalendarMembershipItemJson(@Nonnull String renewalType) {
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, renewalType, null);
     }
 
     /**
@@ -303,7 +297,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return new Builder();
     }
 
-
     /**
      * This text will be displayed in emails using the registration information widget.
      */
@@ -311,7 +304,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.registrantInformation = registrantInformation;
         return this;
     }
-
 
     /**
      * A unique identifier for the membership item.
@@ -321,7 +313,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * Planner specified type or category of membership being offered.
      */
@@ -329,7 +320,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.type = type;
         return this;
     }
-
 
     /**
      * The specific membership item or product name within the membership type.
@@ -339,7 +329,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * The contact type associated with this membership item.
      */
@@ -347,7 +336,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.contactType = contactType;
         return this;
     }
-
 
     /**
      * The price charged when an invitee purchases a membership.
@@ -357,7 +345,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * The price charged when an invitee renews their membership.
      */
@@ -365,7 +352,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.renewalPrice = renewalPrice;
         return this;
     }
-
 
     /**
      * Description of the membership item.
@@ -375,7 +361,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * A planner-specified code for the membership item.
      */
@@ -383,7 +368,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.code = code;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for registration types associated with this membership item.
@@ -393,7 +377,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * True indicates the membership item is selectable during registration.
      */
@@ -401,7 +384,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the membership item registration automatically closes. The item
@@ -412,7 +394,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * This is used to denote the general ledger code associated with donation item.
      */
@@ -420,7 +401,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.generalLedger = generalLedger;
         return this;
     }
-
 
     /**
      * The ISO 4217 currency code for this membership item.
@@ -430,7 +410,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     /**
      * The renewal type of the membership item.
      */
@@ -438,7 +417,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         this.renewalType = Utils.checkNotNull(renewalType, "renewalType");
         return this;
     }
-
 
     /**
      * True indicates the membership item with calendar renewal type is pro-rated. The price of a pro-rated
@@ -449,7 +427,6 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -459,59 +436,85 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
             return false;
         }
         CalendarMembershipItemJson other = (CalendarMembershipItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.item, other.item) &&
-            Utils.enhancedDeepEquals(this.contactType, other.contactType) &&
-            Utils.enhancedDeepEquals(this.price, other.price) &&
-            Utils.enhancedDeepEquals(this.renewalPrice, other.renewalPrice) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticClosureDate, other.automaticClosureDate) &&
-            Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.renewalType, other.renewalType) &&
-            Utils.enhancedDeepEquals(this.proRated, other.proRated);
+        return Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.item, other.item)
+                && Utils.enhancedDeepEquals(this.contactType, other.contactType)
+                && Utils.enhancedDeepEquals(this.price, other.price)
+                && Utils.enhancedDeepEquals(this.renewalPrice, other.renewalPrice)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticClosureDate, other.automaticClosureDate)
+                && Utils.enhancedDeepEquals(this.generalLedger, other.generalLedger)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.renewalType, other.renewalType)
+                && Utils.enhancedDeepEquals(this.proRated, other.proRated);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            registrantInformation, id, type,
-            item, contactType, price,
-            renewalPrice, description, code,
-            registrationTypes, openForRegistration, automaticClosureDate,
-            generalLedger, currency, renewalType,
-            proRated);
+                registrantInformation,
+                id,
+                type,
+                item,
+                contactType,
+                price,
+                renewalPrice,
+                description,
+                code,
+                registrationTypes,
+                openForRegistration,
+                automaticClosureDate,
+                generalLedger,
+                currency,
+                renewalType,
+                proRated);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CalendarMembershipItemJson.class,
-                "registrantInformation", registrantInformation,
-                "id", id,
-                "type", type,
-                "item", item,
-                "contactType", contactType,
-                "price", price,
-                "renewalPrice", renewalPrice,
-                "description", description,
-                "code", code,
-                "registrationTypes", registrationTypes,
-                "openForRegistration", openForRegistration,
-                "automaticClosureDate", automaticClosureDate,
-                "generalLedger", generalLedger,
-                "currency", currency,
-                "renewalType", renewalType,
-                "proRated", proRated);
+        return Utils.toString(
+                CalendarMembershipItemJson.class,
+                "registrantInformation",
+                registrantInformation,
+                "id",
+                id,
+                "type",
+                type,
+                "item",
+                item,
+                "contactType",
+                contactType,
+                "price",
+                price,
+                "renewalPrice",
+                renewalPrice,
+                "description",
+                description,
+                "code",
+                code,
+                "registrationTypes",
+                registrationTypes,
+                "openForRegistration",
+                openForRegistration,
+                "automaticClosureDate",
+                automaticClosureDate,
+                "generalLedger",
+                generalLedger,
+                "currency",
+                currency,
+                "renewalType",
+                renewalType,
+                "proRated",
+                proRated);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String registrantInformation;
 
@@ -546,7 +549,7 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
         private Boolean proRated;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -681,13 +684,22 @@ public class CalendarMembershipItemJson implements MembershipItemsPaginatedRespo
 
         public CalendarMembershipItemJson build() {
             return new CalendarMembershipItemJson(
-                registrantInformation, id, type,
-                item, contactType, price,
-                renewalPrice, description, code,
-                registrationTypes, openForRegistration, automaticClosureDate,
-                generalLedger, currency, renewalType,
-                proRated);
+                    registrantInformation,
+                    id,
+                    type,
+                    item,
+                    contactType,
+                    price,
+                    renewalPrice,
+                    description,
+                    code,
+                    registrationTypes,
+                    openForRegistration,
+                    automaticClosureDate,
+                    generalLedger,
+                    currency,
+                    renewalType,
+                    proRated);
         }
-
     }
 }

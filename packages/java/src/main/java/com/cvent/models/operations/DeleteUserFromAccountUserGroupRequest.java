@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteUserFromAccountUserGroupRequest {
     /**
      * The User Group's Id.
@@ -26,13 +25,11 @@ public class DeleteUserFromAccountUserGroupRequest {
     private String userId;
 
     @JsonCreator
-    public DeleteUserFromAccountUserGroupRequest(
-            @Nonnull String userGroupId,
-            @Nonnull String userId) {
+    public DeleteUserFromAccountUserGroupRequest(@Nonnull String userGroupId, @Nonnull String userId) {
         this.userGroupId = Optional.ofNullable(userGroupId)
-            .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
-        this.userId = Optional.ofNullable(userId)
-            .orElseThrow(() -> new IllegalArgumentException("userId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
+        this.userId =
+                Optional.ofNullable(userId).orElseThrow(() -> new IllegalArgumentException("userId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class DeleteUserFromAccountUserGroupRequest {
         return new Builder();
     }
 
-
     /**
      * The User Group's Id.
      */
@@ -62,7 +58,6 @@ public class DeleteUserFromAccountUserGroupRequest {
         return this;
     }
 
-
     /**
      * The Account User's Id.
      */
@@ -70,7 +65,6 @@ public class DeleteUserFromAccountUserGroupRequest {
         this.userId = Utils.checkNotNull(userId, "userId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,30 @@ public class DeleteUserFromAccountUserGroupRequest {
             return false;
         }
         DeleteUserFromAccountUserGroupRequest other = (DeleteUserFromAccountUserGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId) &&
-            Utils.enhancedDeepEquals(this.userId, other.userId);
+        return Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId)
+                && Utils.enhancedDeepEquals(this.userId, other.userId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            userGroupId, userId);
+        return Utils.enhancedHash(userGroupId, userId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteUserFromAccountUserGroupRequest.class,
-                "userGroupId", userGroupId,
-                "userId", userId);
+        return Utils.toString(
+                DeleteUserFromAccountUserGroupRequest.class, "userGroupId", userGroupId, "userId", userId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String userGroupId;
 
         private String userId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +118,7 @@ public class DeleteUserFromAccountUserGroupRequest {
         }
 
         public DeleteUserFromAccountUserGroupRequest build() {
-            return new DeleteUserFromAccountUserGroupRequest(
-                userGroupId, userId);
+            return new DeleteUserFromAccountUserGroupRequest(userGroupId, userId);
         }
-
     }
 }

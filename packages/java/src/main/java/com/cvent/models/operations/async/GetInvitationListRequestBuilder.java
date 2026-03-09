@@ -40,7 +40,7 @@ public class GetInvitationListRequestBuilder {
     private GetInvitationListRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetInvitationListRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetInvitationListRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetInvitationListResponse> call() {
-        AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation
-              = new GetInvitationList.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation =
+                new GetInvitationList.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetInvitationListRequestBuilder {
      */
     public Publisher<GetInvitationListResponse> callAsPublisher() {
         GetInvitationListRequest request = this.request;
-        AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation
-              = new GetInvitationList.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation =
+                new GetInvitationList.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetInvitationListRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetInvitationListRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetInvitationListResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BudgetStatusJson
     {
-        [JsonProperty("ESTIMATED")]
-        Estimated,
-        [JsonProperty("REQUESTED")]
-        Requested,
-        [JsonProperty("PENDING")]
-        Pending,
-        [JsonProperty("CONFIRMED")]
-        Confirmed,
-        [JsonProperty("INVOICED")]
-        Invoiced,
-        [JsonProperty("PAID")]
-        Paid,
+        [JsonProperty("ESTIMATED")] Estimated,
+        [JsonProperty("REQUESTED")] Requested,
+        [JsonProperty("PENDING")] Pending,
+        [JsonProperty("CONFIRMED")] Confirmed,
+        [JsonProperty("INVOICED")] Invoiced,
+        [JsonProperty("PAID")] Paid,
     }
 
     public static class BudgetStatusJsonExtension
     {
         public static string Value(this BudgetStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BudgetStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BudgetStatusJson).GetFields())
+            foreach (var field in typeof(BudgetStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

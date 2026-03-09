@@ -37,21 +37,20 @@ public class AsyncBadgePrintJob {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public BadgePrintJob sync() {
         return syncSDK;
     }
 
-
     /**
      * Create Badge Print Job
-     * 
+     *
      * <p>Creates a new badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateBadgePrintJobRequestBuilder createBadgePrintJob() {
@@ -60,29 +59,28 @@ public class AsyncBadgePrintJob {
 
     /**
      * Create Badge Print Job
-     * 
+     *
      * <p>Creates a new badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateBadgePrintJobResponse>} - The async response
      */
-    public CompletableFuture<CreateBadgePrintJobResponse> createBadgePrintJob(@Nonnull CreateBadgePrintJobRequest request) {
-        AsyncRequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation
-              = new CreateBadgePrintJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateBadgePrintJobResponse> createBadgePrintJob(
+            @Nonnull CreateBadgePrintJobRequest request) {
+        AsyncRequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation =
+                new CreateBadgePrintJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Badge Print Jobs
-     * 
+     *
      * <p>Gets a paginated list of badge print jobs for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetEventBadgePrintJobsRequestBuilder getEventBadgePrintJobs() {
@@ -91,29 +89,28 @@ public class AsyncBadgePrintJob {
 
     /**
      * List Badge Print Jobs
-     * 
+     *
      * <p>Gets a paginated list of badge print jobs for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetEventBadgePrintJobsResponse>} - The async response
      */
-    public CompletableFuture<GetEventBadgePrintJobsResponse> getEventBadgePrintJobs(@Nonnull GetEventBadgePrintJobsRequest request) {
-        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation
-              = new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetEventBadgePrintJobsResponse> getEventBadgePrintJobs(
+            @Nonnull GetEventBadgePrintJobsRequest request) {
+        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
+                new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Badge Print Job
-     * 
+     *
      * <p>Gets a badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBadgePrintJobRequestBuilder getBadgePrintJob() {
@@ -122,19 +119,17 @@ public class AsyncBadgePrintJob {
 
     /**
      * Get Badge Print Job
-     * 
+     *
      * <p>Gets a badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBadgePrintJobResponse>} - The async response
      */
     public CompletableFuture<GetBadgePrintJobResponse> getBadgePrintJob(@Nonnull GetBadgePrintJobRequest request) {
-        AsyncRequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation
-              = new GetBadgePrintJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation =
+                new GetBadgePrintJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

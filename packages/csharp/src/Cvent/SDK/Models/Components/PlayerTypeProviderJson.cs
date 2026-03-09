@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum PlayerTypeProviderJson
     {
-        [JsonProperty("Brightcove")]
-        Brightcove,
-        [JsonProperty("Amazon IVS")]
-        AmazonIVS,
-        [JsonProperty("Cvent VOD")]
-        CventVOD,
+        [JsonProperty("Brightcove")] Brightcove,
+        [JsonProperty("Amazon IVS")] AmazonIVS,
+        [JsonProperty("Cvent VOD")] CventVOD,
     }
 
     public static class PlayerTypeProviderJsonExtension
     {
         public static string Value(this PlayerTypeProviderJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static PlayerTypeProviderJson ToEnum(this string value)
         {
-            foreach(var field in typeof(PlayerTypeProviderJson).GetFields())
+            foreach (var field in typeof(PlayerTypeProviderJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

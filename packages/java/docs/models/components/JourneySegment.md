@@ -2,6 +2,14 @@
 
 Journey Segment
 
+## Example Usage
+
+```java
+import com.cvent.models.components.JourneySegment;
+
+JourneySegment value = JourneySegment.LEAVING_EVENT;
+```
+
 
 ## Values
 

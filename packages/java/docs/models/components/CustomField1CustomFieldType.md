@@ -2,6 +2,14 @@
 
 The type of data collected by a custom field.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CustomField1CustomFieldType;
+
+CustomField1CustomFieldType value = CustomField1CustomFieldType.AUTO_INCREMENT;
+```
+
 
 ## Values
 

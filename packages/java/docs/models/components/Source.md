@@ -2,6 +2,14 @@
 
 The source of entry for the lead
 
+## Example Usage
+
+```java
+import com.cvent.models.components.Source;
+
+Source value = Source.SCANNED;
+```
+
 
 ## Values
 

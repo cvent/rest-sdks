@@ -3,11 +3,9 @@
  */
 package com.cvent.models.errors;
 
-import com.cvent.utils.Utils;
 import com.cvent.utils.Headers;
-
+import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
-
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
@@ -19,7 +17,8 @@ public abstract class CventSDKError extends RuntimeException {
     private byte[] body;
     private HttpResponse<?> rawResponse;
 
-    public CventSDKError(String message, int code, @Nullable byte[] body, HttpResponse<?> rawResponse, @Nullable Throwable cause) {
+    public CventSDKError(
+            String message, int code, @Nullable byte[] body, HttpResponse<?> rawResponse, @Nullable Throwable cause) {
         super(message, cause);
         Utils.checkNotNull(message, "message");
         Utils.checkNotNull(rawResponse, "rawResponse");
@@ -27,69 +26,75 @@ public abstract class CventSDKError extends RuntimeException {
         this.code = code;
         this.rawResponse = rawResponse;
     }
-    
+
     public Optional<byte[]> body() {
         return Optional.ofNullable(body);
     }
-    
+
     public Optional<String> bodyAsString() {
         return body().map(x -> new String(x, StandardCharsets.UTF_8));
     }
-    
+
     public int code() {
         return code;
     }
-    
+
     /**
      * Returns the raw HTTP response associated with this exception. The response body stream
      * may not be available (but the body can be accessed via the {@code body()} method).
-     * 
+     *
      * @return the raw HTTP response
      */
     public HttpResponse<?> rawResponse() {
         return rawResponse;
     }
-    
+
     /**
      * Returns the headers from the raw HTTP response as a map.
-     * 
+     *
      * @return response headers
      */
     public Headers headers() {
         return new Headers(rawResponse.headers().map());
     }
-    
+
     // present for backwards compatibility
     public String message() {
         return getMessage();
     }
-    
+
     public CventSDKError withCode(int code) {
         this.code = code;
         return this;
     }
-    
+
     public CventSDKError withBody(@Nullable byte[] body) {
         Utils.checkNotNull(body, "body");
         this.body = body;
         return this;
     }
-    
+
     public CventSDKError withRawResponse(HttpResponse<?> rawResponse) {
         Utils.checkNotNull(rawResponse, "rawResponse");
         this.rawResponse = rawResponse;
         return this;
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(this.getClass(),
-                "requestMethod", rawResponse.request().method(),
-                "requestUri", rawResponse.request().uri(),
-                "code", code,
-                "responseHeaders", rawResponse.headers().map(), 
-                "message", getMessage(),
-                "body", bodyAsString().orElse("null"));
+        return Utils.toString(
+                this.getClass(),
+                "requestMethod",
+                rawResponse.request().method(),
+                "requestUri",
+                rawResponse.request().uri(),
+                "code",
+                code,
+                "responseHeaders",
+                rawResponse.headers().map(),
+                "message",
+                getMessage(),
+                "body",
+                bodyAsString().orElse("null"));
     }
 }
-

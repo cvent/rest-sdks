@@ -33,20 +33,19 @@ public class AsyncEventsPlusHub {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public EventsPlusHub sync() {
         return syncSDK;
     }
 
-
     /**
      * List Events+ Hubs
-     * 
+     *
      * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
      * contains owner and theme information as well as the current status.
-     * 
+     *
      * @return The async call builder
      */
     public ListHubsRequestBuilder listHubs() {
@@ -55,26 +54,24 @@ public class AsyncEventsPlusHub {
 
     /**
      * List Events+ Hubs
-     * 
+     *
      * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
      * contains owner and theme information as well as the current status.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListHubsResponse>} - The async response
      */
     public CompletableFuture<ListHubsResponse> listHubs(@Nonnull ListHubsRequest request) {
-        AsyncRequestOperation<ListHubsRequest, ListHubsResponse> operation
-              = new ListHubs.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListHubsRequest, ListHubsResponse> operation =
+                new ListHubs.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Events+ Hub Members
-     * 
+     *
      * <p>Fetches a list of members associated with a particular Events+ hub.
-     * 
+     *
      * @return The async call builder
      */
     public GetHubMembersRequestBuilder getHubMembers() {
@@ -83,17 +80,15 @@ public class AsyncEventsPlusHub {
 
     /**
      * Get Events+ Hub Members
-     * 
+     *
      * <p>Fetches a list of members associated with a particular Events+ hub.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetHubMembersResponse>} - The async response
      */
     public CompletableFuture<GetHubMembersResponse> getHubMembers(@Nonnull GetHubMembersRequest request) {
-        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation
-              = new GetHubMembers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
+                new GetHubMembers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

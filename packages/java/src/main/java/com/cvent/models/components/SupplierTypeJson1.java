@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SupplierTypeJson1
- * 
+ *
  * <p>The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an
  * event.
  */
@@ -23,13 +23,13 @@ public enum SupplierTypeJson1 {
     SupplierTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SupplierTypeJson1> fromValue(String value) {
-        for (SupplierTypeJson1 o: SupplierTypeJson1.values()) {
+        for (SupplierTypeJson1 o : SupplierTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum SupplierTypeJson1 {
         return Optional.empty();
     }
 }
-

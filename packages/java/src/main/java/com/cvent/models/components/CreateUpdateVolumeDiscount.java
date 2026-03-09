@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * CreateUpdateVolumeDiscount
- * 
+ *
  * <p>Representation of a volume based discount to be created or updated.
  */
 public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
@@ -76,11 +76,11 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      * Specifies who will receive the discount once the threshold for the number of ordered items is met or
      * exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is
      * exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount.
-     * 
+     *
      * <p>`BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted.
      * Further registrations are at full price. If primaryRegistrant is not included then the first
      * registrant is full price.
-     * 
+     *
      * <p>Every registration afterward, up to and including the threshold, are discounted. Any additional
      * registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth
      * registration counting from the threshold recieves a discount, where N is defined by the `interval`
@@ -115,7 +115,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     @JsonProperty("type")
@@ -135,37 +135,28 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
             @JsonProperty("interval") @Nullable Long interval,
             @JsonProperty("includePrimaryRegistrant") @Nullable Boolean includePrimaryRegistrant,
             @JsonProperty("type") @Nonnull CreateUpdateVolumeDiscountType type) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
-        this.stackable = Optional.ofNullable(stackable)
-            .orElse(Builder._SINGLETON_VALUE_Stackable.value());
-        this.method = Optional.ofNullable(method)
-            .orElseThrow(() -> new IllegalArgumentException("method cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.stackable = Optional.ofNullable(stackable).orElse(Builder._SINGLETON_VALUE_Stackable.value());
+        this.method =
+                Optional.ofNullable(method).orElseThrow(() -> new IllegalArgumentException("method cannot be null"));
         this.effectiveFrom = effectiveFrom;
         this.effectiveTo = effectiveTo;
         this.note = note;
-        this.thresholdType = Optional.ofNullable(thresholdType)
-            .orElse(Builder._SINGLETON_VALUE_ThresholdType.value());
+        this.thresholdType = Optional.ofNullable(thresholdType).orElse(Builder._SINGLETON_VALUE_ThresholdType.value());
         this.thresholdLimit = thresholdLimit;
-        this.interval = Optional.ofNullable(interval)
-            .orElse(Builder._SINGLETON_VALUE_Interval.value());
+        this.interval = Optional.ofNullable(interval).orElse(Builder._SINGLETON_VALUE_Interval.value());
         this.includePrimaryRegistrant = Optional.ofNullable(includePrimaryRegistrant)
-            .orElse(Builder._SINGLETON_VALUE_IncludePrimaryRegistrant.value());
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElse(Builder._SINGLETON_VALUE_IncludePrimaryRegistrant.value());
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
-    
+
     public CreateUpdateVolumeDiscount(
             @Nonnull String name,
             @Nonnull DiscountMethodJson method,
             long thresholdLimit,
             @Nonnull CreateUpdateVolumeDiscountType type) {
-        this(name, null, null,
-            method, null, null,
-            null, null, thresholdLimit,
-            null, null, type);
+        this(name, null, null, method, null, null, null, null, thresholdLimit, null, null, type);
     }
 
     /**
@@ -221,11 +212,11 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      * Specifies who will receive the discount once the threshold for the number of ordered items is met or
      * exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is
      * exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount.
-     * 
+     *
      * <p>`BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted.
      * Further registrations are at full price. If primaryRegistrant is not included then the first
      * registrant is full price.
-     * 
+     *
      * <p>Every registration afterward, up to and including the threshold, are discounted. Any additional
      * registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth
      * registration counting from the threshold recieves a discount, where N is defined by the `interval`
@@ -261,7 +252,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     @Override
@@ -273,7 +264,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return new Builder();
     }
 
-
     /**
      * Name of the discount.
      */
@@ -281,7 +271,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * True indicates that the discount is active.
@@ -291,7 +280,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * True indicates that the discount can be clubbed together with other stackable discounts
      */
@@ -299,7 +287,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         this.stackable = stackable;
         return this;
     }
-
 
     /**
      * Details about how the discount applies.
@@ -309,7 +296,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date from which the discount is effective.
      */
@@ -317,7 +303,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         this.effectiveFrom = effectiveFrom;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date to which the discount is effective.
@@ -327,7 +312,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * Note about the discount.
      */
@@ -336,16 +320,15 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * Specifies who will receive the discount once the threshold for the number of ordered items is met or
      * exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is
      * exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount.
-     * 
+     *
      * <p>`BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted.
      * Further registrations are at full price. If primaryRegistrant is not included then the first
      * registrant is full price.
-     * 
+     *
      * <p>Every registration afterward, up to and including the threshold, are discounted. Any additional
      * registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth
      * registration counting from the threshold recieves a discount, where N is defined by the `interval`
@@ -356,7 +339,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * Defines the threshold limit for the volume discount.
      */
@@ -364,7 +346,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         this.thresholdLimit = thresholdLimit;
         return this;
     }
-
 
     /**
      * Defines the interval for the volume discount when threshold type is EVERY_NTH_REGISTRANT. Every Nth
@@ -375,7 +356,6 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * True indicates if the primary registrant is included in evaluating if threshold is met for the
      * volume discount when threshold type is BEFORE_THRESHOLD_LIMIT.
@@ -385,18 +365,16 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         return this;
     }
 
-
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     public CreateUpdateVolumeDiscount withType(@Nonnull CreateUpdateVolumeDiscountType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -407,49 +385,69 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
             return false;
         }
         CreateUpdateVolumeDiscount other = (CreateUpdateVolumeDiscount) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.stackable, other.stackable) &&
-            Utils.enhancedDeepEquals(this.method, other.method) &&
-            Utils.enhancedDeepEquals(this.effectiveFrom, other.effectiveFrom) &&
-            Utils.enhancedDeepEquals(this.effectiveTo, other.effectiveTo) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.thresholdType, other.thresholdType) &&
-            Utils.enhancedDeepEquals(this.thresholdLimit, other.thresholdLimit) &&
-            Utils.enhancedDeepEquals(this.interval, other.interval) &&
-            Utils.enhancedDeepEquals(this.includePrimaryRegistrant, other.includePrimaryRegistrant) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.stackable, other.stackable)
+                && Utils.enhancedDeepEquals(this.method, other.method)
+                && Utils.enhancedDeepEquals(this.effectiveFrom, other.effectiveFrom)
+                && Utils.enhancedDeepEquals(this.effectiveTo, other.effectiveTo)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.thresholdType, other.thresholdType)
+                && Utils.enhancedDeepEquals(this.thresholdLimit, other.thresholdLimit)
+                && Utils.enhancedDeepEquals(this.interval, other.interval)
+                && Utils.enhancedDeepEquals(this.includePrimaryRegistrant, other.includePrimaryRegistrant)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, active, stackable,
-            method, effectiveFrom, effectiveTo,
-            note, thresholdType, thresholdLimit,
-            interval, includePrimaryRegistrant, type);
+                name,
+                active,
+                stackable,
+                method,
+                effectiveFrom,
+                effectiveTo,
+                note,
+                thresholdType,
+                thresholdLimit,
+                interval,
+                includePrimaryRegistrant,
+                type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateUpdateVolumeDiscount.class,
-                "name", name,
-                "active", active,
-                "stackable", stackable,
-                "method", method,
-                "effectiveFrom", effectiveFrom,
-                "effectiveTo", effectiveTo,
-                "note", note,
-                "thresholdType", thresholdType,
-                "thresholdLimit", thresholdLimit,
-                "interval", interval,
-                "includePrimaryRegistrant", includePrimaryRegistrant,
-                "type", type);
+        return Utils.toString(
+                CreateUpdateVolumeDiscount.class,
+                "name",
+                name,
+                "active",
+                active,
+                "stackable",
+                stackable,
+                "method",
+                method,
+                "effectiveFrom",
+                effectiveFrom,
+                "effectiveTo",
+                effectiveTo,
+                "note",
+                note,
+                "thresholdType",
+                thresholdType,
+                "thresholdLimit",
+                thresholdLimit,
+                "interval",
+                interval,
+                "includePrimaryRegistrant",
+                includePrimaryRegistrant,
+                "type",
+                type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -476,7 +474,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         private CreateUpdateVolumeDiscountType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -539,11 +537,11 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
          * Specifies who will receive the discount once the threshold for the number of ordered items is met or
          * exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is
          * exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount.
-         * 
+         *
          * <p>`BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted.
          * Further registrations are at full price. If primaryRegistrant is not included then the first
          * registrant is full price.
-         * 
+         *
          * <p>Every registration afterward, up to and including the threshold, are discounted. Any additional
          * registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth
          * registration counting from the threshold recieves a discount, where N is defined by the `interval`
@@ -583,7 +581,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         /**
          * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
          * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-         * 
+         *
          * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
          */
         public Builder type(@Nonnull CreateUpdateVolumeDiscountType type) {
@@ -593,41 +591,34 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
 
         public CreateUpdateVolumeDiscount build() {
             return new CreateUpdateVolumeDiscount(
-                name, active, stackable,
-                method, effectiveFrom, effectiveTo,
-                note, thresholdType, thresholdLimit,
-                interval, includePrimaryRegistrant, type);
+                    name,
+                    active,
+                    stackable,
+                    method,
+                    effectiveFrom,
+                    effectiveTo,
+                    note,
+                    thresholdType,
+                    thresholdLimit,
+                    interval,
+                    includePrimaryRegistrant,
+                    type);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Stackable =
-                new LazySingletonValue<>(
-                        "stackable",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("stackable", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<VolumeDiscountThresholdTypeJson> _SINGLETON_VALUE_ThresholdType =
                 new LazySingletonValue<>(
-                        "thresholdType",
-                        "\"AFTER_THRESHOLD_LIMIT\"",
-                        new TypeReference<VolumeDiscountThresholdTypeJson>() {});
+                        "thresholdType", "\"AFTER_THRESHOLD_LIMIT\"", new TypeReference<VolumeDiscountThresholdTypeJson>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Interval =
-                new LazySingletonValue<>(
-                        "interval",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("interval", "1", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludePrimaryRegistrant =
-                new LazySingletonValue<>(
-                        "includePrimaryRegistrant",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includePrimaryRegistrant", "false", new TypeReference<Boolean>() {});
     }
 }

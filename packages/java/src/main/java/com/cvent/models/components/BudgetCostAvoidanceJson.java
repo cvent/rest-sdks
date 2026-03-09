@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * BudgetCostAvoidanceJson
- * 
+ *
  * <p>Budget cost avoidance information.
  */
 public class BudgetCostAvoidanceJson {
@@ -41,7 +41,7 @@ public class BudgetCostAvoidanceJson {
         this.amount = amount;
         this.description = description;
     }
-    
+
     public BudgetCostAvoidanceJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class BudgetCostAvoidanceJson {
         return new Builder();
     }
 
-
     /**
      * Cost avoidance amount.
      */
@@ -73,7 +72,6 @@ public class BudgetCostAvoidanceJson {
         return this;
     }
 
-
     /**
      * Cost avoidance description.
      */
@@ -81,7 +79,6 @@ public class BudgetCostAvoidanceJson {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,29 @@ public class BudgetCostAvoidanceJson {
             return false;
         }
         BudgetCostAvoidanceJson other = (BudgetCostAvoidanceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            amount, description);
+        return Utils.enhancedHash(amount, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCostAvoidanceJson.class,
-                "amount", amount,
-                "description", description);
+        return Utils.toString(BudgetCostAvoidanceJson.class, "amount", amount, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double amount;
 
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +131,7 @@ public class BudgetCostAvoidanceJson {
         }
 
         public BudgetCostAvoidanceJson build() {
-            return new BudgetCostAvoidanceJson(
-                amount, description);
+            return new BudgetCostAvoidanceJson(amount, description);
         }
-
     }
 }

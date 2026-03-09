@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventQuestionJsonAdmissionItem
- * 
+ *
  * <p>Represents the admission item associated to the question, if any. Blank if no admission item is
  * associated. In addition, only one of the `session` or `admissionItem` object are populated - never
  * both.
@@ -29,11 +29,10 @@ public class EventQuestionJsonAdmissionItem {
     private String id;
 
     @JsonCreator
-    public EventQuestionJsonAdmissionItem(
-            @JsonProperty("id") @Nullable String id) {
+    public EventQuestionJsonAdmissionItem(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventQuestionJsonAdmissionItem() {
         this(null);
     }
@@ -49,7 +48,6 @@ public class EventQuestionJsonAdmissionItem {
         return new Builder();
     }
 
-
     /**
      * ID of the admission item associated with the question.
      */
@@ -57,7 +55,6 @@ public class EventQuestionJsonAdmissionItem {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -68,29 +65,26 @@ public class EventQuestionJsonAdmissionItem {
             return false;
         }
         EventQuestionJsonAdmissionItem other = (EventQuestionJsonAdmissionItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventQuestionJsonAdmissionItem.class,
-                "id", id);
+        return Utils.toString(EventQuestionJsonAdmissionItem.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -102,9 +96,7 @@ public class EventQuestionJsonAdmissionItem {
         }
 
         public EventQuestionJsonAdmissionItem build() {
-            return new EventQuestionJsonAdmissionItem(
-                id);
+            return new EventQuestionJsonAdmissionItem(id);
         }
-
     }
 }

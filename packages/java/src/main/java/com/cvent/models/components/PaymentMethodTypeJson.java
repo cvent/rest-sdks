@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PaymentMethodTypeJson
- * 
+ *
  * <p>Denotes acceptable payment methods for merchant accounts. Not all options are valid for all
  * merchants.
  */
@@ -69,13 +69,13 @@ public enum PaymentMethodTypeJson {
     PaymentMethodTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PaymentMethodTypeJson> fromValue(String value) {
-        for (PaymentMethodTypeJson o: PaymentMethodTypeJson.values()) {
+        for (PaymentMethodTypeJson o : PaymentMethodTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -83,4 +83,3 @@ public enum PaymentMethodTypeJson {
         return Optional.empty();
     }
 }
-

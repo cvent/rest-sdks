@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetResourceTypesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetResourceTypesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ResourceTypes resourceTypes) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.resourceTypes = resourceTypes;
     }
-    
+
     public GetResourceTypesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetResourceTypesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetResourceTypesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetResourceTypesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class GetResourceTypesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of Resource Types.
      */
@@ -126,7 +118,6 @@ public class GetResourceTypesResponse implements Response {
         this.resourceTypes = resourceTypes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class GetResourceTypesResponse implements Response {
             return false;
         }
         GetResourceTypesResponse other = (GetResourceTypesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.resourceTypes, other.resourceTypes);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.resourceTypes, other.resourceTypes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            resourceTypes);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, resourceTypes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetResourceTypesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "resourceTypes", resourceTypes);
+        return Utils.toString(
+                GetResourceTypesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "resourceTypes",
+                resourceTypes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class GetResourceTypesResponse implements Response {
         private ResourceTypes resourceTypes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class GetResourceTypesResponse implements Response {
         }
 
         public GetResourceTypesResponse build() {
-            return new GetResourceTypesResponse(
-                contentType, statusCode, rawResponse,
-                resourceTypes);
+            return new GetResourceTypesResponse(contentType, statusCode, rawResponse, resourceTypes);
         }
-
     }
 }

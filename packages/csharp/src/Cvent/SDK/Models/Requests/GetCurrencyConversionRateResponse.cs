@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class GetCurrencyConversionRateResponse
     {
-        public Func<Task<GetCurrencyConversionRateResponse?>>? Next {get;set;}
+        public Func<Task<GetCurrencyConversionRateResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

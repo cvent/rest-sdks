@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionCategory
- * 
+ *
  * <p>This is used to denote the category of a session.
  */
 public class SessionCategory {
@@ -46,13 +46,11 @@ public class SessionCategory {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
-    public SessionCategory(
-            @Nonnull String name) {
+
+    public SessionCategory(@Nonnull String name) {
         this(null, name, null);
     }
 
@@ -81,7 +79,6 @@ public class SessionCategory {
         return new Builder();
     }
 
-
     /**
      * A string that represents a specified session category.
      */
@@ -89,7 +86,6 @@ public class SessionCategory {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the session category.
@@ -99,7 +95,6 @@ public class SessionCategory {
         return this;
     }
 
-
     /**
      * A description for the session category.
      */
@@ -107,7 +102,6 @@ public class SessionCategory {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -118,28 +112,23 @@ public class SessionCategory {
             return false;
         }
         SessionCategory other = (SessionCategory) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, description);
+        return Utils.enhancedHash(id, name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionCategory.class,
-                "id", id,
-                "name", name,
-                "description", description);
+        return Utils.toString(SessionCategory.class, "id", id, "name", name, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -148,7 +137,7 @@ public class SessionCategory {
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,9 +165,7 @@ public class SessionCategory {
         }
 
         public SessionCategory build() {
-            return new SessionCategory(
-                id, name, description);
+            return new SessionCategory(id, name, description);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 Code representing the bed type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = RoomBedTypeJson1.SofaBed;
+```
+
 
 ## Values
 

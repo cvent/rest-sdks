@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AmountType
     {
-        [JsonProperty("amount")]
-        Amount,
-        [JsonProperty("percentage")]
-        Percentage,
+        [JsonProperty("amount")] Amount,
+        [JsonProperty("percentage")] Percentage,
     }
 
     public static class AmountTypeExtension
     {
         public static string Value(this AmountType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AmountType ToEnum(this string value)
         {
-            foreach(var field in typeof(AmountType).GetFields())
+            foreach (var field in typeof(AmountType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

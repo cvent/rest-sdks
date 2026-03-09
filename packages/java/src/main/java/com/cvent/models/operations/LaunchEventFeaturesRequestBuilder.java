@@ -28,7 +28,7 @@ public class LaunchEventFeaturesRequestBuilder {
     private LaunchEventFeaturesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public LaunchEventFeaturesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class LaunchEventFeaturesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public LaunchEventFeaturesResponse call() {
-        RequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation
-              = new LaunchEventFeatures.Sync(sdkConfiguration, _headers);
+        RequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation =
+                new LaunchEventFeatures.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

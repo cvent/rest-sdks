@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteRegistrationPackRequest {
     /**
      * ID of an event.
@@ -33,15 +32,12 @@ public class DeleteRegistrationPackRequest {
 
     @JsonCreator
     public DeleteRegistrationPackRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String registrationPackId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull String registrationPackId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.registrationPackId = Optional.ofNullable(registrationPackId)
-            .orElseThrow(() -> new IllegalArgumentException("registrationPackId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationPackId cannot be null"));
     }
 
     /**
@@ -69,7 +65,6 @@ public class DeleteRegistrationPackRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +72,6 @@ public class DeleteRegistrationPackRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -87,7 +81,6 @@ public class DeleteRegistrationPackRequest {
         return this;
     }
 
-
     /**
      * ID of a registration pack.
      */
@@ -95,7 +88,6 @@ public class DeleteRegistrationPackRequest {
         this.registrationPackId = Utils.checkNotNull(registrationPackId, "registrationPackId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +98,30 @@ public class DeleteRegistrationPackRequest {
             return false;
         }
         DeleteRegistrationPackRequest other = (DeleteRegistrationPackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.registrationPackId, other.registrationPackId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.registrationPackId, other.registrationPackId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, registrationPackId);
+        return Utils.enhancedHash(id, exhibitorId, registrationPackId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteRegistrationPackRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "registrationPackId", registrationPackId);
+        return Utils.toString(
+                DeleteRegistrationPackRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "registrationPackId",
+                registrationPackId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +130,7 @@ public class DeleteRegistrationPackRequest {
         private String registrationPackId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +158,7 @@ public class DeleteRegistrationPackRequest {
         }
 
         public DeleteRegistrationPackRequest build() {
-            return new DeleteRegistrationPackRequest(
-                id, exhibitorId, registrationPackId);
+            return new DeleteRegistrationPackRequest(id, exhibitorId, registrationPackId);
         }
-
     }
 }

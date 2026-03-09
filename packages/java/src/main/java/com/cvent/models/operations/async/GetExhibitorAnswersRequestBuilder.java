@@ -30,7 +30,7 @@ public class GetExhibitorAnswersRequestBuilder {
     private GetExhibitorAnswersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorAnswersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetExhibitorAnswersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetExhibitorAnswersResponse> call() {
-        AsyncRequestOperation<GetExhibitorAnswersRequest, GetExhibitorAnswersResponse> operation
-              = new GetExhibitorAnswers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorAnswersRequest, GetExhibitorAnswersResponse> operation =
+                new GetExhibitorAnswers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -28,7 +28,7 @@ public class GetEmailStatusRequestBuilder {
     private GetEmailStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEmailStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetEmailStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetEmailStatusResponse call() {
-        RequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation
-              = new GetEmailStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation =
+                new GetEmailStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

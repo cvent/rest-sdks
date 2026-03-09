@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * FairSeasonTypeJson
- * 
+ *
  * <p>Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
  * Rates will apply
  */
@@ -24,13 +24,13 @@ public enum FairSeasonTypeJson {
     FairSeasonTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<FairSeasonTypeJson> fromValue(String value) {
-        for (FairSeasonTypeJson o: FairSeasonTypeJson.values()) {
+        for (FairSeasonTypeJson o : FairSeasonTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum FairSeasonTypeJson {
         return Optional.empty();
     }
 }
-

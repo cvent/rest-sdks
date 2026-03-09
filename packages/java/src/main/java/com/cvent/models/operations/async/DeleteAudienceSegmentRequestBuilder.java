@@ -30,7 +30,7 @@ public class DeleteAudienceSegmentRequestBuilder {
     private DeleteAudienceSegmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteAudienceSegmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteAudienceSegmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteAudienceSegmentResponse> call() {
-        AsyncRequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation
-              = new DeleteAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation =
+                new DeleteAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

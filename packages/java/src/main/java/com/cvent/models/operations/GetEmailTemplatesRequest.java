@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetEmailTemplatesRequest {
     /**
      * Used to query records that have been created before this time point. Defaults to current time.
@@ -46,12 +45,12 @@ public class GetEmailTemplatesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq)
      * * createdBy (eq)
@@ -68,17 +67,14 @@ public class GetEmailTemplatesRequest {
             @Nullable String filter) {
         this.before = before;
         this.after = after;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.campaignId = Optional.ofNullable(campaignId)
-            .orElseThrow(() -> new IllegalArgumentException("campaignId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("campaignId cannot be null"));
         this.filter = filter;
     }
-    
-    public GetEmailTemplatesRequest(
-            @Nonnull String campaignId) {
-        this(null, null, null,
-            campaignId, null);
+
+    public GetEmailTemplatesRequest(@Nonnull String campaignId) {
+        this(null, null, null, campaignId, null);
     }
 
     /**
@@ -114,12 +110,12 @@ public class GetEmailTemplatesRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq)
      * * createdBy (eq)
@@ -132,7 +128,6 @@ public class GetEmailTemplatesRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been created before this time point. Defaults to current time.
      */
@@ -140,7 +135,6 @@ public class GetEmailTemplatesRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been created after this time point. Defaults to 6 months back from
@@ -151,7 +145,6 @@ public class GetEmailTemplatesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -159,7 +152,6 @@ public class GetEmailTemplatesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The unique ID of a campaign. Used to retrieve the email templates used in this campaign.
@@ -169,17 +161,16 @@ public class GetEmailTemplatesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * name (eq)
      * * createdBy (eq)
@@ -188,7 +179,6 @@ public class GetEmailTemplatesRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -199,33 +189,36 @@ public class GetEmailTemplatesRequest {
             return false;
         }
         GetEmailTemplatesRequest other = (GetEmailTemplatesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.campaignId, other.campaignId) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.campaignId, other.campaignId)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            before, after, limit,
-            campaignId, filter);
+        return Utils.enhancedHash(before, after, limit, campaignId, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEmailTemplatesRequest.class,
-                "before", before,
-                "after", after,
-                "limit", limit,
-                "campaignId", campaignId,
-                "filter", filter);
+        return Utils.toString(
+                GetEmailTemplatesRequest.class,
+                "before",
+                before,
+                "after",
+                after,
+                "limit",
+                limit,
+                "campaignId",
+                campaignId,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String before;
 
@@ -238,7 +231,7 @@ public class GetEmailTemplatesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -278,12 +271,12 @@ public class GetEmailTemplatesRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>'OR' is not supported. Only 'AND' operator is supported.
-         * 
+         *
          * <p>The following comparison types can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * name (eq)
          * * createdBy (eq)
@@ -294,16 +287,10 @@ public class GetEmailTemplatesRequest {
         }
 
         public GetEmailTemplatesRequest build() {
-            return new GetEmailTemplatesRequest(
-                before, after, limit,
-                campaignId, filter);
+            return new GetEmailTemplatesRequest(before, after, limit, campaignId, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

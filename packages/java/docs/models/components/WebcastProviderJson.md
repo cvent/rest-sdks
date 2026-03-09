@@ -2,6 +2,14 @@
 
 Name of the webcast provider.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.WebcastProviderJson;
+
+WebcastProviderJson value = WebcastProviderJson.NONE;
+```
+
 
 ## Values
 

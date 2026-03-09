@@ -40,7 +40,7 @@ public class GetCampaignsRequestBuilder {
     private GetCampaignsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetCampaignsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetCampaignsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetCampaignsResponse> call() {
-        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation
-              = new GetCampaigns.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
+                new GetCampaigns.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetCampaignsRequestBuilder {
      */
     public Publisher<GetCampaignsResponse> callAsPublisher() {
         GetCampaignsRequest request = this.request;
-        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation
-              = new GetCampaigns.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
+                new GetCampaigns.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetCampaignsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetCampaignsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetCampaignsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

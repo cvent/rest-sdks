@@ -2,6 +2,14 @@
 
 This is used to denote the type of the attendee activity.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ActivityTypeJson.AppointmentAccepted;
+```
+
 
 ## Values
 

@@ -3,9 +3,9 @@
  */
 package com.cvent.models.components;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import java.lang.String;
 
@@ -14,12 +14,9 @@ import java.lang.String;
         property = "renewalType",
         include = As.EXISTING_PROPERTY,
         visible = true,
-        defaultImpl = UnknownMembershipItemsPaginatedResponseData.class
-)
+        defaultImpl = UnknownMembershipItemsPaginatedResponseData.class)
 @JsonTypeIdResolver(MembershipItemsPaginatedResponseDataTypeIdResolver.class)
 public interface MembershipItemsPaginatedResponseData {
 
     String renewalType();
-
 }
-

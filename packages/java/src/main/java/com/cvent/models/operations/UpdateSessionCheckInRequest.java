@@ -13,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class UpdateSessionCheckInRequest {
     /**
      * Unique ID of a session.
@@ -28,13 +27,10 @@ public class UpdateSessionCheckInRequest {
     private List<SessionCheckinBaseJson> requestBody;
 
     @JsonCreator
-    public UpdateSessionCheckInRequest(
-            @Nonnull String id,
-            @Nonnull List<SessionCheckinBaseJson> requestBody) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateSessionCheckInRequest(@Nonnull String id, @Nonnull List<SessionCheckinBaseJson> requestBody) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
     /**
@@ -55,7 +51,6 @@ public class UpdateSessionCheckInRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a session.
      */
@@ -64,7 +59,6 @@ public class UpdateSessionCheckInRequest {
         return this;
     }
 
-
     /**
      * Attendee check-in to be updated. Up to **100 attendees** can be updated per call.
      */
@@ -72,7 +66,6 @@ public class UpdateSessionCheckInRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -83,33 +76,28 @@ public class UpdateSessionCheckInRequest {
             return false;
         }
         UpdateSessionCheckInRequest other = (UpdateSessionCheckInRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, requestBody);
+        return Utils.enhancedHash(id, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateSessionCheckInRequest.class,
-                "id", id,
-                "requestBody", requestBody);
+        return Utils.toString(UpdateSessionCheckInRequest.class, "id", id, "requestBody", requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private List<SessionCheckinBaseJson> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -129,9 +117,7 @@ public class UpdateSessionCheckInRequest {
         }
 
         public UpdateSessionCheckInRequest build() {
-            return new UpdateSessionCheckInRequest(
-                id, requestBody);
+            return new UpdateSessionCheckInRequest(id, requestBody);
         }
-
     }
 }

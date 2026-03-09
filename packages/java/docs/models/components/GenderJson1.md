@@ -2,6 +2,14 @@
 
 Gender of the requester.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.GenderJson1;
+
+GenderJson1 value = GenderJson1.MALE;
+```
+
 
 ## Values
 

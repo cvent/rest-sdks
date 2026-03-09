@@ -2,6 +2,14 @@
 
 The type of communication log message.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CommunicationLogMessageTypeJson;
+
+CommunicationLogMessageTypeJson value = CommunicationLogMessageTypeJson.EMAIL;
+```
+
 
 ## Values
 

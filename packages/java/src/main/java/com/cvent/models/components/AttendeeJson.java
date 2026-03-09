@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AttendeeJson
- * 
+ *
  * <p>The reference to the attendee. Contains only the ID of the attendee.
  */
 public class AttendeeJson {
@@ -24,10 +24,8 @@ public class AttendeeJson {
     private String id;
 
     @JsonCreator
-    public AttendeeJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AttendeeJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class AttendeeJson {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of the primary invitee for the current attendee's registration.
      */
@@ -49,7 +46,6 @@ public class AttendeeJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class AttendeeJson {
             return false;
         }
         AttendeeJson other = (AttendeeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeJson.class,
-                "id", id);
+        return Utils.toString(AttendeeJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class AttendeeJson {
         }
 
         public AttendeeJson build() {
-            return new AttendeeJson(
-                id);
+            return new AttendeeJson(id);
         }
-
     }
 }

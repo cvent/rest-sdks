@@ -54,21 +54,20 @@ public class AsyncCustomFields {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public CustomFields sync() {
         return syncSDK;
     }
 
-
     /**
      * List Custom Fields
-     * 
+     *
      * <p>Get a paginated list of custom fields in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListCustomFieldsRequestBuilder listCustomFields() {
@@ -77,29 +76,27 @@ public class AsyncCustomFields {
 
     /**
      * List Custom Fields
-     * 
+     *
      * <p>Get a paginated list of custom fields in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListCustomFieldsResponse>} - The async response
      */
     public CompletableFuture<ListCustomFieldsResponse> listCustomFields(@Nonnull ListCustomFieldsRequest request) {
-        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation
-              = new ListCustomFields.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation =
+                new ListCustomFields.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Custom Field
-     * 
+     *
      * <p>Creates a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateCustomFieldRequestBuilder createCustomField() {
@@ -108,29 +105,27 @@ public class AsyncCustomFields {
 
     /**
      * Create Custom Field
-     * 
+     *
      * <p>Creates a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateCustomFieldResponse>} - The async response
      */
     public CompletableFuture<CreateCustomFieldResponse> createCustomField(@Nonnull CustomField2 request) {
-        AsyncRequestOperation<CustomField2, CreateCustomFieldResponse> operation
-              = new CreateCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CustomField2, CreateCustomFieldResponse> operation =
+                new CreateCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Custom Field
-     * 
+     *
      * <p>Updates a custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateCustomFieldRequestBuilder updateCustomField() {
@@ -139,29 +134,27 @@ public class AsyncCustomFields {
 
     /**
      * Update Custom Field
-     * 
+     *
      * <p>Updates a custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateCustomFieldResponse>} - The async response
      */
     public CompletableFuture<UpdateCustomFieldResponse> updateCustomField(@Nonnull UpdateCustomFieldRequest request) {
-        AsyncRequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation
-              = new UpdateCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation =
+                new UpdateCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Custom Field
-     * 
+     *
      * <p>Get a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetCustomFieldRequestBuilder getCustomField() {
@@ -170,33 +163,31 @@ public class AsyncCustomFields {
 
     /**
      * Get Custom Field
-     * 
+     *
      * <p>Get a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetCustomFieldResponse>} - The async response
      */
     public CompletableFuture<GetCustomFieldResponse> getCustomField(@Nonnull GetCustomFieldRequest request) {
-        AsyncRequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation
-              = new GetCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation =
+                new GetCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Advanced Logic
-     * 
+     *
      * <p>Updates the advanced logic for a custom field. Links the field given in the path to a 'source'
      * custom field. Answers to the source custom field determine the visible choices in the given custom
      * field.
-     * 
+     *
      * <p>If the source field has no answers, only the default choices for the given field are visible.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateCustomFieldAdvancedLogicRequestBuilder updateCustomFieldAdvancedLogic() {
@@ -205,33 +196,32 @@ public class AsyncCustomFields {
 
     /**
      * Update Advanced Logic
-     * 
+     *
      * <p>Updates the advanced logic for a custom field. Links the field given in the path to a 'source'
      * custom field. Answers to the source custom field determine the visible choices in the given custom
      * field.
-     * 
+     *
      * <p>If the source field has no answers, only the default choices for the given field are visible.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateCustomFieldAdvancedLogicResponse>} - The async response
      */
-    public CompletableFuture<UpdateCustomFieldAdvancedLogicResponse> updateCustomFieldAdvancedLogic(@Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
-        AsyncRequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation
-              = new UpdateCustomFieldAdvancedLogic.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateCustomFieldAdvancedLogicResponse> updateCustomFieldAdvancedLogic(
+            @Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
+        AsyncRequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation =
+                new UpdateCustomFieldAdvancedLogic.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Custom Fld. Translation
-     * 
+     *
      * <p>Creates translations for a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateCustomFieldTranslationRequestBuilder createCustomFieldTranslation() {
@@ -240,29 +230,28 @@ public class AsyncCustomFields {
 
     /**
      * Create Custom Fld. Translation
-     * 
+     *
      * <p>Creates translations for a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateCustomFieldTranslationResponse>} - The async response
      */
-    public CompletableFuture<CreateCustomFieldTranslationResponse> createCustomFieldTranslation(@Nonnull CreateCustomFieldTranslationRequest request) {
-        AsyncRequestOperation<CreateCustomFieldTranslationRequest, CreateCustomFieldTranslationResponse> operation
-              = new CreateCustomFieldTranslation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateCustomFieldTranslationResponse> createCustomFieldTranslation(
+            @Nonnull CreateCustomFieldTranslationRequest request) {
+        AsyncRequestOperation<CreateCustomFieldTranslationRequest, CreateCustomFieldTranslationResponse> operation =
+                new CreateCustomFieldTranslation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Custom Fld. Translation
-     * 
+     *
      * <p>Updates translations for a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateCustomFieldTranslationRequestBuilder updateCustomFieldTranslation() {
@@ -271,19 +260,18 @@ public class AsyncCustomFields {
 
     /**
      * Update Custom Fld. Translation
-     * 
+     *
      * <p>Updates translations for a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateCustomFieldTranslationResponse>} - The async response
      */
-    public CompletableFuture<UpdateCustomFieldTranslationResponse> updateCustomFieldTranslation(@Nonnull UpdateCustomFieldTranslationRequest request) {
-        AsyncRequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation
-              = new UpdateCustomFieldTranslation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateCustomFieldTranslationResponse> updateCustomFieldTranslation(
+            @Nonnull UpdateCustomFieldTranslationRequest request) {
+        AsyncRequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation =
+                new UpdateCustomFieldTranslation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

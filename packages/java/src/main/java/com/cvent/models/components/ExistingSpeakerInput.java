@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingSpeakerInput
- * 
+ *
  * <p>An existing, event speaker.
  */
 public class ExistingSpeakerInput {
@@ -130,7 +130,7 @@ public class ExistingSpeakerInput {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -163,12 +163,11 @@ public class ExistingSpeakerInput {
             @JsonProperty("featured") @Nullable Boolean featured,
             @JsonProperty("relevance") @Nullable Double relevance,
             @JsonProperty("id") @Nullable String id) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
         this.code = code;
         this.email = email;
         this.prefix = prefix;
@@ -177,26 +176,34 @@ public class ExistingSpeakerInput {
         this.title = title;
         this.category = category;
         this.links = links;
-        this.visibility = Optional.ofNullable(visibility)
-            .orElse(Builder._SINGLETON_VALUE_Visibility.value());
+        this.visibility = Optional.ofNullable(visibility).orElse(Builder._SINGLETON_VALUE_Visibility.value());
         this.biography = biography;
         this.internalNote = internalNote;
-        this.featured = Optional.ofNullable(featured)
-            .orElse(Builder._SINGLETON_VALUE_Featured.value());
+        this.featured = Optional.ofNullable(featured).orElse(Builder._SINGLETON_VALUE_Featured.value());
         this.relevance = relevance;
         this.id = id;
     }
-    
+
     public ExistingSpeakerInput(
-            @Nonnull ExistingSpeakerEvent event,
-            @Nonnull String firstName,
-            @Nonnull String lastName) {
-        this(event, firstName, lastName,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+            @Nonnull ExistingSpeakerEvent event, @Nonnull String firstName, @Nonnull String lastName) {
+        this(
+                event,
+                firstName,
+                lastName,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -308,7 +315,7 @@ public class ExistingSpeakerInput {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public Optional<Double> relevance() {
@@ -326,7 +333,6 @@ public class ExistingSpeakerInput {
         return new Builder();
     }
 
-
     /**
      * The event the speaker is linked to.
      */
@@ -334,7 +340,6 @@ public class ExistingSpeakerInput {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The speaker's first name.
@@ -344,7 +349,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * The speaker's last name.
      */
@@ -352,7 +356,6 @@ public class ExistingSpeakerInput {
         this.lastName = Utils.checkNotNull(lastName, "lastName");
         return this;
     }
-
 
     /**
      * The unique code associated with the speaker in an event
@@ -362,7 +365,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * The speaker's email address
      */
@@ -370,7 +372,6 @@ public class ExistingSpeakerInput {
         this.email = email;
         return this;
     }
-
 
     /**
      * Used to denote what is traditionally a title of an individual. For example, Mr., Mrs., Dr., etc.
@@ -380,7 +381,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * The speaker's Designation
      */
@@ -388,7 +388,6 @@ public class ExistingSpeakerInput {
         this.designation = designation;
         return this;
     }
-
 
     /**
      * The company to which the speaker is associated
@@ -398,7 +397,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * The speaker's title
      */
@@ -406,7 +404,6 @@ public class ExistingSpeakerInput {
         this.title = title;
         return this;
     }
-
 
     /**
      * A defined speaker category.
@@ -416,7 +413,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * Collection of social media links for the contact.
      */
@@ -424,7 +420,6 @@ public class ExistingSpeakerInput {
         this.links = links;
         return this;
     }
-
 
     /**
      * Indicates if a given speaker should be displayed on Event Website
@@ -434,7 +429,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * The speaker's biography
      */
@@ -442,7 +436,6 @@ public class ExistingSpeakerInput {
         this.biography = biography;
         return this;
     }
-
 
     /**
      * The Internal Note of the speaker
@@ -452,7 +445,6 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * Indicates if a given speaker is a featured speaker
      */
@@ -461,19 +453,17 @@ public class ExistingSpeakerInput {
         return this;
     }
 
-
     /**
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public ExistingSpeakerInput withRelevance(@Nullable Double relevance) {
         this.relevance = relevance;
         return this;
     }
-
 
     /**
      * The ID of the speaker
@@ -482,7 +472,6 @@ public class ExistingSpeakerInput {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -493,61 +482,89 @@ public class ExistingSpeakerInput {
             return false;
         }
         ExistingSpeakerInput other = (ExistingSpeakerInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.visibility, other.visibility) &&
-            Utils.enhancedDeepEquals(this.biography, other.biography) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.relevance, other.relevance) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.visibility, other.visibility)
+                && Utils.enhancedDeepEquals(this.biography, other.biography)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.relevance, other.relevance)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, firstName, lastName,
-            code, email, prefix,
-            designation, company, title,
-            category, links, visibility,
-            biography, internalNote, featured,
-            relevance, id);
+                event,
+                firstName,
+                lastName,
+                code,
+                email,
+                prefix,
+                designation,
+                company,
+                title,
+                category,
+                links,
+                visibility,
+                biography,
+                internalNote,
+                featured,
+                relevance,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingSpeakerInput.class,
-                "event", event,
-                "firstName", firstName,
-                "lastName", lastName,
-                "code", code,
-                "email", email,
-                "prefix", prefix,
-                "designation", designation,
-                "company", company,
-                "title", title,
-                "category", category,
-                "links", links,
-                "visibility", visibility,
-                "biography", biography,
-                "internalNote", internalNote,
-                "featured", featured,
-                "relevance", relevance,
-                "id", id);
+        return Utils.toString(
+                ExistingSpeakerInput.class,
+                "event",
+                event,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "code",
+                code,
+                "email",
+                email,
+                "prefix",
+                prefix,
+                "designation",
+                designation,
+                "company",
+                company,
+                "title",
+                title,
+                "category",
+                category,
+                "links",
+                links,
+                "visibility",
+                visibility,
+                "biography",
+                biography,
+                "internalNote",
+                internalNote,
+                "featured",
+                featured,
+                "relevance",
+                relevance,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExistingSpeakerEvent event;
 
@@ -584,7 +601,7 @@ public class ExistingSpeakerInput {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -711,7 +728,7 @@ public class ExistingSpeakerInput {
          * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
          * the search result. Larger numbers represent higher relevance with respect to other search results in
          * the request.
-         * 
+         *
          * <p>Null if no `match` filter is provided.
          */
         public Builder relevance(@Nullable Double relevance) {
@@ -729,25 +746,29 @@ public class ExistingSpeakerInput {
 
         public ExistingSpeakerInput build() {
             return new ExistingSpeakerInput(
-                event, firstName, lastName,
-                code, email, prefix,
-                designation, company, title,
-                category, links, visibility,
-                biography, internalNote, featured,
-                relevance, id);
+                    event,
+                    firstName,
+                    lastName,
+                    code,
+                    email,
+                    prefix,
+                    designation,
+                    company,
+                    title,
+                    category,
+                    links,
+                    visibility,
+                    biography,
+                    internalNote,
+                    featured,
+                    relevance,
+                    id);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Visibility =
-                new LazySingletonValue<>(
-                        "visibility",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("visibility", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Featured =
-                new LazySingletonValue<>(
-                        "featured",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("featured", "false", new TypeReference<Boolean>() {});
     }
 }

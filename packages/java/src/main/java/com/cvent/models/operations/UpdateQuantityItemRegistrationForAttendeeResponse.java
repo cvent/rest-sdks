@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateQuantityItemRegistrationForAttendeeResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable QuantityItemResponse quantityItemResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.quantityItemResponse = quantityItemResponse;
     }
-    
+
     public UpdateQuantityItemRegistrationForAttendeeResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,24 +103,23 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public UpdateQuantityItemRegistrationForAttendeeResponse withRawResponse(@Nonnull HttpResponse<InputStream> rawResponse) {
+    public UpdateQuantityItemRegistrationForAttendeeResponse withRawResponse(
+            @Nonnull HttpResponse<InputStream> rawResponse) {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
 
-
     /**
      * Successfully updated quantity item for the attendee.
      */
-    public UpdateQuantityItemRegistrationForAttendeeResponse withQuantityItemResponse(@Nullable QuantityItemResponse quantityItemResponse) {
+    public UpdateQuantityItemRegistrationForAttendeeResponse withQuantityItemResponse(
+            @Nullable QuantityItemResponse quantityItemResponse) {
         this.quantityItemResponse = quantityItemResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +130,33 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
             return false;
         }
         UpdateQuantityItemRegistrationForAttendeeResponse other = (UpdateQuantityItemRegistrationForAttendeeResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.quantityItemResponse, other.quantityItemResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.quantityItemResponse, other.quantityItemResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            quantityItemResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, quantityItemResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateQuantityItemRegistrationForAttendeeResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "quantityItemResponse", quantityItemResponse);
+        return Utils.toString(
+                UpdateQuantityItemRegistrationForAttendeeResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "quantityItemResponse",
+                quantityItemResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
         private QuantityItemResponse quantityItemResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,9 +204,7 @@ public class UpdateQuantityItemRegistrationForAttendeeResponse implements Respon
 
         public UpdateQuantityItemRegistrationForAttendeeResponse build() {
             return new UpdateQuantityItemRegistrationForAttendeeResponse(
-                contentType, statusCode, rawResponse,
-                quantityItemResponse);
+                    contentType, statusCode, rawResponse, quantityItemResponse);
         }
-
     }
 }

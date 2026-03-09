@@ -19,22 +19,14 @@ namespace Cvent.SDK.Models.Components
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public enum DeprecatedAttendeeInvitedByJson
     {
-        [JsonProperty("Planner-Invited")]
-        PlannerInvited,
-        [JsonProperty("No Invitation")]
-        NoInvitation,
-        [JsonProperty("Guest-Invited")]
-        GuestInvited,
-        [JsonProperty("Alternate Campaign")]
-        AlternateCampaign,
-        [JsonProperty("Weblink")]
-        Weblink,
-        [JsonProperty("Import")]
-        Import,
-        [JsonProperty("Historical Import")]
-        HistoricalImport,
-        [JsonProperty("API Invited")]
-        APIInvited,
+        [JsonProperty("Planner-Invited")] PlannerInvited,
+        [JsonProperty("No Invitation")] NoInvitation,
+        [JsonProperty("Guest-Invited")] GuestInvited,
+        [JsonProperty("Alternate Campaign")] AlternateCampaign,
+        [JsonProperty("Weblink")] Weblink,
+        [JsonProperty("Import")] Import,
+        [JsonProperty("Historical Import")] HistoricalImport,
+        [JsonProperty("API Invited")] APIInvited,
     }
 #pragma warning disable 0618
 
@@ -42,12 +34,12 @@ namespace Cvent.SDK.Models.Components
     {
         public static string Value(this DeprecatedAttendeeInvitedByJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DeprecatedAttendeeInvitedByJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DeprecatedAttendeeInvitedByJson).GetFields())
+            foreach (var field in typeof(DeprecatedAttendeeInvitedByJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

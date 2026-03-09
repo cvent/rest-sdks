@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LiveStreamJson
- * 
+ *
  * <p>A webcast Live Stream.
  */
 public class LiveStreamJson {
@@ -85,11 +85,9 @@ public class LiveStreamJson {
         this.page = page;
         this.recording = recording;
     }
-    
+
     public LiveStreamJson() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -145,7 +143,6 @@ public class LiveStreamJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the stream.
      */
@@ -153,7 +150,6 @@ public class LiveStreamJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * A RTMP url of the stream.
@@ -163,7 +159,6 @@ public class LiveStreamJson {
         return this;
     }
 
-
     /**
      * Access key of the stream.
      */
@@ -171,7 +166,6 @@ public class LiveStreamJson {
         this.key = key;
         return this;
     }
-
 
     /**
      * This is used to denote the status of the stream
@@ -181,7 +175,6 @@ public class LiveStreamJson {
         return this;
     }
 
-
     /**
      * Provides information about the livestream's current streaming session
      */
@@ -189,7 +182,6 @@ public class LiveStreamJson {
         this.session = session;
         return this;
     }
-
 
     /**
      * A url of the page where live stream to be streamed.
@@ -199,7 +191,6 @@ public class LiveStreamJson {
         return this;
     }
 
-
     /**
      * Provides information about the livestream's recording
      */
@@ -207,7 +198,6 @@ public class LiveStreamJson {
         this.recording = recording;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -218,38 +208,42 @@ public class LiveStreamJson {
             return false;
         }
         LiveStreamJson other = (LiveStreamJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.key, other.key) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.page, other.page) &&
-            Utils.enhancedDeepEquals(this.recording, other.recording);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.key, other.key)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.page, other.page)
+                && Utils.enhancedDeepEquals(this.recording, other.recording);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, url, key,
-            status, session, page,
-            recording);
+        return Utils.enhancedHash(id, url, key, status, session, page, recording);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LiveStreamJson.class,
-                "id", id,
-                "url", url,
-                "key", key,
-                "status", status,
-                "session", session,
-                "page", page,
-                "recording", recording);
+        return Utils.toString(
+                LiveStreamJson.class,
+                "id",
+                id,
+                "url",
+                url,
+                "key",
+                key,
+                "status",
+                status,
+                "session",
+                session,
+                "page",
+                page,
+                "recording",
+                recording);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -266,7 +260,7 @@ public class LiveStreamJson {
         private LiveStreamRecordingJson recording;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -326,11 +320,7 @@ public class LiveStreamJson {
         }
 
         public LiveStreamJson build() {
-            return new LiveStreamJson(
-                id, url, key,
-                status, session, page,
-                recording);
+            return new LiveStreamJson(id, url, key, status, session, page, recording);
         }
-
     }
 }

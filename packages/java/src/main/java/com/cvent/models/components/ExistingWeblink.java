@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingWeblink
- * 
+ *
  * <p>Content of existing exhibitor weblink
  */
 public class ExistingWeblink {
@@ -113,30 +113,23 @@ public class ExistingWeblink {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.url = Optional.ofNullable(url)
-            .orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
-        this.hidden = Optional.ofNullable(hidden)
-            .orElse(Builder._SINGLETON_VALUE_Hidden.value());
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.url = Optional.ofNullable(url).orElseThrow(() -> new IllegalArgumentException("url cannot be null"));
+        this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
         this.order = order;
         this.id = id;
     }
-    
+
     public ExistingWeblink(
             @Nonnull EventJson5 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull String name,
             @Nonnull String url,
             long order) {
-        this(null, null, null,
-            null, event, exhibitor,
-            name, url, null,
-            order, null);
+        this(null, null, null, null, event, exhibitor, name, url, null, order, null);
     }
 
     /**
@@ -220,7 +213,6 @@ public class ExistingWeblink {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -228,7 +220,6 @@ public class ExistingWeblink {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -238,7 +229,6 @@ public class ExistingWeblink {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -246,7 +236,6 @@ public class ExistingWeblink {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -256,7 +245,6 @@ public class ExistingWeblink {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -264,7 +252,6 @@ public class ExistingWeblink {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The Associated Exhibitor.
@@ -274,7 +261,6 @@ public class ExistingWeblink {
         return this;
     }
 
-
     /**
      * Display name of the weblink.
      */
@@ -282,7 +268,6 @@ public class ExistingWeblink {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The URL of the weblink.
@@ -292,7 +277,6 @@ public class ExistingWeblink {
         return this;
     }
 
-
     /**
      * True indicates the weblink is hidden from attendees.
      */
@@ -300,7 +284,6 @@ public class ExistingWeblink {
         this.hidden = hidden;
         return this;
     }
-
 
     /**
      * Display order for exhibitor weblink content.
@@ -310,7 +293,6 @@ public class ExistingWeblink {
         return this;
     }
 
-
     /**
      * Unique ID of the weblink.
      */
@@ -318,7 +300,6 @@ public class ExistingWeblink {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -329,47 +310,55 @@ public class ExistingWeblink {
             return false;
         }
         ExistingWeblink other = (ExistingWeblink) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, exhibitor,
-            name, url, hidden,
-            order, id);
+                created, createdBy, lastModified, lastModifiedBy, event, exhibitor, name, url, hidden, order, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingWeblink.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "exhibitor", exhibitor,
-                "name", name,
-                "url", url,
-                "hidden", hidden,
-                "order", order,
-                "id", id);
+        return Utils.toString(
+                ExistingWeblink.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "exhibitor",
+                exhibitor,
+                "name",
+                name,
+                "url",
+                url,
+                "hidden",
+                hidden,
+                "order",
+                order,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -394,7 +383,7 @@ public class ExistingWeblink {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -487,17 +476,10 @@ public class ExistingWeblink {
 
         public ExistingWeblink build() {
             return new ExistingWeblink(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, exhibitor,
-                name, url, hidden,
-                order, id);
+                    created, createdBy, lastModified, lastModifiedBy, event, exhibitor, name, url, hidden, order, id);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Hidden =
-                new LazySingletonValue<>(
-                        "hidden",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("hidden", "false", new TypeReference<Boolean>() {});
     }
 }

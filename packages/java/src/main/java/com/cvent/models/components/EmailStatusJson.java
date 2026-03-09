@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EmailStatusJson
- * 
+ *
  * <p>This is used to denote the status of the email sending
  */
 public enum EmailStatusJson {
@@ -23,13 +23,13 @@ public enum EmailStatusJson {
     EmailStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EmailStatusJson> fromValue(String value) {
-        for (EmailStatusJson o: EmailStatusJson.values()) {
+        for (EmailStatusJson o : EmailStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum EmailStatusJson {
         return Optional.empty();
     }
 }
-

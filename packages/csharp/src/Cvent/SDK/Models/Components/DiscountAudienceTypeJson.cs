@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DiscountAudienceTypeJson
     {
-        [JsonProperty("PRIMARY")]
-        Primary,
-        [JsonProperty("GUEST")]
-        Guest,
-        [JsonProperty("ALL")]
-        All,
+        [JsonProperty("PRIMARY")] Primary,
+        [JsonProperty("GUEST")] Guest,
+        [JsonProperty("ALL")] All,
     }
 
     public static class DiscountAudienceTypeJsonExtension
     {
         public static string Value(this DiscountAudienceTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DiscountAudienceTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DiscountAudienceTypeJson).GetFields())
+            foreach (var field in typeof(DiscountAudienceTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -2,6 +2,14 @@
 
 The current status of the bulk job.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BulkJobWithDataStatus.Pending;
+```
+
 
 ## Values
 

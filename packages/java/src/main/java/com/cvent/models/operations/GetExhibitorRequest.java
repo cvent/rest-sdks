@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetExhibitorRequest {
     /**
      * ID of an event.
@@ -26,13 +25,10 @@ public class GetExhibitorRequest {
     private String exhibitorId;
 
     @JsonCreator
-    public GetExhibitorRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetExhibitorRequest(@Nonnull String id, @Nonnull String exhibitorId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class GetExhibitorRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -62,7 +57,6 @@ public class GetExhibitorRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor.
      */
@@ -70,7 +64,6 @@ public class GetExhibitorRequest {
         this.exhibitorId = Utils.checkNotNull(exhibitorId, "exhibitorId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class GetExhibitorRequest {
             return false;
         }
         GetExhibitorRequest other = (GetExhibitorRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId);
+        return Utils.enhancedHash(id, exhibitorId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId);
+        return Utils.toString(GetExhibitorRequest.class, "id", id, "exhibitorId", exhibitorId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String exhibitorId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class GetExhibitorRequest {
         }
 
         public GetExhibitorRequest build() {
-            return new GetExhibitorRequest(
-                id, exhibitorId);
+            return new GetExhibitorRequest(id, exhibitorId);
         }
-
     }
 }

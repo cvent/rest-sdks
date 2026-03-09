@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateBudgetItemRequest {
     /**
      * Unique ID of an event.
@@ -34,15 +33,12 @@ public class UpdateBudgetItemRequest {
 
     @JsonCreator
     public UpdateBudgetItemRequest(
-            @Nonnull String id,
-            @Nonnull String budgetItemId,
-            @Nonnull BudgetItemInput budgetItem) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String budgetItemId, @Nonnull BudgetItemInput budgetItem) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.budgetItem = Optional.ofNullable(budgetItem)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItem cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItem cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class UpdateBudgetItemRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -78,7 +73,6 @@ public class UpdateBudgetItemRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -88,7 +82,6 @@ public class UpdateBudgetItemRequest {
         return this;
     }
 
-
     /**
      * Budget Item to be updated
      */
@@ -96,7 +89,6 @@ public class UpdateBudgetItemRequest {
         this.budgetItem = Utils.checkNotNull(budgetItem, "budgetItem");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,24 @@ public class UpdateBudgetItemRequest {
             return false;
         }
         UpdateBudgetItemRequest other = (UpdateBudgetItemRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.budgetItem, other.budgetItem);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, budgetItem);
+        return Utils.enhancedHash(id, budgetItemId, budgetItem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateBudgetItemRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "budgetItem", budgetItem);
+        return Utils.toString(
+                UpdateBudgetItemRequest.class, "id", id, "budgetItemId", budgetItemId, "budgetItem", budgetItem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +125,7 @@ public class UpdateBudgetItemRequest {
         private BudgetItemInput budgetItem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +153,7 @@ public class UpdateBudgetItemRequest {
         }
 
         public UpdateBudgetItemRequest build() {
-            return new UpdateBudgetItemRequest(
-                id, budgetItemId, budgetItem);
+            return new UpdateBudgetItemRequest(id, budgetItemId, budgetItem);
         }
-
     }
 }

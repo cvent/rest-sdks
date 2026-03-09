@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ProcessFormSubmissionJson
- * 
+ *
  * <p>Represents a process form submission in the context of a specific event.
  */
 public class ProcessFormSubmissionJson {
@@ -65,7 +65,7 @@ public class ProcessFormSubmissionJson {
 
     /**
      * An object that contains the process form ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a process form object.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -107,11 +107,9 @@ public class ProcessFormSubmissionJson {
         this.status = status;
         this.questions = questions;
     }
-    
+
     public ProcessFormSubmissionJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -158,7 +156,7 @@ public class ProcessFormSubmissionJson {
 
     /**
      * An object that contains the process form ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a process form object.
      */
     public Optional<ProcessFormJson> processForm() {
@@ -183,7 +181,6 @@ public class ProcessFormSubmissionJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -191,7 +188,6 @@ public class ProcessFormSubmissionJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -201,7 +197,6 @@ public class ProcessFormSubmissionJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -209,7 +204,6 @@ public class ProcessFormSubmissionJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -219,7 +213,6 @@ public class ProcessFormSubmissionJson {
         return this;
     }
 
-
     /**
      * The unique ID representing the process form submission.
      */
@@ -227,7 +220,6 @@ public class ProcessFormSubmissionJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The event which the process form submission is associated with.
@@ -237,17 +229,15 @@ public class ProcessFormSubmissionJson {
         return this;
     }
 
-
     /**
      * An object that contains the process form ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a process form object.
      */
     public ProcessFormSubmissionJson withProcessForm(@Nullable ProcessFormJson processForm) {
         this.processForm = processForm;
         return this;
     }
-
 
     /**
      * The status of the process form submission. The status is planner defined and can be any string.
@@ -257,7 +247,6 @@ public class ProcessFormSubmissionJson {
         return this;
     }
 
-
     /**
      * The list of possible answers to a question.
      */
@@ -265,7 +254,6 @@ public class ProcessFormSubmissionJson {
         this.questions = questions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -276,42 +264,49 @@ public class ProcessFormSubmissionJson {
             return false;
         }
         ProcessFormSubmissionJson other = (ProcessFormSubmissionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.processForm, other.processForm) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.processForm, other.processForm)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.questions, other.questions);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            processForm, status, questions);
+                created, createdBy, lastModified, lastModifiedBy, id, event, processForm, status, questions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProcessFormSubmissionJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "processForm", processForm,
-                "status", status,
-                "questions", questions);
+        return Utils.toString(
+                ProcessFormSubmissionJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "processForm",
+                processForm,
+                "status",
+                status,
+                "questions",
+                questions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -332,7 +327,7 @@ public class ProcessFormSubmissionJson {
         private List<ProcessFormSubmissionQuestionJson> questions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -385,7 +380,7 @@ public class ProcessFormSubmissionJson {
 
         /**
          * An object that contains the process form ID.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain the name of a process form object.
          */
         public Builder processForm(@Nullable ProcessFormJson processForm) {
@@ -411,10 +406,7 @@ public class ProcessFormSubmissionJson {
 
         public ProcessFormSubmissionJson build() {
             return new ProcessFormSubmissionJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                processForm, status, questions);
+                    created, createdBy, lastModified, lastModifiedBy, id, event, processForm, status, questions);
         }
-
     }
 }

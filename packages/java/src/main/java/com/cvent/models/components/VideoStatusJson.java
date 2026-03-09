@@ -10,14 +10,14 @@ import java.util.Optional;
 
 /**
  * VideoStatusJson
- * 
+ *
  * <p>Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
  * the URL to upload to was returned. Uploaded indicates that the upload was completed.
- * 
+ *
  * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
  * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
  * Rejected indicates a failed virus scan.
- * 
+ *
  * <p>Error indicates there was a problem processing the video. Available indicates the video is available
  * for use.
  */
@@ -39,13 +39,13 @@ public enum VideoStatusJson {
     VideoStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoStatusJson> fromValue(String value) {
-        for (VideoStatusJson o: VideoStatusJson.values()) {
+        for (VideoStatusJson o : VideoStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -53,4 +53,3 @@ public enum VideoStatusJson {
         return Optional.empty();
     }
 }
-

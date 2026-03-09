@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * GenderJson
- * 
+ *
  * <p>The gender of the contact.
  */
 public enum GenderJson {
@@ -25,13 +25,13 @@ public enum GenderJson {
     GenderJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<GenderJson> fromValue(String value) {
-        for (GenderJson o: GenderJson.values()) {
+        for (GenderJson o : GenderJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum GenderJson {
         return Optional.empty();
     }
 }
-

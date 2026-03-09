@@ -1,5 +1,13 @@
 # ExpandAirActualQuestionAnswer
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ExpandAirActualQuestionAnswer.AirActualDetailsAirActualAnswersQuestion;
+```
+
 
 ## Values
 

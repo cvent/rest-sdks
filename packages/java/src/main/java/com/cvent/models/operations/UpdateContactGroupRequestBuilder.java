@@ -28,7 +28,7 @@ public class UpdateContactGroupRequestBuilder {
     private UpdateContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateContactGroupResponse call() {
-        RequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation
-              = new UpdateContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation =
+                new UpdateContactGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

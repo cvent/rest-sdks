@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ReservationRequestJson
- * 
+ *
  * <p>Representation of the housing reservation details.
  */
 public class ReservationRequestJson {
@@ -40,7 +40,7 @@ public class ReservationRequestJson {
         this.id = id;
         this.bookingSite = bookingSite;
     }
-    
+
     public ReservationRequestJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class ReservationRequestJson {
         return new Builder();
     }
 
-
     /**
      * Reservation request ID, also known as a bridge ID.
      */
@@ -72,7 +71,6 @@ public class ReservationRequestJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -80,7 +78,6 @@ public class ReservationRequestJson {
         this.bookingSite = bookingSite;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class ReservationRequestJson {
             return false;
         }
         ReservationRequestJson other = (ReservationRequestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.bookingSite, other.bookingSite);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, bookingSite);
+        return Utils.enhancedHash(id, bookingSite);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationRequestJson.class,
-                "id", id,
-                "bookingSite", bookingSite);
+        return Utils.toString(ReservationRequestJson.class, "id", id, "bookingSite", bookingSite);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ReservationRequestJsonLink bookingSite;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class ReservationRequestJson {
         }
 
         public ReservationRequestJson build() {
-            return new ReservationRequestJson(
-                id, bookingSite);
+            return new ReservationRequestJson(id, bookingSite);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAttendeeInsightsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListAttendeeInsightsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeInsightsPaginatedResponse = attendeeInsightsPaginatedResponse;
     }
-    
+
     public ListAttendeeInsightsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListAttendeeInsightsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListAttendeeInsightsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListAttendeeInsightsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListAttendeeInsightsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of engagement scores.
      */
-    public ListAttendeeInsightsResponse withAttendeeInsightsPaginatedResponse(@Nullable AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse) {
+    public ListAttendeeInsightsResponse withAttendeeInsightsPaginatedResponse(
+            @Nullable AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse) {
         this.attendeeInsightsPaginatedResponse = attendeeInsightsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListAttendeeInsightsResponse implements Response {
             return false;
         }
         ListAttendeeInsightsResponse other = (ListAttendeeInsightsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeInsightsPaginatedResponse, other.attendeeInsightsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeInsightsPaginatedResponse, other.attendeeInsightsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeInsightsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeInsightsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAttendeeInsightsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeInsightsPaginatedResponse", attendeeInsightsPaginatedResponse);
+        return Utils.toString(
+                ListAttendeeInsightsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeInsightsPaginatedResponse",
+                attendeeInsightsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListAttendeeInsightsResponse implements Response {
         private AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListAttendeeInsightsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of engagement scores.
          */
-        public Builder attendeeInsightsPaginatedResponse(@Nullable AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse) {
+        public Builder attendeeInsightsPaginatedResponse(
+                @Nullable AttendeeInsightsPaginatedResponse attendeeInsightsPaginatedResponse) {
             this.attendeeInsightsPaginatedResponse = attendeeInsightsPaginatedResponse;
             return this;
         }
 
         public ListAttendeeInsightsResponse build() {
             return new ListAttendeeInsightsResponse(
-                contentType, statusCode, rawResponse,
-                attendeeInsightsPaginatedResponse);
+                    contentType, statusCode, rawResponse, attendeeInsightsPaginatedResponse);
         }
-
     }
 }

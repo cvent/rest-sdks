@@ -33,21 +33,20 @@ public class AsyncUsage {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Usage sync() {
         return syncSDK;
     }
 
-
     /**
      * Get Current Usage
-     * 
+     *
      * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
      * days) for
      * the current caller's account.
-     * 
+     *
      * @return The async call builder
      */
     public GetUsageRequestBuilder getUsage() {
@@ -56,29 +55,27 @@ public class AsyncUsage {
 
     /**
      * Get Current Usage
-     * 
+     *
      * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
      * days) for
      * the current caller's account.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetUsageResponse>} - The async response
      */
     public CompletableFuture<GetUsageResponse> getUsage(@Nonnull GetUsageRequest request) {
-        AsyncRequestOperation<GetUsageRequest, GetUsageResponse> operation
-              = new GetUsage.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetUsageRequest, GetUsageResponse> operation =
+                new GetUsage.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Current Usage Tier
-     * 
+     *
      * <p>Returns the current usage tier of the caller's account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetUsageTierRequestBuilder getUsageTier() {
@@ -87,18 +84,15 @@ public class AsyncUsage {
 
     /**
      * Get Current Usage Tier
-     * 
+     *
      * <p>Returns the current usage tier of the caller's account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<GetUsageTierResponse>} - The async response
      */
     public CompletableFuture<GetUsageTierResponse> getUsageTierDirect() {
-        AsyncRequestlessOperation<GetUsageTierResponse> operation
-            = new GetUsageTier.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 }

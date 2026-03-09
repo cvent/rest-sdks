@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ProcessFormSubmissionQuestionJson
- * 
+ *
  * <p>A question for a process form submission.
  */
 public class ProcessFormSubmissionQuestionJson {
@@ -53,19 +53,14 @@ public class ProcessFormSubmissionQuestionJson {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable ProcessFormQuestionTypeJson type,
             @JsonProperty("value") @Nonnull List<String> value) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.type = type;
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
     }
-    
-    public ProcessFormSubmissionQuestionJson(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
-        this(id, null, null,
-            value);
+
+    public ProcessFormSubmissionQuestionJson(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, null, null, value);
     }
 
     /**
@@ -100,7 +95,6 @@ public class ProcessFormSubmissionQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this question.
      */
@@ -108,7 +102,6 @@ public class ProcessFormSubmissionQuestionJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -118,7 +111,6 @@ public class ProcessFormSubmissionQuestionJson {
         return this;
     }
 
-
     /**
      * Denotes the type of data collected by a question.
      */
@@ -127,7 +119,6 @@ public class ProcessFormSubmissionQuestionJson {
         return this;
     }
 
-
     /**
      * The set of answers to the question.
      */
@@ -135,7 +126,6 @@ public class ProcessFormSubmissionQuestionJson {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +136,25 @@ public class ProcessFormSubmissionQuestionJson {
             return false;
         }
         ProcessFormSubmissionQuestionJson other = (ProcessFormSubmissionQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, type,
-            value);
+        return Utils.enhancedHash(id, name, type, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProcessFormSubmissionQuestionJson.class,
-                "id", id,
-                "name", name,
-                "type", type,
-                "value", value);
+        return Utils.toString(
+                ProcessFormSubmissionQuestionJson.class, "id", id, "name", name, "type", type, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +165,7 @@ public class ProcessFormSubmissionQuestionJson {
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +201,7 @@ public class ProcessFormSubmissionQuestionJson {
         }
 
         public ProcessFormSubmissionQuestionJson build() {
-            return new ProcessFormSubmissionQuestionJson(
-                id, name, type,
-                value);
+            return new ProcessFormSubmissionQuestionJson(id, name, type, value);
         }
-
     }
 }

@@ -16,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
-
 public class PatchContactsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class PatchContactsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable List<ContactBulkItemJson> contactBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.contactBulkResponse = contactBulkResponse;
     }
-    
+
     public PatchContactsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class PatchContactsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class PatchContactsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class PatchContactsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +112,6 @@ public class PatchContactsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated a list of contacts.
      */
@@ -127,7 +119,6 @@ public class PatchContactsResponse implements Response {
         this.contactBulkResponse = contactBulkResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class PatchContactsResponse implements Response {
             return false;
         }
         PatchContactsResponse other = (PatchContactsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.contactBulkResponse, other.contactBulkResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.contactBulkResponse, other.contactBulkResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            contactBulkResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, contactBulkResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PatchContactsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "contactBulkResponse", contactBulkResponse);
+        return Utils.toString(
+                PatchContactsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "contactBulkResponse",
+                contactBulkResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class PatchContactsResponse implements Response {
         private List<ContactBulkItemJson> contactBulkResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class PatchContactsResponse implements Response {
         }
 
         public PatchContactsResponse build() {
-            return new PatchContactsResponse(
-                contentType, statusCode, rawResponse,
-                contactBulkResponse);
+            return new PatchContactsResponse(contentType, statusCode, rawResponse, contactBulkResponse);
         }
-
     }
 }

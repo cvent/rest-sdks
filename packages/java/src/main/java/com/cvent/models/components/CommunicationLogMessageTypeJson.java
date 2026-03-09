@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CommunicationLogMessageTypeJson
- * 
+ *
  * <p>The type of communication log message.
  */
 public enum CommunicationLogMessageTypeJson {
@@ -24,13 +24,13 @@ public enum CommunicationLogMessageTypeJson {
     CommunicationLogMessageTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CommunicationLogMessageTypeJson> fromValue(String value) {
-        for (CommunicationLogMessageTypeJson o: CommunicationLogMessageTypeJson.values()) {
+        for (CommunicationLogMessageTypeJson o : CommunicationLogMessageTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum CommunicationLogMessageTypeJson {
         return Optional.empty();
     }
 }
-

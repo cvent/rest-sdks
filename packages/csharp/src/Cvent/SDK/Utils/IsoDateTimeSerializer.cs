@@ -13,11 +13,11 @@ namespace Cvent.SDK.Utils
     using System.Globalization;
     using Newtonsoft.Json;
 
-    internal class IsoDateTimeSerializer: JsonConverter
+    internal class IsoDateTimeSerializer : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            var  nullableType = Nullable.GetUnderlyingType(objectType);
+            var nullableType = Nullable.GetUnderlyingType(objectType);
             if (nullableType != null)
             {
                 return nullableType == typeof(DateTime);

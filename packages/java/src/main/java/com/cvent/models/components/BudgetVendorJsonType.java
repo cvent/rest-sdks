@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetVendorJsonType
- * 
+ *
  * <p>Indicates how the vendor was added to your account. CSN indicates the vendor was sourced from the
  * Cvent Supplier Network. VENDOR indicates a user added the vendor information to your account.
  */
@@ -25,13 +25,13 @@ public enum BudgetVendorJsonType {
     BudgetVendorJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetVendorJsonType> fromValue(String value) {
-        for (BudgetVendorJsonType o: BudgetVendorJsonType.values()) {
+        for (BudgetVendorJsonType o : BudgetVendorJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum BudgetVendorJsonType {
         return Optional.empty();
     }
 }
-

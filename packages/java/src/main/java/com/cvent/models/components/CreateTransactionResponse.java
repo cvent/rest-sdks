@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * CreateTransactionResponse
- * 
+ *
  * <p>Denotes the details of the transaction created for an attendee.
  */
 public class CreateTransactionResponse {
@@ -92,7 +92,7 @@ public class CreateTransactionResponse {
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -196,12 +196,11 @@ public class CreateTransactionResponse {
         this.orders = orders;
         this.journalNumber = journalNumber;
         this.paymentType = Optional.ofNullable(paymentType)
-            .orElseThrow(() -> new IllegalArgumentException("paymentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentType cannot be null"));
         this.paymentMethod = Optional.ofNullable(paymentMethod)
-            .orElseThrow(() -> new IllegalArgumentException("paymentMethod cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentMethod cannot be null"));
         this.success = success;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.batchNumber = batchNumber;
         this.referenceNumber = referenceNumber;
         this.amount = amount;
@@ -209,18 +208,31 @@ public class CreateTransactionResponse {
         this.paymentNote = paymentNote;
         this.transactionItems = transactionItems;
     }
-    
+
     public CreateTransactionResponse(
             @Nonnull PaymentTypeCreateJson paymentType,
             @Nonnull PaymentMethodJson paymentMethod,
             @Nonnull OffsetDateTime date) {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            paymentType, paymentMethod, null,
-            date, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                paymentType,
+                paymentMethod,
+                null,
+                date,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -291,7 +303,7 @@ public class CreateTransactionResponse {
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -371,7 +383,6 @@ public class CreateTransactionResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -379,7 +390,6 @@ public class CreateTransactionResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -389,7 +399,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -397,7 +406,6 @@ public class CreateTransactionResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -407,7 +415,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * A unique ID representing the transaction.
      */
@@ -415,7 +422,6 @@ public class CreateTransactionResponse {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the event. Contains only the ID of the event.
@@ -425,7 +431,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
@@ -434,7 +439,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * This denotes the order IDs corresponding to this transaction.
      */
@@ -442,7 +446,6 @@ public class CreateTransactionResponse {
         this.orders = orders;
         return this;
     }
-
 
     /**
      * Journal number for this transaction. Represents an identifier for the transaction in your bank or
@@ -453,12 +456,11 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -468,7 +470,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * This denotes the payment method in a transaction.
      */
@@ -476,7 +477,6 @@ public class CreateTransactionResponse {
         this.paymentMethod = Utils.checkNotNull(paymentMethod, "paymentMethod");
         return this;
     }
-
 
     /**
      * True indicates the transaction was successful.
@@ -486,7 +486,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when attendee made the transaction.
      */
@@ -494,7 +493,6 @@ public class CreateTransactionResponse {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     /**
      * Batch number of this transaction.
@@ -504,7 +502,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * Reference number of this transaction.
      */
@@ -512,7 +509,6 @@ public class CreateTransactionResponse {
         this.referenceNumber = referenceNumber;
         return this;
     }
-
 
     /**
      * Amount of the transaction. Can only be included in request body if the `partialPayment` query
@@ -523,7 +519,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * Denotes the currency of this transaction. Currency is determined by the event where the transaction
      * is taking place.
@@ -533,7 +528,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     /**
      * Payment notes about this transaction.
      */
@@ -541,7 +535,6 @@ public class CreateTransactionResponse {
         this.paymentNote = paymentNote;
         return this;
     }
-
 
     /**
      * The list of order items you'll apply the transaction amount towards. Values in the array must sum to
@@ -553,7 +546,6 @@ public class CreateTransactionResponse {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -563,66 +555,97 @@ public class CreateTransactionResponse {
             return false;
         }
         CreateTransactionResponse other = (CreateTransactionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.orders, other.orders) &&
-            Utils.enhancedDeepEquals(this.journalNumber, other.journalNumber) &&
-            Utils.enhancedDeepEquals(this.paymentType, other.paymentType) &&
-            Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod) &&
-            Utils.enhancedDeepEquals(this.success, other.success) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote) &&
-            Utils.enhancedDeepEquals(this.transactionItems, other.transactionItems);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.orders, other.orders)
+                && Utils.enhancedDeepEquals(this.journalNumber, other.journalNumber)
+                && Utils.enhancedDeepEquals(this.paymentType, other.paymentType)
+                && Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod)
+                && Utils.enhancedDeepEquals(this.success, other.success)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote)
+                && Utils.enhancedDeepEquals(this.transactionItems, other.transactionItems);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            attendee, orders, journalNumber,
-            paymentType, paymentMethod, success,
-            date, batchNumber, referenceNumber,
-            amount, currency, paymentNote,
-            transactionItems);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                attendee,
+                orders,
+                journalNumber,
+                paymentType,
+                paymentMethod,
+                success,
+                date,
+                batchNumber,
+                referenceNumber,
+                amount,
+                currency,
+                paymentNote,
+                transactionItems);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateTransactionResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "attendee", attendee,
-                "orders", orders,
-                "journalNumber", journalNumber,
-                "paymentType", paymentType,
-                "paymentMethod", paymentMethod,
-                "success", success,
-                "date", date,
-                "batchNumber", batchNumber,
-                "referenceNumber", referenceNumber,
-                "amount", amount,
-                "currency", currency,
-                "paymentNote", paymentNote,
-                "transactionItems", transactionItems);
+        return Utils.toString(
+                CreateTransactionResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "orders",
+                orders,
+                "journalNumber",
+                journalNumber,
+                "paymentType",
+                paymentType,
+                "paymentMethod",
+                paymentMethod,
+                "success",
+                success,
+                "date",
+                date,
+                "batchNumber",
+                batchNumber,
+                "referenceNumber",
+                referenceNumber,
+                "amount",
+                amount,
+                "currency",
+                currency,
+                "paymentNote",
+                paymentNote,
+                "transactionItems",
+                transactionItems);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -663,7 +686,7 @@ public class CreateTransactionResponse {
         private List<TransactionItemCreateJson> transactionItems;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -743,7 +766,7 @@ public class CreateTransactionResponse {
          * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
          * to the attendee's order electronically in another system of record, or paid in physical currency. To
          * create an offline charge, the attendee must have a balance owing.
-         * 
+         *
          * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
          * of record, or paid in physical currency. To create an offline refund, the attendee must have a
          * balance due.
@@ -831,14 +854,25 @@ public class CreateTransactionResponse {
 
         public CreateTransactionResponse build() {
             return new CreateTransactionResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                attendee, orders, journalNumber,
-                paymentType, paymentMethod, success,
-                date, batchNumber, referenceNumber,
-                amount, currency, paymentNote,
-                transactionItems);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    attendee,
+                    orders,
+                    journalNumber,
+                    paymentType,
+                    paymentMethod,
+                    success,
+                    date,
+                    batchNumber,
+                    referenceNumber,
+                    amount,
+                    currency,
+                    paymentNote,
+                    transactionItems);
         }
-
     }
 }

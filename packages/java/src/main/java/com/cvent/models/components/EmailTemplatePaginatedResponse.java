@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * EmailTemplatePaginatedResponse
- * 
+ *
  * <p>The response from a request to get the list of email templates. This includes the paging object as
  * well as the collection of email template.
  */
@@ -36,10 +36,9 @@ public class EmailTemplatePaginatedResponse {
     public EmailTemplatePaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
             @JsonProperty("data") @Nonnull List<EmailTemplateDataJson> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -61,7 +60,6 @@ public class EmailTemplatePaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -69,7 +67,6 @@ public class EmailTemplatePaginatedResponse {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
-
 
     /**
      * A list of all email templates data for an unique campaign that will help the planner to select
@@ -80,7 +77,6 @@ public class EmailTemplatePaginatedResponse {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -90,33 +86,28 @@ public class EmailTemplatePaginatedResponse {
             return false;
         }
         EmailTemplatePaginatedResponse other = (EmailTemplatePaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailTemplatePaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(EmailTemplatePaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<EmailTemplateDataJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class EmailTemplatePaginatedResponse {
         }
 
         public EmailTemplatePaginatedResponse build() {
-            return new EmailTemplatePaginatedResponse(
-                paging, data);
+            return new EmailTemplatePaginatedResponse(paging, data);
         }
-
     }
 }

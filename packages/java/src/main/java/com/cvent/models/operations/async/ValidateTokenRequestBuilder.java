@@ -19,7 +19,6 @@ public class ValidateTokenRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public ValidateTokenRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -28,14 +27,13 @@ public class ValidateTokenRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ValidateTokenResponse> call() {
-        AsyncRequestlessOperation<ValidateTokenResponse> operation
-            = new ValidateToken.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<ValidateTokenResponse> operation =
+                new ValidateToken.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

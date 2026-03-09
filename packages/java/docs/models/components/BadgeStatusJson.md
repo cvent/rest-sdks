@@ -2,6 +2,14 @@
 
 Badge status
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BadgeStatusJson;
+
+BadgeStatusJson value = BadgeStatusJson.ASSIGNED;
+```
+
 
 ## Values
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelType
- * 
+ *
  * <p>Type of travel alternate question
  */
 public enum TravelType {
@@ -25,13 +25,13 @@ public enum TravelType {
     TravelType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelType> fromValue(String value) {
-        for (TravelType o: TravelType.values()) {
+        for (TravelType o : TravelType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum TravelType {
         return Optional.empty();
     }
 }
-

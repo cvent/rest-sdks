@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorFileRequest {
     /**
      * ID of an event.
@@ -40,18 +39,13 @@ public class UpdateExhibitorFileRequest {
 
     @JsonCreator
     public UpdateExhibitorFileRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull String fileId,
-            @Nonnull FileInput file) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull String fileId, @Nonnull FileInput file) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
     }
 
     /**
@@ -86,7 +80,6 @@ public class UpdateExhibitorFileRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -94,7 +87,6 @@ public class UpdateExhibitorFileRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -104,7 +96,6 @@ public class UpdateExhibitorFileRequest {
         return this;
     }
 
-
     /**
      * ID of a file.
      */
@@ -113,7 +104,6 @@ public class UpdateExhibitorFileRequest {
         return this;
     }
 
-
     /**
      * Exhibitor file content to be updated.
      */
@@ -121,7 +111,6 @@ public class UpdateExhibitorFileRequest {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +121,25 @@ public class UpdateExhibitorFileRequest {
             return false;
         }
         UpdateExhibitorFileRequest other = (UpdateExhibitorFileRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId) &&
-            Utils.enhancedDeepEquals(this.file, other.file);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.fileId, other.fileId)
+                && Utils.enhancedDeepEquals(this.file, other.file);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, fileId,
-            file);
+        return Utils.enhancedHash(id, exhibitorId, fileId, file);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorFileRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "fileId", fileId,
-                "file", file);
+        return Utils.toString(
+                UpdateExhibitorFileRequest.class, "id", id, "exhibitorId", exhibitorId, "fileId", fileId, "file", file);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +150,7 @@ public class UpdateExhibitorFileRequest {
         private FileInput file;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +186,7 @@ public class UpdateExhibitorFileRequest {
         }
 
         public UpdateExhibitorFileRequest build() {
-            return new UpdateExhibitorFileRequest(
-                id, exhibitorId, fileId,
-                file);
+            return new UpdateExhibitorFileRequest(id, exhibitorId, fileId, file);
         }
-
     }
 }

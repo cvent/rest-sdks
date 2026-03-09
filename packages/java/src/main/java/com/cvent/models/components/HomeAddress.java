@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Object;
@@ -14,13 +14,11 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class HomeAddress {
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address3")
     private Object address3;
-
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("countryCode")
@@ -33,7 +31,7 @@ public class HomeAddress {
         this.address3 = address3;
         this.countryCode = countryCode;
     }
-    
+
     public HomeAddress() {
         this(null, null);
     }
@@ -50,18 +48,15 @@ public class HomeAddress {
         return new Builder();
     }
 
-
     public HomeAddress withAddress3(@Nullable Object address3) {
         this.address3 = address3;
         return this;
     }
 
-
     public HomeAddress withCountryCode(@Nullable Object countryCode) {
         this.countryCode = countryCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -72,33 +67,29 @@ public class HomeAddress {
             return false;
         }
         HomeAddress other = (HomeAddress) o;
-        return 
-            Utils.enhancedDeepEquals(this.address3, other.address3) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
+        return Utils.enhancedDeepEquals(this.address3, other.address3)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address3, countryCode);
+        return Utils.enhancedHash(address3, countryCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HomeAddress.class,
-                "address3", address3,
-                "countryCode", countryCode);
+        return Utils.toString(HomeAddress.class, "address3", address3, "countryCode", countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Object address3;
 
         private Object countryCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder address3(@Nullable Object address3) {
@@ -112,9 +103,7 @@ public class HomeAddress {
         }
 
         public HomeAddress build() {
-            return new HomeAddress(
-                address3, countryCode);
+            return new HomeAddress(address3, countryCode);
         }
-
     }
 }

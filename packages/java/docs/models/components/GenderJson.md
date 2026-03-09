@@ -2,6 +2,14 @@
 
 The gender of the contact.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.GenderJson;
+
+GenderJson value = GenderJson.MALE;
+```
+
 
 ## Values
 

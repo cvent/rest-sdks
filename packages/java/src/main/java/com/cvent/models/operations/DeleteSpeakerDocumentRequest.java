@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteSpeakerDocumentRequest {
     /**
      * The unique identifier of a speaker.
@@ -26,13 +25,10 @@ public class DeleteSpeakerDocumentRequest {
     private String fileId;
 
     @JsonCreator
-    public DeleteSpeakerDocumentRequest(
-            @Nonnull String id,
-            @Nonnull String fileId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.fileId = Optional.ofNullable(fileId)
-            .orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
+    public DeleteSpeakerDocumentRequest(@Nonnull String id, @Nonnull String fileId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.fileId =
+                Optional.ofNullable(fileId).orElseThrow(() -> new IllegalArgumentException("fileId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteSpeakerDocumentRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -62,7 +57,6 @@ public class DeleteSpeakerDocumentRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of a file from <a href="#operation/uploadFile">file upload</a> service.
      */
@@ -70,7 +64,6 @@ public class DeleteSpeakerDocumentRequest {
         this.fileId = Utils.checkNotNull(fileId, "fileId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class DeleteSpeakerDocumentRequest {
             return false;
         }
         DeleteSpeakerDocumentRequest other = (DeleteSpeakerDocumentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.fileId, other.fileId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.fileId, other.fileId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, fileId);
+        return Utils.enhancedHash(id, fileId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteSpeakerDocumentRequest.class,
-                "id", id,
-                "fileId", fileId);
+        return Utils.toString(DeleteSpeakerDocumentRequest.class, "id", id, "fileId", fileId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String fileId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class DeleteSpeakerDocumentRequest {
         }
 
         public DeleteSpeakerDocumentRequest build() {
-            return new DeleteSpeakerDocumentRequest(
-                id, fileId);
+            return new DeleteSpeakerDocumentRequest(id, fileId);
         }
-
     }
 }

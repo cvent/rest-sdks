@@ -20,27 +20,63 @@ namespace Cvent.SDK.Models.Components
 
     public class ExternalActivityDataJsonType
     {
-        private ExternalActivityDataJsonType(string value) { Value = value; }
+        private ExternalActivityDataJsonType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ExternalActivityDataJsonType ExternalActivityDataJsonEventExternal { get { return new ExternalActivityDataJsonType("external-activity-data.json_event.external"); } }
+        public static ExternalActivityDataJsonType ExternalActivityDataJsonEventExternal
+        {
+            get {
+                return new ExternalActivityDataJsonType("external-activity-data.json_event.external");
+            }
+        }
 
-        public static ExternalActivityDataJsonType ExternalActivityDataJsonSessionExternal { get { return new ExternalActivityDataJsonType("external-activity-data.json_session.external"); } }
+        public static ExternalActivityDataJsonType ExternalActivityDataJsonSessionExternal
+        {
+            get {
+                return new ExternalActivityDataJsonType("external-activity-data.json_session.external");
+            }
+        }
 
-        public static ExternalActivityDataJsonType ExternalActivityDataJsonAppointmentExternal { get { return new ExternalActivityDataJsonType("external-activity-data.json_appointment.external"); } }
+        public static ExternalActivityDataJsonType ExternalActivityDataJsonAppointmentExternal
+        {
+            get {
+                return new ExternalActivityDataJsonType("external-activity-data.json_appointment.external");
+            }
+        }
 
-        public static ExternalActivityDataJsonType ExternalActivityDataJsonExhibitorExternal { get { return new ExternalActivityDataJsonType("external-activity-data.json_exhibitor.external"); } }
+        public static ExternalActivityDataJsonType ExternalActivityDataJsonExhibitorExternal
+        {
+            get {
+                return new ExternalActivityDataJsonType("external-activity-data.json_exhibitor.external");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ExternalActivityDataJsonType v) { return v.Value; }
-        public static ExternalActivityDataJsonType FromString(string v) {
-            switch(v) {
-                case "external-activity-data.json_event.external": return ExternalActivityDataJsonEventExternal;
-                case "external-activity-data.json_session.external": return ExternalActivityDataJsonSessionExternal;
-                case "external-activity-data.json_appointment.external": return ExternalActivityDataJsonAppointmentExternal;
-                case "external-activity-data.json_exhibitor.external": return ExternalActivityDataJsonExhibitorExternal;
-                default: throw new ArgumentException("Invalid value for ExternalActivityDataJsonType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ExternalActivityDataJsonType v)
+        {
+            return v.Value;
+        }
+        public static ExternalActivityDataJsonType FromString(string v)
+        {
+            switch (v)
+            {
+                case "external-activity-data.json_event.external":
+                    return ExternalActivityDataJsonEventExternal;
+                case "external-activity-data.json_session.external":
+                    return ExternalActivityDataJsonSessionExternal;
+                case "external-activity-data.json_appointment.external":
+                    return ExternalActivityDataJsonAppointmentExternal;
+                case "external-activity-data.json_exhibitor.external":
+                    return ExternalActivityDataJsonExhibitorExternal;
+                default:
+                    throw new ArgumentException("Invalid value for ExternalActivityDataJsonType");
             }
         }
         public override bool Equals(object? obj)
@@ -133,8 +169,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonEventExternal)
-                    {
+                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonEventExternal) {
                         ExternalActivityDataJsonEventExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExternalActivityDataJsonEventExternal>(json)
                     };
                 }
@@ -153,8 +188,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonSessionExternal)
-                    {
+                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonSessionExternal) {
                         ExternalActivityDataJsonSessionExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExternalActivityDataJsonSessionExternal>(json)
                     };
                 }
@@ -173,8 +207,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonAppointmentExternal)
-                    {
+                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonAppointmentExternal) {
                         ExternalActivityDataJsonAppointmentExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExternalActivityDataJsonAppointmentExternal>(json)
                     };
                 }
@@ -193,8 +226,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonExhibitorExternal)
-                    {
+                    return new ExternalActivityDataJson(ExternalActivityDataJsonType.ExternalActivityDataJsonExhibitorExternal) {
                         ExternalActivityDataJsonExhibitorExternal = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ExternalActivityDataJsonExhibitorExternal>(json)
                     };
                 }
@@ -214,7 +246,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -267,8 +299,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

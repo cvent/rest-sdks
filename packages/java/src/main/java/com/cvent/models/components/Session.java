@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -25,7 +25,7 @@ import java.util.Optional;
 
 /**
  * Session
- * 
+ *
  * <p>Used to denote a session and its attributes.
  */
 public class Session {
@@ -97,7 +97,6 @@ public class Session {
     @JsonProperty("category")
     private IdNameJson category;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private SessionLookup type;
@@ -112,11 +111,11 @@ public class Session {
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -216,7 +215,7 @@ public class Session {
 
     /**
      * The timezone of the event that the session is associated with
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -319,7 +318,7 @@ public class Session {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -375,21 +374,17 @@ public class Session {
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
         this.virtual = virtual;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.code = code;
         this.category = category;
         this.type = type;
         this.location = location;
         this.description = description;
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.automaticallyOpensOn = automaticallyOpensOn;
         this.automaticallyClosesOn = automaticallyClosesOn;
         this.enableWaitlist = enableWaitlist;
@@ -401,8 +396,8 @@ public class Session {
         this.virtualCapacityUnlimited = virtualCapacityUnlimited;
         this.waitlistCapacityVirtual = waitlistCapacityVirtual;
         this.timezone = timezone;
-        this.displayOnAgenda = Optional.ofNullable(displayOnAgenda)
-            .orElse(Builder._SINGLETON_VALUE_DisplayOnAgenda.value());
+        this.displayOnAgenda =
+                Optional.ofNullable(displayOnAgenda).orElse(Builder._SINGLETON_VALUE_DisplayOnAgenda.value());
         this.featured = featured;
         this.group = group;
         this.admissionItems = admissionItems;
@@ -414,31 +409,59 @@ public class Session {
         this.customFields = customFields;
         this.segments = segments;
         this.order = order;
-        this.includedSession = Optional.ofNullable(includedSession)
-            .orElse(Builder._SINGLETON_VALUE_IncludedSession.value());
+        this.includedSession =
+                Optional.ofNullable(includedSession).orElse(Builder._SINGLETON_VALUE_IncludedSession.value());
         this.relevance = relevance;
     }
-    
+
     public Session(
             @Nonnull UuidJson event,
             @Nonnull String title,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end,
             @Nonnull SessionStatusJson status) {
-        this(null, null, null,
-            null, null, null,
-            event, title, null,
-            null, null, null,
-            null, start, end,
-            status, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                event,
+                title,
+                null,
+                null,
+                null,
+                null,
+                null,
+                start,
+                end,
+                status,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -525,11 +548,11 @@ public class Session {
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -632,7 +655,7 @@ public class Session {
 
     /**
      * The timezone of the event that the session is associated with
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -735,7 +758,7 @@ public class Session {
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public Optional<Double> relevance() {
@@ -746,7 +769,6 @@ public class Session {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -754,7 +776,6 @@ public class Session {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -764,7 +785,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -772,7 +792,6 @@ public class Session {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -782,7 +801,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * A unique identifier of the session
      */
@@ -790,7 +808,6 @@ public class Session {
         this.id = id;
         return this;
     }
-
 
     /**
      * Indicates whether the session is virtual or not.
@@ -800,7 +817,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -808,7 +824,6 @@ public class Session {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Title of the session. For example, Keynote Session.
@@ -818,7 +833,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * A unique code for this session.
      */
@@ -826,7 +840,6 @@ public class Session {
         this.code = code;
         return this;
     }
-
 
     /**
      * A Named object
@@ -836,12 +849,10 @@ public class Session {
         return this;
     }
 
-
     public Session withType(@Nullable SessionLookup type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * Used to denote a locations name and abbreviation.
@@ -851,15 +862,14 @@ public class Session {
         return this;
     }
 
-
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
      * attributes are allowed. Use of HTML will count towards the character limit.
-     * 
+     *
      * <p>Planners are responsible for confirming the visual output of HTML content.
-     * 
+     *
      * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-     * 
+     *
      * <p>Allowed attributes:
      * - color on font
      * - style on p, font, li, ul, ol, span
@@ -870,7 +880,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time when the session starts.
      */
@@ -878,7 +887,6 @@ public class Session {
         this.start = Utils.checkNotNull(start, "start");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when the session ends.
@@ -888,7 +896,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * This is used to denote the status of a session.
      */
@@ -896,7 +903,6 @@ public class Session {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the session registration automatically opens.
@@ -906,7 +912,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date when the session registration automatically closes.
      */
@@ -914,7 +919,6 @@ public class Session {
         this.automaticallyClosesOn = automaticallyClosesOn;
         return this;
     }
-
 
     /**
      * Indicates if the waitlist is supported for the session.
@@ -924,7 +928,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can waitlist for the in-person portion of the session.
      */
@@ -932,7 +935,6 @@ public class Session {
         this.waitlistCapacity = waitlistCapacity;
         return this;
     }
-
 
     /**
      * Indicates if the virtual waitlist for the session is open.
@@ -942,7 +944,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can enroll in the in-person portion of the session.
      */
@@ -950,7 +951,6 @@ public class Session {
         this.capacity = capacity;
         return this;
     }
-
 
     /**
      * Indicates whether a given session has unlimited in-person capacity.
@@ -960,7 +960,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can enroll in the virtual portion of the session.
      */
@@ -968,7 +967,6 @@ public class Session {
         this.capacityVirtual = capacityVirtual;
         return this;
     }
-
 
     /**
      * Indicates whether a given session has unlimited virtual capacity.
@@ -978,7 +976,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can waitlist the virtual portion of the session.
      */
@@ -987,10 +984,9 @@ public class Session {
         return this;
     }
 
-
     /**
      * The timezone of the event that the session is associated with
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -998,7 +994,6 @@ public class Session {
         this.timezone = timezone;
         return this;
     }
-
 
     /**
      * Indicates whether to display the session on Agenda.
@@ -1008,7 +1003,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * Indicates if the session is featured
      */
@@ -1016,7 +1010,6 @@ public class Session {
         this.featured = featured;
         return this;
     }
-
 
     /**
      * The id of the session group, if the session belongs to one
@@ -1026,7 +1019,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The ids of the admission items, if the session is included with any.
      */
@@ -1034,7 +1026,6 @@ public class Session {
         this.admissionItems = admissionItems;
         return this;
     }
-
 
     /**
      * Indicates if the session is open for registration.
@@ -1044,7 +1035,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * Indicates if the session is open for AttendeeHub.
      */
@@ -1052,7 +1042,6 @@ public class Session {
         this.openForAttendeeHub = openForAttendeeHub;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for registration types associated with this session
@@ -1062,7 +1051,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The presentation type of the session.
      */
@@ -1070,7 +1058,6 @@ public class Session {
         this.presentationType = presentationType;
         return this;
     }
-
 
     /**
      * A tag associated with the session.
@@ -1080,7 +1067,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
      */
@@ -1088,7 +1074,6 @@ public class Session {
         this.customFields = customFields;
         return this;
     }
-
 
     /**
      * Contains unique identifiers for segments associated with this session.
@@ -1098,7 +1083,6 @@ public class Session {
         return this;
     }
 
-
     /**
      * The display order of session, set by planner for concurrent sessions
      */
@@ -1106,7 +1090,6 @@ public class Session {
         this.order = order;
         return this;
     }
-
 
     /**
      * Indicator to specify if this session was automatically included with the event.
@@ -1116,19 +1099,17 @@ public class Session {
         return this;
     }
 
-
     /**
      * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
      * the search result. Larger numbers represent higher relevance with respect to other search results in
      * the request.
-     * 
+     *
      * <p>Null if no `match` filter is provided.
      */
     public Session withRelevance(@Nullable Double relevance) {
         this.relevance = relevance;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1139,117 +1120,185 @@ public class Session {
             return false;
         }
         Session other = (Session) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.virtual, other.virtual) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.automaticallyOpensOn, other.automaticallyOpensOn) &&
-            Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn) &&
-            Utils.enhancedDeepEquals(this.enableWaitlist, other.enableWaitlist) &&
-            Utils.enhancedDeepEquals(this.waitlistCapacity, other.waitlistCapacity) &&
-            Utils.enhancedDeepEquals(this.enableWaitlistVirtual, other.enableWaitlistVirtual) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.capacityUnlimited, other.capacityUnlimited) &&
-            Utils.enhancedDeepEquals(this.capacityVirtual, other.capacityVirtual) &&
-            Utils.enhancedDeepEquals(this.virtualCapacityUnlimited, other.virtualCapacityUnlimited) &&
-            Utils.enhancedDeepEquals(this.waitlistCapacityVirtual, other.waitlistCapacityVirtual) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.displayOnAgenda, other.displayOnAgenda) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.group, other.group) &&
-            Utils.enhancedDeepEquals(this.admissionItems, other.admissionItems) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.openForAttendeeHub, other.openForAttendeeHub) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.presentationType, other.presentationType) &&
-            Utils.enhancedDeepEquals(this.dataTagCode, other.dataTagCode) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.segments, other.segments) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.includedSession, other.includedSession) &&
-            Utils.enhancedDeepEquals(this.relevance, other.relevance);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.virtual, other.virtual)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.automaticallyOpensOn, other.automaticallyOpensOn)
+                && Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn)
+                && Utils.enhancedDeepEquals(this.enableWaitlist, other.enableWaitlist)
+                && Utils.enhancedDeepEquals(this.waitlistCapacity, other.waitlistCapacity)
+                && Utils.enhancedDeepEquals(this.enableWaitlistVirtual, other.enableWaitlistVirtual)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.capacityUnlimited, other.capacityUnlimited)
+                && Utils.enhancedDeepEquals(this.capacityVirtual, other.capacityVirtual)
+                && Utils.enhancedDeepEquals(this.virtualCapacityUnlimited, other.virtualCapacityUnlimited)
+                && Utils.enhancedDeepEquals(this.waitlistCapacityVirtual, other.waitlistCapacityVirtual)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.displayOnAgenda, other.displayOnAgenda)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.group, other.group)
+                && Utils.enhancedDeepEquals(this.admissionItems, other.admissionItems)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.openForAttendeeHub, other.openForAttendeeHub)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.presentationType, other.presentationType)
+                && Utils.enhancedDeepEquals(this.dataTagCode, other.dataTagCode)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.segments, other.segments)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.includedSession, other.includedSession)
+                && Utils.enhancedDeepEquals(this.relevance, other.relevance);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, virtual,
-            event, title, code,
-            category, type, location,
-            description, start, end,
-            status, automaticallyOpensOn, automaticallyClosesOn,
-            enableWaitlist, waitlistCapacity, enableWaitlistVirtual,
-            capacity, capacityUnlimited, capacityVirtual,
-            virtualCapacityUnlimited, waitlistCapacityVirtual, timezone,
-            displayOnAgenda, featured, group,
-            admissionItems, openForRegistration, openForAttendeeHub,
-            registrationTypes, presentationType, dataTagCode,
-            customFields, segments, order,
-            includedSession, relevance);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                virtual,
+                event,
+                title,
+                code,
+                category,
+                type,
+                location,
+                description,
+                start,
+                end,
+                status,
+                automaticallyOpensOn,
+                automaticallyClosesOn,
+                enableWaitlist,
+                waitlistCapacity,
+                enableWaitlistVirtual,
+                capacity,
+                capacityUnlimited,
+                capacityVirtual,
+                virtualCapacityUnlimited,
+                waitlistCapacityVirtual,
+                timezone,
+                displayOnAgenda,
+                featured,
+                group,
+                admissionItems,
+                openForRegistration,
+                openForAttendeeHub,
+                registrationTypes,
+                presentationType,
+                dataTagCode,
+                customFields,
+                segments,
+                order,
+                includedSession,
+                relevance);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Session.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "virtual", virtual,
-                "event", event,
-                "title", title,
-                "code", code,
-                "category", category,
-                "type", type,
-                "location", location,
-                "description", description,
-                "start", start,
-                "end", end,
-                "status", status,
-                "automaticallyOpensOn", automaticallyOpensOn,
-                "automaticallyClosesOn", automaticallyClosesOn,
-                "enableWaitlist", enableWaitlist,
-                "waitlistCapacity", waitlistCapacity,
-                "enableWaitlistVirtual", enableWaitlistVirtual,
-                "capacity", capacity,
-                "capacityUnlimited", capacityUnlimited,
-                "capacityVirtual", capacityVirtual,
-                "virtualCapacityUnlimited", virtualCapacityUnlimited,
-                "waitlistCapacityVirtual", waitlistCapacityVirtual,
-                "timezone", timezone,
-                "displayOnAgenda", displayOnAgenda,
-                "featured", featured,
-                "group", group,
-                "admissionItems", admissionItems,
-                "openForRegistration", openForRegistration,
-                "openForAttendeeHub", openForAttendeeHub,
-                "registrationTypes", registrationTypes,
-                "presentationType", presentationType,
-                "dataTagCode", dataTagCode,
-                "customFields", customFields,
-                "segments", segments,
-                "order", order,
-                "includedSession", includedSession,
-                "relevance", relevance);
+        return Utils.toString(
+                Session.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "virtual",
+                virtual,
+                "event",
+                event,
+                "title",
+                title,
+                "code",
+                code,
+                "category",
+                category,
+                "type",
+                type,
+                "location",
+                location,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "status",
+                status,
+                "automaticallyOpensOn",
+                automaticallyOpensOn,
+                "automaticallyClosesOn",
+                automaticallyClosesOn,
+                "enableWaitlist",
+                enableWaitlist,
+                "waitlistCapacity",
+                waitlistCapacity,
+                "enableWaitlistVirtual",
+                enableWaitlistVirtual,
+                "capacity",
+                capacity,
+                "capacityUnlimited",
+                capacityUnlimited,
+                "capacityVirtual",
+                capacityVirtual,
+                "virtualCapacityUnlimited",
+                virtualCapacityUnlimited,
+                "waitlistCapacityVirtual",
+                waitlistCapacityVirtual,
+                "timezone",
+                timezone,
+                "displayOnAgenda",
+                displayOnAgenda,
+                "featured",
+                featured,
+                "group",
+                group,
+                "admissionItems",
+                admissionItems,
+                "openForRegistration",
+                openForRegistration,
+                "openForAttendeeHub",
+                openForAttendeeHub,
+                "registrationTypes",
+                registrationTypes,
+                "presentationType",
+                presentationType,
+                "dataTagCode",
+                dataTagCode,
+                "customFields",
+                customFields,
+                "segments",
+                segments,
+                "order",
+                order,
+                "includedSession",
+                includedSession,
+                "relevance",
+                relevance);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1335,7 +1384,7 @@ public class Session {
         private Double relevance;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1434,11 +1483,11 @@ public class Session {
         /**
          * Detailed description of the session. HTML is supported, but only a limited set of elements and
          * attributes are allowed. Use of HTML will count towards the character limit.
-         * 
+         *
          * <p>Planners are responsible for confirming the visual output of HTML content.
-         * 
+         *
          * <p>Allowed elements: b, strong, i, em, u, a, strike, del, s, sup, sub, ul, ol, li, p, font, mark, span
-         * 
+         *
          * <p>Allowed attributes:
          * - color on font
          * - style on p, font, li, ul, ol, span
@@ -1555,7 +1604,7 @@ public class Session {
 
         /**
          * The timezone of the event that the session is associated with
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1672,7 +1721,7 @@ public class Session {
          * Returned when the `match` filter is applied. Indicates how relevant the `match` filter term is to
          * the search result. Larger numbers represent higher relevance with respect to other search results in
          * the request.
-         * 
+         *
          * <p>Null if no `match` filter is provided.
          */
         public Builder relevance(@Nullable Double relevance) {
@@ -1682,33 +1731,53 @@ public class Session {
 
         public Session build() {
             return new Session(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, virtual,
-                event, title, code,
-                category, type, location,
-                description, start, end,
-                status, automaticallyOpensOn, automaticallyClosesOn,
-                enableWaitlist, waitlistCapacity, enableWaitlistVirtual,
-                capacity, capacityUnlimited, capacityVirtual,
-                virtualCapacityUnlimited, waitlistCapacityVirtual, timezone,
-                displayOnAgenda, featured, group,
-                admissionItems, openForRegistration, openForAttendeeHub,
-                registrationTypes, presentationType, dataTagCode,
-                customFields, segments, order,
-                includedSession, relevance);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    virtual,
+                    event,
+                    title,
+                    code,
+                    category,
+                    type,
+                    location,
+                    description,
+                    start,
+                    end,
+                    status,
+                    automaticallyOpensOn,
+                    automaticallyClosesOn,
+                    enableWaitlist,
+                    waitlistCapacity,
+                    enableWaitlistVirtual,
+                    capacity,
+                    capacityUnlimited,
+                    capacityVirtual,
+                    virtualCapacityUnlimited,
+                    waitlistCapacityVirtual,
+                    timezone,
+                    displayOnAgenda,
+                    featured,
+                    group,
+                    admissionItems,
+                    openForRegistration,
+                    openForAttendeeHub,
+                    registrationTypes,
+                    presentationType,
+                    dataTagCode,
+                    customFields,
+                    segments,
+                    order,
+                    includedSession,
+                    relevance);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_DisplayOnAgenda =
-                new LazySingletonValue<>(
-                        "displayOnAgenda",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("displayOnAgenda", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludedSession =
-                new LazySingletonValue<>(
-                        "includedSession",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includedSession", "false", new TypeReference<Boolean>() {});
     }
 }

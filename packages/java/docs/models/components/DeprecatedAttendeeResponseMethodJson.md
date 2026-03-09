@@ -4,6 +4,14 @@ Method by which attendee registered for the event. Note: This field is deprecate
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.DeprecatedAttendeeResponseMethodJson;
+
+DeprecatedAttendeeResponseMethodJson value = DeprecatedAttendeeResponseMethodJson.ADMINISTRATOR_RESPONDED;
+```
+
 
 ## Values
 

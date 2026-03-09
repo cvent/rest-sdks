@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EventAsyncResponse
- * 
+ *
  * <p>Asynchronous event operation job details.
  */
 public class EventAsyncResponse {
@@ -31,12 +31,10 @@ public class EventAsyncResponse {
 
     @JsonCreator
     public EventAsyncResponse(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("status") @Nonnull EventAsyncResponseStatus status) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+            @JsonProperty("id") @Nonnull String id, @JsonProperty("status") @Nonnull EventAsyncResponseStatus status) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
     }
 
     /**
@@ -57,7 +55,6 @@ public class EventAsyncResponse {
         return new Builder();
     }
 
-
     /**
      * The identifier to be used to get the async status of the event being created or copied.
      */
@@ -66,7 +63,6 @@ public class EventAsyncResponse {
         return this;
     }
 
-
     /**
      * The status of the event being created or copied.
      */
@@ -74,7 +70,6 @@ public class EventAsyncResponse {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +80,28 @@ public class EventAsyncResponse {
             return false;
         }
         EventAsyncResponse other = (EventAsyncResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status);
+        return Utils.enhancedHash(id, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventAsyncResponse.class,
-                "id", id,
-                "status", status);
+        return Utils.toString(EventAsyncResponse.class, "id", id, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private EventAsyncResponseStatus status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +121,7 @@ public class EventAsyncResponse {
         }
 
         public EventAsyncResponse build() {
-            return new EventAsyncResponse(
-                id, status);
+            return new EventAsyncResponse(id, status);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListLocationsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListLocationsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable LocationsPaginatedResponse locationsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.locationsPaginatedResponse = locationsPaginatedResponse;
     }
-    
+
     public ListLocationsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListLocationsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListLocationsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListLocationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListLocationsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of appointment locations for a particular appointment event.
      */
-    public ListLocationsResponse withLocationsPaginatedResponse(@Nullable LocationsPaginatedResponse locationsPaginatedResponse) {
+    public ListLocationsResponse withLocationsPaginatedResponse(
+            @Nullable LocationsPaginatedResponse locationsPaginatedResponse) {
         this.locationsPaginatedResponse = locationsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListLocationsResponse implements Response {
             return false;
         }
         ListLocationsResponse other = (ListLocationsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.locationsPaginatedResponse, other.locationsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.locationsPaginatedResponse, other.locationsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            locationsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, locationsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListLocationsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "locationsPaginatedResponse", locationsPaginatedResponse);
+        return Utils.toString(
+                ListLocationsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "locationsPaginatedResponse",
+                locationsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListLocationsResponse implements Response {
         private LocationsPaginatedResponse locationsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class ListLocationsResponse implements Response {
         }
 
         public ListLocationsResponse build() {
-            return new ListLocationsResponse(
-                contentType, statusCode, rawResponse,
-                locationsPaginatedResponse);
+            return new ListLocationsResponse(contentType, statusCode, rawResponse, locationsPaginatedResponse);
         }
-
     }
 }

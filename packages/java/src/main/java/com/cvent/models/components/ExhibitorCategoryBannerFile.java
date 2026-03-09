@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryBannerFile
- * 
+ *
  * <p>A JSON schema for the exhibitor category banner file.
  */
 public class ExhibitorCategoryBannerFile {
@@ -40,7 +40,7 @@ public class ExhibitorCategoryBannerFile {
         this.file = file;
         this.href = href;
     }
-    
+
     public ExhibitorCategoryBannerFile() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class ExhibitorCategoryBannerFile {
         return new Builder();
     }
 
-
     /**
      * File properties for the exhibitor category banner file.
      */
@@ -72,7 +71,6 @@ public class ExhibitorCategoryBannerFile {
         return this;
     }
 
-
     /**
      * URL of a exhibitor category banner image
      */
@@ -80,7 +78,6 @@ public class ExhibitorCategoryBannerFile {
         this.href = href;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class ExhibitorCategoryBannerFile {
             return false;
         }
         ExhibitorCategoryBannerFile other = (ExhibitorCategoryBannerFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file) &&
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.file, other.file) && Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file, href);
+        return Utils.enhancedHash(file, href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorCategoryBannerFile.class,
-                "file", file,
-                "href", href);
+        return Utils.toString(ExhibitorCategoryBannerFile.class, "file", file, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorCategoryBannerFileFile file;
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class ExhibitorCategoryBannerFile {
         }
 
         public ExhibitorCategoryBannerFile build() {
-            return new ExhibitorCategoryBannerFile(
-                file, href);
+            return new ExhibitorCategoryBannerFile(file, href);
         }
-
     }
 }

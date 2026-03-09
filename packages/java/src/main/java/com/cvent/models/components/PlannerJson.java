@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PlannerJson
- * 
+ *
  * <p>Represents a planner for an appointment event and the planner's related details.
  */
 public class PlannerJson {
@@ -76,10 +76,9 @@ public class PlannerJson {
         this.title = title;
         this.prefix = prefix;
     }
-    
+
     public PlannerJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -128,7 +127,6 @@ public class PlannerJson {
         return new Builder();
     }
 
-
     /**
      * The first name of the planner.
      */
@@ -136,7 +134,6 @@ public class PlannerJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * The last name of the planner.
@@ -146,7 +143,6 @@ public class PlannerJson {
         return this;
     }
 
-
     /**
      * The email address of the planner.
      */
@@ -154,7 +150,6 @@ public class PlannerJson {
         this.email = email;
         return this;
     }
-
 
     /**
      * The company/organization the planner belongs to.
@@ -164,7 +159,6 @@ public class PlannerJson {
         return this;
     }
 
-
     /**
      * The job title of the planner.
      */
@@ -173,7 +167,6 @@ public class PlannerJson {
         return this;
     }
 
-
     /**
      * Denotes what is traditionally a title of an individual.
      */
@@ -181,7 +174,6 @@ public class PlannerJson {
         this.prefix = prefix;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -192,35 +184,39 @@ public class PlannerJson {
             return false;
         }
         PlannerJson other = (PlannerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.prefix, other.prefix);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.prefix, other.prefix);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, email,
-            company, title, prefix);
+        return Utils.enhancedHash(firstName, lastName, email, company, title, prefix);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PlannerJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email,
-                "company", company,
-                "title", title,
-                "prefix", prefix);
+        return Utils.toString(
+                PlannerJson.class,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "email",
+                email,
+                "company",
+                company,
+                "title",
+                title,
+                "prefix",
+                prefix);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -235,7 +231,7 @@ public class PlannerJson {
         private String prefix;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -287,10 +283,7 @@ public class PlannerJson {
         }
 
         public PlannerJson build() {
-            return new PlannerJson(
-                firstName, lastName, email,
-                company, title, prefix);
+            return new PlannerJson(firstName, lastName, email, company, title, prefix);
         }
-
     }
 }

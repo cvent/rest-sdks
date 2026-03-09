@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTablesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class ListTablesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable TablesPaginatedResponse tablesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.tablesPaginatedResponse = tablesPaginatedResponse;
     }
-    
-    public ListTablesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public ListTablesResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class ListTablesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class ListTablesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class ListTablesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +111,6 @@ public class ListTablesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of tables.
      */
@@ -127,7 +118,6 @@ public class ListTablesResponse implements AsyncResponse {
         this.tablesPaginatedResponse = tablesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +128,33 @@ public class ListTablesResponse implements AsyncResponse {
             return false;
         }
         ListTablesResponse other = (ListTablesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.tablesPaginatedResponse, other.tablesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.tablesPaginatedResponse, other.tablesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            tablesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, tablesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTablesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "tablesPaginatedResponse", tablesPaginatedResponse);
+        return Utils.toString(
+                ListTablesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "tablesPaginatedResponse",
+                tablesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +165,7 @@ public class ListTablesResponse implements AsyncResponse {
         private TablesPaginatedResponse tablesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +201,7 @@ public class ListTablesResponse implements AsyncResponse {
         }
 
         public ListTablesResponse build() {
-            return new ListTablesResponse(
-                contentType, statusCode, rawResponse,
-                tablesPaginatedResponse);
+            return new ListTablesResponse(contentType, statusCode, rawResponse, tablesPaginatedResponse);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestBulkResponseItemJson
- * 
+ *
  * <p>Represents a single meeting request that's returned as part of a bulk request call.
  */
 public class MeetingRequestBulkResponseItemJson {
@@ -52,18 +52,14 @@ public class MeetingRequestBulkResponseItemJson {
             @JsonProperty("status") long status,
             @JsonProperty("message") @Nullable String message,
             @JsonProperty("request") @Nullable Request request) {
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
         this.status = status;
         this.message = message;
         this.request = request;
     }
-    
-    public MeetingRequestBulkResponseItemJson(
-            @Nonnull MeetingRequest data,
-            long status) {
-        this(data, status, null,
-            null);
+
+    public MeetingRequestBulkResponseItemJson(@Nonnull MeetingRequest data, long status) {
+        this(data, status, null, null);
     }
 
     /**
@@ -98,7 +94,6 @@ public class MeetingRequestBulkResponseItemJson {
         return new Builder();
     }
 
-
     /**
      * A meeting request.
      */
@@ -106,7 +101,6 @@ public class MeetingRequestBulkResponseItemJson {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     /**
      * HTTP status code representing the processing status of a single item.
@@ -116,7 +110,6 @@ public class MeetingRequestBulkResponseItemJson {
         return this;
     }
 
-
     /**
      * Quick description of what happened during processing.
      */
@@ -125,7 +118,6 @@ public class MeetingRequestBulkResponseItemJson {
         return this;
     }
 
-
     /**
      * The processed request tied to this response. This field is only sent when processing fails.
      */
@@ -133,7 +125,6 @@ public class MeetingRequestBulkResponseItemJson {
         this.request = request;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -144,31 +135,33 @@ public class MeetingRequestBulkResponseItemJson {
             return false;
         }
         MeetingRequestBulkResponseItemJson other = (MeetingRequestBulkResponseItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.request, other.request);
+        return Utils.enhancedDeepEquals(this.data, other.data)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.request, other.request);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data, status, message,
-            request);
+        return Utils.enhancedHash(data, status, message, request);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestBulkResponseItemJson.class,
-                "data", data,
-                "status", status,
-                "message", message,
-                "request", request);
+        return Utils.toString(
+                MeetingRequestBulkResponseItemJson.class,
+                "data",
+                data,
+                "status",
+                status,
+                "message",
+                message,
+                "request",
+                request);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private MeetingRequest data;
 
@@ -179,7 +172,7 @@ public class MeetingRequestBulkResponseItemJson {
         private Request request;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -215,10 +208,7 @@ public class MeetingRequestBulkResponseItemJson {
         }
 
         public MeetingRequestBulkResponseItemJson build() {
-            return new MeetingRequestBulkResponseItemJson(
-                data, status, message,
-                request);
+            return new MeetingRequestBulkResponseItemJson(data, status, message, request);
         }
-
     }
 }

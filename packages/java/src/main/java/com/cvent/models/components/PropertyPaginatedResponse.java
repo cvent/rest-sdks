@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * PropertyPaginatedResponse
- * 
+ *
  * <p>A list of properties.
  */
 public class PropertyPaginatedResponse {
@@ -36,12 +36,11 @@ public class PropertyPaginatedResponse {
 
     @JsonCreator
     public PropertyPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<Property> data) {
+            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nullable List<Property> data) {
         this.paging = paging;
         this.data = data;
     }
-    
+
     public PropertyPaginatedResponse() {
         this(null, null);
     }
@@ -64,7 +63,6 @@ public class PropertyPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -73,7 +71,6 @@ public class PropertyPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of properties and their related details.
      */
@@ -81,7 +78,6 @@ public class PropertyPaginatedResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +88,28 @@ public class PropertyPaginatedResponse {
             return false;
         }
         PropertyPaginatedResponse other = (PropertyPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(PropertyPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<Property> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +129,7 @@ public class PropertyPaginatedResponse {
         }
 
         public PropertyPaginatedResponse build() {
-            return new PropertyPaginatedResponse(
-                paging, data);
+            return new PropertyPaginatedResponse(paging, data);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AnswerJson1
- * 
+ *
  * <p>A survey answer.
  */
 public class AnswerJson1 {
@@ -72,19 +72,16 @@ public class AnswerJson1 {
             @JsonProperty("category") @Nullable UuidJson category,
             @JsonProperty("subCategory") @Nullable UuidJson subCategory,
             @JsonProperty("field") @Nullable UuidJson field) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.value = value;
         this.choice = choice;
         this.category = category;
         this.subCategory = subCategory;
         this.field = field;
     }
-    
-    public AnswerJson1(
-            @Nonnull AnswerTypeJson1 type) {
-        this(type, null, null,
-            null, null, null);
+
+    public AnswerJson1(@Nonnull AnswerTypeJson1 type) {
+        this(type, null, null, null, null, null);
     }
 
     /**
@@ -136,7 +133,6 @@ public class AnswerJson1 {
         return new Builder();
     }
 
-
     /**
      * Type of answer
      */
@@ -144,7 +140,6 @@ public class AnswerJson1 {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * Value property is used to send information like string, number and date in case of following types
@@ -157,7 +152,6 @@ public class AnswerJson1 {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -165,7 +159,6 @@ public class AnswerJson1 {
         this.choice = choice;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -175,7 +168,6 @@ public class AnswerJson1 {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -184,7 +176,6 @@ public class AnswerJson1 {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -192,7 +183,6 @@ public class AnswerJson1 {
         this.field = field;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -203,35 +193,39 @@ public class AnswerJson1 {
             return false;
         }
         AnswerJson1 other = (AnswerJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.choice, other.choice) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.subCategory, other.subCategory) &&
-            Utils.enhancedDeepEquals(this.field, other.field);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.choice, other.choice)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
+                && Utils.enhancedDeepEquals(this.field, other.field);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, value, choice,
-            category, subCategory, field);
+        return Utils.enhancedHash(type, value, choice, category, subCategory, field);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnswerJson1.class,
-                "type", type,
-                "value", value,
-                "choice", choice,
-                "category", category,
-                "subCategory", subCategory,
-                "field", field);
+        return Utils.toString(
+                AnswerJson1.class,
+                "type",
+                type,
+                "value",
+                value,
+                "choice",
+                choice,
+                "category",
+                category,
+                "subCategory",
+                subCategory,
+                "field",
+                field);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AnswerTypeJson1 type;
 
@@ -246,7 +240,7 @@ public class AnswerJson1 {
         private UuidJson field;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -301,10 +295,7 @@ public class AnswerJson1 {
         }
 
         public AnswerJson1 build() {
-            return new AnswerJson1(
-                type, value, choice,
-                category, subCategory, field);
+            return new AnswerJson1(type, value, choice, category, subCategory, field);
         }
-
     }
 }

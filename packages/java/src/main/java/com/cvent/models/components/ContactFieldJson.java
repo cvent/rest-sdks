@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ContactFieldJson
- * 
+ *
  * <p>Contains contact data. For example, a User's email address.
  */
 public class ContactFieldJson {
@@ -59,23 +59,16 @@ public class ContactFieldJson {
             @JsonProperty("maximumLength") long maximumLength,
             @JsonProperty("type") @Nonnull ContactFieldJsonType type,
             @JsonProperty("value") @Nullable List<String> value) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.maximumLength = maximumLength;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.value = value;
     }
-    
+
     public ContactFieldJson(
-            @Nonnull String id,
-            @Nonnull String name,
-            long maximumLength,
-            @Nonnull ContactFieldJsonType type) {
-        this(id, name, maximumLength,
-            type, null);
+            @Nonnull String id, @Nonnull String name, long maximumLength, @Nonnull ContactFieldJsonType type) {
+        this(id, name, maximumLength, type, null);
     }
 
     /**
@@ -117,7 +110,6 @@ public class ContactFieldJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the field supported by Cvent.
      */
@@ -125,7 +117,6 @@ public class ContactFieldJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The name of the field.
@@ -135,7 +126,6 @@ public class ContactFieldJson {
         return this;
     }
 
-
     /**
      * The maximum length allowed for a value.
      */
@@ -143,7 +133,6 @@ public class ContactFieldJson {
         this.maximumLength = maximumLength;
         return this;
     }
-
 
     /**
      * The type of the field.
@@ -153,7 +142,6 @@ public class ContactFieldJson {
         return this;
     }
 
-
     /**
      * The value(s) of the field.
      */
@@ -161,7 +149,6 @@ public class ContactFieldJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,33 +159,36 @@ public class ContactFieldJson {
             return false;
         }
         ContactFieldJson other = (ContactFieldJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.maximumLength, other.maximumLength) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.maximumLength, other.maximumLength)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, maximumLength,
-            type, value);
+        return Utils.enhancedHash(id, name, maximumLength, type, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactFieldJson.class,
-                "id", id,
-                "name", name,
-                "maximumLength", maximumLength,
-                "type", type,
-                "value", value);
+        return Utils.toString(
+                ContactFieldJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "maximumLength",
+                maximumLength,
+                "type",
+                type,
+                "value",
+                value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -211,7 +201,7 @@ public class ContactFieldJson {
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,10 +245,7 @@ public class ContactFieldJson {
         }
 
         public ContactFieldJson build() {
-            return new ContactFieldJson(
-                id, name, maximumLength,
-                type, value);
+            return new ContactFieldJson(id, name, maximumLength, type, value);
         }
-
     }
 }

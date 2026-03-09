@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ThumbnailStatusJson
     {
-        [JsonProperty("Started")]
-        Started,
-        [JsonProperty("Uploaded")]
-        Uploaded,
-        [JsonProperty("Processing")]
-        Processing,
-        [JsonProperty("Available")]
-        Available,
-        [JsonProperty("Rejected")]
-        Rejected,
+        [JsonProperty("Started")] Started,
+        [JsonProperty("Uploaded")] Uploaded,
+        [JsonProperty("Processing")] Processing,
+        [JsonProperty("Available")] Available,
+        [JsonProperty("Rejected")] Rejected,
     }
 
     public static class ThumbnailStatusJsonExtension
     {
         public static string Value(this ThumbnailStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ThumbnailStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ThumbnailStatusJson).GetFields())
+            foreach (var field in typeof(ThumbnailStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

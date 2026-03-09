@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorVirtualBoothJoined
- * 
+ *
  * <p>An exhibitor virtual-booth-joined activity.
  */
 public class ExhibitorVirtualBoothJoined {
@@ -58,10 +58,9 @@ public class ExhibitorVirtualBoothJoined {
         this.sponsorshipLevel = sponsorshipLevel;
         this.solutionType = solutionType;
     }
-    
+
     public ExhibitorVirtualBoothJoined() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ExhibitorVirtualBoothJoined {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -104,7 +102,6 @@ public class ExhibitorVirtualBoothJoined {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -114,15 +111,14 @@ public class ExhibitorVirtualBoothJoined {
         return this;
     }
 
-
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public ExhibitorVirtualBoothJoined withSponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+    public ExhibitorVirtualBoothJoined withSponsorshipLevel(
+            @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
-
 
     /**
      * The solution type used for the virtual booth.
@@ -131,7 +127,6 @@ public class ExhibitorVirtualBoothJoined {
         this.solutionType = solutionType;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +137,33 @@ public class ExhibitorVirtualBoothJoined {
             return false;
         }
         ExhibitorVirtualBoothJoined other = (ExhibitorVirtualBoothJoined) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel) &&
-            Utils.enhancedDeepEquals(this.solutionType, other.solutionType);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel)
+                && Utils.enhancedDeepEquals(this.solutionType, other.solutionType);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, sponsorshipLevel,
-            solutionType);
+        return Utils.enhancedHash(exhibitor, platform, sponsorshipLevel, solutionType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorVirtualBoothJoined.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "sponsorshipLevel", sponsorshipLevel,
-                "solutionType", solutionType);
+        return Utils.toString(
+                ExhibitorVirtualBoothJoined.class,
+                "exhibitor",
+                exhibitor,
+                "platform",
+                platform,
+                "sponsorshipLevel",
+                sponsorshipLevel,
+                "solutionType",
+                solutionType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -177,7 +174,7 @@ public class ExhibitorVirtualBoothJoined {
         private String solutionType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +210,7 @@ public class ExhibitorVirtualBoothJoined {
         }
 
         public ExhibitorVirtualBoothJoined build() {
-            return new ExhibitorVirtualBoothJoined(
-                exhibitor, platform, sponsorshipLevel,
-                solutionType);
+            return new ExhibitorVirtualBoothJoined(exhibitor, platform, sponsorshipLevel, solutionType);
         }
-
     }
 }

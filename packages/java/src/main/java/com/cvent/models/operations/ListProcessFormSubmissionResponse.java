@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListProcessFormSubmissionResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListProcessFormSubmissionResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.processFormSubmissionsPaginatedResponse = processFormSubmissionsPaginatedResponse;
     }
-    
+
     public ListProcessFormSubmissionResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListProcessFormSubmissionResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListProcessFormSubmissionResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListProcessFormSubmissionResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListProcessFormSubmissionResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of process form submissions.
      */
-    public ListProcessFormSubmissionResponse withProcessFormSubmissionsPaginatedResponse(@Nullable ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse) {
+    public ListProcessFormSubmissionResponse withProcessFormSubmissionsPaginatedResponse(
+            @Nullable ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse) {
         this.processFormSubmissionsPaginatedResponse = processFormSubmissionsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class ListProcessFormSubmissionResponse implements Response {
             return false;
         }
         ListProcessFormSubmissionResponse other = (ListProcessFormSubmissionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.processFormSubmissionsPaginatedResponse, other.processFormSubmissionsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.processFormSubmissionsPaginatedResponse, other.processFormSubmissionsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            processFormSubmissionsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, processFormSubmissionsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListProcessFormSubmissionResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "processFormSubmissionsPaginatedResponse", processFormSubmissionsPaginatedResponse);
+        return Utils.toString(
+                ListProcessFormSubmissionResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "processFormSubmissionsPaginatedResponse",
+                processFormSubmissionsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class ListProcessFormSubmissionResponse implements Response {
         private ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class ListProcessFormSubmissionResponse implements Response {
         /**
          * Successfully retrieved a paginated list of process form submissions.
          */
-        public Builder processFormSubmissionsPaginatedResponse(@Nullable ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse) {
+        public Builder processFormSubmissionsPaginatedResponse(
+                @Nullable ProcessFormSubmissionsPaginatedResponse processFormSubmissionsPaginatedResponse) {
             this.processFormSubmissionsPaginatedResponse = processFormSubmissionsPaginatedResponse;
             return this;
         }
 
         public ListProcessFormSubmissionResponse build() {
             return new ListProcessFormSubmissionResponse(
-                contentType, statusCode, rawResponse,
-                processFormSubmissionsPaginatedResponse);
+                    contentType, statusCode, rawResponse, processFormSubmissionsPaginatedResponse);
         }
-
     }
 }

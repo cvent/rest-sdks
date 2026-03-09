@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionFeedbackSubmitted
- * 
+ *
  * <p>A session feedback-submitted activity.
  */
 public class SessionFeedbackSubmitted {
@@ -40,7 +40,7 @@ public class SessionFeedbackSubmitted {
         this.session = session;
         this.survey = survey;
     }
-    
+
     public SessionFeedbackSubmitted() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class SessionFeedbackSubmitted {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -72,7 +71,6 @@ public class SessionFeedbackSubmitted {
         return this;
     }
 
-
     /**
      * A survey response.
      */
@@ -80,7 +78,6 @@ public class SessionFeedbackSubmitted {
         this.survey = survey;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class SessionFeedbackSubmitted {
             return false;
         }
         SessionFeedbackSubmitted other = (SessionFeedbackSubmitted) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey);
+        return Utils.enhancedDeepEquals(this.session, other.session) && Utils.enhancedDeepEquals(this.survey, other.survey);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, survey);
+        return Utils.enhancedHash(session, survey);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionFeedbackSubmitted.class,
-                "session", session,
-                "survey", survey);
+        return Utils.toString(SessionFeedbackSubmitted.class, "session", session, "survey", survey);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity4 session;
 
         private SurveyResponseJson survey;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class SessionFeedbackSubmitted {
         }
 
         public SessionFeedbackSubmitted build() {
-            return new SessionFeedbackSubmitted(
-                session, survey);
+            return new SessionFeedbackSubmitted(session, survey);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class ListSeatingRequestBuilder {
     private ListSeatingRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSeatingRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListSeatingRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSeatingResponse> call() {
-        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation
-              = new ListSeating.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation =
+                new ListSeating.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListSeatingRequestBuilder {
      */
     public Publisher<ListSeatingResponse> callAsPublisher() {
         ListSeatingRequest request = this.request;
-        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation
-              = new ListSeating.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSeatingRequest, ListSeatingResponse> operation =
+                new ListSeating.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSeatingRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSeatingRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListSeatingResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

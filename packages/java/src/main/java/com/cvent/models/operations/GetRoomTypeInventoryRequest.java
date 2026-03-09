@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetRoomTypeInventoryRequest {
     /**
      * ID for a Passkey housing event.
@@ -51,20 +50,20 @@ public class GetRoomTypeInventoryRequest {
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -83,18 +82,13 @@ public class GetRoomTypeInventoryRequest {
         this.housingEventId = housingEventId;
         this.hotelId = hotelId;
         this.roomTypeId = roomTypeId;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetRoomTypeInventoryRequest(
-            long housingEventId,
-            long hotelId,
-            long roomTypeId) {
-        this(housingEventId, hotelId, roomTypeId,
-            null, null, null);
+
+    public GetRoomTypeInventoryRequest(long housingEventId, long hotelId, long roomTypeId) {
+        this(housingEventId, hotelId, roomTypeId, null, null, null);
     }
 
     /**
@@ -137,20 +131,20 @@ public class GetRoomTypeInventoryRequest {
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -163,7 +157,6 @@ public class GetRoomTypeInventoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -171,7 +164,6 @@ public class GetRoomTypeInventoryRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     /**
      * The hotel's unique ID.
@@ -181,7 +173,6 @@ public class GetRoomTypeInventoryRequest {
         return this;
     }
 
-
     /**
      * Room Type ID.
      */
@@ -190,7 +181,6 @@ public class GetRoomTypeInventoryRequest {
         return this;
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
      */
@@ -198,7 +188,6 @@ public class GetRoomTypeInventoryRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -209,25 +198,24 @@ public class GetRoomTypeInventoryRequest {
         return this;
     }
 
-
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -236,7 +224,6 @@ public class GetRoomTypeInventoryRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -247,35 +234,39 @@ public class GetRoomTypeInventoryRequest {
             return false;
         }
         GetRoomTypeInventoryRequest other = (GetRoomTypeInventoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.hotelId, other.hotelId) &&
-            Utils.enhancedDeepEquals(this.roomTypeId, other.roomTypeId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.hotelId, other.hotelId)
+                && Utils.enhancedDeepEquals(this.roomTypeId, other.roomTypeId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, hotelId, roomTypeId,
-            limit, token, filter);
+        return Utils.enhancedHash(housingEventId, hotelId, roomTypeId, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetRoomTypeInventoryRequest.class,
-                "housingEventId", housingEventId,
-                "hotelId", hotelId,
-                "roomTypeId", roomTypeId,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetRoomTypeInventoryRequest.class,
+                "housingEventId",
+                housingEventId,
+                "hotelId",
+                hotelId,
+                "roomTypeId",
+                roomTypeId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -290,7 +281,7 @@ public class GetRoomTypeInventoryRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -338,20 +329,20 @@ public class GetRoomTypeInventoryRequest {
          * "A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
          * is not specified, all inventory dates will be returned."
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * greater than: gt
          * * less than: lt
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* date (eq|le|ge|lt|gt)
-         * 
+         *
          * <p>Limits for the number of fields that can be passed in a filter: 18
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -362,16 +353,10 @@ public class GetRoomTypeInventoryRequest {
         }
 
         public GetRoomTypeInventoryRequest build() {
-            return new GetRoomTypeInventoryRequest(
-                housingEventId, hotelId, roomTypeId,
-                limit, token, filter);
+            return new GetRoomTypeInventoryRequest(housingEventId, hotelId, roomTypeId, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

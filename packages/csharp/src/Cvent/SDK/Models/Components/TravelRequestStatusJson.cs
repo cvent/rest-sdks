@@ -18,38 +18,28 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TravelRequestStatusJson
     {
-        [JsonProperty("SUBMITTED")]
-        Submitted,
-        [JsonProperty("PROCESSING")]
-        Processing,
-        [JsonProperty("APPROVED")]
-        Approved,
-        [JsonProperty("RESERVED")]
-        Reserved,
-        [JsonProperty("DENIED")]
-        Denied,
-        [JsonProperty("NOT_AVAILABLE")]
-        NotAvailable,
-        [JsonProperty("CANCELLED")]
-        Cancelled,
-        [JsonProperty("PENDING")]
-        Pending,
-        [JsonProperty("TICKETED")]
-        Ticketed,
-        [JsonProperty("WAITLISTED")]
-        Waitlisted,
+        [JsonProperty("SUBMITTED")] Submitted,
+        [JsonProperty("PROCESSING")] Processing,
+        [JsonProperty("APPROVED")] Approved,
+        [JsonProperty("RESERVED")] Reserved,
+        [JsonProperty("DENIED")] Denied,
+        [JsonProperty("NOT_AVAILABLE")] NotAvailable,
+        [JsonProperty("CANCELLED")] Cancelled,
+        [JsonProperty("PENDING")] Pending,
+        [JsonProperty("TICKETED")] Ticketed,
+        [JsonProperty("WAITLISTED")] Waitlisted,
     }
 
     public static class TravelRequestStatusJsonExtension
     {
         public static string Value(this TravelRequestStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TravelRequestStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TravelRequestStatusJson).GetFields())
+            foreach (var field in typeof(TravelRequestStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

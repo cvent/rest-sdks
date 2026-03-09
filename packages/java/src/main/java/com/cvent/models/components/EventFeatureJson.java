@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventFeatureJson
- * 
+ *
  * <p>Representation of an event's feature along with its properties
  */
 public class EventFeatureJson {
@@ -84,8 +84,7 @@ public class EventFeatureJson {
             @JsonProperty("availableTiers") @Nullable List<FeatureTierJson> availableTiers,
             @JsonProperty("config") @Nullable EventFeatureJsonConfig config,
             @JsonProperty("weblink") @Nullable String weblink) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.enabled = enabled;
         this.locked = locked;
         this.lockedReason = lockedReason;
@@ -94,14 +93,9 @@ public class EventFeatureJson {
         this.config = config;
         this.weblink = weblink;
     }
-    
-    public EventFeatureJson(
-            @Nonnull FeatureTypeJson type,
-            boolean enabled,
-            boolean locked) {
-        this(type, enabled, locked,
-            null, null, null,
-            null, null);
+
+    public EventFeatureJson(@Nonnull FeatureTypeJson type, boolean enabled, boolean locked) {
+        this(type, enabled, locked, null, null, null, null, null);
     }
 
     /**
@@ -164,7 +158,6 @@ public class EventFeatureJson {
         return new Builder();
     }
 
-
     /**
      * These are the types of features used in the event container events.
      */
@@ -172,7 +165,6 @@ public class EventFeatureJson {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * If a particular feature is enabled for the event
@@ -182,7 +174,6 @@ public class EventFeatureJson {
         return this;
     }
 
-
     /**
      * If a particular feature is locked to perform any mutation over it
      */
@@ -190,7 +181,6 @@ public class EventFeatureJson {
         this.locked = locked;
         return this;
     }
-
 
     /**
      * Generic message informing feature is locked due to some sub-feature/child feature in use
@@ -200,7 +190,6 @@ public class EventFeatureJson {
         return this;
     }
 
-
     /**
      * Represents the type of license that the user can choose.
      */
@@ -208,7 +197,6 @@ public class EventFeatureJson {
         this.enabledTier = enabledTier;
         return this;
     }
-
 
     /**
      * Available feature tiers.
@@ -218,7 +206,6 @@ public class EventFeatureJson {
         return this;
     }
 
-
     /**
      * Feature configuration.
      */
@@ -227,7 +214,6 @@ public class EventFeatureJson {
         return this;
     }
 
-
     /**
      * URL of the feature's webpage.
      */
@@ -235,7 +221,6 @@ public class EventFeatureJson {
         this.weblink = weblink;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -246,40 +231,45 @@ public class EventFeatureJson {
             return false;
         }
         EventFeatureJson other = (EventFeatureJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.enabled, other.enabled) &&
-            Utils.enhancedDeepEquals(this.locked, other.locked) &&
-            Utils.enhancedDeepEquals(this.lockedReason, other.lockedReason) &&
-            Utils.enhancedDeepEquals(this.enabledTier, other.enabledTier) &&
-            Utils.enhancedDeepEquals(this.availableTiers, other.availableTiers) &&
-            Utils.enhancedDeepEquals(this.config, other.config) &&
-            Utils.enhancedDeepEquals(this.weblink, other.weblink);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.enabled, other.enabled)
+                && Utils.enhancedDeepEquals(this.locked, other.locked)
+                && Utils.enhancedDeepEquals(this.lockedReason, other.lockedReason)
+                && Utils.enhancedDeepEquals(this.enabledTier, other.enabledTier)
+                && Utils.enhancedDeepEquals(this.availableTiers, other.availableTiers)
+                && Utils.enhancedDeepEquals(this.config, other.config)
+                && Utils.enhancedDeepEquals(this.weblink, other.weblink);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, enabled, locked,
-            lockedReason, enabledTier, availableTiers,
-            config, weblink);
+        return Utils.enhancedHash(type, enabled, locked, lockedReason, enabledTier, availableTiers, config, weblink);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventFeatureJson.class,
-                "type", type,
-                "enabled", enabled,
-                "locked", locked,
-                "lockedReason", lockedReason,
-                "enabledTier", enabledTier,
-                "availableTiers", availableTiers,
-                "config", config,
-                "weblink", weblink);
+        return Utils.toString(
+                EventFeatureJson.class,
+                "type",
+                type,
+                "enabled",
+                enabled,
+                "locked",
+                locked,
+                "lockedReason",
+                lockedReason,
+                "enabledTier",
+                enabledTier,
+                "availableTiers",
+                availableTiers,
+                "config",
+                config,
+                "weblink",
+                weblink);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private FeatureTypeJson type;
 
@@ -298,7 +288,7 @@ public class EventFeatureJson {
         private String weblink;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -367,10 +357,7 @@ public class EventFeatureJson {
 
         public EventFeatureJson build() {
             return new EventFeatureJson(
-                type, enabled, locked,
-                lockedReason, enabledTier, availableTiers,
-                config, weblink);
+                    type, enabled, locked, lockedReason, enabledTier, availableTiers, config, weblink);
         }
-
     }
 }

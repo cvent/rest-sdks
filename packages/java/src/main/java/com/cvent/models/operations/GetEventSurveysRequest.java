@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetEventSurveysRequest {
     /**
      * Id of an event
@@ -55,12 +54,12 @@ public class GetEventSurveysRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple session IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne) [chapter id of the event survey]
      * * type (eq|ne)
      * * sessions (eq|ne)
@@ -76,20 +75,16 @@ public class GetEventSurveysRequest {
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetEventSurveysRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
+
+    public GetEventSurveysRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
@@ -134,12 +129,12 @@ public class GetEventSurveysRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple session IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne) [chapter id of the event survey]
      * * type (eq|ne)
      * * sessions (eq|ne)
@@ -152,7 +147,6 @@ public class GetEventSurveysRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -160,7 +154,6 @@ public class GetEventSurveysRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -171,7 +164,6 @@ public class GetEventSurveysRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -180,7 +172,6 @@ public class GetEventSurveysRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -188,7 +179,6 @@ public class GetEventSurveysRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -199,18 +189,17 @@ public class GetEventSurveysRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple session IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne) [chapter id of the event survey]
      * * type (eq|ne)
      * * sessions (eq|ne)
@@ -219,7 +208,6 @@ public class GetEventSurveysRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -230,35 +218,39 @@ public class GetEventSurveysRequest {
             return false;
         }
         GetEventSurveysRequest other = (GetEventSurveysRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, after, before,
-            limit, token, filter);
+        return Utils.enhancedHash(id, after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventSurveysRequest.class,
-                "id", id,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetEventSurveysRequest.class,
+                "id",
+                id,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -273,7 +265,7 @@ public class GetEventSurveysRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -323,12 +315,12 @@ public class GetEventSurveysRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * In case user wants to filter on multiple session IDs, they can use 'or' operator.
          * Following are the comparison types that can be used in filter expressions:
-         * 
+         *
          * <p>* equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* id (eq|ne) [chapter id of the event survey]
          * * type (eq|ne)
          * * sessions (eq|ne)
@@ -339,16 +331,10 @@ public class GetEventSurveysRequest {
         }
 
         public GetEventSurveysRequest build() {
-            return new GetEventSurveysRequest(
-                id, after, before,
-                limit, token, filter);
+            return new GetEventSurveysRequest(id, after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

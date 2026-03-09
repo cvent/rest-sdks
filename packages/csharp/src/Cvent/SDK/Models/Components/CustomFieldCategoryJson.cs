@@ -18,40 +18,29 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CustomFieldCategoryJson
     {
-        [JsonProperty("Contact")]
-        Contact,
-        [JsonProperty("Session")]
-        Session,
-        [JsonProperty("Event")]
-        Event,
-        [JsonProperty("Survey")]
-        Survey,
-        [JsonProperty("Campaign")]
-        Campaign,
-        [JsonProperty("Rfp")]
-        Rfp,
-        [JsonProperty("Appointment")]
-        Appointment,
-        [JsonProperty("Resource")]
-        Resource,
-        [JsonProperty("User")]
-        User,
-        [JsonProperty("Abstract")]
-        Abstract,
-        [JsonProperty("Budget Item")]
-        BudgetItem,
+        [JsonProperty("Contact")] Contact,
+        [JsonProperty("Session")] Session,
+        [JsonProperty("Event")] Event,
+        [JsonProperty("Survey")] Survey,
+        [JsonProperty("Campaign")] Campaign,
+        [JsonProperty("Rfp")] Rfp,
+        [JsonProperty("Appointment")] Appointment,
+        [JsonProperty("Resource")] Resource,
+        [JsonProperty("User")] User,
+        [JsonProperty("Abstract")] Abstract,
+        [JsonProperty("Budget Item")] BudgetItem,
     }
 
     public static class CustomFieldCategoryJsonExtension
     {
         public static string Value(this CustomFieldCategoryJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CustomFieldCategoryJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CustomFieldCategoryJson).GetFields())
+            foreach (var field in typeof(CustomFieldCategoryJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

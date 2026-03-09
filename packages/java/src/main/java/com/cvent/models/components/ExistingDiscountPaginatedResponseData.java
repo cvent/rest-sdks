@@ -3,9 +3,9 @@
  */
 package com.cvent.models.components;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import java.lang.String;
 
@@ -14,12 +14,9 @@ import java.lang.String;
         property = "type",
         include = As.EXISTING_PROPERTY,
         visible = true,
-        defaultImpl = UnknownExistingDiscountPaginatedResponseData.class
-)
+        defaultImpl = UnknownExistingDiscountPaginatedResponseData.class)
 @JsonTypeIdResolver(ExistingDiscountPaginatedResponseDataTypeIdResolver.class)
 public interface ExistingDiscountPaginatedResponseData {
 
     String type();
-
 }
-

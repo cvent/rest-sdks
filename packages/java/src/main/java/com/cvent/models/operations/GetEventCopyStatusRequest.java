@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetEventCopyStatusRequest {
     /**
      * Process ID for the async process for copying events.
@@ -20,10 +19,9 @@ public class GetEventCopyStatusRequest {
     private String eventCopyId;
 
     @JsonCreator
-    public GetEventCopyStatusRequest(
-            @Nonnull String eventCopyId) {
+    public GetEventCopyStatusRequest(@Nonnull String eventCopyId) {
         this.eventCopyId = Optional.ofNullable(eventCopyId)
-            .orElseThrow(() -> new IllegalArgumentException("eventCopyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("eventCopyId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetEventCopyStatusRequest {
         return new Builder();
     }
 
-
     /**
      * Process ID for the async process for copying events.
      */
@@ -45,7 +42,6 @@ public class GetEventCopyStatusRequest {
         this.eventCopyId = Utils.checkNotNull(eventCopyId, "eventCopyId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetEventCopyStatusRequest {
             return false;
         }
         GetEventCopyStatusRequest other = (GetEventCopyStatusRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventCopyId, other.eventCopyId);
+        return Utils.enhancedDeepEquals(this.eventCopyId, other.eventCopyId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventCopyId);
+        return Utils.enhancedHash(eventCopyId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventCopyStatusRequest.class,
-                "eventCopyId", eventCopyId);
+        return Utils.toString(GetEventCopyStatusRequest.class, "eventCopyId", eventCopyId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventCopyId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetEventCopyStatusRequest {
         }
 
         public GetEventCopyStatusRequest build() {
-            return new GetEventCopyStatusRequest(
-                eventCopyId);
+            return new GetEventCopyStatusRequest(eventCopyId);
         }
-
     }
 }

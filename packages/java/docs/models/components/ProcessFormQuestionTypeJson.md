@@ -2,6 +2,14 @@
 
 Denotes the type of data collected by a question.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ProcessFormQuestionTypeJson;
+
+ProcessFormQuestionTypeJson value = ProcessFormQuestionTypeJson.COMMENT_BOX;
+```
+
 
 ## Values
 

@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class AttendeeAddBulkItemEventJsonDataType
     {
-        private AttendeeAddBulkItemEventJsonDataType(string value) { Value = value; }
+        private AttendeeAddBulkItemEventJsonDataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static AttendeeAddBulkItemEventJsonDataType ZeroOneOf2 { get { return new AttendeeAddBulkItemEventJsonDataType("0_OneOf_2"); } }
+        public static AttendeeAddBulkItemEventJsonDataType ZeroOneOf2
+        {
+            get {
+                return new AttendeeAddBulkItemEventJsonDataType("0_OneOf_2");
+            }
+        }
 
-        public static AttendeeAddBulkItemEventJsonDataType AttendeeAddBulkItemEventJsonErrorResponse { get { return new AttendeeAddBulkItemEventJsonDataType("attendee-add-bulk-item-event.json_ErrorResponse"); } }
+        public static AttendeeAddBulkItemEventJsonDataType AttendeeAddBulkItemEventJsonErrorResponse
+        {
+            get {
+                return new AttendeeAddBulkItemEventJsonDataType("attendee-add-bulk-item-event.json_ErrorResponse");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(AttendeeAddBulkItemEventJsonDataType v) { return v.Value; }
-        public static AttendeeAddBulkItemEventJsonDataType FromString(string v) {
-            switch(v) {
-                case "0_OneOf_2": return ZeroOneOf2;
-                case "attendee-add-bulk-item-event.json_ErrorResponse": return AttendeeAddBulkItemEventJsonErrorResponse;
-                default: throw new ArgumentException("Invalid value for AttendeeAddBulkItemEventJsonDataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(AttendeeAddBulkItemEventJsonDataType v)
+        {
+            return v.Value;
+        }
+        public static AttendeeAddBulkItemEventJsonDataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_OneOf_2":
+                    return ZeroOneOf2;
+                case "attendee-add-bulk-item-event.json_ErrorResponse":
+                    return AttendeeAddBulkItemEventJsonErrorResponse;
+                default:
+                    throw new ArgumentException("Invalid value for AttendeeAddBulkItemEventJsonDataType");
             }
         }
         public override bool Equals(object? obj)
@@ -102,8 +126,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf2)
-                    {
+                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.ZeroOneOf2) {
                         ZeroOneOf2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroOneOf2>(json)
                     };
                 }
@@ -122,8 +145,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.AttendeeAddBulkItemEventJsonErrorResponse)
-                    {
+                    return new AttendeeAddBulkItemEventJsonData(AttendeeAddBulkItemEventJsonDataType.AttendeeAddBulkItemEventJsonErrorResponse) {
                         AttendeeAddBulkItemEventJsonErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AttendeeAddBulkItemEventJsonErrorResponse>(json)
                     };
                 }
@@ -143,7 +165,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -184,8 +206,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

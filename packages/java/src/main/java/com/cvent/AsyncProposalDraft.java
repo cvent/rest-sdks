@@ -29,19 +29,18 @@ public class AsyncProposalDraft {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public ProposalDraft sync() {
         return syncSDK;
     }
 
-
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @return The async call builder
      */
     public CreateProposalDraftRequestBuilder createProposalDraft() {
@@ -50,9 +49,9 @@ public class AsyncProposalDraft {
 
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @return {@code CompletableFuture<CreateProposalDraftResponse>} - The async response
      */
     public CompletableFuture<CreateProposalDraftResponse> createProposalDraftDirect() {
@@ -61,17 +60,15 @@ public class AsyncProposalDraft {
 
     /**
      * Beta - Create Proposal Draft
-     * 
+     *
      * <p>Creates a new proposal draft.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateProposalDraftResponse>} - The async response
      */
     public CompletableFuture<CreateProposalDraftResponse> createProposalDraft(@Nullable ProposalRequest request) {
-        AsyncRequestOperation<ProposalRequest, CreateProposalDraftResponse> operation
-              = new CreateProposalDraft.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
+                new CreateProposalDraft.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

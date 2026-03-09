@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionResponseTypeJson
     {
-        [JsonProperty("single")]
-        Single,
-        [JsonProperty("choice")]
-        Choice,
+        [JsonProperty("single")] Single,
+        [JsonProperty("choice")] Choice,
     }
 
     public static class QuestionResponseTypeJsonExtension
     {
         public static string Value(this QuestionResponseTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionResponseTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionResponseTypeJson).GetFields())
+            foreach (var field in typeof(QuestionResponseTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

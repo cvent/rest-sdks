@@ -2,6 +2,14 @@
 
 Code representing the bed type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.RoomBedTypeJson1;
+
+RoomBedTypeJson1 value = RoomBedTypeJson1.SOFA_BED;
+```
+
 
 ## Values
 

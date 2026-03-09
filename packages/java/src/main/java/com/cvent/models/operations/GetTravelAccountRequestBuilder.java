@@ -28,7 +28,7 @@ public class GetTravelAccountRequestBuilder {
     private GetTravelAccountRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTravelAccountRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetTravelAccountRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetTravelAccountResponse call() {
-        RequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation
-              = new GetTravelAccount.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation =
+                new GetTravelAccount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

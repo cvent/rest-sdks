@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExistingTableWithSeats
- * 
+ *
  * <p>The response from a request to get the event table for the event.
  */
 public class ExistingTableWithSeats {
@@ -64,7 +64,7 @@ public class ExistingTableWithSeats {
 
     /**
      * The seat IDs at the table.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -88,12 +88,9 @@ public class ExistingTableWithSeats {
         this.id = id;
         this.seats = seats;
     }
-    
-    public ExistingTableWithSeats(
-            long capacity) {
-        this(null, null, capacity,
-            null, null, null,
-            null);
+
+    public ExistingTableWithSeats(long capacity) {
+        this(null, null, capacity, null, null, null, null);
     }
 
     /**
@@ -141,7 +138,7 @@ public class ExistingTableWithSeats {
 
     /**
      * The seat IDs at the table.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     public Optional<List<ExpandableSeatJson>> seats() {
@@ -152,7 +149,6 @@ public class ExistingTableWithSeats {
         return new Builder();
     }
 
-
     /**
      * Table's plain name.
      */
@@ -160,7 +156,6 @@ public class ExistingTableWithSeats {
         this.name = name;
         return this;
     }
-
 
     /**
      * Table's code set by the planner.
@@ -170,7 +165,6 @@ public class ExistingTableWithSeats {
         return this;
     }
 
-
     /**
      * Table's seat capacity.
      */
@@ -179,7 +173,6 @@ public class ExistingTableWithSeats {
         return this;
     }
 
-
     /**
      * Description assigned to table.
      */
@@ -187,7 +180,6 @@ public class ExistingTableWithSeats {
         this.description = description;
         return this;
     }
-
 
     /**
      * This is a ID for the table in an external system. Use this field to supply your own ID for tracking
@@ -198,7 +190,6 @@ public class ExistingTableWithSeats {
         return this;
     }
 
-
     /**
      * The unique ID of the table.
      */
@@ -207,17 +198,15 @@ public class ExistingTableWithSeats {
         return this;
     }
 
-
     /**
      * The seat IDs at the table.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     public ExistingTableWithSeats withSeats(@Nullable List<ExpandableSeatJson> seats) {
         this.seats = seats;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -228,38 +217,42 @@ public class ExistingTableWithSeats {
             return false;
         }
         ExistingTableWithSeats other = (ExistingTableWithSeats) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seats, other.seats);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.seats, other.seats);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, code, capacity,
-            description, sourceId, id,
-            seats);
+        return Utils.enhancedHash(name, code, capacity, description, sourceId, id, seats);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingTableWithSeats.class,
-                "name", name,
-                "code", code,
-                "capacity", capacity,
-                "description", description,
-                "sourceId", sourceId,
-                "id", id,
-                "seats", seats);
+        return Utils.toString(
+                ExistingTableWithSeats.class,
+                "name",
+                name,
+                "code",
+                code,
+                "capacity",
+                capacity,
+                "description",
+                description,
+                "sourceId",
+                sourceId,
+                "id",
+                id,
+                "seats",
+                seats);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -276,7 +269,7 @@ public class ExistingTableWithSeats {
         private List<ExpandableSeatJson> seats;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -330,7 +323,7 @@ public class ExistingTableWithSeats {
 
         /**
          * The seat IDs at the table.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
          */
         public Builder seats(@Nullable List<ExpandableSeatJson> seats) {
@@ -339,11 +332,7 @@ public class ExistingTableWithSeats {
         }
 
         public ExistingTableWithSeats build() {
-            return new ExistingTableWithSeats(
-                name, code, capacity,
-                description, sourceId, id,
-                seats);
+            return new ExistingTableWithSeats(name, code, capacity, description, sourceId, id, seats);
         }
-
     }
 }

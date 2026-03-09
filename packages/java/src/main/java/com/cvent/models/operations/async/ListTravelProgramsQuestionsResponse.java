@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable QuestionsPaginatedResponse1 questionsPaginatedResponse1) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.questionsPaginatedResponse1 = questionsPaginatedResponse1;
     }
-    
+
     public ListTravelProgramsQuestionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of travel program questions.
      */
-    public ListTravelProgramsQuestionsResponse withQuestionsPaginatedResponse1(@Nullable QuestionsPaginatedResponse1 questionsPaginatedResponse1) {
+    public ListTravelProgramsQuestionsResponse withQuestionsPaginatedResponse1(
+            @Nullable QuestionsPaginatedResponse1 questionsPaginatedResponse1) {
         this.questionsPaginatedResponse1 = questionsPaginatedResponse1;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
             return false;
         }
         ListTravelProgramsQuestionsResponse other = (ListTravelProgramsQuestionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.questionsPaginatedResponse1, other.questionsPaginatedResponse1);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.questionsPaginatedResponse1, other.questionsPaginatedResponse1);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            questionsPaginatedResponse1);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, questionsPaginatedResponse1);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelProgramsQuestionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "questionsPaginatedResponse1", questionsPaginatedResponse1);
+        return Utils.toString(
+                ListTravelProgramsQuestionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "questionsPaginatedResponse1",
+                questionsPaginatedResponse1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
         private QuestionsPaginatedResponse1 questionsPaginatedResponse1;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -210,9 +204,7 @@ public class ListTravelProgramsQuestionsResponse implements AsyncResponse {
 
         public ListTravelProgramsQuestionsResponse build() {
             return new ListTravelProgramsQuestionsResponse(
-                contentType, statusCode, rawResponse,
-                questionsPaginatedResponse1);
+                    contentType, statusCode, rawResponse, questionsPaginatedResponse1);
         }
-
     }
 }

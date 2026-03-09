@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AppointmentParticipantJson
- * 
+ *
  * <p>An appointment participant.
  */
 public class AppointmentParticipantJson {
@@ -123,9 +123,8 @@ public class AppointmentParticipantJson {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.response = response;
         this.participation = participation;
         this.questionViewer = questionViewer;
@@ -133,14 +132,10 @@ public class AppointmentParticipantJson {
         this.deleted = deleted;
         this.status = status;
     }
-    
+
     public AppointmentParticipantJson(
-            @Nonnull AppointmentParticipantJsonAttendee attendee,
-            @Nonnull ParticipantTypeJson type) {
-        this(null, null, null,
-            null, attendee, type,
-            null, null, null,
-            null, null, null);
+            @Nonnull AppointmentParticipantJsonAttendee attendee, @Nonnull ParticipantTypeJson type) {
+        this(null, null, null, null, attendee, type, null, null, null, null, null, null);
     }
 
     /**
@@ -231,7 +226,6 @@ public class AppointmentParticipantJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -239,7 +233,6 @@ public class AppointmentParticipantJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -249,7 +242,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -257,7 +249,6 @@ public class AppointmentParticipantJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -267,7 +258,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * Reference information for the attendee.
      */
@@ -275,7 +265,6 @@ public class AppointmentParticipantJson {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * Denotes if a participant is a host or attendee of an appointment.
@@ -285,7 +274,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * Denotes a participant response to an appointment.
      */
@@ -293,7 +281,6 @@ public class AppointmentParticipantJson {
         this.response = response;
         return this;
     }
-
 
     /**
      * The attendee's participation status.
@@ -303,7 +290,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * True indicates custom questions are visible to appointment participant.
      */
@@ -311,7 +297,6 @@ public class AppointmentParticipantJson {
         this.questionViewer = questionViewer;
         return this;
     }
-
 
     /**
      * True indicates private notes are visible to the appointment participant.
@@ -321,7 +306,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * True indicates the participant was removed from the appointment.
      */
@@ -330,7 +314,6 @@ public class AppointmentParticipantJson {
         return this;
     }
 
-
     /**
      * Denotes the status of a participant in an appointment.
      */
@@ -338,7 +321,6 @@ public class AppointmentParticipantJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -349,49 +331,69 @@ public class AppointmentParticipantJson {
             return false;
         }
         AppointmentParticipantJson other = (AppointmentParticipantJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.response, other.response) &&
-            Utils.enhancedDeepEquals(this.participation, other.participation) &&
-            Utils.enhancedDeepEquals(this.questionViewer, other.questionViewer) &&
-            Utils.enhancedDeepEquals(this.privateNoteViewer, other.privateNoteViewer) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.response, other.response)
+                && Utils.enhancedDeepEquals(this.participation, other.participation)
+                && Utils.enhancedDeepEquals(this.questionViewer, other.questionViewer)
+                && Utils.enhancedDeepEquals(this.privateNoteViewer, other.privateNoteViewer)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, attendee, type,
-            response, participation, questionViewer,
-            privateNoteViewer, deleted, status);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                attendee,
+                type,
+                response,
+                participation,
+                questionViewer,
+                privateNoteViewer,
+                deleted,
+                status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentParticipantJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "attendee", attendee,
-                "type", type,
-                "response", response,
-                "participation", participation,
-                "questionViewer", questionViewer,
-                "privateNoteViewer", privateNoteViewer,
-                "deleted", deleted,
-                "status", status);
+        return Utils.toString(
+                AppointmentParticipantJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "attendee",
+                attendee,
+                "type",
+                type,
+                "response",
+                response,
+                "participation",
+                participation,
+                "questionViewer",
+                questionViewer,
+                "privateNoteViewer",
+                privateNoteViewer,
+                "deleted",
+                deleted,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -418,7 +420,7 @@ public class AppointmentParticipantJson {
         private ParticipantStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -519,11 +521,18 @@ public class AppointmentParticipantJson {
 
         public AppointmentParticipantJson build() {
             return new AppointmentParticipantJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, attendee, type,
-                response, participation, questionViewer,
-                privateNoteViewer, deleted, status);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    attendee,
+                    type,
+                    response,
+                    participation,
+                    questionViewer,
+                    privateNoteViewer,
+                    deleted,
+                    status);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class GetCurrencyConversionRateRequestBuilder {
     private GetCurrencyConversionRateRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetCurrencyConversionRateRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetCurrencyConversionRateRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetCurrencyConversionRateResponse> call() {
-        AsyncRequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation
-              = new GetCurrencyConversionRate.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation =
+                new GetCurrencyConversionRate.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetCurrencyConversionRateRequestBuilder {
      */
     public Publisher<GetCurrencyConversionRateResponse> callAsPublisher() {
         GetCurrencyConversionRateRequest request = this.request;
-        AsyncRequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation
-              = new GetCurrencyConversionRate.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation =
+                new GetCurrencyConversionRate.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetCurrencyConversionRateRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetCurrencyConversionRateRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetCurrencyConversionRateResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetCurrencyConversionRateResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

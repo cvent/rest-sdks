@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * PaymentTypeCreateJson
- * 
+ *
  * <p>Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
  * to the attendee's order electronically in another system of record, or paid in physical currency. To
  * create an offline charge, the attendee must have a balance owing.
- * 
+ *
  * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
  * of record, or paid in physical currency. To create an offline refund, the attendee must have a
  * balance due.
@@ -29,13 +29,13 @@ public enum PaymentTypeCreateJson {
     PaymentTypeCreateJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PaymentTypeCreateJson> fromValue(String value) {
-        for (PaymentTypeCreateJson o: PaymentTypeCreateJson.values()) {
+        for (PaymentTypeCreateJson o : PaymentTypeCreateJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum PaymentTypeCreateJson {
         return Optional.empty();
     }
 }
-

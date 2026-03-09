@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAppointmentAttendeesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.appointmentAttendeePaginatedResponse = appointmentAttendeePaginatedResponse;
     }
-    
+
     public ListAppointmentAttendeesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated response of appointment attendees.
      */
-    public ListAppointmentAttendeesResponse withAppointmentAttendeePaginatedResponse(@Nullable AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse) {
+    public ListAppointmentAttendeesResponse withAppointmentAttendeePaginatedResponse(
+            @Nullable AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse) {
         this.appointmentAttendeePaginatedResponse = appointmentAttendeePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
             return false;
         }
         ListAppointmentAttendeesResponse other = (ListAppointmentAttendeesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.appointmentAttendeePaginatedResponse, other.appointmentAttendeePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.appointmentAttendeePaginatedResponse, other.appointmentAttendeePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            appointmentAttendeePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, appointmentAttendeePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAppointmentAttendeesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "appointmentAttendeePaginatedResponse", appointmentAttendeePaginatedResponse);
+        return Utils.toString(
+                ListAppointmentAttendeesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "appointmentAttendeePaginatedResponse",
+                appointmentAttendeePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         private AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class ListAppointmentAttendeesResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated response of appointment attendees.
          */
-        public Builder appointmentAttendeePaginatedResponse(@Nullable AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse) {
+        public Builder appointmentAttendeePaginatedResponse(
+                @Nullable AppointmentAttendeePaginatedResponse appointmentAttendeePaginatedResponse) {
             this.appointmentAttendeePaginatedResponse = appointmentAttendeePaginatedResponse;
             return this;
         }
 
         public ListAppointmentAttendeesResponse build() {
             return new ListAppointmentAttendeesResponse(
-                contentType, statusCode, rawResponse,
-                appointmentAttendeePaginatedResponse);
+                    contentType, statusCode, rawResponse, appointmentAttendeePaginatedResponse);
         }
-
     }
 }

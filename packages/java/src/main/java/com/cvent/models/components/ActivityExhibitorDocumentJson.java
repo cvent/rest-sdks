@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ActivityExhibitorDocumentJson
- * 
+ *
  * <p>Document for an activity exhibitor.
  */
 public class ActivityExhibitorDocumentJson {
@@ -59,10 +59,9 @@ public class ActivityExhibitorDocumentJson {
         this.format = format;
         this.downloaded = downloaded;
     }
-    
+
     public ActivityExhibitorDocumentJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class ActivityExhibitorDocumentJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the document.
      */
@@ -105,7 +103,6 @@ public class ActivityExhibitorDocumentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The title of the document.
@@ -115,7 +112,6 @@ public class ActivityExhibitorDocumentJson {
         return this;
     }
 
-
     /**
      * The format of the document eg. doc, docx, gif, jpg, pdf, etc.
      */
@@ -124,7 +120,6 @@ public class ActivityExhibitorDocumentJson {
         return this;
     }
 
-
     /**
      * If the document is downloaded.
      */
@@ -132,7 +127,6 @@ public class ActivityExhibitorDocumentJson {
         this.downloaded = downloaded;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,33 @@ public class ActivityExhibitorDocumentJson {
             return false;
         }
         ActivityExhibitorDocumentJson other = (ActivityExhibitorDocumentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.downloaded, other.downloaded);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.downloaded, other.downloaded);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, title, format,
-            downloaded);
+        return Utils.enhancedHash(id, title, format, downloaded);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityExhibitorDocumentJson.class,
-                "id", id,
-                "title", title,
-                "format", format,
-                "downloaded", downloaded);
+        return Utils.toString(
+                ActivityExhibitorDocumentJson.class,
+                "id",
+                id,
+                "title",
+                title,
+                "format",
+                format,
+                "downloaded",
+                downloaded);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -178,7 +174,7 @@ public class ActivityExhibitorDocumentJson {
         private Boolean downloaded;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +210,7 @@ public class ActivityExhibitorDocumentJson {
         }
 
         public ActivityExhibitorDocumentJson build() {
-            return new ActivityExhibitorDocumentJson(
-                id, title, format,
-                downloaded);
+            return new ActivityExhibitorDocumentJson(id, title, format, downloaded);
         }
-
     }
 }

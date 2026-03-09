@@ -2,6 +2,14 @@
 
 The current status of the bulk job.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BulkJobWithDataStatus;
+
+BulkJobWithDataStatus value = BulkJobWithDataStatus.PENDING;
+```
+
 
 ## Values
 

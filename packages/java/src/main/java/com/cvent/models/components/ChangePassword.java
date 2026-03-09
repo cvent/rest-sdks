@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ChangePassword
- * 
+ *
  * <p>Config details for change password operations.
  */
 public class ChangePassword {
@@ -28,11 +28,10 @@ public class ChangePassword {
     private Boolean supported;
 
     @JsonCreator
-    public ChangePassword(
-            @JsonProperty("supported") @Nullable Boolean supported) {
+    public ChangePassword(@JsonProperty("supported") @Nullable Boolean supported) {
         this.supported = supported;
     }
-    
+
     public ChangePassword() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class ChangePassword {
         return new Builder();
     }
 
-
     /**
      * Indicates if the password change is supported.
      */
@@ -56,7 +54,6 @@ public class ChangePassword {
         this.supported = supported;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class ChangePassword {
             return false;
         }
         ChangePassword other = (ChangePassword) o;
-        return 
-            Utils.enhancedDeepEquals(this.supported, other.supported);
+        return Utils.enhancedDeepEquals(this.supported, other.supported);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            supported);
+        return Utils.enhancedHash(supported);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChangePassword.class,
-                "supported", supported);
+        return Utils.toString(ChangePassword.class, "supported", supported);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean supported;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class ChangePassword {
         }
 
         public ChangePassword build() {
-            return new ChangePassword(
-                supported);
+            return new ChangePassword(supported);
         }
-
     }
 }

@@ -17,28 +17,25 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
-        sdk.users().getAccountUserGroups()
-                .callAsStream()
-                .forEach((GetAccountUserGroupsResponse item) -> {
-                   // handle page
-                });
-
+        sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+            // handle page
+        });
     }
 }
+
 ```
 <!-- End SDK Example Usage [usage] -->

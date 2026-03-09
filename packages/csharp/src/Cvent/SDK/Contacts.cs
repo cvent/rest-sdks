@@ -43,7 +43,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<CreateContactGroupResponse> CreateContactGroupAsync(ContactGroupInput request);
+        public Task<CreateContactGroupResponse> CreateContactGroupAsync(ContactGroupInput request);
 
         /// <summary>
         /// List Contact Groups<br/>
@@ -58,7 +58,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ListContactGroupsResponse> ListContactGroupsAsync(ListContactGroupsRequest? request = null);
+        public Task<ListContactGroupsResponse> ListContactGroupsAsync(ListContactGroupsRequest? request = null);
 
         /// <summary>
         /// Get Contact Group<br/>
@@ -74,7 +74,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetContactGroupByIdResponse> GetContactGroupByIdAsync(GetContactGroupByIdRequest request);
+        public Task<GetContactGroupByIdResponse> GetContactGroupByIdAsync(GetContactGroupByIdRequest request);
 
         /// <summary>
         /// Update Contact Group<br/>
@@ -90,7 +90,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<UpdateContactGroupResponse> UpdateContactGroupAsync(UpdateContactGroupRequest request);
+        public Task<UpdateContactGroupResponse> UpdateContactGroupAsync(UpdateContactGroupRequest request);
 
         /// <summary>
         /// Delete Contact Group<br/>
@@ -106,7 +106,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<DeleteContactGroupResponse> DeleteContactGroupAsync(DeleteContactGroupRequest request);
+        public Task<DeleteContactGroupResponse> DeleteContactGroupAsync(DeleteContactGroupRequest request);
 
         /// <summary>
         /// Get Ids in Contact Group<br/>
@@ -122,7 +122,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetContactIdsByContactGroupResponse> GetContactIdsByContactGroupAsync(
+        public Task<GetContactIdsByContactGroupResponse> GetContactIdsByContactGroupAsync(
             GetContactIdsByContactGroupRequest request
         );
 
@@ -140,7 +140,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<AddContactToContactGroupResponse> AddContactToContactGroupAsync(
+        public Task<AddContactToContactGroupResponse> AddContactToContactGroupAsync(
             AddContactToContactGroupRequest request
         );
 
@@ -158,7 +158,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<RemoveContactFromContactGroupResponse> RemoveContactFromContactGroupAsync(
+        public Task<RemoveContactFromContactGroupResponse> RemoveContactFromContactGroupAsync(
             RemoveContactFromContactGroupRequest request
         );
 
@@ -175,7 +175,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ListContactTypesResponse> ListContactTypesAsync(ListContactTypesRequest? request = null);
+        public Task<ListContactTypesResponse> ListContactTypesAsync(ListContactTypesRequest? request = null);
 
         /// <summary>
         /// List Contacts<br/>
@@ -193,7 +193,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ListContactsResponse> ListContactsAsync(ListContactsRequest? request = null);
+        public Task<ListContactsResponse> ListContactsAsync(ListContactsRequest? request = null);
 
         /// <summary>
         /// Update Contacts<br/>
@@ -210,7 +210,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<UpdateContactsResponse> UpdateContactsAsync(List<ContactUpdate> request);
+        public Task<UpdateContactsResponse> UpdateContactsAsync(List<ContactUpdate> request);
 
         /// <summary>
         /// Patch Contacts<br/>
@@ -232,7 +232,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PatchContactsResponse> PatchContactsAsync(List<ContactPatch> request);
+        public Task<PatchContactsResponse> PatchContactsAsync(List<ContactPatch> request);
 
         /// <summary>
         /// Create Contacts<br/>
@@ -249,7 +249,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<CreateContactsResponse> CreateContactsAsync(CreateContactsRequest request);
+        public Task<CreateContactsResponse> CreateContactsAsync(CreateContactsRequest request);
 
         /// <summary>
         /// List Contacts<br/>
@@ -265,7 +265,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ListContactsPostFiltersResponse> ListContactsPostFiltersAsync(
+        public Task<ListContactsPostFiltersResponse> ListContactsPostFiltersAsync(
             ListContactsPostFiltersRequest? request = null
         );
 
@@ -283,7 +283,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetContactObfuscationStatusByIdResponse> GetContactObfuscationStatusByIdAsync(
+        public Task<GetContactObfuscationStatusByIdResponse> GetContactObfuscationStatusByIdAsync(
             GetContactObfuscationStatusByIdRequest request
         );
 
@@ -301,7 +301,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetChangeHistoryForASpecificContactResponse> GetChangeHistoryForASpecificContactAsync(
+        public Task<GetChangeHistoryForASpecificContactResponse> GetChangeHistoryForASpecificContactAsync(
             GetChangeHistoryForASpecificContactRequest request
         );
 
@@ -326,7 +326,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetContactByIdResponse> GetContactByIdAsync(GetContactByIdRequest request);
+        public Task<GetContactByIdResponse> GetContactByIdAsync(GetContactByIdRequest request);
 
         /// <summary>
         /// Update Contact<br/>
@@ -347,7 +347,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<UpdateContactByIdResponse> UpdateContactByIdAsync(UpdateContactByIdRequest request);
+        public Task<UpdateContactByIdResponse> UpdateContactByIdAsync(UpdateContactByIdRequest request);
 
         /// <summary>
         /// Patch Contact<br/>
@@ -368,7 +368,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<PatchContactByIdResponse> PatchContactByIdAsync(PatchContactByIdRequest request);
+        public Task<PatchContactByIdResponse> PatchContactByIdAsync(PatchContactByIdRequest request);
 
         /// <summary>
         /// Delete Contact.
@@ -383,7 +383,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<DeleteContactByIdResponse> DeleteContactByIdAsync(DeleteContactByIdRequest request);
+        public Task<DeleteContactByIdResponse> DeleteContactByIdAsync(DeleteContactByIdRequest request);
 
         /// <summary>
         /// Update Custom Field Answers<br/>
@@ -399,7 +399,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<UpdateContactCustomFieldAnswersResponse> UpdateContactCustomFieldAnswersAsync(
+        public Task<UpdateContactCustomFieldAnswersResponse> UpdateContactCustomFieldAnswersAsync(
             UpdateContactCustomFieldAnswersRequest request
         );
 
@@ -417,7 +417,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<MergeContactsResponse> MergeContactsAsync(MergeContactsRequest request);
+        public Task<MergeContactsResponse> MergeContactsAsync(MergeContactsRequest request);
 
         /// <summary>
         /// Obfuscate a Contact<br/>
@@ -437,7 +437,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<ObfuscateContactByIdResponse> ObfuscateContactByIdAsync(ObfuscateContactByIdRequest request);
+        public Task<ObfuscateContactByIdResponse> ObfuscateContactByIdAsync(ObfuscateContactByIdRequest request);
 
         /// <summary>
         /// Delete Contact Profile Picture<br/>
@@ -453,7 +453,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<DeleteContactProfileImageResponse> DeleteContactProfileImageAsync(
+        public Task<DeleteContactProfileImageResponse> DeleteContactProfileImageAsync(
             DeleteContactProfileImageRequest request
         );
 
@@ -471,7 +471,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<AssignContactProfileImageResponse> AssignContactProfileImageAsync(
+        public Task<AssignContactProfileImageResponse> AssignContactProfileImageAsync(
             AssignContactProfileImageRequest request
         );
 
@@ -489,7 +489,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetContactRelationshipsByIdResponse> GetContactRelationshipsByIdAsync(
+        public Task<GetContactRelationshipsByIdResponse> GetContactRelationshipsByIdAsync(
             GetContactRelationshipsByIdRequest request
         );
 
@@ -507,7 +507,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<CreateContactRelationshipResponse> CreateContactRelationshipAsync(
+        public Task<CreateContactRelationshipResponse> CreateContactRelationshipAsync(
             CreateContactRelationshipRequest request
         );
 
@@ -525,7 +525,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<DeleteContactRelationshipResponse> DeleteContactRelationshipAsync(
+        public Task<DeleteContactRelationshipResponse> DeleteContactRelationshipAsync(
             DeleteContactRelationshipRequest request
         );
     }
@@ -533,7 +533,7 @@ namespace Cvent.SDK
     /// <summary>
     /// A contact is a record in your account’s address book that represents an individual. The data stored within these records includes personal information, group memberships, and historical data on event attendance.  Contact APIs will allow you to get contact information, track updates to contact information, and create contacts.
     /// </summary>
-    public class Contacts: IContacts
+    public class Contacts : IContacts
     {
         /// <summary>
         /// SDK Configuration.
@@ -560,7 +560,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<CreateContactGroupResponse> CreateContactGroupAsync(ContactGroupInput request)
+        public async Task<CreateContactGroupResponse> CreateContactGroupAsync(ContactGroupInput request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -622,9 +622,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 201)
+            if (responseStatusCode == 201)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactGroup obj;
@@ -637,10 +637,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactGroup.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new CreateContactGroupResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new CreateContactGroupResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -651,9 +649,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -671,18 +669,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Contact Groups<br/>
@@ -697,7 +694,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ListContactGroupsResponse> ListContactGroupsAsync(ListContactGroupsRequest? request = null)
+        public async Task<ListContactGroupsResponse> ListContactGroupsAsync(ListContactGroupsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/contact-groups", request, null);
@@ -754,7 +751,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -765,8 +762,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new ListContactGroupsRequest
-                {
+                var newRequest = new ListContactGroupsRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -774,16 +770,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await ListContactGroupsAsync (
+                return await ListContactGroupsAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactGroupPaginatedResponse obj;
@@ -796,10 +792,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactGroupPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ListContactGroupsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ListContactGroupsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -811,9 +805,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -831,18 +825,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Contact Group<br/>
@@ -858,7 +851,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetContactGroupByIdResponse> GetContactGroupByIdAsync(GetContactGroupByIdRequest request)
+        public async Task<GetContactGroupByIdResponse> GetContactGroupByIdAsync(GetContactGroupByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -914,9 +907,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactGroup obj;
@@ -929,10 +922,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactGroup.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetContactGroupByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetContactGroupByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -943,9 +934,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -963,18 +954,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Update Contact Group<br/>
@@ -990,7 +980,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<UpdateContactGroupResponse> UpdateContactGroupAsync(UpdateContactGroupRequest request)
+        public async Task<UpdateContactGroupResponse> UpdateContactGroupAsync(UpdateContactGroupRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1052,9 +1042,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactGroup obj;
@@ -1067,10 +1057,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactGroup.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new UpdateContactGroupResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new UpdateContactGroupResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -1081,9 +1069,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1101,18 +1089,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Delete Contact Group<br/>
@@ -1128,7 +1115,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<DeleteContactGroupResponse> DeleteContactGroupAsync(DeleteContactGroupRequest request)
+        public async Task<DeleteContactGroupResponse> DeleteContactGroupAsync(DeleteContactGroupRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1184,20 +1171,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new DeleteContactGroupResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new DeleteContactGroupResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1215,18 +1200,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Ids in Contact Group<br/>
@@ -1242,7 +1226,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetContactIdsByContactGroupResponse> GetContactIdsByContactGroupAsync(
+        public async Task<GetContactIdsByContactGroupResponse> GetContactIdsByContactGroupAsync(
             GetContactIdsByContactGroupRequest request
         )
         {
@@ -1303,7 +1287,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -1314,23 +1298,22 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new GetContactIdsByContactGroupRequest
-                {
+                var newRequest = new GetContactIdsByContactGroupRequest {
                     Id = request.Id,
                     Limit = request.Limit,
                     Token = nextCursor
                 };
 
-                return await GetContactIdsByContactGroupAsync (
+                return await GetContactIdsByContactGroupAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactIdPaginatedResponse obj;
@@ -1343,10 +1326,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactIdPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetContactIdsByContactGroupResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetContactIdsByContactGroupResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -1358,9 +1339,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1378,18 +1359,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Add Contact To Group<br/>
@@ -1405,7 +1385,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<AddContactToContactGroupResponse> AddContactToContactGroupAsync(
+        public async Task<AddContactToContactGroupResponse> AddContactToContactGroupAsync(
             AddContactToContactGroupRequest request
         )
         {
@@ -1463,20 +1443,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new AddContactToContactGroupResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new AddContactToContactGroupResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1494,18 +1472,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Remove Contact From Group<br/>
@@ -1521,7 +1498,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<RemoveContactFromContactGroupResponse> RemoveContactFromContactGroupAsync(
+        public async Task<RemoveContactFromContactGroupResponse> RemoveContactFromContactGroupAsync(
             RemoveContactFromContactGroupRequest request
         )
         {
@@ -1579,20 +1556,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new RemoveContactFromContactGroupResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new RemoveContactFromContactGroupResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1610,18 +1585,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Contact Types<br/>
@@ -1636,7 +1610,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ListContactTypesResponse> ListContactTypesAsync(ListContactTypesRequest? request = null)
+        public async Task<ListContactTypesResponse> ListContactTypesAsync(ListContactTypesRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/contact-types", request, null);
@@ -1693,7 +1667,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -1704,23 +1678,22 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new ListContactTypesRequest
-                {
+                var newRequest = new ListContactTypesRequest {
                     Limit = request?.Limit,
                     Token = nextCursor,
                     Filter = request?.Filter
                 };
 
-                return await ListContactTypesAsync (
+                return await ListContactTypesAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactTypePaginatedResponse obj;
@@ -1733,10 +1706,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactTypePaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ListContactTypesResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ListContactTypesResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -1748,9 +1719,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1768,18 +1739,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Contacts<br/>
@@ -1797,7 +1767,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ListContactsResponse> ListContactsAsync(ListContactsRequest? request = null)
+        public async Task<ListContactsResponse> ListContactsAsync(ListContactsRequest? request = null)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/contacts", request, null);
@@ -1854,7 +1824,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -1865,8 +1835,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new ListContactsRequest
-                {
+                var newRequest = new ListContactsRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
@@ -1874,16 +1843,16 @@ namespace Cvent.SDK
                     Filter = request?.Filter
                 };
 
-                return await ListContactsAsync (
+                return await ListContactsAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactPaginatedResponse obj;
@@ -1896,10 +1865,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ListContactsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ListContactsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -1911,9 +1878,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -1931,18 +1898,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Update Contacts<br/>
@@ -1959,7 +1925,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<UpdateContactsResponse> UpdateContactsAsync(List<ContactUpdate> request)
+        public async Task<UpdateContactsResponse> UpdateContactsAsync(List<ContactUpdate> request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2021,9 +1987,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 207)
+            if (responseStatusCode == 207)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     List<ContactBulkItemJson> obj;
@@ -2036,10 +2002,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new UpdateContactsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new UpdateContactsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -2050,9 +2014,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2070,18 +2034,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Patch Contacts<br/>
@@ -2103,7 +2066,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PatchContactsResponse> PatchContactsAsync(List<ContactPatch> request)
+        public async Task<PatchContactsResponse> PatchContactsAsync(List<ContactPatch> request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2165,9 +2128,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 207)
+            if (responseStatusCode == 207)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     List<ContactBulkItemJson> obj;
@@ -2180,10 +2143,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PatchContactsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PatchContactsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -2194,9 +2155,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2214,18 +2175,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Create Contacts<br/>
@@ -2242,7 +2202,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<CreateContactsResponse> CreateContactsAsync(CreateContactsRequest request)
+        public async Task<CreateContactsResponse> CreateContactsAsync(CreateContactsRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2304,9 +2264,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 207)
+            if (responseStatusCode == 207)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     List<ContactBulkItemJson> obj;
@@ -2319,10 +2279,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new CreateContactsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new CreateContactsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -2333,9 +2291,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2353,18 +2311,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// List Contacts<br/>
@@ -2380,7 +2337,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ListContactsPostFiltersResponse> ListContactsPostFiltersAsync(
+        public async Task<ListContactsPostFiltersResponse> ListContactsPostFiltersAsync(
             ListContactsPostFiltersRequest? request = null
         )
         {
@@ -2445,7 +2402,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -2456,28 +2413,26 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new ListContactsPostFiltersRequest
-                {
+                var newRequest = new ListContactsPostFiltersRequest {
                     After = request?.After,
                     Before = request?.Before,
                     Limit = request?.Limit,
                     Token = nextCursor,
-                    Filter = new Filter
-                    {
+                    Filter = new Filter {
                         FilterValue = request?.Filter?.FilterValue
                     }
                 };
 
-                return await ListContactsPostFiltersAsync (
+                return await ListContactsPostFiltersAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactPaginatedResponse obj;
@@ -2490,10 +2445,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ListContactsPostFiltersResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ListContactsPostFiltersResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -2505,9 +2458,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2525,18 +2478,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Obfuscation Status<br/>
@@ -2552,7 +2504,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetContactObfuscationStatusByIdResponse> GetContactObfuscationStatusByIdAsync(
+        public async Task<GetContactObfuscationStatusByIdResponse> GetContactObfuscationStatusByIdAsync(
             GetContactObfuscationStatusByIdRequest request
         )
         {
@@ -2610,9 +2562,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactObfuscationStatus obj;
@@ -2625,10 +2577,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactObfuscationStatus.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetContactObfuscationStatusByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetContactObfuscationStatusByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -2639,9 +2589,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2659,18 +2609,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Contact Change History<br/>
@@ -2686,7 +2635,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetChangeHistoryForASpecificContactResponse> GetChangeHistoryForASpecificContactAsync(
+        public async Task<GetChangeHistoryForASpecificContactResponse> GetChangeHistoryForASpecificContactAsync(
             GetChangeHistoryForASpecificContactRequest request
         )
         {
@@ -2747,7 +2696,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -2758,8 +2707,7 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new GetChangeHistoryForASpecificContactRequest
-                {
+                var newRequest = new GetChangeHistoryForASpecificContactRequest {
                     ContactId = request.ContactId,
                     Before = request.Before,
                     After = request.After,
@@ -2767,16 +2715,16 @@ namespace Cvent.SDK
                     Token = nextCursor
                 };
 
-                return await GetChangeHistoryForASpecificContactAsync (
+                return await GetChangeHistoryForASpecificContactAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactHistoryPaginatedResponse obj;
@@ -2789,10 +2737,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactHistoryPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetChangeHistoryForASpecificContactResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetChangeHistoryForASpecificContactResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -2804,9 +2750,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2824,18 +2770,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Contact<br/>
@@ -2858,7 +2803,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetContactByIdResponse> GetContactByIdAsync(GetContactByIdRequest request)
+        public async Task<GetContactByIdResponse> GetContactByIdAsync(GetContactByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2914,9 +2859,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Contact obj;
@@ -2929,10 +2874,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Contact.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetContactByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetContactByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -2943,9 +2886,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -2963,18 +2906,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Update Contact<br/>
@@ -2995,7 +2937,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<UpdateContactByIdResponse> UpdateContactByIdAsync(UpdateContactByIdRequest request)
+        public async Task<UpdateContactByIdResponse> UpdateContactByIdAsync(UpdateContactByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -3057,9 +2999,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Contact obj;
@@ -3072,10 +3014,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Contact.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new UpdateContactByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new UpdateContactByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -3086,9 +3026,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3106,18 +3046,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Patch Contact<br/>
@@ -3138,7 +3077,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<PatchContactByIdResponse> PatchContactByIdAsync(PatchContactByIdRequest request)
+        public async Task<PatchContactByIdResponse> PatchContactByIdAsync(PatchContactByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -3200,9 +3139,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Contact obj;
@@ -3215,10 +3154,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Contact.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new PatchContactByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new PatchContactByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -3229,9 +3166,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3249,18 +3186,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Delete Contact.
@@ -3275,7 +3211,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<DeleteContactByIdResponse> DeleteContactByIdAsync(DeleteContactByIdRequest request)
+        public async Task<DeleteContactByIdResponse> DeleteContactByIdAsync(DeleteContactByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -3331,20 +3267,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new DeleteContactByIdResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new DeleteContactByIdResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 409, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 409, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3362,18 +3296,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Update Custom Field Answers<br/>
@@ -3389,7 +3322,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<UpdateContactCustomFieldAnswersResponse> UpdateContactCustomFieldAnswersAsync(
+        public async Task<UpdateContactCustomFieldAnswersResponse> UpdateContactCustomFieldAnswersAsync(
             UpdateContactCustomFieldAnswersRequest request
         )
         {
@@ -3453,9 +3386,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     CustomField obj;
@@ -3468,10 +3401,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into CustomField.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new UpdateContactCustomFieldAnswersResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new UpdateContactCustomFieldAnswersResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -3482,9 +3413,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3502,18 +3433,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Merge Contacts<br/>
@@ -3529,7 +3459,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<MergeContactsResponse> MergeContactsAsync(MergeContactsRequest request)
+        public async Task<MergeContactsResponse> MergeContactsAsync(MergeContactsRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -3591,9 +3521,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Contact obj;
@@ -3606,10 +3536,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into Contact.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new MergeContactsResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new MergeContactsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -3620,9 +3548,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 409, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 409, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3640,18 +3568,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Obfuscate a Contact<br/>
@@ -3671,7 +3598,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<ObfuscateContactByIdResponse> ObfuscateContactByIdAsync(ObfuscateContactByIdRequest request)
+        public async Task<ObfuscateContactByIdResponse> ObfuscateContactByIdAsync(ObfuscateContactByIdRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -3727,9 +3654,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 202)
+            if (responseStatusCode == 202)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactObfuscationStatus obj;
@@ -3742,10 +3669,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactObfuscationStatus.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new ObfuscateContactByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new ObfuscateContactByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -3757,9 +3682,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{401, 403, 404, 409, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 409, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3777,18 +3702,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Delete Contact Profile Picture<br/>
@@ -3804,7 +3728,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<DeleteContactProfileImageResponse> DeleteContactProfileImageAsync(
+        public async Task<DeleteContactProfileImageResponse> DeleteContactProfileImageAsync(
             DeleteContactProfileImageRequest request
         )
         {
@@ -3862,20 +3786,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new DeleteContactProfileImageResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new DeleteContactProfileImageResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -3893,18 +3815,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Assign Contact Profile Picture<br/>
@@ -3920,7 +3841,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<AssignContactProfileImageResponse> AssignContactProfileImageAsync(
+        public async Task<AssignContactProfileImageResponse> AssignContactProfileImageAsync(
             AssignContactProfileImageRequest request
         )
         {
@@ -3984,9 +3905,9 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactFile obj;
@@ -3999,10 +3920,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactFile.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new AssignContactProfileImageResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new AssignContactProfileImageResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         }
@@ -4013,9 +3932,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -4033,18 +3952,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Get Related Contact Ids<br/>
@@ -4060,7 +3978,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetContactRelationshipsByIdResponse> GetContactRelationshipsByIdAsync(
+        public async Task<GetContactRelationshipsByIdResponse> GetContactRelationshipsByIdAsync(
             GetContactRelationshipsByIdRequest request
         )
         {
@@ -4121,7 +4039,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -4132,23 +4050,22 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new GetContactRelationshipsByIdRequest
-                {
+                var newRequest = new GetContactRelationshipsByIdRequest {
                     Id = request.Id,
                     Limit = request.Limit,
                     Token = nextCursor
                 };
 
-                return await GetContactRelationshipsByIdAsync (
+                return await GetContactRelationshipsByIdAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     ContactIdPaginatedResponse obj;
@@ -4161,10 +4078,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into ContactIdPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetContactRelationshipsByIdResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetContactRelationshipsByIdResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -4176,9 +4091,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -4196,18 +4111,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Add Contact Relationship<br/>
@@ -4223,7 +4137,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<CreateContactRelationshipResponse> CreateContactRelationshipAsync(
+        public async Task<CreateContactRelationshipResponse> CreateContactRelationshipAsync(
             CreateContactRelationshipRequest request
         )
         {
@@ -4281,20 +4195,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new CreateContactRelationshipResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new CreateContactRelationshipResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -4312,18 +4224,17 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
 
         /// <summary>
         /// Delete Contact Relationship<br/>
@@ -4339,7 +4250,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<DeleteContactRelationshipResponse> DeleteContactRelationshipAsync(
+        public async Task<DeleteContactRelationshipResponse> DeleteContactRelationshipAsync(
             DeleteContactRelationshipRequest request
         )
         {
@@ -4397,20 +4308,18 @@ namespace Cvent.SDK
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 204)
+            if (responseStatusCode == 204)
             {
-                return new DeleteContactRelationshipResponse()
-                {
-                    HttpMeta = new Models.Components.HTTPMetadata()
-                    {
+                return new DeleteContactRelationshipResponse() {
+                    HttpMeta = new Models.Components.HTTPMetadata() {
                         Response = httpResponse,
                         Request = httpRequest
                     }
                 };
             }
-            else if(new List<int>{401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -4428,17 +4337,16 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * LanguageJson
- * 
+ *
  * <p>IETF language code used to specify a target language for the translation.
  */
 public enum LanguageJson {
@@ -85,13 +85,13 @@ public enum LanguageJson {
     LanguageJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<LanguageJson> fromValue(String value) {
-        for (LanguageJson o: LanguageJson.values()) {
+        for (LanguageJson o : LanguageJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -99,4 +99,3 @@ public enum LanguageJson {
         return Optional.empty();
     }
 }
-

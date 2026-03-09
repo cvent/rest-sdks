@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AudienceSegment
- * 
+ *
  * <p>Represents an audience segment. Audience segments are assigned to events and provide the ability for
  * planners to segment their attendees into groups and better manage the attendee experience based on
  * their defined segments.
@@ -48,13 +48,11 @@ public class AudienceSegment {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
         this.event = event;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
-    public AudienceSegment(
-            @Nonnull String name) {
+
+    public AudienceSegment(@Nonnull String name) {
         this(null, name, null);
     }
 
@@ -83,7 +81,6 @@ public class AudienceSegment {
         return new Builder();
     }
 
-
     /**
      * ID of the event.
      */
@@ -91,7 +88,6 @@ public class AudienceSegment {
         this.event = event;
         return this;
     }
-
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -101,7 +97,6 @@ public class AudienceSegment {
         return this;
     }
 
-
     /**
      * Description of the audience segment.
      */
@@ -109,7 +104,6 @@ public class AudienceSegment {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -120,28 +114,23 @@ public class AudienceSegment {
             return false;
         }
         AudienceSegment other = (AudienceSegment) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, name, description);
+        return Utils.enhancedHash(event, name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AudienceSegment.class,
-                "event", event,
-                "name", name,
-                "description", description);
+        return Utils.toString(AudienceSegment.class, "event", event, "name", name, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson2 event;
 
@@ -150,7 +139,7 @@ public class AudienceSegment {
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -178,9 +167,7 @@ public class AudienceSegment {
         }
 
         public AudienceSegment build() {
-            return new AudienceSegment(
-                event, name, description);
+            return new AudienceSegment(event, name, description);
         }
-
     }
 }

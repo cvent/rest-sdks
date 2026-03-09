@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * PlannerJson2
- * 
+ *
  * <p>Represents the planner of an event.
  */
 public class PlannerJson2 {
@@ -72,7 +72,7 @@ public class PlannerJson2 {
 
     /**
      * The nickname of the planner.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -81,7 +81,7 @@ public class PlannerJson2 {
     private String nickname;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -91,7 +91,7 @@ public class PlannerJson2 {
 
     /**
      * Planner's pager number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -100,7 +100,7 @@ public class PlannerJson2 {
     private String pager;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -110,7 +110,7 @@ public class PlannerJson2 {
 
     /**
      * True indicates the contact is deleted and inactive.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -120,7 +120,7 @@ public class PlannerJson2 {
 
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -130,7 +130,7 @@ public class PlannerJson2 {
 
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -139,7 +139,7 @@ public class PlannerJson2 {
     private String ccEmail;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -149,7 +149,7 @@ public class PlannerJson2 {
 
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -159,7 +159,7 @@ public class PlannerJson2 {
 
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -168,7 +168,7 @@ public class PlannerJson2 {
     private PlannerJson2Type type;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -177,7 +177,7 @@ public class PlannerJson2 {
     private PlannerJson2ContactMembership membership;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -186,7 +186,7 @@ public class PlannerJson2 {
     private PlannerJson2AddressType primaryAddressType;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -196,7 +196,7 @@ public class PlannerJson2 {
 
     /**
      * Home phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -206,7 +206,7 @@ public class PlannerJson2 {
 
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -215,7 +215,7 @@ public class PlannerJson2 {
     private String homeFax;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -225,7 +225,7 @@ public class PlannerJson2 {
 
     /**
      * Work phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -235,7 +235,7 @@ public class PlannerJson2 {
 
     /**
      * Work fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -245,7 +245,7 @@ public class PlannerJson2 {
 
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -256,7 +256,7 @@ public class PlannerJson2 {
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -266,7 +266,7 @@ public class PlannerJson2 {
 
     /**
      * Mobile phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -276,7 +276,7 @@ public class PlannerJson2 {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -286,7 +286,7 @@ public class PlannerJson2 {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -296,7 +296,7 @@ public class PlannerJson2 {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -306,7 +306,7 @@ public class PlannerJson2 {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -357,8 +357,7 @@ public class PlannerJson2 {
         this.optOut = optOut;
         this.pager = pager;
         this.links = links;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
         this.middleName = middleName;
         this.ccEmail = ccEmail;
         this.gender = gender;
@@ -380,19 +379,40 @@ public class PlannerJson2 {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
     }
-    
+
     public PlannerJson2() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -442,7 +462,7 @@ public class PlannerJson2 {
 
     /**
      * The nickname of the planner.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -451,7 +471,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -461,7 +481,7 @@ public class PlannerJson2 {
 
     /**
      * Planner's pager number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -470,7 +490,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -480,7 +500,7 @@ public class PlannerJson2 {
 
     /**
      * True indicates the contact is deleted and inactive.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -490,7 +510,7 @@ public class PlannerJson2 {
 
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -500,7 +520,7 @@ public class PlannerJson2 {
 
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -509,7 +529,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -519,7 +539,7 @@ public class PlannerJson2 {
 
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -529,7 +549,7 @@ public class PlannerJson2 {
 
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -538,7 +558,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -547,7 +567,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -556,7 +576,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -566,7 +586,7 @@ public class PlannerJson2 {
 
     /**
      * Home phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -576,7 +596,7 @@ public class PlannerJson2 {
 
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -585,7 +605,7 @@ public class PlannerJson2 {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -595,7 +615,7 @@ public class PlannerJson2 {
 
     /**
      * Work phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -605,7 +625,7 @@ public class PlannerJson2 {
 
     /**
      * Work fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -615,7 +635,7 @@ public class PlannerJson2 {
 
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -626,7 +646,7 @@ public class PlannerJson2 {
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -636,7 +656,7 @@ public class PlannerJson2 {
 
     /**
      * Mobile phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -646,7 +666,7 @@ public class PlannerJson2 {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -656,7 +676,7 @@ public class PlannerJson2 {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -666,7 +686,7 @@ public class PlannerJson2 {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -676,7 +696,7 @@ public class PlannerJson2 {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -688,7 +708,6 @@ public class PlannerJson2 {
         return new Builder();
     }
 
-
     /**
      * An honorific prefixing a planner's name.
      */
@@ -696,7 +715,6 @@ public class PlannerJson2 {
         this.prefix = prefix;
         return this;
     }
-
 
     /**
      * The first name of the planner.
@@ -706,7 +724,6 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The last name of the planner.
      */
@@ -714,7 +731,6 @@ public class PlannerJson2 {
         this.lastName = lastName;
         return this;
     }
-
 
     /**
      * The company/organization the planner belongs to.
@@ -724,7 +740,6 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The job title of the planner.
      */
@@ -732,7 +747,6 @@ public class PlannerJson2 {
         this.title = title;
         return this;
     }
-
 
     /**
      * The email address of the planner. Field is case-sensitive. For create/update operations, emails must
@@ -745,10 +759,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The nickname of the planner.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -757,9 +770,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -768,10 +780,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Planner's pager number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -780,9 +791,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -791,10 +801,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * True indicates the contact is deleted and inactive.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -803,10 +812,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The middle name of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -815,10 +823,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * An alternate email address of the contact that will be cc'd on all email communications.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -827,9 +834,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -838,10 +844,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The designation of the contact.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -850,10 +855,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -862,9 +866,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -873,9 +876,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -884,9 +886,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -895,10 +896,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Home phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -907,10 +907,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Home fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -919,9 +918,8 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -930,10 +928,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Work phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -942,10 +939,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Work fax number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -954,10 +950,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Collection of custom fields.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -966,11 +961,10 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
      * each contact within an account. Consider adding the external system name as part of the ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -979,10 +973,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * Mobile phone number.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -991,10 +984,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1003,10 +995,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1015,10 +1006,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1027,10 +1017,9 @@ public class PlannerJson2 {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -1038,7 +1027,6 @@ public class PlannerJson2 {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -1049,94 +1037,145 @@ public class PlannerJson2 {
             return false;
         }
         PlannerJson2 other = (PlannerJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.nickname, other.nickname) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut) &&
-            Utils.enhancedDeepEquals(this.pager, other.pager) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail) &&
-            Utils.enhancedDeepEquals(this.gender, other.gender) &&
-            Utils.enhancedDeepEquals(this.designation, other.designation) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.membership, other.membership) &&
-            Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.workFax, other.workFax) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
+        return Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.nickname, other.nickname)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut)
+                && Utils.enhancedDeepEquals(this.pager, other.pager)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.ccEmail, other.ccEmail)
+                && Utils.enhancedDeepEquals(this.gender, other.gender)
+                && Utils.enhancedDeepEquals(this.designation, other.designation)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.membership, other.membership)
+                && Utils.enhancedDeepEquals(this.primaryAddressType, other.primaryAddressType)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.workFax, other.workFax)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            prefix, firstName, lastName,
-            company, title, email,
-            nickname, optOut, pager,
-            links, deleted, middleName,
-            ccEmail, gender, designation,
-            type, membership, primaryAddressType,
-            homeAddress, homePhone, homeFax,
-            workAddress, workPhone, workFax,
-            customFields, sourceId, mobilePhone,
-            created, createdBy, lastModified,
-            lastModifiedBy);
+                prefix,
+                firstName,
+                lastName,
+                company,
+                title,
+                email,
+                nickname,
+                optOut,
+                pager,
+                links,
+                deleted,
+                middleName,
+                ccEmail,
+                gender,
+                designation,
+                type,
+                membership,
+                primaryAddressType,
+                homeAddress,
+                homePhone,
+                homeFax,
+                workAddress,
+                workPhone,
+                workFax,
+                customFields,
+                sourceId,
+                mobilePhone,
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PlannerJson2.class,
-                "prefix", prefix,
-                "firstName", firstName,
-                "lastName", lastName,
-                "company", company,
-                "title", title,
-                "email", email,
-                "nickname", nickname,
-                "optOut", optOut,
-                "pager", pager,
-                "links", links,
-                "deleted", deleted,
-                "middleName", middleName,
-                "ccEmail", ccEmail,
-                "gender", gender,
-                "designation", designation,
-                "type", type,
-                "membership", membership,
-                "primaryAddressType", primaryAddressType,
-                "homeAddress", homeAddress,
-                "homePhone", homePhone,
-                "homeFax", homeFax,
-                "workAddress", workAddress,
-                "workPhone", workPhone,
-                "workFax", workFax,
-                "customFields", customFields,
-                "sourceId", sourceId,
-                "mobilePhone", mobilePhone,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy);
+        return Utils.toString(
+                PlannerJson2.class,
+                "prefix",
+                prefix,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "company",
+                company,
+                "title",
+                title,
+                "email",
+                email,
+                "nickname",
+                nickname,
+                "optOut",
+                optOut,
+                "pager",
+                pager,
+                "links",
+                links,
+                "deleted",
+                deleted,
+                "middleName",
+                middleName,
+                "ccEmail",
+                ccEmail,
+                "gender",
+                gender,
+                "designation",
+                designation,
+                "type",
+                type,
+                "membership",
+                membership,
+                "primaryAddressType",
+                primaryAddressType,
+                "homeAddress",
+                homeAddress,
+                "homePhone",
+                homePhone,
+                "homeFax",
+                homeFax,
+                "workAddress",
+                workAddress,
+                "workPhone",
+                workPhone,
+                "workFax",
+                workFax,
+                "customFields",
+                customFields,
+                "sourceId",
+                sourceId,
+                "mobilePhone",
+                mobilePhone,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String prefix;
 
@@ -1226,7 +1265,7 @@ public class PlannerJson2 {
         private String lastModifiedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1282,7 +1321,7 @@ public class PlannerJson2 {
 
         /**
          * The nickname of the planner.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1292,7 +1331,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1303,7 +1342,7 @@ public class PlannerJson2 {
 
         /**
          * Planner's pager number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1313,7 +1352,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1324,7 +1363,7 @@ public class PlannerJson2 {
 
         /**
          * True indicates the contact is deleted and inactive.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1335,7 +1374,7 @@ public class PlannerJson2 {
 
         /**
          * The middle name of the contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1346,7 +1385,7 @@ public class PlannerJson2 {
 
         /**
          * An alternate email address of the contact that will be cc'd on all email communications.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1356,7 +1395,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1367,7 +1406,7 @@ public class PlannerJson2 {
 
         /**
          * The designation of the contact.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1378,7 +1417,7 @@ public class PlannerJson2 {
 
         /**
          * Planner type.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1388,7 +1427,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1398,7 +1437,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1408,7 +1447,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1419,7 +1458,7 @@ public class PlannerJson2 {
 
         /**
          * Home phone number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1430,7 +1469,7 @@ public class PlannerJson2 {
 
         /**
          * Home fax number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1440,7 +1479,7 @@ public class PlannerJson2 {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1451,7 +1490,7 @@ public class PlannerJson2 {
 
         /**
          * Work phone number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1462,7 +1501,7 @@ public class PlannerJson2 {
 
         /**
          * Work fax number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1473,7 +1512,7 @@ public class PlannerJson2 {
 
         /**
          * Collection of custom fields.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1485,7 +1524,7 @@ public class PlannerJson2 {
         /**
          * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
          * each contact within an account. Consider adding the external system name as part of the ID.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1496,7 +1535,7 @@ public class PlannerJson2 {
 
         /**
          * Mobile phone number.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1507,7 +1546,7 @@ public class PlannerJson2 {
 
         /**
          * The ISO 8601 zoned date time when this record was created.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1518,7 +1557,7 @@ public class PlannerJson2 {
 
         /**
          * The identifier of the user that created this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1529,7 +1568,7 @@ public class PlannerJson2 {
 
         /**
          * The ISO 8601 zoned date time when this record was updated.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1540,7 +1579,7 @@ public class PlannerJson2 {
 
         /**
          * The identifier of the user that last updated this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1551,24 +1590,40 @@ public class PlannerJson2 {
 
         public PlannerJson2 build() {
             return new PlannerJson2(
-                prefix, firstName, lastName,
-                company, title, email,
-                nickname, optOut, pager,
-                links, deleted, middleName,
-                ccEmail, gender, designation,
-                type, membership, primaryAddressType,
-                homeAddress, homePhone, homeFax,
-                workAddress, workPhone, workFax,
-                customFields, sourceId, mobilePhone,
-                created, createdBy, lastModified,
-                lastModifiedBy);
+                    prefix,
+                    firstName,
+                    lastName,
+                    company,
+                    title,
+                    email,
+                    nickname,
+                    optOut,
+                    pager,
+                    links,
+                    deleted,
+                    middleName,
+                    ccEmail,
+                    gender,
+                    designation,
+                    type,
+                    membership,
+                    primaryAddressType,
+                    homeAddress,
+                    homePhone,
+                    homeFax,
+                    workAddress,
+                    workPhone,
+                    workFax,
+                    customFields,
+                    sourceId,
+                    mobilePhone,
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "true", new TypeReference<Boolean>() {});
     }
 }

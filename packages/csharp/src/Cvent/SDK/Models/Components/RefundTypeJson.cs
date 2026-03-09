@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RefundTypeJson
     {
-        [JsonProperty("RefundByFixedAmount")]
-        RefundByFixedAmount,
-        [JsonProperty("RefundByCancellationAmount")]
-        RefundByCancellationAmount,
-        [JsonProperty("RefundByPercentage")]
-        RefundByPercentage,
+        [JsonProperty("RefundByFixedAmount")] RefundByFixedAmount,
+        [JsonProperty("RefundByCancellationAmount")] RefundByCancellationAmount,
+        [JsonProperty("RefundByPercentage")] RefundByPercentage,
     }
 
     public static class RefundTypeJsonExtension
     {
         public static string Value(this RefundTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RefundTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RefundTypeJson).GetFields())
+            foreach (var field in typeof(RefundTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Translation
- * 
+ *
  * <p>This is used to denote the translation of the custom field, including its name, help text, and
  * choice texts.
  */
@@ -52,7 +52,7 @@ public class Translation {
         this.helpTextTranslation = helpTextTranslation;
         this.choiceTranslations = choiceTranslations;
     }
-    
+
     public Translation() {
         this(null, null, null);
     }
@@ -83,7 +83,6 @@ public class Translation {
         return new Builder();
     }
 
-
     /**
      * Translation of the custom field's name.
      */
@@ -92,7 +91,6 @@ public class Translation {
         return this;
     }
 
-
     /**
      * Translation for the help text of the custom field.
      */
@@ -100,7 +98,6 @@ public class Translation {
         this.helpTextTranslation = helpTextTranslation;
         return this;
     }
-
 
     /**
      * Translations for the choice texts of a custom field. This property is only applicable for custom
@@ -111,7 +108,6 @@ public class Translation {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -121,28 +117,30 @@ public class Translation {
             return false;
         }
         Translation other = (Translation) o;
-        return 
-            Utils.enhancedDeepEquals(this.nameTranslation, other.nameTranslation) &&
-            Utils.enhancedDeepEquals(this.helpTextTranslation, other.helpTextTranslation) &&
-            Utils.enhancedDeepEquals(this.choiceTranslations, other.choiceTranslations);
+        return Utils.enhancedDeepEquals(this.nameTranslation, other.nameTranslation)
+                && Utils.enhancedDeepEquals(this.helpTextTranslation, other.helpTextTranslation)
+                && Utils.enhancedDeepEquals(this.choiceTranslations, other.choiceTranslations);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            nameTranslation, helpTextTranslation, choiceTranslations);
+        return Utils.enhancedHash(nameTranslation, helpTextTranslation, choiceTranslations);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Translation.class,
-                "nameTranslation", nameTranslation,
-                "helpTextTranslation", helpTextTranslation,
-                "choiceTranslations", choiceTranslations);
+        return Utils.toString(
+                Translation.class,
+                "nameTranslation",
+                nameTranslation,
+                "helpTextTranslation",
+                helpTextTranslation,
+                "choiceTranslations",
+                choiceTranslations);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String nameTranslation;
 
@@ -151,7 +149,7 @@ public class Translation {
         private List<ChoiceTranslationJson> choiceTranslations;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -180,9 +178,7 @@ public class Translation {
         }
 
         public Translation build() {
-            return new Translation(
-                nameTranslation, helpTextTranslation, choiceTranslations);
+            return new Translation(nameTranslation, helpTextTranslation, choiceTranslations);
         }
-
     }
 }

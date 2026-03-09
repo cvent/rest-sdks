@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * EventFeatureJsonConfig
- * 
+ *
  * <p>Feature configuration.
  */
 @JsonDeserialize(using = EventFeatureJsonConfig._Deserializer.class)
@@ -25,37 +25,37 @@ public class EventFeatureJsonConfig {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private EventFeatureJsonConfig(TypedObject value) {
         this.value = value;
     }
 
     public static EventFeatureJsonConfig of(ZeroAnyOf value) {
         Utils.checkNotNull(value, "value");
-        return new EventFeatureJsonConfig(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new EventFeatureJsonConfig(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ZeroAnyOf}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -67,26 +67,25 @@ public class EventFeatureJsonConfig {
         EventFeatureJsonConfig other = (EventFeatureJsonConfig) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<EventFeatureJsonConfig> {
 
         public _Deserializer() {
-            super(EventFeatureJsonConfig.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ZeroAnyOf>() {}, JsonShape.DEFAULT));
+            super(
+                    EventFeatureJsonConfig.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<ZeroAnyOf>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventFeatureJsonConfig.class,
-                "value", value);
+        return Utils.toString(EventFeatureJsonConfig.class, "value", value);
     }
-
 }
-

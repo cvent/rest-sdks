@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TierJson
     {
-        [JsonProperty("PRO")]
-        Pro,
-        [JsonProperty("PREMIER")]
-        Premier,
-        [JsonProperty("ESSENTIALS")]
-        Essentials,
-        [JsonProperty("BASIC")]
-        Basic,
-        [JsonProperty("PREMIUM")]
-        Premium,
+        [JsonProperty("PRO")] Pro,
+        [JsonProperty("PREMIER")] Premier,
+        [JsonProperty("ESSENTIALS")] Essentials,
+        [JsonProperty("BASIC")] Basic,
+        [JsonProperty("PREMIUM")] Premium,
     }
 
     public static class TierJsonExtension
     {
         public static string Value(this TierJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TierJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TierJson).GetFields())
+            foreach (var field in typeof(TierJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

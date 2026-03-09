@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AlternateQuestionJson
- * 
+ *
  * <p>Represents a reference to an alternate travel question entity, containing only the question ID and
  * text.
  */
@@ -35,13 +35,11 @@ public class AlternateQuestionJson {
     private String text;
 
     @JsonCreator
-    public AlternateQuestionJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text) {
+    public AlternateQuestionJson(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nullable String text) {
         this.id = id;
         this.text = text;
     }
-    
+
     public AlternateQuestionJson() {
         this(null, null);
     }
@@ -64,7 +62,6 @@ public class AlternateQuestionJson {
         return new Builder();
     }
 
-
     /**
      * Unique identifier for the question entity.
      */
@@ -73,7 +70,6 @@ public class AlternateQuestionJson {
         return this;
     }
 
-
     /**
      * Text of the alternate travel question.
      */
@@ -81,7 +77,6 @@ public class AlternateQuestionJson {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +87,28 @@ public class AlternateQuestionJson {
             return false;
         }
         AlternateQuestionJson other = (AlternateQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text);
+        return Utils.enhancedHash(id, text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AlternateQuestionJson.class,
-                "id", id,
-                "text", text);
+        return Utils.toString(AlternateQuestionJson.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +128,7 @@ public class AlternateQuestionJson {
         }
 
         public AlternateQuestionJson build() {
-            return new AlternateQuestionJson(
-                id, text);
+            return new AlternateQuestionJson(id, text);
         }
-
     }
 }

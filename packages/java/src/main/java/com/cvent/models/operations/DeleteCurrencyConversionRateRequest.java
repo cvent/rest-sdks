@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteCurrencyConversionRateRequest {
     /**
      * The ISO 4217 standard format currency code.
@@ -26,13 +25,11 @@ public class DeleteCurrencyConversionRateRequest {
     private String conversionRateId;
 
     @JsonCreator
-    public DeleteCurrencyConversionRateRequest(
-            @Nonnull String currency,
-            @Nonnull String conversionRateId) {
+    public DeleteCurrencyConversionRateRequest(@Nonnull String currency, @Nonnull String conversionRateId) {
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.conversionRateId = Optional.ofNullable(conversionRateId)
-            .orElseThrow(() -> new IllegalArgumentException("conversionRateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("conversionRateId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class DeleteCurrencyConversionRateRequest {
         return new Builder();
     }
 
-
     /**
      * The ISO 4217 standard format currency code.
      */
@@ -62,7 +58,6 @@ public class DeleteCurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * Unique ID of currency conversion rate.
      */
@@ -70,7 +65,6 @@ public class DeleteCurrencyConversionRateRequest {
         this.conversionRateId = Utils.checkNotNull(conversionRateId, "conversionRateId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,30 @@ public class DeleteCurrencyConversionRateRequest {
             return false;
         }
         DeleteCurrencyConversionRateRequest other = (DeleteCurrencyConversionRateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.conversionRateId, other.conversionRateId);
+        return Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.conversionRateId, other.conversionRateId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            currency, conversionRateId);
+        return Utils.enhancedHash(currency, conversionRateId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteCurrencyConversionRateRequest.class,
-                "currency", currency,
-                "conversionRateId", conversionRateId);
+        return Utils.toString(
+                DeleteCurrencyConversionRateRequest.class, "currency", currency, "conversionRateId", conversionRateId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String currency;
 
         private String conversionRateId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +118,7 @@ public class DeleteCurrencyConversionRateRequest {
         }
 
         public DeleteCurrencyConversionRateRequest build() {
-            return new DeleteCurrencyConversionRateRequest(
-                currency, conversionRateId);
+            return new DeleteCurrencyConversionRateRequest(currency, conversionRateId);
         }
-
     }
 }

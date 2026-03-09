@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateTextTrackRequest {
     /**
      * The identifier of a video.
@@ -26,7 +25,6 @@ public class UpdateTextTrackRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=textTrackId")
     private String textTrackId;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private ExistingVideoTextTrackInput existingVideoTextTrack;
 
@@ -35,12 +33,12 @@ public class UpdateTextTrackRequest {
             @Nonnull String videoId,
             @Nonnull String textTrackId,
             @Nonnull ExistingVideoTextTrackInput existingVideoTextTrack) {
-        this.videoId = Optional.ofNullable(videoId)
-            .orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
+        this.videoId =
+                Optional.ofNullable(videoId).orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
         this.textTrackId = Optional.ofNullable(textTrackId)
-            .orElseThrow(() -> new IllegalArgumentException("textTrackId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("textTrackId cannot be null"));
         this.existingVideoTextTrack = Optional.ofNullable(existingVideoTextTrack)
-            .orElseThrow(() -> new IllegalArgumentException("existingVideoTextTrack cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("existingVideoTextTrack cannot be null"));
     }
 
     /**
@@ -65,7 +63,6 @@ public class UpdateTextTrackRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of a video.
      */
@@ -73,7 +70,6 @@ public class UpdateTextTrackRequest {
         this.videoId = Utils.checkNotNull(videoId, "videoId");
         return this;
     }
-
 
     /**
      * The identifier of a video text track.
@@ -83,12 +79,11 @@ public class UpdateTextTrackRequest {
         return this;
     }
 
-
-    public UpdateTextTrackRequest withExistingVideoTextTrack(@Nonnull ExistingVideoTextTrackInput existingVideoTextTrack) {
+    public UpdateTextTrackRequest withExistingVideoTextTrack(
+            @Nonnull ExistingVideoTextTrackInput existingVideoTextTrack) {
         this.existingVideoTextTrack = Utils.checkNotNull(existingVideoTextTrack, "existingVideoTextTrack");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -99,28 +94,30 @@ public class UpdateTextTrackRequest {
             return false;
         }
         UpdateTextTrackRequest other = (UpdateTextTrackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.videoId, other.videoId) &&
-            Utils.enhancedDeepEquals(this.textTrackId, other.textTrackId) &&
-            Utils.enhancedDeepEquals(this.existingVideoTextTrack, other.existingVideoTextTrack);
+        return Utils.enhancedDeepEquals(this.videoId, other.videoId)
+                && Utils.enhancedDeepEquals(this.textTrackId, other.textTrackId)
+                && Utils.enhancedDeepEquals(this.existingVideoTextTrack, other.existingVideoTextTrack);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            videoId, textTrackId, existingVideoTextTrack);
+        return Utils.enhancedHash(videoId, textTrackId, existingVideoTextTrack);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateTextTrackRequest.class,
-                "videoId", videoId,
-                "textTrackId", textTrackId,
-                "existingVideoTextTrack", existingVideoTextTrack);
+        return Utils.toString(
+                UpdateTextTrackRequest.class,
+                "videoId",
+                videoId,
+                "textTrackId",
+                textTrackId,
+                "existingVideoTextTrack",
+                existingVideoTextTrack);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String videoId;
 
@@ -129,7 +126,7 @@ public class UpdateTextTrackRequest {
         private ExistingVideoTextTrackInput existingVideoTextTrack;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -154,9 +151,7 @@ public class UpdateTextTrackRequest {
         }
 
         public UpdateTextTrackRequest build() {
-            return new UpdateTextTrackRequest(
-                videoId, textTrackId, existingVideoTextTrack);
+            return new UpdateTextTrackRequest(videoId, textTrackId, existingVideoTextTrack);
         }
-
     }
 }

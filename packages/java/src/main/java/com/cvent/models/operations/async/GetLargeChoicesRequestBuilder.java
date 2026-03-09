@@ -40,7 +40,7 @@ public class GetLargeChoicesRequestBuilder {
     private GetLargeChoicesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetLargeChoicesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetLargeChoicesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetLargeChoicesResponse> call() {
-        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation
-              = new GetLargeChoices.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation =
+                new GetLargeChoices.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetLargeChoicesRequestBuilder {
      */
     public Publisher<GetLargeChoicesResponse> callAsPublisher() {
         GetLargeChoicesRequest request = this.request;
-        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation
-              = new GetLargeChoices.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetLargeChoicesRequest, GetLargeChoicesResponse> operation =
+                new GetLargeChoices.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetLargeChoicesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetLargeChoicesRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetLargeChoicesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

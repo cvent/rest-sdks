@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BudgetVendorJsonType
     {
-        [JsonProperty("NOT_SPECIFIED")]
-        NotSpecified,
-        [JsonProperty("VENDOR")]
-        Vendor,
-        [JsonProperty("CSN")]
-        Csn,
+        [JsonProperty("NOT_SPECIFIED")] NotSpecified,
+        [JsonProperty("VENDOR")] Vendor,
+        [JsonProperty("CSN")] Csn,
     }
 
     public static class BudgetVendorJsonTypeExtension
     {
         public static string Value(this BudgetVendorJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BudgetVendorJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(BudgetVendorJsonType).GetFields())
+            foreach (var field in typeof(BudgetVendorJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

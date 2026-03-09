@@ -2,6 +2,14 @@
 
 Bid comment type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CommentTypeJson;
+
+CommentTypeJson value = CommentTypeJson.PROMOTIONS;
+```
+
 
 ## Values
 

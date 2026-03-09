@@ -2,6 +2,14 @@
 
 Denotes the type of data collected by a question.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.QuestionTypeJson1;
+
+QuestionTypeJson1 value = QuestionTypeJson1.AUTO_INCREMENT;
+```
+
 
 ## Values
 

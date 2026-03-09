@@ -2,6 +2,14 @@
 
 Creation type of the audience segment.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ExistingAudienceSegmentCreationTypeJson;
+
+ExistingAudienceSegmentCreationTypeJson value = ExistingAudienceSegmentCreationTypeJson.MANUAL;
+```
+
 
 ## Values
 

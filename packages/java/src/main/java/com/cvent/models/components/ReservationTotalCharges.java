@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ReservationTotalCharges
- * 
+ *
  * <p>Calculated total charges for this reservation.
  */
 public class ReservationTotalCharges {
@@ -87,11 +87,9 @@ public class ReservationTotalCharges {
         this.totalAmount = totalAmount;
         this.currency = currency;
     }
-    
+
     public ReservationTotalCharges() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -147,7 +145,6 @@ public class ReservationTotalCharges {
         return new Builder();
     }
 
-
     /**
      * Total charges for the given reservation without taxes.
      */
@@ -155,7 +152,6 @@ public class ReservationTotalCharges {
         this.amountBeforeTax = amountBeforeTax;
         return this;
     }
-
 
     /**
      * The amount of taxes.
@@ -165,7 +161,6 @@ public class ReservationTotalCharges {
         return this;
     }
 
-
     /**
      * Total amount of additional guest fees.
      */
@@ -173,7 +168,6 @@ public class ReservationTotalCharges {
         this.totalGuestFees = totalGuestFees;
         return this;
     }
-
 
     /**
      * Total add-ons charges.
@@ -183,7 +177,6 @@ public class ReservationTotalCharges {
         return this;
     }
 
-
     /**
      * Total charges for the given reservation including taxes.
      */
@@ -191,7 +184,6 @@ public class ReservationTotalCharges {
         this.amountAfterTax = amountAfterTax;
         return this;
     }
-
 
     /**
      * Total charges for the given reservation including add-ons.
@@ -201,7 +193,6 @@ public class ReservationTotalCharges {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code.
      */
@@ -209,7 +200,6 @@ public class ReservationTotalCharges {
         this.currency = currency;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -220,38 +210,43 @@ public class ReservationTotalCharges {
             return false;
         }
         ReservationTotalCharges other = (ReservationTotalCharges) o;
-        return 
-            Utils.enhancedDeepEquals(this.amountBeforeTax, other.amountBeforeTax) &&
-            Utils.enhancedDeepEquals(this.taxes, other.taxes) &&
-            Utils.enhancedDeepEquals(this.totalGuestFees, other.totalGuestFees) &&
-            Utils.enhancedDeepEquals(this.totalAddons, other.totalAddons) &&
-            Utils.enhancedDeepEquals(this.amountAfterTax, other.amountAfterTax) &&
-            Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency);
+        return Utils.enhancedDeepEquals(this.amountBeforeTax, other.amountBeforeTax)
+                && Utils.enhancedDeepEquals(this.taxes, other.taxes)
+                && Utils.enhancedDeepEquals(this.totalGuestFees, other.totalGuestFees)
+                && Utils.enhancedDeepEquals(this.totalAddons, other.totalAddons)
+                && Utils.enhancedDeepEquals(this.amountAfterTax, other.amountAfterTax)
+                && Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            amountBeforeTax, taxes, totalGuestFees,
-            totalAddons, amountAfterTax, totalAmount,
-            currency);
+                amountBeforeTax, taxes, totalGuestFees, totalAddons, amountAfterTax, totalAmount, currency);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationTotalCharges.class,
-                "amountBeforeTax", amountBeforeTax,
-                "taxes", taxes,
-                "totalGuestFees", totalGuestFees,
-                "totalAddons", totalAddons,
-                "amountAfterTax", amountAfterTax,
-                "totalAmount", totalAmount,
-                "currency", currency);
+        return Utils.toString(
+                ReservationTotalCharges.class,
+                "amountBeforeTax",
+                amountBeforeTax,
+                "taxes",
+                taxes,
+                "totalGuestFees",
+                totalGuestFees,
+                "totalAddons",
+                totalAddons,
+                "amountAfterTax",
+                amountAfterTax,
+                "totalAmount",
+                totalAmount,
+                "currency",
+                currency);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long amountBeforeTax;
 
@@ -268,7 +263,7 @@ public class ReservationTotalCharges {
         private String currency;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -329,10 +324,7 @@ public class ReservationTotalCharges {
 
         public ReservationTotalCharges build() {
             return new ReservationTotalCharges(
-                amountBeforeTax, taxes, totalGuestFees,
-                totalAddons, amountAfterTax, totalAmount,
-                currency);
+                    amountBeforeTax, taxes, totalGuestFees, totalAddons, amountAfterTax, totalAmount, currency);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-
 public class Oauth2AuthorizeResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -32,7 +31,6 @@ public class Oauth2AuthorizeResponse implements Response {
      */
     private HttpResponse<InputStream> rawResponse;
 
-
     private Map<String, List<String>> headers;
 
     @JsonCreator
@@ -43,12 +41,12 @@ public class Oauth2AuthorizeResponse implements Response {
             @Nonnull Map<String, List<String>> headers) {
         headers = Utils.emptyMapIfNull(headers);
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.headers = Optional.ofNullable(headers)
-            .orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+        this.headers =
+                Optional.ofNullable(headers).orElseThrow(() -> new IllegalArgumentException("headers cannot be null"));
     }
 
     /**
@@ -80,7 +78,6 @@ public class Oauth2AuthorizeResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -88,7 +85,6 @@ public class Oauth2AuthorizeResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -98,7 +94,6 @@ public class Oauth2AuthorizeResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -107,12 +102,10 @@ public class Oauth2AuthorizeResponse implements Response {
         return this;
     }
 
-
     public Oauth2AuthorizeResponse withHeaders(@Nonnull Map<String, List<String>> headers) {
         this.headers = Utils.checkNotNull(headers, "headers");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,31 +116,33 @@ public class Oauth2AuthorizeResponse implements Response {
             return false;
         }
         Oauth2AuthorizeResponse other = (Oauth2AuthorizeResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.headers, other.headers);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            headers);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, headers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2AuthorizeResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "headers", headers);
+        return Utils.toString(
+                Oauth2AuthorizeResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "headers",
+                headers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -158,7 +153,7 @@ public class Oauth2AuthorizeResponse implements Response {
         private Map<String, List<String>> headers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -191,10 +186,7 @@ public class Oauth2AuthorizeResponse implements Response {
         }
 
         public Oauth2AuthorizeResponse build() {
-            return new Oauth2AuthorizeResponse(
-                contentType, statusCode, rawResponse,
-                headers);
+            return new Oauth2AuthorizeResponse(contentType, statusCode, rawResponse, headers);
         }
-
     }
 }

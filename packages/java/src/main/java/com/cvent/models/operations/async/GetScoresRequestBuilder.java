@@ -40,7 +40,7 @@ public class GetScoresRequestBuilder {
     private GetScoresRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetScoresRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetScoresRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetScoresResponse> call() {
-        AsyncRequestOperation<GetScoresRequest, GetScoresResponse> operation
-              = new GetScores.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetScoresRequest, GetScoresResponse> operation =
+                new GetScores.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetScoresRequestBuilder {
      */
     public Publisher<GetScoresResponse> callAsPublisher() {
         GetScoresRequest request = this.request;
-        AsyncRequestOperation<GetScoresRequest, GetScoresResponse> operation
-              = new GetScores.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetScoresRequest, GetScoresResponse> operation =
+                new GetScores.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetScoresRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetScoresRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetScoresResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

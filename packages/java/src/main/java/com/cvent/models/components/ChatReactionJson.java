@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ChatReactionJson
- * 
+ *
  * <p>A reaction to a message
  */
 public class ChatReactionJson {
@@ -24,10 +24,8 @@ public class ChatReactionJson {
     private String type;
 
     @JsonCreator
-    public ChatReactionJson(
-            @JsonProperty("type") @Nonnull String type) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+    public ChatReactionJson(@JsonProperty("type") @Nonnull String type) {
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ChatReactionJson {
         return new Builder();
     }
 
-
     /**
      * The reaction type if the action type was one of the reaction.created or reaction.deleted.
      */
@@ -49,7 +46,6 @@ public class ChatReactionJson {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ChatReactionJson {
             return false;
         }
         ChatReactionJson other = (ChatReactionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type);
+        return Utils.enhancedHash(type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChatReactionJson.class,
-                "type", type);
+        return Utils.toString(ChatReactionJson.class, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ChatReactionJson {
         }
 
         public ChatReactionJson build() {
-            return new ChatReactionJson(
-                type);
+            return new ChatReactionJson(type);
         }
-
     }
 }

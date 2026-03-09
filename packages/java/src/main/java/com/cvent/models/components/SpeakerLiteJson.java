@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SpeakerLiteJson
- * 
+ *
  * <p>The unique identifier of a speaker.
  */
 public class SpeakerLiteJson {
@@ -24,10 +24,8 @@ public class SpeakerLiteJson {
     private String id;
 
     @JsonCreator
-    public SpeakerLiteJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public SpeakerLiteJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class SpeakerLiteJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier for a speaker.
      */
@@ -49,7 +46,6 @@ public class SpeakerLiteJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class SpeakerLiteJson {
             return false;
         }
         SpeakerLiteJson other = (SpeakerLiteJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerLiteJson.class,
-                "id", id);
+        return Utils.toString(SpeakerLiteJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class SpeakerLiteJson {
         }
 
         public SpeakerLiteJson build() {
-            return new SpeakerLiteJson(
-                id);
+            return new SpeakerLiteJson(id);
         }
-
     }
 }

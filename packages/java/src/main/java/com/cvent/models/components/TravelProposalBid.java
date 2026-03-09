@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * TravelProposalBid
- * 
+ *
  * <p>A travel proposal bid erate plan that is being proposed to a customer.
  */
 public class TravelProposalBid {
@@ -206,23 +206,17 @@ public class TravelProposalBid {
             @JsonProperty("taxesAndFees") @Nullable List<TravelBidTaxFeeJson> taxesAndFees) {
         this.travelProposal = travelProposal;
         this.id = id;
-        this.stayType = Optional.ofNullable(stayType)
-            .orElse(Builder._SINGLETON_VALUE_StayType.value());
-        this.order = Optional.ofNullable(order)
-            .orElse(Builder._SINGLETON_VALUE_Order.value());
-        this.status = Optional.ofNullable(status)
-            .orElse(Builder._SINGLETON_VALUE_Status.value());
+        this.stayType = Optional.ofNullable(stayType).orElse(Builder._SINGLETON_VALUE_StayType.value());
+        this.order = Optional.ofNullable(order).orElse(Builder._SINGLETON_VALUE_Order.value());
+        this.status = Optional.ofNullable(status).orElse(Builder._SINGLETON_VALUE_Status.value());
         this.name = name;
         this.rate = rate;
         this.marketCode = marketCode;
         this.currencyCode = currencyCode;
         this.weekendDays = weekendDays;
-        this.lra = Optional.ofNullable(lra)
-            .orElse(Builder._SINGLETON_VALUE_Lra.value());
-        this.nlra = Optional.ofNullable(nlra)
-            .orElse(Builder._SINGLETON_VALUE_Nlra.value());
-        this.fairDateLra = Optional.ofNullable(fairDateLra)
-            .orElse(Builder._SINGLETON_VALUE_FairDateLra.value());
+        this.lra = Optional.ofNullable(lra).orElse(Builder._SINGLETON_VALUE_Lra.value());
+        this.nlra = Optional.ofNullable(nlra).orElse(Builder._SINGLETON_VALUE_Nlra.value());
+        this.fairDateLra = Optional.ofNullable(fairDateLra).orElse(Builder._SINGLETON_VALUE_FairDateLra.value());
         this.internalNote = internalNote;
         this.comments = comments;
         this.roomTypes = roomTypes;
@@ -233,16 +227,31 @@ public class TravelProposalBid {
         this.policies = policies;
         this.taxesAndFees = taxesAndFees;
     }
-    
+
     public TravelProposalBid() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -405,7 +414,6 @@ public class TravelProposalBid {
         return new Builder();
     }
 
-
     /**
      * The travel proposal that the bid belongs to.
      */
@@ -413,7 +421,6 @@ public class TravelProposalBid {
         this.travelProposal = travelProposal;
         return this;
     }
-
 
     /**
      * The unique ID of the bid.
@@ -423,7 +430,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Bid stay type.
      */
@@ -431,7 +437,6 @@ public class TravelProposalBid {
         this.stayType = stayType;
         return this;
     }
-
 
     /**
      * The order of the bid compared to other bids of the same stay type. This is used to distinguish
@@ -442,7 +447,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Bid stay type.
      */
@@ -450,7 +454,6 @@ public class TravelProposalBid {
         this.status = status;
         return this;
     }
-
 
     /**
      * Name given to the bid.
@@ -460,7 +463,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * The rate (cost) information for a travel bid.
      */
@@ -468,7 +470,6 @@ public class TravelProposalBid {
         this.rate = rate;
         return this;
     }
-
 
     /**
      * The market code given to the rate plan / bid by the supplier.
@@ -478,7 +479,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * The ISO 4217 currency code used for the rates and other monetary values in the bid.
      */
@@ -486,7 +486,6 @@ public class TravelProposalBid {
         this.currencyCode = currencyCode;
         return this;
     }
-
 
     /**
      * Days of the week that are considered weekend days, to apply weekend rates. Does not apply when
@@ -497,7 +496,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Does the bid include LRA (Last Room Availability) rates?
      */
@@ -505,7 +503,6 @@ public class TravelProposalBid {
         this.lra = lra;
         return this;
     }
-
 
     /**
      * Does the bid include non-LRA rates?
@@ -515,7 +512,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Are the fair date rates LRA (Last Room Availability)?
      */
@@ -523,7 +519,6 @@ public class TravelProposalBid {
         this.fairDateLra = fairDateLra;
         return this;
     }
-
 
     /**
      * Additional comments passed from the domain-level rate plan.
@@ -533,7 +528,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Additional Info
      */
@@ -541,7 +535,6 @@ public class TravelProposalBid {
         this.comments = comments;
         return this;
     }
-
 
     /**
      * Room Types associated with the bid
@@ -551,7 +544,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Seasons associated with the bid
      */
@@ -559,7 +551,6 @@ public class TravelProposalBid {
         this.seasons = seasons;
         return this;
     }
-
 
     /**
      * Dynamic discounts associated with the bid
@@ -569,7 +560,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Fair seasons associated with the bid
      */
@@ -577,7 +567,6 @@ public class TravelProposalBid {
         this.fairSeasons = fairSeasons;
         return this;
     }
-
 
     /**
      * Amenities associated with the bid
@@ -587,7 +576,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Policies associated with the bid
      */
@@ -596,7 +584,6 @@ public class TravelProposalBid {
         return this;
     }
 
-
     /**
      * Taxes &amp; fees associated with the bid
      */
@@ -604,7 +591,6 @@ public class TravelProposalBid {
         this.taxesAndFees = taxesAndFees;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -615,73 +601,109 @@ public class TravelProposalBid {
             return false;
         }
         TravelProposalBid other = (TravelProposalBid) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelProposal, other.travelProposal) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.stayType, other.stayType) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate) &&
-            Utils.enhancedDeepEquals(this.marketCode, other.marketCode) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.weekendDays, other.weekendDays) &&
-            Utils.enhancedDeepEquals(this.lra, other.lra) &&
-            Utils.enhancedDeepEquals(this.nlra, other.nlra) &&
-            Utils.enhancedDeepEquals(this.fairDateLra, other.fairDateLra) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote) &&
-            Utils.enhancedDeepEquals(this.comments, other.comments) &&
-            Utils.enhancedDeepEquals(this.roomTypes, other.roomTypes) &&
-            Utils.enhancedDeepEquals(this.seasons, other.seasons) &&
-            Utils.enhancedDeepEquals(this.discounts, other.discounts) &&
-            Utils.enhancedDeepEquals(this.fairSeasons, other.fairSeasons) &&
-            Utils.enhancedDeepEquals(this.amenities, other.amenities) &&
-            Utils.enhancedDeepEquals(this.policies, other.policies) &&
-            Utils.enhancedDeepEquals(this.taxesAndFees, other.taxesAndFees);
+        return Utils.enhancedDeepEquals(this.travelProposal, other.travelProposal)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.stayType, other.stayType)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.rate, other.rate)
+                && Utils.enhancedDeepEquals(this.marketCode, other.marketCode)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.weekendDays, other.weekendDays)
+                && Utils.enhancedDeepEquals(this.lra, other.lra)
+                && Utils.enhancedDeepEquals(this.nlra, other.nlra)
+                && Utils.enhancedDeepEquals(this.fairDateLra, other.fairDateLra)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote)
+                && Utils.enhancedDeepEquals(this.comments, other.comments)
+                && Utils.enhancedDeepEquals(this.roomTypes, other.roomTypes)
+                && Utils.enhancedDeepEquals(this.seasons, other.seasons)
+                && Utils.enhancedDeepEquals(this.discounts, other.discounts)
+                && Utils.enhancedDeepEquals(this.fairSeasons, other.fairSeasons)
+                && Utils.enhancedDeepEquals(this.amenities, other.amenities)
+                && Utils.enhancedDeepEquals(this.policies, other.policies)
+                && Utils.enhancedDeepEquals(this.taxesAndFees, other.taxesAndFees);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            travelProposal, id, stayType,
-            order, status, name,
-            rate, marketCode, currencyCode,
-            weekendDays, lra, nlra,
-            fairDateLra, internalNote, comments,
-            roomTypes, seasons, discounts,
-            fairSeasons, amenities, policies,
-            taxesAndFees);
+                travelProposal,
+                id,
+                stayType,
+                order,
+                status,
+                name,
+                rate,
+                marketCode,
+                currencyCode,
+                weekendDays,
+                lra,
+                nlra,
+                fairDateLra,
+                internalNote,
+                comments,
+                roomTypes,
+                seasons,
+                discounts,
+                fairSeasons,
+                amenities,
+                policies,
+                taxesAndFees);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelProposalBid.class,
-                "travelProposal", travelProposal,
-                "id", id,
-                "stayType", stayType,
-                "order", order,
-                "status", status,
-                "name", name,
-                "rate", rate,
-                "marketCode", marketCode,
-                "currencyCode", currencyCode,
-                "weekendDays", weekendDays,
-                "lra", lra,
-                "nlra", nlra,
-                "fairDateLra", fairDateLra,
-                "internalNote", internalNote,
-                "comments", comments,
-                "roomTypes", roomTypes,
-                "seasons", seasons,
-                "discounts", discounts,
-                "fairSeasons", fairSeasons,
-                "amenities", amenities,
-                "policies", policies,
-                "taxesAndFees", taxesAndFees);
+        return Utils.toString(
+                TravelProposalBid.class,
+                "travelProposal",
+                travelProposal,
+                "id",
+                id,
+                "stayType",
+                stayType,
+                "order",
+                order,
+                "status",
+                status,
+                "name",
+                name,
+                "rate",
+                rate,
+                "marketCode",
+                marketCode,
+                "currencyCode",
+                currencyCode,
+                "weekendDays",
+                weekendDays,
+                "lra",
+                lra,
+                "nlra",
+                nlra,
+                "fairDateLra",
+                fairDateLra,
+                "internalNote",
+                internalNote,
+                "comments",
+                comments,
+                "roomTypes",
+                roomTypes,
+                "seasons",
+                seasons,
+                "discounts",
+                discounts,
+                "fairSeasons",
+                fairSeasons,
+                "amenities",
+                amenities,
+                "policies",
+                policies,
+                "taxesAndFees",
+                taxesAndFees);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelProposalBidTravelProposal travelProposal;
 
@@ -728,7 +750,7 @@ public class TravelProposalBid {
         private List<TravelBidTaxFeeJson> taxesAndFees;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -911,51 +933,46 @@ public class TravelProposalBid {
 
         public TravelProposalBid build() {
             return new TravelProposalBid(
-                travelProposal, id, stayType,
-                order, status, name,
-                rate, marketCode, currencyCode,
-                weekendDays, lra, nlra,
-                fairDateLra, internalNote, comments,
-                roomTypes, seasons, discounts,
-                fairSeasons, amenities, policies,
-                taxesAndFees);
+                    travelProposal,
+                    id,
+                    stayType,
+                    order,
+                    status,
+                    name,
+                    rate,
+                    marketCode,
+                    currencyCode,
+                    weekendDays,
+                    lra,
+                    nlra,
+                    fairDateLra,
+                    internalNote,
+                    comments,
+                    roomTypes,
+                    seasons,
+                    discounts,
+                    fairSeasons,
+                    amenities,
+                    policies,
+                    taxesAndFees);
         }
 
-
         private static final LazySingletonValue<BidStayTypeJson> _SINGLETON_VALUE_StayType =
-                new LazySingletonValue<>(
-                        "stayType",
-                        "\"daily\"",
-                        new TypeReference<BidStayTypeJson>() {});
+                new LazySingletonValue<>("stayType", "\"daily\"", new TypeReference<BidStayTypeJson>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Order =
-                new LazySingletonValue<>(
-                        "order",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("order", "1", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<BidStatusTypeJson> _SINGLETON_VALUE_Status =
-                new LazySingletonValue<>(
-                        "status",
-                        "\"in_progress\"",
-                        new TypeReference<BidStatusTypeJson>() {});
+                new LazySingletonValue<>("status", "\"in_progress\"", new TypeReference<BidStatusTypeJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Lra =
-                new LazySingletonValue<>(
-                        "lra",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("lra", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Nlra =
-                new LazySingletonValue<>(
-                        "nlra",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("nlra", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_FairDateLra =
-                new LazySingletonValue<>(
-                        "fairDateLra",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("fairDateLra", "true", new TypeReference<Boolean>() {});
     }
 }

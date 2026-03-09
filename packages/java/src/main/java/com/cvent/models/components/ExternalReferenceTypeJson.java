@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExternalReferenceTypeJson
- * 
+ *
  * <p>Type of the external system.
  */
 public enum ExternalReferenceTypeJson {
@@ -23,13 +23,13 @@ public enum ExternalReferenceTypeJson {
     ExternalReferenceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExternalReferenceTypeJson> fromValue(String value) {
-        for (ExternalReferenceTypeJson o: ExternalReferenceTypeJson.values()) {
+        for (ExternalReferenceTypeJson o : ExternalReferenceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ExternalReferenceTypeJson {
         return Optional.empty();
     }
 }
-

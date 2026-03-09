@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RegionJson1
- * 
+ *
  * <p>Region where the live stream originates (These regions are only for Brightcove player)
  */
 public enum RegionJson1 {
@@ -29,13 +29,13 @@ public enum RegionJson1 {
     RegionJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RegionJson1> fromValue(String value) {
-        for (RegionJson1 o: RegionJson1.values()) {
+        for (RegionJson1 o : RegionJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum RegionJson1 {
         return Optional.empty();
     }
 }
-

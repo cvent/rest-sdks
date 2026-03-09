@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * EventEmailJson
- * 
+ *
  * <p>An email and its details for a specific event.
  */
 public class EventEmailJson {
@@ -172,21 +172,13 @@ public class EventEmailJson {
         this.clickTrackingEnabled = clickTrackingEnabled;
         this.replyToName = replyToName;
         this.replyToEmail = replyToEmail;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.active = active;
         this.invitationList = invitationList;
     }
-    
-    public EventEmailJson(
-            @Nonnull String id,
-            boolean active) {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, id,
-            active, null);
+
+    public EventEmailJson(@Nonnull String id, boolean active) {
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, id, active, null);
     }
 
     /**
@@ -312,7 +304,6 @@ public class EventEmailJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -320,7 +311,6 @@ public class EventEmailJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -330,7 +320,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -338,7 +327,6 @@ public class EventEmailJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -348,7 +336,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * Name of the email template.
      */
@@ -356,7 +343,6 @@ public class EventEmailJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Subject of the email template.
@@ -366,7 +352,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * Name of the sender.
      */
@@ -374,7 +359,6 @@ public class EventEmailJson {
         this.fromName = fromName;
         return this;
     }
-
 
     /**
      * The email address of the sender.
@@ -384,7 +368,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * Plain text body of the page in the email.
      */
@@ -392,7 +375,6 @@ public class EventEmailJson {
         this.plaintextBody = plaintextBody;
         return this;
     }
-
 
     /**
      * html body of the page sent in the email
@@ -402,7 +384,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * The locale of the email template using the IETF Language Tag format.
      */
@@ -410,7 +391,6 @@ public class EventEmailJson {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * Enables tracking when respondent clicks on the email
@@ -420,7 +400,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * Name of the person to reply to
      */
@@ -428,7 +407,6 @@ public class EventEmailJson {
         this.replyToName = replyToName;
         return this;
     }
-
 
     /**
      * Email address to reply to
@@ -438,7 +416,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * The unique ID of the event email.
      */
@@ -446,7 +423,6 @@ public class EventEmailJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * True indicates the email is active and can be sent.
@@ -456,7 +432,6 @@ public class EventEmailJson {
         return this;
     }
 
-
     /**
      * Object encapsulating invitation list id
      */
@@ -464,7 +439,6 @@ public class EventEmailJson {
         this.invitationList = invitationList;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -475,61 +449,89 @@ public class EventEmailJson {
             return false;
         }
         EventEmailJson other = (EventEmailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.fromName, other.fromName) &&
-            Utils.enhancedDeepEquals(this.fromEmail, other.fromEmail) &&
-            Utils.enhancedDeepEquals(this.plaintextBody, other.plaintextBody) &&
-            Utils.enhancedDeepEquals(this.htmlBody, other.htmlBody) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled) &&
-            Utils.enhancedDeepEquals(this.replyToName, other.replyToName) &&
-            Utils.enhancedDeepEquals(this.replyToEmail, other.replyToEmail) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.invitationList, other.invitationList);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.fromName, other.fromName)
+                && Utils.enhancedDeepEquals(this.fromEmail, other.fromEmail)
+                && Utils.enhancedDeepEquals(this.plaintextBody, other.plaintextBody)
+                && Utils.enhancedDeepEquals(this.htmlBody, other.htmlBody)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled)
+                && Utils.enhancedDeepEquals(this.replyToName, other.replyToName)
+                && Utils.enhancedDeepEquals(this.replyToEmail, other.replyToEmail)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, name, subject,
-            fromName, fromEmail, plaintextBody,
-            htmlBody, locale, clickTrackingEnabled,
-            replyToName, replyToEmail, id,
-            active, invitationList);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                name,
+                subject,
+                fromName,
+                fromEmail,
+                plaintextBody,
+                htmlBody,
+                locale,
+                clickTrackingEnabled,
+                replyToName,
+                replyToEmail,
+                id,
+                active,
+                invitationList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventEmailJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "name", name,
-                "subject", subject,
-                "fromName", fromName,
-                "fromEmail", fromEmail,
-                "plaintextBody", plaintextBody,
-                "htmlBody", htmlBody,
-                "locale", locale,
-                "clickTrackingEnabled", clickTrackingEnabled,
-                "replyToName", replyToName,
-                "replyToEmail", replyToEmail,
-                "id", id,
-                "active", active,
-                "invitationList", invitationList);
+        return Utils.toString(
+                EventEmailJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "name",
+                name,
+                "subject",
+                subject,
+                "fromName",
+                fromName,
+                "fromEmail",
+                fromEmail,
+                "plaintextBody",
+                plaintextBody,
+                "htmlBody",
+                htmlBody,
+                "locale",
+                locale,
+                "clickTrackingEnabled",
+                clickTrackingEnabled,
+                "replyToName",
+                replyToName,
+                "replyToEmail",
+                replyToEmail,
+                "id",
+                id,
+                "active",
+                active,
+                "invitationList",
+                invitationList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -566,7 +568,7 @@ public class EventEmailJson {
         private InvitationListIdJson invitationList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -707,13 +709,23 @@ public class EventEmailJson {
 
         public EventEmailJson build() {
             return new EventEmailJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, name, subject,
-                fromName, fromEmail, plaintextBody,
-                htmlBody, locale, clickTrackingEnabled,
-                replyToName, replyToEmail, id,
-                active, invitationList);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    name,
+                    subject,
+                    fromName,
+                    fromEmail,
+                    plaintextBody,
+                    htmlBody,
+                    locale,
+                    clickTrackingEnabled,
+                    replyToName,
+                    replyToEmail,
+                    id,
+                    active,
+                    invitationList);
         }
-
     }
 }

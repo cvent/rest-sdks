@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ReservationRequestResponseJson
- * 
+ *
  * <p>Representation of the reservation request response.
  */
 public class ReservationRequestResponseJson {
@@ -50,7 +50,7 @@ public class ReservationRequestResponseJson {
         this.reservationRequest = reservationRequest;
         this.lastModified = lastModified;
     }
-    
+
     public ReservationRequestResponseJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class ReservationRequestResponseJson {
         return new Builder();
     }
 
-
     /**
      * Representation of the attendee
      */
@@ -88,7 +87,6 @@ public class ReservationRequestResponseJson {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * Representation of the housing reservation details.
@@ -98,7 +96,6 @@ public class ReservationRequestResponseJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -106,7 +103,6 @@ public class ReservationRequestResponseJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,30 @@ public class ReservationRequestResponseJson {
             return false;
         }
         ReservationRequestResponseJson other = (ReservationRequestResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, reservationRequest, lastModified);
+        return Utils.enhancedHash(attendee, reservationRequest, lastModified);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationRequestResponseJson.class,
-                "attendee", attendee,
-                "reservationRequest", reservationRequest,
-                "lastModified", lastModified);
+        return Utils.toString(
+                ReservationRequestResponseJson.class,
+                "attendee",
+                attendee,
+                "reservationRequest",
+                reservationRequest,
+                "lastModified",
+                lastModified);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeJson4 attendee;
 
@@ -147,7 +145,7 @@ public class ReservationRequestResponseJson {
         private OffsetDateTime lastModified;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +173,7 @@ public class ReservationRequestResponseJson {
         }
 
         public ReservationRequestResponseJson build() {
-            return new ReservationRequestResponseJson(
-                attendee, reservationRequest, lastModified);
+            return new ReservationRequestResponseJson(attendee, reservationRequest, lastModified);
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingEventsSummariesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetHousingEventsSummariesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable HousingEventSummaryList housingEventSummaryList) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.housingEventSummaryList = housingEventSummaryList;
     }
-    
+
     public GetHousingEventsSummariesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetHousingEventsSummariesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetHousingEventsSummariesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetHousingEventsSummariesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetHousingEventsSummariesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of summary information for your individual housing events.
      */
-    public GetHousingEventsSummariesResponse withHousingEventSummaryList(@Nullable HousingEventSummaryList housingEventSummaryList) {
+    public GetHousingEventsSummariesResponse withHousingEventSummaryList(
+            @Nullable HousingEventSummaryList housingEventSummaryList) {
         this.housingEventSummaryList = housingEventSummaryList;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetHousingEventsSummariesResponse implements Response {
             return false;
         }
         GetHousingEventsSummariesResponse other = (GetHousingEventsSummariesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.housingEventSummaryList, other.housingEventSummaryList);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.housingEventSummaryList, other.housingEventSummaryList);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            housingEventSummaryList);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, housingEventSummaryList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventsSummariesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "housingEventSummaryList", housingEventSummaryList);
+        return Utils.toString(
+                GetHousingEventsSummariesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "housingEventSummaryList",
+                housingEventSummaryList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetHousingEventsSummariesResponse implements Response {
         private HousingEventSummaryList housingEventSummaryList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class GetHousingEventsSummariesResponse implements Response {
         }
 
         public GetHousingEventsSummariesResponse build() {
-            return new GetHousingEventsSummariesResponse(
-                contentType, statusCode, rawResponse,
-                housingEventSummaryList);
+            return new GetHousingEventsSummariesResponse(contentType, statusCode, rawResponse, housingEventSummaryList);
         }
-
     }
 }

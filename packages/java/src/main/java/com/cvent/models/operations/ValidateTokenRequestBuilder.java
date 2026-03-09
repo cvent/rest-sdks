@@ -18,7 +18,6 @@ public class ValidateTokenRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public ValidateTokenRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -27,13 +26,12 @@ public class ValidateTokenRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ValidateTokenResponse call() {
-        RequestlessOperation<ValidateTokenResponse> operation
-            = new ValidateToken.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<ValidateTokenResponse> operation = new ValidateToken.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

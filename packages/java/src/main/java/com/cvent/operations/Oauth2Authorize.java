@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -31,10 +31,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class Oauth2Authorize {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -43,7 +42,7 @@ public class Oauth2Authorize {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -79,27 +78,21 @@ public class Oauth2Authorize {
                     java.util.Optional.of(java.util.List.of()),
                     securitySource());
         }
-        <T>HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/oauth2/authorize");
+
+        <T> HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
+            String url = Utils.generateURL(this.baseUrl, "/oauth2/authorize");
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "*/*")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "*/*").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
 
-            req.addQueryParams(Utils.getQueryParams(
-                    klass,
-                    request,
-                    null));
+            req.addQueryParams(Utils.getQueryParams(klass, request, null));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
             return req.build();
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> {
+    public static class Sync extends Base implements RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -109,11 +102,11 @@ public class Oauth2Authorize {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -138,22 +131,16 @@ public class Oauth2Authorize {
             return httpRes;
         }
 
-
         @Override
         public Oauth2AuthorizeResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            Oauth2AuthorizeResponse.Builder resBuilder =
-                    Oauth2AuthorizeResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            Oauth2AuthorizeResponse.Builder resBuilder = Oauth2AuthorizeResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             Oauth2AuthorizeResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "302")) {
                 res.withHeaders(response.headers().map());
                 // no content
@@ -170,8 +157,10 @@ public class Oauth2Authorize {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<Oauth2AuthorizeRequest, com.cvent.models.operations.async.Oauth2AuthorizeResponse> {
+            implements AsyncRequestOperation<
+                    Oauth2AuthorizeRequest, com.cvent.models.operations.async.Oauth2AuthorizeResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
@@ -192,7 +181,9 @@ public class Oauth2Authorize {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(Oauth2AuthorizeRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -209,19 +200,15 @@ public class Oauth2Authorize {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.Oauth2AuthorizeResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.Oauth2AuthorizeResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.Oauth2AuthorizeResponse
-                            .builder()
+                    com.cvent.models.operations.async.Oauth2AuthorizeResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.Oauth2AuthorizeResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "302")) {
                 res.withHeaders(response.headers().map());
                 // no content

@@ -18,36 +18,27 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionTypeJson3
     {
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("OpenEndedDateTime")]
-        OpenEndedDateTime,
-        [JsonProperty("OpenEndedTextOneLine")]
-        OpenEndedTextOneLine,
-        [JsonProperty("OpenEndedTextCommentBox")]
-        OpenEndedTextCommentBox,
-        [JsonProperty("OpenEndedNumeric")]
-        OpenEndedNumeric,
-        [JsonProperty("FileUpload")]
-        FileUpload,
-        [JsonProperty("MatrixSinglePerRow")]
-        MatrixSinglePerRow,
-        [JsonProperty("MatrixMultiPerRow")]
-        MatrixMultiPerRow,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
+        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
+        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
+        [JsonProperty("OpenEndedNumeric")] OpenEndedNumeric,
+        [JsonProperty("FileUpload")] FileUpload,
+        [JsonProperty("MatrixSinglePerRow")] MatrixSinglePerRow,
+        [JsonProperty("MatrixMultiPerRow")] MatrixMultiPerRow,
     }
 
     public static class QuestionTypeJson3Extension
     {
         public static string Value(this QuestionTypeJson3 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionTypeJson3 ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionTypeJson3).GetFields())
+            foreach (var field in typeof(QuestionTypeJson3).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

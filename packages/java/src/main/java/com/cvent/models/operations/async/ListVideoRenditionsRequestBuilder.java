@@ -30,7 +30,7 @@ public class ListVideoRenditionsRequestBuilder {
     private ListVideoRenditionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListVideoRenditionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class ListVideoRenditionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListVideoRenditionsResponse> call() {
-        AsyncRequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation
-              = new ListVideoRenditions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation =
+                new ListVideoRenditions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ReservationNightJsonStatus
- * 
+ *
  * <p>Indicator of night's status.
  */
 public enum ReservationNightJsonStatus {
@@ -23,13 +23,13 @@ public enum ReservationNightJsonStatus {
     ReservationNightJsonStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ReservationNightJsonStatus> fromValue(String value) {
-        for (ReservationNightJsonStatus o: ReservationNightJsonStatus.values()) {
+        for (ReservationNightJsonStatus o : ReservationNightJsonStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ReservationNightJsonStatus {
         return Optional.empty();
     }
 }
-

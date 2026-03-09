@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetBounceDetailsRequest {
     /**
      * Used to query records that have been added or updated before this time point.
@@ -47,17 +46,17 @@ public class GetBounceDetailsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Email type 'Unknown' is not supported in filter.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * created     (eq|le|ge)
      * * productLine (eq|ne)
@@ -78,15 +77,13 @@ public class GetBounceDetailsRequest {
             @Nullable String filter) {
         this.before = before;
         this.after = after;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetBounceDetailsRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -123,17 +120,17 @@ public class GetBounceDetailsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Email type 'Unknown' is not supported in filter.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * created     (eq|le|ge)
      * * productLine (eq|ne)
@@ -150,7 +147,6 @@ public class GetBounceDetailsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -158,7 +154,6 @@ public class GetBounceDetailsRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -169,7 +164,6 @@ public class GetBounceDetailsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -177,7 +171,6 @@ public class GetBounceDetailsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -188,22 +181,21 @@ public class GetBounceDetailsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Email type 'Unknown' is not supported in filter.
-     * 
+     *
      * <p>'OR' is not supported. Only 'AND' operator is supported.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * created     (eq|le|ge)
      * * productLine (eq|ne)
@@ -217,7 +209,6 @@ public class GetBounceDetailsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -227,33 +218,36 @@ public class GetBounceDetailsRequest {
             return false;
         }
         GetBounceDetailsRequest other = (GetBounceDetailsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            before, after, limit,
-            token, filter);
+        return Utils.enhancedHash(before, after, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBounceDetailsRequest.class,
-                "before", before,
-                "after", after,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetBounceDetailsRequest.class,
+                "before",
+                before,
+                "after",
+                after,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime before;
 
@@ -266,7 +260,7 @@ public class GetBounceDetailsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -307,17 +301,17 @@ public class GetBounceDetailsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>Email type 'Unknown' is not supported in filter.
-         * 
+         *
          * <p>'OR' is not supported. Only 'AND' operator is supported.
-         * 
+         *
          * <p>The following comparison types can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * created     (eq|le|ge)
          * * productLine (eq|ne)
@@ -332,16 +326,10 @@ public class GetBounceDetailsRequest {
         }
 
         public GetBounceDetailsRequest build() {
-            return new GetBounceDetailsRequest(
-                before, after, limit,
-                token, filter);
+            return new GetBounceDetailsRequest(before, after, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateBadgePrintJobRequest {
     /**
      * Id of an event
@@ -21,21 +20,18 @@ public class CreateBadgePrintJobRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=eventId")
     private String eventId;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private BadgePrintJobCreatedInput badgePrintJobCreated;
 
     @JsonCreator
     public CreateBadgePrintJobRequest(
-            @Nonnull String eventId,
-            @Nullable BadgePrintJobCreatedInput badgePrintJobCreated) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+            @Nonnull String eventId, @Nullable BadgePrintJobCreatedInput badgePrintJobCreated) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
         this.badgePrintJobCreated = badgePrintJobCreated;
     }
-    
-    public CreateBadgePrintJobRequest(
-            @Nonnull String eventId) {
+
+    public CreateBadgePrintJobRequest(@Nonnull String eventId) {
         this(eventId, null);
     }
 
@@ -54,7 +50,6 @@ public class CreateBadgePrintJobRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -63,12 +58,11 @@ public class CreateBadgePrintJobRequest {
         return this;
     }
 
-
-    public CreateBadgePrintJobRequest withBadgePrintJobCreated(@Nullable BadgePrintJobCreatedInput badgePrintJobCreated) {
+    public CreateBadgePrintJobRequest withBadgePrintJobCreated(
+            @Nullable BadgePrintJobCreatedInput badgePrintJobCreated) {
         this.badgePrintJobCreated = badgePrintJobCreated;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,33 +73,30 @@ public class CreateBadgePrintJobRequest {
             return false;
         }
         CreateBadgePrintJobRequest other = (CreateBadgePrintJobRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.badgePrintJobCreated, other.badgePrintJobCreated);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId)
+                && Utils.enhancedDeepEquals(this.badgePrintJobCreated, other.badgePrintJobCreated);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, badgePrintJobCreated);
+        return Utils.enhancedHash(eventId, badgePrintJobCreated);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateBadgePrintJobRequest.class,
-                "eventId", eventId,
-                "badgePrintJobCreated", badgePrintJobCreated);
+        return Utils.toString(
+                CreateBadgePrintJobRequest.class, "eventId", eventId, "badgePrintJobCreated", badgePrintJobCreated);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
         private BadgePrintJobCreatedInput badgePrintJobCreated;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -122,9 +113,7 @@ public class CreateBadgePrintJobRequest {
         }
 
         public CreateBadgePrintJobRequest build() {
-            return new CreateBadgePrintJobRequest(
-                eventId, badgePrintJobCreated);
+            return new CreateBadgePrintJobRequest(eventId, badgePrintJobCreated);
         }
-
     }
 }

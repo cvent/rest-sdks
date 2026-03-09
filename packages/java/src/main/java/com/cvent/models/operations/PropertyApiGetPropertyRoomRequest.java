@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PropertyApiGetPropertyRoomRequest {
     /**
      * The ID of the property room.
@@ -20,10 +19,9 @@ public class PropertyApiGetPropertyRoomRequest {
     private String roomId;
 
     @JsonCreator
-    public PropertyApiGetPropertyRoomRequest(
-            @Nonnull String roomId) {
-        this.roomId = Optional.ofNullable(roomId)
-            .orElseThrow(() -> new IllegalArgumentException("roomId cannot be null"));
+    public PropertyApiGetPropertyRoomRequest(@Nonnull String roomId) {
+        this.roomId =
+                Optional.ofNullable(roomId).orElseThrow(() -> new IllegalArgumentException("roomId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class PropertyApiGetPropertyRoomRequest {
         return new Builder();
     }
 
-
     /**
      * The ID of the property room.
      */
@@ -45,7 +42,6 @@ public class PropertyApiGetPropertyRoomRequest {
         this.roomId = Utils.checkNotNull(roomId, "roomId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class PropertyApiGetPropertyRoomRequest {
             return false;
         }
         PropertyApiGetPropertyRoomRequest other = (PropertyApiGetPropertyRoomRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.roomId, other.roomId);
+        return Utils.enhancedDeepEquals(this.roomId, other.roomId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            roomId);
+        return Utils.enhancedHash(roomId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyApiGetPropertyRoomRequest.class,
-                "roomId", roomId);
+        return Utils.toString(PropertyApiGetPropertyRoomRequest.class, "roomId", roomId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String roomId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class PropertyApiGetPropertyRoomRequest {
         }
 
         public PropertyApiGetPropertyRoomRequest build() {
-            return new PropertyApiGetPropertyRoomRequest(
-                roomId);
+            return new PropertyApiGetPropertyRoomRequest(roomId);
         }
-
     }
 }

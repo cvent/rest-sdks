@@ -2,6 +2,14 @@
 
 The application used to capture lead.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = Application.Leadcapture;
+```
+
 
 ## Values
 

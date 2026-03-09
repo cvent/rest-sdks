@@ -30,7 +30,7 @@ public class DeleteExhibitorCategoryImageRequestBuilder {
     private DeleteExhibitorCategoryImageRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExhibitorCategoryImageRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteExhibitorCategoryImageRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteExhibitorCategoryImageResponse> call() {
-        AsyncRequestOperation<DeleteExhibitorCategoryImageRequest, DeleteExhibitorCategoryImageResponse> operation
-              = new DeleteExhibitorCategoryImage.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteExhibitorCategoryImageRequest, DeleteExhibitorCategoryImageResponse> operation =
+                new DeleteExhibitorCategoryImage.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

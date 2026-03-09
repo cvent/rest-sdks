@@ -18,34 +18,26 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AudioTrackStatusJson
     {
-        [JsonProperty("Started")]
-        Started,
-        [JsonProperty("Uploaded")]
-        Uploaded,
-        [JsonProperty("Scanning")]
-        Scanning,
-        [JsonProperty("Scanned")]
-        Scanned,
-        [JsonProperty("Syncing")]
-        Syncing,
-        [JsonProperty("Rejected")]
-        Rejected,
-        [JsonProperty("Error")]
-        Error,
-        [JsonProperty("Available")]
-        Available,
+        [JsonProperty("Started")] Started,
+        [JsonProperty("Uploaded")] Uploaded,
+        [JsonProperty("Scanning")] Scanning,
+        [JsonProperty("Scanned")] Scanned,
+        [JsonProperty("Syncing")] Syncing,
+        [JsonProperty("Rejected")] Rejected,
+        [JsonProperty("Error")] Error,
+        [JsonProperty("Available")] Available,
     }
 
     public static class AudioTrackStatusJsonExtension
     {
         public static string Value(this AudioTrackStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AudioTrackStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AudioTrackStatusJson).GetFields())
+            foreach (var field in typeof(AudioTrackStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

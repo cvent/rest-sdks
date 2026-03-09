@@ -17,13 +17,13 @@ public enum ProcessFormExpand {
     ProcessFormExpand(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProcessFormExpand> fromValue(String value) {
-        for (ProcessFormExpand o: ProcessFormExpand.values()) {
+        for (ProcessFormExpand o : ProcessFormExpand.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -31,4 +31,3 @@ public enum ProcessFormExpand {
         return Optional.empty();
     }
 }
-

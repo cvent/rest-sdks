@@ -18,146 +18,82 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum LanguageJson
     {
-        [JsonProperty("af-ZA")]
-        AfZA,
-        [JsonProperty("ar-SA")]
-        ArSA,
-        [JsonProperty("az-Latn-AZ")]
-        AZLatnAZ,
-        [JsonProperty("be-BY")]
-        BeBY,
-        [JsonProperty("bg-BG")]
-        Bgbg,
-        [JsonProperty("bn-IN")]
-        BnIN,
-        [JsonProperty("bs-BA")]
-        BsBA,
-        [JsonProperty("ca-ES")]
-        CaES,
-        [JsonProperty("cs-CZ")]
-        CsCZ,
-        [JsonProperty("da-DK")]
-        DaDK,
-        [JsonProperty("de-CH")]
-        DeCH,
-        [JsonProperty("de-DE")]
-        Dede,
-        [JsonProperty("el-GR")]
-        ElGR,
-        [JsonProperty("en-GB")]
-        EnGB,
-        [JsonProperty("en-US")]
-        EnUS,
-        [JsonProperty("es-ES")]
-        Eses,
-        [JsonProperty("fi-FI")]
-        Fifi,
-        [JsonProperty("fr-CA")]
-        FrCA,
-        [JsonProperty("fr-FR")]
-        Frfr,
-        [JsonProperty("ga-IE")]
-        GaIE,
-        [JsonProperty("he-IL")]
-        HeIL,
-        [JsonProperty("hi-IN")]
-        HiIN,
-        [JsonProperty("hr-HR")]
-        Hrhr,
-        [JsonProperty("hu-HU")]
-        Huhu,
-        [JsonProperty("hy-AM")]
-        HyAM,
-        [JsonProperty("id-ID")]
-        Idid,
-        [JsonProperty("is-IS")]
-        Isis,
-        [JsonProperty("it-IT")]
-        Itit,
-        [JsonProperty("ja-JP")]
-        JaJP,
-        [JsonProperty("kn")]
-        Kn,
-        [JsonProperty("ko-KR")]
-        KoKR,
-        [JsonProperty("lb-LU")]
-        LbLU,
-        [JsonProperty("lt-LT")]
-        Ltlt,
-        [JsonProperty("lv-LV")]
-        Lvlv,
-        [JsonProperty("mi-NZ")]
-        MiNZ,
-        [JsonProperty("ml")]
-        Ml,
-        [JsonProperty("mn-CN")]
-        MnCN,
-        [JsonProperty("ms-MY")]
-        MsMY,
-        [JsonProperty("mt-MT")]
-        Mtmt,
-        [JsonProperty("nb-NO")]
-        NbNO,
-        [JsonProperty("ne-NP")]
-        NeNP,
-        [JsonProperty("nl-NL")]
-        Nlnl,
-        [JsonProperty("pa-IN")]
-        PaIN,
-        [JsonProperty("pl-PL")]
-        Plpl,
-        [JsonProperty("pt-BR")]
-        PtBR,
-        [JsonProperty("pt-PT")]
-        Ptpt,
-        [JsonProperty("ro-MO")]
-        RoMO,
-        [JsonProperty("ro-RO")]
-        Roro,
-        [JsonProperty("ru-RU")]
-        Ruru,
-        [JsonProperty("sk-SK")]
-        Sksk,
-        [JsonProperty("sl-SI")]
-        SlSI,
-        [JsonProperty("sq-AL")]
-        SqAL,
-        [JsonProperty("sr-RS")]
-        SrRS,
-        [JsonProperty("sv-SE")]
-        SvSE,
-        [JsonProperty("ta-IN")]
-        TaIN,
-        [JsonProperty("te-IN")]
-        TeIN,
-        [JsonProperty("th-TH")]
-        Thth,
-        [JsonProperty("tl-PH")]
-        TlPH,
-        [JsonProperty("tr-TR")]
-        Trtr,
-        [JsonProperty("uk-UA")]
-        UkUA,
-        [JsonProperty("vi-VN")]
-        ViVN,
-        [JsonProperty("zh-CHT")]
-        ZhCHT,
-        [JsonProperty("zh-CN")]
-        ZhCN,
-        [JsonProperty("zh-tw")]
-        ZhTw,
+        [JsonProperty("af-ZA")] AfZA,
+        [JsonProperty("ar-SA")] ArSA,
+        [JsonProperty("az-Latn-AZ")] AZLatnAZ,
+        [JsonProperty("be-BY")] BeBY,
+        [JsonProperty("bg-BG")] Bgbg,
+        [JsonProperty("bn-IN")] BnIN,
+        [JsonProperty("bs-BA")] BsBA,
+        [JsonProperty("ca-ES")] CaES,
+        [JsonProperty("cs-CZ")] CsCZ,
+        [JsonProperty("da-DK")] DaDK,
+        [JsonProperty("de-CH")] DeCH,
+        [JsonProperty("de-DE")] Dede,
+        [JsonProperty("el-GR")] ElGR,
+        [JsonProperty("en-GB")] EnGB,
+        [JsonProperty("en-US")] EnUS,
+        [JsonProperty("es-ES")] Eses,
+        [JsonProperty("fi-FI")] Fifi,
+        [JsonProperty("fr-CA")] FrCA,
+        [JsonProperty("fr-FR")] Frfr,
+        [JsonProperty("ga-IE")] GaIE,
+        [JsonProperty("he-IL")] HeIL,
+        [JsonProperty("hi-IN")] HiIN,
+        [JsonProperty("hr-HR")] Hrhr,
+        [JsonProperty("hu-HU")] Huhu,
+        [JsonProperty("hy-AM")] HyAM,
+        [JsonProperty("id-ID")] Idid,
+        [JsonProperty("is-IS")] Isis,
+        [JsonProperty("it-IT")] Itit,
+        [JsonProperty("ja-JP")] JaJP,
+        [JsonProperty("kn")] Kn,
+        [JsonProperty("ko-KR")] KoKR,
+        [JsonProperty("lb-LU")] LbLU,
+        [JsonProperty("lt-LT")] Ltlt,
+        [JsonProperty("lv-LV")] Lvlv,
+        [JsonProperty("mi-NZ")] MiNZ,
+        [JsonProperty("ml")] Ml,
+        [JsonProperty("mn-CN")] MnCN,
+        [JsonProperty("ms-MY")] MsMY,
+        [JsonProperty("mt-MT")] Mtmt,
+        [JsonProperty("nb-NO")] NbNO,
+        [JsonProperty("ne-NP")] NeNP,
+        [JsonProperty("nl-NL")] Nlnl,
+        [JsonProperty("pa-IN")] PaIN,
+        [JsonProperty("pl-PL")] Plpl,
+        [JsonProperty("pt-BR")] PtBR,
+        [JsonProperty("pt-PT")] Ptpt,
+        [JsonProperty("ro-MO")] RoMO,
+        [JsonProperty("ro-RO")] Roro,
+        [JsonProperty("ru-RU")] Ruru,
+        [JsonProperty("sk-SK")] Sksk,
+        [JsonProperty("sl-SI")] SlSI,
+        [JsonProperty("sq-AL")] SqAL,
+        [JsonProperty("sr-RS")] SrRS,
+        [JsonProperty("sv-SE")] SvSE,
+        [JsonProperty("ta-IN")] TaIN,
+        [JsonProperty("te-IN")] TeIN,
+        [JsonProperty("th-TH")] Thth,
+        [JsonProperty("tl-PH")] TlPH,
+        [JsonProperty("tr-TR")] Trtr,
+        [JsonProperty("uk-UA")] UkUA,
+        [JsonProperty("vi-VN")] ViVN,
+        [JsonProperty("zh-CHT")] ZhCHT,
+        [JsonProperty("zh-CN")] ZhCN,
+        [JsonProperty("zh-tw")] ZhTw,
     }
 
     public static class LanguageJsonExtension
     {
         public static string Value(this LanguageJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static LanguageJson ToEnum(this string value)
         {
-            foreach(var field in typeof(LanguageJson).GetFields())
+            foreach (var field in typeof(LanguageJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

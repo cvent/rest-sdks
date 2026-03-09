@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSeatingRequest {
     /**
      * ID of an event.
@@ -40,7 +39,7 @@ public class ListSeatingRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -51,10 +50,10 @@ public class ListSeatingRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -64,22 +63,15 @@ public class ListSeatingRequest {
 
     @JsonCreator
     public ListSeatingRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+            @Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListSeatingRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public ListSeatingRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -108,7 +100,7 @@ public class ListSeatingRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -119,10 +111,10 @@ public class ListSeatingRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -135,7 +127,6 @@ public class ListSeatingRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -144,7 +135,6 @@ public class ListSeatingRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -152,7 +142,6 @@ public class ListSeatingRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -163,12 +152,11 @@ public class ListSeatingRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -179,10 +167,10 @@ public class ListSeatingRequest {
      * * starts with: sw
      * * contains a value: contains
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -191,7 +179,6 @@ public class ListSeatingRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -202,31 +189,24 @@ public class ListSeatingRequest {
             return false;
         }
         ListSeatingRequest other = (ListSeatingRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter);
+        return Utils.enhancedHash(id, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSeatingRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListSeatingRequest.class, "id", id, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -237,7 +217,7 @@ public class ListSeatingRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -269,7 +249,7 @@ public class ListSeatingRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are eight comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -280,10 +260,10 @@ public class ListSeatingRequest {
          * * starts with: sw
          * * contains a value: contains
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -294,16 +274,10 @@ public class ListSeatingRequest {
         }
 
         public ListSeatingRequest build() {
-            return new ListSeatingRequest(
-                id, limit, token,
-                filter);
+            return new ListSeatingRequest(id, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

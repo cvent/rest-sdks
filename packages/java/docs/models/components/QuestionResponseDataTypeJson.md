@@ -2,6 +2,14 @@
 
 Code representing the expected data type of the question response.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.QuestionResponseDataTypeJson;
+
+QuestionResponseDataTypeJson value = QuestionResponseDataTypeJson.TEXT;
+```
+
 
 ## Values
 

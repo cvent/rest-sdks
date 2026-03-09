@@ -3,16 +3,15 @@
  */
 package com.cvent.utils.pagination;
 
+import com.cvent.utils.CopiableInputStream;
+import com.cvent.utils.ResponseWithBody;
+import com.cvent.utils.SpeakeasyLogger;
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.Option;
 import com.jayway.jsonpath.ReadContext;
 import com.jayway.jsonpath.spi.json.JacksonJsonProvider;
 import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
-import com.cvent.utils.CopiableInputStream;
-import com.cvent.utils.ResponseWithBody;
-import com.cvent.utils.SpeakeasyLogger;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.http.HttpResponse;
@@ -74,10 +73,11 @@ public class Paginator<ReqT, ProgressParamT> implements Iterator<HttpResponse<In
      * @param requestModifier Function that sets the pagination value in the request
      * @param dataFetcher     Function that fetches the response for a given request
      */
-    public Paginator(ReqT initialRequest,
-                     ProgressTrackerStrategy<ProgressParamT> progressTracker,
-                     BiFunction<ReqT, ProgressParamT, ReqT> requestModifier,
-                     Function<ReqT, HttpResponse<InputStream>> dataFetcher) {
+    public Paginator(
+            ReqT initialRequest,
+            ProgressTrackerStrategy<ProgressParamT> progressTracker,
+            BiFunction<ReqT, ProgressParamT, ReqT> requestModifier,
+            Function<ReqT, HttpResponse<InputStream>> dataFetcher) {
         this.initialRequest = initialRequest;
         this.progressTracker = progressTracker;
         this.requestModifier = requestModifier;
@@ -127,16 +127,17 @@ public class Paginator<ReqT, ProgressParamT> implements Iterator<HttpResponse<In
      */
     private void fetchNext() {
         ProgressParamT currentValue = progressTracker.getPosition();
-        ReqT request = state == PaginationState.INITIAL ?
-                initialRequest :
-                requestModifier.apply(initialRequest, currentValue);
-        
+        ReqT request =
+                state == PaginationState.INITIAL
+                        ? initialRequest
+                        : requestModifier.apply(initialRequest, currentValue);
+
         if (state == PaginationState.INITIAL) {
             logger.debug("Fetching initial page");
         } else {
             logger.debug("Fetching next page with position: {}", currentValue);
         }
-        
+
         HttpResponse<InputStream> response = dataFetcher.apply(request);
         try (InputStream body = response.body()) {
             CopiableInputStream copiableInputStream = new CopiableInputStream(body);
@@ -144,7 +145,7 @@ public class Paginator<ReqT, ProgressParamT> implements Iterator<HttpResponse<In
             currentResponse = new ResponseWithBody<>(response, given -> copiableInputStream.copy());
             boolean hasMorePages = progressTracker.advance(respJson);
             state = hasMorePages ? PaginationState.HAS_MORE_PAGES : PaginationState.EXHAUSTED;
-            
+
             if (logger.isTraceEnabled()) {
                 logger.trace("Page fetched - status: {}, hasMorePages: {}", response.statusCode(), hasMorePages);
             }
@@ -164,8 +165,8 @@ public class Paginator<ReqT, ProgressParamT> implements Iterator<HttpResponse<In
      */
     @Override
     public HttpResponse<InputStream> next() {
-        HttpResponse<InputStream> response = currentResponse()
-                .orElseThrow(() -> new IllegalStateException("No more pages available"));
+        HttpResponse<InputStream> response =
+                currentResponse().orElseThrow(() -> new IllegalStateException("No more pages available"));
         currentResponse = null;
         return response;
     }

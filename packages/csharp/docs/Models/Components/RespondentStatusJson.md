@@ -2,6 +2,14 @@
 
 Respondent Status
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = RespondentStatusJson.NoResponse;
+```
+
 
 ## Values
 

@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SchemeOAuth2ClientCredentials
- * 
+ *
  * <p>OAuth2 Client Credentials Flow
  */
 public class SchemeOAuth2ClientCredentials implements HasSecurity {
@@ -26,13 +26,10 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
     @SpeakeasyMetadata("security:name=clientID")
     private String clientID;
 
-
     @SpeakeasyMetadata("security:name=clientSecret")
     private String clientSecret;
 
-
     private String tokenURL;
-
 
     private List<String> scopes;
 
@@ -43,19 +40,15 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
             @Nullable String tokenURL,
             @Nullable List<String> scopes) {
         this.clientID = Optional.ofNullable(clientID)
-            .orElseThrow(() -> new IllegalArgumentException("clientID cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("clientID cannot be null"));
         this.clientSecret = Optional.ofNullable(clientSecret)
-            .orElseThrow(() -> new IllegalArgumentException("clientSecret cannot be null"));
-        this.tokenURL = Optional.ofNullable(tokenURL)
-            .orElse(Builder._SINGLETON_VALUE_TokenURL.value());
+                .orElseThrow(() -> new IllegalArgumentException("clientSecret cannot be null"));
+        this.tokenURL = Optional.ofNullable(tokenURL).orElse(Builder._SINGLETON_VALUE_TokenURL.value());
         this.scopes = scopes;
     }
-    
-    public SchemeOAuth2ClientCredentials(
-            @Nonnull String clientID,
-            @Nonnull String clientSecret) {
-        this(clientID, clientSecret, null,
-            null);
+
+    public SchemeOAuth2ClientCredentials(@Nonnull String clientID, @Nonnull String clientSecret) {
+        this(clientID, clientSecret, null, null);
     }
 
     public String clientID() {
@@ -78,30 +71,25 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
         return new Builder();
     }
 
-
     public SchemeOAuth2ClientCredentials withClientID(@Nonnull String clientID) {
         this.clientID = Utils.checkNotNull(clientID, "clientID");
         return this;
     }
-
 
     public SchemeOAuth2ClientCredentials withClientSecret(@Nonnull String clientSecret) {
         this.clientSecret = Utils.checkNotNull(clientSecret, "clientSecret");
         return this;
     }
 
-
     public SchemeOAuth2ClientCredentials withTokenURL(@Nonnull String tokenURL) {
         this.tokenURL = Utils.checkNotNull(tokenURL, "tokenURL");
         return this;
     }
 
-
     public SchemeOAuth2ClientCredentials withScopes(@Nullable List<String> scopes) {
         this.scopes = scopes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -112,31 +100,33 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
             return false;
         }
         SchemeOAuth2ClientCredentials other = (SchemeOAuth2ClientCredentials) o;
-        return 
-            Utils.enhancedDeepEquals(this.clientID, other.clientID) &&
-            Utils.enhancedDeepEquals(this.clientSecret, other.clientSecret) &&
-            Utils.enhancedDeepEquals(this.tokenURL, other.tokenURL) &&
-            Utils.enhancedDeepEquals(this.scopes, other.scopes);
+        return Utils.enhancedDeepEquals(this.clientID, other.clientID)
+                && Utils.enhancedDeepEquals(this.clientSecret, other.clientSecret)
+                && Utils.enhancedDeepEquals(this.tokenURL, other.tokenURL)
+                && Utils.enhancedDeepEquals(this.scopes, other.scopes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            clientID, clientSecret, tokenURL,
-            scopes);
+        return Utils.enhancedHash(clientID, clientSecret, tokenURL, scopes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SchemeOAuth2ClientCredentials.class,
-                "clientID", clientID,
-                "clientSecret", clientSecret,
-                "tokenURL", tokenURL,
-                "scopes", scopes);
+        return Utils.toString(
+                SchemeOAuth2ClientCredentials.class,
+                "clientID",
+                clientID,
+                "clientSecret",
+                clientSecret,
+                "tokenURL",
+                tokenURL,
+                "scopes",
+                scopes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String clientID;
 
@@ -147,7 +137,7 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
         private List<String> scopes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder clientID(@Nonnull String clientID) {
@@ -171,16 +161,10 @@ public class SchemeOAuth2ClientCredentials implements HasSecurity {
         }
 
         public SchemeOAuth2ClientCredentials build() {
-            return new SchemeOAuth2ClientCredentials(
-                clientID, clientSecret, tokenURL,
-                scopes);
+            return new SchemeOAuth2ClientCredentials(clientID, clientSecret, tokenURL, scopes);
         }
 
-
-        private static final LazySingletonValue<String> _SINGLETON_VALUE_TokenURL =
-                new LazySingletonValue<>(
-                        "TokenURL",
-                        "\"https://api-platform.cvent.com/ea/oauth2/token\"",
-                        new TypeReference<String>() {});
+        private static final LazySingletonValue<String> _SINGLETON_VALUE_TokenURL = new LazySingletonValue<>(
+                "TokenURL", "\"https://api-platform.cvent.com/ea/oauth2/token\"", new TypeReference<String>() {});
     }
 }

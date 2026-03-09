@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class RunBulkJobRequest {
     /**
      * A uuid path parameter.
@@ -20,10 +19,8 @@ public class RunBulkJobRequest {
     private String id;
 
     @JsonCreator
-    public RunBulkJobRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public RunBulkJobRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -37,7 +34,6 @@ public class RunBulkJobRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid path parameter.
      */
@@ -45,7 +41,6 @@ public class RunBulkJobRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +51,26 @@ public class RunBulkJobRequest {
             return false;
         }
         RunBulkJobRequest other = (RunBulkJobRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RunBulkJobRequest.class,
-                "id", id);
+        return Utils.toString(RunBulkJobRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +82,7 @@ public class RunBulkJobRequest {
         }
 
         public RunBulkJobRequest build() {
-            return new RunBulkJobRequest(
-                id);
+            return new RunBulkJobRequest(id);
         }
-
     }
 }

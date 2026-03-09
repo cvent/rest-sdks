@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DiscountTypeJson
- * 
+ *
  * <p>This is used to denote the type of discount
  */
 public enum DiscountTypeJson {
@@ -24,13 +24,13 @@ public enum DiscountTypeJson {
     DiscountTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DiscountTypeJson> fromValue(String value) {
-        for (DiscountTypeJson o: DiscountTypeJson.values()) {
+        for (DiscountTypeJson o : DiscountTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum DiscountTypeJson {
         return Optional.empty();
     }
 }
-

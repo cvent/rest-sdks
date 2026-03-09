@@ -28,7 +28,7 @@ public class ListExhibitorWeblinksRequestBuilder {
     private ListExhibitorWeblinksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListExhibitorWeblinksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class ListExhibitorWeblinksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ListExhibitorWeblinksResponse call() {
-        RequestOperation<ListExhibitorWeblinksRequest, ListExhibitorWeblinksResponse> operation
-              = new ListExhibitorWeblinks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListExhibitorWeblinksRequest, ListExhibitorWeblinksResponse> operation =
+                new ListExhibitorWeblinks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

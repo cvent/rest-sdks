@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * BudgetCostDetailJson
- * 
+ *
  * <p>Budget item cost details.
  */
 public class BudgetCostDetailJson {
@@ -78,8 +78,7 @@ public class BudgetCostDetailJson {
             @JsonProperty("gratuityDetail") @Nullable BudgetGratuityJson gratuityDetail,
             @JsonProperty("taxDetail") @Nullable List<BudgetTaxJson> taxDetail,
             @JsonProperty("totalCost") @Nullable Double totalCost) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.units = units;
         this.cost = cost;
@@ -87,14 +86,9 @@ public class BudgetCostDetailJson {
         this.taxDetail = taxDetail;
         this.totalCost = totalCost;
     }
-    
-    public BudgetCostDetailJson(
-            @Nonnull String id,
-            double units,
-            double cost) {
-        this(id, null, units,
-            cost, null, null,
-            null);
+
+    public BudgetCostDetailJson(@Nonnull String id, double units, double cost) {
+        this(id, null, units, cost, null, null, null);
     }
 
     /**
@@ -151,7 +145,6 @@ public class BudgetCostDetailJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -160,7 +153,6 @@ public class BudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * Denotes the name of the budget column associated to this cost.
      */
@@ -168,7 +160,6 @@ public class BudgetCostDetailJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * The number of units associated with a budget item. This field can be any number if the budget item
@@ -179,7 +170,6 @@ public class BudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * Budget item cost amount.
      */
@@ -187,7 +177,6 @@ public class BudgetCostDetailJson {
         this.cost = cost;
         return this;
     }
-
 
     /**
      * Budget item gratuity details.
@@ -197,7 +186,6 @@ public class BudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * Collection of tax related information.
      */
@@ -206,7 +194,6 @@ public class BudgetCostDetailJson {
         return this;
     }
 
-
     /**
      * Total cost of budget item including applicable tax and gratuity.
      */
@@ -214,7 +201,6 @@ public class BudgetCostDetailJson {
         this.totalCost = totalCost;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -225,38 +211,42 @@ public class BudgetCostDetailJson {
             return false;
         }
         BudgetCostDetailJson other = (BudgetCostDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.units, other.units) &&
-            Utils.enhancedDeepEquals(this.cost, other.cost) &&
-            Utils.enhancedDeepEquals(this.gratuityDetail, other.gratuityDetail) &&
-            Utils.enhancedDeepEquals(this.taxDetail, other.taxDetail) &&
-            Utils.enhancedDeepEquals(this.totalCost, other.totalCost);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.units, other.units)
+                && Utils.enhancedDeepEquals(this.cost, other.cost)
+                && Utils.enhancedDeepEquals(this.gratuityDetail, other.gratuityDetail)
+                && Utils.enhancedDeepEquals(this.taxDetail, other.taxDetail)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, units,
-            cost, gratuityDetail, taxDetail,
-            totalCost);
+        return Utils.enhancedHash(id, name, units, cost, gratuityDetail, taxDetail, totalCost);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCostDetailJson.class,
-                "id", id,
-                "name", name,
-                "units", units,
-                "cost", cost,
-                "gratuityDetail", gratuityDetail,
-                "taxDetail", taxDetail,
-                "totalCost", totalCost);
+        return Utils.toString(
+                BudgetCostDetailJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "units",
+                units,
+                "cost",
+                cost,
+                "gratuityDetail",
+                gratuityDetail,
+                "taxDetail",
+                taxDetail,
+                "totalCost",
+                totalCost);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -273,7 +263,7 @@ public class BudgetCostDetailJson {
         private Double totalCost;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -334,11 +324,7 @@ public class BudgetCostDetailJson {
         }
 
         public BudgetCostDetailJson build() {
-            return new BudgetCostDetailJson(
-                id, name, units,
-                cost, gratuityDetail, taxDetail,
-                totalCost);
+            return new BudgetCostDetailJson(id, name, units, cost, gratuityDetail, taxDetail, totalCost);
         }
-
     }
 }

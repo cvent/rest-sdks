@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PostExhibitorAdminRequest {
     /**
      * ID of an event.
@@ -34,15 +33,12 @@ public class PostExhibitorAdminRequest {
 
     @JsonCreator
     public PostExhibitorAdminRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull ExhibitorAdminRequest exhibitorAdminRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.exhibitorAdminRequest = Optional.ofNullable(exhibitorAdminRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorAdminRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorAdminRequest cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class PostExhibitorAdminRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +73,6 @@ public class PostExhibitorAdminRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,7 +82,6 @@ public class PostExhibitorAdminRequest {
         return this;
     }
 
-
     /**
      * Exhibitor Admin details
      */
@@ -96,7 +89,6 @@ public class PostExhibitorAdminRequest {
         this.exhibitorAdminRequest = Utils.checkNotNull(exhibitorAdminRequest, "exhibitorAdminRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +99,30 @@ public class PostExhibitorAdminRequest {
             return false;
         }
         PostExhibitorAdminRequest other = (PostExhibitorAdminRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.exhibitorAdminRequest, other.exhibitorAdminRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.exhibitorAdminRequest, other.exhibitorAdminRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, exhibitorAdminRequest);
+        return Utils.enhancedHash(id, exhibitorId, exhibitorAdminRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PostExhibitorAdminRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "exhibitorAdminRequest", exhibitorAdminRequest);
+        return Utils.toString(
+                PostExhibitorAdminRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "exhibitorAdminRequest",
+                exhibitorAdminRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +131,7 @@ public class PostExhibitorAdminRequest {
         private ExhibitorAdminRequest exhibitorAdminRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +159,7 @@ public class PostExhibitorAdminRequest {
         }
 
         public PostExhibitorAdminRequest build() {
-            return new PostExhibitorAdminRequest(
-                id, exhibitorId, exhibitorAdminRequest);
+            return new PostExhibitorAdminRequest(id, exhibitorId, exhibitorAdminRequest);
         }
-
     }
 }

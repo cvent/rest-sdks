@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ContactTypeJson
- * 
+ *
  * <p>This entity represents a contact type at contact level.
  */
 public class ContactTypeJson {
@@ -51,21 +51,14 @@ public class ContactTypeJson {
             @JsonProperty("code") @Nonnull String code,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
-    public ContactTypeJson(
-            @Nonnull String id,
-            @Nonnull String code,
-            @Nonnull String name) {
-        this(id, code, name,
-            null);
+
+    public ContactTypeJson(@Nonnull String id, @Nonnull String code, @Nonnull String name) {
+        this(id, code, name, null);
     }
 
     /**
@@ -100,7 +93,6 @@ public class ContactTypeJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the contact type.
      */
@@ -108,7 +100,6 @@ public class ContactTypeJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The contact type code. Must be unique in the account.
@@ -118,7 +109,6 @@ public class ContactTypeJson {
         return this;
     }
 
-
     /**
      * Name of the contact type.
      */
@@ -127,7 +117,6 @@ public class ContactTypeJson {
         return this;
     }
 
-
     /**
      * Description of the contact type.
      */
@@ -135,7 +124,6 @@ public class ContactTypeJson {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +134,24 @@ public class ContactTypeJson {
             return false;
         }
         ContactTypeJson other = (ContactTypeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, name,
-            description);
+        return Utils.enhancedHash(id, code, name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactTypeJson.class,
-                "id", id,
-                "code", code,
-                "name", name,
-                "description", description);
+        return Utils.toString(ContactTypeJson.class, "id", id, "code", code, "name", name, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +162,7 @@ public class ContactTypeJson {
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +198,7 @@ public class ContactTypeJson {
         }
 
         public ContactTypeJson build() {
-            return new ContactTypeJson(
-                id, code, name,
-                description);
+            return new ContactTypeJson(id, code, name, description);
         }
-
     }
 }

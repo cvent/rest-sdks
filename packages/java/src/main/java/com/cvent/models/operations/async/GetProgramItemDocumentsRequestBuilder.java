@@ -30,7 +30,7 @@ public class GetProgramItemDocumentsRequestBuilder {
     private GetProgramItemDocumentsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetProgramItemDocumentsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetProgramItemDocumentsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetProgramItemDocumentsResponse> call() {
-        AsyncRequestOperation<GetProgramItemDocumentsRequest, GetProgramItemDocumentsResponse> operation
-              = new GetProgramItemDocuments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetProgramItemDocumentsRequest, GetProgramItemDocumentsResponse> operation =
+                new GetProgramItemDocuments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

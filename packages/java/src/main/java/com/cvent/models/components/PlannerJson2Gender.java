@@ -11,9 +11,9 @@ import java.util.Optional;
 
 /**
  * PlannerJson2Gender
- * 
+ *
  * <p>The gender of the contact.
- * 
+ *
  * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -29,13 +29,13 @@ public enum PlannerJson2Gender {
     PlannerJson2Gender(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PlannerJson2Gender> fromValue(String value) {
-        for (PlannerJson2Gender o: PlannerJson2Gender.values()) {
+        for (PlannerJson2Gender o : PlannerJson2Gender.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum PlannerJson2Gender {
         return Optional.empty();
     }
 }
-

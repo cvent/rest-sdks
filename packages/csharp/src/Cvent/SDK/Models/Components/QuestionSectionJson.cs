@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum QuestionSectionJson
     {
-        [JsonProperty("program_client")]
-        ProgramClient,
-        [JsonProperty("program_g_and_m")]
-        ProgramGAndM,
+        [JsonProperty("program_client")] ProgramClient,
+        [JsonProperty("program_g_and_m")] ProgramGAndM,
     }
 
     public static class QuestionSectionJsonExtension
     {
         public static string Value(this QuestionSectionJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static QuestionSectionJson ToEnum(this string value)
         {
-            foreach(var field in typeof(QuestionSectionJson).GetFields())
+            foreach (var field in typeof(QuestionSectionJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

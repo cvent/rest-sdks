@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CardStatusJson
     {
-        [JsonProperty("Pending")]
-        Pending,
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Inactive")]
-        Inactive,
-        [JsonProperty("Expired")]
-        Expired,
-        [JsonProperty("Cancelled")]
-        Cancelled,
+        [JsonProperty("Pending")] Pending,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Inactive")] Inactive,
+        [JsonProperty("Expired")] Expired,
+        [JsonProperty("Cancelled")] Cancelled,
     }
 
     public static class CardStatusJsonExtension
     {
         public static string Value(this CardStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CardStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CardStatusJson).GetFields())
+            foreach (var field in typeof(CardStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

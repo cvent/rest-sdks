@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ContactGroup
- * 
+ *
  * <p>A group of contacts.
  */
 public class ContactGroup {
@@ -81,7 +81,7 @@ public class ContactGroup {
     /**
      * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events.
      * `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to.
-     * 
+     *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -91,7 +91,7 @@ public class ContactGroup {
     /**
      * Moved to internalNote in the DistributionListInfo object. The note field only applies to
      * Distribution List.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -124,25 +124,17 @@ public class ContactGroup {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.shortDescription = shortDescription;
         this.description = description;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.note = note;
         this.distributionListInfo = distributionListInfo;
     }
-    
-    public ContactGroup(
-            @Nonnull String id,
-            @Nonnull String name) {
-        this(null, null, null,
-            null, id, name,
-            null, null, null,
-            null, null);
+
+    public ContactGroup(@Nonnull String id, @Nonnull String name) {
+        this(null, null, null, null, id, name, null, null, null, null, null);
     }
 
     /**
@@ -204,7 +196,7 @@ public class ContactGroup {
     /**
      * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events.
      * `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to.
-     * 
+     *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
     public Optional<ContactGroupTypeJson> type() {
@@ -214,7 +206,7 @@ public class ContactGroup {
     /**
      * Moved to internalNote in the DistributionListInfo object. The note field only applies to
      * Distribution List.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -234,7 +226,6 @@ public class ContactGroup {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -242,7 +233,6 @@ public class ContactGroup {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -252,7 +242,6 @@ public class ContactGroup {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -260,7 +249,6 @@ public class ContactGroup {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -270,7 +258,6 @@ public class ContactGroup {
         return this;
     }
 
-
     /**
      * The ID of the contact group.
      */
@@ -278,7 +265,6 @@ public class ContactGroup {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Name of the contact group.
@@ -288,7 +274,6 @@ public class ContactGroup {
         return this;
     }
 
-
     /**
      * Short description of the contact group.
      */
@@ -296,7 +281,6 @@ public class ContactGroup {
         this.shortDescription = shortDescription;
         return this;
     }
-
 
     /**
      * Full description of the contact group.
@@ -306,11 +290,10 @@ public class ContactGroup {
         return this;
     }
 
-
     /**
      * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events.
      * `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to.
-     * 
+     *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
     public ContactGroup withType(@Nullable ContactGroupTypeJson type) {
@@ -318,11 +301,10 @@ public class ContactGroup {
         return this;
     }
 
-
     /**
      * Moved to internalNote in the DistributionListInfo object. The note field only applies to
      * Distribution List.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -330,7 +312,6 @@ public class ContactGroup {
         this.note = note;
         return this;
     }
-
 
     /**
      * Model representing a distribution list info. Only required if the contact group type is
@@ -341,7 +322,6 @@ public class ContactGroup {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -351,47 +331,65 @@ public class ContactGroup {
             return false;
         }
         ContactGroup other = (ContactGroup) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.shortDescription, other.shortDescription) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.distributionListInfo, other.distributionListInfo);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.shortDescription, other.shortDescription)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.distributionListInfo, other.distributionListInfo);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            shortDescription, description, type,
-            note, distributionListInfo);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                shortDescription,
+                description,
+                type,
+                note,
+                distributionListInfo);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactGroup.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "shortDescription", shortDescription,
-                "description", description,
-                "type", type,
-                "note", note,
-                "distributionListInfo", distributionListInfo);
+        return Utils.toString(
+                ContactGroup.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "shortDescription",
+                shortDescription,
+                "description",
+                description,
+                "type",
+                type,
+                "note",
+                note,
+                "distributionListInfo",
+                distributionListInfo);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -417,7 +415,7 @@ public class ContactGroup {
         private DistributionListInfoJson distributionListInfo;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -487,7 +485,7 @@ public class ContactGroup {
         /**
          * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events.
          * `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to.
-         * 
+         *
          * <p>`STANDARD` is a multi-purpose group for organizing contacts.
          */
         public Builder type(@Nullable ContactGroupTypeJson type) {
@@ -498,7 +496,7 @@ public class ContactGroup {
         /**
          * Moved to internalNote in the DistributionListInfo object. The note field only applies to
          * Distribution List.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -518,17 +516,20 @@ public class ContactGroup {
 
         public ContactGroup build() {
             return new ContactGroup(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                shortDescription, description, type,
-                note, distributionListInfo);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    shortDescription,
+                    description,
+                    type,
+                    note,
+                    distributionListInfo);
         }
 
-
         private static final LazySingletonValue<ContactGroupTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"STANDARD\"",
-                        new TypeReference<ContactGroupTypeJson>() {});
+                new LazySingletonValue<>("type", "\"STANDARD\"", new TypeReference<ContactGroupTypeJson>() {});
     }
 }

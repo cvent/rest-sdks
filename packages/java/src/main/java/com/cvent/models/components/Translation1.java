@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * Translation1
- * 
+ *
  * <p>A custom-field translation for a particular language.
  */
 public class Translation1 {
@@ -35,9 +35,9 @@ public class Translation1 {
             @JsonProperty("translation") @Nonnull Translation translation,
             @JsonProperty("language") @Nonnull LanguageJson language) {
         this.translation = Optional.ofNullable(translation)
-            .orElseThrow(() -> new IllegalArgumentException("translation cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("translation cannot be null"));
         this.language = Optional.ofNullable(language)
-            .orElseThrow(() -> new IllegalArgumentException("language cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("language cannot be null"));
     }
 
     /**
@@ -59,7 +59,6 @@ public class Translation1 {
         return new Builder();
     }
 
-
     /**
      * This is used to denote the translation of the custom field, including its name, help text, and
      * choice texts.
@@ -69,7 +68,6 @@ public class Translation1 {
         return this;
     }
 
-
     /**
      * IETF language code used to specify a target language for the translation.
      */
@@ -77,7 +75,6 @@ public class Translation1 {
         this.language = Utils.checkNotNull(language, "language");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -88,33 +85,29 @@ public class Translation1 {
             return false;
         }
         Translation1 other = (Translation1) o;
-        return 
-            Utils.enhancedDeepEquals(this.translation, other.translation) &&
-            Utils.enhancedDeepEquals(this.language, other.language);
+        return Utils.enhancedDeepEquals(this.translation, other.translation)
+                && Utils.enhancedDeepEquals(this.language, other.language);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            translation, language);
+        return Utils.enhancedHash(translation, language);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Translation1.class,
-                "translation", translation,
-                "language", language);
+        return Utils.toString(Translation1.class, "translation", translation, "language", language);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Translation translation;
 
         private LanguageJson language;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -135,9 +128,7 @@ public class Translation1 {
         }
 
         public Translation1 build() {
-            return new Translation1(
-                translation, language);
+            return new Translation1(translation, language);
         }
-
     }
 }

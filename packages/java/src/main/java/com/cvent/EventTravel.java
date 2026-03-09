@@ -34,7 +34,7 @@ import jakarta.annotation.Nonnull;
  * air, hotel, housing reservation request and alternate travel answers data from your events.
  * **Housing Reservation Request** - An association between an attendee's information in a registration
  * event and a Cvent Passkey event.
- * 
+ *
  * <p>Also known as a Passkey bridge.
  */
 public class EventTravel {
@@ -49,7 +49,7 @@ public class EventTravel {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncEventTravel async() {
@@ -58,9 +58,9 @@ public class EventTravel {
 
     /**
      * Get Air Actual
-     * 
+     *
      * <p>Get attendee air actual details for an event.
-     * 
+     *
      * @return The call builder
      */
     public GetAirActualDetailRequestBuilder getAirActualDetail() {
@@ -69,24 +69,24 @@ public class EventTravel {
 
     /**
      * Get Air Actual
-     * 
+     *
      * <p>Get attendee air actual details for an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAirActualDetailResponse getAirActualDetail(@Nonnull GetAirActualDetailRequest request) {
-        RequestOperation<GetAirActualDetailRequest, GetAirActualDetailResponse> operation
-              = new GetAirActualDetail.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAirActualDetailRequest, GetAirActualDetailResponse> operation =
+                new GetAirActualDetail.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Air Requests
-     * 
+     *
      * <p>Get attendee air request details for an event.
-     * 
+     *
      * @return The call builder
      */
     public GetAirRequestsRequestBuilder getAirRequests() {
@@ -95,25 +95,25 @@ public class EventTravel {
 
     /**
      * Get Air Requests
-     * 
+     *
      * <p>Get attendee air request details for an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAirRequestsResponse getAirRequests(@Nonnull GetAirRequestsRequest request) {
-        RequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation
-              = new GetAirRequests.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation =
+                new GetAirRequests.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Alternate Travel Answers
-     * 
+     *
      * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
      * event.
-     * 
+     *
      * @return The call builder
      */
     public GetAlternateTravelAnswersRequestBuilder getAlternateTravelAnswers() {
@@ -122,25 +122,26 @@ public class EventTravel {
 
     /**
      * Get Alternate Travel Answers
-     * 
+     *
      * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
      * event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetAlternateTravelAnswersResponse getAlternateTravelAnswers(@Nonnull GetAlternateTravelAnswersRequest request) {
-        RequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation
-              = new GetAlternateTravelAnswers.Sync(sdkConfiguration, _headers);
+    public GetAlternateTravelAnswersResponse getAlternateTravelAnswers(
+            @Nonnull GetAlternateTravelAnswersRequest request) {
+        RequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation =
+                new GetAlternateTravelAnswers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Hotel Requests
-     * 
+     *
      * <p>Get attendee hotel requests for an event.
-     * 
+     *
      * @return The call builder
      */
     public GetHotelRequestsRequestBuilder getHotelRequests() {
@@ -149,24 +150,24 @@ public class EventTravel {
 
     /**
      * Get Hotel Requests
-     * 
+     *
      * <p>Get attendee hotel requests for an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHotelRequestsResponse getHotelRequests(@Nonnull GetHotelRequestsRequest request) {
-        RequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation
-              = new GetHotelRequests.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation =
+                new GetHotelRequests.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Housing Requests
-     * 
+     *
      * <p>Get attendee housing reservation request details for an event.
-     * 
+     *
      * @return The call builder
      */
     public GetHousingReservationRequestsRequestBuilder getHousingReservationRequests() {
@@ -175,17 +176,17 @@ public class EventTravel {
 
     /**
      * Get Housing Requests
-     * 
+     *
      * <p>Get attendee housing reservation request details for an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public GetHousingReservationRequestsResponse getHousingReservationRequests(@Nonnull GetHousingReservationRequestsRequest request) {
-        RequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation
-              = new GetHousingReservationRequests.Sync(sdkConfiguration, _headers);
+    public GetHousingReservationRequestsResponse getHousingReservationRequests(
+            @Nonnull GetHousingReservationRequestsRequest request) {
+        RequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation =
+                new GetHousingReservationRequests.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

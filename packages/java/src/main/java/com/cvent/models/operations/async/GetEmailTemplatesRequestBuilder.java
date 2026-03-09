@@ -30,7 +30,7 @@ public class GetEmailTemplatesRequestBuilder {
     private GetEmailTemplatesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEmailTemplatesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEmailTemplatesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEmailTemplatesResponse> call() {
-        AsyncRequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation
-              = new GetEmailTemplates.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
+                new GetEmailTemplates.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

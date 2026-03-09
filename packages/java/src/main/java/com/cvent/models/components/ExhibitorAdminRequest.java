@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorAdminRequest
- * 
+ *
  * <p>An object representing the exhibitor admin.
  */
 public class ExhibitorAdminRequest {
@@ -48,13 +48,12 @@ public class ExhibitorAdminRequest {
             @JsonProperty("lastName") @Nonnull String lastName,
             @JsonProperty("email") @Nonnull String email) {
         this.exhibitor = Optional.ofNullable(exhibitor)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
-        this.email = Optional.ofNullable(email)
-            .orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+        this.email = Optional.ofNullable(email).orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
     }
 
     /**
@@ -89,7 +88,6 @@ public class ExhibitorAdminRequest {
         return new Builder();
     }
 
-
     /**
      * The Associated Exhibitor.
      */
@@ -97,7 +95,6 @@ public class ExhibitorAdminRequest {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
-
 
     /**
      * The first name of the exhibitor admin
@@ -107,7 +104,6 @@ public class ExhibitorAdminRequest {
         return this;
     }
 
-
     /**
      * The last name of the exhibitor admin
      */
@@ -116,7 +112,6 @@ public class ExhibitorAdminRequest {
         return this;
     }
 
-
     /**
      * The email address of the exhibitor admin
      */
@@ -124,7 +119,6 @@ public class ExhibitorAdminRequest {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -135,31 +129,33 @@ public class ExhibitorAdminRequest {
             return false;
         }
         ExhibitorAdminRequest other = (ExhibitorAdminRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, firstName, lastName,
-            email);
+        return Utils.enhancedHash(exhibitor, firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorAdminRequest.class,
-                "exhibitor", exhibitor,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(
+                ExhibitorAdminRequest.class,
+                "exhibitor",
+                exhibitor,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "email",
+                email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson exhibitor;
 
@@ -170,7 +166,7 @@ public class ExhibitorAdminRequest {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -206,10 +202,7 @@ public class ExhibitorAdminRequest {
         }
 
         public ExhibitorAdminRequest build() {
-            return new ExhibitorAdminRequest(
-                exhibitor, firstName, lastName,
-                email);
+            return new ExhibitorAdminRequest(exhibitor, firstName, lastName, email);
         }
-
     }
 }

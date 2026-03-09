@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class PostExhibitorAdminResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class PostExhibitorAdminResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.exhibitorAdminResponse = exhibitorAdminResponse;
     }
-    
+
     public PostExhibitorAdminResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class PostExhibitorAdminResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class PostExhibitorAdminResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class PostExhibitorAdminResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class PostExhibitorAdminResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully created an Exhibitor Admin.
      */
-    public PostExhibitorAdminResponse withExhibitorAdminResponse(@Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
+    public PostExhibitorAdminResponse withExhibitorAdminResponse(
+            @Nullable ExhibitorAdminResponse exhibitorAdminResponse) {
         this.exhibitorAdminResponse = exhibitorAdminResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class PostExhibitorAdminResponse implements Response {
             return false;
         }
         PostExhibitorAdminResponse other = (PostExhibitorAdminResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.exhibitorAdminResponse, other.exhibitorAdminResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.exhibitorAdminResponse, other.exhibitorAdminResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            exhibitorAdminResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, exhibitorAdminResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PostExhibitorAdminResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "exhibitorAdminResponse", exhibitorAdminResponse);
+        return Utils.toString(
+                PostExhibitorAdminResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "exhibitorAdminResponse",
+                exhibitorAdminResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class PostExhibitorAdminResponse implements Response {
         private ExhibitorAdminResponse exhibitorAdminResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class PostExhibitorAdminResponse implements Response {
         }
 
         public PostExhibitorAdminResponse build() {
-            return new PostExhibitorAdminResponse(
-                contentType, statusCode, rawResponse,
-                exhibitorAdminResponse);
+            return new PostExhibitorAdminResponse(contentType, statusCode, rawResponse, exhibitorAdminResponse);
         }
-
     }
 }

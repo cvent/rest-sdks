@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventCopy
- * 
+ *
  * <p>Represents directives for the event copy operation.
  */
 public class EventCopy {
@@ -94,11 +94,9 @@ public class EventCopy {
         this.speakers = speakers;
         this.exhibitors = exhibitors;
     }
-    
+
     public EventCopy() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -161,7 +159,6 @@ public class EventCopy {
         return new Builder();
     }
 
-
     /**
      * Represents the target event information for an event copy operation.
      */
@@ -169,7 +166,6 @@ public class EventCopy {
         this.event = event;
         return this;
     }
-
 
     /**
      * Determines if registration feature data should be copied over from the source event.
@@ -179,7 +175,6 @@ public class EventCopy {
         return this;
     }
 
-
     /**
      * Determines if planning feature data should be copied over from the source event.
      */
@@ -187,7 +182,6 @@ public class EventCopy {
         this.planning = planning;
         return this;
     }
-
 
     /**
      * Determines if agenda feature data should be copied over from the source event.
@@ -197,7 +191,6 @@ public class EventCopy {
         return this;
     }
 
-
     /**
      * Determines if travel feature data should be copied over from the source event.
      */
@@ -205,7 +198,6 @@ public class EventCopy {
         this.travel = travel;
         return this;
     }
-
 
     /**
      * Determines if surveys feature data should be copied over from the source event.
@@ -215,7 +207,6 @@ public class EventCopy {
         return this;
     }
 
-
     /**
      * Determines if speakers feature data should be copied over from the source event.
      */
@@ -224,7 +215,6 @@ public class EventCopy {
         return this;
     }
 
-
     /**
      * Determines if exhibitors feature data should be copied over from the source event.
      */
@@ -232,7 +222,6 @@ public class EventCopy {
         this.exhibitors = exhibitors;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -243,40 +232,45 @@ public class EventCopy {
             return false;
         }
         EventCopy other = (EventCopy) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.registration, other.registration) &&
-            Utils.enhancedDeepEquals(this.planning, other.planning) &&
-            Utils.enhancedDeepEquals(this.agenda, other.agenda) &&
-            Utils.enhancedDeepEquals(this.travel, other.travel) &&
-            Utils.enhancedDeepEquals(this.surveys, other.surveys) &&
-            Utils.enhancedDeepEquals(this.speakers, other.speakers) &&
-            Utils.enhancedDeepEquals(this.exhibitors, other.exhibitors);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.registration, other.registration)
+                && Utils.enhancedDeepEquals(this.planning, other.planning)
+                && Utils.enhancedDeepEquals(this.agenda, other.agenda)
+                && Utils.enhancedDeepEquals(this.travel, other.travel)
+                && Utils.enhancedDeepEquals(this.surveys, other.surveys)
+                && Utils.enhancedDeepEquals(this.speakers, other.speakers)
+                && Utils.enhancedDeepEquals(this.exhibitors, other.exhibitors);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, registration, planning,
-            agenda, travel, surveys,
-            speakers, exhibitors);
+        return Utils.enhancedHash(event, registration, planning, agenda, travel, surveys, speakers, exhibitors);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCopy.class,
-                "event", event,
-                "registration", registration,
-                "planning", planning,
-                "agenda", agenda,
-                "travel", travel,
-                "surveys", surveys,
-                "speakers", speakers,
-                "exhibitors", exhibitors);
+        return Utils.toString(
+                EventCopy.class,
+                "event",
+                event,
+                "registration",
+                registration,
+                "planning",
+                planning,
+                "agenda",
+                agenda,
+                "travel",
+                travel,
+                "surveys",
+                surveys,
+                "speakers",
+                speakers,
+                "exhibitors",
+                exhibitors);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventCopyTargetJson event;
 
@@ -295,7 +289,7 @@ public class EventCopy {
         private ExhibitorsEventCopyOverride exhibitors;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -363,11 +357,7 @@ public class EventCopy {
         }
 
         public EventCopy build() {
-            return new EventCopy(
-                event, registration, planning,
-                agenda, travel, surveys,
-                speakers, exhibitors);
+            return new EventCopy(event, registration, planning, agenda, travel, surveys, speakers, exhibitors);
         }
-
     }
 }

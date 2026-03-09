@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import static com.cvent.operations.Operations.RequestlessOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -33,10 +33,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class GetUsageTier {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -45,7 +44,7 @@ public class GetUsageTier {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -81,13 +80,11 @@ public class GetUsageTier {
                     java.util.Optional.of(java.util.List.of()),
                     securitySource());
         }
+
         HttpRequest buildRequest() throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/usage/tier");
+            String url = Utils.generateURL(this.baseUrl, "/usage/tier");
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -95,8 +92,7 @@ public class GetUsageTier {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestlessOperation<GetUsageTierResponse> {
+    public static class Sync extends Base implements RequestlessOperation<GetUsageTierResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -106,11 +102,11 @@ public class GetUsageTier {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -135,22 +131,16 @@ public class GetUsageTier {
             return httpRes;
         }
 
-
         @Override
         public GetUsageTierResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            GetUsageTierResponse.Builder resBuilder =
-                    GetUsageTierResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            GetUsageTierResponse.Builder resBuilder = GetUsageTierResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             GetUsageTierResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withPublicUsagePlan(Utils.unmarshal(response, new TypeReference<PublicUsagePlan>() {}));
@@ -176,6 +166,7 @@ public class GetUsageTier {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
             implements AsyncRequestlessOperation<com.cvent.models.operations.async.GetUsageTierResponse> {
 
@@ -198,7 +189,9 @@ public class GetUsageTier {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest() {
-            return unchecked(() -> onBuildRequest()).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest())
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -215,19 +208,15 @@ public class GetUsageTier {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.GetUsageTierResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.GetUsageTierResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.GetUsageTierResponse
-                            .builder()
+                    com.cvent.models.operations.async.GetUsageTierResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.GetUsageTierResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<PublicUsagePlan>() {})
@@ -238,8 +227,7 @@ public class GetUsageTier {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

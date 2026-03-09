@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListMRFRequest {
     /**
      * The maximum number of requests or forms that can be fetched at once.
@@ -34,7 +33,7 @@ public class ListMRFRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq)
      */
@@ -42,16 +41,12 @@ public class ListMRFRequest {
     private String filter;
 
     @JsonCreator
-    public ListMRFRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public ListMRFRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListMRFRequest() {
         this(null, null, null);
     }
@@ -76,7 +71,7 @@ public class ListMRFRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq)
      */
@@ -88,7 +83,6 @@ public class ListMRFRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of requests or forms that can be fetched at once.
      */
@@ -96,7 +90,6 @@ public class ListMRFRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -107,13 +100,12 @@ public class ListMRFRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following field is filterable:
      * * active (eq)
      */
@@ -121,7 +113,6 @@ public class ListMRFRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,28 +123,23 @@ public class ListMRFRequest {
             return false;
         }
         ListMRFRequest other = (ListMRFRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListMRFRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(ListMRFRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -162,7 +148,7 @@ public class ListMRFRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -187,7 +173,7 @@ public class ListMRFRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * This is the comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following field is filterable:
          * * active (eq)
          */
@@ -197,15 +183,10 @@ public class ListMRFRequest {
         }
 
         public ListMRFRequest build() {
-            return new ListMRFRequest(
-                limit, token, filter);
+            return new ListMRFRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "10",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "10", new TypeReference<Long>() {});
     }
 }

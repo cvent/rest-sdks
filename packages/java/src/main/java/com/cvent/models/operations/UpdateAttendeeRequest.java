@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateAttendeeRequest {
     /**
      * The unique ID of an attendee.
@@ -20,18 +19,14 @@ public class UpdateAttendeeRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private AttendeeUpdate attendeeUpdate;
 
     @JsonCreator
-    public UpdateAttendeeRequest(
-            @Nonnull String id,
-            @Nonnull AttendeeUpdate attendeeUpdate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateAttendeeRequest(@Nonnull String id, @Nonnull AttendeeUpdate attendeeUpdate) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendeeUpdate = Optional.ofNullable(attendeeUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeUpdate cannot be null"));
     }
 
     /**
@@ -49,7 +44,6 @@ public class UpdateAttendeeRequest {
         return new Builder();
     }
 
-
     /**
      * The unique ID of an attendee.
      */
@@ -58,12 +52,10 @@ public class UpdateAttendeeRequest {
         return this;
     }
 
-
     public UpdateAttendeeRequest withAttendeeUpdate(@Nonnull AttendeeUpdate attendeeUpdate) {
         this.attendeeUpdate = Utils.checkNotNull(attendeeUpdate, "attendeeUpdate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +66,29 @@ public class UpdateAttendeeRequest {
             return false;
         }
         UpdateAttendeeRequest other = (UpdateAttendeeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendeeUpdate, other.attendeeUpdate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendeeUpdate, other.attendeeUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendeeUpdate);
+        return Utils.enhancedHash(id, attendeeUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAttendeeRequest.class,
-                "id", id,
-                "attendeeUpdate", attendeeUpdate);
+        return Utils.toString(UpdateAttendeeRequest.class, "id", id, "attendeeUpdate", attendeeUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private AttendeeUpdate attendeeUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +105,7 @@ public class UpdateAttendeeRequest {
         }
 
         public UpdateAttendeeRequest build() {
-            return new UpdateAttendeeRequest(
-                id, attendeeUpdate);
+            return new UpdateAttendeeRequest(id, attendeeUpdate);
         }
-
     }
 }

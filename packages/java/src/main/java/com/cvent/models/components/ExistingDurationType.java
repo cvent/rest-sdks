@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExistingDurationType
- * 
+ *
  * <p>Describes how the duration was obtained.
  */
 public enum ExistingDurationType {
@@ -27,13 +27,13 @@ public enum ExistingDurationType {
     ExistingDurationType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExistingDurationType> fromValue(String value) {
-        for (ExistingDurationType o: ExistingDurationType.values()) {
+        for (ExistingDurationType o : ExistingDurationType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum ExistingDurationType {
         return Optional.empty();
     }
 }
-

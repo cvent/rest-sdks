@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * FeatureUpdate
- * 
+ *
  * <p>Representation of an event feature update request
  */
 public class FeatureUpdate {
@@ -52,18 +52,14 @@ public class FeatureUpdate {
             @JsonProperty("enabled") boolean enabled,
             @JsonProperty("enabledTier") @Nullable TierJson enabledTier,
             @JsonProperty("config") @Nullable FeatureUpdateConfig config) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.enabled = enabled;
         this.enabledTier = enabledTier;
         this.config = config;
     }
-    
-    public FeatureUpdate(
-            @Nonnull FeatureTypeJson type,
-            boolean enabled) {
-        this(type, enabled, null,
-            null);
+
+    public FeatureUpdate(@Nonnull FeatureTypeJson type, boolean enabled) {
+        this(type, enabled, null, null);
     }
 
     /**
@@ -98,7 +94,6 @@ public class FeatureUpdate {
         return new Builder();
     }
 
-
     /**
      * These are the types of features used in the event container events.
      */
@@ -106,7 +101,6 @@ public class FeatureUpdate {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * If a particular feature is enabled for the event
@@ -116,7 +110,6 @@ public class FeatureUpdate {
         return this;
     }
 
-
     /**
      * Represents the type of license that the user can choose.
      */
@@ -125,7 +118,6 @@ public class FeatureUpdate {
         return this;
     }
 
-
     /**
      * Feature configuration.
      */
@@ -133,7 +125,6 @@ public class FeatureUpdate {
         this.config = config;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -144,31 +135,25 @@ public class FeatureUpdate {
             return false;
         }
         FeatureUpdate other = (FeatureUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.enabled, other.enabled) &&
-            Utils.enhancedDeepEquals(this.enabledTier, other.enabledTier) &&
-            Utils.enhancedDeepEquals(this.config, other.config);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.enabled, other.enabled)
+                && Utils.enhancedDeepEquals(this.enabledTier, other.enabledTier)
+                && Utils.enhancedDeepEquals(this.config, other.config);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, enabled, enabledTier,
-            config);
+        return Utils.enhancedHash(type, enabled, enabledTier, config);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FeatureUpdate.class,
-                "type", type,
-                "enabled", enabled,
-                "enabledTier", enabledTier,
-                "config", config);
+        return Utils.toString(
+                FeatureUpdate.class, "type", type, "enabled", enabled, "enabledTier", enabledTier, "config", config);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private FeatureTypeJson type;
 
@@ -179,7 +164,7 @@ public class FeatureUpdate {
         private FeatureUpdateConfig config;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -215,10 +200,7 @@ public class FeatureUpdate {
         }
 
         public FeatureUpdate build() {
-            return new FeatureUpdate(
-                type, enabled, enabledTier,
-                config);
+            return new FeatureUpdate(type, enabled, enabledTier, config);
         }
-
     }
 }

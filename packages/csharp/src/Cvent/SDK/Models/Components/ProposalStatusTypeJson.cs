@@ -18,44 +18,31 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ProposalStatusTypeJson
     {
-        [JsonProperty("participation_requested")]
-        ParticipationRequested,
-        [JsonProperty("new")]
-        New,
-        [JsonProperty("active")]
-        Active,
-        [JsonProperty("submitted")]
-        Submitted,
-        [JsonProperty("declined_participation")]
-        DeclinedParticipation,
-        [JsonProperty("verified")]
-        Verified,
-        [JsonProperty("approved")]
-        Approved,
-        [JsonProperty("account_accepted")]
-        AccountAccepted,
-        [JsonProperty("account_rejected")]
-        AccountRejected,
-        [JsonProperty("internal_rejected")]
-        InternalRejected,
-        [JsonProperty("request_renegotiation")]
-        RequestRenegotiation,
-        [JsonProperty("decline_renegotiation")]
-        DeclineRenegotiation,
-        [JsonProperty("deleted")]
-        Deleted,
+        [JsonProperty("participation_requested")] ParticipationRequested,
+        [JsonProperty("new")] New,
+        [JsonProperty("active")] Active,
+        [JsonProperty("submitted")] Submitted,
+        [JsonProperty("declined_participation")] DeclinedParticipation,
+        [JsonProperty("verified")] Verified,
+        [JsonProperty("approved")] Approved,
+        [JsonProperty("account_accepted")] AccountAccepted,
+        [JsonProperty("account_rejected")] AccountRejected,
+        [JsonProperty("internal_rejected")] InternalRejected,
+        [JsonProperty("request_renegotiation")] RequestRenegotiation,
+        [JsonProperty("decline_renegotiation")] DeclineRenegotiation,
+        [JsonProperty("deleted")] Deleted,
     }
 
     public static class ProposalStatusTypeJsonExtension
     {
         public static string Value(this ProposalStatusTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ProposalStatusTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ProposalStatusTypeJson).GetFields())
+            foreach (var field in typeof(ProposalStatusTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

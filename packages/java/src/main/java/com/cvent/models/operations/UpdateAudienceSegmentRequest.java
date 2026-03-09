@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateAudienceSegmentRequest {
     /**
      * ID of an audience segment.
@@ -27,13 +26,11 @@ public class UpdateAudienceSegmentRequest {
     private AudienceSegment audienceSegment;
 
     @JsonCreator
-    public UpdateAudienceSegmentRequest(
-            @Nonnull String audienceSegmentId,
-            @Nonnull AudienceSegment audienceSegment) {
+    public UpdateAudienceSegmentRequest(@Nonnull String audienceSegmentId, @Nonnull AudienceSegment audienceSegment) {
         this.audienceSegmentId = Optional.ofNullable(audienceSegmentId)
-            .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("audienceSegmentId cannot be null"));
         this.audienceSegment = Optional.ofNullable(audienceSegment)
-            .orElseThrow(() -> new IllegalArgumentException("audienceSegment cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("audienceSegment cannot be null"));
     }
 
     /**
@@ -54,7 +51,6 @@ public class UpdateAudienceSegmentRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an audience segment.
      */
@@ -63,7 +59,6 @@ public class UpdateAudienceSegmentRequest {
         return this;
     }
 
-
     /**
      * Audience segment fields you are updating.
      */
@@ -71,7 +66,6 @@ public class UpdateAudienceSegmentRequest {
         this.audienceSegment = Utils.checkNotNull(audienceSegment, "audienceSegment");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +76,34 @@ public class UpdateAudienceSegmentRequest {
             return false;
         }
         UpdateAudienceSegmentRequest other = (UpdateAudienceSegmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId) &&
-            Utils.enhancedDeepEquals(this.audienceSegment, other.audienceSegment);
+        return Utils.enhancedDeepEquals(this.audienceSegmentId, other.audienceSegmentId)
+                && Utils.enhancedDeepEquals(this.audienceSegment, other.audienceSegment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            audienceSegmentId, audienceSegment);
+        return Utils.enhancedHash(audienceSegmentId, audienceSegment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAudienceSegmentRequest.class,
-                "audienceSegmentId", audienceSegmentId,
-                "audienceSegment", audienceSegment);
+        return Utils.toString(
+                UpdateAudienceSegmentRequest.class,
+                "audienceSegmentId",
+                audienceSegmentId,
+                "audienceSegment",
+                audienceSegment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String audienceSegmentId;
 
         private AudienceSegment audienceSegment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +123,7 @@ public class UpdateAudienceSegmentRequest {
         }
 
         public UpdateAudienceSegmentRequest build() {
-            return new UpdateAudienceSegmentRequest(
-                audienceSegmentId, audienceSegment);
+            return new UpdateAudienceSegmentRequest(audienceSegmentId, audienceSegment);
         }
-
     }
 }

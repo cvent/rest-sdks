@@ -2,6 +2,14 @@
 
 Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = EventTypeJson1.Celebration;
+```
+
 
 ## Values
 

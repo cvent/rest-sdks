@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionCategoryInput
- * 
+ *
  * <p>This is used to denote the category of a session.
  */
 public class SessionCategoryInput {
@@ -35,15 +35,12 @@ public class SessionCategoryInput {
 
     @JsonCreator
     public SessionCategoryInput(
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("description") @Nullable String description) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+            @JsonProperty("name") @Nonnull String name, @JsonProperty("description") @Nullable String description) {
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
-    public SessionCategoryInput(
-            @Nonnull String name) {
+
+    public SessionCategoryInput(@Nonnull String name) {
         this(name, null);
     }
 
@@ -65,7 +62,6 @@ public class SessionCategoryInput {
         return new Builder();
     }
 
-
     /**
      * The name of the session category.
      */
@@ -74,7 +70,6 @@ public class SessionCategoryInput {
         return this;
     }
 
-
     /**
      * A description for the session category.
      */
@@ -82,7 +77,6 @@ public class SessionCategoryInput {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +87,29 @@ public class SessionCategoryInput {
             return false;
         }
         SessionCategoryInput other = (SessionCategoryInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, description);
+        return Utils.enhancedHash(name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionCategoryInput.class,
-                "name", name,
-                "description", description);
+        return Utils.toString(SessionCategoryInput.class, "name", name, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +129,7 @@ public class SessionCategoryInput {
         }
 
         public SessionCategoryInput build() {
-            return new SessionCategoryInput(
-                name, description);
+            return new SessionCategoryInput(name, description);
         }
-
     }
 }

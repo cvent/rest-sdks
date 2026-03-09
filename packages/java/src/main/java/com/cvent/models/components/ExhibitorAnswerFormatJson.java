@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * ExhibitorAnswerFormatJson
- * 
+ *
  * <p>Specifies the format for displaying answers based on the question type. For SingleChoice questions,
  * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
  * 'EmailAddress', or 'PhoneNumber'.
- * 
+ *
  * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
  */
 public enum ExhibitorAnswerFormatJson {
@@ -32,13 +32,13 @@ public enum ExhibitorAnswerFormatJson {
     ExhibitorAnswerFormatJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExhibitorAnswerFormatJson> fromValue(String value) {
-        for (ExhibitorAnswerFormatJson o: ExhibitorAnswerFormatJson.values()) {
+        for (ExhibitorAnswerFormatJson o : ExhibitorAnswerFormatJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -46,4 +46,3 @@ public enum ExhibitorAnswerFormatJson {
         return Optional.empty();
     }
 }
-

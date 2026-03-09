@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExistingReservationReservationRequest
- * 
+ *
  * <p>Reservation request information.
  */
 public class ExistingReservationReservationRequest {
@@ -35,15 +35,12 @@ public class ExistingReservationReservationRequest {
 
     @JsonCreator
     public ExistingReservationReservationRequest(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("externalId") @Nullable String externalId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @JsonProperty("id") @Nonnull String id, @JsonProperty("externalId") @Nullable String externalId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.externalId = externalId;
     }
-    
-    public ExistingReservationReservationRequest(
-            @Nonnull String id) {
+
+    public ExistingReservationReservationRequest(@Nonnull String id) {
         this(id, null);
     }
 
@@ -65,7 +62,6 @@ public class ExistingReservationReservationRequest {
         return new Builder();
     }
 
-
     /**
      * Reservation request identifier.
      */
@@ -74,7 +70,6 @@ public class ExistingReservationReservationRequest {
         return this;
     }
 
-
     /**
      * External reservation request identifier.
      */
@@ -82,7 +77,6 @@ public class ExistingReservationReservationRequest {
         this.externalId = externalId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +87,28 @@ public class ExistingReservationReservationRequest {
             return false;
         }
         ExistingReservationReservationRequest other = (ExistingReservationReservationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.externalId, other.externalId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.externalId, other.externalId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, externalId);
+        return Utils.enhancedHash(id, externalId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingReservationReservationRequest.class,
-                "id", id,
-                "externalId", externalId);
+        return Utils.toString(ExistingReservationReservationRequest.class, "id", id, "externalId", externalId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String externalId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +128,7 @@ public class ExistingReservationReservationRequest {
         }
 
         public ExistingReservationReservationRequest build() {
-            return new ExistingReservationReservationRequest(
-                id, externalId);
+            return new ExistingReservationReservationRequest(id, externalId);
         }
-
     }
 }

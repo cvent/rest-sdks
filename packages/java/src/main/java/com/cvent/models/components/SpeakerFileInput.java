@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SpeakerFileInput
- * 
+ *
  * <p>A file reference related to a speaker.
  */
 public class SpeakerFileInput {
@@ -22,10 +22,8 @@ public class SpeakerFileInput {
     private SpeakerFileFile file;
 
     @JsonCreator
-    public SpeakerFileInput(
-            @JsonProperty("file") @Nonnull SpeakerFileFile file) {
-        this.file = Optional.ofNullable(file)
-            .orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
+    public SpeakerFileInput(@JsonProperty("file") @Nonnull SpeakerFileFile file) {
+        this.file = Optional.ofNullable(file).orElseThrow(() -> new IllegalArgumentException("file cannot be null"));
     }
 
     public SpeakerFileFile file() {
@@ -36,12 +34,10 @@ public class SpeakerFileInput {
         return new Builder();
     }
 
-
     public SpeakerFileInput withFile(@Nonnull SpeakerFileFile file) {
         this.file = Utils.checkNotNull(file, "file");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -52,29 +48,26 @@ public class SpeakerFileInput {
             return false;
         }
         SpeakerFileInput other = (SpeakerFileInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file);
+        return Utils.enhancedDeepEquals(this.file, other.file);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file);
+        return Utils.enhancedHash(file);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerFileInput.class,
-                "file", file);
+        return Utils.toString(SpeakerFileInput.class, "file", file);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SpeakerFileFile file;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder file(@Nonnull SpeakerFileFile file) {
@@ -83,9 +76,7 @@ public class SpeakerFileInput {
         }
 
         public SpeakerFileInput build() {
-            return new SpeakerFileInput(
-                file);
+            return new SpeakerFileInput(file);
         }
-
     }
 }

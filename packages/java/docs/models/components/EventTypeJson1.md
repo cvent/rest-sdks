@@ -2,6 +2,14 @@
 
 Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EventTypeJson1;
+
+EventTypeJson1 value = EventTypeJson1.CELEBRATION;
+```
+
 
 ## Values
 

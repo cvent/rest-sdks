@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * UserGroupJson
- * 
+ *
  * <p>A collection of account users which is used to help manage access and visibility to various other
  * Cvent domain entities like events, surveys, account emails, and more. For example, a user group can
  * be associated to specific events to allow the users within that group to view the events within
@@ -76,21 +76,19 @@ public class UserGroupJson {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
-        this.created = Optional.ofNullable(created)
-            .orElseThrow(() -> new IllegalArgumentException("created cannot be null"));
+        this.created =
+                Optional.ofNullable(created).orElseThrow(() -> new IllegalArgumentException("created cannot be null"));
         this.createdBy = Optional.ofNullable(createdBy)
-            .orElseThrow(() -> new IllegalArgumentException("createdBy cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("createdBy cannot be null"));
         this.lastModified = Optional.ofNullable(lastModified)
-            .orElseThrow(() -> new IllegalArgumentException("lastModified cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastModified cannot be null"));
         this.lastModifiedBy = Optional.ofNullable(lastModifiedBy)
-            .orElseThrow(() -> new IllegalArgumentException("lastModifiedBy cannot be null"));
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastModifiedBy cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
+
     public UserGroupJson(
             @Nonnull OffsetDateTime created,
             @Nonnull String createdBy,
@@ -98,9 +96,7 @@ public class UserGroupJson {
             @Nonnull String lastModifiedBy,
             @Nonnull String id,
             @Nonnull String name) {
-        this(created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            null);
+        this(created, createdBy, lastModified, lastModifiedBy, id, name, null);
     }
 
     /**
@@ -156,7 +152,6 @@ public class UserGroupJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -164,7 +159,6 @@ public class UserGroupJson {
         this.created = Utils.checkNotNull(created, "created");
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -174,7 +168,6 @@ public class UserGroupJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -182,7 +175,6 @@ public class UserGroupJson {
         this.lastModified = Utils.checkNotNull(lastModified, "lastModified");
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -192,7 +184,6 @@ public class UserGroupJson {
         return this;
     }
 
-
     /**
      * The unique identifier of the user group.
      */
@@ -200,7 +191,6 @@ public class UserGroupJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The name of the user group.
@@ -210,7 +200,6 @@ public class UserGroupJson {
         return this;
     }
 
-
     /**
      * The description of the user group.
      */
@@ -218,7 +207,6 @@ public class UserGroupJson {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -229,38 +217,42 @@ public class UserGroupJson {
             return false;
         }
         UserGroupJson other = (UserGroupJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            description);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, id, name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UserGroupJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "description", description);
+        return Utils.toString(
+                UserGroupJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -277,7 +269,7 @@ public class UserGroupJson {
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -337,11 +329,7 @@ public class UserGroupJson {
         }
 
         public UserGroupJson build() {
-            return new UserGroupJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                description);
+            return new UserGroupJson(created, createdBy, lastModified, lastModifiedBy, id, name, description);
         }
-
     }
 }

@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum WebcastStatusJson
     {
-        [JsonProperty("Not Started")]
-        NotStarted,
-        [JsonProperty("Started")]
-        Started,
-        [JsonProperty("Finished")]
-        Finished,
-        [JsonProperty("Cancelled")]
-        Cancelled,
+        [JsonProperty("Not Started")] NotStarted,
+        [JsonProperty("Started")] Started,
+        [JsonProperty("Finished")] Finished,
+        [JsonProperty("Cancelled")] Cancelled,
     }
 
     public static class WebcastStatusJsonExtension
     {
         public static string Value(this WebcastStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static WebcastStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(WebcastStatusJson).GetFields())
+            foreach (var field in typeof(WebcastStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

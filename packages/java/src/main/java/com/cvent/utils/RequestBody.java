@@ -3,6 +3,7 @@
  */
 package com.cvent.utils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -17,23 +18,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
-
 import org.openapitools.jackson.nullable.JsonNullable;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public final class RequestBody {
-    private static final Map<String, String> SERIALIZATION_METHOD_TO_CONTENT_TYPE = Map.of("json", "application/json",
-            "form", "application/x-www-form-urlencoded", "multipart", "multipart/form-data", "raw",
-            "application/octet-stream", "string", "text/plain");
+    private static final Map<String, String> SERIALIZATION_METHOD_TO_CONTENT_TYPE = Map.of(
+            "json",
+            "application/json",
+            "form",
+            "application/x-www-form-urlencoded",
+            "multipart",
+            "multipart/form-data",
+            "raw",
+            "application/octet-stream",
+            "string",
+            "text/plain");
 
     private RequestBody() {
         // prevent instantiation
     }
 
-    public static SerializedBody serialize(Object request, String requestField, String serializationMethod,
-                                           boolean nullable) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException,
-            UnsupportedOperationException, IOException {
+    public static SerializedBody serialize(
+            Object request, String requestField, String serializationMethod, boolean nullable) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException, UnsupportedOperationException,
+            IOException {
         if (request == null) {
             return null;
         }
@@ -43,16 +49,16 @@ public final class RequestBody {
         }
 
         if (Types.getType(request.getClass()) != Types.OBJECT) {
-            return serializeContentType(requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod),
-                    request);
+            return serializeContentType(
+                    requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod), request);
         }
 
         // If no requestField specified, the request object IS the body — serialize it directly
         // without attempting any field lookup. This is the case when an operation has no
         // parameters alongside the body (i.e. IsRequestBody=true at the callsite).
         if (requestField == null || requestField.isEmpty()) {
-            return serializeContentType(requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod),
-                    request);
+            return serializeContentType(
+                    requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod), request);
         }
 
         Field reqField = null;
@@ -64,8 +70,8 @@ public final class RequestBody {
             // ignore
         }
         if (reqField == null) {
-            return serializeContentType(requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod),
-                    request);
+            return serializeContentType(
+                    requestField, SERIALIZATION_METHOD_TO_CONTENT_TYPE.get(serializationMethod), request);
         }
 
         Object requestValue = reqField.get(request);
@@ -205,7 +211,7 @@ public final class RequestBody {
         if (fileName.isBlank() || content == null) {
             throw new RuntimeException("Invalid multipart file");
         }
-        
+
         // Detect content type based on file extension
         String contentType = "application/octet-stream"; // default fallback
         try {
@@ -217,9 +223,9 @@ public final class RequestBody {
             // If detection fails, use the default fallback
         }
         if (content instanceof byte[]) {
-            builder.addPart(fieldName, (byte[]) content, fileName,  contentType);
+            builder.addPart(fieldName, (byte[]) content, fileName, contentType);
         } else {
-            builder.addPart(fieldName, (Blob) content, fileName,  contentType);
+            builder.addPart(fieldName, (Blob) content, fileName, contentType);
         }
     }
 
@@ -228,137 +234,137 @@ public final class RequestBody {
         List<NameValue> params = new ArrayList<>();
 
         switch (Types.getType(value.getClass())) {
-        case MAP:
-            Map<?, ?> map = (Map<?, ?>) value;
+            case MAP:
+                Map<?, ?> map = (Map<?, ?>) value;
 
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                params.add(
-                        new NameValue(Utils.valToString(entry.getKey()), Utils.valToString(entry.getValue())));
-            }
-            break;
-        case OBJECT:
-            if (!Utils.allowIntrospection(value.getClass())) {
-                throw new RuntimeException("Invalid type for form data");
-            }
-            Field[] fields = value.getClass().getDeclaredFields();
-
-            for (Field field : fields) {
-                field.setAccessible(true);
-                Object val = Utils.resolveOptionals(field.get(value));
-
-                if (val == null) {
-                    continue;
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    params.add(new NameValue(Utils.valToString(entry.getKey()), Utils.valToString(entry.getValue())));
                 }
-
-                FormMetadata metadata = FormMetadata.parse(field);
-                if (metadata == null) {
-                    continue;
+                break;
+            case OBJECT:
+                if (!Utils.allowIntrospection(value.getClass())) {
+                    throw new RuntimeException("Invalid type for form data");
                 }
+                Field[] fields = value.getClass().getDeclaredFields();
 
-                if (metadata.json) {
-                    ObjectMapper mapper = JSON.getMapper();
-                    String json = mapper.writeValueAsString(val);
-                    params.add(new NameValue(metadata.name, json));
-                } else {
-                    switch (Types.getType(val.getClass())) {
-                    case OBJECT: {
-                        // Check if it's an enum wrapper first
-                        Optional<?> unwrappedEnumValue = Reflections.getUnwrappedEnumValue(val.getClass(), val);
-                        if (unwrappedEnumValue.isPresent()) {
-                            params.add(new NameValue(metadata.name, Utils.valToString(unwrappedEnumValue.get())));
-                            break;
-                        }
-                        
-                        if (!Utils.allowIntrospection(val.getClass())) {
-                            params.add(new NameValue(metadata.name, String.valueOf(val)));
-                        } else {
+                for (Field field : fields) {
+                    field.setAccessible(true);
+                    Object val = Utils.resolveOptionals(field.get(value));
 
-                            Field[] valFields = val.getClass().getDeclaredFields();
+                    if (val == null) {
+                        continue;
+                    }
 
-                            List<String> items = new ArrayList<>();
+                    FormMetadata metadata = FormMetadata.parse(field);
+                    if (metadata == null) {
+                        continue;
+                    }
 
-                            for (Field valField : valFields) {
-                                valField.setAccessible(true);
-                                Object v = Utils.resolveOptionals(valField.get(val));
-                                if (v == null) {
-                                    continue;
+                    if (metadata.json) {
+                        ObjectMapper mapper = JSON.getMapper();
+                        String json = mapper.writeValueAsString(val);
+                        params.add(new NameValue(metadata.name, json));
+                    } else {
+                        switch (Types.getType(val.getClass())) {
+                            case OBJECT: {
+                                // Check if it's an enum wrapper first
+                                Optional<?> unwrappedEnumValue = Reflections.getUnwrappedEnumValue(val.getClass(), val);
+                                if (unwrappedEnumValue.isPresent()) {
+                                    params.add(new NameValue(metadata.name, Utils.valToString(unwrappedEnumValue.get())));
+                                    break;
                                 }
 
-                                FormMetadata valMetadata = FormMetadata.parse(valField);
-                                if (valMetadata == null) {
-                                    continue;
-                                }
-
-                                if (metadata.explode) {
-                                    params.add(new NameValue(valMetadata.name, Utils.valToString(v)));
+                                if (!Utils.allowIntrospection(val.getClass())) {
+                                    params.add(new NameValue(metadata.name, String.valueOf(val)));
                                 } else {
-                                    items.add(String.format("%s,%s", valMetadata.name, Utils.valToString(v)));
+
+                                    Field[] valFields = val.getClass().getDeclaredFields();
+
+                                    List<String> items = new ArrayList<>();
+
+                                    for (Field valField : valFields) {
+                                        valField.setAccessible(true);
+                                        Object v = Utils.resolveOptionals(valField.get(val));
+                                        if (v == null) {
+                                            continue;
+                                        }
+
+                                        FormMetadata valMetadata = FormMetadata.parse(valField);
+                                        if (valMetadata == null) {
+                                            continue;
+                                        }
+
+                                        if (metadata.explode) {
+                                            params.add(new NameValue(valMetadata.name, Utils.valToString(v)));
+                                        } else {
+                                            items.add(String.format("%s,%s", valMetadata.name, Utils.valToString(v)));
+                                        }
+                                    }
+
+                                    if (items.size() > 0) {
+                                        params.add(new NameValue(metadata.name, String.join(",", items)));
+                                    }
                                 }
+                                break;
                             }
+                            case MAP: {
+                                Map<?, ?> valMap = (Map<?, ?>) val;
 
-                            if (items.size() > 0) {
-                                params.add(new NameValue(metadata.name, String.join(",", items)));
+                                List<String> items = new ArrayList<>();
+
+                                for (Map.Entry<?, ?> entry : valMap.entrySet()) {
+                                    if (metadata.explode) {
+                                        params.add(new NameValue(
+                                                Utils.valToString(entry.getKey()), Utils.valToString(entry.getValue())));
+                                    } else {
+                                        items.add(String.format("%s,%s", entry.getKey(), entry.getValue()));
+                                    }
+                                }
+
+                                if (items.size() > 0) {
+                                    params.add(new NameValue(metadata.name, String.join(",", items)));
+                                }
+
+                                break;
                             }
-                        }
-                        break;
-                    }
-                    case MAP: {
-                        Map<?, ?> valMap = (Map<?, ?>) val;
+                            case ARRAY: {
+                                final List<?> array = Utils.toList(val);
 
-                        List<String> items = new ArrayList<>();
+                                List<String> items = new ArrayList<>();
 
-                        for (Map.Entry<?, ?> entry : valMap.entrySet()) {
-                            if (metadata.explode) {
-                                params.add(new NameValue(Utils.valToString(entry.getKey()),
-                                        Utils.valToString(entry.getValue())));
-                            } else {
-                                items.add(String.format("%s,%s", entry.getKey(), entry.getValue()));
+                                for (Object item : array) {
+                                    if (metadata.explode) {
+                                        params.add(new NameValue(metadata.name, Utils.valToString(item)));
+                                    } else {
+                                        items.add(Utils.valToString(item));
+                                    }
+                                }
+
+                                if (items.size() > 0) {
+                                    params.add(new NameValue(metadata.name, String.join(",", items)));
+                                }
+
+                                break;
                             }
+                            default:
+                                params.add(new NameValue(metadata.name, Utils.valToString(val)));
+                                break;
                         }
-
-                        if (items.size() > 0) {
-                            params.add(new NameValue(metadata.name, String.join(",", items)));
-                        }
-
-                        break;
-                    }
-                    case ARRAY: {
-                        final List<?> array = Utils.toList(val);
-
-                        List<String> items = new ArrayList<>();
-
-                        for (Object item : array) {
-                            if (metadata.explode) {
-                                params.add(new NameValue(metadata.name, Utils.valToString(item)));
-                            } else {
-                                items.add(Utils.valToString(item));
-                            }
-                        }
-
-                        if (items.size() > 0) {
-                            params.add(new NameValue(metadata.name, String.join(",", items)));
-                        }
-
-                        break;
-                    }
-                    default:
-                        params.add(new NameValue(metadata.name, Utils.valToString(val)));
-                        break;
                     }
                 }
-            }
-            break;
-        default:
-            throw new RuntimeException("Invalid type for form data");
+                break;
+            default:
+                throw new RuntimeException("Invalid type for form data");
         }
 
         // ensure that a fresh open input stream is provided every time
         // by the BodyPublisher
         String contentType = "application/x-www-form-urlencoded; charset=ISO-8859-1";
-        return new SerializedBody(contentType, BodyPublishers.ofInputStream(() -> {
-            String query = QueryEncoding.formatQuery(params, StandardCharsets.ISO_8859_1, true);
-            return new ByteArrayInputStream(query.getBytes(StandardCharsets.ISO_8859_1));
-        }));
+        return new SerializedBody(
+                contentType,
+                BodyPublishers.ofInputStream(() -> {
+                    String query = QueryEncoding.formatQuery(params, StandardCharsets.ISO_8859_1, true);
+                    return new ByteArrayInputStream(query.getBytes(StandardCharsets.ISO_8859_1));
+                }));
     }
-    
 }

@@ -28,7 +28,7 @@ public class AssociateAttendeeToSegmentRequestBuilder {
     private AssociateAttendeeToSegmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AssociateAttendeeToSegmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class AssociateAttendeeToSegmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public AssociateAttendeeToSegmentResponse call() {
-        RequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation
-              = new AssociateAttendeeToSegment.Sync(sdkConfiguration, _headers);
+        RequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation =
+                new AssociateAttendeeToSegment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

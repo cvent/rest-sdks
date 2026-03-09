@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * RespondentChapterReferenceJson
- * 
+ *
  * <p>Respondent chapter reference.
  */
 public class RespondentChapterReferenceJson {
@@ -79,10 +79,9 @@ public class RespondentChapterReferenceJson {
         this.percentageScore = percentageScore;
         this.loopingChoice = loopingChoice;
     }
-    
+
     public RespondentChapterReferenceJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -133,7 +132,6 @@ public class RespondentChapterReferenceJson {
         return new Builder();
     }
 
-
     /**
      * Respondent chapter reference ID.
      */
@@ -141,7 +139,6 @@ public class RespondentChapterReferenceJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * In case of Event Survey this represents Survey Status and in case of Standard Survey this represents
@@ -152,7 +149,6 @@ public class RespondentChapterReferenceJson {
         return this;
     }
 
-
     /**
      * Score
      */
@@ -160,7 +156,6 @@ public class RespondentChapterReferenceJson {
         this.score = score;
         return this;
     }
-
 
     /**
      * Maximum Possible Score
@@ -170,7 +165,6 @@ public class RespondentChapterReferenceJson {
         return this;
     }
 
-
     /**
      * Percentage Score
      */
@@ -178,7 +172,6 @@ public class RespondentChapterReferenceJson {
         this.percentageScore = percentageScore;
         return this;
     }
-
 
     /**
      * Loop Choice is the choice for which the chapter is looped. Questions in the looping chapter get
@@ -189,7 +182,6 @@ public class RespondentChapterReferenceJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -199,35 +191,39 @@ public class RespondentChapterReferenceJson {
             return false;
         }
         RespondentChapterReferenceJson other = (RespondentChapterReferenceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.score, other.score) &&
-            Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore) &&
-            Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore) &&
-            Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.score, other.score)
+                && Utils.enhancedDeepEquals(this.maxPossibleScore, other.maxPossibleScore)
+                && Utils.enhancedDeepEquals(this.percentageScore, other.percentageScore)
+                && Utils.enhancedDeepEquals(this.loopingChoice, other.loopingChoice);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, score,
-            maxPossibleScore, percentageScore, loopingChoice);
+        return Utils.enhancedHash(id, status, score, maxPossibleScore, percentageScore, loopingChoice);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RespondentChapterReferenceJson.class,
-                "id", id,
-                "status", status,
-                "score", score,
-                "maxPossibleScore", maxPossibleScore,
-                "percentageScore", percentageScore,
-                "loopingChoice", loopingChoice);
+        return Utils.toString(
+                RespondentChapterReferenceJson.class,
+                "id",
+                id,
+                "status",
+                status,
+                "score",
+                score,
+                "maxPossibleScore",
+                maxPossibleScore,
+                "percentageScore",
+                percentageScore,
+                "loopingChoice",
+                loopingChoice);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -242,7 +238,7 @@ public class RespondentChapterReferenceJson {
         private LoopingChoiceJson loopingChoice;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -297,9 +293,7 @@ public class RespondentChapterReferenceJson {
 
         public RespondentChapterReferenceJson build() {
             return new RespondentChapterReferenceJson(
-                id, status, score,
-                maxPossibleScore, percentageScore, loopingChoice);
+                    id, status, score, maxPossibleScore, percentageScore, loopingChoice);
         }
-
     }
 }

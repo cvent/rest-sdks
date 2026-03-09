@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateAppointmentResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateAppointmentResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AppointmentWithQuestions appointmentWithQuestions) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.appointmentWithQuestions = appointmentWithQuestions;
     }
-    
+
     public UpdateAppointmentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateAppointmentResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateAppointmentResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateAppointmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class UpdateAppointmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated an appointment.
      */
-    public UpdateAppointmentResponse withAppointmentWithQuestions(@Nullable AppointmentWithQuestions appointmentWithQuestions) {
+    public UpdateAppointmentResponse withAppointmentWithQuestions(
+            @Nullable AppointmentWithQuestions appointmentWithQuestions) {
         this.appointmentWithQuestions = appointmentWithQuestions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class UpdateAppointmentResponse implements Response {
             return false;
         }
         UpdateAppointmentResponse other = (UpdateAppointmentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.appointmentWithQuestions, other.appointmentWithQuestions);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.appointmentWithQuestions, other.appointmentWithQuestions);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            appointmentWithQuestions);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, appointmentWithQuestions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAppointmentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "appointmentWithQuestions", appointmentWithQuestions);
+        return Utils.toString(
+                UpdateAppointmentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "appointmentWithQuestions",
+                appointmentWithQuestions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class UpdateAppointmentResponse implements Response {
         private AppointmentWithQuestions appointmentWithQuestions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class UpdateAppointmentResponse implements Response {
         }
 
         public UpdateAppointmentResponse build() {
-            return new UpdateAppointmentResponse(
-                contentType, statusCode, rawResponse,
-                appointmentWithQuestions);
+            return new UpdateAppointmentResponse(contentType, statusCode, rawResponse, appointmentWithQuestions);
         }
-
     }
 }

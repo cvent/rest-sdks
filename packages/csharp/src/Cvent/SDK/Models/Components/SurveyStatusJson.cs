@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SurveyStatusJson
     {
-        [JsonProperty("Draft")]
-        Draft,
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Closed")]
-        Closed,
-        [JsonProperty("Archived")]
-        Archived,
+        [JsonProperty("Draft")] Draft,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Closed")] Closed,
+        [JsonProperty("Archived")] Archived,
     }
 
     public static class SurveyStatusJsonExtension
     {
         public static string Value(this SurveyStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SurveyStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SurveyStatusJson).GetFields())
+            foreach (var field in typeof(SurveyStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

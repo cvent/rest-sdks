@@ -2,6 +2,14 @@
 
 Denotes the status of a participant in an appointment.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ParticipantStatusJson;
+
+ParticipantStatusJson value = ParticipantStatusJson.PENDING;
+```
+
 
 ## Values
 

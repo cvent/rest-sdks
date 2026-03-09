@@ -30,25 +30,24 @@ public class AsyncAttendeeMessages {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public AttendeeMessages sync() {
         return syncSDK;
     }
 
-
     /**
      * Get Messaging Members
-     * 
+     *
      * <p>When attendee initiates a chat with other attendee(s), a channel is created for attendees to
      * communicate over.
      * This endpoint is used to retrieve the members of these channels using channel ids to filter the
      * results.
      * The results will include all the channel members; even the ones that left the channel at some point.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAttendeeMessagesMembersRequestBuilder getAttendeeMessagesMembers() {
@@ -57,23 +56,22 @@ public class AsyncAttendeeMessages {
 
     /**
      * Get Messaging Members
-     * 
+     *
      * <p>When attendee initiates a chat with other attendee(s), a channel is created for attendees to
      * communicate over.
      * This endpoint is used to retrieve the members of these channels using channel ids to filter the
      * results.
      * The results will include all the channel members; even the ones that left the channel at some point.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAttendeeMessagesMembersResponse>} - The async response
      */
-    public CompletableFuture<GetAttendeeMessagesMembersResponse> getAttendeeMessagesMembers(@Nonnull GetAttendeeMessagesMembersRequest request) {
-        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation
-              = new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAttendeeMessagesMembersResponse> getAttendeeMessagesMembers(
+            @Nonnull GetAttendeeMessagesMembersRequest request) {
+        AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
+                new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

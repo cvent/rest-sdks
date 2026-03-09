@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BadgePrintJobStatusJson
- * 
+ *
  * <p>This is used to indicate the status of the badge print job.
  */
 public enum BadgePrintJobStatusJson {
@@ -27,13 +27,13 @@ public enum BadgePrintJobStatusJson {
     BadgePrintJobStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BadgePrintJobStatusJson> fromValue(String value) {
-        for (BadgePrintJobStatusJson o: BadgePrintJobStatusJson.values()) {
+        for (BadgePrintJobStatusJson o : BadgePrintJobStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum BadgePrintJobStatusJson {
         return Optional.empty();
     }
 }
-

@@ -7,6 +7,14 @@ The user action that just occurred.
  `question.answered` - Either question was answered or the earlier provided answer was updated.
  `answer.deleted` - An answer was deleted.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = SessionQaActionTypeJson.QuestionAsked;
+```
+
 
 ## Values
 

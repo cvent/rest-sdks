@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Version
- * 
+ *
  * <p>The identifier of the Budget version for an event.
  */
 public class Version {
@@ -50,7 +50,7 @@ public class Version {
         this.name = name;
         this.default_ = default_;
     }
-    
+
     public Version() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class Version {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -88,7 +87,6 @@ public class Version {
         this.id = id;
         return this;
     }
-
 
     /**
      * Name of the budget version.
@@ -98,7 +96,6 @@ public class Version {
         return this;
     }
 
-
     /**
      * True indicates the associated budget is the default budget version of the event.
      */
@@ -106,7 +103,6 @@ public class Version {
         this.default_ = default_;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,23 @@ public class Version {
             return false;
         }
         Version other = (Version) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.default_, other.default_);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.default_, other.default_);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, default_);
+        return Utils.enhancedHash(id, name, default_);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Version.class,
-                "id", id,
-                "name", name,
-                "default_", default_);
+        return Utils.toString(Version.class, "id", id, "name", name, "default_", default_);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +138,7 @@ public class Version {
         private Boolean default_;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +166,7 @@ public class Version {
         }
 
         public Version build() {
-            return new Version(
-                id, name, default_);
+            return new Version(id, name, default_);
         }
-
     }
 }

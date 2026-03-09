@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -20,43 +20,43 @@ public class AttendeeAddBulkItemEventJsonData {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private AttendeeAddBulkItemEventJsonData(TypedObject value) {
         this.value = value;
     }
 
     public static AttendeeAddBulkItemEventJsonData of(ZeroOneOf2 value) {
         Utils.checkNotNull(value, "value");
-        return new AttendeeAddBulkItemEventJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new AttendeeAddBulkItemEventJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static AttendeeAddBulkItemEventJsonData of(AttendeeAddBulkItemEventJsonErrorResponse value) {
         Utils.checkNotNull(value, "value");
-        return new AttendeeAddBulkItemEventJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new AttendeeAddBulkItemEventJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ZeroOneOf2}</li>
      * <li>{@code com.cvent.models.components.AttendeeAddBulkItemEventJsonErrorResponse}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -68,27 +68,27 @@ public class AttendeeAddBulkItemEventJsonData {
         AttendeeAddBulkItemEventJsonData other = (AttendeeAddBulkItemEventJsonData) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<AttendeeAddBulkItemEventJsonData> {
 
         public _Deserializer() {
-            super(AttendeeAddBulkItemEventJsonData.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<AttendeeAddBulkItemEventJsonErrorResponse>() {}, JsonShape.DEFAULT));
+            super(
+                    AttendeeAddBulkItemEventJsonData.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<ZeroOneOf2>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(
+                            new TypeReference<AttendeeAddBulkItemEventJsonErrorResponse>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAddBulkItemEventJsonData.class,
-                "value", value);
+        return Utils.toString(AttendeeAddBulkItemEventJsonData.class, "value", value);
     }
-
 }
-

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * EventPaginatedResponse
- * 
+ *
  * <p>Represents a paginated collection of event objects.
  */
 public class EventPaginatedResponse {
@@ -32,12 +32,10 @@ public class EventPaginatedResponse {
 
     @JsonCreator
     public EventPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<Event> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<Event> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +56,6 @@ public class EventPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +64,6 @@ public class EventPaginatedResponse {
         return this;
     }
 
-
     /**
      * A collection of event objects.
      */
@@ -75,7 +71,6 @@ public class EventPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +81,28 @@ public class EventPaginatedResponse {
             return false;
         }
         EventPaginatedResponse other = (EventPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(EventPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<Event> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +122,7 @@ public class EventPaginatedResponse {
         }
 
         public EventPaginatedResponse build() {
-            return new EventPaginatedResponse(
-                paging, data);
+            return new EventPaginatedResponse(paging, data);
         }
-
     }
 }

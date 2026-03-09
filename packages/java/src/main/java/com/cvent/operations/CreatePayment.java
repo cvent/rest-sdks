@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class CreatePayment {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class CreatePayment {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,28 +85,19 @@ public class CreatePayment {
                     java.util.Optional.of(java.util.List.of("budget/payments:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
             String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/events/{id}/budget-items/{budgetItemId}/budget-payments",
-                    request, null);
+                    klass, this.baseUrl, "/events/{id}/budget-items/{budgetItemId}/budget-payments", request, null);
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "payment",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "payment", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -115,22 +105,22 @@ public class CreatePayment {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<CreatePaymentRequest, CreatePaymentResponse> {
+    public static class Sync extends Base implements RequestOperation<CreatePaymentRequest, CreatePaymentResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private HttpRequest onBuildRequest(CreatePaymentRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreatePaymentRequest.class, new TypeReference<CreatePaymentRequest>() {});
+            HttpRequest req =
+                    buildRequest(request, CreatePaymentRequest.class, new TypeReference<CreatePaymentRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -155,22 +145,16 @@ public class CreatePayment {
             return httpRes;
         }
 
-
         @Override
         public CreatePaymentResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            CreatePaymentResponse.Builder resBuilder =
-                    CreatePaymentResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            CreatePaymentResponse.Builder resBuilder = CreatePaymentResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             CreatePaymentResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withPaymentResponse(Utils.unmarshal(response, new TypeReference<PaymentResponse>() {}));
@@ -196,15 +180,18 @@ public class CreatePayment {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<CreatePaymentRequest, com.cvent.models.operations.async.CreatePaymentResponse> {
+            implements AsyncRequestOperation<
+                    CreatePaymentRequest, com.cvent.models.operations.async.CreatePaymentResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(CreatePaymentRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreatePaymentRequest.class, new TypeReference<CreatePaymentRequest>() {});
+            HttpRequest req =
+                    buildRequest(request, CreatePaymentRequest.class, new TypeReference<CreatePaymentRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -218,7 +205,9 @@ public class CreatePayment {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(CreatePaymentRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -235,19 +224,15 @@ public class CreatePayment {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.CreatePaymentResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.CreatePaymentResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.CreatePaymentResponse
-                            .builder()
+                    com.cvent.models.operations.async.CreatePaymentResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.CreatePaymentResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<PaymentResponse>() {})
@@ -258,8 +243,7 @@ public class CreatePayment {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

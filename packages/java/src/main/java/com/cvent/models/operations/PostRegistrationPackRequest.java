@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PostRegistrationPackRequest {
     /**
      * ID of an event.
@@ -34,15 +33,12 @@ public class PostRegistrationPackRequest {
 
     @JsonCreator
     public PostRegistrationPackRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull RegistrationPackRequest registrationPackRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorId, @Nonnull RegistrationPackRequest registrationPackRequest) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.registrationPackRequest = Optional.ofNullable(registrationPackRequest)
-            .orElseThrow(() -> new IllegalArgumentException("registrationPackRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationPackRequest cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class PostRegistrationPackRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +73,6 @@ public class PostRegistrationPackRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,15 +82,14 @@ public class PostRegistrationPackRequest {
         return this;
     }
 
-
     /**
      * Registration pack details
      */
-    public PostRegistrationPackRequest withRegistrationPackRequest(@Nonnull RegistrationPackRequest registrationPackRequest) {
+    public PostRegistrationPackRequest withRegistrationPackRequest(
+            @Nonnull RegistrationPackRequest registrationPackRequest) {
         this.registrationPackRequest = Utils.checkNotNull(registrationPackRequest, "registrationPackRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +100,30 @@ public class PostRegistrationPackRequest {
             return false;
         }
         PostRegistrationPackRequest other = (PostRegistrationPackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.registrationPackRequest, other.registrationPackRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.registrationPackRequest, other.registrationPackRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, registrationPackRequest);
+        return Utils.enhancedHash(id, exhibitorId, registrationPackRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PostRegistrationPackRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "registrationPackRequest", registrationPackRequest);
+        return Utils.toString(
+                PostRegistrationPackRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "registrationPackRequest",
+                registrationPackRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +132,7 @@ public class PostRegistrationPackRequest {
         private RegistrationPackRequest registrationPackRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +160,7 @@ public class PostRegistrationPackRequest {
         }
 
         public PostRegistrationPackRequest build() {
-            return new PostRegistrationPackRequest(
-                id, exhibitorId, registrationPackRequest);
+            return new PostRegistrationPackRequest(id, exhibitorId, registrationPackRequest);
         }
-
     }
 }

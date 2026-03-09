@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * TravelProgram
- * 
+ *
  * <p>Travel program details.
  */
 public class TravelProgram {
@@ -180,14 +180,9 @@ public class TravelProgram {
         this.closeoutDate = closeoutDate;
         this.questions = questions;
     }
-    
+
     public TravelProgram() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -314,7 +309,6 @@ public class TravelProgram {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -322,7 +316,6 @@ public class TravelProgram {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -332,7 +325,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -340,7 +332,6 @@ public class TravelProgram {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -350,7 +341,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * The unique ID of the travel program.
      */
@@ -358,7 +348,6 @@ public class TravelProgram {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the travel program.
@@ -368,7 +357,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * The contract year in which the travel program originated.
      */
@@ -376,7 +364,6 @@ public class TravelProgram {
         this.contractPeriod = contractPeriod;
         return this;
     }
-
 
     /**
      * Code representing the travel program type.
@@ -386,7 +373,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * Code representing the format of the travel program.
      */
@@ -394,7 +380,6 @@ public class TravelProgram {
         this.format = format;
         return this;
     }
-
 
     /**
      * Code representing the status of the travel program.
@@ -404,7 +389,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * Travel account that the program belongs to.
      */
@@ -412,7 +396,6 @@ public class TravelProgram {
         this.travelAccount = travelAccount;
         return this;
     }
-
 
     /**
      * Code representing the stay types requested by the program. Programs can accept daily only, or daily
@@ -423,7 +406,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date (in GMT) of the travel program.
      */
@@ -431,7 +413,6 @@ public class TravelProgram {
         this.startDate = startDate;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted end date (in GMT) of the travel program.
@@ -441,7 +422,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted due date (in GMT) of the travel program.
      */
@@ -449,7 +429,6 @@ public class TravelProgram {
         this.dueDate = dueDate;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted decision date (in GMT) of the travel program.
@@ -459,7 +438,6 @@ public class TravelProgram {
         return this;
     }
 
-
     /**
      * A list of program specific questions for the supplier to answer as part of their proposal.
      */
@@ -467,7 +445,6 @@ public class TravelProgram {
         this.questions = questions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -478,61 +455,89 @@ public class TravelProgram {
             return false;
         }
         TravelProgram other = (TravelProgram) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.contractPeriod, other.contractPeriod) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.travelAccount, other.travelAccount) &&
-            Utils.enhancedDeepEquals(this.stayType, other.stayType) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.dueDate, other.dueDate) &&
-            Utils.enhancedDeepEquals(this.closeoutDate, other.closeoutDate) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.contractPeriod, other.contractPeriod)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.travelAccount, other.travelAccount)
+                && Utils.enhancedDeepEquals(this.stayType, other.stayType)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.dueDate, other.dueDate)
+                && Utils.enhancedDeepEquals(this.closeoutDate, other.closeoutDate)
+                && Utils.enhancedDeepEquals(this.questions, other.questions);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            contractPeriod, type, format,
-            status, travelAccount, stayType,
-            startDate, endDate, dueDate,
-            closeoutDate, questions);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                name,
+                contractPeriod,
+                type,
+                format,
+                status,
+                travelAccount,
+                stayType,
+                startDate,
+                endDate,
+                dueDate,
+                closeoutDate,
+                questions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelProgram.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "contractPeriod", contractPeriod,
-                "type", type,
-                "format", format,
-                "status", status,
-                "travelAccount", travelAccount,
-                "stayType", stayType,
-                "startDate", startDate,
-                "endDate", endDate,
-                "dueDate", dueDate,
-                "closeoutDate", closeoutDate,
-                "questions", questions);
+        return Utils.toString(
+                TravelProgram.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "contractPeriod",
+                contractPeriod,
+                "type",
+                type,
+                "format",
+                format,
+                "status",
+                status,
+                "travelAccount",
+                travelAccount,
+                "stayType",
+                stayType,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "dueDate",
+                dueDate,
+                "closeoutDate",
+                closeoutDate,
+                "questions",
+                questions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -569,7 +574,7 @@ public class TravelProgram {
         private List<TravelProgramQuestionJson> questions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -711,13 +716,23 @@ public class TravelProgram {
 
         public TravelProgram build() {
             return new TravelProgram(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                contractPeriod, type, format,
-                status, travelAccount, stayType,
-                startDate, endDate, dueDate,
-                closeoutDate, questions);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    name,
+                    contractPeriod,
+                    type,
+                    format,
+                    status,
+                    travelAccount,
+                    stayType,
+                    startDate,
+                    endDate,
+                    dueDate,
+                    closeoutDate,
+                    questions);
         }
-
     }
 }

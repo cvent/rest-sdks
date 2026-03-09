@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class CreateCardTransaction {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class CreateCardTransaction {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,26 +85,17 @@ public class CreateCardTransaction {
                     java.util.Optional.of(java.util.List.of("budget/transactions:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/cards/transactions");
+
+        <T, U> HttpRequest buildRequest(T request, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(this.baseUrl, "/cards/transactions");
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody = Utils.serializeRequestBody(convertedRequest, "", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -124,11 +114,11 @@ public class CreateCardTransaction {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -153,25 +143,20 @@ public class CreateCardTransaction {
             return httpRes;
         }
 
-
         @Override
         public CreateCardTransactionResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            CreateCardTransactionResponse.Builder resBuilder =
-                    CreateCardTransactionResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            CreateCardTransactionResponse.Builder resBuilder = CreateCardTransactionResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             CreateCardTransactionResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withCardTransactionCreateResponse(Utils.unmarshal(response, new TypeReference<CardTransactionCreateResponse>() {}));
+                    return res.withCardTransactionCreateResponse(
+                            Utils.unmarshal(response, new TypeReference<CardTransactionCreateResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -194,8 +179,10 @@ public class CreateCardTransaction {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<CardTransactionCreate, com.cvent.models.operations.async.CreateCardTransactionResponse> {
+            implements AsyncRequestOperation<
+                    CardTransactionCreate, com.cvent.models.operations.async.CreateCardTransactionResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
@@ -216,7 +203,9 @@ public class CreateCardTransaction {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(CardTransactionCreate request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -233,19 +222,15 @@ public class CreateCardTransaction {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.CreateCardTransactionResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.CreateCardTransactionResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.CreateCardTransactionResponse
-                            .builder()
+                    com.cvent.models.operations.async.CreateCardTransactionResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.CreateCardTransactionResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<CardTransactionCreateResponse>() {})
@@ -256,8 +241,7 @@ public class CreateCardTransaction {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

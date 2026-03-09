@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ContactMergeFieldJson
- * 
+ *
  * <p>A pair of a contact field name and a contact id.
  */
 public class ContactMergeFieldJson {
@@ -34,9 +34,9 @@ public class ContactMergeFieldJson {
             @JsonProperty("fieldName") @Nonnull String fieldName,
             @JsonProperty("contactId") @Nonnull String contactId) {
         this.fieldName = Optional.ofNullable(fieldName)
-            .orElseThrow(() -> new IllegalArgumentException("fieldName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("fieldName cannot be null"));
         this.contactId = Optional.ofNullable(contactId)
-            .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
     }
 
     /**
@@ -57,7 +57,6 @@ public class ContactMergeFieldJson {
         return new Builder();
     }
 
-
     /**
      * The name of a contact field.
      */
@@ -66,7 +65,6 @@ public class ContactMergeFieldJson {
         return this;
     }
 
-
     /**
      * ID of the contact.
      */
@@ -74,7 +72,6 @@ public class ContactMergeFieldJson {
         this.contactId = Utils.checkNotNull(contactId, "contactId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +82,29 @@ public class ContactMergeFieldJson {
             return false;
         }
         ContactMergeFieldJson other = (ContactMergeFieldJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.fieldName, other.fieldName) &&
-            Utils.enhancedDeepEquals(this.contactId, other.contactId);
+        return Utils.enhancedDeepEquals(this.fieldName, other.fieldName)
+                && Utils.enhancedDeepEquals(this.contactId, other.contactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            fieldName, contactId);
+        return Utils.enhancedHash(fieldName, contactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactMergeFieldJson.class,
-                "fieldName", fieldName,
-                "contactId", contactId);
+        return Utils.toString(ContactMergeFieldJson.class, "fieldName", fieldName, "contactId", contactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String fieldName;
 
         private String contactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +124,7 @@ public class ContactMergeFieldJson {
         }
 
         public ContactMergeFieldJson build() {
-            return new ContactMergeFieldJson(
-                fieldName, contactId);
+            return new ContactMergeFieldJson(fieldName, contactId);
         }
-
     }
 }

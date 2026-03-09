@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * TravelBidSeasonJson
- * 
+ *
  * <p>Season details for a travel bid.
  */
 public class TravelBidSeasonJson {
@@ -98,11 +98,9 @@ public class TravelBidSeasonJson {
         this.weekendRates = weekendRates;
         this.status = status;
     }
-    
+
     public TravelBidSeasonJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -166,7 +164,6 @@ public class TravelBidSeasonJson {
         return new Builder();
     }
 
-
     /**
      * Season name.
      */
@@ -174,7 +171,6 @@ public class TravelBidSeasonJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * The ISO 8601 start date of the season.
@@ -184,7 +180,6 @@ public class TravelBidSeasonJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 end date of the season.
      */
@@ -192,7 +187,6 @@ public class TravelBidSeasonJson {
         this.endDate = endDate;
         return this;
     }
-
 
     /**
      * Number of release periods.
@@ -202,7 +196,6 @@ public class TravelBidSeasonJson {
         return this;
     }
 
-
     /**
      * Number of weekend release periods.
      */
@@ -210,7 +203,6 @@ public class TravelBidSeasonJson {
         this.weekendReleasePeriod = weekendReleasePeriod;
         return this;
     }
-
 
     /**
      * Collection of rates for the season.
@@ -220,7 +212,6 @@ public class TravelBidSeasonJson {
         return this;
     }
 
-
     /**
      * Collection of weekend rates for the season.
      */
@@ -228,7 +219,6 @@ public class TravelBidSeasonJson {
         this.weekendRates = weekendRates;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -239,7 +229,6 @@ public class TravelBidSeasonJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -249,40 +238,46 @@ public class TravelBidSeasonJson {
             return false;
         }
         TravelBidSeasonJson other = (TravelBidSeasonJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.releasePeriod, other.releasePeriod) &&
-            Utils.enhancedDeepEquals(this.weekendReleasePeriod, other.weekendReleasePeriod) &&
-            Utils.enhancedDeepEquals(this.rates, other.rates) &&
-            Utils.enhancedDeepEquals(this.weekendRates, other.weekendRates) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.releasePeriod, other.releasePeriod)
+                && Utils.enhancedDeepEquals(this.weekendReleasePeriod, other.weekendReleasePeriod)
+                && Utils.enhancedDeepEquals(this.rates, other.rates)
+                && Utils.enhancedDeepEquals(this.weekendRates, other.weekendRates)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, startDate, endDate,
-            releasePeriod, weekendReleasePeriod, rates,
-            weekendRates, status);
+                name, startDate, endDate, releasePeriod, weekendReleasePeriod, rates, weekendRates, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidSeasonJson.class,
-                "name", name,
-                "startDate", startDate,
-                "endDate", endDate,
-                "releasePeriod", releasePeriod,
-                "weekendReleasePeriod", weekendReleasePeriod,
-                "rates", rates,
-                "weekendRates", weekendRates,
-                "status", status);
+        return Utils.toString(
+                TravelBidSeasonJson.class,
+                "name",
+                name,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "releasePeriod",
+                releasePeriod,
+                "weekendReleasePeriod",
+                weekendReleasePeriod,
+                "rates",
+                rates,
+                "weekendRates",
+                weekendRates,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -301,7 +296,7 @@ public class TravelBidSeasonJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -371,10 +366,7 @@ public class TravelBidSeasonJson {
 
         public TravelBidSeasonJson build() {
             return new TravelBidSeasonJson(
-                name, startDate, endDate,
-                releasePeriod, weekendReleasePeriod, rates,
-                weekendRates, status);
+                    name, startDate, endDate, releasePeriod, weekendReleasePeriod, rates, weekendRates, status);
         }
-
     }
 }

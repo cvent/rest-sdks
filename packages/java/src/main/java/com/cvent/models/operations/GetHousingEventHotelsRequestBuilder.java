@@ -28,7 +28,7 @@ public class GetHousingEventHotelsRequestBuilder {
     private GetHousingEventHotelsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventHotelsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetHousingEventHotelsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetHousingEventHotelsResponse call() {
-        RequestOperation<GetHousingEventHotelsRequest, GetHousingEventHotelsResponse> operation
-              = new GetHousingEventHotels.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetHousingEventHotelsRequest, GetHousingEventHotelsResponse> operation =
+                new GetHousingEventHotels.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

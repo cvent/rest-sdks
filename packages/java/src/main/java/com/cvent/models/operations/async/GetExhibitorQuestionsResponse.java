@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetExhibitorQuestionsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ExhibitorQuestionsResponse exhibitorQuestionsResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.exhibitorQuestionsResponse = exhibitorQuestionsResponse;
     }
-    
+
     public GetExhibitorQuestionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved exhibitor questions.
      */
-    public GetExhibitorQuestionsResponse withExhibitorQuestionsResponse(@Nullable ExhibitorQuestionsResponse exhibitorQuestionsResponse) {
+    public GetExhibitorQuestionsResponse withExhibitorQuestionsResponse(
+            @Nullable ExhibitorQuestionsResponse exhibitorQuestionsResponse) {
         this.exhibitorQuestionsResponse = exhibitorQuestionsResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
             return false;
         }
         GetExhibitorQuestionsResponse other = (GetExhibitorQuestionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.exhibitorQuestionsResponse, other.exhibitorQuestionsResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.exhibitorQuestionsResponse, other.exhibitorQuestionsResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            exhibitorQuestionsResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, exhibitorQuestionsResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorQuestionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "exhibitorQuestionsResponse", exhibitorQuestionsResponse);
+        return Utils.toString(
+                GetExhibitorQuestionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "exhibitorQuestionsResponse",
+                exhibitorQuestionsResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         private ExhibitorQuestionsResponse exhibitorQuestionsResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +203,7 @@ public class GetExhibitorQuestionsResponse implements AsyncResponse {
         }
 
         public GetExhibitorQuestionsResponse build() {
-            return new GetExhibitorQuestionsResponse(
-                contentType, statusCode, rawResponse,
-                exhibitorQuestionsResponse);
+            return new GetExhibitorQuestionsResponse(contentType, statusCode, rawResponse, exhibitorQuestionsResponse);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * HousingEvent
- * 
+ *
  * <p>Information about housing event.
  */
 public class HousingEvent {
@@ -145,7 +145,7 @@ public class HousingEvent {
     /**
      * Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest
      * price first.
-     * 
+     *
      * <p>PriceDescending: Data sorted by highest price first.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -175,41 +175,36 @@ public class HousingEvent {
             @JsonProperty("currency") @Nonnull String currency,
             @JsonProperty("roomsSortType") @Nullable RoomsSortTypeJson roomsSortType) {
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
-        this.cutOff = Optional.ofNullable(cutOff)
-            .orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.cutOff =
+                Optional.ofNullable(cutOff).orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
         this.timeZone = Optional.ofNullable(timeZone)
-            .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
-        this.venue = Optional.ofNullable(venue)
-            .orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
+        this.venue = Optional.ofNullable(venue).orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.launchAfter = launchAfter;
         this.closeAfter = closeAfter;
         this.webLaunchAfter = webLaunchAfter;
         this.webCloseAfter = webCloseAfter;
         this.defaultLocale = Optional.ofNullable(defaultLocale)
-            .orElseThrow(() -> new IllegalArgumentException("defaultLocale cannot be null"));
-        this.locales = Optional.ofNullable(locales)
-            .orElseThrow(() -> new IllegalArgumentException("locales cannot be null"));
-        this.image = Optional.ofNullable(image)
-            .orElseThrow(() -> new IllegalArgumentException("image cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("defaultLocale cannot be null"));
+        this.locales =
+                Optional.ofNullable(locales).orElseThrow(() -> new IllegalArgumentException("locales cannot be null"));
+        this.image = Optional.ofNullable(image).orElseThrow(() -> new IllegalArgumentException("image cannot be null"));
         this.reservationContact = Optional.ofNullable(reservationContact)
-            .orElseThrow(() -> new IllegalArgumentException("reservationContact cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationContact cannot be null"));
         this.attendeeTypes = Optional.ofNullable(attendeeTypes)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeTypes cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeTypes cannot be null"));
         this.planners = Optional.ofNullable(planners)
-            .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("planners cannot be null"));
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.roomsSortType = roomsSortType;
     }
-    
+
     public HousingEvent(
             long id,
             @Nonnull String name,
@@ -226,13 +221,27 @@ public class HousingEvent {
             @Nonnull List<AttendeeTypeJson> attendeeTypes,
             @Nonnull List<PlannerJson1> planners,
             @Nonnull String currency) {
-        this(id, name, start,
-            end, cutOff, timeZone,
-            venue, status, null,
-            null, null, null,
-            defaultLocale, locales, image,
-            reservationContact, attendeeTypes, planners,
-            currency, null);
+        this(
+                id,
+                name,
+                start,
+                end,
+                cutOff,
+                timeZone,
+                venue,
+                status,
+                null,
+                null,
+                null,
+                null,
+                defaultLocale,
+                locales,
+                image,
+                reservationContact,
+                attendeeTypes,
+                planners,
+                currency,
+                null);
     }
 
     /**
@@ -373,7 +382,7 @@ public class HousingEvent {
     /**
      * Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest
      * price first.
-     * 
+     *
      * <p>PriceDescending: Data sorted by highest price first.
      */
     public Optional<RoomsSortTypeJson> roomsSortType() {
@@ -384,7 +393,6 @@ public class HousingEvent {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the housing event.
      */
@@ -393,7 +401,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * Event name.
      */
@@ -401,7 +408,6 @@ public class HousingEvent {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
@@ -412,7 +418,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
      */
@@ -420,7 +425,6 @@ public class HousingEvent {
         this.end = Utils.checkNotNull(end, "end");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
@@ -431,7 +435,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * The event timezone from the Olson specification.
      */
@@ -439,7 +442,6 @@ public class HousingEvent {
         this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
         return this;
     }
-
 
     /**
      * Event venue details.
@@ -449,7 +451,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * Housing event status.
      */
@@ -457,7 +458,6 @@ public class HousingEvent {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when event will launch.
@@ -467,7 +467,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time, after which no reservation can be made.
      */
@@ -475,7 +474,6 @@ public class HousingEvent {
         this.closeAfter = closeAfter;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time when event will be available for reservations through website.
@@ -485,7 +483,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date and time after which no website reservation can be made.
      */
@@ -493,7 +490,6 @@ public class HousingEvent {
         this.webCloseAfter = webCloseAfter;
         return this;
     }
-
 
     /**
      * Locale code in IETF language tag format.
@@ -503,7 +499,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * List of event locales.
      */
@@ -511,7 +506,6 @@ public class HousingEvent {
         this.locales = Utils.checkNotNull(locales, "locales");
         return this;
     }
-
 
     /**
      * Event image URL.
@@ -521,7 +515,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * Reservation contact details for this event.
      */
@@ -529,7 +522,6 @@ public class HousingEvent {
         this.reservationContact = Utils.checkNotNull(reservationContact, "reservationContact");
         return this;
     }
-
 
     /**
      * List of attendee types for this event.
@@ -539,7 +531,6 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * A collection of event planners for this housing event.
      */
@@ -547,7 +538,6 @@ public class HousingEvent {
         this.planners = Utils.checkNotNull(planners, "planners");
         return this;
     }
-
 
     /**
      * ISO 4217 currency code.
@@ -557,18 +547,16 @@ public class HousingEvent {
         return this;
     }
 
-
     /**
      * Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest
      * price first.
-     * 
+     *
      * <p>PriceDescending: Data sorted by highest price first.
      */
     public HousingEvent withRoomsSortType(@Nullable RoomsSortTypeJson roomsSortType) {
         this.roomsSortType = roomsSortType;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -579,68 +567,101 @@ public class HousingEvent {
             return false;
         }
         HousingEvent other = (HousingEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.cutOff, other.cutOff) &&
-            Utils.enhancedDeepEquals(this.timeZone, other.timeZone) &&
-            Utils.enhancedDeepEquals(this.venue, other.venue) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.launchAfter, other.launchAfter) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.webLaunchAfter, other.webLaunchAfter) &&
-            Utils.enhancedDeepEquals(this.webCloseAfter, other.webCloseAfter) &&
-            Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale) &&
-            Utils.enhancedDeepEquals(this.locales, other.locales) &&
-            Utils.enhancedDeepEquals(this.image, other.image) &&
-            Utils.enhancedDeepEquals(this.reservationContact, other.reservationContact) &&
-            Utils.enhancedDeepEquals(this.attendeeTypes, other.attendeeTypes) &&
-            Utils.enhancedDeepEquals(this.planners, other.planners) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.roomsSortType, other.roomsSortType);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.cutOff, other.cutOff)
+                && Utils.enhancedDeepEquals(this.timeZone, other.timeZone)
+                && Utils.enhancedDeepEquals(this.venue, other.venue)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.launchAfter, other.launchAfter)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.webLaunchAfter, other.webLaunchAfter)
+                && Utils.enhancedDeepEquals(this.webCloseAfter, other.webCloseAfter)
+                && Utils.enhancedDeepEquals(this.defaultLocale, other.defaultLocale)
+                && Utils.enhancedDeepEquals(this.locales, other.locales)
+                && Utils.enhancedDeepEquals(this.image, other.image)
+                && Utils.enhancedDeepEquals(this.reservationContact, other.reservationContact)
+                && Utils.enhancedDeepEquals(this.attendeeTypes, other.attendeeTypes)
+                && Utils.enhancedDeepEquals(this.planners, other.planners)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.roomsSortType, other.roomsSortType);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, name, start,
-            end, cutOff, timeZone,
-            venue, status, launchAfter,
-            closeAfter, webLaunchAfter, webCloseAfter,
-            defaultLocale, locales, image,
-            reservationContact, attendeeTypes, planners,
-            currency, roomsSortType);
+                id,
+                name,
+                start,
+                end,
+                cutOff,
+                timeZone,
+                venue,
+                status,
+                launchAfter,
+                closeAfter,
+                webLaunchAfter,
+                webCloseAfter,
+                defaultLocale,
+                locales,
+                image,
+                reservationContact,
+                attendeeTypes,
+                planners,
+                currency,
+                roomsSortType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HousingEvent.class,
-                "id", id,
-                "name", name,
-                "start", start,
-                "end", end,
-                "cutOff", cutOff,
-                "timeZone", timeZone,
-                "venue", venue,
-                "status", status,
-                "launchAfter", launchAfter,
-                "closeAfter", closeAfter,
-                "webLaunchAfter", webLaunchAfter,
-                "webCloseAfter", webCloseAfter,
-                "defaultLocale", defaultLocale,
-                "locales", locales,
-                "image", image,
-                "reservationContact", reservationContact,
-                "attendeeTypes", attendeeTypes,
-                "planners", planners,
-                "currency", currency,
-                "roomsSortType", roomsSortType);
+        return Utils.toString(
+                HousingEvent.class,
+                "id",
+                id,
+                "name",
+                name,
+                "start",
+                start,
+                "end",
+                end,
+                "cutOff",
+                cutOff,
+                "timeZone",
+                timeZone,
+                "venue",
+                venue,
+                "status",
+                status,
+                "launchAfter",
+                launchAfter,
+                "closeAfter",
+                closeAfter,
+                "webLaunchAfter",
+                webLaunchAfter,
+                "webCloseAfter",
+                webCloseAfter,
+                "defaultLocale",
+                defaultLocale,
+                "locales",
+                locales,
+                "image",
+                image,
+                "reservationContact",
+                reservationContact,
+                "attendeeTypes",
+                attendeeTypes,
+                "planners",
+                planners,
+                "currency",
+                currency,
+                "roomsSortType",
+                roomsSortType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -683,7 +704,7 @@ public class HousingEvent {
         private RoomsSortTypeJson roomsSortType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -843,7 +864,7 @@ public class HousingEvent {
         /**
          * Rooms sort type. CustomOrder: A user-defined sort order. PriceAscending: Data sorted with lowest
          * price first.
-         * 
+         *
          * <p>PriceDescending: Data sorted by highest price first.
          */
         public Builder roomsSortType(@Nullable RoomsSortTypeJson roomsSortType) {
@@ -853,14 +874,26 @@ public class HousingEvent {
 
         public HousingEvent build() {
             return new HousingEvent(
-                id, name, start,
-                end, cutOff, timeZone,
-                venue, status, launchAfter,
-                closeAfter, webLaunchAfter, webCloseAfter,
-                defaultLocale, locales, image,
-                reservationContact, attendeeTypes, planners,
-                currency, roomsSortType);
+                    id,
+                    name,
+                    start,
+                    end,
+                    cutOff,
+                    timeZone,
+                    venue,
+                    status,
+                    launchAfter,
+                    closeAfter,
+                    webLaunchAfter,
+                    webCloseAfter,
+                    defaultLocale,
+                    locales,
+                    image,
+                    reservationContact,
+                    attendeeTypes,
+                    planners,
+                    currency,
+                    roomsSortType);
         }
-
     }
 }

@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * Message
- * 
+ *
  * <p>An object that contains the message itself or a link to the message allowing it to be downloaded
  */
 @JsonDeserialize(using = Message._Deserializer.class)
@@ -25,26 +25,26 @@ public class Message {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private Message(TypedObject value) {
         this.value = value;
     }
 
     public static Message of(EmailMessage value) {
         Utils.checkNotNull(value, "value");
-        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Message of(ChatMessage value) {
         Utils.checkNotNull(value, "value");
-        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static Message of(SessionQaMessage value) {
         Utils.checkNotNull(value, "value");
-        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new Message(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
@@ -52,22 +52,22 @@ public class Message {
      * <li>{@code com.cvent.models.components.ChatMessage}</li>
      * <li>{@code com.cvent.models.components.SessionQaMessage}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -79,28 +79,27 @@ public class Message {
         Message other = (Message) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<Message> {
 
         public _Deserializer() {
-            super(Message.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<EmailMessage>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<ChatMessage>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<SessionQaMessage>() {}, JsonShape.DEFAULT));
+            super(
+                    Message.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<EmailMessage>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<ChatMessage>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<SessionQaMessage>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Message.class,
-                "value", value);
+        return Utils.toString(Message.class, "value", value);
     }
-
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExistingExhibitorCategoryJsonType
- * 
+ *
  * <p>Type of exhibitor category
  */
 public enum ExistingExhibitorCategoryJsonType {
@@ -23,13 +23,13 @@ public enum ExistingExhibitorCategoryJsonType {
     ExistingExhibitorCategoryJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExistingExhibitorCategoryJsonType> fromValue(String value) {
-        for (ExistingExhibitorCategoryJsonType o: ExistingExhibitorCategoryJsonType.values()) {
+        for (ExistingExhibitorCategoryJsonType o : ExistingExhibitorCategoryJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ExistingExhibitorCategoryJsonType {
         return Optional.empty();
     }
 }
-

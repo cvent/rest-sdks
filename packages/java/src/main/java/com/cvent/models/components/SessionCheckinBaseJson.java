@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SessionCheckinBaseJson
- * 
+ *
  * <p>Base model for a session check-in.
  */
 public class SessionCheckinBaseJson {
@@ -55,17 +55,14 @@ public class SessionCheckinBaseJson {
             @JsonProperty("checkOut") @Nullable OffsetDateTime checkOut,
             @JsonProperty("device") @Nullable String device,
             @JsonProperty("duration") @Nullable Long duration) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.checkOut = checkOut;
         this.device = device;
         this.duration = duration;
     }
-    
-    public SessionCheckinBaseJson(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public SessionCheckinBaseJson(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -100,7 +97,6 @@ public class SessionCheckinBaseJson {
         return new Builder();
     }
 
-
     /**
      * ID of an attendee to be checked in to a session.
      */
@@ -108,7 +104,6 @@ public class SessionCheckinBaseJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time when the attendee checked out of a session.
@@ -118,7 +113,6 @@ public class SessionCheckinBaseJson {
         return this;
     }
 
-
     /**
      * Name of the device used for check-in.
      */
@@ -127,7 +121,6 @@ public class SessionCheckinBaseJson {
         return this;
     }
 
-
     /**
      * Duration (in milliseconds) of attendance in the session.
      */
@@ -135,7 +128,6 @@ public class SessionCheckinBaseJson {
         this.duration = duration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +138,25 @@ public class SessionCheckinBaseJson {
             return false;
         }
         SessionCheckinBaseJson other = (SessionCheckinBaseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.checkOut, other.checkOut) &&
-            Utils.enhancedDeepEquals(this.device, other.device) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.checkOut, other.checkOut)
+                && Utils.enhancedDeepEquals(this.device, other.device)
+                && Utils.enhancedDeepEquals(this.duration, other.duration);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, checkOut, device,
-            duration);
+        return Utils.enhancedHash(id, checkOut, device, duration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionCheckinBaseJson.class,
-                "id", id,
-                "checkOut", checkOut,
-                "device", device,
-                "duration", duration);
+        return Utils.toString(
+                SessionCheckinBaseJson.class, "id", id, "checkOut", checkOut, "device", device, "duration", duration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +167,7 @@ public class SessionCheckinBaseJson {
         private Long duration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +203,7 @@ public class SessionCheckinBaseJson {
         }
 
         public SessionCheckinBaseJson build() {
-            return new SessionCheckinBaseJson(
-                id, checkOut, device,
-                duration);
+            return new SessionCheckinBaseJson(id, checkOut, device, duration);
         }
-
     }
 }

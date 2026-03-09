@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateBadgeRequest {
     /**
      * ID of an event.
@@ -33,16 +32,11 @@ public class UpdateBadgeRequest {
     private BadgeInput badge;
 
     @JsonCreator
-    public UpdateBadgeRequest(
-            @Nonnull String id,
-            @Nonnull String badgeId,
-            @Nonnull BadgeInput badge) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.badgeId = Optional.ofNullable(badgeId)
-            .orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
-        this.badge = Optional.ofNullable(badge)
-            .orElseThrow(() -> new IllegalArgumentException("badge cannot be null"));
+    public UpdateBadgeRequest(@Nonnull String id, @Nonnull String badgeId, @Nonnull BadgeInput badge) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.badgeId =
+                Optional.ofNullable(badgeId).orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
+        this.badge = Optional.ofNullable(badge).orElseThrow(() -> new IllegalArgumentException("badge cannot be null"));
     }
 
     /**
@@ -70,7 +64,6 @@ public class UpdateBadgeRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +71,6 @@ public class UpdateBadgeRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of a badge.
@@ -88,7 +80,6 @@ public class UpdateBadgeRequest {
         return this;
     }
 
-
     /**
      * Badge details
      */
@@ -96,7 +87,6 @@ public class UpdateBadgeRequest {
         this.badge = Utils.checkNotNull(badge, "badge");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +97,23 @@ public class UpdateBadgeRequest {
             return false;
         }
         UpdateBadgeRequest other = (UpdateBadgeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.badgeId, other.badgeId) &&
-            Utils.enhancedDeepEquals(this.badge, other.badge);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.badgeId, other.badgeId)
+                && Utils.enhancedDeepEquals(this.badge, other.badge);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, badgeId, badge);
+        return Utils.enhancedHash(id, badgeId, badge);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateBadgeRequest.class,
-                "id", id,
-                "badgeId", badgeId,
-                "badge", badge);
+        return Utils.toString(UpdateBadgeRequest.class, "id", id, "badgeId", badgeId, "badge", badge);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +122,7 @@ public class UpdateBadgeRequest {
         private BadgeInput badge;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +150,7 @@ public class UpdateBadgeRequest {
         }
 
         public UpdateBadgeRequest build() {
-            return new UpdateBadgeRequest(
-                id, badgeId, badge);
+            return new UpdateBadgeRequest(id, badgeId, badge);
         }
-
     }
 }

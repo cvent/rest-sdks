@@ -28,7 +28,7 @@ public class GetRegistrationPackRequestBuilder {
     private GetRegistrationPackRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetRegistrationPackRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetRegistrationPackRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetRegistrationPackResponse call() {
-        RequestOperation<GetRegistrationPackRequest, GetRegistrationPackResponse> operation
-              = new GetRegistrationPack.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetRegistrationPackRequest, GetRegistrationPackResponse> operation =
+                new GetRegistrationPack.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

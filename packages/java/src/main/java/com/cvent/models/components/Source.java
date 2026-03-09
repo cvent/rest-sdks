@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Source
- * 
+ *
  * <p>The source of entry for the lead
  */
 public enum Source {
@@ -27,13 +27,13 @@ public enum Source {
     Source(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Source> fromValue(String value) {
-        for (Source o: Source.values()) {
+        for (Source o : Source.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum Source {
         return Optional.empty();
     }
 }
-

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * ExistingDiscountCodeJson
- * 
+ *
  * <p>Representation of an existing discount code.
  */
 public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedResponseData {
@@ -109,7 +109,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
     /**
      * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants
      * and their guests. `GUEST`: Any attendee invited to the event.
-     * 
+     *
      * <p>`ALL`: An attendee who's the guest of a primary registrant.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -164,7 +164,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     @JsonProperty("type")
@@ -205,47 +205,55 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
-        this.stackable = Optional.ofNullable(stackable)
-            .orElse(Builder._SINGLETON_VALUE_Stackable.value());
-        this.method = Optional.ofNullable(method)
-            .orElseThrow(() -> new IllegalArgumentException("method cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.stackable = Optional.ofNullable(stackable).orElse(Builder._SINGLETON_VALUE_Stackable.value());
+        this.method =
+                Optional.ofNullable(method).orElseThrow(() -> new IllegalArgumentException("method cannot be null"));
         this.effectiveFrom = effectiveFrom;
         this.effectiveTo = effectiveTo;
         this.note = note;
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.audienceType = Optional.ofNullable(audienceType)
-            .orElse(Builder._SINGLETON_VALUE_AudienceType.value());
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.audienceType = Optional.ofNullable(audienceType).orElse(Builder._SINGLETON_VALUE_AudienceType.value());
         this.includeGuestsTowardsCapacity = Optional.ofNullable(includeGuestsTowardsCapacity)
-            .orElse(Builder._SINGLETON_VALUE_IncludeGuestsTowardsCapacity.value());
-        this.autoApply = Optional.ofNullable(autoApply)
-            .orElse(Builder._SINGLETON_VALUE_AutoApply.value());
+                .orElse(Builder._SINGLETON_VALUE_IncludeGuestsTowardsCapacity.value());
+        this.autoApply = Optional.ofNullable(autoApply).orElse(Builder._SINGLETON_VALUE_AutoApply.value());
         this.applyToAllAgendaItems = Optional.ofNullable(applyToAllAgendaItems)
-            .orElse(Builder._SINGLETON_VALUE_ApplyToAllAgendaItems.value());
+                .orElse(Builder._SINGLETON_VALUE_ApplyToAllAgendaItems.value());
         this.id = id;
         this.level = level;
         this.capacity = capacity;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.applyToAllEvents = applyToAllEvents;
     }
-    
+
     public ExistingDiscountCodeJson(
             @Nonnull String name,
             @Nonnull DiscountMethodJson method,
             @Nonnull String code,
             @Nonnull ExistingDiscountCodeJsonType type) {
-        this(null, null, null,
-            null, name, null,
-            null, method, null,
-            null, null, code,
-            null, null, null,
-            null, null, null,
-            null, type, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                name,
+                null,
+                null,
+                method,
+                null,
+                null,
+                null,
+                code,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                type,
+                null);
     }
 
     /**
@@ -335,7 +343,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
     /**
      * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants
      * and their guests. `GUEST`: Any attendee invited to the event.
-     * 
+     *
      * <p>`ALL`: An attendee who's the guest of a primary registrant.
      */
     public Optional<DiscountAudienceTypeJson> audienceType() {
@@ -390,7 +398,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     @Override
@@ -410,7 +418,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -418,7 +425,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -428,7 +434,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -436,7 +441,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -446,7 +450,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * Name of the discount.
      */
@@ -454,7 +457,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * True indicates that the discount is active.
@@ -464,7 +466,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * True indicates that the discount can be clubbed together with other stackable discounts
      */
@@ -472,7 +473,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.stackable = stackable;
         return this;
     }
-
 
     /**
      * Details about how the discount applies.
@@ -482,7 +482,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date from which the discount is effective.
      */
@@ -490,7 +489,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.effectiveFrom = effectiveFrom;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date to which the discount is effective.
@@ -500,7 +498,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * Note about the discount.
      */
@@ -508,7 +505,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.note = note;
         return this;
     }
-
 
     /**
      * Code of the discount.
@@ -518,18 +514,16 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants
      * and their guests. `GUEST`: Any attendee invited to the event.
-     * 
+     *
      * <p>`ALL`: An attendee who's the guest of a primary registrant.
      */
     public ExistingDiscountCodeJson withAudienceType(@Nullable DiscountAudienceTypeJson audienceType) {
         this.audienceType = audienceType;
         return this;
     }
-
 
     /**
      * True indicates that guests will be included along with primary registrants towards the discount
@@ -540,7 +534,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * True indicates that the discount is auto-applied to registrants.
      */
@@ -548,7 +541,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.autoApply = autoApply;
         return this;
     }
-
 
     /**
      * True indicates that the discount is applied to all agenda items and requires at least one item to be
@@ -560,7 +552,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * A unique identifier of the discount.
      */
@@ -568,7 +559,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         this.id = id;
         return this;
     }
-
 
     /**
      * Whether the discount is created at event level or account level.
@@ -578,7 +568,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * Details about the discount capacity.
      */
@@ -587,18 +576,16 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
      * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-     * 
+     *
      * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
      */
     public ExistingDiscountCodeJson withType(@Nonnull ExistingDiscountCodeJsonType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * True indicates that the discount is applied to all events. this is specific to account level
@@ -609,7 +596,6 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -619,70 +605,105 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
             return false;
         }
         ExistingDiscountCodeJson other = (ExistingDiscountCodeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.stackable, other.stackable) &&
-            Utils.enhancedDeepEquals(this.method, other.method) &&
-            Utils.enhancedDeepEquals(this.effectiveFrom, other.effectiveFrom) &&
-            Utils.enhancedDeepEquals(this.effectiveTo, other.effectiveTo) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.audienceType, other.audienceType) &&
-            Utils.enhancedDeepEquals(this.includeGuestsTowardsCapacity, other.includeGuestsTowardsCapacity) &&
-            Utils.enhancedDeepEquals(this.autoApply, other.autoApply) &&
-            Utils.enhancedDeepEquals(this.applyToAllAgendaItems, other.applyToAllAgendaItems) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.level, other.level) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.applyToAllEvents, other.applyToAllEvents);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.stackable, other.stackable)
+                && Utils.enhancedDeepEquals(this.method, other.method)
+                && Utils.enhancedDeepEquals(this.effectiveFrom, other.effectiveFrom)
+                && Utils.enhancedDeepEquals(this.effectiveTo, other.effectiveTo)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.audienceType, other.audienceType)
+                && Utils.enhancedDeepEquals(this.includeGuestsTowardsCapacity, other.includeGuestsTowardsCapacity)
+                && Utils.enhancedDeepEquals(this.autoApply, other.autoApply)
+                && Utils.enhancedDeepEquals(this.applyToAllAgendaItems, other.applyToAllAgendaItems)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.level, other.level)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.applyToAllEvents, other.applyToAllEvents);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, name, active,
-            stackable, method, effectiveFrom,
-            effectiveTo, note, code,
-            audienceType, includeGuestsTowardsCapacity, autoApply,
-            applyToAllAgendaItems, id, level,
-            capacity, type, applyToAllEvents);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                name,
+                active,
+                stackable,
+                method,
+                effectiveFrom,
+                effectiveTo,
+                note,
+                code,
+                audienceType,
+                includeGuestsTowardsCapacity,
+                autoApply,
+                applyToAllAgendaItems,
+                id,
+                level,
+                capacity,
+                type,
+                applyToAllEvents);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingDiscountCodeJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "name", name,
-                "active", active,
-                "stackable", stackable,
-                "method", method,
-                "effectiveFrom", effectiveFrom,
-                "effectiveTo", effectiveTo,
-                "note", note,
-                "code", code,
-                "audienceType", audienceType,
-                "includeGuestsTowardsCapacity", includeGuestsTowardsCapacity,
-                "autoApply", autoApply,
-                "applyToAllAgendaItems", applyToAllAgendaItems,
-                "id", id,
-                "level", level,
-                "capacity", capacity,
-                "type", type,
-                "applyToAllEvents", applyToAllEvents);
+        return Utils.toString(
+                ExistingDiscountCodeJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "name",
+                name,
+                "active",
+                active,
+                "stackable",
+                stackable,
+                "method",
+                method,
+                "effectiveFrom",
+                effectiveFrom,
+                "effectiveTo",
+                effectiveTo,
+                "note",
+                note,
+                "code",
+                code,
+                "audienceType",
+                audienceType,
+                "includeGuestsTowardsCapacity",
+                includeGuestsTowardsCapacity,
+                "autoApply",
+                autoApply,
+                "applyToAllAgendaItems",
+                applyToAllAgendaItems,
+                "id",
+                id,
+                "level",
+                level,
+                "capacity",
+                capacity,
+                "type",
+                type,
+                "applyToAllEvents",
+                applyToAllEvents);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -727,7 +748,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         private Boolean applyToAllEvents;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -829,7 +850,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         /**
          * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants
          * and their guests. `GUEST`: Any attendee invited to the event.
-         * 
+         *
          * <p>`ALL`: An attendee who's the guest of a primary registrant.
          */
         public Builder audienceType(@Nullable DiscountAudienceTypeJson audienceType) {
@@ -891,7 +912,7 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
         /**
          * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
          * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
-         * 
+         *
          * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
          */
         public Builder type(@Nonnull ExistingDiscountCodeJsonType type) {
@@ -910,50 +931,45 @@ public class ExistingDiscountCodeJson implements ExistingDiscountPaginatedRespon
 
         public ExistingDiscountCodeJson build() {
             return new ExistingDiscountCodeJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, name, active,
-                stackable, method, effectiveFrom,
-                effectiveTo, note, code,
-                audienceType, includeGuestsTowardsCapacity, autoApply,
-                applyToAllAgendaItems, id, level,
-                capacity, type, applyToAllEvents);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    name,
+                    active,
+                    stackable,
+                    method,
+                    effectiveFrom,
+                    effectiveTo,
+                    note,
+                    code,
+                    audienceType,
+                    includeGuestsTowardsCapacity,
+                    autoApply,
+                    applyToAllAgendaItems,
+                    id,
+                    level,
+                    capacity,
+                    type,
+                    applyToAllEvents);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Stackable =
-                new LazySingletonValue<>(
-                        "stackable",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("stackable", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<DiscountAudienceTypeJson> _SINGLETON_VALUE_AudienceType =
-                new LazySingletonValue<>(
-                        "audienceType",
-                        "\"ALL\"",
-                        new TypeReference<DiscountAudienceTypeJson>() {});
+                new LazySingletonValue<>("audienceType", "\"ALL\"", new TypeReference<DiscountAudienceTypeJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludeGuestsTowardsCapacity =
-                new LazySingletonValue<>(
-                        "includeGuestsTowardsCapacity",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includeGuestsTowardsCapacity", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_AutoApply =
-                new LazySingletonValue<>(
-                        "autoApply",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("autoApply", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ApplyToAllAgendaItems =
-                new LazySingletonValue<>(
-                        "applyToAllAgendaItems",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("applyToAllAgendaItems", "false", new TypeReference<Boolean>() {});
     }
 }

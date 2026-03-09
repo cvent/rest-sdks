@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LiveStreamRecordingJson
- * 
+ *
  * <p>Provides information about the livestream's recording
  */
 public class LiveStreamRecordingJson {
@@ -40,7 +40,7 @@ public class LiveStreamRecordingJson {
         this.id = id;
         this.status = status;
     }
-    
+
     public LiveStreamRecordingJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class LiveStreamRecordingJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the live stream recording job.
      */
@@ -72,7 +71,6 @@ public class LiveStreamRecordingJson {
         return this;
     }
 
-
     /**
      * This is used to denote the status of the live stream recording job
      */
@@ -80,7 +78,6 @@ public class LiveStreamRecordingJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class LiveStreamRecordingJson {
             return false;
         }
         LiveStreamRecordingJson other = (LiveStreamRecordingJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status);
+        return Utils.enhancedHash(id, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LiveStreamRecordingJson.class,
-                "id", id,
-                "status", status);
+        return Utils.toString(LiveStreamRecordingJson.class, "id", id, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private LiveStreamRecordingStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class LiveStreamRecordingJson {
         }
 
         public LiveStreamRecordingJson build() {
-            return new LiveStreamRecordingJson(
-                id, status);
+            return new LiveStreamRecordingJson(id, status);
         }
-
     }
 }

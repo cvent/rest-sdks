@@ -13,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class UpdateAttendeeLinksRequest {
     /**
      * The identifier of the webcast.
@@ -28,13 +27,10 @@ public class UpdateAttendeeLinksRequest {
     private List<ExistingAttendeeLinkInput> requestBody;
 
     @JsonCreator
-    public UpdateAttendeeLinksRequest(
-            @Nonnull String id,
-            @Nonnull List<ExistingAttendeeLinkInput> requestBody) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateAttendeeLinksRequest(@Nonnull String id, @Nonnull List<ExistingAttendeeLinkInput> requestBody) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
     /**
@@ -55,7 +51,6 @@ public class UpdateAttendeeLinksRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of the webcast.
      */
@@ -64,7 +59,6 @@ public class UpdateAttendeeLinksRequest {
         return this;
     }
 
-
     /**
      * Up to **100 attendee links** can be updated per call.
      */
@@ -72,7 +66,6 @@ public class UpdateAttendeeLinksRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -83,33 +76,28 @@ public class UpdateAttendeeLinksRequest {
             return false;
         }
         UpdateAttendeeLinksRequest other = (UpdateAttendeeLinksRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, requestBody);
+        return Utils.enhancedHash(id, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAttendeeLinksRequest.class,
-                "id", id,
-                "requestBody", requestBody);
+        return Utils.toString(UpdateAttendeeLinksRequest.class, "id", id, "requestBody", requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private List<ExistingAttendeeLinkInput> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -129,9 +117,7 @@ public class UpdateAttendeeLinksRequest {
         }
 
         public UpdateAttendeeLinksRequest build() {
-            return new UpdateAttendeeLinksRequest(
-                id, requestBody);
+            return new UpdateAttendeeLinksRequest(id, requestBody);
         }
-
     }
 }

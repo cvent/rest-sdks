@@ -77,19 +77,19 @@ import java.util.concurrent.CompletableFuture;
  * An appointment is a meeting scheduled between two or more parties. These APIs allow you to get
  * information about your Cvent Appointments: appointment attendees, their interests, and
  * availabilities.
- * 
+ *
  * <p>* **Appointment Events** - Appointment events help planners facilitate meetings between attendees.
  * Attendees express their interest and availability to schedule appointments. Use this API to get
  * information about appointments and appointment attendees.
- * 
+ *
  * <p>* **Appointment Attendees** - Appointment attendees are meeting participants. They can be attendees
  * of either events or appointment events. Get information about these participants or use their
  * appointment attendee ID to get their availabilities and interests.
- * 
+ *
  * <p>* **Availability** - Appointment availabilities describe an appointment attendees' preference in
  * meeting dates and times. Availability information is only available for *Planner Coordinated
  * Appointments*.
- * 
+ *
  * <p>* **Interests** - Appointment interests describe appointment attendees' preferences in meeting with
  * another organization or individual. Interest information is only available for *Planner Coordinated
  * Appointments*.
@@ -109,21 +109,20 @@ public class AsyncAppointments {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Appointments sync() {
         return syncSDK;
     }
 
-
     /**
      * List Appt Attendees
-     * 
+     *
      * <p>Gets a paginated list of appointment attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAppointmentAttendeesRequestBuilder listAppointmentAttendees() {
@@ -132,29 +131,28 @@ public class AsyncAppointments {
 
     /**
      * List Appt Attendees
-     * 
+     *
      * <p>Gets a paginated list of appointment attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAppointmentAttendeesResponse>} - The async response
      */
-    public CompletableFuture<ListAppointmentAttendeesResponse> listAppointmentAttendees(@Nonnull ListAppointmentAttendeesRequest request) {
-        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation
-              = new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAppointmentAttendeesResponse> listAppointmentAttendees(
+            @Nonnull ListAppointmentAttendeesRequest request) {
+        AsyncRequestOperation<ListAppointmentAttendeesRequest, ListAppointmentAttendeesResponse> operation =
+                new ListAppointmentAttendees.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Appt Attendee
-     * 
+     *
      * <p>Gets a single appointment attendee by their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAppointmentAttendeeByIdRequestBuilder getAppointmentAttendeeById() {
@@ -163,29 +161,28 @@ public class AsyncAppointments {
 
     /**
      * Get Appt Attendee
-     * 
+     *
      * <p>Gets a single appointment attendee by their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAppointmentAttendeeByIdResponse>} - The async response
      */
-    public CompletableFuture<GetAppointmentAttendeeByIdResponse> getAppointmentAttendeeById(@Nonnull GetAppointmentAttendeeByIdRequest request) {
-        AsyncRequestOperation<GetAppointmentAttendeeByIdRequest, GetAppointmentAttendeeByIdResponse> operation
-              = new GetAppointmentAttendeeById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAppointmentAttendeeByIdResponse> getAppointmentAttendeeById(
+            @Nonnull GetAppointmentAttendeeByIdRequest request) {
+        AsyncRequestOperation<GetAppointmentAttendeeByIdRequest, GetAppointmentAttendeeByIdResponse> operation =
+                new GetAppointmentAttendeeById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Availability
-     * 
+     *
      * <p>Gets a paginated list of appointment availability times.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAvailabilityRequestBuilder listAvailability() {
@@ -194,29 +191,27 @@ public class AsyncAppointments {
 
     /**
      * List Availability
-     * 
+     *
      * <p>Gets a paginated list of appointment availability times.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAvailabilityResponse>} - The async response
      */
     public CompletableFuture<ListAvailabilityResponse> listAvailability(@Nonnull ListAvailabilityRequest request) {
-        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation
-              = new ListAvailability.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation =
+                new ListAvailability.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Availability
-     * 
+     *
      * <p>Get a single appointment availability time by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAvailabilityByIdRequestBuilder getAvailabilityById() {
@@ -225,29 +220,28 @@ public class AsyncAppointments {
 
     /**
      * Get Availability
-     * 
+     *
      * <p>Get a single appointment availability time by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAvailabilityByIdResponse>} - The async response
      */
-    public CompletableFuture<GetAvailabilityByIdResponse> getAvailabilityById(@Nonnull GetAvailabilityByIdRequest request) {
-        AsyncRequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation
-              = new GetAvailabilityById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAvailabilityByIdResponse> getAvailabilityById(
+            @Nonnull GetAvailabilityByIdRequest request) {
+        AsyncRequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation =
+                new GetAvailabilityById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Appt Events
-     * 
+     *
      * <p>Gets a paginated list of appointment events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAppointmentEventsRequestBuilder listAppointmentEvents() {
@@ -256,29 +250,28 @@ public class AsyncAppointments {
 
     /**
      * List Appt Events
-     * 
+     *
      * <p>Gets a paginated list of appointment events.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAppointmentEventsResponse>} - The async response
      */
-    public CompletableFuture<ListAppointmentEventsResponse> listAppointmentEvents(@Nonnull ListAppointmentEventsRequest request) {
-        AsyncRequestOperation<ListAppointmentEventsRequest, ListAppointmentEventsResponse> operation
-              = new ListAppointmentEvents.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAppointmentEventsResponse> listAppointmentEvents(
+            @Nonnull ListAppointmentEventsRequest request) {
+        AsyncRequestOperation<ListAppointmentEventsRequest, ListAppointmentEventsResponse> operation =
+                new ListAppointmentEvents.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Appt Event
-     * 
+     *
      * <p>Gets a single appointment event by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAppointmentEventByIdRequestBuilder getAppointmentEventById() {
@@ -287,30 +280,29 @@ public class AsyncAppointments {
 
     /**
      * Get Appt Event
-     * 
+     *
      * <p>Gets a single appointment event by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAppointmentEventByIdResponse>} - The async response
      */
-    public CompletableFuture<GetAppointmentEventByIdResponse> getAppointmentEventById(@Nonnull GetAppointmentEventByIdRequest request) {
-        AsyncRequestOperation<GetAppointmentEventByIdRequest, GetAppointmentEventByIdResponse> operation
-              = new GetAppointmentEventById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAppointmentEventByIdResponse> getAppointmentEventById(
+            @Nonnull GetAppointmentEventByIdRequest request) {
+        AsyncRequestOperation<GetAppointmentEventByIdRequest, GetAppointmentEventByIdResponse> operation =
+                new GetAppointmentEventById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Available Times
-     * 
+     *
      * <p>Gets a paginated list of times and locations available for scheduling appointments in a particular
      * appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAvailableTimesRequestBuilder listAvailableTimes() {
@@ -319,30 +311,29 @@ public class AsyncAppointments {
 
     /**
      * List Available Times
-     * 
+     *
      * <p>Gets a paginated list of times and locations available for scheduling appointments in a particular
      * appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAvailableTimesResponse>} - The async response
      */
-    public CompletableFuture<ListAvailableTimesResponse> listAvailableTimes(@Nonnull ListAvailableTimesRequest request) {
-        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation
-              = new ListAvailableTimes.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAvailableTimesResponse> listAvailableTimes(
+            @Nonnull ListAvailableTimesRequest request) {
+        AsyncRequestOperation<ListAvailableTimesRequest, ListAvailableTimesResponse> operation =
+                new ListAvailableTimes.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Appointment Types
-     * 
+     *
      * <p>Gets a paginated list of appointment types for an appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAppointmentTypesRequestBuilder listAppointmentTypes() {
@@ -351,29 +342,28 @@ public class AsyncAppointments {
 
     /**
      * List Appointment Types
-     * 
+     *
      * <p>Gets a paginated list of appointment types for an appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAppointmentTypesResponse>} - The async response
      */
-    public CompletableFuture<ListAppointmentTypesResponse> listAppointmentTypes(@Nonnull ListAppointmentTypesRequest request) {
-        AsyncRequestOperation<ListAppointmentTypesRequest, ListAppointmentTypesResponse> operation
-              = new ListAppointmentTypes.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAppointmentTypesResponse> listAppointmentTypes(
+            @Nonnull ListAppointmentTypesRequest request) {
+        AsyncRequestOperation<ListAppointmentTypesRequest, ListAppointmentTypesResponse> operation =
+                new ListAppointmentTypes.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Appointment
-     * 
+     *
      * <p>Creates an appointment in a given appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateAppointmentRequestBuilder createAppointment() {
@@ -382,29 +372,27 @@ public class AsyncAppointments {
 
     /**
      * Create Appointment
-     * 
+     *
      * <p>Creates an appointment in a given appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateAppointmentResponse>} - The async response
      */
     public CompletableFuture<CreateAppointmentResponse> createAppointment(@Nonnull CreateAppointmentRequest request) {
-        AsyncRequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation
-              = new CreateAppointment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation =
+                new CreateAppointment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Appointments
-     * 
+     *
      * <p>Updates an appointment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateAppointmentRequestBuilder updateAppointment() {
@@ -413,29 +401,27 @@ public class AsyncAppointments {
 
     /**
      * Update Appointments
-     * 
+     *
      * <p>Updates an appointment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateAppointmentResponse>} - The async response
      */
     public CompletableFuture<UpdateAppointmentResponse> updateAppointment(@Nonnull UpdateAppointmentRequest request) {
-        AsyncRequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation
-              = new UpdateAppointment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation =
+                new UpdateAppointment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Cancel Appointment
-     * 
+     *
      * <p>Cancels an appointment with the given appointment ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CancelAppointmentRequestBuilder cancelAppointment() {
@@ -444,29 +430,27 @@ public class AsyncAppointments {
 
     /**
      * Cancel Appointment
-     * 
+     *
      * <p>Cancels an appointment with the given appointment ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CancelAppointmentResponse>} - The async response
      */
     public CompletableFuture<CancelAppointmentResponse> cancelAppointment(@Nonnull CancelAppointmentRequest request) {
-        AsyncRequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation
-              = new CancelAppointment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation =
+                new CancelAppointment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Locations
-     * 
+     *
      * <p>Gets a paginated list of appointment locations in a particular appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListLocationsRequestBuilder listLocations() {
@@ -475,29 +459,27 @@ public class AsyncAppointments {
 
     /**
      * List Locations
-     * 
+     *
      * <p>Gets a paginated list of appointment locations in a particular appointment event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListLocationsResponse>} - The async response
      */
     public CompletableFuture<ListLocationsResponse> listLocations(@Nonnull ListLocationsRequest request) {
-        AsyncRequestOperation<ListLocationsRequest, ListLocationsResponse> operation
-              = new ListLocations.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListLocationsRequest, ListLocationsResponse> operation =
+                new ListLocations.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Interests
-     * 
+     *
      * <p>Gets a paginated list of appointment meeting interests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListMeetingInterestsRequestBuilder listMeetingInterests() {
@@ -506,29 +488,28 @@ public class AsyncAppointments {
 
     /**
      * List Interests
-     * 
+     *
      * <p>Gets a paginated list of appointment meeting interests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListMeetingInterestsResponse>} - The async response
      */
-    public CompletableFuture<ListMeetingInterestsResponse> listMeetingInterests(@Nonnull ListMeetingInterestsRequest request) {
-        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation
-              = new ListMeetingInterests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListMeetingInterestsResponse> listMeetingInterests(
+            @Nonnull ListMeetingInterestsRequest request) {
+        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation =
+                new ListMeetingInterests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Interest
-     * 
+     *
      * <p>Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetMeetingInterestByIdRequestBuilder getMeetingInterestById() {
@@ -537,29 +518,28 @@ public class AsyncAppointments {
 
     /**
      * Get Interest
-     * 
+     *
      * <p>Gets a single attendee's meeting interests in a particular appointment event by their interest ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetMeetingInterestByIdResponse>} - The async response
      */
-    public CompletableFuture<GetMeetingInterestByIdResponse> getMeetingInterestById(@Nonnull GetMeetingInterestByIdRequest request) {
-        AsyncRequestOperation<GetMeetingInterestByIdRequest, GetMeetingInterestByIdResponse> operation
-              = new GetMeetingInterestById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetMeetingInterestByIdResponse> getMeetingInterestById(
+            @Nonnull GetMeetingInterestByIdRequest request) {
+        AsyncRequestOperation<GetMeetingInterestByIdRequest, GetMeetingInterestByIdResponse> operation =
+                new GetMeetingInterestById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Appointments
-     * 
+     *
      * <p>Gets a paginated list of appointments.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAppointmentsRequestBuilder listAppointments() {
@@ -568,29 +548,27 @@ public class AsyncAppointments {
 
     /**
      * List Appointments
-     * 
+     *
      * <p>Gets a paginated list of appointments.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAppointmentsResponse>} - The async response
      */
     public CompletableFuture<ListAppointmentsResponse> listAppointments(@Nonnull ListAppointmentsRequest request) {
-        AsyncRequestOperation<ListAppointmentsRequest, ListAppointmentsResponse> operation
-              = new ListAppointments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAppointmentsRequest, ListAppointmentsResponse> operation =
+                new ListAppointments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Appointment
-     * 
+     *
      * <p>Gets a single appointment by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAppointmentByIdRequestBuilder getAppointmentById() {
@@ -599,19 +577,18 @@ public class AsyncAppointments {
 
     /**
      * Get Appointment
-     * 
+     *
      * <p>Gets a single appointment by its ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAppointmentByIdResponse>} - The async response
      */
-    public CompletableFuture<GetAppointmentByIdResponse> getAppointmentById(@Nonnull GetAppointmentByIdRequest request) {
-        AsyncRequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation
-              = new GetAppointmentById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAppointmentByIdResponse> getAppointmentById(
+            @Nonnull GetAppointmentByIdRequest request) {
+        AsyncRequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation =
+                new GetAppointmentById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

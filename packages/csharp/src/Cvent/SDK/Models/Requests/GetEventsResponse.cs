@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class GetEventsResponse
     {
-        public Func<Task<GetEventsResponse?>>? Next {get;set;}
+        public Func<Task<GetEventsResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

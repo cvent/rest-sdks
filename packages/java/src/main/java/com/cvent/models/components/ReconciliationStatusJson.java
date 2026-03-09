@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ReconciliationStatusJson
- * 
+ *
  * <p>This is used to denote the reconciliation status for a transaction.
  */
 public enum ReconciliationStatusJson {
@@ -23,13 +23,13 @@ public enum ReconciliationStatusJson {
     ReconciliationStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ReconciliationStatusJson> fromValue(String value) {
-        for (ReconciliationStatusJson o: ReconciliationStatusJson.values()) {
+        for (ReconciliationStatusJson o : ReconciliationStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ReconciliationStatusJson {
         return Optional.empty();
     }
 }
-

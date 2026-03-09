@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetOrdersResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class GetOrdersResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable OrderDetailsPaginatedResponse orderDetailsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.orderDetailsPaginatedResponse = orderDetailsPaginatedResponse;
     }
-    
-    public GetOrdersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetOrdersResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class GetOrdersResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class GetOrdersResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class GetOrdersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +111,14 @@ public class GetOrdersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Orders in event.
      */
-    public GetOrdersResponse withOrderDetailsPaginatedResponse(@Nullable OrderDetailsPaginatedResponse orderDetailsPaginatedResponse) {
+    public GetOrdersResponse withOrderDetailsPaginatedResponse(
+            @Nullable OrderDetailsPaginatedResponse orderDetailsPaginatedResponse) {
         this.orderDetailsPaginatedResponse = orderDetailsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class GetOrdersResponse implements AsyncResponse {
             return false;
         }
         GetOrdersResponse other = (GetOrdersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.orderDetailsPaginatedResponse, other.orderDetailsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.orderDetailsPaginatedResponse, other.orderDetailsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            orderDetailsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, orderDetailsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetOrdersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "orderDetailsPaginatedResponse", orderDetailsPaginatedResponse);
+        return Utils.toString(
+                GetOrdersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "orderDetailsPaginatedResponse",
+                orderDetailsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class GetOrdersResponse implements AsyncResponse {
         private OrderDetailsPaginatedResponse orderDetailsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +196,14 @@ public class GetOrdersResponse implements AsyncResponse {
         /**
          * Successfully retrieved a Paginated list of Orders in event.
          */
-        public Builder orderDetailsPaginatedResponse(@Nullable OrderDetailsPaginatedResponse orderDetailsPaginatedResponse) {
+        public Builder orderDetailsPaginatedResponse(
+                @Nullable OrderDetailsPaginatedResponse orderDetailsPaginatedResponse) {
             this.orderDetailsPaginatedResponse = orderDetailsPaginatedResponse;
             return this;
         }
 
         public GetOrdersResponse build() {
-            return new GetOrdersResponse(
-                contentType, statusCode, rawResponse,
-                orderDetailsPaginatedResponse);
+            return new GetOrdersResponse(contentType, statusCode, rawResponse, orderDetailsPaginatedResponse);
         }
-
     }
 }

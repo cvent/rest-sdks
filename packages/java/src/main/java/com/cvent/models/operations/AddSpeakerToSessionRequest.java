@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AddSpeakerToSessionRequest {
     /**
      * Unique Id of a session
@@ -41,16 +40,13 @@ public class AddSpeakerToSessionRequest {
             @Nonnull String id,
             @Nonnull String speakerId,
             @Nullable SessionSpeakerAssignment sessionSpeakerAssignment) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.speakerId = Optional.ofNullable(speakerId)
-            .orElseThrow(() -> new IllegalArgumentException("speakerId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("speakerId cannot be null"));
         this.sessionSpeakerAssignment = sessionSpeakerAssignment;
     }
-    
-    public AddSpeakerToSessionRequest(
-            @Nonnull String id,
-            @Nonnull String speakerId) {
+
+    public AddSpeakerToSessionRequest(@Nonnull String id, @Nonnull String speakerId) {
         this(id, speakerId, null);
     }
 
@@ -82,7 +78,6 @@ public class AddSpeakerToSessionRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a session
      */
@@ -90,7 +85,6 @@ public class AddSpeakerToSessionRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique Id of a speaker
@@ -100,18 +94,17 @@ public class AddSpeakerToSessionRequest {
         return this;
     }
 
-
     /**
      * Assign a category and order to the session's speaker. If no category is included in the body or the
      * body isn't provided, the speaker's default category will be used. Similarly if no order is provided
      * or no body is provided the speaker will be placed last in the ordered list of speakers for the
      * session.
      */
-    public AddSpeakerToSessionRequest withSessionSpeakerAssignment(@Nullable SessionSpeakerAssignment sessionSpeakerAssignment) {
+    public AddSpeakerToSessionRequest withSessionSpeakerAssignment(
+            @Nullable SessionSpeakerAssignment sessionSpeakerAssignment) {
         this.sessionSpeakerAssignment = sessionSpeakerAssignment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -122,28 +115,30 @@ public class AddSpeakerToSessionRequest {
             return false;
         }
         AddSpeakerToSessionRequest other = (AddSpeakerToSessionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.speakerId, other.speakerId) &&
-            Utils.enhancedDeepEquals(this.sessionSpeakerAssignment, other.sessionSpeakerAssignment);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.speakerId, other.speakerId)
+                && Utils.enhancedDeepEquals(this.sessionSpeakerAssignment, other.sessionSpeakerAssignment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, speakerId, sessionSpeakerAssignment);
+        return Utils.enhancedHash(id, speakerId, sessionSpeakerAssignment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddSpeakerToSessionRequest.class,
-                "id", id,
-                "speakerId", speakerId,
-                "sessionSpeakerAssignment", sessionSpeakerAssignment);
+        return Utils.toString(
+                AddSpeakerToSessionRequest.class,
+                "id",
+                id,
+                "speakerId",
+                speakerId,
+                "sessionSpeakerAssignment",
+                sessionSpeakerAssignment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -152,7 +147,7 @@ public class AddSpeakerToSessionRequest {
         private SessionSpeakerAssignment sessionSpeakerAssignment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -183,9 +178,7 @@ public class AddSpeakerToSessionRequest {
         }
 
         public AddSpeakerToSessionRequest build() {
-            return new AddSpeakerToSessionRequest(
-                id, speakerId, sessionSpeakerAssignment);
+            return new AddSpeakerToSessionRequest(id, speakerId, sessionSpeakerAssignment);
         }
-
     }
 }

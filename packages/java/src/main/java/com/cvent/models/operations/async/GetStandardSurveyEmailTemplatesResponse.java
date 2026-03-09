@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.standardSurveyEmailTemplatesPaginatedResponse = standardSurveyEmailTemplatesPaginatedResponse;
     }
-    
+
     public GetStandardSurveyEmailTemplatesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of standalone survey email templates.
      */
-    public GetStandardSurveyEmailTemplatesResponse withStandardSurveyEmailTemplatesPaginatedResponse(@Nullable StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse) {
+    public GetStandardSurveyEmailTemplatesResponse withStandardSurveyEmailTemplatesPaginatedResponse(
+            @Nullable StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse) {
         this.standardSurveyEmailTemplatesPaginatedResponse = standardSurveyEmailTemplatesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,35 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
             return false;
         }
         GetStandardSurveyEmailTemplatesResponse other = (GetStandardSurveyEmailTemplatesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.standardSurveyEmailTemplatesPaginatedResponse, other.standardSurveyEmailTemplatesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.standardSurveyEmailTemplatesPaginatedResponse,
+                        other.standardSurveyEmailTemplatesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            standardSurveyEmailTemplatesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, standardSurveyEmailTemplatesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetStandardSurveyEmailTemplatesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "standardSurveyEmailTemplatesPaginatedResponse", standardSurveyEmailTemplatesPaginatedResponse);
+        return Utils.toString(
+                GetStandardSurveyEmailTemplatesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "standardSurveyEmailTemplatesPaginatedResponse",
+                standardSurveyEmailTemplatesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +169,7 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         private StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +199,15 @@ public class GetStandardSurveyEmailTemplatesResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of standalone survey email templates.
          */
-        public Builder standardSurveyEmailTemplatesPaginatedResponse(@Nullable StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse) {
+        public Builder standardSurveyEmailTemplatesPaginatedResponse(
+                @Nullable StandardSurveyEmailTemplatesPaginatedResponse standardSurveyEmailTemplatesPaginatedResponse) {
             this.standardSurveyEmailTemplatesPaginatedResponse = standardSurveyEmailTemplatesPaginatedResponse;
             return this;
         }
 
         public GetStandardSurveyEmailTemplatesResponse build() {
             return new GetStandardSurveyEmailTemplatesResponse(
-                contentType, statusCode, rawResponse,
-                standardSurveyEmailTemplatesPaginatedResponse);
+                    contentType, statusCode, rawResponse, standardSurveyEmailTemplatesPaginatedResponse);
         }
-
     }
 }

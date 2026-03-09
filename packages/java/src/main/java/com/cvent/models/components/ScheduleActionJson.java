@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ScheduleActionJson
- * 
+ *
  * <p>This is used to denote the action to perform with the scheduled task
  */
 public enum ScheduleActionJson {
@@ -25,13 +25,13 @@ public enum ScheduleActionJson {
     ScheduleActionJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ScheduleActionJson> fromValue(String value) {
-        for (ScheduleActionJson o: ScheduleActionJson.values()) {
+        for (ScheduleActionJson o : ScheduleActionJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum ScheduleActionJson {
         return Optional.empty();
     }
 }
-

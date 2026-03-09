@@ -30,7 +30,7 @@ public class CreateProgramItemRequestBuilder {
     private ProgramItemInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateProgramItemRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateProgramItemRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateProgramItemResponse> call() {
-        AsyncRequestOperation<ProgramItemInput, CreateProgramItemResponse> operation
-              = new CreateProgramItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ProgramItemInput, CreateProgramItemResponse> operation =
+                new CreateProgramItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

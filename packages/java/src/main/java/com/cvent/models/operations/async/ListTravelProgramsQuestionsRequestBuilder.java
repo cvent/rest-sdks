@@ -40,7 +40,7 @@ public class ListTravelProgramsQuestionsRequestBuilder {
     private ListTravelProgramsQuestionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListTravelProgramsQuestionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListTravelProgramsQuestionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListTravelProgramsQuestionsResponse> call() {
-        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation
-              = new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
+                new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListTravelProgramsQuestionsRequestBuilder {
      */
     public Publisher<ListTravelProgramsQuestionsResponse> callAsPublisher() {
         ListTravelProgramsQuestionsRequest request = this.request;
-        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation
-              = new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
+                new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListTravelProgramsQuestionsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListTravelProgramsQuestionsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListTravelProgramsQuestionsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListTravelProgramsQuestionsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

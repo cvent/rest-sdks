@@ -61,21 +61,20 @@ public class AsyncExhibitorContent {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public ExhibitorContent sync() {
         return syncSDK;
     }
 
-
     /**
      * List Exhibitor Files
-     * 
+     *
      * <p>Retrieves a list of files associated with an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListExhibitorFilesRequestBuilder listExhibitorFiles() {
@@ -84,29 +83,28 @@ public class AsyncExhibitorContent {
 
     /**
      * List Exhibitor Files
-     * 
+     *
      * <p>Retrieves a list of files associated with an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListExhibitorFilesResponse>} - The async response
      */
-    public CompletableFuture<ListExhibitorFilesResponse> listExhibitorFiles(@Nonnull ListExhibitorFilesRequest request) {
-        AsyncRequestOperation<ListExhibitorFilesRequest, ListExhibitorFilesResponse> operation
-              = new ListExhibitorFiles.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListExhibitorFilesResponse> listExhibitorFiles(
+            @Nonnull ListExhibitorFilesRequest request) {
+        AsyncRequestOperation<ListExhibitorFilesRequest, ListExhibitorFilesResponse> operation =
+                new ListExhibitorFiles.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Exhibitor File
-     * 
+     *
      * <p>Get a single file for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetExhibitorFileRequestBuilder getExhibitorFile() {
@@ -115,30 +113,28 @@ public class AsyncExhibitorContent {
 
     /**
      * Get Exhibitor File
-     * 
+     *
      * <p>Get a single file for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetExhibitorFileResponse>} - The async response
      */
     public CompletableFuture<GetExhibitorFileResponse> getExhibitorFile(@Nonnull GetExhibitorFileRequest request) {
-        AsyncRequestOperation<GetExhibitorFileRequest, GetExhibitorFileResponse> operation
-              = new GetExhibitorFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorFileRequest, GetExhibitorFileResponse> operation =
+                new GetExhibitorFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Associate Exhibitor File
-     * 
+     *
      * <p>Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file
      * upload</a> endpoint.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateExhibitorFileRequestBuilder updateExhibitorFile() {
@@ -147,30 +143,29 @@ public class AsyncExhibitorContent {
 
     /**
      * Associate Exhibitor File
-     * 
+     *
      * <p>Associate a file to an exhibitor using a file ID taken from the <a href="#operation/uploadFile">file
      * upload</a> endpoint.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateExhibitorFileResponse>} - The async response
      */
-    public CompletableFuture<UpdateExhibitorFileResponse> updateExhibitorFile(@Nonnull UpdateExhibitorFileRequest request) {
-        AsyncRequestOperation<UpdateExhibitorFileRequest, UpdateExhibitorFileResponse> operation
-              = new UpdateExhibitorFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateExhibitorFileResponse> updateExhibitorFile(
+            @Nonnull UpdateExhibitorFileRequest request) {
+        AsyncRequestOperation<UpdateExhibitorFileRequest, UpdateExhibitorFileResponse> operation =
+                new UpdateExhibitorFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Disassociate Exhibitor File
-     * 
+     *
      * <p>Disassociate a single file from an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DisassociateExhibitorFileRequestBuilder disassociateExhibitorFile() {
@@ -179,29 +174,28 @@ public class AsyncExhibitorContent {
 
     /**
      * Disassociate Exhibitor File
-     * 
+     *
      * <p>Disassociate a single file from an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DisassociateExhibitorFileResponse>} - The async response
      */
-    public CompletableFuture<DisassociateExhibitorFileResponse> disassociateExhibitorFile(@Nonnull DisassociateExhibitorFileRequest request) {
-        AsyncRequestOperation<DisassociateExhibitorFileRequest, DisassociateExhibitorFileResponse> operation
-              = new DisassociateExhibitorFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DisassociateExhibitorFileResponse> disassociateExhibitorFile(
+            @Nonnull DisassociateExhibitorFileRequest request) {
+        AsyncRequestOperation<DisassociateExhibitorFileRequest, DisassociateExhibitorFileResponse> operation =
+                new DisassociateExhibitorFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Exhibitor Weblinks
-     * 
+     *
      * <p>Retrieves a list of content weblinks associated with an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListExhibitorWeblinksRequestBuilder listExhibitorWeblinks() {
@@ -210,29 +204,28 @@ public class AsyncExhibitorContent {
 
     /**
      * List Exhibitor Weblinks
-     * 
+     *
      * <p>Retrieves a list of content weblinks associated with an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListExhibitorWeblinksResponse>} - The async response
      */
-    public CompletableFuture<ListExhibitorWeblinksResponse> listExhibitorWeblinks(@Nonnull ListExhibitorWeblinksRequest request) {
-        AsyncRequestOperation<ListExhibitorWeblinksRequest, ListExhibitorWeblinksResponse> operation
-              = new ListExhibitorWeblinks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListExhibitorWeblinksResponse> listExhibitorWeblinks(
+            @Nonnull ListExhibitorWeblinksRequest request) {
+        AsyncRequestOperation<ListExhibitorWeblinksRequest, ListExhibitorWeblinksResponse> operation =
+                new ListExhibitorWeblinks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Exhibitor Weblink
-     * 
+     *
      * <p>Creates a single content weblink for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateExhibitorWeblinkRequestBuilder createExhibitorWeblink() {
@@ -241,29 +234,28 @@ public class AsyncExhibitorContent {
 
     /**
      * Create Exhibitor Weblink
-     * 
+     *
      * <p>Creates a single content weblink for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateExhibitorWeblinkResponse>} - The async response
      */
-    public CompletableFuture<CreateExhibitorWeblinkResponse> createExhibitorWeblink(@Nonnull CreateExhibitorWeblinkRequest request) {
-        AsyncRequestOperation<CreateExhibitorWeblinkRequest, CreateExhibitorWeblinkResponse> operation
-              = new CreateExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateExhibitorWeblinkResponse> createExhibitorWeblink(
+            @Nonnull CreateExhibitorWeblinkRequest request) {
+        AsyncRequestOperation<CreateExhibitorWeblinkRequest, CreateExhibitorWeblinkResponse> operation =
+                new CreateExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Exhibitor Weblink
-     * 
+     *
      * <p>Retrieves a single content weblink for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetExhibitorWeblinkRequestBuilder getExhibitorWeblink() {
@@ -272,29 +264,28 @@ public class AsyncExhibitorContent {
 
     /**
      * Get Exhibitor Weblink
-     * 
+     *
      * <p>Retrieves a single content weblink for an exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetExhibitorWeblinkResponse>} - The async response
      */
-    public CompletableFuture<GetExhibitorWeblinkResponse> getExhibitorWeblink(@Nonnull GetExhibitorWeblinkRequest request) {
-        AsyncRequestOperation<GetExhibitorWeblinkRequest, GetExhibitorWeblinkResponse> operation
-              = new GetExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetExhibitorWeblinkResponse> getExhibitorWeblink(
+            @Nonnull GetExhibitorWeblinkRequest request) {
+        AsyncRequestOperation<GetExhibitorWeblinkRequest, GetExhibitorWeblinkResponse> operation =
+                new GetExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Exhibitor Weblink
-     * 
+     *
      * <p>Updates content weblink data in an event for a given exhibitor ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateExhibitorWeblinkRequestBuilder updateExhibitorWeblink() {
@@ -303,29 +294,28 @@ public class AsyncExhibitorContent {
 
     /**
      * Update Exhibitor Weblink
-     * 
+     *
      * <p>Updates content weblink data in an event for a given exhibitor ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateExhibitorWeblinkResponse>} - The async response
      */
-    public CompletableFuture<UpdateExhibitorWeblinkResponse> updateExhibitorWeblink(@Nonnull UpdateExhibitorWeblinkRequest request) {
-        AsyncRequestOperation<UpdateExhibitorWeblinkRequest, UpdateExhibitorWeblinkResponse> operation
-              = new UpdateExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateExhibitorWeblinkResponse> updateExhibitorWeblink(
+            @Nonnull UpdateExhibitorWeblinkRequest request) {
+        AsyncRequestOperation<UpdateExhibitorWeblinkRequest, UpdateExhibitorWeblinkResponse> operation =
+                new UpdateExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Exhibitor Weblink
-     * 
+     *
      * <p>Deletes a single exhibitor content weblink.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteExhibitorWeblinkRequestBuilder deleteExhibitorWeblink() {
@@ -334,19 +324,18 @@ public class AsyncExhibitorContent {
 
     /**
      * Delete Exhibitor Weblink
-     * 
+     *
      * <p>Deletes a single exhibitor content weblink.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteExhibitorWeblinkResponse>} - The async response
      */
-    public CompletableFuture<DeleteExhibitorWeblinkResponse> deleteExhibitorWeblink(@Nonnull DeleteExhibitorWeblinkRequest request) {
-        AsyncRequestOperation<DeleteExhibitorWeblinkRequest, DeleteExhibitorWeblinkResponse> operation
-              = new DeleteExhibitorWeblink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DeleteExhibitorWeblinkResponse> deleteExhibitorWeblink(
+            @Nonnull DeleteExhibitorWeblinkRequest request) {
+        AsyncRequestOperation<DeleteExhibitorWeblinkRequest, DeleteExhibitorWeblinkResponse> operation =
+                new DeleteExhibitorWeblink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

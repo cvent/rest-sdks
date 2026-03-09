@@ -36,24 +36,23 @@ public class AsyncCardTokens {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public CardTokens sync() {
         return syncSDK;
     }
 
-
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @return The async call builder
      */
     public CreateCardTokensRequestBuilder createCardTokens() {
@@ -62,14 +61,14 @@ public class AsyncCardTokens {
 
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @return {@code CompletableFuture<CreateCardTokensResponse>} - The async response
      */
     public CompletableFuture<CreateCardTokensResponse> createCardTokensDirect() {
@@ -78,23 +77,22 @@ public class AsyncCardTokens {
 
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @param serverURL Overrides the server URL.
      * @return {@code CompletableFuture<CreateCardTokensResponse>} - The async response
      */
-    public CompletableFuture<CreateCardTokensResponse> createCardTokens(@Nullable CardTokenRequest request, @Nullable String serverURL) {
-        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation
-              = new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateCardTokensResponse> createCardTokens(
+            @Nullable CardTokenRequest request, @Nullable String serverURL) {
+        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
+                new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

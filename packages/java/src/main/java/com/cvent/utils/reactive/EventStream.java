@@ -3,15 +3,14 @@
  */
 package com.cvent.utils.reactive;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.EventStreamMessage;
 import com.cvent.utils.SpeakeasyLogger;
 import com.cvent.utils.StreamingParser;
 import com.cvent.utils.Utils;
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.http.HttpResponse;
 import java.nio.ByteBuffer;
 import java.util.Optional;
@@ -32,7 +31,7 @@ import org.reactivestreams.Subscription;
 public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publisher<ItemT> {
 
     private static final SpeakeasyLogger logger = SpeakeasyLogger.getLogger(EventStream.class);
-    
+
     /**
      * Protocol interface that defines how to parse and process different event stream formats
      */
@@ -41,7 +40,7 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
          * Create a new parser instance for this protocol
          */
         StreamingParser<ParsedT> createParser();
-        
+
         /**
          * Process a parsed item and convert it to the target type
          * @param parsed the parsed item from the parser
@@ -50,8 +49,9 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
          * @return the converted item, or null if this item should be skipped
          * @throws Exception if conversion fails
          */
-        ItemT processItem(ParsedT parsed, ObjectMapper objectMapper, TypeReference<ItemT> typeReference) throws Exception;
-        
+        ItemT processItem(ParsedT parsed, ObjectMapper objectMapper, TypeReference<ItemT> typeReference)
+                throws Exception;
+
         /**
          * Check if processing should stop (e.g., terminal message encountered)
          * @param parsed the parsed item
@@ -65,15 +65,18 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
     private final ObjectMapper objectMapper;
     private final Protocol<?, ItemT> protocol;
 
-    private EventStream(CompletableFuture<ResponseT> asyncResponseFuture,
-                       TypeReference<ItemT> typeReference,
-                       ObjectMapper objectMapper,
-                       Protocol<?, ItemT> protocol) {
+    private EventStream(
+            CompletableFuture<ResponseT> asyncResponseFuture,
+            TypeReference<ItemT> typeReference,
+            ObjectMapper objectMapper,
+            Protocol<?, ItemT> protocol) {
         this.asyncResponseFuture = asyncResponseFuture;
         this.typeReference = typeReference;
         this.objectMapper = objectMapper;
         this.protocol = protocol;
-        logger.debug("Reactive EventStream initialized for type: {}", typeReference.getType().getTypeName());
+        logger.debug(
+                "Reactive EventStream initialized for type: {}",
+                typeReference.getType().getTypeName());
     }
 
     /**
@@ -84,8 +87,7 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
             TypeReference<ItemT> typeReference,
             ObjectMapper objectMapper,
             String terminalMessage) {
-        return new EventStream<>(asyncResponseFuture, typeReference, objectMapper, 
-                                new SSEProtocol<>(terminalMessage));
+        return new EventStream<>(asyncResponseFuture, typeReference, objectMapper, new SSEProtocol<>(terminalMessage));
     }
 
     /**
@@ -95,8 +97,7 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
             CompletableFuture<ResponseT> asyncResponseFuture,
             TypeReference<ItemT> typeReference,
             ObjectMapper objectMapper) {
-        return new EventStream<>(asyncResponseFuture, typeReference, objectMapper, 
-                                new JsonLProtocol<>());
+        return new EventStream<>(asyncResponseFuture, typeReference, objectMapper, new JsonLProtocol<>());
     }
 
     /**
@@ -105,21 +106,21 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
     public CompletableFuture<String> contentType() {
         return asyncResponseFuture.thenApply(AsyncResponse::contentType);
     }
-    
+
     /**
      * Returns the HTTP status code.
      **/
     public CompletableFuture<Integer> statusCode() {
         return asyncResponseFuture.thenApply(AsyncResponse::statusCode);
     }
-    
+
     /**
      * Returns the raw HTTP response.
      **/
     public CompletableFuture<HttpResponse<Blob>> rawResponse() {
         return asyncResponseFuture.thenApply(AsyncResponse::rawResponse);
     }
-    
+
     /**
      * Returns the AsyncResponse body.
      **/
@@ -143,7 +144,7 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
         private final Subscriber<? super ItemT> subscriber;
         private final AtomicLong demand = new AtomicLong(0);
         private final StreamingParser<?> parser;
-        
+
         private Flow.Subscription upstreamSubscription;
         private volatile boolean cancelled = false;
         private volatile boolean completed = false;
@@ -259,13 +260,13 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
         @SuppressWarnings("unchecked")
         private boolean processItem(Object parsed) {
             Protocol<Object, ItemT> typedProtocol = (Protocol<Object, ItemT>) protocol;
-            
+
             // Check if processing should stop
             if (typedProtocol.shouldStop(parsed)) {
                 signalComplete();
                 return false;
             }
-            
+
             // Emit if there's demand
             if (demand.get() > 0) {
                 try {
@@ -333,7 +334,8 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
         }
 
         @Override
-        public ItemT processItem(EventStreamMessage message, ObjectMapper objectMapper, TypeReference<ItemT> typeReference) {
+        public ItemT processItem(
+                EventStreamMessage message, ObjectMapper objectMapper, TypeReference<ItemT> typeReference) {
             return Utils.asType(message, objectMapper, typeReference);
         }
 
@@ -355,7 +357,8 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
         }
 
         @Override
-        public ItemT processItem(String jsonLine, ObjectMapper objectMapper, TypeReference<ItemT> typeReference) throws Exception {
+        public ItemT processItem(String jsonLine, ObjectMapper objectMapper, TypeReference<ItemT> typeReference)
+                throws Exception {
             return objectMapper.readValue(jsonLine, typeReference);
         }
 
@@ -365,5 +368,4 @@ public class EventStream<ResponseT extends AsyncResponse, ItemT> implements Publ
             return false;
         }
     }
-
 }

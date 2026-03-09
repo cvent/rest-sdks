@@ -40,7 +40,7 @@ public class ListContactHooksRequestBuilder {
     private ListContactHooksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListContactHooksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListContactHooksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListContactHooksResponse> call() {
-        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation
-              = new ListContactHooks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation =
+                new ListContactHooks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListContactHooksRequestBuilder {
      */
     public Publisher<ListContactHooksResponse> callAsPublisher() {
         ListContactHooksRequest request = this.request;
-        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation
-              = new ListContactHooks.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation =
+                new ListContactHooks.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListContactHooksRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListContactHooksRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListContactHooksResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

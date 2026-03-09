@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttendeeSignatureResponseJsonType
- * 
+ *
  * <p>Type of entity this signature is associated with. Possible values are: `EVENT`, `SESSION`.
  */
 public enum AttendeeSignatureResponseJsonType {
@@ -23,13 +23,13 @@ public enum AttendeeSignatureResponseJsonType {
     AttendeeSignatureResponseJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeSignatureResponseJsonType> fromValue(String value) {
-        for (AttendeeSignatureResponseJsonType o: AttendeeSignatureResponseJsonType.values()) {
+        for (AttendeeSignatureResponseJsonType o : AttendeeSignatureResponseJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum AttendeeSignatureResponseJsonType {
         return Optional.empty();
     }
 }
-

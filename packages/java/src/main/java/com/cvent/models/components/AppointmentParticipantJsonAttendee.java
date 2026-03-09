@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AppointmentParticipantJsonAttendee
- * 
+ *
  * <p>Reference information for the attendee.
  */
 public class AppointmentParticipantJsonAttendee {
@@ -35,12 +35,11 @@ public class AppointmentParticipantJsonAttendee {
 
     @JsonCreator
     public AppointmentParticipantJsonAttendee(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("contact") @Nullable UuidJson contact) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("contact") @Nullable UuidJson contact) {
         this.id = id;
         this.contact = contact;
     }
-    
+
     public AppointmentParticipantJsonAttendee() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class AppointmentParticipantJsonAttendee {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the attendee.
      */
@@ -72,7 +70,6 @@ public class AppointmentParticipantJsonAttendee {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -80,7 +77,6 @@ public class AppointmentParticipantJsonAttendee {
         this.contact = contact;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class AppointmentParticipantJsonAttendee {
             return false;
         }
         AppointmentParticipantJsonAttendee other = (AppointmentParticipantJsonAttendee) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.contact, other.contact);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, contact);
+        return Utils.enhancedHash(id, contact);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentParticipantJsonAttendee.class,
-                "id", id,
-                "contact", contact);
+        return Utils.toString(AppointmentParticipantJsonAttendee.class, "id", id, "contact", contact);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private UuidJson contact;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class AppointmentParticipantJsonAttendee {
         }
 
         public AppointmentParticipantJsonAttendee build() {
-            return new AppointmentParticipantJsonAttendee(
-                id, contact);
+            return new AppointmentParticipantJsonAttendee(id, contact);
         }
-
     }
 }

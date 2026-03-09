@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CustomField1CustomFieldType
- * 
+ *
  * <p>The type of data collected by a custom field.
  */
 public enum CustomField1CustomFieldType {
@@ -40,13 +40,13 @@ public enum CustomField1CustomFieldType {
     CustomField1CustomFieldType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CustomField1CustomFieldType> fromValue(String value) {
-        for (CustomField1CustomFieldType o: CustomField1CustomFieldType.values()) {
+        for (CustomField1CustomFieldType o : CustomField1CustomFieldType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -54,4 +54,3 @@ public enum CustomField1CustomFieldType {
         return Optional.empty();
     }
 }
-

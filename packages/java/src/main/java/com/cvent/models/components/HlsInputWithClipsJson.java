@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * HlsInputWithClipsJson
- * 
+ *
  * <p>HTTP Live Streaming input and clips.
  */
 public class HlsInputWithClipsJson {
@@ -41,7 +41,7 @@ public class HlsInputWithClipsJson {
         this.hlsInput = hlsInput;
         this.clips = clips;
     }
-    
+
     public HlsInputWithClipsJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class HlsInputWithClipsJson {
         return new Builder();
     }
 
-
     /**
      * Location for HTTP Live Streaming (HLS) recording.
      */
@@ -73,7 +72,6 @@ public class HlsInputWithClipsJson {
         return this;
     }
 
-
     /**
      * Clips for the HLS recording.
      */
@@ -81,7 +79,6 @@ public class HlsInputWithClipsJson {
         this.clips = clips;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,28 @@ public class HlsInputWithClipsJson {
             return false;
         }
         HlsInputWithClipsJson other = (HlsInputWithClipsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.hlsInput, other.hlsInput) &&
-            Utils.enhancedDeepEquals(this.clips, other.clips);
+        return Utils.enhancedDeepEquals(this.hlsInput, other.hlsInput) && Utils.enhancedDeepEquals(this.clips, other.clips);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            hlsInput, clips);
+        return Utils.enhancedHash(hlsInput, clips);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HlsInputWithClipsJson.class,
-                "hlsInput", hlsInput,
-                "clips", clips);
+        return Utils.toString(HlsInputWithClipsJson.class, "hlsInput", hlsInput, "clips", clips);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String hlsInput;
 
         private List<VideoClipJson> clips;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +130,7 @@ public class HlsInputWithClipsJson {
         }
 
         public HlsInputWithClipsJson build() {
-            return new HlsInputWithClipsJson(
-                hlsInput, clips);
+            return new HlsInputWithClipsJson(hlsInput, clips);
         }
-
     }
 }

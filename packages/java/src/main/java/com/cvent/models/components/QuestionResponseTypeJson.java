@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * QuestionResponseTypeJson
- * 
+ *
  * <p>Code representing the type of response supported. Single represents a simple single value response,
  * and choice means the user will be given a set of options for selection.
  */
@@ -24,13 +24,13 @@ public enum QuestionResponseTypeJson {
     QuestionResponseTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<QuestionResponseTypeJson> fromValue(String value) {
-        for (QuestionResponseTypeJson o: QuestionResponseTypeJson.values()) {
+        for (QuestionResponseTypeJson o : QuestionResponseTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum QuestionResponseTypeJson {
         return Optional.empty();
     }
 }
-

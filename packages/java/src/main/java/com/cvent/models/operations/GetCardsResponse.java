@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetCardsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetCardsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.cardDetailsPaginatedResponse = cardDetailsPaginatedResponse;
     }
-    
+
     public GetCardsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetCardsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetCardsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetCardsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetCardsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Cards.
      */
-    public GetCardsResponse withCardDetailsPaginatedResponse(@Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
+    public GetCardsResponse withCardDetailsPaginatedResponse(
+            @Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
         this.cardDetailsPaginatedResponse = cardDetailsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetCardsResponse implements Response {
             return false;
         }
         GetCardsResponse other = (GetCardsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.cardDetailsPaginatedResponse, other.cardDetailsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.cardDetailsPaginatedResponse, other.cardDetailsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            cardDetailsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, cardDetailsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCardsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "cardDetailsPaginatedResponse", cardDetailsPaginatedResponse);
+        return Utils.toString(
+                GetCardsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "cardDetailsPaginatedResponse",
+                cardDetailsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetCardsResponse implements Response {
         private CardDetailsPaginatedResponse cardDetailsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetCardsResponse implements Response {
         /**
          * Successfully retrieved a Paginated list of Cards.
          */
-        public Builder cardDetailsPaginatedResponse(@Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
+        public Builder cardDetailsPaginatedResponse(
+                @Nullable CardDetailsPaginatedResponse cardDetailsPaginatedResponse) {
             this.cardDetailsPaginatedResponse = cardDetailsPaginatedResponse;
             return this;
         }
 
         public GetCardsResponse build() {
-            return new GetCardsResponse(
-                contentType, statusCode, rawResponse,
-                cardDetailsPaginatedResponse);
+            return new GetCardsResponse(contentType, statusCode, rawResponse, cardDetailsPaginatedResponse);
         }
-
     }
 }

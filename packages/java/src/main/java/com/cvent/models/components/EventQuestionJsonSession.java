@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventQuestionJsonSession
- * 
+ *
  * <p>Represents the session associated to the question, if any. Blank if no session is associated. In
  * addition, only one of the `session` or `admissionItem` object are populated - never both.
  */
@@ -28,11 +28,10 @@ public class EventQuestionJsonSession {
     private String id;
 
     @JsonCreator
-    public EventQuestionJsonSession(
-            @JsonProperty("id") @Nullable String id) {
+    public EventQuestionJsonSession(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventQuestionJsonSession() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class EventQuestionJsonSession {
         return new Builder();
     }
 
-
     /**
      * ID of the session associated with the question.
      */
@@ -56,7 +54,6 @@ public class EventQuestionJsonSession {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class EventQuestionJsonSession {
             return false;
         }
         EventQuestionJsonSession other = (EventQuestionJsonSession) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventQuestionJsonSession.class,
-                "id", id);
+        return Utils.toString(EventQuestionJsonSession.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class EventQuestionJsonSession {
         }
 
         public EventQuestionJsonSession build() {
-            return new EventQuestionJsonSession(
-                id);
+            return new EventQuestionJsonSession(id);
         }
-
     }
 }

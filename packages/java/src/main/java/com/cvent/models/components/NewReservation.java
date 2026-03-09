@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * NewReservation
- * 
+ *
  * <p>Details about reservation.
  */
 public class NewReservation {
@@ -159,16 +159,16 @@ public class NewReservation {
             @JsonProperty("modifiers") @Nullable Modifiers modifiers) {
         this.reservationRequest = reservationRequest;
         this.attendeeType = Optional.ofNullable(attendeeType)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
         this.roomType = Optional.ofNullable(roomType)
-            .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
-        this.sendAcknowledgement = Optional.ofNullable(sendAcknowledgement)
-            .orElse(Builder._SINGLETON_VALUE_SendAcknowledgement.value());
+                .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
+        this.sendAcknowledgement =
+                Optional.ofNullable(sendAcknowledgement).orElse(Builder._SINGLETON_VALUE_SendAcknowledgement.value());
         this.splitFolio = splitFolio;
         this.numberOfAdults = numberOfAdults;
         this.numberOfChildren = numberOfChildren;
-        this.guests = Optional.ofNullable(guests)
-            .orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
+        this.guests =
+                Optional.ofNullable(guests).orElseThrow(() -> new IllegalArgumentException("guests cannot be null"));
         this.customFields = customFields;
         this.accessible = accessible;
         this.specialRequest = specialRequest;
@@ -176,12 +176,11 @@ public class NewReservation {
         this.membershipId = membershipId;
         this.travelDetails = travelDetails;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
-        this.hotel = Optional.ofNullable(hotel)
-            .orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+        this.hotel = Optional.ofNullable(hotel).orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
         this.modifiers = modifiers;
     }
-    
+
     public NewReservation(
             @Nonnull AttendeeTypeIdJson attendeeType,
             @Nonnull RoomInfoJsonInput roomType,
@@ -189,12 +188,24 @@ public class NewReservation {
             @Nonnull List<ReservationGuestJsonInput> guests,
             @Nonnull NewReservationHousingEventId housingEvent,
             @Nonnull HotelId hotel) {
-        this(null, attendeeType, roomType,
-            null, null, numberOfAdults,
-            null, guests, null,
-            null, null, null,
-            null, null, housingEvent,
-            hotel, null);
+        this(
+                null,
+                attendeeType,
+                roomType,
+                null,
+                null,
+                numberOfAdults,
+                null,
+                guests,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                housingEvent,
+                hotel,
+                null);
     }
 
     /**
@@ -320,7 +331,6 @@ public class NewReservation {
         return new Builder();
     }
 
-
     /**
      * Reservation request information.
      */
@@ -328,7 +338,6 @@ public class NewReservation {
         this.reservationRequest = reservationRequest;
         return this;
     }
-
 
     /**
      * Contains the unique ID of the attendee type.
@@ -338,7 +347,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Room information.
      */
@@ -346,7 +354,6 @@ public class NewReservation {
         this.roomType = Utils.checkNotNull(roomType, "roomType");
         return this;
     }
-
 
     /**
      * True indicates an email acknowledgement after reservation creation will be sent.
@@ -356,7 +363,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * True indicates each guest in this reservation would pay separately.
      */
@@ -364,7 +370,6 @@ public class NewReservation {
         this.splitFolio = splitFolio;
         return this;
     }
-
 
     /**
      * Number of adults for this reservation.
@@ -374,7 +379,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Number of children for this reservation.
      */
@@ -382,7 +386,6 @@ public class NewReservation {
         this.numberOfChildren = numberOfChildren;
         return this;
     }
-
 
     /**
      * Array of reservation guest details.
@@ -392,7 +395,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Custom fields.
      */
@@ -400,7 +402,6 @@ public class NewReservation {
         this.customFields = customFields;
         return this;
     }
-
 
     /**
      * True indicates this reservation requires an accessible room.
@@ -410,7 +411,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Special requests.
      */
@@ -418,7 +418,6 @@ public class NewReservation {
         this.specialRequest = specialRequest;
         return this;
     }
-
 
     /**
      * Represents reward program information.
@@ -428,7 +427,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Reward program membership number.
      */
@@ -436,7 +434,6 @@ public class NewReservation {
         this.membershipId = membershipId;
         return this;
     }
-
 
     /**
      * Common object that holds travel details information.
@@ -446,7 +443,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Information about Passkey event for this reservation.
      */
@@ -454,7 +450,6 @@ public class NewReservation {
         this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
         return this;
     }
-
 
     /**
      * Hotel information.
@@ -464,7 +459,6 @@ public class NewReservation {
         return this;
     }
 
-
     /**
      * Specifies reservation options for customizing reservation behavior.
      */
@@ -472,7 +466,6 @@ public class NewReservation {
         this.modifiers = modifiers;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -483,61 +476,89 @@ public class NewReservation {
             return false;
         }
         NewReservation other = (NewReservation) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement) &&
-            Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio) &&
-            Utils.enhancedDeepEquals(this.numberOfAdults, other.numberOfAdults) &&
-            Utils.enhancedDeepEquals(this.numberOfChildren, other.numberOfChildren) &&
-            Utils.enhancedDeepEquals(this.guests, other.guests) &&
-            Utils.enhancedDeepEquals(this.customFields, other.customFields) &&
-            Utils.enhancedDeepEquals(this.accessible, other.accessible) &&
-            Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest) &&
-            Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram) &&
-            Utils.enhancedDeepEquals(this.membershipId, other.membershipId) &&
-            Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.modifiers, other.modifiers);
+        return Utils.enhancedDeepEquals(this.reservationRequest, other.reservationRequest)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.sendAcknowledgement, other.sendAcknowledgement)
+                && Utils.enhancedDeepEquals(this.splitFolio, other.splitFolio)
+                && Utils.enhancedDeepEquals(this.numberOfAdults, other.numberOfAdults)
+                && Utils.enhancedDeepEquals(this.numberOfChildren, other.numberOfChildren)
+                && Utils.enhancedDeepEquals(this.guests, other.guests)
+                && Utils.enhancedDeepEquals(this.customFields, other.customFields)
+                && Utils.enhancedDeepEquals(this.accessible, other.accessible)
+                && Utils.enhancedDeepEquals(this.specialRequest, other.specialRequest)
+                && Utils.enhancedDeepEquals(this.rewardProgram, other.rewardProgram)
+                && Utils.enhancedDeepEquals(this.membershipId, other.membershipId)
+                && Utils.enhancedDeepEquals(this.travelDetails, other.travelDetails)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.modifiers, other.modifiers);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            reservationRequest, attendeeType, roomType,
-            sendAcknowledgement, splitFolio, numberOfAdults,
-            numberOfChildren, guests, customFields,
-            accessible, specialRequest, rewardProgram,
-            membershipId, travelDetails, housingEvent,
-            hotel, modifiers);
+                reservationRequest,
+                attendeeType,
+                roomType,
+                sendAcknowledgement,
+                splitFolio,
+                numberOfAdults,
+                numberOfChildren,
+                guests,
+                customFields,
+                accessible,
+                specialRequest,
+                rewardProgram,
+                membershipId,
+                travelDetails,
+                housingEvent,
+                hotel,
+                modifiers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(NewReservation.class,
-                "reservationRequest", reservationRequest,
-                "attendeeType", attendeeType,
-                "roomType", roomType,
-                "sendAcknowledgement", sendAcknowledgement,
-                "splitFolio", splitFolio,
-                "numberOfAdults", numberOfAdults,
-                "numberOfChildren", numberOfChildren,
-                "guests", guests,
-                "customFields", customFields,
-                "accessible", accessible,
-                "specialRequest", specialRequest,
-                "rewardProgram", rewardProgram,
-                "membershipId", membershipId,
-                "travelDetails", travelDetails,
-                "housingEvent", housingEvent,
-                "hotel", hotel,
-                "modifiers", modifiers);
+        return Utils.toString(
+                NewReservation.class,
+                "reservationRequest",
+                reservationRequest,
+                "attendeeType",
+                attendeeType,
+                "roomType",
+                roomType,
+                "sendAcknowledgement",
+                sendAcknowledgement,
+                "splitFolio",
+                splitFolio,
+                "numberOfAdults",
+                numberOfAdults,
+                "numberOfChildren",
+                numberOfChildren,
+                "guests",
+                guests,
+                "customFields",
+                customFields,
+                "accessible",
+                accessible,
+                "specialRequest",
+                specialRequest,
+                "rewardProgram",
+                rewardProgram,
+                "membershipId",
+                membershipId,
+                "travelDetails",
+                travelDetails,
+                "housingEvent",
+                housingEvent,
+                "hotel",
+                hotel,
+                "modifiers",
+                modifiers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private NewReservationReservationRequest reservationRequest;
 
@@ -574,7 +595,7 @@ public class NewReservation {
         private Modifiers modifiers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -715,19 +736,26 @@ public class NewReservation {
 
         public NewReservation build() {
             return new NewReservation(
-                reservationRequest, attendeeType, roomType,
-                sendAcknowledgement, splitFolio, numberOfAdults,
-                numberOfChildren, guests, customFields,
-                accessible, specialRequest, rewardProgram,
-                membershipId, travelDetails, housingEvent,
-                hotel, modifiers);
+                    reservationRequest,
+                    attendeeType,
+                    roomType,
+                    sendAcknowledgement,
+                    splitFolio,
+                    numberOfAdults,
+                    numberOfChildren,
+                    guests,
+                    customFields,
+                    accessible,
+                    specialRequest,
+                    rewardProgram,
+                    membershipId,
+                    travelDetails,
+                    housingEvent,
+                    hotel,
+                    modifiers);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SendAcknowledgement =
-                new LazySingletonValue<>(
-                        "sendAcknowledgement",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("sendAcknowledgement", "true", new TypeReference<Boolean>() {});
     }
 }

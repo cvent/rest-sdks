@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * BounceDetailsJson
- * 
+ *
  * <p>Email bounce details.
  */
 public class BounceDetailsJson {
@@ -133,12 +133,9 @@ public class BounceDetailsJson {
         this.emailId = emailId;
         this.created = created;
     }
-    
+
     public BounceDetailsJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -229,7 +226,6 @@ public class BounceDetailsJson {
         return new Builder();
     }
 
-
     /**
      * Information of the recipient.
      */
@@ -237,7 +233,6 @@ public class BounceDetailsJson {
         this.recipient = recipient;
         return this;
     }
-
 
     /**
      * Reason of bounce.
@@ -247,7 +242,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * ISO 8601 formatted date time (in UTC) when the email bounced or there was an error.
      */
@@ -255,7 +249,6 @@ public class BounceDetailsJson {
         this.bounceDateTime = bounceDateTime;
         return this;
     }
-
 
     /**
      * SMTP code returned by the server in response to an email, indicating the status of the message.
@@ -265,7 +258,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * Delivery Status Notification (DSN) diagnostic details for the email.
      */
@@ -273,7 +265,6 @@ public class BounceDetailsJson {
         this.dsnDiagnostics = dsnDiagnostics;
         return this;
     }
-
 
     /**
      * True indicates the recipient has requested not to be sent emails.
@@ -283,7 +274,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * Subject of email.
      */
@@ -291,7 +281,6 @@ public class BounceDetailsJson {
         this.subject = subject;
         return this;
     }
-
 
     /**
      * Cvent product lines or additional features.
@@ -301,7 +290,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * Unique ID of the product.
      */
@@ -309,7 +297,6 @@ public class BounceDetailsJson {
         this.productId = productId;
         return this;
     }
-
 
     /**
      * Denotes the type of the email.
@@ -319,7 +306,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * Unique ID of the email.
      */
@@ -328,7 +314,6 @@ public class BounceDetailsJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date time (in UTC) when the email was sent.
      */
@@ -336,7 +321,6 @@ public class BounceDetailsJson {
         this.created = created;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -347,49 +331,69 @@ public class BounceDetailsJson {
             return false;
         }
         BounceDetailsJson other = (BounceDetailsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.recipient, other.recipient) &&
-            Utils.enhancedDeepEquals(this.bounceReason, other.bounceReason) &&
-            Utils.enhancedDeepEquals(this.bounceDateTime, other.bounceDateTime) &&
-            Utils.enhancedDeepEquals(this.smtpCode, other.smtpCode) &&
-            Utils.enhancedDeepEquals(this.dsnDiagnostics, other.dsnDiagnostics) &&
-            Utils.enhancedDeepEquals(this.optOut, other.optOut) &&
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.productLine, other.productLine) &&
-            Utils.enhancedDeepEquals(this.productId, other.productId) &&
-            Utils.enhancedDeepEquals(this.emailType, other.emailType) &&
-            Utils.enhancedDeepEquals(this.emailId, other.emailId) &&
-            Utils.enhancedDeepEquals(this.created, other.created);
+        return Utils.enhancedDeepEquals(this.recipient, other.recipient)
+                && Utils.enhancedDeepEquals(this.bounceReason, other.bounceReason)
+                && Utils.enhancedDeepEquals(this.bounceDateTime, other.bounceDateTime)
+                && Utils.enhancedDeepEquals(this.smtpCode, other.smtpCode)
+                && Utils.enhancedDeepEquals(this.dsnDiagnostics, other.dsnDiagnostics)
+                && Utils.enhancedDeepEquals(this.optOut, other.optOut)
+                && Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.productLine, other.productLine)
+                && Utils.enhancedDeepEquals(this.productId, other.productId)
+                && Utils.enhancedDeepEquals(this.emailType, other.emailType)
+                && Utils.enhancedDeepEquals(this.emailId, other.emailId)
+                && Utils.enhancedDeepEquals(this.created, other.created);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            recipient, bounceReason, bounceDateTime,
-            smtpCode, dsnDiagnostics, optOut,
-            subject, productLine, productId,
-            emailType, emailId, created);
+                recipient,
+                bounceReason,
+                bounceDateTime,
+                smtpCode,
+                dsnDiagnostics,
+                optOut,
+                subject,
+                productLine,
+                productId,
+                emailType,
+                emailId,
+                created);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BounceDetailsJson.class,
-                "recipient", recipient,
-                "bounceReason", bounceReason,
-                "bounceDateTime", bounceDateTime,
-                "smtpCode", smtpCode,
-                "dsnDiagnostics", dsnDiagnostics,
-                "optOut", optOut,
-                "subject", subject,
-                "productLine", productLine,
-                "productId", productId,
-                "emailType", emailType,
-                "emailId", emailId,
-                "created", created);
+        return Utils.toString(
+                BounceDetailsJson.class,
+                "recipient",
+                recipient,
+                "bounceReason",
+                bounceReason,
+                "bounceDateTime",
+                bounceDateTime,
+                "smtpCode",
+                smtpCode,
+                "dsnDiagnostics",
+                dsnDiagnostics,
+                "optOut",
+                optOut,
+                "subject",
+                subject,
+                "productLine",
+                productLine,
+                "productId",
+                productId,
+                "emailType",
+                emailType,
+                "emailId",
+                emailId,
+                "created",
+                created);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private RecipientJson recipient;
 
@@ -416,7 +420,7 @@ public class BounceDetailsJson {
         private OffsetDateTime created;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -517,11 +521,18 @@ public class BounceDetailsJson {
 
         public BounceDetailsJson build() {
             return new BounceDetailsJson(
-                recipient, bounceReason, bounceDateTime,
-                smtpCode, dsnDiagnostics, optOut,
-                subject, productLine, productId,
-                emailType, emailId, created);
+                    recipient,
+                    bounceReason,
+                    bounceDateTime,
+                    smtpCode,
+                    dsnDiagnostics,
+                    optOut,
+                    subject,
+                    productLine,
+                    productId,
+                    emailType,
+                    emailId,
+                    created);
         }
-
     }
 }

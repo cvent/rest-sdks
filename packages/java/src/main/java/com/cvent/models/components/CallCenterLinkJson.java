@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * CallCenterLinkJson
- * 
+ *
  * <p>Unique URL for Passkey users (rather than guests) to access a reservation in Passkey's call center
  * tool.
  */
@@ -25,10 +25,8 @@ public class CallCenterLinkJson {
     private String href;
 
     @JsonCreator
-    public CallCenterLinkJson(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public CallCenterLinkJson(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -42,7 +40,6 @@ public class CallCenterLinkJson {
         return new Builder();
     }
 
-
     /**
      * A url provided that can be followed for linking
      */
@@ -50,7 +47,6 @@ public class CallCenterLinkJson {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -61,29 +57,26 @@ public class CallCenterLinkJson {
             return false;
         }
         CallCenterLinkJson other = (CallCenterLinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CallCenterLinkJson.class,
-                "href", href);
+        return Utils.toString(CallCenterLinkJson.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +88,7 @@ public class CallCenterLinkJson {
         }
 
         public CallCenterLinkJson build() {
-            return new CallCenterLinkJson(
-                href);
+            return new CallCenterLinkJson(href);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ErrorResponse
- * 
+ *
  * <p>Represents an error response with additional details of cascading error messages.
  */
 public class ErrorResponse {
@@ -54,17 +54,14 @@ public class ErrorResponse {
             @JsonProperty("target") @Nullable String target,
             @JsonProperty("details") @Nullable List<ZeroAllOf1> details) {
         this.code = code;
-        this.message = Optional.ofNullable(message)
-            .orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
+        this.message =
+                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
         this.target = target;
         this.details = details;
     }
-    
-    public ErrorResponse(
-            long code,
-            @Nonnull String message) {
-        this(code, message, null,
-            null);
+
+    public ErrorResponse(long code, @Nonnull String message) {
+        this(code, message, null, null);
     }
 
     /**
@@ -99,7 +96,6 @@ public class ErrorResponse {
         return new Builder();
     }
 
-
     /**
      * The HTTP status code representing the error.
      */
@@ -107,7 +103,6 @@ public class ErrorResponse {
         this.code = code;
         return this;
     }
-
 
     /**
      * A brief description of the error.
@@ -117,7 +112,6 @@ public class ErrorResponse {
         return this;
     }
 
-
     /**
      * The target resource of the error.
      */
@@ -126,7 +120,6 @@ public class ErrorResponse {
         return this;
     }
 
-
     /**
      * Additional details of cascading error messages.
      */
@@ -134,7 +127,6 @@ public class ErrorResponse {
         this.details = details;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +137,25 @@ public class ErrorResponse {
             return false;
         }
         ErrorResponse other = (ErrorResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.target, other.target) &&
-            Utils.enhancedDeepEquals(this.details, other.details);
+        return Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.target, other.target)
+                && Utils.enhancedDeepEquals(this.details, other.details);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, message, target,
-            details);
+        return Utils.enhancedHash(code, message, target, details);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ErrorResponse.class,
-                "code", code,
-                "message", message,
-                "target", target,
-                "details", details);
+        return Utils.toString(
+                ErrorResponse.class, "code", code, "message", message, "target", target, "details", details);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long code;
 
@@ -180,7 +166,7 @@ public class ErrorResponse {
         private List<ZeroAllOf1> details;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,10 +202,7 @@ public class ErrorResponse {
         }
 
         public ErrorResponse build() {
-            return new ErrorResponse(
-                code, message, target,
-                details);
+            return new ErrorResponse(code, message, target, details);
         }
-
     }
 }

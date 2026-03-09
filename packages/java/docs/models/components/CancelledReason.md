@@ -2,6 +2,14 @@
 
 CancelledReason
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CancelledReason;
+
+CancelledReason value = CancelledReason.EVENT_CANCELLED;
+```
+
 
 ## Values
 

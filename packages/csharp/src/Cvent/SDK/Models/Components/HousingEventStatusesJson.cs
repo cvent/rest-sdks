@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum HousingEventStatusesJson
     {
-        [JsonProperty("Open")]
-        Open,
-        [JsonProperty("PreOpen")]
-        PreOpen,
-        [JsonProperty("Closed")]
-        Closed,
-        [JsonProperty("Cancelled")]
-        Cancelled,
-        [JsonProperty("New")]
-        New,
+        [JsonProperty("Open")] Open,
+        [JsonProperty("PreOpen")] PreOpen,
+        [JsonProperty("Closed")] Closed,
+        [JsonProperty("Cancelled")] Cancelled,
+        [JsonProperty("New")] New,
     }
 
     public static class HousingEventStatusesJsonExtension
     {
         public static string Value(this HousingEventStatusesJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static HousingEventStatusesJson ToEnum(this string value)
         {
-            foreach(var field in typeof(HousingEventStatusesJson).GetFields())
+            foreach (var field in typeof(HousingEventStatusesJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

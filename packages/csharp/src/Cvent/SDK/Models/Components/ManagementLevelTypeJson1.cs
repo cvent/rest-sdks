@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ManagementLevelTypeJson1
     {
-        [JsonProperty("global")]
-        Global,
-        [JsonProperty("national")]
-        National,
-        [JsonProperty("regional")]
-        Regional,
-        [JsonProperty("local")]
-        Local,
+        [JsonProperty("global")] Global,
+        [JsonProperty("national")] National,
+        [JsonProperty("regional")] Regional,
+        [JsonProperty("local")] Local,
     }
 
     public static class ManagementLevelTypeJson1Extension
     {
         public static string Value(this ManagementLevelTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ManagementLevelTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(ManagementLevelTypeJson1).GetFields())
+            foreach (var field in typeof(ManagementLevelTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

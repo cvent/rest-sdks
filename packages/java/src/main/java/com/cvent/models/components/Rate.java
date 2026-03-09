@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * Rate
- * 
+ *
  * <p>Add-on rate details.
  */
 public class Rate {
@@ -30,12 +30,10 @@ public class Rate {
     private String currency;
 
     @JsonCreator
-    public Rate(
-            @JsonProperty("base") double base,
-            @JsonProperty("currency") @Nonnull String currency) {
+    public Rate(@JsonProperty("base") double base, @JsonProperty("currency") @Nonnull String currency) {
         this.base = base;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
     }
 
     /**
@@ -56,7 +54,6 @@ public class Rate {
         return new Builder();
     }
 
-
     /**
      * Base rate.
      */
@@ -65,7 +62,6 @@ public class Rate {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code.
      */
@@ -73,7 +69,6 @@ public class Rate {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -84,33 +79,28 @@ public class Rate {
             return false;
         }
         Rate other = (Rate) o;
-        return 
-            Utils.enhancedDeepEquals(this.base, other.base) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency);
+        return Utils.enhancedDeepEquals(this.base, other.base) && Utils.enhancedDeepEquals(this.currency, other.currency);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            base, currency);
+        return Utils.enhancedHash(base, currency);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Rate.class,
-                "base", base,
-                "currency", currency);
+        return Utils.toString(Rate.class, "base", base, "currency", currency);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double base;
 
         private String currency;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -130,9 +120,7 @@ public class Rate {
         }
 
         public Rate build() {
-            return new Rate(
-                base, currency);
+            return new Rate(base, currency);
         }
-
     }
 }

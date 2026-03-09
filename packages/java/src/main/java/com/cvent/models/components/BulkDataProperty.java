@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BulkDataProperty
- * 
+ *
  * <p>The response data for the bulk operation.
  */
 public class BulkDataProperty {
@@ -25,7 +25,7 @@ public class BulkDataProperty {
      * Key-value pairs where a key identifies a labeled placeholders in the url (e.g.
      * "/endpoint/{entityId}") and a value represents the value to substitute. Necessary if the target
      * endpoint has path parameters.
-     * 
+     *
      * <p>Values must NOT be null.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -52,7 +52,7 @@ public class BulkDataProperty {
      * Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply
      * received when fetching results. For the request, this data must be structured in the way the API
      * you're running a bulk job for accepts.
-     * 
+     *
      * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
      * format of the Create Session endpoint.
      */
@@ -70,20 +70,18 @@ public class BulkDataProperty {
         this.queryParams = queryParams;
         this.headers = headers;
         this.dataRecord = Optional.ofNullable(dataRecord)
-            .orElseThrow(() -> new IllegalArgumentException("dataRecord cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("dataRecord cannot be null"));
     }
-    
-    public BulkDataProperty(
-            @Nonnull Map<String, BulkDataRecordJson> dataRecord) {
-        this(null, null, null,
-            dataRecord);
+
+    public BulkDataProperty(@Nonnull Map<String, BulkDataRecordJson> dataRecord) {
+        this(null, null, null, dataRecord);
     }
 
     /**
      * Key-value pairs where a key identifies a labeled placeholders in the url (e.g.
      * "/endpoint/{entityId}") and a value represents the value to substitute. Necessary if the target
      * endpoint has path parameters.
-     * 
+     *
      * <p>Values must NOT be null.
      */
     public Optional<Map<String, String>> pathParams() {
@@ -110,7 +108,7 @@ public class BulkDataProperty {
      * Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply
      * received when fetching results. For the request, this data must be structured in the way the API
      * you're running a bulk job for accepts.
-     * 
+     *
      * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
      * format of the Create Session endpoint.
      */
@@ -122,19 +120,17 @@ public class BulkDataProperty {
         return new Builder();
     }
 
-
     /**
      * Key-value pairs where a key identifies a labeled placeholders in the url (e.g.
      * "/endpoint/{entityId}") and a value represents the value to substitute. Necessary if the target
      * endpoint has path parameters.
-     * 
+     *
      * <p>Values must NOT be null.
      */
     public BulkDataProperty withPathParams(@Nullable Map<String, String> pathParams) {
         this.pathParams = pathParams;
         return this;
     }
-
 
     /**
      * Query params specific to this data record to pass to the target endpoint. Entries merge with, and
@@ -145,7 +141,6 @@ public class BulkDataProperty {
         return this;
     }
 
-
     /**
      * Headers specific to this data record to pass to the target endpoint. Entries merge with, and
      * overlaps override, job-level headers. Values must NOT be null.
@@ -155,12 +150,11 @@ public class BulkDataProperty {
         return this;
     }
 
-
     /**
      * Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply
      * received when fetching results. For the request, this data must be structured in the way the API
      * you're running a bulk job for accepts.
-     * 
+     *
      * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
      * format of the Create Session endpoint.
      */
@@ -168,7 +162,6 @@ public class BulkDataProperty {
         this.dataRecord = Utils.checkNotNull(dataRecord, "dataRecord");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -179,31 +172,33 @@ public class BulkDataProperty {
             return false;
         }
         BulkDataProperty other = (BulkDataProperty) o;
-        return 
-            Utils.enhancedDeepEquals(this.pathParams, other.pathParams) &&
-            Utils.enhancedDeepEquals(this.queryParams, other.queryParams) &&
-            Utils.enhancedDeepEquals(this.headers, other.headers) &&
-            Utils.enhancedDeepEquals(this.dataRecord, other.dataRecord);
+        return Utils.enhancedDeepEquals(this.pathParams, other.pathParams)
+                && Utils.enhancedDeepEquals(this.queryParams, other.queryParams)
+                && Utils.enhancedDeepEquals(this.headers, other.headers)
+                && Utils.enhancedDeepEquals(this.dataRecord, other.dataRecord);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            pathParams, queryParams, headers,
-            dataRecord);
+        return Utils.enhancedHash(pathParams, queryParams, headers, dataRecord);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BulkDataProperty.class,
-                "pathParams", pathParams,
-                "queryParams", queryParams,
-                "headers", headers,
-                "dataRecord", dataRecord);
+        return Utils.toString(
+                BulkDataProperty.class,
+                "pathParams",
+                pathParams,
+                "queryParams",
+                queryParams,
+                "headers",
+                headers,
+                "dataRecord",
+                dataRecord);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Map<String, String> pathParams;
 
@@ -214,14 +209,14 @@ public class BulkDataProperty {
         private Map<String, BulkDataRecordJson> dataRecord;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Key-value pairs where a key identifies a labeled placeholders in the url (e.g.
          * "/endpoint/{entityId}") and a value represents the value to substitute. Necessary if the target
          * endpoint has path parameters.
-         * 
+         *
          * <p>Values must NOT be null.
          */
         public Builder pathParams(@Nullable Map<String, String> pathParams) {
@@ -251,7 +246,7 @@ public class BulkDataProperty {
          * Arbitrary container to hold a JSON payload. The payload is the data you're sending, or the reply
          * received when fetching results. For the request, this data must be structured in the way the API
          * you're running a bulk job for accepts.
-         * 
+         *
          * <p>For example, to bulk create sessions, you structure each of the `dataRecord` entries based on the
          * format of the Create Session endpoint.
          */
@@ -261,10 +256,7 @@ public class BulkDataProperty {
         }
 
         public BulkDataProperty build() {
-            return new BulkDataProperty(
-                pathParams, queryParams, headers,
-                dataRecord);
+            return new BulkDataProperty(pathParams, queryParams, headers, dataRecord);
         }
-
     }
 }

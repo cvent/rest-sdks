@@ -3,10 +3,10 @@ id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
   docChecksum: f8592ed24b5a89eb84d1959f403c7575
   docVersion: ea
-  speakeasyVersion: 1.733.2
-  generationVersion: 2.845.11
-  releaseVersion: 1.1.1
-  configChecksum: 07418aa8a0ba5ced2813e9f45781cce4
+  speakeasyVersion: 1.741.3
+  generationVersion: 2.849.6
+  releaseVersion: 1.1.2
+  configChecksum: 663fab91ada570d9d9514205f268aa45
   repoURL: https://github.com/cvent/rest-sdks
   repoSubDirectory: packages/typescript
   published: true
@@ -19,7 +19,7 @@ features:
     additionalDependencies: 0.1.0
     callbacks: 1.0.1
     constsAndDefaults: 0.1.14
-    core: 3.26.37
+    core: 3.26.40
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -45,7 +45,7 @@ trackedFiles:
     pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
   .npmignore:
     id: aa70c1f807c3
-    last_write_checksum: sha1:425e91786e3b6cddd2b364bf3f9f9cd38e3c3e1a
+    last_write_checksum: sha1:6572da81f2e7a978ec29c22c2210bf461c5897b2
     pristine_git_object: cf98a6bf092538eb10ff0edc915102682ce9a6e6
   FUNCTIONS.md:
     id: 21b9df02aaeb
@@ -8109,11 +8109,11 @@ trackedFiles:
     pristine_git_object: 80795a72645811f07559dbfd91e59131f127b3d4
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a748fb817fc44c17f6e9159d27a10eb98b81ccb7
+    last_write_checksum: sha1:20b375ebdbd00091d9770c7bf35010d0e0f96e4e
     pristine_git_object: 3f8c18265e80f8c46d349b3a7d92f1a61f1d2dc9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:0de89e93ccedb446d5642d0ae8750d092746aa3e
+    last_write_checksum: sha1:ef546c47e7aa0e99427bef78892a59ccae7b4166
     pristine_git_object: 3474c00ef1d014883367c7bbeca6cbe6e330ca41
   src/core.ts:
     id: f431fdbcd144
@@ -9099,7 +9099,7 @@ trackedFiles:
     pristine_git_object: 1c63537b16dd203b91147108d49b53ec71340855
   src/funcs/fileUploadFile.ts:
     id: 22f8e83f8e08
-    last_write_checksum: sha1:09e7273766cb41ffd1f25b488fff9856badff580
+    last_write_checksum: sha1:370e8cdc836f2aa788588756d997ad74eac6081a
     pristine_git_object: 86de57b03c97427f6b6c04d7ebd2b016d32cfe51
   src/funcs/hooksCreateContactHook.ts:
     id: 812d1f1e117c
@@ -9847,7 +9847,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7bf1c821388678febf449be650dea0675d2a6142
+    last_write_checksum: sha1:929d200982106c1f807e4564fefc5bb526f4a48c
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a
@@ -9879,7 +9879,7 @@ trackedFiles:
     pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
   src/lib/matchers.ts:
     id: d54b2253b719
-    last_write_checksum: sha1:e7587f40d36710d499f8a7e6b610610e55a2cb40
+    last_write_checksum: sha1:32bda3887292d2b0430bb6688982e34038342919
     pristine_git_object: 77d41086d77e53263a3a9ba0ec73aea3df521096
   src/lib/oauth2-sessions.ts:
     id: 537b7294cec0
@@ -9903,7 +9903,7 @@ trackedFiles:
     pristine_git_object: 4dcf294ac0ae7b2487022222641adc7b3f21bb48
   src/lib/security.ts:
     id: 0502afa7922e
-    last_write_checksum: sha1:ea23cccd5c0bcfa887795870bc7052c17cbb443e
+    last_write_checksum: sha1:ce69e279b344b490bbb8baf305b551e5cbf96c10
     pristine_git_object: e77e0012638d64e8d3b40cd2ab2c3caadc9b2d47
   src/lib/url.ts:
     id: b0057e24ed76
@@ -15919,7 +15919,7 @@ trackedFiles:
     pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
   tsconfig.json:
     id: 61ebb9fd6e8c
-    last_write_checksum: sha1:c3ec7996536cdb9a54319e7d1eb3b199b733d34c
+    last_write_checksum: sha1:79dc1550d921fefec69f8632ed3b24dad41ca2f6
     pristine_git_object: 0ccdbe286a8780e06a469a9eb7e2fb95322fd507
 examples:
   getAccountUserGroups:

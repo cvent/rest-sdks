@@ -30,7 +30,7 @@ public class DeleteUserRequestBuilder {
     private DeleteUserRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteUserRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteUserRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteUserResponse> call() {
-        AsyncRequestOperation<DeleteUserRequest, DeleteUserResponse> operation
-              = new DeleteUser.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteUserRequest, DeleteUserResponse> operation =
+                new DeleteUser.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

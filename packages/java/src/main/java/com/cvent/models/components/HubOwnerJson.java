@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * HubOwnerJson
- * 
+ *
  * <p>The owner of the Events+ hub and their information.
  */
 public class HubOwnerJson {
@@ -49,7 +49,7 @@ public class HubOwnerJson {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public HubOwnerJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class HubOwnerJson {
         return new Builder();
     }
 
-
     /**
      * First name of the Events+ hub owner.
      */
@@ -87,7 +86,6 @@ public class HubOwnerJson {
         this.firstName = firstName;
         return this;
     }
-
 
     /**
      * Last name of the Events+ hub owner.
@@ -97,7 +95,6 @@ public class HubOwnerJson {
         return this;
     }
 
-
     /**
      * Email address of the Events+ hub owner.
      */
@@ -105,7 +102,6 @@ public class HubOwnerJson {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class HubOwnerJson {
             return false;
         }
         HubOwnerJson other = (HubOwnerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            firstName, lastName, email);
+        return Utils.enhancedHash(firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubOwnerJson.class,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(HubOwnerJson.class, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String firstName;
 
@@ -146,7 +137,7 @@ public class HubOwnerJson {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class HubOwnerJson {
         }
 
         public HubOwnerJson build() {
-            return new HubOwnerJson(
-                firstName, lastName, email);
+            return new HubOwnerJson(firstName, lastName, email);
         }
-
     }
 }

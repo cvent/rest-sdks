@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetBadgeRequest {
     /**
      * ID of an event.
@@ -40,10 +39,10 @@ public class GetBadgeRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * attendee.id (eq)
@@ -52,23 +51,15 @@ public class GetBadgeRequest {
     private String filter;
 
     @JsonCreator
-    public GetBadgeRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetBadgeRequest(@Nonnull String id, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetBadgeRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null);
+
+    public GetBadgeRequest(@Nonnull String id) {
+        this(id, null, null, null);
     }
 
     /**
@@ -97,10 +88,10 @@ public class GetBadgeRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * attendee.id (eq)
@@ -113,7 +104,6 @@ public class GetBadgeRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -122,7 +112,6 @@ public class GetBadgeRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -130,7 +119,6 @@ public class GetBadgeRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -141,15 +129,14 @@ public class GetBadgeRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq)
      * * attendee.id (eq)
@@ -158,7 +145,6 @@ public class GetBadgeRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,31 +155,24 @@ public class GetBadgeRequest {
             return false;
         }
         GetBadgeRequest other = (GetBadgeRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter);
+        return Utils.enhancedHash(id, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgeRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetBadgeRequest.class, "id", id, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -204,7 +183,7 @@ public class GetBadgeRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -236,10 +215,10 @@ public class GetBadgeRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq)
          * * attendee.id (eq)
@@ -250,16 +229,10 @@ public class GetBadgeRequest {
         }
 
         public GetBadgeRequest build() {
-            return new GetBadgeRequest(
-                id, limit, token,
-                filter);
+            return new GetBadgeRequest(id, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -40,7 +40,7 @@ import jakarta.annotation.Nonnull;
  * breakout sessions, booth visits, and virtual seminars. You can use that data to compile a unified
  * customer
  * profile that integrates with your external systems and data.
- * 
+ *
  * <p>By gathering all this info into a single interface, the API allows you to see your customer's
  * engagement
  * at every step of the journey, create engagement models, and integrate that data with your external
@@ -48,10 +48,10 @@ import jakarta.annotation.Nonnull;
  * You can use this data to understand what your customers are looking for, keep them engaged, build
  * loyalty,
  * drive upsell, and increase the long-term value of your events.
- * 
+ *
  * <p>Please note that attendee activities data is retained for a maximum of 2 years and is purged
  * thereafter.
- * 
+ *
  * <p>For more details on [attendee
  * activities](https://developers.cvent.com/docs/rest-api/explanation/attendee-activities).
  */
@@ -67,7 +67,7 @@ public class AttendeeActivities {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncAttendeeActivities async() {
@@ -76,11 +76,11 @@ public class AttendeeActivities {
 
     /**
      * List Activities
-     * 
+     *
      * <p>Gets a paginated list of attendee activities.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAttendeeActivitiesRequestBuilder listAttendeeActivities() {
@@ -89,28 +89,28 @@ public class AttendeeActivities {
 
     /**
      * List Activities
-     * 
+     *
      * <p>Gets a paginated list of attendee activities.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeeActivitiesResponse listAttendeeActivities(@Nonnull ListAttendeeActivitiesRequest request) {
-        RequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation
-              = new ListAttendeeActivities.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation =
+                new ListAttendeeActivities.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Add External Activity
-     * 
+     *
      * <p>Create an external attendee activity.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateAttendeeActivityRequestBuilder createAttendeeActivity() {
@@ -119,28 +119,28 @@ public class AttendeeActivities {
 
     /**
      * Add External Activity
-     * 
+     *
      * <p>Create an external attendee activity.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAttendeeActivityResponse createAttendeeActivity(@Nonnull ExternalActivityInput request) {
-        RequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation
-              = new CreateAttendeeActivity.Sync(sdkConfiguration, _headers);
+        RequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation =
+                new CreateAttendeeActivity.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Ext. Activities Metadata
-     * 
+     *
      * <p>Gets a paginated list of external attendee activities metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListExternalAttendeeActivitiesMetadataRequestBuilder listExternalAttendeeActivitiesMetadata() {
@@ -149,28 +149,29 @@ public class AttendeeActivities {
 
     /**
      * List Ext. Activities Metadata
-     * 
+     *
      * <p>Gets a paginated list of external attendee activities metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public ListExternalAttendeeActivitiesMetadataResponse listExternalAttendeeActivitiesMetadata(@Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
-        RequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation
-              = new ListExternalAttendeeActivitiesMetadata.Sync(sdkConfiguration, _headers);
+    public ListExternalAttendeeActivitiesMetadataResponse listExternalAttendeeActivitiesMetadata(
+            @Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
+        RequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation =
+                new ListExternalAttendeeActivitiesMetadata.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Add Ext. Activities Metadata
-     * 
+     *
      * <p>Creates external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateExternalAttendeeActivityMetadataRequestBuilder createExternalAttendeeActivityMetadata() {
@@ -179,28 +180,29 @@ public class AttendeeActivities {
 
     /**
      * Add Ext. Activities Metadata
-     * 
+     *
      * <p>Creates external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateExternalAttendeeActivityMetadataResponse createExternalAttendeeActivityMetadata(@Nonnull ExternalActivityMetadataInput request) {
-        RequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation
-              = new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+    public CreateExternalAttendeeActivityMetadataResponse createExternalAttendeeActivityMetadata(
+            @Nonnull ExternalActivityMetadataInput request) {
+        RequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation =
+                new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Ext Activities Metadata
-     * 
+     *
      * <p>Deletes external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteExternalAttendeeActivityMetadataRequestBuilder deleteExternalAttendeeActivityMetadata() {
@@ -209,28 +211,29 @@ public class AttendeeActivities {
 
     /**
      * Delete Ext Activities Metadata
-     * 
+     *
      * <p>Deletes external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public DeleteExternalAttendeeActivityMetadataResponse deleteExternalAttendeeActivityMetadata(@Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
-        RequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation
-              = new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+    public DeleteExternalAttendeeActivityMetadataResponse deleteExternalAttendeeActivityMetadata(
+            @Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
+        RequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation =
+                new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Ext Activities Metadata
-     * 
+     *
      * <p>Update external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateExternalAttendeeActivityMetadataRequestBuilder updateExternalAttendeeActivityMetadata() {
@@ -239,19 +242,19 @@ public class AttendeeActivities {
 
     /**
      * Update Ext Activities Metadata
-     * 
+     *
      * <p>Update external attendee activity metadata.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateExternalAttendeeActivityMetadataResponse updateExternalAttendeeActivityMetadata(@Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
-        RequestOperation<UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse> operation
-              = new UpdateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+    public UpdateExternalAttendeeActivityMetadataResponse updateExternalAttendeeActivityMetadata(
+            @Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
+        RequestOperation<UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse> operation =
+                new UpdateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

@@ -30,7 +30,7 @@ public class GetEventByIdRequestBuilder {
     private GetEventByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEventByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventByIdResponse> call() {
-        AsyncRequestOperation<GetEventByIdRequest, GetEventByIdResponse> operation
-              = new GetEventById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventByIdRequest, GetEventByIdResponse> operation =
+                new GetEventById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

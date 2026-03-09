@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelTaxAndServiceChargeJson
- * 
+ *
  * <p>Tax and service charge information.
  */
 public class TravelTaxAndServiceChargeJson {
@@ -78,10 +78,9 @@ public class TravelTaxAndServiceChargeJson {
         this.serviceChargePercent = serviceChargePercent;
         this.serviceChargeIncluded = serviceChargeIncluded;
     }
-    
+
     public TravelTaxAndServiceChargeJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -130,7 +129,6 @@ public class TravelTaxAndServiceChargeJson {
         return new Builder();
     }
 
-
     /**
      * Tax amount.
      */
@@ -138,7 +136,6 @@ public class TravelTaxAndServiceChargeJson {
         this.taxAmount = taxAmount;
         return this;
     }
-
 
     /**
      * True indicates the tax amount represents a percentage, instead of a monetary value.
@@ -148,7 +145,6 @@ public class TravelTaxAndServiceChargeJson {
         return this;
     }
 
-
     /**
      * True indicates the tax included.
      */
@@ -156,7 +152,6 @@ public class TravelTaxAndServiceChargeJson {
         this.taxIncluded = taxIncluded;
         return this;
     }
-
 
     /**
      * Service charge amount.
@@ -166,7 +161,6 @@ public class TravelTaxAndServiceChargeJson {
         return this;
     }
 
-
     /**
      * True indicates the service charge amount represents a percentage, instead of a monetary value
      */
@@ -175,7 +169,6 @@ public class TravelTaxAndServiceChargeJson {
         return this;
     }
 
-
     /**
      * True indicates the service charge is included.
      */
@@ -183,7 +176,6 @@ public class TravelTaxAndServiceChargeJson {
         this.serviceChargeIncluded = serviceChargeIncluded;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -194,35 +186,40 @@ public class TravelTaxAndServiceChargeJson {
             return false;
         }
         TravelTaxAndServiceChargeJson other = (TravelTaxAndServiceChargeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.taxAmount, other.taxAmount) &&
-            Utils.enhancedDeepEquals(this.taxPercent, other.taxPercent) &&
-            Utils.enhancedDeepEquals(this.taxIncluded, other.taxIncluded) &&
-            Utils.enhancedDeepEquals(this.serviceChargeAmount, other.serviceChargeAmount) &&
-            Utils.enhancedDeepEquals(this.serviceChargePercent, other.serviceChargePercent) &&
-            Utils.enhancedDeepEquals(this.serviceChargeIncluded, other.serviceChargeIncluded);
+        return Utils.enhancedDeepEquals(this.taxAmount, other.taxAmount)
+                && Utils.enhancedDeepEquals(this.taxPercent, other.taxPercent)
+                && Utils.enhancedDeepEquals(this.taxIncluded, other.taxIncluded)
+                && Utils.enhancedDeepEquals(this.serviceChargeAmount, other.serviceChargeAmount)
+                && Utils.enhancedDeepEquals(this.serviceChargePercent, other.serviceChargePercent)
+                && Utils.enhancedDeepEquals(this.serviceChargeIncluded, other.serviceChargeIncluded);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            taxAmount, taxPercent, taxIncluded,
-            serviceChargeAmount, serviceChargePercent, serviceChargeIncluded);
+                taxAmount, taxPercent, taxIncluded, serviceChargeAmount, serviceChargePercent, serviceChargeIncluded);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelTaxAndServiceChargeJson.class,
-                "taxAmount", taxAmount,
-                "taxPercent", taxPercent,
-                "taxIncluded", taxIncluded,
-                "serviceChargeAmount", serviceChargeAmount,
-                "serviceChargePercent", serviceChargePercent,
-                "serviceChargeIncluded", serviceChargeIncluded);
+        return Utils.toString(
+                TravelTaxAndServiceChargeJson.class,
+                "taxAmount",
+                taxAmount,
+                "taxPercent",
+                taxPercent,
+                "taxIncluded",
+                taxIncluded,
+                "serviceChargeAmount",
+                serviceChargeAmount,
+                "serviceChargePercent",
+                serviceChargePercent,
+                "serviceChargeIncluded",
+                serviceChargeIncluded);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double taxAmount;
 
@@ -237,7 +234,7 @@ public class TravelTaxAndServiceChargeJson {
         private Boolean serviceChargeIncluded;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -290,9 +287,12 @@ public class TravelTaxAndServiceChargeJson {
 
         public TravelTaxAndServiceChargeJson build() {
             return new TravelTaxAndServiceChargeJson(
-                taxAmount, taxPercent, taxIncluded,
-                serviceChargeAmount, serviceChargePercent, serviceChargeIncluded);
+                    taxAmount,
+                    taxPercent,
+                    taxIncluded,
+                    serviceChargeAmount,
+                    serviceChargePercent,
+                    serviceChargeIncluded);
         }
-
     }
 }

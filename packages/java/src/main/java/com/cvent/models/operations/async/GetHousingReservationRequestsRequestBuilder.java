@@ -40,7 +40,7 @@ public class GetHousingReservationRequestsRequestBuilder {
     private GetHousingReservationRequestsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingReservationRequestsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetHousingReservationRequestsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetHousingReservationRequestsResponse> call() {
-        AsyncRequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation
-              = new GetHousingReservationRequests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation =
+                new GetHousingReservationRequests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetHousingReservationRequestsRequestBuilder {
      */
     public Publisher<GetHousingReservationRequestsResponse> callAsPublisher() {
         GetHousingReservationRequestsRequest request = this.request;
-        AsyncRequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation
-              = new GetHousingReservationRequests.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation =
+                new GetHousingReservationRequests.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetHousingReservationRequestsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetHousingReservationRequestsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetHousingReservationRequestsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetHousingReservationRequestsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

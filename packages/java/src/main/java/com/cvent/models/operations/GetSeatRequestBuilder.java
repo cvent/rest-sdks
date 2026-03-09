@@ -28,7 +28,7 @@ public class GetSeatRequestBuilder {
     private GetSeatRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSeatRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,12 @@ public class GetSeatRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetSeatResponse call() {
-        RequestOperation<GetSeatRequest, GetSeatResponse> operation
-              = new GetSeat.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSeatRequest, GetSeatResponse> operation = new GetSeat.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

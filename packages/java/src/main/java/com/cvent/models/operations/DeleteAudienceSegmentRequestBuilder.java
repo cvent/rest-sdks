@@ -28,7 +28,7 @@ public class DeleteAudienceSegmentRequestBuilder {
     private DeleteAudienceSegmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteAudienceSegmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteAudienceSegmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteAudienceSegmentResponse call() {
-        RequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation
-              = new DeleteAudienceSegment.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation =
+                new DeleteAudienceSegment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSessionsCategoriesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSessionsCategoriesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sessionCategoryPaginatedResponse = sessionCategoryPaginatedResponse;
     }
-    
+
     public ListSessionsCategoriesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSessionsCategoriesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSessionsCategoriesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListSessionsCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListSessionsCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of sessions categories.
      */
-    public ListSessionsCategoriesResponse withSessionCategoryPaginatedResponse(@Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
+    public ListSessionsCategoriesResponse withSessionCategoryPaginatedResponse(
+            @Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
         this.sessionCategoryPaginatedResponse = sessionCategoryPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListSessionsCategoriesResponse implements Response {
             return false;
         }
         ListSessionsCategoriesResponse other = (ListSessionsCategoriesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sessionCategoryPaginatedResponse, other.sessionCategoryPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sessionCategoryPaginatedResponse, other.sessionCategoryPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sessionCategoryPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sessionCategoryPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsCategoriesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sessionCategoryPaginatedResponse", sessionCategoryPaginatedResponse);
+        return Utils.toString(
+                ListSessionsCategoriesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sessionCategoryPaginatedResponse",
+                sessionCategoryPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListSessionsCategoriesResponse implements Response {
         private SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListSessionsCategoriesResponse implements Response {
         /**
          * Successfully retrieved a paginated list of sessions categories.
          */
-        public Builder sessionCategoryPaginatedResponse(@Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
+        public Builder sessionCategoryPaginatedResponse(
+                @Nullable SessionCategoryPaginatedResponse sessionCategoryPaginatedResponse) {
             this.sessionCategoryPaginatedResponse = sessionCategoryPaginatedResponse;
             return this;
         }
 
         public ListSessionsCategoriesResponse build() {
             return new ListSessionsCategoriesResponse(
-                contentType, statusCode, rawResponse,
-                sessionCategoryPaginatedResponse);
+                    contentType, statusCode, rawResponse, sessionCategoryPaginatedResponse);
         }
-
     }
 }

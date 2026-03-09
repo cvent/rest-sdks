@@ -28,7 +28,7 @@ public class UpdateSessionCheckInRequestBuilder {
     private UpdateSessionCheckInRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateSessionCheckInRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateSessionCheckInRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateSessionCheckInResponse call() {
-        RequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation
-              = new UpdateSessionCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation =
+                new UpdateSessionCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

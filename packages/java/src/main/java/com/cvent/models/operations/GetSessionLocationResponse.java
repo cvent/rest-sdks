@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetSessionLocationResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetSessionLocationResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.sessionLocationsPaginatedResponse = sessionLocationsPaginatedResponse;
     }
-    
+
     public GetSessionLocationResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetSessionLocationResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetSessionLocationResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetSessionLocationResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetSessionLocationResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved paginated list of session locations.
      */
-    public GetSessionLocationResponse withSessionLocationsPaginatedResponse(@Nullable SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse) {
+    public GetSessionLocationResponse withSessionLocationsPaginatedResponse(
+            @Nullable SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse) {
         this.sessionLocationsPaginatedResponse = sessionLocationsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetSessionLocationResponse implements Response {
             return false;
         }
         GetSessionLocationResponse other = (GetSessionLocationResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.sessionLocationsPaginatedResponse, other.sessionLocationsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.sessionLocationsPaginatedResponse, other.sessionLocationsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            sessionLocationsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, sessionLocationsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSessionLocationResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "sessionLocationsPaginatedResponse", sessionLocationsPaginatedResponse);
+        return Utils.toString(
+                GetSessionLocationResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "sessionLocationsPaginatedResponse",
+                sessionLocationsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetSessionLocationResponse implements Response {
         private SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetSessionLocationResponse implements Response {
         /**
          * Successfully retrieved paginated list of session locations.
          */
-        public Builder sessionLocationsPaginatedResponse(@Nullable SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse) {
+        public Builder sessionLocationsPaginatedResponse(
+                @Nullable SessionLocationsPaginatedResponse sessionLocationsPaginatedResponse) {
             this.sessionLocationsPaginatedResponse = sessionLocationsPaginatedResponse;
             return this;
         }
 
         public GetSessionLocationResponse build() {
             return new GetSessionLocationResponse(
-                contentType, statusCode, rawResponse,
-                sessionLocationsPaginatedResponse);
+                    contentType, statusCode, rawResponse, sessionLocationsPaginatedResponse);
         }
-
     }
 }

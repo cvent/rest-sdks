@@ -3,12 +3,6 @@
  */
 package com.cvent.utils;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -17,6 +11,11 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public final class Deserializers {
 
@@ -27,9 +26,10 @@ public final class Deserializers {
     public static final JsonDeserializer<Float> FLOAT_STRICT = new StrictFloatDeserializer();
     public static final JsonDeserializer<Double> DOUBLE_STRICT = new StrictDoubleDeserializer();
     public static final JsonDeserializer<LocalDate> LOCAL_DATE_STRICT = new StrictLocalDateDeserializer();
-    public static final JsonDeserializer<OffsetDateTime> OFFSET_DATE_TIME_STRICT = new StrictOffsetDateTimeDeserializer();
+    public static final JsonDeserializer<OffsetDateTime> OFFSET_DATE_TIME_STRICT =
+            new StrictOffsetDateTimeDeserializer();
     public static final JsonDeserializer<String> STRING_STRICT = new StrictStringDeserializer();
-    
+
     public static final Module STRICT_DESERIALIZERS = createStrictDeserializersModule();
 
     private static Module createStrictDeserializersModule() {
@@ -45,7 +45,7 @@ public final class Deserializers {
         m.addDeserializer(String.class, Deserializers.STRING_STRICT);
         return m;
     }
-    
+
     private static final class StrictBooleanDeserializer extends StdDeserializer<Boolean> {
 
         private static final long serialVersionUID = 6014987192625841276L;
@@ -55,8 +55,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Boolean deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Boolean deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_TRUE) {
                 return true;
@@ -67,7 +66,7 @@ public final class Deserializers {
             }
         }
     }
-    
+
     private static final class StrictDoubleDeserializer extends StdDeserializer<Double> {
 
         private static final long serialVersionUID = 5500822592284739392L;
@@ -77,8 +76,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Double deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Double deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_NUMBER_INT) {
                 return p.getDoubleValue();
@@ -99,8 +97,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Float deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Float deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_NUMBER_INT) {
                 return p.getFloatValue();
@@ -111,7 +108,7 @@ public final class Deserializers {
             }
         }
     }
-    
+
     private static final class StrictIntegerDeserializer extends StdDeserializer<Integer> {
 
         private static final long serialVersionUID = 6079282945607228350L;
@@ -121,8 +118,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Integer deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Integer deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_NUMBER_INT) {
                 return p.getIntValue();
@@ -164,8 +160,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Long deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Long deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_NUMBER_INT) {
                 return p.getLongValue();
@@ -184,7 +179,8 @@ public final class Deserializers {
         }
 
         @Override
-        public OffsetDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
+        public OffsetDateTime deserialize(JsonParser p, DeserializationContext ctxt)
+                throws IOException, JacksonException {
             if (p.currentToken() == JsonToken.VALUE_STRING) {
                 String text = p.getText();
                 try {
@@ -207,8 +203,7 @@ public final class Deserializers {
         }
 
         @Override
-        public Short deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public Short deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_NUMBER_INT) {
                 return p.getShortValue();
@@ -227,8 +222,7 @@ public final class Deserializers {
         }
 
         @Override
-        public String deserialize(JsonParser p, DeserializationContext ctxt)
-                throws IOException, JacksonException {
+        public String deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
             JsonToken t = p.currentToken();
             if (t == JsonToken.VALUE_STRING) {
                 return p.getText();

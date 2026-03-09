@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AttendeeSignatureResponseJsonSession
- * 
+ *
  * <p>Session information associated with the signature.
  */
 public class AttendeeSignatureResponseJsonSession {
@@ -27,11 +27,10 @@ public class AttendeeSignatureResponseJsonSession {
     private String id;
 
     @JsonCreator
-    public AttendeeSignatureResponseJsonSession(
-            @JsonProperty("id") @Nullable String id) {
+    public AttendeeSignatureResponseJsonSession(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public AttendeeSignatureResponseJsonSession() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class AttendeeSignatureResponseJsonSession {
         return new Builder();
     }
 
-
     /**
      * ID of the session.
      */
@@ -55,7 +53,6 @@ public class AttendeeSignatureResponseJsonSession {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class AttendeeSignatureResponseJsonSession {
             return false;
         }
         AttendeeSignatureResponseJsonSession other = (AttendeeSignatureResponseJsonSession) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeSignatureResponseJsonSession.class,
-                "id", id);
+        return Utils.toString(AttendeeSignatureResponseJsonSession.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class AttendeeSignatureResponseJsonSession {
         }
 
         public AttendeeSignatureResponseJsonSession build() {
-            return new AttendeeSignatureResponseJsonSession(
-                id);
+            return new AttendeeSignatureResponseJsonSession(id);
         }
-
     }
 }

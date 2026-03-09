@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SeatType
- * 
+ *
  * <p>Type of the seat.
  */
 public enum SeatType {
@@ -23,13 +23,13 @@ public enum SeatType {
     SeatType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SeatType> fromValue(String value) {
-        for (SeatType o: SeatType.values()) {
+        for (SeatType o : SeatType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum SeatType {
         return Optional.empty();
     }
 }
-

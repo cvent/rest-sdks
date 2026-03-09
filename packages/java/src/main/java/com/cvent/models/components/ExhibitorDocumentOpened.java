@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorDocumentOpened
- * 
+ *
  * <p>An exhibitor document-opened activity.
  */
 public class ExhibitorDocumentOpened {
@@ -49,7 +49,7 @@ public class ExhibitorDocumentOpened {
         this.platform = platform;
         this.document = document;
     }
-    
+
     public ExhibitorDocumentOpened() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class ExhibitorDocumentOpened {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -87,7 +86,6 @@ public class ExhibitorDocumentOpened {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -97,7 +95,6 @@ public class ExhibitorDocumentOpened {
         return this;
     }
 
-
     /**
      * Document for an activity exhibitor.
      */
@@ -105,7 +102,6 @@ public class ExhibitorDocumentOpened {
         this.document = document;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,24 @@ public class ExhibitorDocumentOpened {
             return false;
         }
         ExhibitorDocumentOpened other = (ExhibitorDocumentOpened) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.document, other.document);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.document, other.document);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, document);
+        return Utils.enhancedHash(exhibitor, platform, document);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorDocumentOpened.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "document", document);
+        return Utils.toString(
+                ExhibitorDocumentOpened.class, "exhibitor", exhibitor, "platform", platform, "document", document);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -146,7 +138,7 @@ public class ExhibitorDocumentOpened {
         private ActivityExhibitorDocumentJson document;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +166,7 @@ public class ExhibitorDocumentOpened {
         }
 
         public ExhibitorDocumentOpened build() {
-            return new ExhibitorDocumentOpened(
-                exhibitor, platform, document);
+            return new ExhibitorDocumentOpened(exhibitor, platform, document);
         }
-
     }
 }

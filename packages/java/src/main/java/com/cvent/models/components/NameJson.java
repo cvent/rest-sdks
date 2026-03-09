@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * NameJson
- * 
+ *
  * <p>The name of the user.
  */
 public class NameJson {
@@ -53,18 +53,15 @@ public class NameJson {
             @JsonProperty("middleName") @Nullable String middleName,
             @JsonProperty("honorificPrefix") @Nullable String honorificPrefix) {
         this.givenName = Optional.ofNullable(givenName)
-            .orElseThrow(() -> new IllegalArgumentException("givenName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("givenName cannot be null"));
         this.familyName = Optional.ofNullable(familyName)
-            .orElseThrow(() -> new IllegalArgumentException("familyName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("familyName cannot be null"));
         this.middleName = middleName;
         this.honorificPrefix = honorificPrefix;
     }
-    
-    public NameJson(
-            @Nonnull String givenName,
-            @Nonnull String familyName) {
-        this(givenName, familyName, null,
-            null);
+
+    public NameJson(@Nonnull String givenName, @Nonnull String familyName) {
+        this(givenName, familyName, null, null);
     }
 
     /**
@@ -99,7 +96,6 @@ public class NameJson {
         return new Builder();
     }
 
-
     /**
      * The given/first name of the user.
      */
@@ -107,7 +103,6 @@ public class NameJson {
         this.givenName = Utils.checkNotNull(givenName, "givenName");
         return this;
     }
-
 
     /**
      * The family/last name of the user.
@@ -117,7 +112,6 @@ public class NameJson {
         return this;
     }
 
-
     /**
      * The middle name of the user.
      */
@@ -126,7 +120,6 @@ public class NameJson {
         return this;
     }
 
-
     /**
      * The prefix of the user.
      */
@@ -134,7 +127,6 @@ public class NameJson {
         this.honorificPrefix = honorificPrefix;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +137,33 @@ public class NameJson {
             return false;
         }
         NameJson other = (NameJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.givenName, other.givenName) &&
-            Utils.enhancedDeepEquals(this.familyName, other.familyName) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.honorificPrefix, other.honorificPrefix);
+        return Utils.enhancedDeepEquals(this.givenName, other.givenName)
+                && Utils.enhancedDeepEquals(this.familyName, other.familyName)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.honorificPrefix, other.honorificPrefix);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            givenName, familyName, middleName,
-            honorificPrefix);
+        return Utils.enhancedHash(givenName, familyName, middleName, honorificPrefix);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(NameJson.class,
-                "givenName", givenName,
-                "familyName", familyName,
-                "middleName", middleName,
-                "honorificPrefix", honorificPrefix);
+        return Utils.toString(
+                NameJson.class,
+                "givenName",
+                givenName,
+                "familyName",
+                familyName,
+                "middleName",
+                middleName,
+                "honorificPrefix",
+                honorificPrefix);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String givenName;
 
@@ -180,7 +174,7 @@ public class NameJson {
         private String honorificPrefix;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,10 +210,7 @@ public class NameJson {
         }
 
         public NameJson build() {
-            return new NameJson(
-                givenName, familyName, middleName,
-                honorificPrefix);
+            return new NameJson(givenName, familyName, middleName, honorificPrefix);
         }
-
     }
 }

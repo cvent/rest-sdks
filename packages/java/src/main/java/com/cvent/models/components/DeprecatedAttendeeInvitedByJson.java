@@ -11,10 +11,10 @@ import java.util.Optional;
 
 /**
  * DeprecatedAttendeeInvitedByJson
- * 
+ *
  * <p>Method by which the attendee was invited to the event. Note: This field is deprecated. Previous
  * documentation incorrectly listed support for this feature.
- * 
+ *
  * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -34,13 +34,13 @@ public enum DeprecatedAttendeeInvitedByJson {
     DeprecatedAttendeeInvitedByJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DeprecatedAttendeeInvitedByJson> fromValue(String value) {
-        for (DeprecatedAttendeeInvitedByJson o: DeprecatedAttendeeInvitedByJson.values()) {
+        for (DeprecatedAttendeeInvitedByJson o : DeprecatedAttendeeInvitedByJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -48,4 +48,3 @@ public enum DeprecatedAttendeeInvitedByJson {
         return Optional.empty();
     }
 }
-

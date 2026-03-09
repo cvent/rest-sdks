@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AppointmentMeetingInterestJson
- * 
+ *
  * <p>An individual meeting interest.
  */
 public class AppointmentMeetingInterestJson {
@@ -67,10 +67,9 @@ public class AppointmentMeetingInterestJson {
         this.meetingType = meetingType;
         this.comment = comment;
     }
-    
+
     public AppointmentMeetingInterestJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -112,7 +111,6 @@ public class AppointmentMeetingInterestJson {
         return new Builder();
     }
 
-
     /**
      * The name of the exhibitor in which interest is expressed.
      */
@@ -120,7 +118,6 @@ public class AppointmentMeetingInterestJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -130,7 +127,6 @@ public class AppointmentMeetingInterestJson {
         return this;
     }
 
-
     /**
      * The strength of the interest.
      */
@@ -138,7 +134,6 @@ public class AppointmentMeetingInterestJson {
         this.ranking = ranking;
         return this;
     }
-
 
     /**
      * The meeting type of interest.
@@ -148,7 +143,6 @@ public class AppointmentMeetingInterestJson {
         return this;
     }
 
-
     /**
      * A comment about this interest.
      */
@@ -156,7 +150,6 @@ public class AppointmentMeetingInterestJson {
         this.comment = comment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,33 +160,36 @@ public class AppointmentMeetingInterestJson {
             return false;
         }
         AppointmentMeetingInterestJson other = (AppointmentMeetingInterestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.ranking, other.ranking) &&
-            Utils.enhancedDeepEquals(this.meetingType, other.meetingType) &&
-            Utils.enhancedDeepEquals(this.comment, other.comment);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.ranking, other.ranking)
+                && Utils.enhancedDeepEquals(this.meetingType, other.meetingType)
+                && Utils.enhancedDeepEquals(this.comment, other.comment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, exhibitor, ranking,
-            meetingType, comment);
+        return Utils.enhancedHash(name, exhibitor, ranking, meetingType, comment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentMeetingInterestJson.class,
-                "name", name,
-                "exhibitor", exhibitor,
-                "ranking", ranking,
-                "meetingType", meetingType,
-                "comment", comment);
+        return Utils.toString(
+                AppointmentMeetingInterestJson.class,
+                "name",
+                name,
+                "exhibitor",
+                exhibitor,
+                "ranking",
+                ranking,
+                "meetingType",
+                meetingType,
+                "comment",
+                comment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -206,7 +202,7 @@ public class AppointmentMeetingInterestJson {
         private String comment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,10 +246,7 @@ public class AppointmentMeetingInterestJson {
         }
 
         public AppointmentMeetingInterestJson build() {
-            return new AppointmentMeetingInterestJson(
-                name, exhibitor, ranking,
-                meetingType, comment);
+            return new AppointmentMeetingInterestJson(name, exhibitor, ranking, meetingType, comment);
         }
-
     }
 }

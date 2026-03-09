@@ -46,7 +46,7 @@ import java.util.concurrent.CompletableFuture;
  * portal. In the portal, they are able to complete pre-event tasks, manage their team, purchase
  * LeadCapture (if applicable), and download leads. Use this API to get details for existing admins,
  * create new admins, and update admin details.
- * 
+ *
  * <p>* **Exhibitor Booth Staff -** Exhibitor booth staff is someone that manages the frontline of the
  * exhibitor's booth onsite or virtually. Booth staff needs to be registered for the event in order to
  * be associated with an exhibitor. Use this API to get details for the existing booth staff(s) for a
@@ -65,21 +65,20 @@ public class AsyncExhibitorTeam {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public ExhibitorTeam sync() {
         return syncSDK;
     }
 
-
     /**
      * List Exhibitor Admins
-     * 
+     *
      * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListExhibitorAdminsRequestBuilder listExhibitorAdmins() {
@@ -88,29 +87,28 @@ public class AsyncExhibitorTeam {
 
     /**
      * List Exhibitor Admins
-     * 
+     *
      * <p>Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListExhibitorAdminsResponse>} - The async response
      */
-    public CompletableFuture<ListExhibitorAdminsResponse> listExhibitorAdmins(@Nonnull ListExhibitorAdminsRequest request) {
-        AsyncRequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation
-              = new ListExhibitorAdmins.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListExhibitorAdminsResponse> listExhibitorAdmins(
+            @Nonnull ListExhibitorAdminsRequest request) {
+        AsyncRequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation =
+                new ListExhibitorAdmins.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Exhibitor Admin
-     * 
+     *
      * <p>Creates an exhibitor admin for the given exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public PostExhibitorAdminRequestBuilder postExhibitorAdmin() {
@@ -119,29 +117,28 @@ public class AsyncExhibitorTeam {
 
     /**
      * Create Exhibitor Admin
-     * 
+     *
      * <p>Creates an exhibitor admin for the given exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<PostExhibitorAdminResponse>} - The async response
      */
-    public CompletableFuture<PostExhibitorAdminResponse> postExhibitorAdmin(@Nonnull PostExhibitorAdminRequest request) {
-        AsyncRequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation
-              = new PostExhibitorAdmin.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<PostExhibitorAdminResponse> postExhibitorAdmin(
+            @Nonnull PostExhibitorAdminRequest request) {
+        AsyncRequestOperation<PostExhibitorAdminRequest, PostExhibitorAdminResponse> operation =
+                new PostExhibitorAdmin.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Exhibitor Admin
-     * 
+     *
      * <p>Gets the details of a single exhibitor admin, such as name or contact email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetExhibitorAdminRequestBuilder getExhibitorAdmin() {
@@ -150,29 +147,27 @@ public class AsyncExhibitorTeam {
 
     /**
      * Get Exhibitor Admin
-     * 
+     *
      * <p>Gets the details of a single exhibitor admin, such as name or contact email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetExhibitorAdminResponse>} - The async response
      */
     public CompletableFuture<GetExhibitorAdminResponse> getExhibitorAdmin(@Nonnull GetExhibitorAdminRequest request) {
-        AsyncRequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation
-              = new GetExhibitorAdmin.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation =
+                new GetExhibitorAdmin.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Exhibitor Admin
-     * 
+     *
      * <p>Updates a single exhibitor admin.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateExhibitorAdminRequestBuilder updateExhibitorAdmin() {
@@ -181,29 +176,28 @@ public class AsyncExhibitorTeam {
 
     /**
      * Update Exhibitor Admin
-     * 
+     *
      * <p>Updates a single exhibitor admin.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateExhibitorAdminResponse>} - The async response
      */
-    public CompletableFuture<UpdateExhibitorAdminResponse> updateExhibitorAdmin(@Nonnull UpdateExhibitorAdminRequest request) {
-        AsyncRequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation
-              = new UpdateExhibitorAdmin.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateExhibitorAdminResponse> updateExhibitorAdmin(
+            @Nonnull UpdateExhibitorAdminRequest request) {
+        AsyncRequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation =
+                new UpdateExhibitorAdmin.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Booth Staff
-     * 
+     *
      * <p>Gets a list of booth staff members for a given event and exhibitor id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListBoothStaffRequestBuilder listBoothStaff() {
@@ -212,29 +206,27 @@ public class AsyncExhibitorTeam {
 
     /**
      * List Booth Staff
-     * 
+     *
      * <p>Gets a list of booth staff members for a given event and exhibitor id.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListBoothStaffResponse>} - The async response
      */
     public CompletableFuture<ListBoothStaffResponse> listBoothStaff(@Nonnull ListBoothStaffRequest request) {
-        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation
-              = new ListBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListBoothStaffRequest, ListBoothStaffResponse> operation =
+                new ListBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Booth Staff
-     * 
+     *
      * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public AssociateBoothStaffRequestBuilder associateBoothStaff() {
@@ -243,29 +235,28 @@ public class AsyncExhibitorTeam {
 
     /**
      * Create Booth Staff
-     * 
+     *
      * <p>Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AssociateBoothStaffResponse>} - The async response
      */
-    public CompletableFuture<AssociateBoothStaffResponse> associateBoothStaff(@Nonnull AssociateBoothStaffRequest request) {
-        AsyncRequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation
-              = new AssociateBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<AssociateBoothStaffResponse> associateBoothStaff(
+            @Nonnull AssociateBoothStaffRequest request) {
+        AsyncRequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation =
+                new AssociateBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Booth Staff member
-     * 
+     *
      * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBoothStaffRequestBuilder getBoothStaff() {
@@ -274,29 +265,27 @@ public class AsyncExhibitorTeam {
 
     /**
      * Get Booth Staff member
-     * 
+     *
      * <p>Retrieves the attendee id associated with an exhibitor booth staff member.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBoothStaffResponse>} - The async response
      */
     public CompletableFuture<GetBoothStaffResponse> getBoothStaff(@Nonnull GetBoothStaffRequest request) {
-        AsyncRequestOperation<GetBoothStaffRequest, GetBoothStaffResponse> operation
-              = new GetBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBoothStaffRequest, GetBoothStaffResponse> operation =
+                new GetBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Booth Staff member
-     * 
+     *
      * <p>Disassociate a single booth staff member from a single exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteBoothStaffRequestBuilder deleteBoothStaff() {
@@ -305,19 +294,17 @@ public class AsyncExhibitorTeam {
 
     /**
      * Delete Booth Staff member
-     * 
+     *
      * <p>Disassociate a single booth staff member from a single exhibitor.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteBoothStaffResponse>} - The async response
      */
     public CompletableFuture<DeleteBoothStaffResponse> deleteBoothStaff(@Nonnull DeleteBoothStaffRequest request) {
-        AsyncRequestOperation<DeleteBoothStaffRequest, DeleteBoothStaffResponse> operation
-              = new DeleteBoothStaff.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteBoothStaffRequest, DeleteBoothStaffResponse> operation =
+                new DeleteBoothStaff.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

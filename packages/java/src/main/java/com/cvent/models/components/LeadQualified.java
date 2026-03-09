@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * LeadQualified
- * 
+ *
  * <p>A qualified lead.
  */
 public class LeadQualified {
@@ -50,7 +50,7 @@ public class LeadQualified {
         this.lead = lead;
         this.responses = responses;
     }
-    
+
     public LeadQualified() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class LeadQualified {
         return new Builder();
     }
 
-
     /**
      * An activity exhibitor.
      */
@@ -88,7 +87,6 @@ public class LeadQualified {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * An activity lead.
@@ -98,7 +96,6 @@ public class LeadQualified {
         return this;
     }
 
-
     /**
      * The list of responses provided by the attendee.
      */
@@ -106,7 +103,6 @@ public class LeadQualified {
         this.responses = responses;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,23 @@ public class LeadQualified {
             return false;
         }
         LeadQualified other = (LeadQualified) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.lead, other.lead) &&
-            Utils.enhancedDeepEquals(this.responses, other.responses);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.lead, other.lead)
+                && Utils.enhancedDeepEquals(this.responses, other.responses);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, lead, responses);
+        return Utils.enhancedHash(exhibitor, lead, responses);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadQualified.class,
-                "exhibitor", exhibitor,
-                "lead", lead,
-                "responses", responses);
+        return Utils.toString(LeadQualified.class, "exhibitor", exhibitor, "lead", lead, "responses", responses);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityExhibitorJson exhibitor;
 
@@ -147,7 +138,7 @@ public class LeadQualified {
         private List<LeadQualifiedQuestionResponseJson> responses;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +166,7 @@ public class LeadQualified {
         }
 
         public LeadQualified build() {
-            return new LeadQualified(
-                exhibitor, lead, responses);
+            return new LeadQualified(exhibitor, lead, responses);
         }
-
     }
 }

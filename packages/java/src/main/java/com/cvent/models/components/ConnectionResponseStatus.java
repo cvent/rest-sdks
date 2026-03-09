@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * ConnectionResponseStatus
- * 
+ *
  * <p>Status of the connection. `REQUESTED` indicates the connection request is being processed.
  * `NOT_CONNECTED` indicates there is no current connection.
- * 
+ *
  * <p>`CONNECTED` indicates this housing event is connected to a registration event.
  */
 public enum ConnectionResponseStatus {
@@ -27,13 +27,13 @@ public enum ConnectionResponseStatus {
     ConnectionResponseStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ConnectionResponseStatus> fromValue(String value) {
-        for (ConnectionResponseStatus o: ConnectionResponseStatus.values()) {
+        for (ConnectionResponseStatus o : ConnectionResponseStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum ConnectionResponseStatus {
         return Optional.empty();
     }
 }
-

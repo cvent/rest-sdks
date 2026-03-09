@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AddUserToAccountUserGroupRequest {
     /**
      * The User Group's Id.
@@ -26,13 +25,11 @@ public class AddUserToAccountUserGroupRequest {
     private String userId;
 
     @JsonCreator
-    public AddUserToAccountUserGroupRequest(
-            @Nonnull String userGroupId,
-            @Nonnull String userId) {
+    public AddUserToAccountUserGroupRequest(@Nonnull String userGroupId, @Nonnull String userId) {
         this.userGroupId = Optional.ofNullable(userGroupId)
-            .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
-        this.userId = Optional.ofNullable(userId)
-            .orElseThrow(() -> new IllegalArgumentException("userId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
+        this.userId =
+                Optional.ofNullable(userId).orElseThrow(() -> new IllegalArgumentException("userId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class AddUserToAccountUserGroupRequest {
         return new Builder();
     }
 
-
     /**
      * The User Group's Id.
      */
@@ -62,7 +58,6 @@ public class AddUserToAccountUserGroupRequest {
         return this;
     }
 
-
     /**
      * The Account User's Id.
      */
@@ -70,7 +65,6 @@ public class AddUserToAccountUserGroupRequest {
         this.userId = Utils.checkNotNull(userId, "userId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,29 @@ public class AddUserToAccountUserGroupRequest {
             return false;
         }
         AddUserToAccountUserGroupRequest other = (AddUserToAccountUserGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId) &&
-            Utils.enhancedDeepEquals(this.userId, other.userId);
+        return Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId)
+                && Utils.enhancedDeepEquals(this.userId, other.userId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            userGroupId, userId);
+        return Utils.enhancedHash(userGroupId, userId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddUserToAccountUserGroupRequest.class,
-                "userGroupId", userGroupId,
-                "userId", userId);
+        return Utils.toString(AddUserToAccountUserGroupRequest.class, "userGroupId", userGroupId, "userId", userId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String userGroupId;
 
         private String userId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +117,7 @@ public class AddUserToAccountUserGroupRequest {
         }
 
         public AddUserToAccountUserGroupRequest build() {
-            return new AddUserToAccountUserGroupRequest(
-                userGroupId, userId);
+            return new AddUserToAccountUserGroupRequest(userGroupId, userId);
         }
-
     }
 }

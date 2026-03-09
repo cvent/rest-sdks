@@ -2,6 +2,14 @@
 
 Credit card type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CreditCardTypesJson;
+
+CreditCardTypesJson value = CreditCardTypesJson.VISA;
+```
+
 
 ## Values
 

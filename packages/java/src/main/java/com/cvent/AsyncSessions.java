@@ -142,21 +142,20 @@ public class AsyncSessions {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Sessions sync() {
         return syncSDK;
     }
 
-
     /**
      * List Session Locations
-     * 
+     *
      * <p>Gets a paginated list of session locations.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSessionLocationRequestBuilder getSessionLocation() {
@@ -165,29 +164,28 @@ public class AsyncSessions {
 
     /**
      * List Session Locations
-     * 
+     *
      * <p>Gets a paginated list of session locations.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSessionLocationResponse>} - The async response
      */
-    public CompletableFuture<GetSessionLocationResponse> getSessionLocation(@Nonnull GetSessionLocationRequest request) {
-        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation
-              = new GetSessionLocation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetSessionLocationResponse> getSessionLocation(
+            @Nonnull GetSessionLocationRequest request) {
+        AsyncRequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation =
+                new GetSessionLocation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add Session Location
-     * 
+     *
      * <p>Add a session location to the specified event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public AddSessionLocationRequestBuilder addSessionLocation() {
@@ -196,29 +194,28 @@ public class AsyncSessions {
 
     /**
      * Add Session Location
-     * 
+     *
      * <p>Add a session location to the specified event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AddSessionLocationResponse>} - The async response
      */
-    public CompletableFuture<AddSessionLocationResponse> addSessionLocation(@Nonnull AddSessionLocationRequest request) {
-        AsyncRequestOperation<AddSessionLocationRequest, AddSessionLocationResponse> operation
-              = new AddSessionLocation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<AddSessionLocationResponse> addSessionLocation(
+            @Nonnull AddSessionLocationRequest request) {
+        AsyncRequestOperation<AddSessionLocationRequest, AddSessionLocationResponse> operation =
+                new AddSessionLocation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Program Item
-     * 
+     *
      * <p>Create a session program item based on the details provided in the body of the request. A session
      * program item is a specific part of a session's schedule, like a talk, workshop, or panel discussion.
      * Max 25 program items per session.
-     * 
+     *
      * @return The async call builder
      */
     public CreateProgramItemRequestBuilder createProgramItem() {
@@ -227,27 +224,25 @@ public class AsyncSessions {
 
     /**
      * Create Program Item
-     * 
+     *
      * <p>Create a session program item based on the details provided in the body of the request. A session
      * program item is a specific part of a session's schedule, like a talk, workshop, or panel discussion.
      * Max 25 program items per session.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateProgramItemResponse>} - The async response
      */
     public CompletableFuture<CreateProgramItemResponse> createProgramItem(@Nonnull ProgramItemInput request) {
-        AsyncRequestOperation<ProgramItemInput, CreateProgramItemResponse> operation
-              = new CreateProgramItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ProgramItemInput, CreateProgramItemResponse> operation =
+                new CreateProgramItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Program Items
-     * 
+     *
      * <p>Gets a paginated list of session program items.
-     * 
+     *
      * @return The async call builder
      */
     public ListProgramItemsRequestBuilder listProgramItems() {
@@ -256,25 +251,23 @@ public class AsyncSessions {
 
     /**
      * List Program Items
-     * 
+     *
      * <p>Gets a paginated list of session program items.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListProgramItemsResponse>} - The async response
      */
     public CompletableFuture<ListProgramItemsResponse> listProgramItems(@Nonnull ListProgramItemsRequest request) {
-        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation
-              = new ListProgramItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation =
+                new ListProgramItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Filter Program Item Documents
-     * 
+     *
      * <p>Gets a paginated list of session program item documents using a filter in the body of the request.
-     * 
+     *
      * @return The async call builder
      */
     public FilterProgramItemDocumentsRequestBuilder filterProgramItemDocuments() {
@@ -283,27 +276,26 @@ public class AsyncSessions {
 
     /**
      * Filter Program Item Documents
-     * 
+     *
      * <p>Gets a paginated list of session program item documents using a filter in the body of the request.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<FilterProgramItemDocumentsResponse>} - The async response
      */
-    public CompletableFuture<FilterProgramItemDocumentsResponse> filterProgramItemDocuments(@Nonnull FilterProgramItemDocumentsRequest request) {
-        AsyncRequestOperation<FilterProgramItemDocumentsRequest, FilterProgramItemDocumentsResponse> operation
-              = new FilterProgramItemDocuments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<FilterProgramItemDocumentsResponse> filterProgramItemDocuments(
+            @Nonnull FilterProgramItemDocumentsRequest request) {
+        AsyncRequestOperation<FilterProgramItemDocumentsRequest, FilterProgramItemDocumentsResponse> operation =
+                new FilterProgramItemDocuments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Program Items
-     * 
+     *
      * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
      * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
      * but allows for longer filters.
-     * 
+     *
      * @return The async call builder
      */
     public ListProgramItemsPostFiltersRequestBuilder listProgramItemsPostFilters() {
@@ -312,27 +304,26 @@ public class AsyncSessions {
 
     /**
      * List Program Items
-     * 
+     *
      * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
      * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
      * but allows for longer filters.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListProgramItemsPostFiltersResponse>} - The async response
      */
-    public CompletableFuture<ListProgramItemsPostFiltersResponse> listProgramItemsPostFilters(@Nonnull ListProgramItemsPostFiltersRequest request) {
-        AsyncRequestOperation<ListProgramItemsPostFiltersRequest, ListProgramItemsPostFiltersResponse> operation
-              = new ListProgramItemsPostFilters.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListProgramItemsPostFiltersResponse> listProgramItemsPostFilters(
+            @Nonnull ListProgramItemsPostFiltersRequest request) {
+        AsyncRequestOperation<ListProgramItemsPostFiltersRequest, ListProgramItemsPostFiltersResponse> operation =
+                new ListProgramItemsPostFilters.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Program Item
-     * 
+     *
      * <p>Updates the given session program item based on the details provided in the body of the request.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateProgramItemRequestBuilder updateProgramItem() {
@@ -341,25 +332,23 @@ public class AsyncSessions {
 
     /**
      * Update Program Item
-     * 
+     *
      * <p>Updates the given session program item based on the details provided in the body of the request.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateProgramItemResponse>} - The async response
      */
     public CompletableFuture<UpdateProgramItemResponse> updateProgramItem(@Nonnull UpdateProgramItemRequest request) {
-        AsyncRequestOperation<UpdateProgramItemRequest, UpdateProgramItemResponse> operation
-              = new UpdateProgramItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateProgramItemRequest, UpdateProgramItemResponse> operation =
+                new UpdateProgramItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Session Program Item
-     * 
+     *
      * <p>Delete the given session program item.
-     * 
+     *
      * @return The async call builder
      */
     public DeleteProgramItemRequestBuilder deleteProgramItem() {
@@ -368,27 +357,25 @@ public class AsyncSessions {
 
     /**
      * Delete Session Program Item
-     * 
+     *
      * <p>Delete the given session program item.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteProgramItemResponse>} - The async response
      */
     public CompletableFuture<DeleteProgramItemResponse> deleteProgramItem(@Nonnull DeleteProgramItemRequest request) {
-        AsyncRequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation
-              = new DeleteProgramItem.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation =
+                new DeleteProgramItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Program Item Documents
-     * 
+     *
      * <p>Returns a list of session documents for the specified program item ID.
      * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
      * Program Item Documents</a>
-     * 
+     *
      * @return The async call builder
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -399,30 +386,29 @@ public class AsyncSessions {
 
     /**
      * Get Program Item Documents
-     * 
+     *
      * <p>Returns a list of session documents for the specified program item ID.
      * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
      * Program Item Documents</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetProgramItemDocumentsResponse>} - The async response
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public CompletableFuture<GetProgramItemDocumentsResponse> getProgramItemDocuments(@Nonnull GetProgramItemDocumentsRequest request) {
-        AsyncRequestOperation<GetProgramItemDocumentsRequest, GetProgramItemDocumentsResponse> operation
-              = new GetProgramItemDocuments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetProgramItemDocumentsResponse> getProgramItemDocuments(
+            @Nonnull GetProgramItemDocumentsRequest request) {
+        AsyncRequestOperation<GetProgramItemDocumentsRequest, GetProgramItemDocumentsResponse> operation =
+                new GetProgramItemDocuments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add Program Item Document
-     * 
+     *
      * <p>Creates a relationship between a session program item and a session document. Limit 10 session
      * documents per session program item.
-     * 
+     *
      * @return The async call builder
      */
     public RelateProgramItemToSessionDocumentRequestBuilder relateProgramItemToSessionDocument() {
@@ -431,26 +417,25 @@ public class AsyncSessions {
 
     /**
      * Add Program Item Document
-     * 
+     *
      * <p>Creates a relationship between a session program item and a session document. Limit 10 session
      * documents per session program item.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<RelateProgramItemToSessionDocumentResponse>} - The async response
      */
-    public CompletableFuture<RelateProgramItemToSessionDocumentResponse> relateProgramItemToSessionDocument(@Nonnull RelateProgramItemToSessionDocumentRequest request) {
-        AsyncRequestOperation<RelateProgramItemToSessionDocumentRequest, RelateProgramItemToSessionDocumentResponse> operation
-              = new RelateProgramItemToSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<RelateProgramItemToSessionDocumentResponse> relateProgramItemToSessionDocument(
+            @Nonnull RelateProgramItemToSessionDocumentRequest request) {
+        AsyncRequestOperation<RelateProgramItemToSessionDocumentRequest, RelateProgramItemToSessionDocumentResponse> operation =
+                new RelateProgramItemToSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Program Item Document
-     * 
+     *
      * <p>Returns a single program item to session document relationship for the provided IDs.
-     * 
+     *
      * @return The async call builder
      */
     public GetProgramItemSessionDocumentRequestBuilder getProgramItemSessionDocument() {
@@ -459,25 +444,24 @@ public class AsyncSessions {
 
     /**
      * Get Program Item Document
-     * 
+     *
      * <p>Returns a single program item to session document relationship for the provided IDs.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetProgramItemSessionDocumentResponse>} - The async response
      */
-    public CompletableFuture<GetProgramItemSessionDocumentResponse> getProgramItemSessionDocument(@Nonnull GetProgramItemSessionDocumentRequest request) {
-        AsyncRequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation
-              = new GetProgramItemSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetProgramItemSessionDocumentResponse> getProgramItemSessionDocument(
+            @Nonnull GetProgramItemSessionDocumentRequest request) {
+        AsyncRequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation =
+                new GetProgramItemSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Program Item Document
-     * 
+     *
      * <p>Deletes session program item to session document relationship based on the provided IDs.
-     * 
+     *
      * @return The async call builder
      */
     public DeleteProgramItemSessionDocumentRequestBuilder deleteProgramItemSessionDocument() {
@@ -486,27 +470,26 @@ public class AsyncSessions {
 
     /**
      * Delete Program Item Document
-     * 
+     *
      * <p>Deletes session program item to session document relationship based on the provided IDs.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteProgramItemSessionDocumentResponse>} - The async response
      */
-    public CompletableFuture<DeleteProgramItemSessionDocumentResponse> deleteProgramItemSessionDocument(@Nonnull DeleteProgramItemSessionDocumentRequest request) {
-        AsyncRequestOperation<DeleteProgramItemSessionDocumentRequest, DeleteProgramItemSessionDocumentResponse> operation
-              = new DeleteProgramItemSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DeleteProgramItemSessionDocumentResponse> deleteProgramItemSessionDocument(
+            @Nonnull DeleteProgramItemSessionDocumentRequest request) {
+        AsyncRequestOperation<DeleteProgramItemSessionDocumentRequest, DeleteProgramItemSessionDocumentResponse> operation =
+                new DeleteProgramItemSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Session Categories
-     * 
+     *
      * <p>Gets a paginated list of session categories.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSessionsCategoriesRequestBuilder listSessionsCategories() {
@@ -515,29 +498,28 @@ public class AsyncSessions {
 
     /**
      * List Session Categories
-     * 
+     *
      * <p>Gets a paginated list of session categories.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSessionsCategoriesResponse>} - The async response
      */
-    public CompletableFuture<ListSessionsCategoriesResponse> listSessionsCategories(@Nonnull ListSessionsCategoriesRequest request) {
-        AsyncRequestOperation<ListSessionsCategoriesRequest, ListSessionsCategoriesResponse> operation
-              = new ListSessionsCategories.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListSessionsCategoriesResponse> listSessionsCategories(
+            @Nonnull ListSessionsCategoriesRequest request) {
+        AsyncRequestOperation<ListSessionsCategoriesRequest, ListSessionsCategoriesResponse> operation =
+                new ListSessionsCategories.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Session Categories
-     * 
+     *
      * <p>Create a session category.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateSessionCategoryRequestBuilder createSessionCategory() {
@@ -546,29 +528,28 @@ public class AsyncSessions {
 
     /**
      * Create Session Categories
-     * 
+     *
      * <p>Create a session category.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateSessionCategoryResponse>} - The async response
      */
-    public CompletableFuture<CreateSessionCategoryResponse> createSessionCategory(@Nonnull SessionCategoryInput request) {
-        AsyncRequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation
-              = new CreateSessionCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateSessionCategoryResponse> createSessionCategory(
+            @Nonnull SessionCategoryInput request) {
+        AsyncRequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation =
+                new CreateSessionCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Session Segments
-     * 
+     *
      * <p>Return a list of session and audience segment associations.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSessionSegmentsRequestBuilder getSessionSegments() {
@@ -577,29 +558,28 @@ public class AsyncSessions {
 
     /**
      * Get Session Segments
-     * 
+     *
      * <p>Return a list of session and audience segment associations.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSessionSegmentsResponse>} - The async response
      */
-    public CompletableFuture<GetSessionSegmentsResponse> getSessionSegments(@Nonnull GetSessionSegmentsRequest request) {
-        AsyncRequestOperation<GetSessionSegmentsRequest, GetSessionSegmentsResponse> operation
-              = new GetSessionSegments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetSessionSegmentsResponse> getSessionSegments(
+            @Nonnull GetSessionSegmentsRequest request) {
+        AsyncRequestOperation<GetSessionSegmentsRequest, GetSessionSegmentsResponse> operation =
+                new GetSessionSegments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Sessions
-     * 
+     *
      * <p>Gets a paginated list of sessions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSessionsRequestBuilder listSessions() {
@@ -608,29 +588,27 @@ public class AsyncSessions {
 
     /**
      * List Sessions
-     * 
+     *
      * <p>Gets a paginated list of sessions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSessionsResponse>} - The async response
      */
     public CompletableFuture<ListSessionsResponse> listSessions(@Nonnull ListSessionsRequest request) {
-        AsyncRequestOperation<ListSessionsRequest, ListSessionsResponse> operation
-              = new ListSessions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSessionsRequest, ListSessionsResponse> operation =
+                new ListSessions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Session
-     * 
+     *
      * <p>Creates a single session based on the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateSessionRequestBuilder createSession() {
@@ -639,30 +617,28 @@ public class AsyncSessions {
 
     /**
      * Create Session
-     * 
+     *
      * <p>Creates a single session based on the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateSessionResponse>} - The async response
      */
     public CompletableFuture<CreateSessionResponse> createSession(@Nonnull SessionInput request) {
-        AsyncRequestOperation<SessionInput, CreateSessionResponse> operation
-              = new CreateSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<SessionInput, CreateSessionResponse> operation =
+                new CreateSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Sessions
-     * 
+     *
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
      * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSessionsPostFiltersRequestBuilder listSessionsPostFilters() {
@@ -671,30 +647,29 @@ public class AsyncSessions {
 
     /**
      * List Sessions
-     * 
+     *
      * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
      * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSessionsPostFiltersResponse>} - The async response
      */
-    public CompletableFuture<ListSessionsPostFiltersResponse> listSessionsPostFilters(@Nonnull ListSessionsPostFiltersRequest request) {
-        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation
-              = new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListSessionsPostFiltersResponse> listSessionsPostFilters(
+            @Nonnull ListSessionsPostFiltersRequest request) {
+        AsyncRequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation =
+                new ListSessionsPostFilters.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Session
-     * 
+     *
      * <p>Gets a single session based on the provided session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSessionByIdRequestBuilder getSessionById() {
@@ -703,29 +678,27 @@ public class AsyncSessions {
 
     /**
      * Get Session
-     * 
+     *
      * <p>Gets a single session based on the provided session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSessionByIdResponse>} - The async response
      */
     public CompletableFuture<GetSessionByIdResponse> getSessionById(@Nonnull GetSessionByIdRequest request) {
-        AsyncRequestOperation<GetSessionByIdRequest, GetSessionByIdResponse> operation
-              = new GetSessionById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSessionByIdRequest, GetSessionByIdResponse> operation =
+                new GetSessionById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Session
-     * 
+     *
      * <p>Updates the given session with the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateSessionRequestBuilder updateSession() {
@@ -734,29 +707,27 @@ public class AsyncSessions {
 
     /**
      * Update Session
-     * 
+     *
      * <p>Updates the given session with the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateSessionResponse>} - The async response
      */
     public CompletableFuture<UpdateSessionResponse> updateSession(@Nonnull UpdateSessionRequest request) {
-        AsyncRequestOperation<UpdateSessionRequest, UpdateSessionResponse> operation
-              = new UpdateSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateSessionRequest, UpdateSessionResponse> operation =
+                new UpdateSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Session
-     * 
+     *
      * <p>Deletes a session based on the given session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteSessionRequestBuilder deleteSession() {
@@ -765,29 +736,27 @@ public class AsyncSessions {
 
     /**
      * Delete Session
-     * 
+     *
      * <p>Deletes a session based on the given session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteSessionResponse>} - The async response
      */
     public CompletableFuture<DeleteSessionResponse> deleteSession(@Nonnull DeleteSessionRequest request) {
-        AsyncRequestOperation<DeleteSessionRequest, DeleteSessionResponse> operation
-              = new DeleteSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteSessionRequest, DeleteSessionResponse> operation =
+                new DeleteSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Custom Field Answers
-     * 
+     *
      * <p>Updates custom field answers for a single custom field and single session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateSessionCustomFieldAnswersRequestBuilder updateSessionCustomFieldAnswers() {
@@ -796,29 +765,28 @@ public class AsyncSessions {
 
     /**
      * Update Custom Field Answers
-     * 
+     *
      * <p>Updates custom field answers for a single custom field and single session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateSessionCustomFieldAnswersResponse>} - The async response
      */
-    public CompletableFuture<UpdateSessionCustomFieldAnswersResponse> updateSessionCustomFieldAnswers(@Nonnull UpdateSessionCustomFieldAnswersRequest request) {
-        AsyncRequestOperation<UpdateSessionCustomFieldAnswersRequest, UpdateSessionCustomFieldAnswersResponse> operation
-              = new UpdateSessionCustomFieldAnswers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateSessionCustomFieldAnswersResponse> updateSessionCustomFieldAnswers(
+            @Nonnull UpdateSessionCustomFieldAnswersRequest request) {
+        AsyncRequestOperation<UpdateSessionCustomFieldAnswersRequest, UpdateSessionCustomFieldAnswersResponse> operation =
+                new UpdateSessionCustomFieldAnswers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Session Documents
-     * 
+     *
      * <p>Gets a paginated list of document URLs for a single session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSessionDocsRequestBuilder listSessionDocs() {
@@ -827,29 +795,27 @@ public class AsyncSessions {
 
     /**
      * List Session Documents
-     * 
+     *
      * <p>Gets a paginated list of document URLs for a single session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSessionDocsResponse>} - The async response
      */
     public CompletableFuture<ListSessionDocsResponse> listSessionDocs(@Nonnull ListSessionDocsRequest request) {
-        AsyncRequestOperation<ListSessionDocsRequest, ListSessionDocsResponse> operation
-              = new ListSessionDocs.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSessionDocsRequest, ListSessionDocsResponse> operation =
+                new ListSessionDocs.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Session Document
-     * 
+     *
      * <p>Get a specific document that is assigned to a specific session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSessionDocRequestBuilder getSessionDoc() {
@@ -858,31 +824,29 @@ public class AsyncSessions {
 
     /**
      * Get Session Document
-     * 
+     *
      * <p>Get a specific document that is assigned to a specific session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSessionDocResponse>} - The async response
      */
     public CompletableFuture<GetSessionDocResponse> getSessionDoc(@Nonnull GetSessionDocRequest request) {
-        AsyncRequestOperation<GetSessionDocRequest, GetSessionDocResponse> operation
-              = new GetSessionDoc.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSessionDocRequest, GetSessionDocResponse> operation =
+                new GetSessionDoc.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Add Document To Session
-     * 
+     *
      * <p>Associates a given document to a session. Documents must be
      * <a href="#operation/uploadFile">uploaded</a> before you can associate
      * them.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public AddSessionDocRequestBuilder addSessionDoc() {
@@ -891,32 +855,30 @@ public class AsyncSessions {
 
     /**
      * Add Document To Session
-     * 
+     *
      * <p>Associates a given document to a session. Documents must be
      * <a href="#operation/uploadFile">uploaded</a> before you can associate
      * them.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AddSessionDocResponse>} - The async response
      */
     public CompletableFuture<AddSessionDocResponse> addSessionDoc(@Nonnull AddSessionDocRequest request) {
-        AsyncRequestOperation<AddSessionDocRequest, AddSessionDocResponse> operation
-              = new AddSessionDoc.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddSessionDocRequest, AddSessionDocResponse> operation =
+                new AddSessionDoc.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Document from Session
-     * 
+     *
      * <p>Disassociates a given document from a session. Document IDs are provided after <a
      * href="#operation/uploadFile">file upload</a>.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteSessionDocumentRequestBuilder deleteSessionDocument() {
@@ -925,30 +887,29 @@ public class AsyncSessions {
 
     /**
      * Delete Document from Session
-     * 
+     *
      * <p>Disassociates a given document from a session. Document IDs are provided after <a
      * href="#operation/uploadFile">file upload</a>.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteSessionDocumentResponse>} - The async response
      */
-    public CompletableFuture<DeleteSessionDocumentResponse> deleteSessionDocument(@Nonnull DeleteSessionDocumentRequest request) {
-        AsyncRequestOperation<DeleteSessionDocumentRequest, DeleteSessionDocumentResponse> operation
-              = new DeleteSessionDocument.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DeleteSessionDocumentResponse> deleteSessionDocument(
+            @Nonnull DeleteSessionDocumentRequest request) {
+        AsyncRequestOperation<DeleteSessionDocumentRequest, DeleteSessionDocumentResponse> operation =
+                new DeleteSessionDocument.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Session's Speakers
-     * 
+     *
      * <p>Get a paginated list of speakers and categories assigned to the provided session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSessionSpeakersRequestBuilder listSessionSpeakers() {
@@ -957,29 +918,28 @@ public class AsyncSessions {
 
     /**
      * List Session's Speakers
-     * 
+     *
      * <p>Get a paginated list of speakers and categories assigned to the provided session ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSessionSpeakersResponse>} - The async response
      */
-    public CompletableFuture<ListSessionSpeakersResponse> listSessionSpeakers(@Nonnull ListSessionSpeakersRequest request) {
-        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation
-              = new ListSessionSpeakers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListSessionSpeakersResponse> listSessionSpeakers(
+            @Nonnull ListSessionSpeakersRequest request) {
+        AsyncRequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation =
+                new ListSessionSpeakers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Assign Speaker to Session
-     * 
+     *
      * <p>Assign a given speaker to a given session based on their IDs.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public AddSpeakerToSessionRequestBuilder addSpeakerToSession() {
@@ -988,29 +948,28 @@ public class AsyncSessions {
 
     /**
      * Assign Speaker to Session
-     * 
+     *
      * <p>Assign a given speaker to a given session based on their IDs.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AddSpeakerToSessionResponse>} - The async response
      */
-    public CompletableFuture<AddSpeakerToSessionResponse> addSpeakerToSession(@Nonnull AddSpeakerToSessionRequest request) {
-        AsyncRequestOperation<AddSpeakerToSessionRequest, AddSpeakerToSessionResponse> operation
-              = new AddSpeakerToSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<AddSpeakerToSessionResponse> addSpeakerToSession(
+            @Nonnull AddSpeakerToSessionRequest request) {
+        AsyncRequestOperation<AddSpeakerToSessionRequest, AddSpeakerToSessionResponse> operation =
+                new AddSpeakerToSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Speaker From Session
-     * 
+     *
      * <p>Deletes a speaker from a session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public RemoveSpeakerFromSessionRequestBuilder removeSpeakerFromSession() {
@@ -1019,19 +978,18 @@ public class AsyncSessions {
 
     /**
      * Delete Speaker From Session
-     * 
+     *
      * <p>Deletes a speaker from a session.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<RemoveSpeakerFromSessionResponse>} - The async response
      */
-    public CompletableFuture<RemoveSpeakerFromSessionResponse> removeSpeakerFromSession(@Nonnull RemoveSpeakerFromSessionRequest request) {
-        AsyncRequestOperation<RemoveSpeakerFromSessionRequest, RemoveSpeakerFromSessionResponse> operation
-              = new RemoveSpeakerFromSession.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<RemoveSpeakerFromSessionResponse> removeSpeakerFromSession(
+            @Nonnull RemoveSpeakerFromSessionRequest request) {
+        AsyncRequestOperation<RemoveSpeakerFromSessionRequest, RemoveSpeakerFromSessionResponse> operation =
+                new RemoveSpeakerFromSession.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

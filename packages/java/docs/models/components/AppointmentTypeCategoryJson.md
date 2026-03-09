@@ -2,6 +2,14 @@
 
 The category of the appointment type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AppointmentTypeCategoryJson;
+
+AppointmentTypeCategoryJson value = AppointmentTypeCategoryJson.CUSTOM_APPOINTMENT;
+```
+
 
 ## Values
 

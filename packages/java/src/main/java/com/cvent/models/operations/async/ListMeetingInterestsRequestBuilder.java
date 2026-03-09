@@ -40,7 +40,7 @@ public class ListMeetingInterestsRequestBuilder {
     private ListMeetingInterestsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListMeetingInterestsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListMeetingInterestsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListMeetingInterestsResponse> call() {
-        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation
-              = new ListMeetingInterests.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation =
+                new ListMeetingInterests.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListMeetingInterestsRequestBuilder {
      */
     public Publisher<ListMeetingInterestsResponse> callAsPublisher() {
         ListMeetingInterestsRequest request = this.request;
-        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation
-              = new ListMeetingInterests.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListMeetingInterestsRequest, ListMeetingInterestsResponse> operation =
+                new ListMeetingInterests.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListMeetingInterestsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListMeetingInterestsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListMeetingInterestsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListMeetingInterestsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

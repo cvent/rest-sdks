@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListTravelAccountsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -46,7 +45,7 @@ public class ListTravelAccountsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -56,7 +55,7 @@ public class ListTravelAccountsRequest {
      * * less than or equal: le
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne|sw|contains)
@@ -75,15 +74,13 @@ public class ListTravelAccountsRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListTravelAccountsRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -119,7 +116,7 @@ public class ListTravelAccountsRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -129,7 +126,7 @@ public class ListTravelAccountsRequest {
      * * less than or equal: le
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne|sw|contains)
@@ -144,7 +141,6 @@ public class ListTravelAccountsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -154,7 +150,6 @@ public class ListTravelAccountsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -163,7 +158,6 @@ public class ListTravelAccountsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -171,7 +165,6 @@ public class ListTravelAccountsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -182,11 +175,10 @@ public class ListTravelAccountsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There are eight comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -196,7 +188,7 @@ public class ListTravelAccountsRequest {
      * * less than or equal: le
      * * starts with: sw
      * * contains a value: contains
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * name (eq|ne|sw|contains)
@@ -208,7 +200,6 @@ public class ListTravelAccountsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -218,33 +209,36 @@ public class ListTravelAccountsRequest {
             return false;
         }
         ListTravelAccountsRequest other = (ListTravelAccountsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelAccountsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListTravelAccountsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -257,7 +251,7 @@ public class ListTravelAccountsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -297,7 +291,7 @@ public class ListTravelAccountsRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There are eight comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -307,7 +301,7 @@ public class ListTravelAccountsRequest {
          * * less than or equal: le
          * * starts with: sw
          * * contains a value: contains
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          * * name (eq|ne|sw|contains)
@@ -320,16 +314,10 @@ public class ListTravelAccountsRequest {
         }
 
         public ListTravelAccountsRequest build() {
-            return new ListTravelAccountsRequest(
-                after, before, limit,
-                token, filter);
+            return new ListTravelAccountsRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

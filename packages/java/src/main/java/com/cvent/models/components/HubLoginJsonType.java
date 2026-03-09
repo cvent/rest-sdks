@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * HubLoginJsonType
- * 
+ *
  * <p>Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic
  * link' provided via email. Magic links are unique for each member, allowing the member to log in
  * without requiring credentials.
- * 
+ *
  * <p>SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub.
  * BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
  */
@@ -29,13 +29,13 @@ public enum HubLoginJsonType {
     HubLoginJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<HubLoginJsonType> fromValue(String value) {
-        for (HubLoginJsonType o: HubLoginJsonType.values()) {
+        for (HubLoginJsonType o : HubLoginJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum HubLoginJsonType {
         return Optional.empty();
     }
 }
-

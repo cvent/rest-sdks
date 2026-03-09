@@ -2,6 +2,14 @@
 
 Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ExhibitorAnswerFormatJson;
+
+ExhibitorAnswerFormatJson value = ExhibitorAnswerFormatJson.DATE;
+```
+
 
 ## Values
 

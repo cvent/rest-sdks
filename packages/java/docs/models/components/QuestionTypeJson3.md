@@ -2,6 +2,14 @@
 
 This object represents the type of a question
 
+## Example Usage
+
+```java
+import com.cvent.models.components.QuestionTypeJson3;
+
+QuestionTypeJson3 value = QuestionTypeJson3.SINGLE_CHOICE;
+```
+
 
 ## Values
 

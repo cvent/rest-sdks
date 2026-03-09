@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * SessionEnrollmentStatusJson
- * 
+ *
  * <p>Denotes the attendee's status in the session. Registered: The attendee is registered for the
  * session. Waitlisted: The attendee is on a waitlist to register for the session.
- * 
+ *
  * <p>Cancelled: The attendee's registration for the session has been cancelled.
  */
 public enum SessionEnrollmentStatusJson {
@@ -27,13 +27,13 @@ public enum SessionEnrollmentStatusJson {
     SessionEnrollmentStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SessionEnrollmentStatusJson> fromValue(String value) {
-        for (SessionEnrollmentStatusJson o: SessionEnrollmentStatusJson.values()) {
+        for (SessionEnrollmentStatusJson o : SessionEnrollmentStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum SessionEnrollmentStatusJson {
         return Optional.empty();
     }
 }
-

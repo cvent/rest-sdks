@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * ProgramItemInput
- * 
+ *
  * <p>Represents a program item object that will be added to a session.
  */
 public class ProgramItemInput {
@@ -70,24 +70,17 @@ public class ProgramItemInput {
             @JsonProperty("duration") @Nullable Long duration,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("rteDescription") @Nullable String rteDescription) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.duration = Optional.ofNullable(duration)
-            .orElse(Builder._SINGLETON_VALUE_Duration.value());
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.duration = Optional.ofNullable(duration).orElse(Builder._SINGLETON_VALUE_Duration.value());
         this.description = description;
         this.rteDescription = rteDescription;
     }
-    
-    public ProgramItemInput(
-            @Nonnull EventLiteJson1 event,
-            @Nonnull SessionLiteJson1 session,
-            @Nonnull String name) {
-        this(event, session, name,
-            null, null, null);
+
+    public ProgramItemInput(@Nonnull EventLiteJson1 event, @Nonnull SessionLiteJson1 session, @Nonnull String name) {
+        this(event, session, name, null, null, null);
     }
 
     /**
@@ -136,7 +129,6 @@ public class ProgramItemInput {
         return new Builder();
     }
 
-
     /**
      * The related event object.
      */
@@ -144,7 +136,6 @@ public class ProgramItemInput {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The related session object.
@@ -154,7 +145,6 @@ public class ProgramItemInput {
         return this;
     }
 
-
     /**
      * Name of the program item.
      */
@@ -162,7 +152,6 @@ public class ProgramItemInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The duration of the program item in minutes.
@@ -172,7 +161,6 @@ public class ProgramItemInput {
         return this;
     }
 
-
     /**
      * Description of the program item.
      */
@@ -181,7 +169,6 @@ public class ProgramItemInput {
         return this;
     }
 
-
     /**
      * Rich-text-editor description in json formatting.
      */
@@ -189,7 +176,6 @@ public class ProgramItemInput {
         this.rteDescription = rteDescription;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -200,35 +186,39 @@ public class ProgramItemInput {
             return false;
         }
         ProgramItemInput other = (ProgramItemInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, session, name,
-            duration, description, rteDescription);
+        return Utils.enhancedHash(event, session, name, duration, description, rteDescription);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProgramItemInput.class,
-                "event", event,
-                "session", session,
-                "name", name,
-                "duration", duration,
-                "description", description,
-                "rteDescription", rteDescription);
+        return Utils.toString(
+                ProgramItemInput.class,
+                "event",
+                event,
+                "session",
+                session,
+                "name",
+                name,
+                "duration",
+                duration,
+                "description",
+                description,
+                "rteDescription",
+                rteDescription);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventLiteJson1 event;
 
@@ -243,7 +233,7 @@ public class ProgramItemInput {
         private String rteDescription;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -295,16 +285,10 @@ public class ProgramItemInput {
         }
 
         public ProgramItemInput build() {
-            return new ProgramItemInput(
-                event, session, name,
-                duration, description, rteDescription);
+            return new ProgramItemInput(event, session, name, duration, description, rteDescription);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Duration =
-                new LazySingletonValue<>(
-                        "duration",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("duration", "0", new TypeReference<Long>() {});
     }
 }

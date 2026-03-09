@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class LaunchEventFeaturesRequest {
     /**
      * Unique Id of an event
@@ -28,7 +27,6 @@ public class LaunchEventFeaturesRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=type")
     private LaunchFeatureTypeJson type;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private EventFeatureLaunchRequest eventFeatureLaunchRequest;
 
@@ -37,16 +35,12 @@ public class LaunchEventFeaturesRequest {
             @Nonnull String id,
             @Nonnull LaunchFeatureTypeJson type,
             @Nullable EventFeatureLaunchRequest eventFeatureLaunchRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.eventFeatureLaunchRequest = eventFeatureLaunchRequest;
     }
-    
-    public LaunchEventFeaturesRequest(
-            @Nonnull String id,
-            @Nonnull LaunchFeatureTypeJson type) {
+
+    public LaunchEventFeaturesRequest(@Nonnull String id, @Nonnull LaunchFeatureTypeJson type) {
         this(id, type, null);
     }
 
@@ -72,7 +66,6 @@ public class LaunchEventFeaturesRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of an event
      */
@@ -80,7 +73,6 @@ public class LaunchEventFeaturesRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Event feature to be launched.
@@ -90,12 +82,11 @@ public class LaunchEventFeaturesRequest {
         return this;
     }
 
-
-    public LaunchEventFeaturesRequest withEventFeatureLaunchRequest(@Nullable EventFeatureLaunchRequest eventFeatureLaunchRequest) {
+    public LaunchEventFeaturesRequest withEventFeatureLaunchRequest(
+            @Nullable EventFeatureLaunchRequest eventFeatureLaunchRequest) {
         this.eventFeatureLaunchRequest = eventFeatureLaunchRequest;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,30 @@ public class LaunchEventFeaturesRequest {
             return false;
         }
         LaunchEventFeaturesRequest other = (LaunchEventFeaturesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.eventFeatureLaunchRequest, other.eventFeatureLaunchRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.eventFeatureLaunchRequest, other.eventFeatureLaunchRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, eventFeatureLaunchRequest);
+        return Utils.enhancedHash(id, type, eventFeatureLaunchRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LaunchEventFeaturesRequest.class,
-                "id", id,
-                "type", type,
-                "eventFeatureLaunchRequest", eventFeatureLaunchRequest);
+        return Utils.toString(
+                LaunchEventFeaturesRequest.class,
+                "id",
+                id,
+                "type",
+                type,
+                "eventFeatureLaunchRequest",
+                eventFeatureLaunchRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +129,7 @@ public class LaunchEventFeaturesRequest {
         private EventFeatureLaunchRequest eventFeatureLaunchRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -161,9 +154,7 @@ public class LaunchEventFeaturesRequest {
         }
 
         public LaunchEventFeaturesRequest build() {
-            return new LaunchEventFeaturesRequest(
-                id, type, eventFeatureLaunchRequest);
+            return new LaunchEventFeaturesRequest(id, type, eventFeatureLaunchRequest);
         }
-
     }
 }

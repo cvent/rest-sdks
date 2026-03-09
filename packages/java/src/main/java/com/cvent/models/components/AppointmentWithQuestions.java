@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * AppointmentWithQuestions
- * 
+ *
  * <p>Details of an event appointment including questions.
  */
 public class AppointmentWithQuestions {
@@ -141,7 +141,7 @@ public class AppointmentWithQuestions {
 
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -185,20 +185,15 @@ public class AppointmentWithQuestions {
             @JsonProperty("modified") @Nullable OffsetDateTime modified,
             @JsonProperty("deleted") @Nullable Boolean deleted,
             @JsonProperty("questions") @Nullable List<CustomField> questions) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
-        this.start = Optional.ofNullable(start)
-            .orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
-        this.end = Optional.ofNullable(end)
-            .orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
         this.status = status;
         this.location = location;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -211,20 +206,34 @@ public class AppointmentWithQuestions {
         this.deleted = deleted;
         this.questions = questions;
     }
-    
+
     public AppointmentWithQuestions(
             @Nonnull String id,
             @Nonnull String name,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end,
             @Nonnull AppointmentWithQuestionsType type) {
-        this(id, null, name,
-            null, start, end,
-            null, null, type,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(
+                id,
+                null,
+                name,
+                null,
+                start,
+                end,
+                null,
+                null,
+                type,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -349,7 +358,7 @@ public class AppointmentWithQuestions {
 
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -375,7 +384,6 @@ public class AppointmentWithQuestions {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the appointment.
      */
@@ -383,7 +391,6 @@ public class AppointmentWithQuestions {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The unique appointment code in Cvent or unique reference id of an appointment in the external
@@ -394,7 +401,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * The name of the appointment.
      */
@@ -402,7 +408,6 @@ public class AppointmentWithQuestions {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The description of the appointment.
@@ -412,7 +417,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date/time of the appointment.
      */
@@ -420,7 +424,6 @@ public class AppointmentWithQuestions {
         this.start = Utils.checkNotNull(start, "start");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted end date/time of the appointment.
@@ -430,7 +433,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * Denotes the status of an appointment.
      */
@@ -438,7 +440,6 @@ public class AppointmentWithQuestions {
         this.status = status;
         return this;
     }
-
 
     /**
      * The location of the appointment.
@@ -448,7 +449,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * The type of the appointment.
      */
@@ -456,7 +456,6 @@ public class AppointmentWithQuestions {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was created.
@@ -466,7 +465,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this record.
      */
@@ -474,7 +472,6 @@ public class AppointmentWithQuestions {
         this.createdBy = createdBy;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
@@ -484,7 +481,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
      */
@@ -492,7 +488,6 @@ public class AppointmentWithQuestions {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -502,7 +497,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * Collection of attendees participating in this appointment, and their related details.
      */
@@ -510,7 +504,6 @@ public class AppointmentWithQuestions {
         this.participants = participants;
         return this;
     }
-
 
     /**
      * True indicates participants will be automatically marked as accepted for the appointment.
@@ -520,7 +513,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * True indicates that existing schedule rules were enforced when the appointment was created.
      */
@@ -529,10 +521,9 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * This field is deprecated please use - lastModified
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -540,7 +531,6 @@ public class AppointmentWithQuestions {
         this.modified = modified;
         return this;
     }
-
 
     /**
      * True indicates the appointment has been logically deleted.
@@ -550,7 +540,6 @@ public class AppointmentWithQuestions {
         return this;
     }
 
-
     /**
      * Collection of custom questions asked to participants of the appointment.
      */
@@ -558,7 +547,6 @@ public class AppointmentWithQuestions {
         this.questions = questions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -569,68 +557,101 @@ public class AppointmentWithQuestions {
             return false;
         }
         AppointmentWithQuestions other = (AppointmentWithQuestions) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.participants, other.participants) &&
-            Utils.enhancedDeepEquals(this.autoAcceptAttendees, other.autoAcceptAttendees) &&
-            Utils.enhancedDeepEquals(this.enforceScheduleRules, other.enforceScheduleRules) &&
-            Utils.enhancedDeepEquals(this.modified, other.modified) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.questions, other.questions);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.participants, other.participants)
+                && Utils.enhancedDeepEquals(this.autoAcceptAttendees, other.autoAcceptAttendees)
+                && Utils.enhancedDeepEquals(this.enforceScheduleRules, other.enforceScheduleRules)
+                && Utils.enhancedDeepEquals(this.modified, other.modified)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.questions, other.questions);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            id, code, name,
-            description, start, end,
-            status, location, type,
-            created, createdBy, lastModified,
-            lastModifiedBy, appointmentEvent, participants,
-            autoAcceptAttendees, enforceScheduleRules, modified,
-            deleted, questions);
+                id,
+                code,
+                name,
+                description,
+                start,
+                end,
+                status,
+                location,
+                type,
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                appointmentEvent,
+                participants,
+                autoAcceptAttendees,
+                enforceScheduleRules,
+                modified,
+                deleted,
+                questions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentWithQuestions.class,
-                "id", id,
-                "code", code,
-                "name", name,
-                "description", description,
-                "start", start,
-                "end", end,
-                "status", status,
-                "location", location,
-                "type", type,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "appointmentEvent", appointmentEvent,
-                "participants", participants,
-                "autoAcceptAttendees", autoAcceptAttendees,
-                "enforceScheduleRules", enforceScheduleRules,
-                "modified", modified,
-                "deleted", deleted,
-                "questions", questions);
+        return Utils.toString(
+                AppointmentWithQuestions.class,
+                "id",
+                id,
+                "code",
+                code,
+                "name",
+                name,
+                "description",
+                description,
+                "start",
+                start,
+                "end",
+                end,
+                "status",
+                status,
+                "location",
+                location,
+                "type",
+                type,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "appointmentEvent",
+                appointmentEvent,
+                "participants",
+                participants,
+                "autoAcceptAttendees",
+                autoAcceptAttendees,
+                "enforceScheduleRules",
+                enforceScheduleRules,
+                "modified",
+                modified,
+                "deleted",
+                deleted,
+                "questions",
+                questions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -674,7 +695,7 @@ public class AppointmentWithQuestions {
         private List<CustomField> questions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -816,7 +837,7 @@ public class AppointmentWithQuestions {
 
         /**
          * This field is deprecated please use - lastModified
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -843,14 +864,26 @@ public class AppointmentWithQuestions {
 
         public AppointmentWithQuestions build() {
             return new AppointmentWithQuestions(
-                id, code, name,
-                description, start, end,
-                status, location, type,
-                created, createdBy, lastModified,
-                lastModifiedBy, appointmentEvent, participants,
-                autoAcceptAttendees, enforceScheduleRules, modified,
-                deleted, questions);
+                    id,
+                    code,
+                    name,
+                    description,
+                    start,
+                    end,
+                    status,
+                    location,
+                    type,
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    appointmentEvent,
+                    participants,
+                    autoAcceptAttendees,
+                    enforceScheduleRules,
+                    modified,
+                    deleted,
+                    questions);
         }
-
     }
 }

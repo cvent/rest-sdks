@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TravelProgramStatusJson
     {
-        [JsonProperty("in_progress")]
-        InProgress,
-        [JsonProperty("complete")]
-        Complete,
-        [JsonProperty("closed")]
-        Closed,
+        [JsonProperty("in_progress")] InProgress,
+        [JsonProperty("complete")] Complete,
+        [JsonProperty("closed")] Closed,
     }
 
     public static class TravelProgramStatusJsonExtension
     {
         public static string Value(this TravelProgramStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TravelProgramStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TravelProgramStatusJson).GetFields())
+            foreach (var field in typeof(TravelProgramStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * TravelDetailsJson
- * 
+ *
  * <p>Common object that holds travel details information.
  */
 public class TravelDetailsJson {
@@ -49,7 +49,7 @@ public class TravelDetailsJson {
         this.departure = departure;
         this.additionalInformation = additionalInformation;
     }
-    
+
     public TravelDetailsJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class TravelDetailsJson {
         return new Builder();
     }
 
-
     /**
      * Common object that holds travel departure/arrival information.
      */
@@ -87,7 +86,6 @@ public class TravelDetailsJson {
         this.arrival = arrival;
         return this;
     }
-
 
     /**
      * Common object that holds travel departure/arrival information.
@@ -97,7 +95,6 @@ public class TravelDetailsJson {
         return this;
     }
 
-
     /**
      * Additional information about travel.
      */
@@ -105,7 +102,6 @@ public class TravelDetailsJson {
         this.additionalInformation = additionalInformation;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,30 @@ public class TravelDetailsJson {
             return false;
         }
         TravelDetailsJson other = (TravelDetailsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.arrival, other.arrival) &&
-            Utils.enhancedDeepEquals(this.departure, other.departure) &&
-            Utils.enhancedDeepEquals(this.additionalInformation, other.additionalInformation);
+        return Utils.enhancedDeepEquals(this.arrival, other.arrival)
+                && Utils.enhancedDeepEquals(this.departure, other.departure)
+                && Utils.enhancedDeepEquals(this.additionalInformation, other.additionalInformation);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            arrival, departure, additionalInformation);
+        return Utils.enhancedHash(arrival, departure, additionalInformation);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelDetailsJson.class,
-                "arrival", arrival,
-                "departure", departure,
-                "additionalInformation", additionalInformation);
+        return Utils.toString(
+                TravelDetailsJson.class,
+                "arrival",
+                arrival,
+                "departure",
+                departure,
+                "additionalInformation",
+                additionalInformation);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelDepartureArrivalJson arrival;
 
@@ -146,7 +144,7 @@ public class TravelDetailsJson {
         private String additionalInformation;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +172,7 @@ public class TravelDetailsJson {
         }
 
         public TravelDetailsJson build() {
-            return new TravelDetailsJson(
-                arrival, departure, additionalInformation);
+            return new TravelDetailsJson(arrival, departure, additionalInformation);
         }
-
     }
 }

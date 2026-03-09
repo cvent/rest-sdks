@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -39,10 +39,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class CreateAttendeeLinks {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -51,7 +50,7 @@ public class CreateAttendeeLinks {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -87,28 +86,18 @@ public class CreateAttendeeLinks {
                     java.util.Optional.of(java.util.List.of("event/attendee-links:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/webcasts/{id}/attendee-links",
-                    request, null);
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/webcasts/{id}/attendee-links", request, null);
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "requestBody",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "requestBody", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -123,15 +112,16 @@ public class CreateAttendeeLinks {
         }
 
         private HttpRequest onBuildRequest(CreateAttendeeLinksRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreateAttendeeLinksRequest.class, new TypeReference<CreateAttendeeLinksRequest>() {});
+            HttpRequest req = buildRequest(
+                    request, CreateAttendeeLinksRequest.class, new TypeReference<CreateAttendeeLinksRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -156,25 +146,20 @@ public class CreateAttendeeLinks {
             return httpRes;
         }
 
-
         @Override
         public CreateAttendeeLinksResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            CreateAttendeeLinksResponse.Builder resBuilder =
-                    CreateAttendeeLinksResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            CreateAttendeeLinksResponse.Builder resBuilder = CreateAttendeeLinksResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             CreateAttendeeLinksResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withAttendeeLinkBulkResponse(Utils.unmarshal(response, new TypeReference<List<AttendeeLinkBulkResponseItemJson>>() {}));
+                    return res.withAttendeeLinkBulkResponse(
+                            Utils.unmarshal(response, new TypeReference<List<AttendeeLinkBulkResponseItemJson>>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -197,15 +182,18 @@ public class CreateAttendeeLinks {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<CreateAttendeeLinksRequest, com.cvent.models.operations.async.CreateAttendeeLinksResponse> {
+            implements AsyncRequestOperation<
+                    CreateAttendeeLinksRequest, com.cvent.models.operations.async.CreateAttendeeLinksResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(CreateAttendeeLinksRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, CreateAttendeeLinksRequest.class, new TypeReference<CreateAttendeeLinksRequest>() {});
+            HttpRequest req = buildRequest(
+                    request, CreateAttendeeLinksRequest.class, new TypeReference<CreateAttendeeLinksRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -219,7 +207,9 @@ public class CreateAttendeeLinks {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(CreateAttendeeLinksRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -236,19 +226,15 @@ public class CreateAttendeeLinks {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.CreateAttendeeLinksResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.CreateAttendeeLinksResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.CreateAttendeeLinksResponse
-                            .builder()
+                    com.cvent.models.operations.async.CreateAttendeeLinksResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.CreateAttendeeLinksResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<List<AttendeeLinkBulkResponseItemJson>>() {})
@@ -259,8 +245,7 @@ public class CreateAttendeeLinks {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

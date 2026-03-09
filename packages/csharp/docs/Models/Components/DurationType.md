@@ -2,6 +2,14 @@
 
 The target entity for which the duration was collected.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = DurationType.Session;
+```
+
 
 ## Values
 

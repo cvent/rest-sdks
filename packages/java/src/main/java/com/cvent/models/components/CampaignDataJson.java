@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CampaignDataJson
- * 
+ *
  * <p>Campaign data model.
  */
 public class CampaignDataJson {
@@ -114,12 +114,9 @@ public class CampaignDataJson {
         this.companyName = companyName;
         this.fromName = fromName;
     }
-    
+
     public CampaignDataJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -196,7 +193,6 @@ public class CampaignDataJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -204,7 +200,6 @@ public class CampaignDataJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -214,7 +209,6 @@ public class CampaignDataJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -222,7 +216,6 @@ public class CampaignDataJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -232,7 +225,6 @@ public class CampaignDataJson {
         return this;
     }
 
-
     /**
      * Unique ID of a campaign.
      */
@@ -240,7 +232,6 @@ public class CampaignDataJson {
         this.campaignId = campaignId;
         return this;
     }
-
 
     /**
      * Name of the campaign.
@@ -250,7 +241,6 @@ public class CampaignDataJson {
         return this;
     }
 
-
     /**
      * True indicates the campaign is active.
      */
@@ -258,7 +248,6 @@ public class CampaignDataJson {
         this.active = active;
         return this;
     }
-
 
     /**
      * True indicates click tracking is enabled in the campaign.
@@ -268,7 +257,6 @@ public class CampaignDataJson {
         return this;
     }
 
-
     /**
      * Name of the company who is organising the campaign.
      */
@@ -277,7 +265,6 @@ public class CampaignDataJson {
         return this;
     }
 
-
     /**
      * The name of the person on whose behalf the email will be sent.
      */
@@ -285,7 +272,6 @@ public class CampaignDataJson {
         this.fromName = fromName;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -296,45 +282,61 @@ public class CampaignDataJson {
             return false;
         }
         CampaignDataJson other = (CampaignDataJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.campaignId, other.campaignId) &&
-            Utils.enhancedDeepEquals(this.campaignName, other.campaignName) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled) &&
-            Utils.enhancedDeepEquals(this.companyName, other.companyName) &&
-            Utils.enhancedDeepEquals(this.fromName, other.fromName);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.campaignId, other.campaignId)
+                && Utils.enhancedDeepEquals(this.campaignName, other.campaignName)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.clickTrackingEnabled, other.clickTrackingEnabled)
+                && Utils.enhancedDeepEquals(this.companyName, other.companyName)
+                && Utils.enhancedDeepEquals(this.fromName, other.fromName);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, campaignId, campaignName,
-            active, clickTrackingEnabled, companyName,
-            fromName);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                campaignId,
+                campaignName,
+                active,
+                clickTrackingEnabled,
+                companyName,
+                fromName);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CampaignDataJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "campaignId", campaignId,
-                "campaignName", campaignName,
-                "active", active,
-                "clickTrackingEnabled", clickTrackingEnabled,
-                "companyName", companyName,
-                "fromName", fromName);
+        return Utils.toString(
+                CampaignDataJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "campaignId",
+                campaignId,
+                "campaignName",
+                campaignName,
+                "active",
+                active,
+                "clickTrackingEnabled",
+                clickTrackingEnabled,
+                "companyName",
+                companyName,
+                "fromName",
+                fromName);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -357,7 +359,7 @@ public class CampaignDataJson {
         private String fromName;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -442,11 +444,16 @@ public class CampaignDataJson {
 
         public CampaignDataJson build() {
             return new CampaignDataJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, campaignId, campaignName,
-                active, clickTrackingEnabled, companyName,
-                fromName);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    campaignId,
+                    campaignName,
+                    active,
+                    clickTrackingEnabled,
+                    companyName,
+                    fromName);
         }
-
     }
 }

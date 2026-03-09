@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateAttendeeActivityResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ExternalActivity externalActivity) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.externalActivity = externalActivity;
     }
-    
+
     public CreateAttendeeActivityResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +112,6 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully created an external attendee activity.
      */
@@ -127,7 +119,6 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         this.externalActivity = externalActivity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
             return false;
         }
         CreateAttendeeActivityResponse other = (CreateAttendeeActivityResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.externalActivity, other.externalActivity);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.externalActivity, other.externalActivity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            externalActivity);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, externalActivity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateAttendeeActivityResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "externalActivity", externalActivity);
+        return Utils.toString(
+                CreateAttendeeActivityResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "externalActivity",
+                externalActivity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         private ExternalActivity externalActivity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class CreateAttendeeActivityResponse implements AsyncResponse {
         }
 
         public CreateAttendeeActivityResponse build() {
-            return new CreateAttendeeActivityResponse(
-                contentType, statusCode, rawResponse,
-                externalActivity);
+            return new CreateAttendeeActivityResponse(contentType, statusCode, rawResponse, externalActivity);
         }
-
     }
 }

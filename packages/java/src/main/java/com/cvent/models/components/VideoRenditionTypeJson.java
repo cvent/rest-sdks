@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * VideoRenditionTypeJson
- * 
+ *
  * <p>Denotes the type of rendition.
  */
 public enum VideoRenditionTypeJson {
@@ -28,13 +28,13 @@ public enum VideoRenditionTypeJson {
     VideoRenditionTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoRenditionTypeJson> fromValue(String value) {
-        for (VideoRenditionTypeJson o: VideoRenditionTypeJson.values()) {
+        for (VideoRenditionTypeJson o : VideoRenditionTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum VideoRenditionTypeJson {
         return Optional.empty();
     }
 }
-

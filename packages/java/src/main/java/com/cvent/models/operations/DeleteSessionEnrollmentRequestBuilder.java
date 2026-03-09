@@ -28,7 +28,7 @@ public class DeleteSessionEnrollmentRequestBuilder {
     private DeleteSessionEnrollmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteSessionEnrollmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteSessionEnrollmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteSessionEnrollmentResponse call() {
-        RequestOperation<DeleteSessionEnrollmentRequest, DeleteSessionEnrollmentResponse> operation
-              = new DeleteSessionEnrollment.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteSessionEnrollmentRequest, DeleteSessionEnrollmentResponse> operation =
+                new DeleteSessionEnrollment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * AttendeeTypeJson
- * 
+ *
  * <p>Attendee type details.
  */
 public class AttendeeTypeJson {
@@ -42,10 +42,8 @@ public class AttendeeTypeJson {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("codes") @Nonnull List<String> codes) {
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.codes = Optional.ofNullable(codes)
-            .orElseThrow(() -> new IllegalArgumentException("codes cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.codes = Optional.ofNullable(codes).orElseThrow(() -> new IllegalArgumentException("codes cannot be null"));
     }
 
     /**
@@ -73,7 +71,6 @@ public class AttendeeTypeJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the attendee type.
      */
@@ -81,7 +78,6 @@ public class AttendeeTypeJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the attendee type.
@@ -91,7 +87,6 @@ public class AttendeeTypeJson {
         return this;
     }
 
-
     /**
      * A list of attendee type codes.
      */
@@ -99,7 +94,6 @@ public class AttendeeTypeJson {
         this.codes = Utils.checkNotNull(codes, "codes");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -110,28 +104,23 @@ public class AttendeeTypeJson {
             return false;
         }
         AttendeeTypeJson other = (AttendeeTypeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.codes, other.codes);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.codes, other.codes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, codes);
+        return Utils.enhancedHash(id, name, codes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeTypeJson.class,
-                "id", id,
-                "name", name,
-                "codes", codes);
+        return Utils.toString(AttendeeTypeJson.class, "id", id, "name", name, "codes", codes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -140,7 +129,7 @@ public class AttendeeTypeJson {
         private List<String> codes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -168,9 +157,7 @@ public class AttendeeTypeJson {
         }
 
         public AttendeeTypeJson build() {
-            return new AttendeeTypeJson(
-                id, name, codes);
+            return new AttendeeTypeJson(id, name, codes);
         }
-
     }
 }

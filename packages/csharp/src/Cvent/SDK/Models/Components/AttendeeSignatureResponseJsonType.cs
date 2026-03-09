@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttendeeSignatureResponseJsonType
     {
-        [JsonProperty("EVENT")]
-        Event,
-        [JsonProperty("SESSION")]
-        Session,
+        [JsonProperty("EVENT")] Event,
+        [JsonProperty("SESSION")] Session,
     }
 
     public static class AttendeeSignatureResponseJsonTypeExtension
     {
         public static string Value(this AttendeeSignatureResponseJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttendeeSignatureResponseJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(AttendeeSignatureResponseJsonType).GetFields())
+            foreach (var field in typeof(AttendeeSignatureResponseJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

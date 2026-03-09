@@ -2,6 +2,14 @@
 
 Current status of business card transcription
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TranscriptionStatus.Pending;
+```
+
 
 ## Values
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyResponseInput
- * 
+ *
  * <p>Response object for event survey respondent.
  */
 public class EventSurveyResponseInput {
@@ -62,19 +62,16 @@ public class EventSurveyResponseInput {
             @JsonProperty("session") @Nullable UuidJson session,
             @JsonProperty("speaker") @Nullable UuidJson speaker) {
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.answers = Optional.ofNullable(answers)
-            .orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.answers =
+                Optional.ofNullable(answers).orElseThrow(() -> new IllegalArgumentException("answers cannot be null"));
         this.survey = survey;
         this.session = session;
         this.speaker = speaker;
     }
-    
-    public EventSurveyResponseInput(
-            @Nonnull UuidJson question,
-            @Nonnull List<AnswerJson1> answers) {
-        this(question, answers, null,
-            null, null);
+
+    public EventSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+        this(question, answers, null, null, null);
     }
 
     /**
@@ -116,7 +113,6 @@ public class EventSurveyResponseInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -124,7 +120,6 @@ public class EventSurveyResponseInput {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
-
 
     /**
      * List of responded survey answers.
@@ -134,7 +129,6 @@ public class EventSurveyResponseInput {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -142,7 +136,6 @@ public class EventSurveyResponseInput {
         this.survey = survey;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -152,7 +145,6 @@ public class EventSurveyResponseInput {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -160,7 +152,6 @@ public class EventSurveyResponseInput {
         this.speaker = speaker;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +162,36 @@ public class EventSurveyResponseInput {
             return false;
         }
         EventSurveyResponseInput other = (EventSurveyResponseInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker);
+        return Utils.enhancedDeepEquals(this.question, other.question)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, answers, survey,
-            session, speaker);
+        return Utils.enhancedHash(question, answers, survey, session, speaker);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyResponseInput.class,
-                "question", question,
-                "answers", answers,
-                "survey", survey,
-                "session", session,
-                "speaker", speaker);
+        return Utils.toString(
+                EventSurveyResponseInput.class,
+                "question",
+                question,
+                "answers",
+                answers,
+                "survey",
+                survey,
+                "session",
+                session,
+                "speaker",
+                speaker);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson question;
 
@@ -210,7 +204,7 @@ public class EventSurveyResponseInput {
         private UuidJson speaker;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +248,7 @@ public class EventSurveyResponseInput {
         }
 
         public EventSurveyResponseInput build() {
-            return new EventSurveyResponseInput(
-                question, answers, survey,
-                session, speaker);
+            return new EventSurveyResponseInput(question, answers, survey, session, speaker);
         }
-
     }
 }

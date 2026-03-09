@@ -17,7 +17,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetEventTableAssignmentsRequest {
     /**
      * ID of an event.
@@ -42,16 +41,16 @@ public class GetEventTableAssignmentsRequest {
      * A filter string passed in the query parameter of the request, narrows search results and supports
      * the combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is only one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * seating.id (eq)
      * * attendee.id (eq)
      * * table.id (eq)
      * * seat.id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -63,15 +62,15 @@ public class GetEventTableAssignmentsRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a seating
      * assignment will have the table or seat ID associated with the assignment. You can expand these
      * objects, along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seating
      * * **Scope**: seating/event-seatings:read
@@ -93,19 +92,15 @@ public class GetEventTableAssignmentsRequest {
             @Nullable String token,
             @Nullable String filter,
             @Nullable List<SeatingAssignmentExpand> expand) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
         this.expand = expand;
     }
-    
-    public GetEventTableAssignmentsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null);
+
+    public GetEventTableAssignmentsRequest(@Nonnull String id) {
+        this(id, null, null, null, null);
     }
 
     /**
@@ -134,16 +129,16 @@ public class GetEventTableAssignmentsRequest {
      * A filter string passed in the query parameter of the request, narrows search results and supports
      * the combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is only one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * seating.id (eq)
      * * attendee.id (eq)
      * * table.id (eq)
      * * seat.id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -156,15 +151,15 @@ public class GetEventTableAssignmentsRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a seating
      * assignment will have the table or seat ID associated with the assignment. You can expand these
      * objects, along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seating
      * * **Scope**: seating/event-seatings:read
@@ -184,7 +179,6 @@ public class GetEventTableAssignmentsRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -193,7 +187,6 @@ public class GetEventTableAssignmentsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -201,7 +194,6 @@ public class GetEventTableAssignmentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -212,21 +204,20 @@ public class GetEventTableAssignmentsRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the query parameter of the request, narrows search results and supports
      * the combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>There is only one comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * seating.id (eq)
      * * attendee.id (eq)
      * * table.id (eq)
      * * seat.id (eq)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -236,20 +227,19 @@ public class GetEventTableAssignmentsRequest {
         return this;
     }
 
-
     /**
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
      * value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. For example, a seating
      * assignment will have the table or seat ID associated with the assignment. You can expand these
      * objects, along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * seating
      * * **Scope**: seating/event-seatings:read
@@ -266,7 +256,6 @@ public class GetEventTableAssignmentsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -276,33 +265,36 @@ public class GetEventTableAssignmentsRequest {
             return false;
         }
         GetEventTableAssignmentsRequest other = (GetEventTableAssignmentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.expand, other.expand);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            filter, expand);
+        return Utils.enhancedHash(id, limit, token, filter, expand);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventTableAssignmentsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "filter", filter,
-                "expand", expand);
+        return Utils.toString(
+                GetEventTableAssignmentsRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter,
+                "expand",
+                expand);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -315,7 +307,7 @@ public class GetEventTableAssignmentsRequest {
         private List<SeatingAssignmentExpand> expand;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -347,16 +339,16 @@ public class GetEventTableAssignmentsRequest {
          * A filter string passed in the query parameter of the request, narrows search results and supports
          * the combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>There is only one comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * seating.id (eq)
          * * attendee.id (eq)
          * * table.id (eq)
          * * seat.id (eq)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -370,15 +362,15 @@ public class GetEventTableAssignmentsRequest {
          * This endpoint allows you to request additional information as an expanded response using the expand
          * query parameter. The expanded entity is retrieved and displayed inline for each specified expand
          * value.
-         * 
+         *
          * <p>An object contains the ID of a related object in its response properties. For example, a seating
          * assignment will have the table or seat ID associated with the assignment. You can expand these
          * objects, along with others, in line using the expand query parameter.
-         * 
+         *
          * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-         * 
+         *
          * <p>The respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * seating
          * * **Scope**: seating/event-seatings:read
@@ -396,16 +388,10 @@ public class GetEventTableAssignmentsRequest {
         }
 
         public GetEventTableAssignmentsRequest build() {
-            return new GetEventTableAssignmentsRequest(
-                id, limit, token,
-                filter, expand);
+            return new GetEventTableAssignmentsRequest(id, limit, token, filter, expand);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

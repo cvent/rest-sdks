@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SpeakerProgramItem
- * 
+ *
  * <p>Represents a program item object that will be added to a speaker.
  */
 public class SpeakerProgramItem {
@@ -96,24 +96,21 @@ public class SpeakerProgramItem {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
-        this.speaker = Optional.ofNullable(speaker)
-            .orElseThrow(() -> new IllegalArgumentException("speaker cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.speaker =
+                Optional.ofNullable(speaker).orElseThrow(() -> new IllegalArgumentException("speaker cannot be null"));
         this.programItem = Optional.ofNullable(programItem)
-            .orElseThrow(() -> new IllegalArgumentException("programItem cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItem cannot be null"));
     }
-    
+
     public SpeakerProgramItem(
             @Nonnull EventLiteJson event,
             @Nonnull SessionLiteJson session,
             @Nonnull SpeakerLiteJson speaker,
             @Nonnull ProgramItemLiteJson programItem) {
-        this(null, null, null,
-            null, null, event,
-            session, speaker, programItem);
+        this(null, null, null, null, null, event, session, speaker, programItem);
     }
 
     /**
@@ -183,7 +180,6 @@ public class SpeakerProgramItem {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -191,7 +187,6 @@ public class SpeakerProgramItem {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -201,7 +196,6 @@ public class SpeakerProgramItem {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -209,7 +203,6 @@ public class SpeakerProgramItem {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -219,7 +212,6 @@ public class SpeakerProgramItem {
         return this;
     }
 
-
     /**
      * ID of the speaker to program item relationship.
      */
@@ -227,7 +219,6 @@ public class SpeakerProgramItem {
         this.id = id;
         return this;
     }
-
 
     /**
      * The unique identifier of an event.
@@ -237,7 +228,6 @@ public class SpeakerProgramItem {
         return this;
     }
 
-
     /**
      * The unique identifier of a session.
      */
@@ -245,7 +235,6 @@ public class SpeakerProgramItem {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
-
 
     /**
      * The unique identifier of a speaker.
@@ -255,7 +244,6 @@ public class SpeakerProgramItem {
         return this;
     }
 
-
     /**
      * The unique identifier of a program item.
      */
@@ -263,7 +251,6 @@ public class SpeakerProgramItem {
         this.programItem = Utils.checkNotNull(programItem, "programItem");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -274,42 +261,49 @@ public class SpeakerProgramItem {
             return false;
         }
         SpeakerProgramItem other = (SpeakerProgramItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker) &&
-            Utils.enhancedDeepEquals(this.programItem, other.programItem);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker)
+                && Utils.enhancedDeepEquals(this.programItem, other.programItem);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            session, speaker, programItem);
+                created, createdBy, lastModified, lastModifiedBy, id, event, session, speaker, programItem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerProgramItem.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "session", session,
-                "speaker", speaker,
-                "programItem", programItem);
+        return Utils.toString(
+                SpeakerProgramItem.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "session",
+                session,
+                "speaker",
+                speaker,
+                "programItem",
+                programItem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -330,7 +324,7 @@ public class SpeakerProgramItem {
         private ProgramItemLiteJson programItem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -407,10 +401,7 @@ public class SpeakerProgramItem {
 
         public SpeakerProgramItem build() {
             return new SpeakerProgramItem(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                session, speaker, programItem);
+                    created, createdBy, lastModified, lastModifiedBy, id, event, session, speaker, programItem);
         }
-
     }
 }

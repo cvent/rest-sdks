@@ -40,7 +40,7 @@ public class GetEventBadgePrintJobsRequestBuilder {
     private GetEventBadgePrintJobsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventBadgePrintJobsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetEventBadgePrintJobsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventBadgePrintJobsResponse> call() {
-        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation
-              = new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
+                new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetEventBadgePrintJobsRequestBuilder {
      */
     public Publisher<GetEventBadgePrintJobsResponse> callAsPublisher() {
         GetEventBadgePrintJobsRequest request = this.request;
-        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation
-              = new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
+                new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetEventBadgePrintJobsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetEventBadgePrintJobsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetEventBadgePrintJobsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetEventBadgePrintJobsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

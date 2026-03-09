@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetFileRequest {
     /**
      * The unique identifier of a file.
@@ -20,10 +19,8 @@ public class GetFileRequest {
     private String id;
 
     @JsonCreator
-    public GetFileRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetFileRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -37,7 +34,6 @@ public class GetFileRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a file.
      */
@@ -45,7 +41,6 @@ public class GetFileRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +51,26 @@ public class GetFileRequest {
             return false;
         }
         GetFileRequest other = (GetFileRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetFileRequest.class,
-                "id", id);
+        return Utils.toString(GetFileRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +82,7 @@ public class GetFileRequest {
         }
 
         public GetFileRequest build() {
-            return new GetFileRequest(
-                id);
+            return new GetFileRequest(id);
         }
-
     }
 }

@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -38,10 +38,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class UpdateAudienceSegment {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -50,7 +49,7 @@ public class UpdateAudienceSegment {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -86,28 +85,19 @@ public class UpdateAudienceSegment {
                     java.util.Optional.of(java.util.List.of("event/audience-segments:write")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/audience-segments/{audienceSegmentId}",
-                    request, null);
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+            String url =
+                    Utils.generateURL(klass, this.baseUrl, "/audience-segments/{audienceSegmentId}", request, null);
             HTTPRequest req = new HTTPRequest(url, "PUT");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "audienceSegment",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "audienceSegment", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -122,15 +112,16 @@ public class UpdateAudienceSegment {
         }
 
         private HttpRequest onBuildRequest(UpdateAudienceSegmentRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateAudienceSegmentRequest.class, new TypeReference<UpdateAudienceSegmentRequest>() {});
+            HttpRequest req = buildRequest(
+                    request, UpdateAudienceSegmentRequest.class, new TypeReference<UpdateAudienceSegmentRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -155,25 +146,20 @@ public class UpdateAudienceSegment {
             return httpRes;
         }
 
-
         @Override
         public UpdateAudienceSegmentResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            UpdateAudienceSegmentResponse.Builder resBuilder =
-                    UpdateAudienceSegmentResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            UpdateAudienceSegmentResponse.Builder resBuilder = UpdateAudienceSegmentResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             UpdateAudienceSegmentResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withExistingAudienceSegment(Utils.unmarshal(response, new TypeReference<ExistingAudienceSegment>() {}));
+                    return res.withExistingAudienceSegment(
+                            Utils.unmarshal(response, new TypeReference<ExistingAudienceSegment>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -196,15 +182,18 @@ public class UpdateAudienceSegment {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<UpdateAudienceSegmentRequest, com.cvent.models.operations.async.UpdateAudienceSegmentResponse> {
+            implements AsyncRequestOperation<
+                    UpdateAudienceSegmentRequest, com.cvent.models.operations.async.UpdateAudienceSegmentResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(UpdateAudienceSegmentRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, UpdateAudienceSegmentRequest.class, new TypeReference<UpdateAudienceSegmentRequest>() {});
+            HttpRequest req = buildRequest(
+                    request, UpdateAudienceSegmentRequest.class, new TypeReference<UpdateAudienceSegmentRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -218,12 +207,15 @@ public class UpdateAudienceSegment {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(UpdateAudienceSegmentRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "400", "401", "403", "404", "422", "429", "4XX", "5XX")) {
+                        if (Utils.statusCodeMatches(
+                                resp.statusCode(), "400", "401", "403", "404", "422", "429", "4XX", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);
@@ -235,19 +227,15 @@ public class UpdateAudienceSegment {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.UpdateAudienceSegmentResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.UpdateAudienceSegmentResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.UpdateAudienceSegmentResponse
-                            .builder()
+                    com.cvent.models.operations.async.UpdateAudienceSegmentResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.UpdateAudienceSegmentResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<ExistingAudienceSegment>() {})
@@ -258,8 +246,7 @@ public class UpdateAudienceSegment {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

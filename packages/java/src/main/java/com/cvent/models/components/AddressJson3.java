@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AddressJson3
- * 
+ *
  * <p>Address details. Required to create/update a guest's reservation if the hotel/event requires an
  * address in reservations.
  */
@@ -95,11 +95,9 @@ public class AddressJson3 {
         this.country = country;
         this.countryCode = countryCode;
     }
-    
+
     public AddressJson3() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -162,7 +160,6 @@ public class AddressJson3 {
         return new Builder();
     }
 
-
     /**
      * Address line 1.
      */
@@ -170,7 +167,6 @@ public class AddressJson3 {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * Address line 2.
@@ -180,7 +176,6 @@ public class AddressJson3 {
         return this;
     }
 
-
     /**
      * City name.
      */
@@ -188,7 +183,6 @@ public class AddressJson3 {
         this.city = city;
         return this;
     }
-
 
     /**
      * Region name.
@@ -198,7 +192,6 @@ public class AddressJson3 {
         return this;
     }
 
-
     /**
      * Region code.
      */
@@ -206,7 +199,6 @@ public class AddressJson3 {
         this.regionCode = regionCode;
         return this;
     }
-
 
     /**
      * Postal code.
@@ -216,7 +208,6 @@ public class AddressJson3 {
         return this;
     }
 
-
     /**
      * Country name.
      */
@@ -225,7 +216,6 @@ public class AddressJson3 {
         return this;
     }
 
-
     /**
      * ISO 3166 alpha-2 country code.
      */
@@ -233,7 +223,6 @@ public class AddressJson3 {
         this.countryCode = countryCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -244,40 +233,45 @@ public class AddressJson3 {
             return false;
         }
         AddressJson3 other = (AddressJson3) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address1, address2, city,
-            region, regionCode, postalCode,
-            country, countryCode);
+        return Utils.enhancedHash(address1, address2, city, region, regionCode, postalCode, country, countryCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddressJson3.class,
-                "address1", address1,
-                "address2", address2,
-                "city", city,
-                "region", region,
-                "regionCode", regionCode,
-                "postalCode", postalCode,
-                "country", country,
-                "countryCode", countryCode);
+        return Utils.toString(
+                AddressJson3.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "city",
+                city,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "countryCode",
+                countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -296,7 +290,7 @@ public class AddressJson3 {
         private String countryCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -364,11 +358,7 @@ public class AddressJson3 {
         }
 
         public AddressJson3 build() {
-            return new AddressJson3(
-                address1, address2, city,
-                region, regionCode, postalCode,
-                country, countryCode);
+            return new AddressJson3(address1, address2, city, region, regionCode, postalCode, country, countryCode);
         }
-
     }
 }

@@ -15,24 +15,21 @@ namespace Cvent.SDK.Models.Components
 
     public enum SeatingAssignmentExpand
     {
-        [JsonProperty("seating")]
-        Seating,
-        [JsonProperty("table")]
-        Table,
-        [JsonProperty("seat")]
-        Seat,
+        [JsonProperty("seating")] Seating,
+        [JsonProperty("table")] Table,
+        [JsonProperty("seat")] Seat,
     }
 
     public static class SeatingAssignmentExpandExtension
     {
         public static string Value(this SeatingAssignmentExpand value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SeatingAssignmentExpand ToEnum(this string value)
         {
-            foreach(var field in typeof(SeatingAssignmentExpand).GetFields())
+            foreach (var field in typeof(SeatingAssignmentExpand).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

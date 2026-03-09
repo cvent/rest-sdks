@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AuthenticationSchemaJson
- * 
+ *
  * <p>Authentication Schema
  */
 public class AuthenticationSchemaJson {
@@ -77,10 +77,9 @@ public class AuthenticationSchemaJson {
         this.type = type;
         this.primary = primary;
     }
-    
+
     public AuthenticationSchemaJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -129,7 +128,6 @@ public class AuthenticationSchemaJson {
         return new Builder();
     }
 
-
     /**
      * The name of the authentication.
      */
@@ -137,7 +135,6 @@ public class AuthenticationSchemaJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * The description of the authentication.
@@ -147,7 +144,6 @@ public class AuthenticationSchemaJson {
         return this;
     }
 
-
     /**
      * The location of the authentication specifications.
      */
@@ -155,7 +151,6 @@ public class AuthenticationSchemaJson {
         this.specUri = specUri;
         return this;
     }
-
 
     /**
      * The location of the API documentation.
@@ -165,7 +160,6 @@ public class AuthenticationSchemaJson {
         return this;
     }
 
-
     /**
      * The type of the authentication.
      */
@@ -174,7 +168,6 @@ public class AuthenticationSchemaJson {
         return this;
     }
 
-
     /**
      * True indicates the authentication is primary.
      */
@@ -182,7 +175,6 @@ public class AuthenticationSchemaJson {
         this.primary = primary;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -193,35 +185,39 @@ public class AuthenticationSchemaJson {
             return false;
         }
         AuthenticationSchemaJson other = (AuthenticationSchemaJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.specUri, other.specUri) &&
-            Utils.enhancedDeepEquals(this.documentationUri, other.documentationUri) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.primary, other.primary);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.specUri, other.specUri)
+                && Utils.enhancedDeepEquals(this.documentationUri, other.documentationUri)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.primary, other.primary);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, description, specUri,
-            documentationUri, type, primary);
+        return Utils.enhancedHash(name, description, specUri, documentationUri, type, primary);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AuthenticationSchemaJson.class,
-                "name", name,
-                "description", description,
-                "specUri", specUri,
-                "documentationUri", documentationUri,
-                "type", type,
-                "primary", primary);
+        return Utils.toString(
+                AuthenticationSchemaJson.class,
+                "name",
+                name,
+                "description",
+                description,
+                "specUri",
+                specUri,
+                "documentationUri",
+                documentationUri,
+                "type",
+                type,
+                "primary",
+                primary);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -236,7 +232,7 @@ public class AuthenticationSchemaJson {
         private Boolean primary;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -288,10 +284,7 @@ public class AuthenticationSchemaJson {
         }
 
         public AuthenticationSchemaJson build() {
-            return new AuthenticationSchemaJson(
-                name, description, specUri,
-                documentationUri, type, primary);
+            return new AuthenticationSchemaJson(name, description, specUri, documentationUri, type, primary);
         }
-
     }
 }

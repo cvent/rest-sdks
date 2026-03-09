@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEventQuestionsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetEventQuestionsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventQuestionsPaginatedResponse = eventQuestionsPaginatedResponse;
     }
-    
+
     public GetEventQuestionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetEventQuestionsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetEventQuestionsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetEventQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetEventQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of event questions.
      */
-    public GetEventQuestionsResponse withEventQuestionsPaginatedResponse(@Nullable EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse) {
+    public GetEventQuestionsResponse withEventQuestionsPaginatedResponse(
+            @Nullable EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse) {
         this.eventQuestionsPaginatedResponse = eventQuestionsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetEventQuestionsResponse implements Response {
             return false;
         }
         GetEventQuestionsResponse other = (GetEventQuestionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventQuestionsPaginatedResponse, other.eventQuestionsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventQuestionsPaginatedResponse, other.eventQuestionsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventQuestionsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventQuestionsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventQuestionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventQuestionsPaginatedResponse", eventQuestionsPaginatedResponse);
+        return Utils.toString(
+                GetEventQuestionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventQuestionsPaginatedResponse",
+                eventQuestionsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetEventQuestionsResponse implements Response {
         private EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetEventQuestionsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of event questions.
          */
-        public Builder eventQuestionsPaginatedResponse(@Nullable EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse) {
+        public Builder eventQuestionsPaginatedResponse(
+                @Nullable EventQuestionsPaginatedResponse eventQuestionsPaginatedResponse) {
             this.eventQuestionsPaginatedResponse = eventQuestionsPaginatedResponse;
             return this;
         }
 
         public GetEventQuestionsResponse build() {
-            return new GetEventQuestionsResponse(
-                contentType, statusCode, rawResponse,
-                eventQuestionsPaginatedResponse);
+            return new GetEventQuestionsResponse(contentType, statusCode, rawResponse, eventQuestionsPaginatedResponse);
         }
-
     }
 }

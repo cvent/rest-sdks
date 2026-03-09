@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * QuantityItemUpdate
- * 
+ *
  * <p>Represents details for updating a quantity item for an attendee's registration.
  */
 public class QuantityItemUpdate {
@@ -52,20 +52,15 @@ public class QuantityItemUpdate {
             @JsonProperty("attendee") @Nonnull QuantityItemUpdateAttendee attendee,
             @JsonProperty("updatedQuantity") long updatedQuantity,
             @JsonProperty("sendEmail") @Nullable Boolean sendEmail) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.updatedQuantity = updatedQuantity;
         this.sendEmail = sendEmail;
     }
-    
-    public QuantityItemUpdate(
-            @Nonnull String id,
-            @Nonnull QuantityItemUpdateAttendee attendee,
-            long updatedQuantity) {
-        this(id, attendee, updatedQuantity,
-            null);
+
+    public QuantityItemUpdate(@Nonnull String id, @Nonnull QuantityItemUpdateAttendee attendee, long updatedQuantity) {
+        this(id, attendee, updatedQuantity, null);
     }
 
     /**
@@ -100,7 +95,6 @@ public class QuantityItemUpdate {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of a quantity item.
      */
@@ -108,7 +102,6 @@ public class QuantityItemUpdate {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
@@ -118,7 +111,6 @@ public class QuantityItemUpdate {
         return this;
     }
 
-
     /**
      * Updated quantity of the item.
      */
@@ -127,7 +119,6 @@ public class QuantityItemUpdate {
         return this;
     }
 
-
     /**
      * True indicates a registration modification email should be triggered after the request succeeds.
      */
@@ -135,7 +126,6 @@ public class QuantityItemUpdate {
         this.sendEmail = sendEmail;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +136,33 @@ public class QuantityItemUpdate {
             return false;
         }
         QuantityItemUpdate other = (QuantityItemUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.updatedQuantity, other.updatedQuantity) &&
-            Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.updatedQuantity, other.updatedQuantity)
+                && Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendee, updatedQuantity,
-            sendEmail);
+        return Utils.enhancedHash(id, attendee, updatedQuantity, sendEmail);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuantityItemUpdate.class,
-                "id", id,
-                "attendee", attendee,
-                "updatedQuantity", updatedQuantity,
-                "sendEmail", sendEmail);
+        return Utils.toString(
+                QuantityItemUpdate.class,
+                "id",
+                id,
+                "attendee",
+                attendee,
+                "updatedQuantity",
+                updatedQuantity,
+                "sendEmail",
+                sendEmail);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +173,7 @@ public class QuantityItemUpdate {
         private Boolean sendEmail;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,10 +209,7 @@ public class QuantityItemUpdate {
         }
 
         public QuantityItemUpdate build() {
-            return new QuantityItemUpdate(
-                id, attendee, updatedQuantity,
-                sendEmail);
+            return new QuantityItemUpdate(id, attendee, updatedQuantity, sendEmail);
         }
-
     }
 }

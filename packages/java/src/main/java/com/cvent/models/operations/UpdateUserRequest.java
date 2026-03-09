@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateUserRequest {
     /**
      * Unique ID for a user.
@@ -21,21 +20,16 @@ public class UpdateUserRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private UserInput user;
 
     @JsonCreator
-    public UpdateUserRequest(
-            @Nonnull String id,
-            @Nullable UserInput user) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateUserRequest(@Nonnull String id, @Nullable UserInput user) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.user = user;
     }
-    
-    public UpdateUserRequest(
-            @Nonnull String id) {
+
+    public UpdateUserRequest(@Nonnull String id) {
         this(id, null);
     }
 
@@ -54,7 +48,6 @@ public class UpdateUserRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID for a user.
      */
@@ -63,12 +56,10 @@ public class UpdateUserRequest {
         return this;
     }
 
-
     public UpdateUserRequest withUser(@Nullable UserInput user) {
         this.user = user;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,33 +70,28 @@ public class UpdateUserRequest {
             return false;
         }
         UpdateUserRequest other = (UpdateUserRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.user, other.user);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.user, other.user);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, user);
+        return Utils.enhancedHash(id, user);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateUserRequest.class,
-                "id", id,
-                "user", user);
+        return Utils.toString(UpdateUserRequest.class, "id", id, "user", user);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private UserInput user;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -122,9 +108,7 @@ public class UpdateUserRequest {
         }
 
         public UpdateUserRequest build() {
-            return new UpdateUserRequest(
-                id, user);
+            return new UpdateUserRequest(id, user);
         }
-
     }
 }

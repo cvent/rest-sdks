@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.messageRecipientsPaginatedResponse = messageRecipientsPaginatedResponse;
     }
-    
+
     public GetAttendeeMessagesMembersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved the list of members.
      */
-    public GetAttendeeMessagesMembersResponse withMessageRecipientsPaginatedResponse(@Nullable MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse) {
+    public GetAttendeeMessagesMembersResponse withMessageRecipientsPaginatedResponse(
+            @Nullable MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse) {
         this.messageRecipientsPaginatedResponse = messageRecipientsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
             return false;
         }
         GetAttendeeMessagesMembersResponse other = (GetAttendeeMessagesMembersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.messageRecipientsPaginatedResponse, other.messageRecipientsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.messageRecipientsPaginatedResponse, other.messageRecipientsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            messageRecipientsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, messageRecipientsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAttendeeMessagesMembersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "messageRecipientsPaginatedResponse", messageRecipientsPaginatedResponse);
+        return Utils.toString(
+                GetAttendeeMessagesMembersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "messageRecipientsPaginatedResponse",
+                messageRecipientsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         private MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetAttendeeMessagesMembersResponse implements AsyncResponse {
         /**
          * Successfully retrieved the list of members.
          */
-        public Builder messageRecipientsPaginatedResponse(@Nullable MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse) {
+        public Builder messageRecipientsPaginatedResponse(
+                @Nullable MessageRecipientsPaginatedResponse messageRecipientsPaginatedResponse) {
             this.messageRecipientsPaginatedResponse = messageRecipientsPaginatedResponse;
             return this;
         }
 
         public GetAttendeeMessagesMembersResponse build() {
             return new GetAttendeeMessagesMembersResponse(
-                contentType, statusCode, rawResponse,
-                messageRecipientsPaginatedResponse);
+                    contentType, statusCode, rawResponse, messageRecipientsPaginatedResponse);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventVideoPlayed
- * 
+ *
  * <p>An event video-played activity.
  */
 public class EventVideoPlayed {
@@ -58,10 +58,9 @@ public class EventVideoPlayed {
         this.title = title;
         this.pageName = pageName;
     }
-    
+
     public EventVideoPlayed() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventVideoPlayed {
         return new Builder();
     }
 
-
     /**
      * The name of the web browser.
      */
@@ -104,7 +102,6 @@ public class EventVideoPlayed {
         this.browser = browser;
         return this;
     }
-
 
     /**
      * The name of the operating system.
@@ -114,7 +111,6 @@ public class EventVideoPlayed {
         return this;
     }
 
-
     /**
      * The title of video.
      */
@@ -123,7 +119,6 @@ public class EventVideoPlayed {
         return this;
     }
 
-
     /**
      * The name of the page.
      */
@@ -131,7 +126,6 @@ public class EventVideoPlayed {
         this.pageName = pageName;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class EventVideoPlayed {
             return false;
         }
         EventVideoPlayed other = (EventVideoPlayed) o;
-        return 
-            Utils.enhancedDeepEquals(this.browser, other.browser) &&
-            Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.pageName, other.pageName);
+        return Utils.enhancedDeepEquals(this.browser, other.browser)
+                && Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.pageName, other.pageName);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            browser, operatingSystem, title,
-            pageName);
+        return Utils.enhancedHash(browser, operatingSystem, title, pageName);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventVideoPlayed.class,
-                "browser", browser,
-                "operatingSystem", operatingSystem,
-                "title", title,
-                "pageName", pageName);
+        return Utils.toString(
+                EventVideoPlayed.class,
+                "browser",
+                browser,
+                "operatingSystem",
+                operatingSystem,
+                "title",
+                title,
+                "pageName",
+                pageName);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String browser;
 
@@ -177,7 +173,7 @@ public class EventVideoPlayed {
         private String pageName;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class EventVideoPlayed {
         }
 
         public EventVideoPlayed build() {
-            return new EventVideoPlayed(
-                browser, operatingSystem, title,
-                pageName);
+            return new EventVideoPlayed(browser, operatingSystem, title, pageName);
         }
-
     }
 }

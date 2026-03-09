@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -17,16 +17,16 @@ import java.util.Optional;
 
 /**
  * ExistingReservationRequestBlock
- * 
+ *
  * <p>Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
 public class ExistingReservationRequestBlock {
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -35,18 +35,17 @@ public class ExistingReservationRequestBlock {
     private Long id;
 
     @JsonCreator
-    public ExistingReservationRequestBlock(
-            @JsonProperty("id") @Nullable Long id) {
+    public ExistingReservationRequestBlock(@JsonProperty("id") @Nullable Long id) {
         this.id = id;
     }
-    
+
     public ExistingReservationRequestBlock() {
         this(null);
     }
 
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -58,10 +57,9 @@ public class ExistingReservationRequestBlock {
         return new Builder();
     }
 
-
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -69,7 +67,6 @@ public class ExistingReservationRequestBlock {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -80,35 +77,32 @@ public class ExistingReservationRequestBlock {
             return false;
         }
         ExistingReservationRequestBlock other = (ExistingReservationRequestBlock) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingReservationRequestBlock.class,
-                "id", id);
+        return Utils.toString(ExistingReservationRequestBlock.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         @Deprecated
         private Long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Property ID.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -118,9 +112,7 @@ public class ExistingReservationRequestBlock {
         }
 
         public ExistingReservationRequestBlock build() {
-            return new ExistingReservationRequestBlock(
-                id);
+            return new ExistingReservationRequestBlock(id);
         }
-
     }
 }

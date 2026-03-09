@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionPollResponseSubmitted
- * 
+ *
  * <p>The poll created for a session.
  */
 public class SessionPollResponseSubmitted {
@@ -40,7 +40,7 @@ public class SessionPollResponseSubmitted {
         this.session = session;
         this.poll = poll;
     }
-    
+
     public SessionPollResponseSubmitted() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class SessionPollResponseSubmitted {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -72,7 +71,6 @@ public class SessionPollResponseSubmitted {
         return this;
     }
 
-
     /**
      * This is used to denote the poll details.
      */
@@ -80,7 +78,6 @@ public class SessionPollResponseSubmitted {
         this.poll = poll;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class SessionPollResponseSubmitted {
             return false;
         }
         SessionPollResponseSubmitted other = (SessionPollResponseSubmitted) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.poll, other.poll);
+        return Utils.enhancedDeepEquals(this.session, other.session) && Utils.enhancedDeepEquals(this.poll, other.poll);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, poll);
+        return Utils.enhancedHash(session, poll);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionPollResponseSubmitted.class,
-                "session", session,
-                "poll", poll);
+        return Utils.toString(SessionPollResponseSubmitted.class, "session", session, "poll", poll);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity6 session;
 
         private PollResponseJson poll;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class SessionPollResponseSubmitted {
         }
 
         public SessionPollResponseSubmitted build() {
-            return new SessionPollResponseSubmitted(
-                session, poll);
+            return new SessionPollResponseSubmitted(session, poll);
         }
-
     }
 }

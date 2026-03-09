@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestDocumentReferenceLinkJson
- * 
+ *
  * <p>A reference link contains the URL that provides direct access to download the file for the document.
  * The expiration of the URL can be included if applicable.
  */
@@ -25,7 +25,7 @@ public class MeetingRequestDocumentReferenceLinkJson {
      * The URL to download the file resource for the document. This URL will expire after the time
      * indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed
      * to remain constant.
-     * 
+     *
      * <p>Clients should always retrieve the latest URL before attempting to download the file, as it may
      * change over time.
      */
@@ -48,7 +48,7 @@ public class MeetingRequestDocumentReferenceLinkJson {
         this.url = url;
         this.expiration = expiration;
     }
-    
+
     public MeetingRequestDocumentReferenceLinkJson() {
         this(null, null);
     }
@@ -57,7 +57,7 @@ public class MeetingRequestDocumentReferenceLinkJson {
      * The URL to download the file resource for the document. This URL will expire after the time
      * indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed
      * to remain constant.
-     * 
+     *
      * <p>Clients should always retrieve the latest URL before attempting to download the file, as it may
      * change over time.
      */
@@ -77,12 +77,11 @@ public class MeetingRequestDocumentReferenceLinkJson {
         return new Builder();
     }
 
-
     /**
      * The URL to download the file resource for the document. This URL will expire after the time
      * indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed
      * to remain constant.
-     * 
+     *
      * <p>Clients should always retrieve the latest URL before attempting to download the file, as it may
      * change over time.
      */
@@ -90,7 +89,6 @@ public class MeetingRequestDocumentReferenceLinkJson {
         this.url = url;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date and time at which the reference document will expire if an explicit
@@ -101,7 +99,6 @@ public class MeetingRequestDocumentReferenceLinkJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -111,40 +108,35 @@ public class MeetingRequestDocumentReferenceLinkJson {
             return false;
         }
         MeetingRequestDocumentReferenceLinkJson other = (MeetingRequestDocumentReferenceLinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.expiration, other.expiration);
+        return Utils.enhancedDeepEquals(this.url, other.url) && Utils.enhancedDeepEquals(this.expiration, other.expiration);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            url, expiration);
+        return Utils.enhancedHash(url, expiration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestDocumentReferenceLinkJson.class,
-                "url", url,
-                "expiration", expiration);
+        return Utils.toString(MeetingRequestDocumentReferenceLinkJson.class, "url", url, "expiration", expiration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String url;
 
         private OffsetDateTime expiration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The URL to download the file resource for the document. This URL will expire after the time
          * indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed
          * to remain constant.
-         * 
+         *
          * <p>Clients should always retrieve the latest URL before attempting to download the file, as it may
          * change over time.
          */
@@ -163,9 +155,7 @@ public class MeetingRequestDocumentReferenceLinkJson {
         }
 
         public MeetingRequestDocumentReferenceLinkJson build() {
-            return new MeetingRequestDocumentReferenceLinkJson(
-                url, expiration);
+            return new MeetingRequestDocumentReferenceLinkJson(url, expiration);
         }
-
     }
 }

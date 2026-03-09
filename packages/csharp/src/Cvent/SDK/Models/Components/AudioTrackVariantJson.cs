@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AudioTrackVariantJson
     {
-        [JsonProperty("Main")]
-        Main,
-        [JsonProperty("Alternate")]
-        Alternate,
-        [JsonProperty("Commentary")]
-        Commentary,
-        [JsonProperty("Dub")]
-        Dub,
-        [JsonProperty("Descriptive")]
-        Descriptive,
+        [JsonProperty("Main")] Main,
+        [JsonProperty("Alternate")] Alternate,
+        [JsonProperty("Commentary")] Commentary,
+        [JsonProperty("Dub")] Dub,
+        [JsonProperty("Descriptive")] Descriptive,
     }
 
     public static class AudioTrackVariantJsonExtension
     {
         public static string Value(this AudioTrackVariantJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AudioTrackVariantJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AudioTrackVariantJson).GetFields())
+            foreach (var field in typeof(AudioTrackVariantJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

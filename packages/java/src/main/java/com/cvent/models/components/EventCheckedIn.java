@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventCheckedIn
- * 
+ *
  * <p>An email-checked-in activity.
  */
 public class EventCheckedIn {
@@ -41,7 +41,7 @@ public class EventCheckedIn {
         this.event = event;
         this.checkedIn = checkedIn;
     }
-    
+
     public EventCheckedIn() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class EventCheckedIn {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -73,7 +72,6 @@ public class EventCheckedIn {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an attendee checked in to an event.
      */
@@ -81,7 +79,6 @@ public class EventCheckedIn {
         this.checkedIn = checkedIn;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,29 @@ public class EventCheckedIn {
             return false;
         }
         EventCheckedIn other = (EventCheckedIn) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, checkedIn);
+        return Utils.enhancedHash(event, checkedIn);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCheckedIn.class,
-                "event", event,
-                "checkedIn", checkedIn);
+        return Utils.toString(EventCheckedIn.class, "event", event, "checkedIn", checkedIn);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent2 event;
 
         private OffsetDateTime checkedIn;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +131,7 @@ public class EventCheckedIn {
         }
 
         public EventCheckedIn build() {
-            return new EventCheckedIn(
-                event, checkedIn);
+            return new EventCheckedIn(event, checkedIn);
         }
-
     }
 }

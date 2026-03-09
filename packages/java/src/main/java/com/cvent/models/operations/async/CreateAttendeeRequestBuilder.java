@@ -31,7 +31,7 @@ public class CreateAttendeeRequestBuilder {
     private List<AttendeeAddJson> _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAttendeeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -40,14 +40,13 @@ public class CreateAttendeeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateAttendeeResponse> call() {
-        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation
-              = new CreateAttendee.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+                new CreateAttendee.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * CreateTransactionResponseInput
- * 
+ *
  * <p>Denotes the details of the transaction created for an attendee.
  */
 public class CreateTransactionResponseInput {
@@ -41,7 +41,7 @@ public class CreateTransactionResponseInput {
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -114,26 +114,22 @@ public class CreateTransactionResponseInput {
         this.event = event;
         this.attendee = attendee;
         this.paymentType = Optional.ofNullable(paymentType)
-            .orElseThrow(() -> new IllegalArgumentException("paymentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentType cannot be null"));
         this.paymentMethod = Optional.ofNullable(paymentMethod)
-            .orElseThrow(() -> new IllegalArgumentException("paymentMethod cannot be null"));
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentMethod cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.batchNumber = batchNumber;
         this.referenceNumber = referenceNumber;
         this.amount = amount;
         this.paymentNote = paymentNote;
         this.transactionItems = transactionItems;
     }
-    
+
     public CreateTransactionResponseInput(
             @Nonnull PaymentTypeCreateJson paymentType,
             @Nonnull PaymentMethodJson paymentMethod,
             @Nonnull OffsetDateTime date) {
-        this(null, null, paymentType,
-            paymentMethod, date, null,
-            null, null, null,
-            null);
+        this(null, null, paymentType, paymentMethod, date, null, null, null, null, null);
     }
 
     /**
@@ -154,7 +150,7 @@ public class CreateTransactionResponseInput {
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -219,7 +215,6 @@ public class CreateTransactionResponseInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the event. Contains only the ID of the event.
      */
@@ -227,7 +222,6 @@ public class CreateTransactionResponseInput {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
@@ -237,12 +231,11 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
      * to the attendee's order electronically in another system of record, or paid in physical currency. To
      * create an offline charge, the attendee must have a balance owing.
-     * 
+     *
      * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
@@ -252,7 +245,6 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * This denotes the payment method in a transaction.
      */
@@ -260,7 +252,6 @@ public class CreateTransactionResponseInput {
         this.paymentMethod = Utils.checkNotNull(paymentMethod, "paymentMethod");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when attendee made the transaction.
@@ -270,7 +261,6 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * Batch number of this transaction.
      */
@@ -279,7 +269,6 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * Reference number of this transaction.
      */
@@ -287,7 +276,6 @@ public class CreateTransactionResponseInput {
         this.referenceNumber = referenceNumber;
         return this;
     }
-
 
     /**
      * Amount of the transaction. Can only be included in request body if the `partialPayment` query
@@ -298,7 +286,6 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * Payment notes about this transaction.
      */
@@ -307,17 +294,16 @@ public class CreateTransactionResponseInput {
         return this;
     }
 
-
     /**
      * The list of order items you'll apply the transaction amount towards. Values in the array must sum to
      * the `amount` in the request body. Can only be included in the request body if `partialPayment` query
      * parameter is true.
      */
-    public CreateTransactionResponseInput withTransactionItems(@Nullable List<TransactionItemCreateJsonInput> transactionItems) {
+    public CreateTransactionResponseInput withTransactionItems(
+            @Nullable List<TransactionItemCreateJsonInput> transactionItems) {
         this.transactionItems = transactionItems;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -328,45 +314,61 @@ public class CreateTransactionResponseInput {
             return false;
         }
         CreateTransactionResponseInput other = (CreateTransactionResponseInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.paymentType, other.paymentType) &&
-            Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote) &&
-            Utils.enhancedDeepEquals(this.transactionItems, other.transactionItems);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.paymentType, other.paymentType)
+                && Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote)
+                && Utils.enhancedDeepEquals(this.transactionItems, other.transactionItems);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, attendee, paymentType,
-            paymentMethod, date, batchNumber,
-            referenceNumber, amount, paymentNote,
-            transactionItems);
+                event,
+                attendee,
+                paymentType,
+                paymentMethod,
+                date,
+                batchNumber,
+                referenceNumber,
+                amount,
+                paymentNote,
+                transactionItems);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateTransactionResponseInput.class,
-                "event", event,
-                "attendee", attendee,
-                "paymentType", paymentType,
-                "paymentMethod", paymentMethod,
-                "date", date,
-                "batchNumber", batchNumber,
-                "referenceNumber", referenceNumber,
-                "amount", amount,
-                "paymentNote", paymentNote,
-                "transactionItems", transactionItems);
+        return Utils.toString(
+                CreateTransactionResponseInput.class,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "paymentType",
+                paymentType,
+                "paymentMethod",
+                paymentMethod,
+                "date",
+                date,
+                "batchNumber",
+                batchNumber,
+                "referenceNumber",
+                referenceNumber,
+                "amount",
+                amount,
+                "paymentNote",
+                paymentNote,
+                "transactionItems",
+                transactionItems);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson event;
 
@@ -389,7 +391,7 @@ public class CreateTransactionResponseInput {
         private List<TransactionItemCreateJsonInput> transactionItems;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -412,7 +414,7 @@ public class CreateTransactionResponseInput {
          * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made
          * to the attendee's order electronically in another system of record, or paid in physical currency. To
          * create an offline charge, the attendee must have a balance owing.
-         * 
+         *
          * <p>Offline Refund: The transaction is a refund issued to the attendee electronically in another system
          * of record, or paid in physical currency. To create an offline refund, the attendee must have a
          * balance due.
@@ -483,11 +485,16 @@ public class CreateTransactionResponseInput {
 
         public CreateTransactionResponseInput build() {
             return new CreateTransactionResponseInput(
-                event, attendee, paymentType,
-                paymentMethod, date, batchNumber,
-                referenceNumber, amount, paymentNote,
-                transactionItems);
+                    event,
+                    attendee,
+                    paymentType,
+                    paymentMethod,
+                    date,
+                    batchNumber,
+                    referenceNumber,
+                    amount,
+                    paymentNote,
+                    transactionItems);
         }
-
     }
 }

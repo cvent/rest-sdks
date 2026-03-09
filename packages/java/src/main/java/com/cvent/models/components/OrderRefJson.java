@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * OrderRefJson
- * 
+ *
  * <p>Represents an order by its ID and includes the order type.
  */
 public class OrderRefJson {
@@ -34,13 +34,11 @@ public class OrderRefJson {
     private OrderTypeJson type;
 
     @JsonCreator
-    public OrderRefJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("type") @Nullable OrderTypeJson type) {
+    public OrderRefJson(@JsonProperty("id") @Nullable String id, @JsonProperty("type") @Nullable OrderTypeJson type) {
         this.id = id;
         this.type = type;
     }
-    
+
     public OrderRefJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class OrderRefJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the order.
      */
@@ -72,7 +69,6 @@ public class OrderRefJson {
         return this;
     }
 
-
     /**
      * This is used to denote the type of order made by an attendee.
      */
@@ -80,7 +76,6 @@ public class OrderRefJson {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class OrderRefJson {
             return false;
         }
         OrderRefJson other = (OrderRefJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type);
+        return Utils.enhancedHash(id, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderRefJson.class,
-                "id", id,
-                "type", type);
+        return Utils.toString(OrderRefJson.class, "id", id, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private OrderTypeJson type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class OrderRefJson {
         }
 
         public OrderRefJson build() {
-            return new OrderRefJson(
-                id, type);
+            return new OrderRefJson(id, type);
         }
-
     }
 }

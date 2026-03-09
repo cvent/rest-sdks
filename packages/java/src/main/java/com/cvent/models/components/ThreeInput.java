@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ThreeInput
- * 
+ *
  * <p>Choices for a custom field.
  */
 public class ThreeInput {
@@ -43,7 +43,7 @@ public class ThreeInput {
         this.choices = choices;
         this.displayType = displayType;
     }
-    
+
     public ThreeInput() {
         this(null, null);
     }
@@ -68,7 +68,6 @@ public class ThreeInput {
         return new Builder();
     }
 
-
     /**
      * Choices of custom fields.
      */
@@ -76,7 +75,6 @@ public class ThreeInput {
         this.choices = choices;
         return this;
     }
-
 
     /**
      * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field
@@ -88,7 +86,6 @@ public class ThreeInput {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -98,33 +95,29 @@ public class ThreeInput {
             return false;
         }
         ThreeInput other = (ThreeInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.choices, other.choices) &&
-            Utils.enhancedDeepEquals(this.displayType, other.displayType);
+        return Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.displayType, other.displayType);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            choices, displayType);
+        return Utils.enhancedHash(choices, displayType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ThreeInput.class,
-                "choices", choices,
-                "displayType", displayType);
+        return Utils.toString(ThreeInput.class, "choices", choices, "displayType", displayType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ChoiceJson4Input> choices;
 
         private ChoicesDisplayTypeJson displayType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -146,9 +139,7 @@ public class ThreeInput {
         }
 
         public ThreeInput build() {
-            return new ThreeInput(
-                choices, displayType);
+            return new ThreeInput(choices, displayType);
         }
-
     }
 }

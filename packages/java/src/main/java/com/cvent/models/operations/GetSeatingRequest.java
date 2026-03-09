@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSeatingRequest {
     /**
      * ID of an event.
@@ -26,13 +25,10 @@ public class GetSeatingRequest {
     private String seatingId;
 
     @JsonCreator
-    public GetSeatingRequest(
-            @Nonnull String id,
-            @Nonnull String seatingId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetSeatingRequest(@Nonnull String id, @Nonnull String seatingId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.seatingId = Optional.ofNullable(seatingId)
-            .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class GetSeatingRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -62,7 +57,6 @@ public class GetSeatingRequest {
         return this;
     }
 
-
     /**
      * ID of a seating.
      */
@@ -70,7 +64,6 @@ public class GetSeatingRequest {
         this.seatingId = Utils.checkNotNull(seatingId, "seatingId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class GetSeatingRequest {
             return false;
         }
         GetSeatingRequest other = (GetSeatingRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seatingId, other.seatingId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.seatingId, other.seatingId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, seatingId);
+        return Utils.enhancedHash(id, seatingId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSeatingRequest.class,
-                "id", id,
-                "seatingId", seatingId);
+        return Utils.toString(GetSeatingRequest.class, "id", id, "seatingId", seatingId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String seatingId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class GetSeatingRequest {
         }
 
         public GetSeatingRequest build() {
-            return new GetSeatingRequest(
-                id, seatingId);
+            return new GetSeatingRequest(id, seatingId);
         }
-
     }
 }

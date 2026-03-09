@@ -2,6 +2,14 @@
 
 The source of entry for the lead
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = Source.Scanned;
+```
+
 
 ## Values
 

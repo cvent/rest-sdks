@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BulkJobWithDataStatus
- * 
+ *
  * <p>The current status of the bulk job.
  */
 public enum BulkJobWithDataStatus {
@@ -27,13 +27,13 @@ public enum BulkJobWithDataStatus {
     BulkJobWithDataStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BulkJobWithDataStatus> fromValue(String value) {
-        for (BulkJobWithDataStatus o: BulkJobWithDataStatus.values()) {
+        for (BulkJobWithDataStatus o : BulkJobWithDataStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum BulkJobWithDataStatus {
         return Optional.empty();
     }
 }
-

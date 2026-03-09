@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RateReviewStatusTypeJson
- * 
+ *
  * <p>The rate review status of the proposal
  */
 public enum RateReviewStatusTypeJson {
@@ -25,13 +25,13 @@ public enum RateReviewStatusTypeJson {
     RateReviewStatusTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RateReviewStatusTypeJson> fromValue(String value) {
-        for (RateReviewStatusTypeJson o: RateReviewStatusTypeJson.values()) {
+        for (RateReviewStatusTypeJson o : RateReviewStatusTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum RateReviewStatusTypeJson {
         return Optional.empty();
     }
 }
-

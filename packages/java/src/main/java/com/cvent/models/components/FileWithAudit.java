@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * FileWithAudit
- * 
+ *
  * <p>File object that represents a file uploaded to the platform.
  */
 public class FileWithAudit {
@@ -52,7 +52,7 @@ public class FileWithAudit {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -62,7 +62,7 @@ public class FileWithAudit {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -72,7 +72,7 @@ public class FileWithAudit {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -82,7 +82,7 @@ public class FileWithAudit {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -109,11 +109,9 @@ public class FileWithAudit {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
     }
-    
+
     public FileWithAudit() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -146,7 +144,7 @@ public class FileWithAudit {
 
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -156,7 +154,7 @@ public class FileWithAudit {
 
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -166,7 +164,7 @@ public class FileWithAudit {
 
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -176,7 +174,7 @@ public class FileWithAudit {
 
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -188,7 +186,6 @@ public class FileWithAudit {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a file
      */
@@ -196,7 +193,6 @@ public class FileWithAudit {
         this.id = id;
         return this;
     }
-
 
     /**
      * Full Name of the file
@@ -206,7 +202,6 @@ public class FileWithAudit {
         return this;
     }
 
-
     /**
      * Represents a link to the associated file resource.
      */
@@ -214,7 +209,6 @@ public class FileWithAudit {
         this.path = path;
         return this;
     }
-
 
     /**
      * Size of the file in bytes.
@@ -224,10 +218,9 @@ public class FileWithAudit {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -236,10 +229,9 @@ public class FileWithAudit {
         return this;
     }
 
-
     /**
      * The identifier of the user that created this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -248,10 +240,9 @@ public class FileWithAudit {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -260,10 +251,9 @@ public class FileWithAudit {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -271,7 +261,6 @@ public class FileWithAudit {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -282,40 +271,45 @@ public class FileWithAudit {
             return false;
         }
         FileWithAudit other = (FileWithAudit) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.friendlyName, other.friendlyName) &&
-            Utils.enhancedDeepEquals(this.path, other.path) &&
-            Utils.enhancedDeepEquals(this.fileSize, other.fileSize) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.friendlyName, other.friendlyName)
+                && Utils.enhancedDeepEquals(this.path, other.path)
+                && Utils.enhancedDeepEquals(this.fileSize, other.fileSize)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, friendlyName, path,
-            fileSize, created, createdBy,
-            lastModified, lastModifiedBy);
+        return Utils.enhancedHash(id, friendlyName, path, fileSize, created, createdBy, lastModified, lastModifiedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FileWithAudit.class,
-                "id", id,
-                "friendlyName", friendlyName,
-                "path", path,
-                "fileSize", fileSize,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy);
+        return Utils.toString(
+                FileWithAudit.class,
+                "id",
+                id,
+                "friendlyName",
+                friendlyName,
+                "path",
+                path,
+                "fileSize",
+                fileSize,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -338,7 +332,7 @@ public class FileWithAudit {
         private String lastModifiedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -375,7 +369,7 @@ public class FileWithAudit {
 
         /**
          * The ISO 8601 zoned date time when this record was created.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -386,7 +380,7 @@ public class FileWithAudit {
 
         /**
          * The identifier of the user that created this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -397,7 +391,7 @@ public class FileWithAudit {
 
         /**
          * The ISO 8601 zoned date time when this record was updated.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -408,7 +402,7 @@ public class FileWithAudit {
 
         /**
          * The identifier of the user that last updated this record.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -419,10 +413,7 @@ public class FileWithAudit {
 
         public FileWithAudit build() {
             return new FileWithAudit(
-                id, friendlyName, path,
-                fileSize, created, createdBy,
-                lastModified, lastModifiedBy);
+                    id, friendlyName, path, fileSize, created, createdBy, lastModified, lastModifiedBy);
         }
-
     }
 }

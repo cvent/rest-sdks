@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * ExistingAudioTrack
- * 
+ *
  * <p>Existing audio track.
  */
 public class ExistingAudioTrack {
@@ -74,10 +74,10 @@ public class ExistingAudioTrack {
     /**
      * Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is
      * a possible alternative to the main track.
-     * 
+     *
      * <p>Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is
      * a translated version of the main audio track.
-     * 
+     *
      * <p>Descriptive is an audio description of a video track.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -102,11 +102,11 @@ public class ExistingAudioTrack {
      * Denotes the status of an audio track. Started indicates the request to upload in the API was
      * submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the
      * upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
      * is available for use.
      */
@@ -146,33 +146,24 @@ public class ExistingAudioTrack {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.video = Optional.ofNullable(video)
-            .orElseThrow(() -> new IllegalArgumentException("video cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.video = Optional.ofNullable(video).orElseThrow(() -> new IllegalArgumentException("video cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.language = Optional.ofNullable(language)
-            .orElseThrow(() -> new IllegalArgumentException("language cannot be null"));
-        this.variant = Optional.ofNullable(variant)
-            .orElse(Builder._SINGLETON_VALUE_Variant.value());
-        this.default_ = Optional.ofNullable(default_)
-            .orElse(Builder._SINGLETON_VALUE_Default.value());
+                .orElseThrow(() -> new IllegalArgumentException("language cannot be null"));
+        this.variant = Optional.ofNullable(variant).orElse(Builder._SINGLETON_VALUE_Variant.value());
+        this.default_ = Optional.ofNullable(default_).orElse(Builder._SINGLETON_VALUE_Default.value());
         this.duration = duration;
         this.status = status;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.url = url;
     }
-    
+
     public ExistingAudioTrack(
             @Nonnull VideoAssetIdJson video,
             @Nonnull AudioTrackTypeJson type,
             @Nonnull String language,
             @Nonnull String id) {
-        this(null, null, null,
-            null, video, type,
-            language, null, null,
-            null, null, id,
-            null);
+        this(null, null, null, null, video, type, language, null, null, null, null, id, null);
     }
 
     /**
@@ -227,10 +218,10 @@ public class ExistingAudioTrack {
     /**
      * Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is
      * a possible alternative to the main track.
-     * 
+     *
      * <p>Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is
      * a translated version of the main audio track.
-     * 
+     *
      * <p>Descriptive is an audio description of a video track.
      */
     public Optional<AudioTrackVariantJson> variant() {
@@ -255,11 +246,11 @@ public class ExistingAudioTrack {
      * Denotes the status of an audio track. Started indicates the request to upload in the API was
      * submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the
      * upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
      * is available for use.
      */
@@ -285,7 +276,6 @@ public class ExistingAudioTrack {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -293,7 +283,6 @@ public class ExistingAudioTrack {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -303,7 +292,6 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -311,7 +299,6 @@ public class ExistingAudioTrack {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -321,7 +308,6 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * Video that this asset was created with.
      */
@@ -329,7 +315,6 @@ public class ExistingAudioTrack {
         this.video = Utils.checkNotNull(video, "video");
         return this;
     }
-
 
     /**
      * Denotes the file format of the audio track.
@@ -339,7 +324,6 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * IETF language tag for the audio track.
      */
@@ -348,21 +332,19 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is
      * a possible alternative to the main track.
-     * 
+     *
      * <p>Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is
      * a translated version of the main audio track.
-     * 
+     *
      * <p>Descriptive is an audio description of a video track.
      */
     public ExistingAudioTrack withVariant(@Nullable AudioTrackVariantJson variant) {
         this.variant = variant;
         return this;
     }
-
 
     /**
      * True indicates this is the default audio track.
@@ -372,7 +354,6 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * Audio track duration (in milliseconds).
      */
@@ -381,16 +362,15 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * Denotes the status of an audio track. Started indicates the request to upload in the API was
      * submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the
      * upload was completed.
-     * 
+     *
      * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
      * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
      * Rejected indicates a failed virus scan.
-     * 
+     *
      * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
      * is available for use.
      */
@@ -398,7 +378,6 @@ public class ExistingAudioTrack {
         this.status = status;
         return this;
     }
-
 
     /**
      * The identifier of an audio track.
@@ -408,7 +387,6 @@ public class ExistingAudioTrack {
         return this;
     }
 
-
     /**
      * A URL associated with the asset.
      */
@@ -416,7 +394,6 @@ public class ExistingAudioTrack {
         this.url = url;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -427,52 +404,73 @@ public class ExistingAudioTrack {
             return false;
         }
         ExistingAudioTrack other = (ExistingAudioTrack) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.video, other.video) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.language, other.language) &&
-            Utils.enhancedDeepEquals(this.variant, other.variant) &&
-            Utils.enhancedDeepEquals(this.default_, other.default_) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.url, other.url);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.video, other.video)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.language, other.language)
+                && Utils.enhancedDeepEquals(this.variant, other.variant)
+                && Utils.enhancedDeepEquals(this.default_, other.default_)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.url, other.url);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, video, type,
-            language, variant, default_,
-            duration, status, id,
-            url);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                video,
+                type,
+                language,
+                variant,
+                default_,
+                duration,
+                status,
+                id,
+                url);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingAudioTrack.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "video", video,
-                "type", type,
-                "language", language,
-                "variant", variant,
-                "default_", default_,
-                "duration", duration,
-                "status", status,
-                "id", id,
-                "url", url);
+        return Utils.toString(
+                ExistingAudioTrack.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "video",
+                video,
+                "type",
+                type,
+                "language",
+                language,
+                "variant",
+                variant,
+                "default_",
+                default_,
+                "duration",
+                duration,
+                "status",
+                status,
+                "id",
+                id,
+                "url",
+                url);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -501,7 +499,7 @@ public class ExistingAudioTrack {
         private AssetLocationJson url;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -563,10 +561,10 @@ public class ExistingAudioTrack {
         /**
          * Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is
          * a possible alternative to the main track.
-         * 
+         *
          * <p>Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is
          * a translated version of the main audio track.
-         * 
+         *
          * <p>Descriptive is an audio description of a video track.
          */
         public Builder variant(@Nullable AudioTrackVariantJson variant) {
@@ -594,11 +592,11 @@ public class ExistingAudioTrack {
          * Denotes the status of an audio track. Started indicates the request to upload in the API was
          * submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the
          * upload was completed.
-         * 
+         *
          * <p>Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a
          * successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun.
          * Rejected indicates a failed virus scan.
-         * 
+         *
          * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
          * is available for use.
          */
@@ -625,24 +623,25 @@ public class ExistingAudioTrack {
 
         public ExistingAudioTrack build() {
             return new ExistingAudioTrack(
-                created, createdBy, lastModified,
-                lastModifiedBy, video, type,
-                language, variant, default_,
-                duration, status, id,
-                url);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    video,
+                    type,
+                    language,
+                    variant,
+                    default_,
+                    duration,
+                    status,
+                    id,
+                    url);
         }
 
-
         private static final LazySingletonValue<AudioTrackVariantJson> _SINGLETON_VALUE_Variant =
-                new LazySingletonValue<>(
-                        "variant",
-                        "\"Alternate\"",
-                        new TypeReference<AudioTrackVariantJson>() {});
+                new LazySingletonValue<>("variant", "\"Alternate\"", new TypeReference<AudioTrackVariantJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Default =
-                new LazySingletonValue<>(
-                        "default",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("default", "false", new TypeReference<Boolean>() {});
     }
 }

@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttendeeCreditTypeJson
     {
-        [JsonProperty("Event")]
-        Event,
-        [JsonProperty("Session")]
-        Session,
+        [JsonProperty("Event")] Event,
+        [JsonProperty("Session")] Session,
     }
 
     public static class AttendeeCreditTypeJsonExtension
     {
         public static string Value(this AttendeeCreditTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttendeeCreditTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttendeeCreditTypeJson).GetFields())
+            foreach (var field in typeof(AttendeeCreditTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -40,7 +40,7 @@ public class GetContactRelationshipsByIdRequestBuilder {
     private GetContactRelationshipsByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetContactRelationshipsByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetContactRelationshipsByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetContactRelationshipsByIdResponse> call() {
-        AsyncRequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation
-              = new GetContactRelationshipsById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation =
+                new GetContactRelationshipsById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetContactRelationshipsByIdRequestBuilder {
      */
     public Publisher<GetContactRelationshipsByIdResponse> callAsPublisher() {
         GetContactRelationshipsByIdRequest request = this.request;
-        AsyncRequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation
-              = new GetContactRelationshipsById.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation =
+                new GetContactRelationshipsById.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetContactRelationshipsByIdRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetContactRelationshipsByIdRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetContactRelationshipsByIdResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetContactRelationshipsByIdResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

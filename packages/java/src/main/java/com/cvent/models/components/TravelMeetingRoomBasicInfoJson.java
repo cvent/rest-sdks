@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelMeetingRoomBasicInfoJson
- * 
+ *
  * <p>Meeting room basic information.
  */
 public class TravelMeetingRoomBasicInfoJson {
@@ -50,7 +50,7 @@ public class TravelMeetingRoomBasicInfoJson {
         this.unitOfMeasurement = unitOfMeasurement;
         this.meetingRooms = meetingRooms;
     }
-    
+
     public TravelMeetingRoomBasicInfoJson() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class TravelMeetingRoomBasicInfoJson {
         return new Builder();
     }
 
-
     /**
      * Size of the largest meeting room. Units of measurement determined by `unitOfMeasurement` field.
      */
@@ -88,7 +87,6 @@ public class TravelMeetingRoomBasicInfoJson {
         this.largestMeetingRoom = largestMeetingRoom;
         return this;
     }
-
 
     /**
      * Unit of measurement of the `largestMeetingRoom`'s size.
@@ -98,7 +96,6 @@ public class TravelMeetingRoomBasicInfoJson {
         return this;
     }
 
-
     /**
      * Total number of meeting rooms.
      */
@@ -106,7 +103,6 @@ public class TravelMeetingRoomBasicInfoJson {
         this.meetingRooms = meetingRooms;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,30 @@ public class TravelMeetingRoomBasicInfoJson {
             return false;
         }
         TravelMeetingRoomBasicInfoJson other = (TravelMeetingRoomBasicInfoJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.largestMeetingRoom, other.largestMeetingRoom) &&
-            Utils.enhancedDeepEquals(this.unitOfMeasurement, other.unitOfMeasurement) &&
-            Utils.enhancedDeepEquals(this.meetingRooms, other.meetingRooms);
+        return Utils.enhancedDeepEquals(this.largestMeetingRoom, other.largestMeetingRoom)
+                && Utils.enhancedDeepEquals(this.unitOfMeasurement, other.unitOfMeasurement)
+                && Utils.enhancedDeepEquals(this.meetingRooms, other.meetingRooms);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            largestMeetingRoom, unitOfMeasurement, meetingRooms);
+        return Utils.enhancedHash(largestMeetingRoom, unitOfMeasurement, meetingRooms);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelMeetingRoomBasicInfoJson.class,
-                "largestMeetingRoom", largestMeetingRoom,
-                "unitOfMeasurement", unitOfMeasurement,
-                "meetingRooms", meetingRooms);
+        return Utils.toString(
+                TravelMeetingRoomBasicInfoJson.class,
+                "largestMeetingRoom",
+                largestMeetingRoom,
+                "unitOfMeasurement",
+                unitOfMeasurement,
+                "meetingRooms",
+                meetingRooms);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long largestMeetingRoom;
 
@@ -147,7 +145,7 @@ public class TravelMeetingRoomBasicInfoJson {
         private Long meetingRooms;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +173,7 @@ public class TravelMeetingRoomBasicInfoJson {
         }
 
         public TravelMeetingRoomBasicInfoJson build() {
-            return new TravelMeetingRoomBasicInfoJson(
-                largestMeetingRoom, unitOfMeasurement, meetingRooms);
+            return new TravelMeetingRoomBasicInfoJson(largestMeetingRoom, unitOfMeasurement, meetingRooms);
         }
-
     }
 }

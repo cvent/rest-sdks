@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum JourneyType
     {
-        [JsonProperty("Oneway")]
-        Oneway,
-        [JsonProperty("RoundTrip")]
-        RoundTrip,
+        [JsonProperty("Oneway")] Oneway,
+        [JsonProperty("RoundTrip")] RoundTrip,
     }
 
     public static class JourneyTypeExtension
     {
         public static string Value(this JourneyType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static JourneyType ToEnum(this string value)
         {
-            foreach(var field in typeof(JourneyType).GetFields())
+            foreach (var field in typeof(JourneyType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

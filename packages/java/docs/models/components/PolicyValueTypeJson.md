@@ -2,6 +2,14 @@
 
 Value type of the policy
 
+## Example Usage
+
+```java
+import com.cvent.models.components.PolicyValueTypeJson;
+
+PolicyValueTypeJson value = PolicyValueTypeJson.SELECTION_LIST;
+```
+
 
 ## Values
 

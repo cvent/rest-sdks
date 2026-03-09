@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum VideoRenditionTypeJson
     {
-        [JsonProperty("Hls")]
-        Hls,
-        [JsonProperty("HlsMaster")]
-        HlsMaster,
-        [JsonProperty("Mp4")]
-        Mp4,
-        [JsonProperty("Poster")]
-        Poster,
-        [JsonProperty("Mp4Preview")]
-        Mp4Preview,
-        [JsonProperty("Mp3")]
-        Mp3,
-        [JsonProperty("Audio")]
-        Audio,
+        [JsonProperty("Hls")] Hls,
+        [JsonProperty("HlsMaster")] HlsMaster,
+        [JsonProperty("Mp4")] Mp4,
+        [JsonProperty("Poster")] Poster,
+        [JsonProperty("Mp4Preview")] Mp4Preview,
+        [JsonProperty("Mp3")] Mp3,
+        [JsonProperty("Audio")] Audio,
     }
 
     public static class VideoRenditionTypeJsonExtension
     {
         public static string Value(this VideoRenditionTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static VideoRenditionTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(VideoRenditionTypeJson).GetFields())
+            foreach (var field in typeof(VideoRenditionTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

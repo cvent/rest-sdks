@@ -27,7 +27,7 @@ public class HousingHotels {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncHousingHotels async() {
@@ -36,9 +36,9 @@ public class HousingHotels {
 
     /**
      * Update Hotel Room Rates
-     * 
+     *
      * <p>Updates the given hotel's room rate details based on data in the request body.
-     * 
+     *
      * @return The call builder
      */
     public UpdateHotelRoomRatesRequestBuilder updateHotelRoomRates() {
@@ -47,17 +47,16 @@ public class HousingHotels {
 
     /**
      * Update Hotel Room Rates
-     * 
+     *
      * <p>Updates the given hotel's room rate details based on data in the request body.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateHotelRoomRatesResponse updateHotelRoomRates(@Nonnull UpdateHotelRoomRatesRequest request) {
-        RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation
-              = new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
+                new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

@@ -2,6 +2,14 @@
 
 Type of travel alternate question
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TravelType;
+
+TravelType value = TravelType.AIR_REQUEST;
+```
+
 
 ## Values
 

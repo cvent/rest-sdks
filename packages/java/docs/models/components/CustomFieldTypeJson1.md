@@ -2,6 +2,14 @@
 
 This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CustomFieldTypeJson1;
+
+CustomFieldTypeJson1 value = CustomFieldTypeJson1.OPEN_ENDED_TEXT_DATE_TIME;
+```
+
 
 ## Values
 

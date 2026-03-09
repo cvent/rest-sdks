@@ -30,7 +30,7 @@ public class DeleteAttendeeLinkRequestBuilder {
     private DeleteAttendeeLinkRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteAttendeeLinkRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteAttendeeLinkRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteAttendeeLinkResponse> call() {
-        AsyncRequestOperation<DeleteAttendeeLinkRequest, DeleteAttendeeLinkResponse> operation
-              = new DeleteAttendeeLink.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteAttendeeLinkRequest, DeleteAttendeeLinkResponse> operation =
+                new DeleteAttendeeLink.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

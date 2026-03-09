@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class AssociateDiscountCodeToOrderItemResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable OrderItemResponse orderItemResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.orderItemResponse = orderItemResponse;
     }
-    
+
     public AssociateDiscountCodeToOrderItemResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully assigned discount code to an order item.
      */
-    public AssociateDiscountCodeToOrderItemResponse withOrderItemResponse(@Nullable OrderItemResponse orderItemResponse) {
+    public AssociateDiscountCodeToOrderItemResponse withOrderItemResponse(
+            @Nullable OrderItemResponse orderItemResponse) {
         this.orderItemResponse = orderItemResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
             return false;
         }
         AssociateDiscountCodeToOrderItemResponse other = (AssociateDiscountCodeToOrderItemResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.orderItemResponse, other.orderItemResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.orderItemResponse, other.orderItemResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            orderItemResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, orderItemResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssociateDiscountCodeToOrderItemResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "orderItemResponse", orderItemResponse);
+        return Utils.toString(
+                AssociateDiscountCodeToOrderItemResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "orderItemResponse",
+                orderItemResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
         private OrderItemResponse orderItemResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,9 +203,7 @@ public class AssociateDiscountCodeToOrderItemResponse implements Response {
 
         public AssociateDiscountCodeToOrderItemResponse build() {
             return new AssociateDiscountCodeToOrderItemResponse(
-                contentType, statusCode, rawResponse,
-                orderItemResponse);
+                    contentType, statusCode, rawResponse, orderItemResponse);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 This is used to denote the file type of a thumbnail
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ThumbnailTypeJson;
+
+ThumbnailTypeJson value = ThumbnailTypeJson.BMP;
+```
+
 
 ## Values
 

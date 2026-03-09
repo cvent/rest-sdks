@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AnswerJson
- * 
+ *
  * <p>An object representing the possible answers for lead qualification questions.
  */
 public class AnswerJson {
@@ -45,14 +45,12 @@ public class AnswerJson {
             @JsonProperty("type") @Nonnull AnswerTypeJson type,
             @JsonProperty("value") @Nullable String value,
             @JsonProperty("choice") @Nullable UuidJson choice) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.value = value;
         this.choice = choice;
     }
-    
-    public AnswerJson(
-            @Nonnull AnswerTypeJson type) {
+
+    public AnswerJson(@Nonnull AnswerTypeJson type) {
         this(type, null, null);
     }
 
@@ -81,7 +79,6 @@ public class AnswerJson {
         return new Builder();
     }
 
-
     /**
      * Type of answer
      */
@@ -89,7 +86,6 @@ public class AnswerJson {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * Answered value like: Choice text, text answer input etc.
@@ -99,7 +95,6 @@ public class AnswerJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -107,7 +102,6 @@ public class AnswerJson {
         this.choice = choice;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -118,28 +112,23 @@ public class AnswerJson {
             return false;
         }
         AnswerJson other = (AnswerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.choice, other.choice);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.choice, other.choice);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, value, choice);
+        return Utils.enhancedHash(type, value, choice);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AnswerJson.class,
-                "type", type,
-                "value", value,
-                "choice", choice);
+        return Utils.toString(AnswerJson.class, "type", type, "value", value, "choice", choice);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AnswerTypeJson type;
 
@@ -148,7 +137,7 @@ public class AnswerJson {
         private UuidJson choice;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,9 +165,7 @@ public class AnswerJson {
         }
 
         public AnswerJson build() {
-            return new AnswerJson(
-                type, value, choice);
+            return new AnswerJson(type, value, choice);
         }
-
     }
 }

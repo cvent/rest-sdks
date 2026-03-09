@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BudgetTaxGratuityTypeJson
- * 
+ *
  * <p>Denotes the type of tax or gratuity.
  */
 public enum BudgetTaxGratuityTypeJson {
@@ -23,13 +23,13 @@ public enum BudgetTaxGratuityTypeJson {
     BudgetTaxGratuityTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BudgetTaxGratuityTypeJson> fromValue(String value) {
-        for (BudgetTaxGratuityTypeJson o: BudgetTaxGratuityTypeJson.values()) {
+        for (BudgetTaxGratuityTypeJson o : BudgetTaxGratuityTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum BudgetTaxGratuityTypeJson {
         return Optional.empty();
     }
 }
-

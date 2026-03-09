@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PropertyApiGetChainRequest {
     /**
      * The ID of the chain.
@@ -20,10 +19,9 @@ public class PropertyApiGetChainRequest {
     private String chainId;
 
     @JsonCreator
-    public PropertyApiGetChainRequest(
-            @Nonnull String chainId) {
-        this.chainId = Optional.ofNullable(chainId)
-            .orElseThrow(() -> new IllegalArgumentException("chainId cannot be null"));
+    public PropertyApiGetChainRequest(@Nonnull String chainId) {
+        this.chainId =
+                Optional.ofNullable(chainId).orElseThrow(() -> new IllegalArgumentException("chainId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class PropertyApiGetChainRequest {
         return new Builder();
     }
 
-
     /**
      * The ID of the chain.
      */
@@ -45,7 +42,6 @@ public class PropertyApiGetChainRequest {
         this.chainId = Utils.checkNotNull(chainId, "chainId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class PropertyApiGetChainRequest {
             return false;
         }
         PropertyApiGetChainRequest other = (PropertyApiGetChainRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.chainId, other.chainId);
+        return Utils.enhancedDeepEquals(this.chainId, other.chainId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            chainId);
+        return Utils.enhancedHash(chainId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyApiGetChainRequest.class,
-                "chainId", chainId);
+        return Utils.toString(PropertyApiGetChainRequest.class, "chainId", chainId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String chainId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class PropertyApiGetChainRequest {
         }
 
         public PropertyApiGetChainRequest build() {
-            return new PropertyApiGetChainRequest(
-                chainId);
+            return new PropertyApiGetChainRequest(chainId);
         }
-
     }
 }

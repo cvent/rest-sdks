@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum FairSeasonTypeJson
     {
-        [JsonProperty("negotiated")]
-        Negotiated,
-        [JsonProperty("blackout")]
-        Blackout,
+        [JsonProperty("negotiated")] Negotiated,
+        [JsonProperty("blackout")] Blackout,
     }
 
     public static class FairSeasonTypeJsonExtension
     {
         public static string Value(this FairSeasonTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static FairSeasonTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(FairSeasonTypeJson).GetFields())
+            foreach (var field in typeof(FairSeasonTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

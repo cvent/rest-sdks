@@ -32,7 +32,7 @@ public class EventsPlusHub {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncEventsPlusHub async() {
@@ -41,10 +41,10 @@ public class EventsPlusHub {
 
     /**
      * List Events+ Hubs
-     * 
+     *
      * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
      * contains owner and theme information as well as the current status.
-     * 
+     *
      * @return The call builder
      */
     public ListHubsRequestBuilder listHubs() {
@@ -53,25 +53,24 @@ public class EventsPlusHub {
 
     /**
      * List Events+ Hubs
-     * 
+     *
      * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
      * contains owner and theme information as well as the current status.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListHubsResponse listHubs(@Nonnull ListHubsRequest request) {
-        RequestOperation<ListHubsRequest, ListHubsResponse> operation
-              = new ListHubs.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListHubsRequest, ListHubsResponse> operation = new ListHubs.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Events+ Hub Members
-     * 
+     *
      * <p>Fetches a list of members associated with a particular Events+ hub.
-     * 
+     *
      * @return The call builder
      */
     public GetHubMembersRequestBuilder getHubMembers() {
@@ -80,17 +79,16 @@ public class EventsPlusHub {
 
     /**
      * Get Events+ Hub Members
-     * 
+     *
      * <p>Fetches a list of members associated with a particular Events+ hub.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHubMembersResponse getHubMembers(@Nonnull GetHubMembersRequest request) {
-        RequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation
-              = new GetHubMembers.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
+                new GetHubMembers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

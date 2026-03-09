@@ -30,7 +30,7 @@ public class DeleteCurrencyConversionRateRequestBuilder {
     private DeleteCurrencyConversionRateRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteCurrencyConversionRateRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteCurrencyConversionRateRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteCurrencyConversionRateResponse> call() {
-        AsyncRequestOperation<DeleteCurrencyConversionRateRequest, DeleteCurrencyConversionRateResponse> operation
-              = new DeleteCurrencyConversionRate.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteCurrencyConversionRateRequest, DeleteCurrencyConversionRateResponse> operation =
+                new DeleteCurrencyConversionRate.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

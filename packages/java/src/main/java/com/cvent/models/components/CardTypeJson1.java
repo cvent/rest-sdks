@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CardTypeJson1
- * 
+ *
  * <p>This is used to denote the card type for a card.
  */
 public enum CardTypeJson1 {
@@ -23,13 +23,13 @@ public enum CardTypeJson1 {
     CardTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CardTypeJson1> fromValue(String value) {
-        for (CardTypeJson1 o: CardTypeJson1.values()) {
+        for (CardTypeJson1 o : CardTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum CardTypeJson1 {
         return Optional.empty();
     }
 }
-

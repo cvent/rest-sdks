@@ -32,21 +32,20 @@ public class AsyncBadgePrinterPools {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public BadgePrinterPools sync() {
         return syncSDK;
     }
 
-
     /**
      * List Badge Printer Pools
-     * 
+     *
      * <p>Gets a paginated list of badge printer pools
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBadgePrinterPoolsRequestBuilder getBadgePrinterPools() {
@@ -55,29 +54,28 @@ public class AsyncBadgePrinterPools {
 
     /**
      * List Badge Printer Pools
-     * 
+     *
      * <p>Gets a paginated list of badge printer pools
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBadgePrinterPoolsResponse>} - The async response
      */
-    public CompletableFuture<GetBadgePrinterPoolsResponse> getBadgePrinterPools(@Nonnull GetBadgePrinterPoolsRequest request) {
-        AsyncRequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation
-              = new GetBadgePrinterPools.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetBadgePrinterPoolsResponse> getBadgePrinterPools(
+            @Nonnull GetBadgePrinterPoolsRequest request) {
+        AsyncRequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation =
+                new GetBadgePrinterPools.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Badge Printer Pool
-     * 
+     *
      * <p>Gets a single badge printer pool by its ID
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetBadgePrinterPoolRequestBuilder getBadgePrinterPool() {
@@ -86,19 +84,18 @@ public class AsyncBadgePrinterPools {
 
     /**
      * Get Badge Printer Pool
-     * 
+     *
      * <p>Gets a single badge printer pool by its ID
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetBadgePrinterPoolResponse>} - The async response
      */
-    public CompletableFuture<GetBadgePrinterPoolResponse> getBadgePrinterPool(@Nonnull GetBadgePrinterPoolRequest request) {
-        AsyncRequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation
-              = new GetBadgePrinterPool.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetBadgePrinterPoolResponse> getBadgePrinterPool(
+            @Nonnull GetBadgePrinterPoolRequest request) {
+        AsyncRequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation =
+                new GetBadgePrinterPool.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

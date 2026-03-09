@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetEventEmailStatusRequest {
     /**
      * Used to get status of emails which were sent with this email request ID.
@@ -20,10 +19,9 @@ public class GetEventEmailStatusRequest {
     private String emailRequestId;
 
     @JsonCreator
-    public GetEventEmailStatusRequest(
-            @Nonnull String emailRequestId) {
+    public GetEventEmailStatusRequest(@Nonnull String emailRequestId) {
         this.emailRequestId = Optional.ofNullable(emailRequestId)
-            .orElseThrow(() -> new IllegalArgumentException("emailRequestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("emailRequestId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetEventEmailStatusRequest {
         return new Builder();
     }
 
-
     /**
      * Used to get status of emails which were sent with this email request ID.
      */
@@ -45,7 +42,6 @@ public class GetEventEmailStatusRequest {
         this.emailRequestId = Utils.checkNotNull(emailRequestId, "emailRequestId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetEventEmailStatusRequest {
             return false;
         }
         GetEventEmailStatusRequest other = (GetEventEmailStatusRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.emailRequestId, other.emailRequestId);
+        return Utils.enhancedDeepEquals(this.emailRequestId, other.emailRequestId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            emailRequestId);
+        return Utils.enhancedHash(emailRequestId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventEmailStatusRequest.class,
-                "emailRequestId", emailRequestId);
+        return Utils.toString(GetEventEmailStatusRequest.class, "emailRequestId", emailRequestId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String emailRequestId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetEventEmailStatusRequest {
         }
 
         public GetEventEmailStatusRequest build() {
-            return new GetEventEmailStatusRequest(
-                emailRequestId);
+            return new GetEventEmailStatusRequest(emailRequestId);
         }
-
     }
 }

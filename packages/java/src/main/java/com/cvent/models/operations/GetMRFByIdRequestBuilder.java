@@ -28,7 +28,7 @@ public class GetMRFByIdRequestBuilder {
     private GetMRFByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetMRFByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetMRFByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetMRFByIdResponse call() {
-        RequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation
-              = new GetMRFById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation =
+                new GetMRFById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

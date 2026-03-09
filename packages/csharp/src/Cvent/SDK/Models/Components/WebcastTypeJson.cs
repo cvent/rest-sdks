@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum WebcastTypeJson
     {
-        [JsonProperty("Meeting")]
-        Meeting,
-        [JsonProperty("Webinar")]
-        Webinar,
-        [JsonProperty("Presentation")]
-        Presentation,
+        [JsonProperty("Meeting")] Meeting,
+        [JsonProperty("Webinar")] Webinar,
+        [JsonProperty("Presentation")] Presentation,
     }
 
     public static class WebcastTypeJsonExtension
     {
         public static string Value(this WebcastTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static WebcastTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(WebcastTypeJson).GetFields())
+            foreach (var field in typeof(WebcastTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

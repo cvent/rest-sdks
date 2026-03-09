@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateExhibitorCategoryRequest {
     /**
      * ID of an event.
@@ -37,12 +36,11 @@ public class UpdateExhibitorCategoryRequest {
             @Nonnull String id,
             @Nonnull String exhibitorCategoryId,
             @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryId = Optional.ofNullable(exhibitorCategoryId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
         this.exhibitorCategoryRequest = Optional.ofNullable(exhibitorCategoryRequest)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryRequest cannot be null"));
     }
 
     /**
@@ -70,7 +68,6 @@ public class UpdateExhibitorCategoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +75,6 @@ public class UpdateExhibitorCategoryRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor category.
@@ -88,15 +84,14 @@ public class UpdateExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * Exhibitor Category details
      */
-    public UpdateExhibitorCategoryRequest withExhibitorCategoryRequest(@Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
+    public UpdateExhibitorCategoryRequest withExhibitorCategoryRequest(
+            @Nonnull ExhibitorCategoryRequest exhibitorCategoryRequest) {
         this.exhibitorCategoryRequest = Utils.checkNotNull(exhibitorCategoryRequest, "exhibitorCategoryRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +102,30 @@ public class UpdateExhibitorCategoryRequest {
             return false;
         }
         UpdateExhibitorCategoryRequest other = (UpdateExhibitorCategoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryRequest, other.exhibitorCategoryRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryRequest, other.exhibitorCategoryRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryId, exhibitorCategoryRequest);
+        return Utils.enhancedHash(id, exhibitorCategoryId, exhibitorCategoryRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorCategoryRequest.class,
-                "id", id,
-                "exhibitorCategoryId", exhibitorCategoryId,
-                "exhibitorCategoryRequest", exhibitorCategoryRequest);
+        return Utils.toString(
+                UpdateExhibitorCategoryRequest.class,
+                "id",
+                id,
+                "exhibitorCategoryId",
+                exhibitorCategoryId,
+                "exhibitorCategoryRequest",
+                exhibitorCategoryRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +134,7 @@ public class UpdateExhibitorCategoryRequest {
         private ExhibitorCategoryRequest exhibitorCategoryRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +162,7 @@ public class UpdateExhibitorCategoryRequest {
         }
 
         public UpdateExhibitorCategoryRequest build() {
-            return new UpdateExhibitorCategoryRequest(
-                id, exhibitorCategoryId, exhibitorCategoryRequest);
+            return new UpdateExhibitorCategoryRequest(id, exhibitorCategoryId, exhibitorCategoryRequest);
         }
-
     }
 }

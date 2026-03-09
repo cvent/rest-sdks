@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventBudgetTotalsJson
- * 
+ *
  * <p>Budget Totals for a Event.
  */
 public class EventBudgetTotalsJson {
@@ -78,10 +78,9 @@ public class EventBudgetTotalsJson {
         this.totalHighLevelEstimate = totalHighLevelEstimate;
         this.costDetail = costDetail;
     }
-    
+
     public EventBudgetTotalsJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -130,7 +129,6 @@ public class EventBudgetTotalsJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of the Event.
      */
@@ -138,7 +136,6 @@ public class EventBudgetTotalsJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The identifier of the Budget version for an event.
@@ -148,7 +145,6 @@ public class EventBudgetTotalsJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date and time for budget version last modified date.
      */
@@ -156,7 +152,6 @@ public class EventBudgetTotalsJson {
         this.lastModifiedDate = lastModifiedDate;
         return this;
     }
-
 
     /**
      * The ISO 4217 standard format currency code used of transaction currency.
@@ -166,7 +161,6 @@ public class EventBudgetTotalsJson {
         return this;
     }
 
-
     /**
      * Total High-level estimation details.
      */
@@ -175,7 +169,6 @@ public class EventBudgetTotalsJson {
         return this;
     }
 
-
     /**
      * The list of cost details.
      */
@@ -183,7 +176,6 @@ public class EventBudgetTotalsJson {
         this.costDetail = costDetail;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -194,35 +186,39 @@ public class EventBudgetTotalsJson {
             return false;
         }
         EventBudgetTotalsJson other = (EventBudgetTotalsJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.version, other.version) &&
-            Utils.enhancedDeepEquals(this.lastModifiedDate, other.lastModifiedDate) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.totalHighLevelEstimate, other.totalHighLevelEstimate) &&
-            Utils.enhancedDeepEquals(this.costDetail, other.costDetail);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.version, other.version)
+                && Utils.enhancedDeepEquals(this.lastModifiedDate, other.lastModifiedDate)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.totalHighLevelEstimate, other.totalHighLevelEstimate)
+                && Utils.enhancedDeepEquals(this.costDetail, other.costDetail);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, version, lastModifiedDate,
-            currency, totalHighLevelEstimate, costDetail);
+        return Utils.enhancedHash(event, version, lastModifiedDate, currency, totalHighLevelEstimate, costDetail);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventBudgetTotalsJson.class,
-                "event", event,
-                "version", version,
-                "lastModifiedDate", lastModifiedDate,
-                "currency", currency,
-                "totalHighLevelEstimate", totalHighLevelEstimate,
-                "costDetail", costDetail);
+        return Utils.toString(
+                EventBudgetTotalsJson.class,
+                "event",
+                event,
+                "version",
+                version,
+                "lastModifiedDate",
+                lastModifiedDate,
+                "currency",
+                currency,
+                "totalHighLevelEstimate",
+                totalHighLevelEstimate,
+                "costDetail",
+                costDetail);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventBudgetTotalsJsonEvent event;
 
@@ -237,7 +233,7 @@ public class EventBudgetTotalsJson {
         private List<EventBudgetCostDetailJson> costDetail;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -290,9 +286,7 @@ public class EventBudgetTotalsJson {
 
         public EventBudgetTotalsJson build() {
             return new EventBudgetTotalsJson(
-                event, version, lastModifiedDate,
-                currency, totalHighLevelEstimate, costDetail);
+                    event, version, lastModifiedDate, currency, totalHighLevelEstimate, costDetail);
         }
-
     }
 }

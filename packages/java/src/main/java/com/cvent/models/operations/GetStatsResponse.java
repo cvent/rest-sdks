@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetStatsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetStatsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeeInsightsStats attendeeInsightsStats) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeInsightsStats = attendeeInsightsStats;
     }
-    
+
     public GetStatsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetStatsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetStatsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetStatsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class GetStatsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a summary of scores.
      */
@@ -126,7 +118,6 @@ public class GetStatsResponse implements Response {
         this.attendeeInsightsStats = attendeeInsightsStats;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class GetStatsResponse implements Response {
             return false;
         }
         GetStatsResponse other = (GetStatsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeInsightsStats, other.attendeeInsightsStats);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeInsightsStats, other.attendeeInsightsStats);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeInsightsStats);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeInsightsStats);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetStatsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeInsightsStats", attendeeInsightsStats);
+        return Utils.toString(
+                GetStatsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeInsightsStats",
+                attendeeInsightsStats);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class GetStatsResponse implements Response {
         private AttendeeInsightsStats attendeeInsightsStats;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class GetStatsResponse implements Response {
         }
 
         public GetStatsResponse build() {
-            return new GetStatsResponse(
-                contentType, statusCode, rawResponse,
-                attendeeInsightsStats);
+            return new GetStatsResponse(contentType, statusCode, rawResponse, attendeeInsightsStats);
         }
-
     }
 }

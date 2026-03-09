@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * BudgetItemCustomFieldJson
- * 
+ *
  * <p>A Budget Item Custom Field
  */
 public class BudgetItemCustomFieldJson {
@@ -62,20 +62,15 @@ public class BudgetItemCustomFieldJson {
             @JsonProperty("type") @Nullable BudgetItemCustomFieldJsonCustomFieldType type,
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("order") @Nullable Long order) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.type = type;
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.order = order;
     }
-    
-    public BudgetItemCustomFieldJson(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
-        this(id, null, null,
-            value, null);
+
+    public BudgetItemCustomFieldJson(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, null, null, value, null);
     }
 
     /**
@@ -117,7 +112,6 @@ public class BudgetItemCustomFieldJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this budget item custom field.
      */
@@ -125,7 +119,6 @@ public class BudgetItemCustomFieldJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -135,7 +128,6 @@ public class BudgetItemCustomFieldJson {
         return this;
     }
 
-
     /**
      * The type of data collected by a custom field.
      */
@@ -143,7 +135,6 @@ public class BudgetItemCustomFieldJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The set of answers or possible answers to a question.
@@ -153,7 +144,6 @@ public class BudgetItemCustomFieldJson {
         return this;
     }
 
-
     /**
      * The order of this question in the bigger list of questions.
      */
@@ -161,7 +151,6 @@ public class BudgetItemCustomFieldJson {
         this.order = order;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,33 +161,26 @@ public class BudgetItemCustomFieldJson {
             return false;
         }
         BudgetItemCustomFieldJson other = (BudgetItemCustomFieldJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.order, other.order);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.order, other.order);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, type,
-            value, order);
+        return Utils.enhancedHash(id, name, type, value, order);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetItemCustomFieldJson.class,
-                "id", id,
-                "name", name,
-                "type", type,
-                "value", value,
-                "order", order);
+        return Utils.toString(
+                BudgetItemCustomFieldJson.class, "id", id, "name", name, "type", type, "value", value, "order", order);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -211,7 +193,7 @@ public class BudgetItemCustomFieldJson {
         private Long order;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,10 +237,7 @@ public class BudgetItemCustomFieldJson {
         }
 
         public BudgetItemCustomFieldJson build() {
-            return new BudgetItemCustomFieldJson(
-                id, name, type,
-                value, order);
+            return new BudgetItemCustomFieldJson(id, name, type, value, order);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventSummaryJson
- * 
+ *
  * <p>Schema for event summary associated with this proposal.
  */
 public class EventSummaryJson {
@@ -27,11 +27,10 @@ public class EventSummaryJson {
     private String id;
 
     @JsonCreator
-    public EventSummaryJson(
-            @JsonProperty("id") @Nullable String id) {
+    public EventSummaryJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public EventSummaryJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class EventSummaryJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the event in the proposal.
      */
@@ -55,7 +53,6 @@ public class EventSummaryJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class EventSummaryJson {
             return false;
         }
         EventSummaryJson other = (EventSummaryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSummaryJson.class,
-                "id", id);
+        return Utils.toString(EventSummaryJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class EventSummaryJson {
         }
 
         public EventSummaryJson build() {
-            return new EventSummaryJson(
-                id);
+            return new EventSummaryJson(id);
         }
-
     }
 }

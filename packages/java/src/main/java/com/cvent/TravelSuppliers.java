@@ -56,7 +56,7 @@ public class TravelSuppliers {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncTravelSuppliers async() {
@@ -65,9 +65,9 @@ public class TravelSuppliers {
 
     /**
      * List Supplier Brands
-     * 
+     *
      * <p>Gets a paginated list of supplier brands.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiListBrandsRequestBuilder propertyApiListBrands() {
@@ -76,24 +76,24 @@ public class TravelSuppliers {
 
     /**
      * List Supplier Brands
-     * 
+     *
      * <p>Gets a paginated list of supplier brands.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PropertyApiListBrandsResponse propertyApiListBrands(@Nonnull PropertyApiListBrandsRequest request) {
-        RequestOperation<PropertyApiListBrandsRequest, PropertyApiListBrandsResponse> operation
-              = new PropertyApiListBrands.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiListBrandsRequest, PropertyApiListBrandsResponse> operation =
+                new PropertyApiListBrands.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Supplier Brand
-     * 
+     *
      * <p>Get a supplier brand by brand code.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiGetBrandRequestBuilder propertyApiGetBrand() {
@@ -102,24 +102,24 @@ public class TravelSuppliers {
 
     /**
      * Get Supplier Brand
-     * 
+     *
      * <p>Get a supplier brand by brand code.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PropertyApiGetBrandResponse propertyApiGetBrand(@Nonnull PropertyApiGetBrandRequest request) {
-        RequestOperation<PropertyApiGetBrandRequest, PropertyApiGetBrandResponse> operation
-              = new PropertyApiGetBrand.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiGetBrandRequest, PropertyApiGetBrandResponse> operation =
+                new PropertyApiGetBrand.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Supplier Chains
-     * 
+     *
      * <p>Gets a paginated list of supplier chains.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiListChainsRequestBuilder propertyApiListChains() {
@@ -128,24 +128,24 @@ public class TravelSuppliers {
 
     /**
      * List Supplier Chains
-     * 
+     *
      * <p>Gets a paginated list of supplier chains.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PropertyApiListChainsResponse propertyApiListChains(@Nonnull PropertyApiListChainsRequest request) {
-        RequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation
-              = new PropertyApiListChains.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation =
+                new PropertyApiListChains.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Supplier Chain
-     * 
+     *
      * <p>Get a supplier chain by chain ID.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiGetChainRequestBuilder propertyApiGetChain() {
@@ -154,24 +154,24 @@ public class TravelSuppliers {
 
     /**
      * Get Supplier Chain
-     * 
+     *
      * <p>Get a supplier chain by chain ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PropertyApiGetChainResponse propertyApiGetChain(@Nonnull PropertyApiGetChainRequest request) {
-        RequestOperation<PropertyApiGetChainRequest, PropertyApiGetChainResponse> operation
-              = new PropertyApiGetChain.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiGetChainRequest, PropertyApiGetChainResponse> operation =
+                new PropertyApiGetChain.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Supplier Properties
-     * 
+     *
      * <p>Gets a paginated list of supplier properties.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiListPropertiesRequestBuilder propertyApiListProperties() {
@@ -180,24 +180,25 @@ public class TravelSuppliers {
 
     /**
      * List Supplier Properties
-     * 
+     *
      * <p>Gets a paginated list of supplier properties.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public PropertyApiListPropertiesResponse propertyApiListProperties(@Nonnull PropertyApiListPropertiesRequest request) {
-        RequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation
-              = new PropertyApiListProperties.Sync(sdkConfiguration, _headers);
+    public PropertyApiListPropertiesResponse propertyApiListProperties(
+            @Nonnull PropertyApiListPropertiesRequest request) {
+        RequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation =
+                new PropertyApiListProperties.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Supplier Property
-     * 
+     *
      * <p>Get a supplier property by ID.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiGetPropertyRequestBuilder propertyApiGetProperty() {
@@ -206,24 +207,24 @@ public class TravelSuppliers {
 
     /**
      * Get Supplier Property
-     * 
+     *
      * <p>Get a supplier property by ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PropertyApiGetPropertyResponse propertyApiGetProperty(@Nonnull PropertyApiGetPropertyRequest request) {
-        RequestOperation<PropertyApiGetPropertyRequest, PropertyApiGetPropertyResponse> operation
-              = new PropertyApiGetProperty.Sync(sdkConfiguration, _headers);
+        RequestOperation<PropertyApiGetPropertyRequest, PropertyApiGetPropertyResponse> operation =
+                new PropertyApiGetProperty.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Supplier Property Rooms
-     * 
+     *
      * <p>Gets a paginated list of supplier property rooms.
-     * 
+     *
      * @return The call builder
      */
     public BtApiGetPropertyRoomsRequestBuilder btApiGetPropertyRooms() {
@@ -232,24 +233,24 @@ public class TravelSuppliers {
 
     /**
      * List Supplier Property Rooms
-     * 
+     *
      * <p>Gets a paginated list of supplier property rooms.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public BtApiGetPropertyRoomsResponse btApiGetPropertyRooms(@Nonnull BtApiGetPropertyRoomsRequest request) {
-        RequestOperation<BtApiGetPropertyRoomsRequest, BtApiGetPropertyRoomsResponse> operation
-              = new BtApiGetPropertyRooms.Sync(sdkConfiguration, _headers);
+        RequestOperation<BtApiGetPropertyRoomsRequest, BtApiGetPropertyRoomsResponse> operation =
+                new BtApiGetPropertyRooms.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Supplier Property Room
-     * 
+     *
      * <p>Read supplier property room data by room ID.
-     * 
+     *
      * @return The call builder
      */
     public PropertyApiGetPropertyRoomRequestBuilder propertyApiGetPropertyRoom() {
@@ -258,17 +259,17 @@ public class TravelSuppliers {
 
     /**
      * Get Supplier Property Room
-     * 
+     *
      * <p>Read supplier property room data by room ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public PropertyApiGetPropertyRoomResponse propertyApiGetPropertyRoom(@Nonnull PropertyApiGetPropertyRoomRequest request) {
-        RequestOperation<PropertyApiGetPropertyRoomRequest, PropertyApiGetPropertyRoomResponse> operation
-              = new PropertyApiGetPropertyRoom.Sync(sdkConfiguration, _headers);
+    public PropertyApiGetPropertyRoomResponse propertyApiGetPropertyRoom(
+            @Nonnull PropertyApiGetPropertyRoomRequest request) {
+        RequestOperation<PropertyApiGetPropertyRoomRequest, PropertyApiGetPropertyRoomResponse> operation =
+                new PropertyApiGetPropertyRoom.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

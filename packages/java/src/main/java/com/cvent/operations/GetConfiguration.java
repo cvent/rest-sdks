@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import static com.cvent.operations.Operations.RequestlessOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -33,10 +33,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class GetConfiguration {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -45,7 +44,7 @@ public class GetConfiguration {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -81,13 +80,11 @@ public class GetConfiguration {
                     java.util.Optional.of(java.util.List.of("compliance/communications:read")),
                     securitySource());
         }
+
         HttpRequest buildRequest() throws Exception {
-            String url = Utils.generateURL(
-                    this.baseUrl,
-                    "/logs/communications/configuration");
+            String url = Utils.generateURL(this.baseUrl, "/logs/communications/configuration");
             HTTPRequest req = new HTTPRequest(url, "GET");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -95,8 +92,7 @@ public class GetConfiguration {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestlessOperation<GetConfigurationResponse> {
+    public static class Sync extends Base implements RequestlessOperation<GetConfigurationResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -106,11 +102,11 @@ public class GetConfiguration {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -135,25 +131,20 @@ public class GetConfiguration {
             return httpRes;
         }
 
-
         @Override
         public GetConfigurationResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            GetConfigurationResponse.Builder resBuilder =
-                    GetConfigurationResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            GetConfigurationResponse.Builder resBuilder = GetConfigurationResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             GetConfigurationResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withCommunicationConfiguration(Utils.unmarshal(response, new TypeReference<CommunicationConfiguration>() {}));
+                    return res.withCommunicationConfiguration(
+                            Utils.unmarshal(response, new TypeReference<CommunicationConfiguration>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -176,6 +167,7 @@ public class GetConfiguration {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
             implements AsyncRequestlessOperation<com.cvent.models.operations.async.GetConfigurationResponse> {
 
@@ -198,7 +190,9 @@ public class GetConfiguration {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest() {
-            return unchecked(() -> onBuildRequest()).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest())
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -215,19 +209,15 @@ public class GetConfiguration {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.GetConfigurationResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.GetConfigurationResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.GetConfigurationResponse
-                            .builder()
+                    com.cvent.models.operations.async.GetConfigurationResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.GetConfigurationResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<CommunicationConfiguration>() {})
@@ -238,8 +228,7 @@ public class GetConfiguration {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

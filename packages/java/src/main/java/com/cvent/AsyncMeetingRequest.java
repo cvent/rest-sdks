@@ -46,7 +46,7 @@ import java.util.concurrent.CompletableFuture;
  * information about the event and facilitate the approval of events. When a meeting request form is
  * submitted it becomes a meeting request. Use this API to view forms, create meeting requests and
  * track the status of meeting requests.
- * 
+ *
  * <p>**Legacy meeting request forms are not supported by this API.**
  */
 public class AsyncMeetingRequest {
@@ -61,21 +61,20 @@ public class AsyncMeetingRequest {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public MeetingRequest sync() {
         return syncSDK;
     }
 
-
     /**
      * Get MR by Event ID
-     * 
+     *
      * <p>Gets a meeting request connected to a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetMeetingRequestByEventIdRequestBuilder getMeetingRequestByEventId() {
@@ -84,29 +83,28 @@ public class AsyncMeetingRequest {
 
     /**
      * Get MR by Event ID
-     * 
+     *
      * <p>Gets a meeting request connected to a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetMeetingRequestByEventIdResponse>} - The async response
      */
-    public CompletableFuture<GetMeetingRequestByEventIdResponse> getMeetingRequestByEventId(@Nonnull GetMeetingRequestByEventIdRequest request) {
-        AsyncRequestOperation<GetMeetingRequestByEventIdRequest, GetMeetingRequestByEventIdResponse> operation
-              = new GetMeetingRequestByEventId.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetMeetingRequestByEventIdResponse> getMeetingRequestByEventId(
+            @Nonnull GetMeetingRequestByEventIdRequest request) {
+        AsyncRequestOperation<GetMeetingRequestByEventIdRequest, GetMeetingRequestByEventIdResponse> operation =
+                new GetMeetingRequestByEventId.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List MR Forms
-     * 
+     *
      * <p>Get a paginated list of meeting request forms.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListMRFRequestBuilder listMRF() {
@@ -115,29 +113,27 @@ public class AsyncMeetingRequest {
 
     /**
      * List MR Forms
-     * 
+     *
      * <p>Get a paginated list of meeting request forms.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListMRFResponse>} - The async response
      */
     public CompletableFuture<ListMRFResponse> listMRF(@Nonnull ListMRFRequest request) {
-        AsyncRequestOperation<ListMRFRequest, ListMRFResponse> operation
-              = new ListMRF.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListMRFRequest, ListMRFResponse> operation =
+                new ListMRF.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get MR Form
-     * 
+     *
      * <p>Get a single meeting request form by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetMRFByIdRequestBuilder getMRFById() {
@@ -146,29 +142,27 @@ public class AsyncMeetingRequest {
 
     /**
      * Get MR Form
-     * 
+     *
      * <p>Get a single meeting request form by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetMRFByIdResponse>} - The async response
      */
     public CompletableFuture<GetMRFByIdResponse> getMRFById(@Nonnull GetMRFByIdRequest request) {
-        AsyncRequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation
-              = new GetMRFById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation =
+                new GetMRFById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create MR (Bulk)
-     * 
+     *
      * <p>Creates a collection of meeting requests for a given active form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateMeetingRequestRequestBuilder createMeetingRequest() {
@@ -177,30 +171,29 @@ public class AsyncMeetingRequest {
 
     /**
      * Create MR (Bulk)
-     * 
+     *
      * <p>Creates a collection of meeting requests for a given active form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateMeetingRequestResponse>} - The async response
      */
-    public CompletableFuture<CreateMeetingRequestResponse> createMeetingRequest(@Nonnull CreateMeetingRequestRequest request) {
-        AsyncRequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation
-              = new CreateMeetingRequest.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateMeetingRequestResponse> createMeetingRequest(
+            @Nonnull CreateMeetingRequestRequest request) {
+        AsyncRequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation =
+                new CreateMeetingRequest.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update MR (Bulk)
-     * 
+     *
      * <p>Updates a collection of meeting requests for a given form, adding information to the existing
      * meeting requests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateMeetingRequestRequestBuilder updateMeetingRequest() {
@@ -209,30 +202,29 @@ public class AsyncMeetingRequest {
 
     /**
      * Update MR (Bulk)
-     * 
+     *
      * <p>Updates a collection of meeting requests for a given form, adding information to the existing
      * meeting requests.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateMeetingRequestResponse>} - The async response
      */
-    public CompletableFuture<UpdateMeetingRequestResponse> updateMeetingRequest(@Nonnull UpdateMeetingRequestRequest request) {
-        AsyncRequestOperation<UpdateMeetingRequestRequest, UpdateMeetingRequestResponse> operation
-              = new UpdateMeetingRequest.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateMeetingRequestResponse> updateMeetingRequest(
+            @Nonnull UpdateMeetingRequestRequest request) {
+        AsyncRequestOperation<UpdateMeetingRequestRequest, UpdateMeetingRequestResponse> operation =
+                new UpdateMeetingRequest.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List MR
-     * 
+     *
      * <p>Gets a paginated list of meeting requests for a given form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListMeetingRequestRequestBuilder listMeetingRequest() {
@@ -241,29 +233,28 @@ public class AsyncMeetingRequest {
 
     /**
      * List MR
-     * 
+     *
      * <p>Gets a paginated list of meeting requests for a given form.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListMeetingRequestResponse>} - The async response
      */
-    public CompletableFuture<ListMeetingRequestResponse> listMeetingRequest(@Nonnull ListMeetingRequestRequest request) {
-        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation
-              = new ListMeetingRequest.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListMeetingRequestResponse> listMeetingRequest(
+            @Nonnull ListMeetingRequestRequest request) {
+        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation =
+                new ListMeetingRequest.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get MR
-     * 
+     *
      * <p>Gets a single meeting request by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetMeetingRequestByIdRequestBuilder getMeetingRequestById() {
@@ -272,28 +263,27 @@ public class AsyncMeetingRequest {
 
     /**
      * Get MR
-     * 
+     *
      * <p>Gets a single meeting request by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetMeetingRequestByIdResponse>} - The async response
      */
-    public CompletableFuture<GetMeetingRequestByIdResponse> getMeetingRequestById(@Nonnull GetMeetingRequestByIdRequest request) {
-        AsyncRequestOperation<GetMeetingRequestByIdRequest, GetMeetingRequestByIdResponse> operation
-              = new GetMeetingRequestById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetMeetingRequestByIdResponse> getMeetingRequestById(
+            @Nonnull GetMeetingRequestByIdRequest request) {
+        AsyncRequestOperation<GetMeetingRequestByIdRequest, GetMeetingRequestByIdResponse> operation =
+                new GetMeetingRequestById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List MR Documents
-     * 
+     *
      * <p>Gets a paginated list of documents for a given meeting request ID. When a meeting request form is
      * submitted, it becomes a meeting request. Some meeting requests have document attachments.
-     * 
+     *
      * @return The async call builder
      */
     public ListMeetingRequestDocumentsRequestBuilder listMeetingRequestDocuments() {
@@ -302,18 +292,17 @@ public class AsyncMeetingRequest {
 
     /**
      * List MR Documents
-     * 
+     *
      * <p>Gets a paginated list of documents for a given meeting request ID. When a meeting request form is
      * submitted, it becomes a meeting request. Some meeting requests have document attachments.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListMeetingRequestDocumentsResponse>} - The async response
      */
-    public CompletableFuture<ListMeetingRequestDocumentsResponse> listMeetingRequestDocuments(@Nonnull ListMeetingRequestDocumentsRequest request) {
-        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation
-              = new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListMeetingRequestDocumentsResponse> listMeetingRequestDocuments(
+            @Nonnull ListMeetingRequestDocumentsRequest request) {
+        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation =
+                new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

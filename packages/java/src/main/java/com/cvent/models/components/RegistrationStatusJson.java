@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * RegistrationStatusJson
- * 
+ *
  * <p>This is used to denote the registration status for an event.
  */
 public enum RegistrationStatusJson {
@@ -29,13 +29,13 @@ public enum RegistrationStatusJson {
     RegistrationStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RegistrationStatusJson> fromValue(String value) {
-        for (RegistrationStatusJson o: RegistrationStatusJson.values()) {
+        for (RegistrationStatusJson o : RegistrationStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum RegistrationStatusJson {
         return Optional.empty();
     }
 }
-

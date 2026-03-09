@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * DiscountCapacityInputJson
- * 
+ *
  * <p>Details about the discount capacity.
  */
 public class DiscountCapacityInputJson {
@@ -31,12 +31,10 @@ public class DiscountCapacityInputJson {
     private Long total;
 
     @JsonCreator
-    public DiscountCapacityInputJson(
-            @JsonProperty("total") @Nullable Long total) {
-        this.total = Optional.ofNullable(total)
-            .orElse(Builder._SINGLETON_VALUE_Total.value());
+    public DiscountCapacityInputJson(@JsonProperty("total") @Nullable Long total) {
+        this.total = Optional.ofNullable(total).orElse(Builder._SINGLETON_VALUE_Total.value());
     }
-    
+
     public DiscountCapacityInputJson() {
         this(null);
     }
@@ -53,7 +51,6 @@ public class DiscountCapacityInputJson {
         return new Builder();
     }
 
-
     /**
      * The total number of instances the discount can be used event wide. Default value of -1 indicates
      * unlimited capacity.
@@ -62,7 +59,6 @@ public class DiscountCapacityInputJson {
         this.total = total;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -73,29 +69,26 @@ public class DiscountCapacityInputJson {
             return false;
         }
         DiscountCapacityInputJson other = (DiscountCapacityInputJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.total, other.total);
+        return Utils.enhancedDeepEquals(this.total, other.total);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            total);
+        return Utils.enhancedHash(total);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DiscountCapacityInputJson.class,
-                "total", total);
+        return Utils.toString(DiscountCapacityInputJson.class, "total", total);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long total;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -108,15 +101,10 @@ public class DiscountCapacityInputJson {
         }
 
         public DiscountCapacityInputJson build() {
-            return new DiscountCapacityInputJson(
-                total);
+            return new DiscountCapacityInputJson(total);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Total =
-                new LazySingletonValue<>(
-                        "total",
-                        "-1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("total", "-1", new TypeReference<Long>() {});
     }
 }

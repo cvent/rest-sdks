@@ -18,7 +18,6 @@ public class GetResourceTypesRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetResourceTypesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -27,13 +26,13 @@ public class GetResourceTypesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetResourceTypesResponse call() {
-        RequestlessOperation<GetResourceTypesResponse> operation
-            = new GetResourceTypes.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetResourceTypesResponse> operation =
+                new GetResourceTypes.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

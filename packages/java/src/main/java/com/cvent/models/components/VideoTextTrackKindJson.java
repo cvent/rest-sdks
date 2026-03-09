@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * VideoTextTrackKindJson
- * 
+ *
  * <p>Denotes the kind of video text track. Only subtitles are supported.
  */
 public enum VideoTextTrackKindJson {
@@ -26,13 +26,13 @@ public enum VideoTextTrackKindJson {
     VideoTextTrackKindJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoTextTrackKindJson> fromValue(String value) {
-        for (VideoTextTrackKindJson o: VideoTextTrackKindJson.values()) {
+        for (VideoTextTrackKindJson o : VideoTextTrackKindJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum VideoTextTrackKindJson {
         return Optional.empty();
     }
 }
-

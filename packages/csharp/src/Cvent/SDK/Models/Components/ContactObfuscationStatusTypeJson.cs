@@ -28,28 +28,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ContactObfuscationStatusTypeJson
     {
-        [JsonProperty("INITIATED")]
-        Initiated,
-        [JsonProperty("QUEUED")]
-        Queued,
-        [JsonProperty("PROCESSING")]
-        Processing,
-        [JsonProperty("COMPLETED")]
-        Completed,
-        [JsonProperty("FAILED")]
-        Failed,
+        [JsonProperty("INITIATED")] Initiated,
+        [JsonProperty("QUEUED")] Queued,
+        [JsonProperty("PROCESSING")] Processing,
+        [JsonProperty("COMPLETED")] Completed,
+        [JsonProperty("FAILED")] Failed,
     }
 
     public static class ContactObfuscationStatusTypeJsonExtension
     {
         public static string Value(this ContactObfuscationStatusTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ContactObfuscationStatusTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ContactObfuscationStatusTypeJson).GetFields())
+            foreach (var field in typeof(ContactObfuscationStatusTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

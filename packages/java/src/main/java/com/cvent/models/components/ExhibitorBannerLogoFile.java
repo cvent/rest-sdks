@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorBannerLogoFile
- * 
+ *
  * <p>JSON Schema for Exhibitor Banner/Logo File
  */
 public class ExhibitorBannerLogoFile {
@@ -40,7 +40,7 @@ public class ExhibitorBannerLogoFile {
         this.file = file;
         this.href = href;
     }
-    
+
     public ExhibitorBannerLogoFile() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class ExhibitorBannerLogoFile {
         return new Builder();
     }
 
-
     /**
      * File object containing UUID
      */
@@ -72,7 +71,6 @@ public class ExhibitorBannerLogoFile {
         return this;
     }
 
-
     /**
      * URL of a exhibitor banner/logo image
      */
@@ -80,7 +78,6 @@ public class ExhibitorBannerLogoFile {
         this.href = href;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class ExhibitorBannerLogoFile {
             return false;
         }
         ExhibitorBannerLogoFile other = (ExhibitorBannerLogoFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file) &&
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.file, other.file) && Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file, href);
+        return Utils.enhancedHash(file, href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorBannerLogoFile.class,
-                "file", file,
-                "href", href);
+        return Utils.toString(ExhibitorBannerLogoFile.class, "file", file, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorBannerLogoFileFile file;
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class ExhibitorBannerLogoFile {
         }
 
         public ExhibitorBannerLogoFile build() {
-            return new ExhibitorBannerLogoFile(
-                file, href);
+            return new ExhibitorBannerLogoFile(file, href);
         }
-
     }
 }

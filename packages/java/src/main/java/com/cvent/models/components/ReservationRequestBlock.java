@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -17,16 +17,16 @@ import java.util.Optional;
 
 /**
  * ReservationRequestBlock
- * 
+ *
  * <p>Information about room block. DEPRECATED - use combination of attendeeType and roomType instead.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
 public class ReservationRequestBlock {
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -35,18 +35,17 @@ public class ReservationRequestBlock {
     private Long id;
 
     @JsonCreator
-    public ReservationRequestBlock(
-            @JsonProperty("id") @Nullable Long id) {
+    public ReservationRequestBlock(@JsonProperty("id") @Nullable Long id) {
         this.id = id;
     }
-    
+
     public ReservationRequestBlock() {
         this(null);
     }
 
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -58,10 +57,9 @@ public class ReservationRequestBlock {
         return new Builder();
     }
 
-
     /**
      * Property ID.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -69,7 +67,6 @@ public class ReservationRequestBlock {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -80,35 +77,32 @@ public class ReservationRequestBlock {
             return false;
         }
         ReservationRequestBlock other = (ReservationRequestBlock) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationRequestBlock.class,
-                "id", id);
+        return Utils.toString(ReservationRequestBlock.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         @Deprecated
         private Long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Property ID.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -118,9 +112,7 @@ public class ReservationRequestBlock {
         }
 
         public ReservationRequestBlock build() {
-            return new ReservationRequestBlock(
-                id);
+            return new ReservationRequestBlock(id);
         }
-
     }
 }

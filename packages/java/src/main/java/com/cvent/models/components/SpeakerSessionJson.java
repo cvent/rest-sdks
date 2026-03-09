@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SpeakerSessionJson
- * 
+ *
  * <p>A speaker to session relationship.
  */
 public class SpeakerSessionJson {
@@ -49,7 +49,7 @@ public class SpeakerSessionJson {
         this.speaker = speaker;
         this.category = category;
     }
-    
+
     public SpeakerSessionJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class SpeakerSessionJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -87,7 +86,6 @@ public class SpeakerSessionJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The unique identifier of a speaker.
@@ -97,7 +95,6 @@ public class SpeakerSessionJson {
         return this;
     }
 
-
     /**
      * A Named object
      */
@@ -105,7 +102,6 @@ public class SpeakerSessionJson {
         this.category = category;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class SpeakerSessionJson {
             return false;
         }
         SpeakerSessionJson other = (SpeakerSessionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker) &&
-            Utils.enhancedDeepEquals(this.category, other.category);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker)
+                && Utils.enhancedDeepEquals(this.category, other.category);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, speaker, category);
+        return Utils.enhancedHash(id, speaker, category);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerSessionJson.class,
-                "id", id,
-                "speaker", speaker,
-                "category", category);
+        return Utils.toString(SpeakerSessionJson.class, "id", id, "speaker", speaker, "category", category);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class SpeakerSessionJson {
         private IdNameJson category;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class SpeakerSessionJson {
         }
 
         public SpeakerSessionJson build() {
-            return new SpeakerSessionJson(
-                id, speaker, category);
+            return new SpeakerSessionJson(id, speaker, category);
         }
-
     }
 }

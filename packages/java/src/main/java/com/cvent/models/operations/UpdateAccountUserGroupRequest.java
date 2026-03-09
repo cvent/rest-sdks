@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateAccountUserGroupRequest {
     /**
      * The User Group's Id.
@@ -28,16 +27,13 @@ public class UpdateAccountUserGroupRequest {
     private UserGroupJsonInput userGroupJson;
 
     @JsonCreator
-    public UpdateAccountUserGroupRequest(
-            @Nonnull String userGroupId,
-            @Nullable UserGroupJsonInput userGroupJson) {
+    public UpdateAccountUserGroupRequest(@Nonnull String userGroupId, @Nullable UserGroupJsonInput userGroupJson) {
         this.userGroupId = Optional.ofNullable(userGroupId)
-            .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
         this.userGroupJson = userGroupJson;
     }
-    
-    public UpdateAccountUserGroupRequest(
-            @Nonnull String userGroupId) {
+
+    public UpdateAccountUserGroupRequest(@Nonnull String userGroupId) {
         this(userGroupId, null);
     }
 
@@ -59,7 +55,6 @@ public class UpdateAccountUserGroupRequest {
         return new Builder();
     }
 
-
     /**
      * The User Group's Id.
      */
@@ -68,7 +63,6 @@ public class UpdateAccountUserGroupRequest {
         return this;
     }
 
-
     /**
      * A User Group
      */
@@ -76,7 +70,6 @@ public class UpdateAccountUserGroupRequest {
         this.userGroupJson = userGroupJson;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +80,30 @@ public class UpdateAccountUserGroupRequest {
             return false;
         }
         UpdateAccountUserGroupRequest other = (UpdateAccountUserGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId) &&
-            Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
+        return Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId)
+                && Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            userGroupId, userGroupJson);
+        return Utils.enhancedHash(userGroupId, userGroupJson);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAccountUserGroupRequest.class,
-                "userGroupId", userGroupId,
-                "userGroupJson", userGroupJson);
+        return Utils.toString(
+                UpdateAccountUserGroupRequest.class, "userGroupId", userGroupId, "userGroupJson", userGroupJson);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String userGroupId;
 
         private UserGroupJsonInput userGroupJson;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +123,7 @@ public class UpdateAccountUserGroupRequest {
         }
 
         public UpdateAccountUserGroupRequest build() {
-            return new UpdateAccountUserGroupRequest(
-                userGroupId, userGroupJson);
+            return new UpdateAccountUserGroupRequest(userGroupId, userGroupJson);
         }
-
     }
 }

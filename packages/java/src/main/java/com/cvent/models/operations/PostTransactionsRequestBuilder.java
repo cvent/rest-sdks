@@ -28,7 +28,7 @@ public class PostTransactionsRequestBuilder {
     private PostTransactionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PostTransactionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class PostTransactionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public PostTransactionsResponse call() {
-        RequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation
-              = new PostTransactions.Sync(sdkConfiguration, _headers);
+        RequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
+                new PostTransactions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * CreateAppointmentRequest
- * 
+ *
  * <p>A request to create an appointment
  */
 public class CreateAppointmentRequest {
@@ -120,36 +120,32 @@ public class CreateAppointmentRequest {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("appointmentTypeId") @Nonnull String appointmentTypeId,
             @JsonProperty("autoAccept") @Nullable Boolean autoAccept) {
-        this.subject = Optional.ofNullable(subject)
-            .orElseThrow(() -> new IllegalArgumentException("subject cannot be null"));
+        this.subject =
+                Optional.ofNullable(subject).orElseThrow(() -> new IllegalArgumentException("subject cannot be null"));
         this.description = description;
         this.startTime = Optional.ofNullable(startTime)
-            .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
-        this.endTime = Optional.ofNullable(endTime)
-            .orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
+        this.endTime =
+                Optional.ofNullable(endTime).orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
         this.location = location;
         this.customLocationName = customLocationName;
-        this.hosts = Optional.ofNullable(hosts)
-            .orElseThrow(() -> new IllegalArgumentException("hosts cannot be null"));
+        this.hosts = Optional.ofNullable(hosts).orElseThrow(() -> new IllegalArgumentException("hosts cannot be null"));
         this.attendees = attendees;
-        this.enforceScheduleRule = Optional.ofNullable(enforceScheduleRule)
-            .orElse(Builder._SINGLETON_VALUE_EnforceScheduleRule.value());
+        this.enforceScheduleRule =
+                Optional.ofNullable(enforceScheduleRule).orElse(Builder._SINGLETON_VALUE_EnforceScheduleRule.value());
         this.code = code;
         this.appointmentTypeId = Optional.ofNullable(appointmentTypeId)
-            .orElseThrow(() -> new IllegalArgumentException("appointmentTypeId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("appointmentTypeId cannot be null"));
         this.autoAccept = autoAccept;
     }
-    
+
     public CreateAppointmentRequest(
             @Nonnull String subject,
             @Nonnull OffsetDateTime startTime,
             @Nonnull OffsetDateTime endTime,
             @Nonnull List<UuidJson> hosts,
             @Nonnull String appointmentTypeId) {
-        this(subject, null, startTime,
-            endTime, null, null,
-            hosts, null, null,
-            null, appointmentTypeId, null);
+        this(subject, null, startTime, endTime, null, null, hosts, null, null, null, appointmentTypeId, null);
     }
 
     /**
@@ -242,7 +238,6 @@ public class CreateAppointmentRequest {
         return new Builder();
     }
 
-
     /**
      * Name of the appointment.
      */
@@ -250,7 +245,6 @@ public class CreateAppointmentRequest {
         this.subject = Utils.checkNotNull(subject, "subject");
         return this;
     }
-
 
     /**
      * Description for the appointment.
@@ -260,7 +254,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date/time of the appointment in UTC.
      */
@@ -269,7 +262,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted end date/time of the appointment in UTC.
      */
@@ -277,7 +269,6 @@ public class CreateAppointmentRequest {
         this.endTime = Utils.checkNotNull(endTime, "endTime");
         return this;
     }
-
 
     /**
      * Unique identifier of the location to be used for the appointment. Not supported for "SIMPLE" event
@@ -288,7 +279,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Name of the location created by the meeting host. Created ad-hoc for a FLEXIBLE type meeting.
      */
@@ -296,7 +286,6 @@ public class CreateAppointmentRequest {
         this.customLocationName = customLocationName;
         return this;
     }
-
 
     /**
      * Contact ids of the appointment hosts.
@@ -306,7 +295,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Contact ids of the appointment attendees.
      */
@@ -315,7 +303,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Flag to indicate if schedule rule needs to be enforced.
      */
@@ -323,7 +310,6 @@ public class CreateAppointmentRequest {
         this.enforceScheduleRule = enforceScheduleRule;
         return this;
     }
-
 
     /**
      * The unique appointment code in Cvent or unique reference id of an appointment in the external
@@ -334,7 +320,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Unique identifier of the Appointment type.
      */
@@ -343,7 +328,6 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Flag to indicate if the attendees should be auto accepted.
      */
@@ -351,7 +335,6 @@ public class CreateAppointmentRequest {
         this.autoAccept = autoAccept;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -362,49 +345,69 @@ public class CreateAppointmentRequest {
             return false;
         }
         CreateAppointmentRequest other = (CreateAppointmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.startTime, other.startTime) &&
-            Utils.enhancedDeepEquals(this.endTime, other.endTime) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.customLocationName, other.customLocationName) &&
-            Utils.enhancedDeepEquals(this.hosts, other.hosts) &&
-            Utils.enhancedDeepEquals(this.attendees, other.attendees) &&
-            Utils.enhancedDeepEquals(this.enforceScheduleRule, other.enforceScheduleRule) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.appointmentTypeId, other.appointmentTypeId) &&
-            Utils.enhancedDeepEquals(this.autoAccept, other.autoAccept);
+        return Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.startTime, other.startTime)
+                && Utils.enhancedDeepEquals(this.endTime, other.endTime)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.customLocationName, other.customLocationName)
+                && Utils.enhancedDeepEquals(this.hosts, other.hosts)
+                && Utils.enhancedDeepEquals(this.attendees, other.attendees)
+                && Utils.enhancedDeepEquals(this.enforceScheduleRule, other.enforceScheduleRule)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.appointmentTypeId, other.appointmentTypeId)
+                && Utils.enhancedDeepEquals(this.autoAccept, other.autoAccept);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            subject, description, startTime,
-            endTime, location, customLocationName,
-            hosts, attendees, enforceScheduleRule,
-            code, appointmentTypeId, autoAccept);
+                subject,
+                description,
+                startTime,
+                endTime,
+                location,
+                customLocationName,
+                hosts,
+                attendees,
+                enforceScheduleRule,
+                code,
+                appointmentTypeId,
+                autoAccept);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateAppointmentRequest.class,
-                "subject", subject,
-                "description", description,
-                "startTime", startTime,
-                "endTime", endTime,
-                "location", location,
-                "customLocationName", customLocationName,
-                "hosts", hosts,
-                "attendees", attendees,
-                "enforceScheduleRule", enforceScheduleRule,
-                "code", code,
-                "appointmentTypeId", appointmentTypeId,
-                "autoAccept", autoAccept);
+        return Utils.toString(
+                CreateAppointmentRequest.class,
+                "subject",
+                subject,
+                "description",
+                description,
+                "startTime",
+                startTime,
+                "endTime",
+                endTime,
+                "location",
+                location,
+                "customLocationName",
+                customLocationName,
+                "hosts",
+                hosts,
+                "attendees",
+                attendees,
+                "enforceScheduleRule",
+                enforceScheduleRule,
+                "code",
+                code,
+                "appointmentTypeId",
+                appointmentTypeId,
+                "autoAccept",
+                autoAccept);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String subject;
 
@@ -431,7 +434,7 @@ public class CreateAppointmentRequest {
         private Boolean autoAccept;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -534,17 +537,21 @@ public class CreateAppointmentRequest {
 
         public CreateAppointmentRequest build() {
             return new CreateAppointmentRequest(
-                subject, description, startTime,
-                endTime, location, customLocationName,
-                hosts, attendees, enforceScheduleRule,
-                code, appointmentTypeId, autoAccept);
+                    subject,
+                    description,
+                    startTime,
+                    endTime,
+                    location,
+                    customLocationName,
+                    hosts,
+                    attendees,
+                    enforceScheduleRule,
+                    code,
+                    appointmentTypeId,
+                    autoAccept);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_EnforceScheduleRule =
-                new LazySingletonValue<>(
-                        "enforceScheduleRule",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("enforceScheduleRule", "true", new TypeReference<Boolean>() {});
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * CapacityJson1
- * 
+ *
  * <p>Represents capacity statistics of the registration type.
  */
 public class CapacityJson1 {
@@ -52,9 +52,8 @@ public class CapacityJson1 {
         this.consumed = consumed;
         this.total = total;
     }
-    
-    public CapacityJson1(
-            long total) {
+
+    public CapacityJson1(long total) {
         this(null, null, total);
     }
 
@@ -86,7 +85,6 @@ public class CapacityJson1 {
         return new Builder();
     }
 
-
     /**
      * The remaining capacity of an event item, such as registration type. A value of -1 denotes that
      * remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that
@@ -97,7 +95,6 @@ public class CapacityJson1 {
         return this;
     }
 
-
     /**
      * The consumed capacity of an event item, such as registration type.
      */
@@ -105,7 +102,6 @@ public class CapacityJson1 {
         this.consumed = consumed;
         return this;
     }
-
 
     /**
      * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
@@ -116,7 +112,6 @@ public class CapacityJson1 {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -126,28 +121,23 @@ public class CapacityJson1 {
             return false;
         }
         CapacityJson1 other = (CapacityJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.remaining, other.remaining) &&
-            Utils.enhancedDeepEquals(this.consumed, other.consumed) &&
-            Utils.enhancedDeepEquals(this.total, other.total);
+        return Utils.enhancedDeepEquals(this.remaining, other.remaining)
+                && Utils.enhancedDeepEquals(this.consumed, other.consumed)
+                && Utils.enhancedDeepEquals(this.total, other.total);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            remaining, consumed, total);
+        return Utils.enhancedHash(remaining, consumed, total);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CapacityJson1.class,
-                "remaining", remaining,
-                "consumed", consumed,
-                "total", total);
+        return Utils.toString(CapacityJson1.class, "remaining", remaining, "consumed", consumed, "total", total);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long remaining;
 
@@ -156,7 +146,7 @@ public class CapacityJson1 {
         private long total;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -187,9 +177,7 @@ public class CapacityJson1 {
         }
 
         public CapacityJson1 build() {
-            return new CapacityJson1(
-                remaining, consumed, total);
+            return new CapacityJson1(remaining, consumed, total);
         }
-
     }
 }

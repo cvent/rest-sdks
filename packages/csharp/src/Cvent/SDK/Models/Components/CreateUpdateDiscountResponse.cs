@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class CreateUpdateDiscountResponseType
     {
-        private CreateUpdateDiscountResponseType(string value) { Value = value; }
+        private CreateUpdateDiscountResponseType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static CreateUpdateDiscountResponseType DiscountCode { get { return new CreateUpdateDiscountResponseType("DISCOUNT_CODE"); } }
+        public static CreateUpdateDiscountResponseType DiscountCode
+        {
+            get {
+                return new CreateUpdateDiscountResponseType("DISCOUNT_CODE");
+            }
+        }
 
-        public static CreateUpdateDiscountResponseType VolumeDiscount { get { return new CreateUpdateDiscountResponseType("VOLUME_DISCOUNT"); } }
+        public static CreateUpdateDiscountResponseType VolumeDiscount
+        {
+            get {
+                return new CreateUpdateDiscountResponseType("VOLUME_DISCOUNT");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(CreateUpdateDiscountResponseType v) { return v.Value; }
-        public static CreateUpdateDiscountResponseType FromString(string v) {
-            switch(v) {
-                case "DISCOUNT_CODE": return DiscountCode;
-                case "VOLUME_DISCOUNT": return VolumeDiscount;
-                default: throw new ArgumentException("Invalid value for CreateUpdateDiscountResponseType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(CreateUpdateDiscountResponseType v)
+        {
+            return v.Value;
+        }
+        public static CreateUpdateDiscountResponseType FromString(string v)
+        {
+            switch (v)
+            {
+                case "DISCOUNT_CODE":
+                    return DiscountCode;
+                case "VOLUME_DISCOUNT":
+                    return VolumeDiscount;
+                default:
+                    throw new ArgumentException("Invalid value for CreateUpdateDiscountResponseType");
             }
         }
         public override bool Equals(object? obj)
@@ -141,8 +165,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

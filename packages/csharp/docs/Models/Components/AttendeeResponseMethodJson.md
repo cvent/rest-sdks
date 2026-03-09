@@ -19,6 +19,14 @@ Represents the method by which an attendee registered for the event.
 
 Note: The responseMethod can only be set if the invitee's status is No Response.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AttendeeResponseMethodJson.AdministratorResponded;
+```
+
 
 ## Values
 

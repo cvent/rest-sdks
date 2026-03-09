@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateCardTransactionResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class CreateCardTransactionResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.cardTransactionCreateResponse = cardTransactionCreateResponse;
     }
-    
+
     public CreateCardTransactionResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class CreateCardTransactionResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class CreateCardTransactionResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class CreateCardTransactionResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class CreateCardTransactionResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully created a transaction record.
      */
-    public CreateCardTransactionResponse withCardTransactionCreateResponse(@Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
+    public CreateCardTransactionResponse withCardTransactionCreateResponse(
+            @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
         this.cardTransactionCreateResponse = cardTransactionCreateResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class CreateCardTransactionResponse implements Response {
             return false;
         }
         CreateCardTransactionResponse other = (CreateCardTransactionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.cardTransactionCreateResponse, other.cardTransactionCreateResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.cardTransactionCreateResponse, other.cardTransactionCreateResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            cardTransactionCreateResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, cardTransactionCreateResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateCardTransactionResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "cardTransactionCreateResponse", cardTransactionCreateResponse);
+        return Utils.toString(
+                CreateCardTransactionResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "cardTransactionCreateResponse",
+                cardTransactionCreateResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class CreateCardTransactionResponse implements Response {
         private CardTransactionCreateResponse cardTransactionCreateResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class CreateCardTransactionResponse implements Response {
         /**
          * Successfully created a transaction record.
          */
-        public Builder cardTransactionCreateResponse(@Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
+        public Builder cardTransactionCreateResponse(
+                @Nullable CardTransactionCreateResponse cardTransactionCreateResponse) {
             this.cardTransactionCreateResponse = cardTransactionCreateResponse;
             return this;
         }
 
         public CreateCardTransactionResponse build() {
             return new CreateCardTransactionResponse(
-                contentType, statusCode, rawResponse,
-                cardTransactionCreateResponse);
+                    contentType, statusCode, rawResponse, cardTransactionCreateResponse);
         }
-
     }
 }

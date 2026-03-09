@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldJson4CustomFieldType
- * 
+ *
  * <p>This is used to denote the type of data collected by a custom field.
  */
 public enum CustomFieldJson4CustomFieldType {
@@ -26,13 +26,13 @@ public enum CustomFieldJson4CustomFieldType {
     CustomFieldJson4CustomFieldType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CustomFieldJson4CustomFieldType> fromValue(String value) {
-        for (CustomFieldJson4CustomFieldType o: CustomFieldJson4CustomFieldType.values()) {
+        for (CustomFieldJson4CustomFieldType o : CustomFieldJson4CustomFieldType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum CustomFieldJson4CustomFieldType {
         return Optional.empty();
     }
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInvitedByJson
- * 
+ *
  * <p>Method by which the attendee was invited to the event.
  */
 public enum AttendeeInvitedByJson {
@@ -29,13 +29,13 @@ public enum AttendeeInvitedByJson {
     AttendeeInvitedByJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeInvitedByJson> fromValue(String value) {
-        for (AttendeeInvitedByJson o: AttendeeInvitedByJson.values()) {
+        for (AttendeeInvitedByJson o : AttendeeInvitedByJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum AttendeeInvitedByJson {
         return Optional.empty();
     }
 }
-

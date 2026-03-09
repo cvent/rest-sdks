@@ -69,21 +69,20 @@ public class AsyncUserSCIM {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public UserSCIM sync() {
         return syncSDK;
     }
 
-
     /**
      * Get SCIM Groups
-     * 
+     *
      * <p>Gets a paginated list of SCIM groups (representing Cvent user roles) in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetUserGroupsRequestBuilder getUserGroups() {
@@ -92,29 +91,27 @@ public class AsyncUserSCIM {
 
     /**
      * Get SCIM Groups
-     * 
+     *
      * <p>Gets a paginated list of SCIM groups (representing Cvent user roles) in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetUserGroupsResponse>} - The async response
      */
     public CompletableFuture<GetUserGroupsResponse> getUserGroups(@Nonnull GetUserGroupsRequest request) {
-        AsyncRequestOperation<GetUserGroupsRequest, GetUserGroupsResponse> operation
-              = new GetUserGroups.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetUserGroupsRequest, GetUserGroupsResponse> operation =
+                new GetUserGroups.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Resource Types
-     * 
+     *
      * <p>Gets a list of resource types.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetResourceTypesRequestBuilder getResourceTypes() {
@@ -123,28 +120,26 @@ public class AsyncUserSCIM {
 
     /**
      * List Resource Types
-     * 
+     *
      * <p>Gets a list of resource types.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<GetResourceTypesResponse>} - The async response
      */
     public CompletableFuture<GetResourceTypesResponse> getResourceTypesDirect() {
-        AsyncRequestlessOperation<GetResourceTypesResponse> operation
-            = new GetResourceTypes.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetResourceTypesResponse> operation =
+                new GetResourceTypes.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Resource Type
-     * 
+     *
      * <p>Gets the details of a single resource type.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetResourceTypeRequestBuilder getResourceType() {
@@ -153,30 +148,28 @@ public class AsyncUserSCIM {
 
     /**
      * Get Resource Type
-     * 
+     *
      * <p>Gets the details of a single resource type.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetResourceTypeResponse>} - The async response
      */
     public CompletableFuture<GetResourceTypeResponse> getResourceType(@Nonnull GetResourceTypeRequest request) {
-        AsyncRequestOperation<GetResourceTypeRequest, GetResourceTypeResponse> operation
-              = new GetResourceType.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetResourceTypeRequest, GetResourceTypeResponse> operation =
+                new GetResourceType.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Schemas
-     * 
+     *
      * <p>Gets the paginated list of user schemas and its extension models representing the user and SCIM
      * groups (representing Cvent user roles).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSchemasRequestBuilder getSchemas() {
@@ -185,30 +178,27 @@ public class AsyncUserSCIM {
 
     /**
      * List Schemas
-     * 
+     *
      * <p>Gets the paginated list of user schemas and its extension models representing the user and SCIM
      * groups (representing Cvent user roles).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<GetSchemasResponse>} - The async response
      */
     public CompletableFuture<GetSchemasResponse> getSchemasDirect() {
-        AsyncRequestlessOperation<GetSchemasResponse> operation
-            = new GetSchemas.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetSchemasResponse> operation = new GetSchemas.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Schema
-     * 
+     *
      * <p>Gets the details of a user schema and its extension models representing the user and SCIM groups
      * (representing Cvent user roles).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetSchemaRequestBuilder getSchema() {
@@ -217,30 +207,28 @@ public class AsyncUserSCIM {
 
     /**
      * Get Schema
-     * 
+     *
      * <p>Gets the details of a user schema and its extension models representing the user and SCIM groups
      * (representing Cvent user roles).
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetSchemaResponse>} - The async response
      */
     public CompletableFuture<GetSchemaResponse> getSchema(@Nonnull GetSchemaRequest request) {
-        AsyncRequestOperation<GetSchemaRequest, GetSchemaResponse> operation
-              = new GetSchema.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSchemaRequest, GetSchemaResponse> operation =
+                new GetSchema.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Service Provider Config
-     * 
+     *
      * <p>Gets Cvent's configurations of SCIM.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetServiceProviderConfigRequestBuilder getServiceProviderConfig() {
@@ -249,29 +237,27 @@ public class AsyncUserSCIM {
 
     /**
      * Get Service Provider Config
-     * 
+     *
      * <p>Gets Cvent's configurations of SCIM.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<GetServiceProviderConfigResponse>} - The async response
      */
     public CompletableFuture<GetServiceProviderConfigResponse> getServiceProviderConfigDirect() {
-        AsyncRequestlessOperation<GetServiceProviderConfigResponse> operation
-            = new GetServiceProviderConfig.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetServiceProviderConfigResponse> operation =
+                new GetServiceProviderConfig.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create User
-     * 
+     *
      * <p>Creates a new user. For account users, the email address will initially be unverified. To verify it,
      * please click on the link provided in the email sent to your email address.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateUserRequestBuilder createUser() {
@@ -280,12 +266,12 @@ public class AsyncUserSCIM {
 
     /**
      * Create User
-     * 
+     *
      * <p>Creates a new user. For account users, the email address will initially be unverified. To verify it,
      * please click on the link provided in the email sent to your email address.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<CreateUserResponse>} - The async response
      */
     public CompletableFuture<CreateUserResponse> createUserDirect() {
@@ -294,30 +280,28 @@ public class AsyncUserSCIM {
 
     /**
      * Create User
-     * 
+     *
      * <p>Creates a new user. For account users, the email address will initially be unverified. To verify it,
      * please click on the link provided in the email sent to your email address.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateUserResponse>} - The async response
      */
     public CompletableFuture<CreateUserResponse> createUser(@Nullable UserInput request) {
-        AsyncRequestOperation<UserInput, CreateUserResponse> operation
-              = new CreateUser.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UserInput, CreateUserResponse> operation =
+                new CreateUser.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Users
-     * 
+     *
      * <p>Gets a list of users.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListUsersRequestBuilder listUsers() {
@@ -326,29 +310,27 @@ public class AsyncUserSCIM {
 
     /**
      * List Users
-     * 
+     *
      * <p>Gets a list of users.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListUsersResponse>} - The async response
      */
     public CompletableFuture<ListUsersResponse> listUsers(@Nonnull ListUsersRequest request) {
-        AsyncRequestOperation<ListUsersRequest, ListUsersResponse> operation
-              = new ListUsers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListUsersRequest, ListUsersResponse> operation =
+                new ListUsers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get User
-     * 
+     *
      * <p>Gets the details of a single user.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetUserRequestBuilder getUser() {
@@ -357,30 +339,28 @@ public class AsyncUserSCIM {
 
     /**
      * Get User
-     * 
+     *
      * <p>Gets the details of a single user.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetUserResponse>} - The async response
      */
     public CompletableFuture<GetUserResponse> getUser(@Nonnull GetUserRequest request) {
-        AsyncRequestOperation<GetUserRequest, GetUserResponse> operation
-              = new GetUser.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetUserRequest, GetUserResponse> operation =
+                new GetUser.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update User
-     * 
+     *
      * <p>Updates a user. In case of an account user, if the email address field is updated then please verify
      * the new email address using the link received in the verification email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateUserRequestBuilder updateUser() {
@@ -389,30 +369,28 @@ public class AsyncUserSCIM {
 
     /**
      * Update User
-     * 
+     *
      * <p>Updates a user. In case of an account user, if the email address field is updated then please verify
      * the new email address using the link received in the verification email.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateUserResponse>} - The async response
      */
     public CompletableFuture<UpdateUserResponse> updateUser(@Nonnull UpdateUserRequest request) {
-        AsyncRequestOperation<UpdateUserRequest, UpdateUserResponse> operation
-              = new UpdateUser.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateUserRequest, UpdateUserResponse> operation =
+                new UpdateUser.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete User
-     * 
+     *
      * <p>Deletes a user.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteUserRequestBuilder deleteUser() {
@@ -421,19 +399,17 @@ public class AsyncUserSCIM {
 
     /**
      * Delete User
-     * 
+     *
      * <p>Deletes a user.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteUserResponse>} - The async response
      */
     public CompletableFuture<DeleteUserResponse> deleteUser(@Nonnull DeleteUserRequest request) {
-        AsyncRequestOperation<DeleteUserRequest, DeleteUserResponse> operation
-              = new DeleteUser.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteUserRequest, DeleteUserResponse> operation =
+                new DeleteUser.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

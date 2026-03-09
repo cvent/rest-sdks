@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ProximityJson
- * 
+ *
  * <p>Proximity of the event venue to the hotel.
  */
 public class ProximityJson {
@@ -40,7 +40,7 @@ public class ProximityJson {
         this.distance = distance;
         this.mapMessage = mapMessage;
     }
-    
+
     public ProximityJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class ProximityJson {
         return new Builder();
     }
 
-
     /**
      * Distance information.
      */
@@ -72,7 +71,6 @@ public class ProximityJson {
         return this;
     }
 
-
     /**
      * Message shown on map.
      */
@@ -80,7 +78,6 @@ public class ProximityJson {
         this.mapMessage = mapMessage;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class ProximityJson {
             return false;
         }
         ProximityJson other = (ProximityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.distance, other.distance) &&
-            Utils.enhancedDeepEquals(this.mapMessage, other.mapMessage);
+        return Utils.enhancedDeepEquals(this.distance, other.distance)
+                && Utils.enhancedDeepEquals(this.mapMessage, other.mapMessage);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            distance, mapMessage);
+        return Utils.enhancedHash(distance, mapMessage);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProximityJson.class,
-                "distance", distance,
-                "mapMessage", mapMessage);
+        return Utils.toString(ProximityJson.class, "distance", distance, "mapMessage", mapMessage);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DistanceJson1 distance;
 
         private String mapMessage;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class ProximityJson {
         }
 
         public ProximityJson build() {
-            return new ProximityJson(
-                distance, mapMessage);
+            return new ProximityJson(distance, mapMessage);
         }
-
     }
 }

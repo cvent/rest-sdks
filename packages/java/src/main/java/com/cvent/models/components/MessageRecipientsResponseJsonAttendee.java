@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * MessageRecipientsResponseJsonAttendee
- * 
+ *
  * <p>The attendee object
  */
 public class MessageRecipientsResponseJsonAttendee {
@@ -46,16 +46,12 @@ public class MessageRecipientsResponseJsonAttendee {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("active") boolean active,
             @JsonProperty("leftChannelAt") @Nullable JsonNullable<OffsetDateTime> leftChannelAt) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.active = active;
-        this.leftChannelAt = Optional.ofNullable(leftChannelAt)
-            .orElse(JsonNullable.undefined());
+        this.leftChannelAt = Optional.ofNullable(leftChannelAt).orElse(JsonNullable.undefined());
     }
-    
-    public MessageRecipientsResponseJsonAttendee(
-            @Nonnull String id,
-            boolean active) {
+
+    public MessageRecipientsResponseJsonAttendee(@Nonnull String id, boolean active) {
         this(id, active, null);
     }
 
@@ -84,7 +80,6 @@ public class MessageRecipientsResponseJsonAttendee {
         return new Builder();
     }
 
-
     /**
      * Unique identifier for the attendee.
      */
@@ -92,7 +87,6 @@ public class MessageRecipientsResponseJsonAttendee {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * True indicates the recipient is active in the channel.
@@ -102,7 +96,6 @@ public class MessageRecipientsResponseJsonAttendee {
         return this;
     }
 
-
     /**
      * ISO 8601 formatted timestamp when the attendee left the channel, if applicable.
      */
@@ -110,7 +103,6 @@ public class MessageRecipientsResponseJsonAttendee {
         this.leftChannelAt = JsonNullable.of(leftChannelAt);
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -121,28 +113,30 @@ public class MessageRecipientsResponseJsonAttendee {
             return false;
         }
         MessageRecipientsResponseJsonAttendee other = (MessageRecipientsResponseJsonAttendee) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.leftChannelAt, other.leftChannelAt);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.leftChannelAt, other.leftChannelAt);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, active, leftChannelAt);
+        return Utils.enhancedHash(id, active, leftChannelAt);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MessageRecipientsResponseJsonAttendee.class,
-                "id", id,
-                "active", active,
-                "leftChannelAt", leftChannelAt);
+        return Utils.toString(
+                MessageRecipientsResponseJsonAttendee.class,
+                "id",
+                id,
+                "active",
+                active,
+                "leftChannelAt",
+                leftChannelAt);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -151,7 +145,7 @@ public class MessageRecipientsResponseJsonAttendee {
         private JsonNullable<OffsetDateTime> leftChannelAt;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -179,9 +173,7 @@ public class MessageRecipientsResponseJsonAttendee {
         }
 
         public MessageRecipientsResponseJsonAttendee build() {
-            return new MessageRecipientsResponseJsonAttendee(
-                id, active, leftChannelAt);
+            return new MessageRecipientsResponseJsonAttendee(id, active, leftChannelAt);
         }
-
     }
 }

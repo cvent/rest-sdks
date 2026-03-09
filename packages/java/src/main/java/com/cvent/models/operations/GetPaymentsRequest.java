@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetPaymentsRequest {
     /**
      * Unique ID of an event.
@@ -54,10 +53,10 @@ public class GetPaymentsRequest {
      * A filter string passed in the body of the request, narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType
      * 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * budgetItem.id (eq)
      * * id (eq)
@@ -65,7 +64,7 @@ public class GetPaymentsRequest {
      * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
      * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
      * within the specified date range.
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -81,20 +80,16 @@ public class GetPaymentsRequest {
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.after = after;
         this.before = before;
         this.filter = filter;
     }
-    
-    public GetPaymentsRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
+
+    public GetPaymentsRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
@@ -138,10 +133,10 @@ public class GetPaymentsRequest {
      * A filter string passed in the body of the request, narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType
      * 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * budgetItem.id (eq)
      * * id (eq)
@@ -149,7 +144,7 @@ public class GetPaymentsRequest {
      * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
      * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
      * within the specified date range.
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -162,7 +157,6 @@ public class GetPaymentsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -171,7 +165,6 @@ public class GetPaymentsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -179,7 +172,6 @@ public class GetPaymentsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -190,7 +182,6 @@ public class GetPaymentsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -200,7 +191,6 @@ public class GetPaymentsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -209,15 +199,14 @@ public class GetPaymentsRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search
      * results and supports the combination of logical and comparison
      * operators.
-     * 
+     *
      * <p>The filter adheres to the pattern filter='field' comparisonType
      * 'value'.
-     * 
+     *
      * <p>The following fields are filterable:
      * * budgetItem.id (eq)
      * * id (eq)
@@ -225,7 +214,7 @@ public class GetPaymentsRequest {
      * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
      * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
      * within the specified date range.
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -234,7 +223,6 @@ public class GetPaymentsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -245,35 +233,39 @@ public class GetPaymentsRequest {
             return false;
         }
         GetPaymentsRequest other = (GetPaymentsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token,
-            after, before, filter);
+        return Utils.enhancedHash(id, limit, token, after, before, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetPaymentsRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token,
-                "after", after,
-                "before", before,
-                "filter", filter);
+        return Utils.toString(
+                GetPaymentsRequest.class,
+                "id",
+                id,
+                "limit",
+                limit,
+                "token",
+                token,
+                "after",
+                after,
+                "before",
+                before,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -288,7 +280,7 @@ public class GetPaymentsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -337,10 +329,10 @@ public class GetPaymentsRequest {
          * A filter string passed in the body of the request, narrows search
          * results and supports the combination of logical and comparison
          * operators.
-         * 
+         *
          * <p>The filter adheres to the pattern filter='field' comparisonType
          * 'value'.
-         * 
+         *
          * <p>The following fields are filterable:
          * * budgetItem.id (eq)
          * * id (eq)
@@ -348,7 +340,7 @@ public class GetPaymentsRequest {
          * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
          * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
          * within the specified date range.
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -359,16 +351,10 @@ public class GetPaymentsRequest {
         }
 
         public GetPaymentsRequest build() {
-            return new GetPaymentsRequest(
-                id, limit, token,
-                after, before, filter);
+            return new GetPaymentsRequest(id, limit, token, after, before, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

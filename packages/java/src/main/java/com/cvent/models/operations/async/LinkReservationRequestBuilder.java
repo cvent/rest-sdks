@@ -30,7 +30,7 @@ public class LinkReservationRequestBuilder {
     private LinkReservationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public LinkReservationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class LinkReservationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<LinkReservationResponse> call() {
-        AsyncRequestOperation<LinkReservationRequest, LinkReservationResponse> operation
-              = new LinkReservation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<LinkReservationRequest, LinkReservationResponse> operation =
+                new LinkReservation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

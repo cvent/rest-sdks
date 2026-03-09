@@ -16,7 +16,6 @@ namespace Cvent.SDK.Utils
     using System.Text;
     using System.Web;
 
-
     internal class SecurityMetadata
     {
         private Dictionary<string, string> headerParams { get; } = new Dictionary<string, string>();
@@ -34,7 +33,7 @@ namespace Cvent.SDK.Utils
                 request.Headers.Add(kvp.Key, kvp.Value);
             }
 
-            if(request.RequestUri != null)
+            if (request.RequestUri != null)
             {
                 var uriBuilder = new UriBuilder(request.RequestUri);
                 var query = HttpUtility.ParseQueryString(uriBuilder.Query);
@@ -43,7 +42,7 @@ namespace Cvent.SDK.Utils
                     query.Add(kvp.Key, kvp.Value);
                 }
                 uriBuilder.Query = query.ToString();
-                request.RequestUri =  uriBuilder.Uri;
+                request.RequestUri = uriBuilder.Uri;
             }
 
             return request;
@@ -206,7 +205,8 @@ namespace Cvent.SDK.Utils
                     headerParams.Add(key, Utilities.PrefixBearer(valStr));
                     break;
                 case "oauth2":
-                    if (!"client_credentials".Equals(schemeMetadata.SubType)) {
+                    if (!"client_credentials".Equals(schemeMetadata.SubType))
+                    {
                         headerParams.Add(key, Utilities.PrefixBearer(valStr));
                     }
                     break;

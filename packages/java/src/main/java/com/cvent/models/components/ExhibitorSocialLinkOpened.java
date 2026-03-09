@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorSocialLinkOpened
- * 
+ *
  * <p>An exhibitor social-link-opened activity.
  */
 public class ExhibitorSocialLinkOpened {
@@ -67,10 +67,9 @@ public class ExhibitorSocialLinkOpened {
         this.socialNetwork = socialNetwork;
         this.url = url;
     }
-    
+
     public ExhibitorSocialLinkOpened() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -112,7 +111,6 @@ public class ExhibitorSocialLinkOpened {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -120,7 +118,6 @@ public class ExhibitorSocialLinkOpened {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -130,15 +127,14 @@ public class ExhibitorSocialLinkOpened {
         return this;
     }
 
-
     /**
      * Sponsorship level for an activity exhibitor.
      */
-    public ExhibitorSocialLinkOpened withSponsorshipLevel(@Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
+    public ExhibitorSocialLinkOpened withSponsorshipLevel(
+            @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
-
 
     /**
      * The name of the social network.
@@ -148,7 +144,6 @@ public class ExhibitorSocialLinkOpened {
         return this;
     }
 
-
     /**
      * The link opened by the attendee.
      */
@@ -156,7 +151,6 @@ public class ExhibitorSocialLinkOpened {
         this.url = url;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,33 +161,36 @@ public class ExhibitorSocialLinkOpened {
             return false;
         }
         ExhibitorSocialLinkOpened other = (ExhibitorSocialLinkOpened) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel) &&
-            Utils.enhancedDeepEquals(this.socialNetwork, other.socialNetwork) &&
-            Utils.enhancedDeepEquals(this.url, other.url);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel)
+                && Utils.enhancedDeepEquals(this.socialNetwork, other.socialNetwork)
+                && Utils.enhancedDeepEquals(this.url, other.url);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, sponsorshipLevel,
-            socialNetwork, url);
+        return Utils.enhancedHash(exhibitor, platform, sponsorshipLevel, socialNetwork, url);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorSocialLinkOpened.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "sponsorshipLevel", sponsorshipLevel,
-                "socialNetwork", socialNetwork,
-                "url", url);
+        return Utils.toString(
+                ExhibitorSocialLinkOpened.class,
+                "exhibitor",
+                exhibitor,
+                "platform",
+                platform,
+                "sponsorshipLevel",
+                sponsorshipLevel,
+                "socialNetwork",
+                socialNetwork,
+                "url",
+                url);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -206,7 +203,7 @@ public class ExhibitorSocialLinkOpened {
         private String url;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,10 +247,7 @@ public class ExhibitorSocialLinkOpened {
         }
 
         public ExhibitorSocialLinkOpened build() {
-            return new ExhibitorSocialLinkOpened(
-                exhibitor, platform, sponsorshipLevel,
-                socialNetwork, url);
+            return new ExhibitorSocialLinkOpened(exhibitor, platform, sponsorshipLevel, socialNetwork, url);
         }
-
     }
 }

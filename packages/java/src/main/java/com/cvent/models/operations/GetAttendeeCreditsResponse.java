@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAttendeeCreditsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetAttendeeCreditsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeCreditsPaginatedResponse = attendeeCreditsPaginatedResponse;
     }
-    
+
     public GetAttendeeCreditsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetAttendeeCreditsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetAttendeeCreditsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetAttendeeCreditsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetAttendeeCreditsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of event credits for attendees.
      */
-    public GetAttendeeCreditsResponse withAttendeeCreditsPaginatedResponse(@Nullable AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse) {
+    public GetAttendeeCreditsResponse withAttendeeCreditsPaginatedResponse(
+            @Nullable AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse) {
         this.attendeeCreditsPaginatedResponse = attendeeCreditsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetAttendeeCreditsResponse implements Response {
             return false;
         }
         GetAttendeeCreditsResponse other = (GetAttendeeCreditsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeCreditsPaginatedResponse, other.attendeeCreditsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeCreditsPaginatedResponse, other.attendeeCreditsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeCreditsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeCreditsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAttendeeCreditsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeCreditsPaginatedResponse", attendeeCreditsPaginatedResponse);
+        return Utils.toString(
+                GetAttendeeCreditsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeCreditsPaginatedResponse",
+                attendeeCreditsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetAttendeeCreditsResponse implements Response {
         private AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetAttendeeCreditsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of event credits for attendees.
          */
-        public Builder attendeeCreditsPaginatedResponse(@Nullable AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse) {
+        public Builder attendeeCreditsPaginatedResponse(
+                @Nullable AttendeeCreditsPaginatedResponse attendeeCreditsPaginatedResponse) {
             this.attendeeCreditsPaginatedResponse = attendeeCreditsPaginatedResponse;
             return this;
         }
 
         public GetAttendeeCreditsResponse build() {
             return new GetAttendeeCreditsResponse(
-                contentType, statusCode, rawResponse,
-                attendeeCreditsPaginatedResponse);
+                    contentType, statusCode, rawResponse, attendeeCreditsPaginatedResponse);
         }
-
     }
 }

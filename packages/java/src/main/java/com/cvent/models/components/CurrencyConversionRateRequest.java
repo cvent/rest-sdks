@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CurrencyConversionRateRequest
- * 
+ *
  * <p>Currency conversion rate request for a currency in an account.
  */
 public class CurrencyConversionRateRequest {
@@ -57,18 +57,13 @@ public class CurrencyConversionRateRequest {
             @JsonProperty("id") @Nonnull String id) {
         this.conversionRate = conversionRate;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
         this.endDate = endDate;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
-    public CurrencyConversionRateRequest(
-            double conversionRate,
-            @Nonnull LocalDate startDate,
-            @Nonnull String id) {
-        this(conversionRate, startDate, null,
-            id);
+
+    public CurrencyConversionRateRequest(double conversionRate, @Nonnull LocalDate startDate, @Nonnull String id) {
+        this(conversionRate, startDate, null, id);
     }
 
     /**
@@ -106,7 +101,6 @@ public class CurrencyConversionRateRequest {
         return new Builder();
     }
 
-
     /**
      * Currency conversion rate from accounts base currency to the other defined currency in this
      * conversion rate.
@@ -115,7 +109,6 @@ public class CurrencyConversionRateRequest {
         this.conversionRate = conversionRate;
         return this;
     }
-
 
     /**
      * The ISO 8601 date format assigned for the currency conversion, typically denotes start date from
@@ -126,7 +119,6 @@ public class CurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 date format for the currency conversion, typically denotes end date till when defined
      * conversion rate is applicable.
@@ -136,7 +128,6 @@ public class CurrencyConversionRateRequest {
         return this;
     }
 
-
     /**
      * The unique ID for this defined conversion rate.
      */
@@ -144,7 +135,6 @@ public class CurrencyConversionRateRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -155,31 +145,33 @@ public class CurrencyConversionRateRequest {
             return false;
         }
         CurrencyConversionRateRequest other = (CurrencyConversionRateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            conversionRate, startDate, endDate,
-            id);
+        return Utils.enhancedHash(conversionRate, startDate, endDate, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CurrencyConversionRateRequest.class,
-                "conversionRate", conversionRate,
-                "startDate", startDate,
-                "endDate", endDate,
-                "id", id);
+        return Utils.toString(
+                CurrencyConversionRateRequest.class,
+                "conversionRate",
+                conversionRate,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double conversionRate;
 
@@ -190,7 +182,7 @@ public class CurrencyConversionRateRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -229,10 +221,7 @@ public class CurrencyConversionRateRequest {
         }
 
         public CurrencyConversionRateRequest build() {
-            return new CurrencyConversionRateRequest(
-                conversionRate, startDate, endDate,
-                id);
+            return new CurrencyConversionRateRequest(conversionRate, startDate, endDate, id);
         }
-
     }
 }

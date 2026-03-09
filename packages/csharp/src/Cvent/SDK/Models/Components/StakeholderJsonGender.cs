@@ -19,14 +19,10 @@ namespace Cvent.SDK.Models.Components
     [Obsolete("This will be removed in a future release, please migrate away from it as soon as possible")]
     public enum StakeholderJsonGender
     {
-        [JsonProperty("Male")]
-        Male,
-        [JsonProperty("Female")]
-        Female,
-        [JsonProperty("Non-binary")]
-        NonBinary,
-        [JsonProperty("Rather not say")]
-        RatherNotSay,
+        [JsonProperty("Male")] Male,
+        [JsonProperty("Female")] Female,
+        [JsonProperty("Non-binary")] NonBinary,
+        [JsonProperty("Rather not say")] RatherNotSay,
     }
 #pragma warning disable 0618
 
@@ -34,12 +30,12 @@ namespace Cvent.SDK.Models.Components
     {
         public static string Value(this StakeholderJsonGender value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static StakeholderJsonGender ToEnum(this string value)
         {
-            foreach(var field in typeof(StakeholderJsonGender).GetFields())
+            foreach (var field in typeof(StakeholderJsonGender).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

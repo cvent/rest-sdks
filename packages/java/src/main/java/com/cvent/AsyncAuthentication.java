@@ -39,24 +39,23 @@ public class AsyncAuthentication {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Authentication sync() {
         return syncSDK;
     }
 
-
     /**
      * Authorize
-     * 
+     *
      * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
      * through a browser.
-     * 
+     *
      * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
      * authorization endpoint
      * except for http://localhost for testing purposes only.
-     * 
+     *
      * @return The async call builder
      */
     public Oauth2AuthorizeRequestBuilder oauth2Authorize() {
@@ -65,33 +64,31 @@ public class AsyncAuthentication {
 
     /**
      * Authorize
-     * 
+     *
      * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
      * through a browser.
-     * 
+     *
      * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
      * authorization endpoint
      * except for http://localhost for testing purposes only.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<Oauth2AuthorizeResponse>} - The async response
      */
     public CompletableFuture<Oauth2AuthorizeResponse> oauth2Authorize(@Nonnull Oauth2AuthorizeRequest request) {
-        AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation
-              = new Oauth2Authorize.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
+                new Oauth2Authorize.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @return The async call builder
      */
     public Oauth2TokenRequestBuilder oauth2Token() {
@@ -100,12 +97,12 @@ public class AsyncAuthentication {
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @param security The security details to use for authentication.
      * @return {@code CompletableFuture<Oauth2TokenResponse>} - The async response
      */
@@ -115,31 +112,30 @@ public class AsyncAuthentication {
 
     /**
      * Token
-     * 
+     *
      * <p>Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer
      * Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
-     * 
+     *
      * <p>**Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @param security The security details to use for authentication.
      * @return {@code CompletableFuture<Oauth2TokenResponse>} - The async response
      */
-    public CompletableFuture<Oauth2TokenResponse> oauth2Token(@Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
-        AsyncRequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation
-              = new Oauth2Token.Async(sdkConfiguration, security, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<Oauth2TokenResponse> oauth2Token(
+            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
+        AsyncRequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+                new Oauth2Token.Async(sdkConfiguration, security, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Validate Token
-     * 
+     *
      * <p>Verifies presented authentication token is valid.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ValidateTokenRequestBuilder validateToken() {
@@ -148,18 +144,16 @@ public class AsyncAuthentication {
 
     /**
      * Validate Token
-     * 
+     *
      * <p>Verifies presented authentication token is valid.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<ValidateTokenResponse>} - The async response
      */
     public CompletableFuture<ValidateTokenResponse> validateTokenDirect() {
-        AsyncRequestlessOperation<ValidateTokenResponse> operation
-            = new ValidateToken.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<ValidateTokenResponse> operation =
+                new ValidateToken.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
-
 }

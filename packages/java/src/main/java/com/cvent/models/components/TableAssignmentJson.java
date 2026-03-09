@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,13 +15,13 @@ import java.util.Optional;
 
 /**
  * TableAssignmentJson
- * 
+ *
  * <p>The assignment of an attendee to a seat on a table for a given event seating
  */
 public class TableAssignmentJson {
     /**
      * An object that contains the associated seating ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seating
      * object.
      */
@@ -31,7 +31,7 @@ public class TableAssignmentJson {
 
     /**
      * An object that contains the associated table ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a table object.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -40,7 +40,7 @@ public class TableAssignmentJson {
 
     /**
      * An object that contains the associated seat ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -65,15 +65,14 @@ public class TableAssignmentJson {
         this.seat = seat;
         this.attendee = attendee;
     }
-    
+
     public TableAssignmentJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
      * An object that contains the associated seating ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seating
      * object.
      */
@@ -83,7 +82,7 @@ public class TableAssignmentJson {
 
     /**
      * An object that contains the associated table ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a table object.
      */
     public Optional<ExpandableTableJson> table() {
@@ -92,7 +91,7 @@ public class TableAssignmentJson {
 
     /**
      * An object that contains the associated seat ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     public Optional<ExpandableSeatJson> seat() {
@@ -110,10 +109,9 @@ public class TableAssignmentJson {
         return new Builder();
     }
 
-
     /**
      * An object that contains the associated seating ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seating
      * object.
      */
@@ -122,10 +120,9 @@ public class TableAssignmentJson {
         return this;
     }
 
-
     /**
      * An object that contains the associated table ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a table object.
      */
     public TableAssignmentJson withTable(@Nullable ExpandableTableJson table) {
@@ -133,17 +130,15 @@ public class TableAssignmentJson {
         return this;
     }
 
-
     /**
      * An object that contains the associated seat ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
      */
     public TableAssignmentJson withSeat(@Nullable ExpandableSeatJson seat) {
         this.seat = seat;
         return this;
     }
-
 
     /**
      * The attendee object.
@@ -152,7 +147,6 @@ public class TableAssignmentJson {
         this.attendee = attendee;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -163,31 +157,25 @@ public class TableAssignmentJson {
             return false;
         }
         TableAssignmentJson other = (TableAssignmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.seating, other.seating) &&
-            Utils.enhancedDeepEquals(this.table, other.table) &&
-            Utils.enhancedDeepEquals(this.seat, other.seat) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee);
+        return Utils.enhancedDeepEquals(this.seating, other.seating)
+                && Utils.enhancedDeepEquals(this.table, other.table)
+                && Utils.enhancedDeepEquals(this.seat, other.seat)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            seating, table, seat,
-            attendee);
+        return Utils.enhancedHash(seating, table, seat, attendee);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TableAssignmentJson.class,
-                "seating", seating,
-                "table", table,
-                "seat", seat,
-                "attendee", attendee);
+        return Utils.toString(
+                TableAssignmentJson.class, "seating", seating, "table", table, "seat", seat, "attendee", attendee);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExpandableSeatingJson seating;
 
@@ -198,12 +186,12 @@ public class TableAssignmentJson {
         private TableAssignmentJsonAttendee attendee;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * An object that contains the associated seating ID.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain all the properties of a seating
          * object.
          */
@@ -214,7 +202,7 @@ public class TableAssignmentJson {
 
         /**
          * An object that contains the associated table ID.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain all the properties of a table object.
          */
         public Builder table(@Nullable ExpandableTableJson table) {
@@ -224,7 +212,7 @@ public class TableAssignmentJson {
 
         /**
          * An object that contains the associated seat ID.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
          */
         public Builder seat(@Nullable ExpandableSeatJson seat) {
@@ -241,10 +229,7 @@ public class TableAssignmentJson {
         }
 
         public TableAssignmentJson build() {
-            return new TableAssignmentJson(
-                seating, table, seat,
-                attendee);
+            return new TableAssignmentJson(seating, table, seat, attendee);
         }
-
     }
 }

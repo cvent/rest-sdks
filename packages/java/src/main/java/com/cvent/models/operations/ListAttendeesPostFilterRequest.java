@@ -19,7 +19,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
 public class ListAttendeesPostFilterRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -51,15 +50,15 @@ public class ListAttendeesPostFilterRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -77,7 +76,7 @@ public class ListAttendeesPostFilterRequest {
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * contact.firstName
      * * contact.lastName
@@ -114,20 +113,17 @@ public class ListAttendeesPostFilterRequest {
             @Nullable Filter filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.expand = expand;
         this.sort = sort;
-        this.includeDeletedGuests = Optional.ofNullable(includeDeletedGuests)
-            .orElse(Builder._SINGLETON_VALUE_IncludeDeletedGuests.value());
+        this.includeDeletedGuests =
+                Optional.ofNullable(includeDeletedGuests).orElse(Builder._SINGLETON_VALUE_IncludeDeletedGuests.value());
         this.filter = filter;
     }
-    
+
     public ListAttendeesPostFilterRequest() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -164,15 +160,15 @@ public class ListAttendeesPostFilterRequest {
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -191,7 +187,7 @@ public class ListAttendeesPostFilterRequest {
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * contact.firstName
      * * contact.lastName
@@ -223,7 +219,6 @@ public class ListAttendeesPostFilterRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -233,7 +228,6 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -242,7 +236,6 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -250,7 +243,6 @@ public class ListAttendeesPostFilterRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -261,20 +253,19 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     /**
      * This endpoint allows you to request additional information as an expanded response using the expand
      * query parameter.
      * The expanded entity is retrieved and displayed inline for each specified expand value.
-     * 
+     *
      * <p>An object contains the ID of a related object in its response properties. You can expand these
      * objects,
      * along with others, in line using the expand query parameter.
-     * 
+     *
      * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-     * 
+     *
      * <p>The respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * answers.question
      * * **Scope**: event/events:read
@@ -288,14 +279,13 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     /**
      * The `sort` query parameter sorts items in the list of results and organizes them according to your
      * preference.
      * There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * contact.firstName
      * * contact.lastName
@@ -309,7 +299,6 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     /**
      * This allows users to include deleted guests in the response.
      */
@@ -317,7 +306,6 @@ public class ListAttendeesPostFilterRequest {
         this.includeDeletedGuests = includeDeletedGuests;
         return this;
     }
-
 
     /**
      * The request body accepts filters to refine the data returned. Refer to available filter details in
@@ -328,7 +316,6 @@ public class ListAttendeesPostFilterRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -338,40 +325,45 @@ public class ListAttendeesPostFilterRequest {
             return false;
         }
         ListAttendeesPostFilterRequest other = (ListAttendeesPostFilterRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.includeDeletedGuests, other.includeDeletedGuests) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.includeDeletedGuests, other.includeDeletedGuests)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, expand, sort,
-            includeDeletedGuests, filter);
+        return Utils.enhancedHash(after, before, limit, token, expand, sort, includeDeletedGuests, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAttendeesPostFilterRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "expand", expand,
-                "sort", sort,
-                "includeDeletedGuests", includeDeletedGuests,
-                "filter", filter);
+        return Utils.toString(
+                ListAttendeesPostFilterRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "expand",
+                expand,
+                "sort",
+                sort,
+                "includeDeletedGuests",
+                includeDeletedGuests,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -390,7 +382,7 @@ public class ListAttendeesPostFilterRequest {
         private Filter filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -431,15 +423,15 @@ public class ListAttendeesPostFilterRequest {
          * This endpoint allows you to request additional information as an expanded response using the expand
          * query parameter.
          * The expanded entity is retrieved and displayed inline for each specified expand value.
-         * 
+         *
          * <p>An object contains the ID of a related object in its response properties. You can expand these
          * objects,
          * along with others, in line using the expand query parameter.
-         * 
+         *
          * <p>You can expand multiple objects at the same time by identifying multiple items in the expand array.
-         * 
+         *
          * <p>The respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * answers.question
          * * **Scope**: event/events:read
@@ -459,7 +451,7 @@ public class ListAttendeesPostFilterRequest {
          * There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * contact.firstName
          * * contact.lastName
@@ -492,22 +484,13 @@ public class ListAttendeesPostFilterRequest {
 
         public ListAttendeesPostFilterRequest build() {
             return new ListAttendeesPostFilterRequest(
-                after, before, limit,
-                token, expand, sort,
-                includeDeletedGuests, filter);
+                    after, before, limit, token, expand, sort, includeDeletedGuests, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludeDeletedGuests =
-                new LazySingletonValue<>(
-                        "includeDeletedGuests",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("includeDeletedGuests", "false", new TypeReference<Boolean>() {});
     }
 }

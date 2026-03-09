@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ChoiceTypeJson
- * 
+ *
  * <p>The type for the event question choice.
  */
 public enum ChoiceTypeJson {
@@ -24,13 +24,13 @@ public enum ChoiceTypeJson {
     ChoiceTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ChoiceTypeJson> fromValue(String value) {
-        for (ChoiceTypeJson o: ChoiceTypeJson.values()) {
+        for (ChoiceTypeJson o : ChoiceTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum ChoiceTypeJson {
         return Optional.empty();
     }
 }
-

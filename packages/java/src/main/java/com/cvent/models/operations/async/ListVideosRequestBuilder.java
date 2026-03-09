@@ -40,7 +40,7 @@ public class ListVideosRequestBuilder {
     private ListVideosRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListVideosRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListVideosRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListVideosResponse> call() {
-        AsyncRequestOperation<ListVideosRequest, ListVideosResponse> operation
-              = new ListVideos.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListVideosRequest, ListVideosResponse> operation =
+                new ListVideos.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListVideosRequestBuilder {
      */
     public Publisher<ListVideosResponse> callAsPublisher() {
         ListVideosRequest request = this.request;
-        AsyncRequestOperation<ListVideosRequest, ListVideosResponse> operation
-              = new ListVideos.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListVideosRequest, ListVideosResponse> operation =
+                new ListVideos.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListVideosRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListVideosRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListVideosResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

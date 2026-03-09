@@ -18,7 +18,6 @@ public class GetSchemasRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetSchemasRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -27,13 +26,12 @@ public class GetSchemasRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetSchemasResponse call() {
-        RequestlessOperation<GetSchemasResponse> operation
-            = new GetSchemas.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetSchemasResponse> operation = new GetSchemas.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

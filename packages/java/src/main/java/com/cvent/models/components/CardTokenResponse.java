@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * CardTokenResponse
- * 
+ *
  * <p>Card token resource created in response to generating a card token for a credit card.
  */
 public class CardTokenResponse {
@@ -40,7 +40,7 @@ public class CardTokenResponse {
         this.id = id;
         this.creditCard = creditCard;
     }
-    
+
     public CardTokenResponse() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class CardTokenResponse {
         return new Builder();
     }
 
-
     /**
      * A token that can be used to reference the credit card for a transaction.
      */
@@ -72,7 +71,6 @@ public class CardTokenResponse {
         return this;
     }
 
-
     /**
      * Credit Card Response Object
      */
@@ -80,7 +78,6 @@ public class CardTokenResponse {
         this.creditCard = creditCard;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class CardTokenResponse {
             return false;
         }
         CardTokenResponse other = (CardTokenResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, creditCard);
+        return Utils.enhancedHash(id, creditCard);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CardTokenResponse.class,
-                "id", id,
-                "creditCard", creditCard);
+        return Utils.toString(CardTokenResponse.class, "id", id, "creditCard", creditCard);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private CreditCardResponseJson creditCard;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class CardTokenResponse {
         }
 
         public CardTokenResponse build() {
-            return new CardTokenResponse(
-                id, creditCard);
+            return new CardTokenResponse(id, creditCard);
         }
-
     }
 }

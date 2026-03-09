@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateEventDiscountResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class CreateEventDiscountResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable CreateUpdateDiscountResponse createUpdateDiscountResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.createUpdateDiscountResponse = createUpdateDiscountResponse;
     }
-    
+
     public CreateEventDiscountResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Discount created successfully.
      */
-    public CreateEventDiscountResponse withCreateUpdateDiscountResponse(@Nullable CreateUpdateDiscountResponse createUpdateDiscountResponse) {
+    public CreateEventDiscountResponse withCreateUpdateDiscountResponse(
+            @Nullable CreateUpdateDiscountResponse createUpdateDiscountResponse) {
         this.createUpdateDiscountResponse = createUpdateDiscountResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class CreateEventDiscountResponse implements AsyncResponse {
             return false;
         }
         CreateEventDiscountResponse other = (CreateEventDiscountResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.createUpdateDiscountResponse, other.createUpdateDiscountResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.createUpdateDiscountResponse, other.createUpdateDiscountResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            createUpdateDiscountResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, createUpdateDiscountResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateEventDiscountResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "createUpdateDiscountResponse", createUpdateDiscountResponse);
+        return Utils.toString(
+                CreateEventDiscountResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "createUpdateDiscountResponse",
+                createUpdateDiscountResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         private CreateUpdateDiscountResponse createUpdateDiscountResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class CreateEventDiscountResponse implements AsyncResponse {
         /**
          * Discount created successfully.
          */
-        public Builder createUpdateDiscountResponse(@Nullable CreateUpdateDiscountResponse createUpdateDiscountResponse) {
+        public Builder createUpdateDiscountResponse(
+                @Nullable CreateUpdateDiscountResponse createUpdateDiscountResponse) {
             this.createUpdateDiscountResponse = createUpdateDiscountResponse;
             return this;
         }
 
         public CreateEventDiscountResponse build() {
-            return new CreateEventDiscountResponse(
-                contentType, statusCode, rawResponse,
-                createUpdateDiscountResponse);
+            return new CreateEventDiscountResponse(contentType, statusCode, rawResponse, createUpdateDiscountResponse);
         }
-
     }
 }

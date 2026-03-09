@@ -2,6 +2,14 @@
 
 This is used to denote the status of an attendee.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AttendeeStatusJson;
+
+AttendeeStatusJson value = AttendeeStatusJson.NO_RESPONSE;
+```
+
 
 ## Values
 

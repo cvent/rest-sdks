@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * TravelBidTaxFeeJson
- * 
+ *
  * <p>A tax or fee associated with a travel bid.
  */
 public class TravelBidTaxFeeJson {
@@ -77,17 +77,14 @@ public class TravelBidTaxFeeJson {
             @JsonProperty("status") @Nullable BidItemStatusTypeJson status) {
         this.code = code;
         this.amount = amount;
-        this.percent = Optional.ofNullable(percent)
-            .orElse(Builder._SINGLETON_VALUE_Percent.value());
-        this.included = Optional.ofNullable(included)
-            .orElse(Builder._SINGLETON_VALUE_Included.value());
+        this.percent = Optional.ofNullable(percent).orElse(Builder._SINGLETON_VALUE_Percent.value());
+        this.included = Optional.ofNullable(included).orElse(Builder._SINGLETON_VALUE_Included.value());
         this.notes = notes;
         this.status = status;
     }
-    
+
     public TravelBidTaxFeeJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -138,7 +135,6 @@ public class TravelBidTaxFeeJson {
         return new Builder();
     }
 
-
     /**
      * Bid tax type.
      */
@@ -146,7 +142,6 @@ public class TravelBidTaxFeeJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * The amount of the tax/fee. This may be a percent or monetary value depending on the value in
@@ -157,7 +152,6 @@ public class TravelBidTaxFeeJson {
         return this;
     }
 
-
     /**
      * True indicates the tax/fee amount represents a percentage, instead of a monetary value.
      */
@@ -165,7 +159,6 @@ public class TravelBidTaxFeeJson {
         this.percent = percent;
         return this;
     }
-
 
     /**
      * True indicates the tax/fee included in the negotiated rate.
@@ -175,7 +168,6 @@ public class TravelBidTaxFeeJson {
         return this;
     }
 
-
     /**
      * Additional notes on the tax/fee.
      */
@@ -183,7 +175,6 @@ public class TravelBidTaxFeeJson {
         this.notes = notes;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -194,7 +185,6 @@ public class TravelBidTaxFeeJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -204,35 +194,39 @@ public class TravelBidTaxFeeJson {
             return false;
         }
         TravelBidTaxFeeJson other = (TravelBidTaxFeeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.percent, other.percent) &&
-            Utils.enhancedDeepEquals(this.included, other.included) &&
-            Utils.enhancedDeepEquals(this.notes, other.notes) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.percent, other.percent)
+                && Utils.enhancedDeepEquals(this.included, other.included)
+                && Utils.enhancedDeepEquals(this.notes, other.notes)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, amount, percent,
-            included, notes, status);
+        return Utils.enhancedHash(code, amount, percent, included, notes, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidTaxFeeJson.class,
-                "code", code,
-                "amount", amount,
-                "percent", percent,
-                "included", included,
-                "notes", notes,
-                "status", status);
+        return Utils.toString(
+                TravelBidTaxFeeJson.class,
+                "code",
+                code,
+                "amount",
+                amount,
+                "percent",
+                percent,
+                "included",
+                included,
+                "notes",
+                notes,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TaxTypeJson code;
 
@@ -247,7 +241,7 @@ public class TravelBidTaxFeeJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -301,22 +295,13 @@ public class TravelBidTaxFeeJson {
         }
 
         public TravelBidTaxFeeJson build() {
-            return new TravelBidTaxFeeJson(
-                code, amount, percent,
-                included, notes, status);
+            return new TravelBidTaxFeeJson(code, amount, percent, included, notes, status);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Percent =
-                new LazySingletonValue<>(
-                        "percent",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("percent", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Included =
-                new LazySingletonValue<>(
-                        "included",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("included", "false", new TypeReference<Boolean>() {});
     }
 }

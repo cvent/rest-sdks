@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListEventDiscountsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListEventDiscountsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.existingDiscountPaginatedResponse = existingDiscountPaginatedResponse;
     }
-    
+
     public ListEventDiscountsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListEventDiscountsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListEventDiscountsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListEventDiscountsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListEventDiscountsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of discounts.
      */
-    public ListEventDiscountsResponse withExistingDiscountPaginatedResponse(@Nullable ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse) {
+    public ListEventDiscountsResponse withExistingDiscountPaginatedResponse(
+            @Nullable ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse) {
         this.existingDiscountPaginatedResponse = existingDiscountPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListEventDiscountsResponse implements Response {
             return false;
         }
         ListEventDiscountsResponse other = (ListEventDiscountsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.existingDiscountPaginatedResponse, other.existingDiscountPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.existingDiscountPaginatedResponse, other.existingDiscountPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            existingDiscountPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, existingDiscountPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListEventDiscountsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "existingDiscountPaginatedResponse", existingDiscountPaginatedResponse);
+        return Utils.toString(
+                ListEventDiscountsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "existingDiscountPaginatedResponse",
+                existingDiscountPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListEventDiscountsResponse implements Response {
         private ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListEventDiscountsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of discounts.
          */
-        public Builder existingDiscountPaginatedResponse(@Nullable ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse) {
+        public Builder existingDiscountPaginatedResponse(
+                @Nullable ExistingDiscountPaginatedResponse existingDiscountPaginatedResponse) {
             this.existingDiscountPaginatedResponse = existingDiscountPaginatedResponse;
             return this;
         }
 
         public ListEventDiscountsResponse build() {
             return new ListEventDiscountsResponse(
-                contentType, statusCode, rawResponse,
-                existingDiscountPaginatedResponse);
+                    contentType, statusCode, rawResponse, existingDiscountPaginatedResponse);
         }
-
     }
 }

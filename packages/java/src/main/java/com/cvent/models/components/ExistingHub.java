@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingHub
- * 
+ *
  * <p>Represents an existing Events+ hub.
  */
 public class ExistingHub {
@@ -175,7 +175,7 @@ public class ExistingHub {
     /**
      * The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members.
      * Active: Members can access the Events+ Hub.
-     * 
+     *
      * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -210,15 +210,12 @@ public class ExistingHub {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.title = Optional.ofNullable(title)
-            .orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
-        this.owner = Optional.ofNullable(owner)
-            .orElseThrow(() -> new IllegalArgumentException("owner cannot be null"));
+        this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
+        this.owner = Optional.ofNullable(owner).orElseThrow(() -> new IllegalArgumentException("owner cannot be null"));
         this.customDomain = customDomain;
         this.url = url;
         this.colors = colors;
-        this.themeSafeMode = Optional.ofNullable(themeSafeMode)
-            .orElse(Builder._SINGLETON_VALUE_ThemeSafeMode.value());
+        this.themeSafeMode = Optional.ofNullable(themeSafeMode).orElse(Builder._SINGLETON_VALUE_ThemeSafeMode.value());
         this.logo = logo;
         this.background = background;
         this.locale = locale;
@@ -226,25 +223,37 @@ public class ExistingHub {
         this.helpEmailAddress = helpEmailAddress;
         this.autoDetectBrowserLocale = autoDetectBrowserLocale;
         this.faviconUrl = faviconUrl;
-        this.utmOverride = Optional.ofNullable(utmOverride)
-            .orElse(Builder._SINGLETON_VALUE_UtmOverride.value());
+        this.utmOverride = Optional.ofNullable(utmOverride).orElse(Builder._SINGLETON_VALUE_UtmOverride.value());
         this.fonts = fonts;
         this.login = login;
         this.id = id;
         this.status = status;
     }
-    
-    public ExistingHub(
-            @Nonnull String title,
-            @Nonnull HubOwnerJson owner) {
-        this(null, null, null,
-            null, title, owner,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+
+    public ExistingHub(@Nonnull String title, @Nonnull HubOwnerJson owner) {
+        this(
+                null,
+                null,
+                null,
+                null,
+                title,
+                owner,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -400,7 +409,7 @@ public class ExistingHub {
     /**
      * The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members.
      * Active: Members can access the Events+ Hub.
-     * 
+     *
      * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
      */
     public Optional<HubStatusPropertyJson> status() {
@@ -411,7 +420,6 @@ public class ExistingHub {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -419,7 +427,6 @@ public class ExistingHub {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -429,7 +436,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -437,7 +443,6 @@ public class ExistingHub {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -447,7 +452,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * A short descriptor of the Events+ hub.
      */
@@ -455,7 +459,6 @@ public class ExistingHub {
         this.title = Utils.checkNotNull(title, "title");
         return this;
     }
-
 
     /**
      * The owner of the Events+ hub and their information.
@@ -465,7 +468,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * Custom domain name of the Events+ hub.
      */
@@ -473,7 +475,6 @@ public class ExistingHub {
         this.customDomain = customDomain;
         return this;
     }
-
 
     /**
      * The URL that links to the Events+ hub.
@@ -483,7 +484,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * All the colors associated with the Events+ hub.
      */
@@ -491,7 +491,6 @@ public class ExistingHub {
         this.colors = colors;
         return this;
     }
-
 
     /**
      * True guarantees that controls shown on the page will contrast with the background color.
@@ -501,7 +500,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * The logo for the Events+ hub.
      */
@@ -509,7 +507,6 @@ public class ExistingHub {
         this.logo = logo;
         return this;
     }
-
 
     /**
      * The background image of the Events+ hub.
@@ -519,7 +516,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * An IETF BCP 47 language tag used to indicate the language of the Events+ hub.
      */
@@ -527,7 +523,6 @@ public class ExistingHub {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * The event calendar associated with this Events+ hub. The event calendar allows you to share multiple
@@ -538,7 +533,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * Help email address to reach out in case of any issues logging in or registering.
      */
@@ -546,7 +540,6 @@ public class ExistingHub {
         this.helpEmailAddress = helpEmailAddress;
         return this;
     }
-
 
     /**
      * True indicates the Events+ hub should detect the browser locale. If translations for the detected
@@ -557,7 +550,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * URL of the Events+ hub favicon.
      */
@@ -565,7 +557,6 @@ public class ExistingHub {
         this.faviconUrl = faviconUrl;
         return this;
     }
-
 
     /**
      * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose
@@ -576,7 +567,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * The fonts of the Events+ hub.
      */
@@ -584,7 +574,6 @@ public class ExistingHub {
         this.fonts = fonts;
         return this;
     }
-
 
     /**
      * Fields relating to the login process for the Events+ hub.
@@ -594,7 +583,6 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * The unique ID of an Events+ Hub.
      */
@@ -603,18 +591,16 @@ public class ExistingHub {
         return this;
     }
 
-
     /**
      * The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members.
      * Active: Members can access the Events+ Hub.
-     * 
+     *
      * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
      */
     public ExistingHub withStatus(@Nullable HubStatusPropertyJson status) {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -625,73 +611,109 @@ public class ExistingHub {
             return false;
         }
         ExistingHub other = (ExistingHub) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.owner, other.owner) &&
-            Utils.enhancedDeepEquals(this.customDomain, other.customDomain) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.colors, other.colors) &&
-            Utils.enhancedDeepEquals(this.themeSafeMode, other.themeSafeMode) &&
-            Utils.enhancedDeepEquals(this.logo, other.logo) &&
-            Utils.enhancedDeepEquals(this.background, other.background) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.calendar, other.calendar) &&
-            Utils.enhancedDeepEquals(this.helpEmailAddress, other.helpEmailAddress) &&
-            Utils.enhancedDeepEquals(this.autoDetectBrowserLocale, other.autoDetectBrowserLocale) &&
-            Utils.enhancedDeepEquals(this.faviconUrl, other.faviconUrl) &&
-            Utils.enhancedDeepEquals(this.utmOverride, other.utmOverride) &&
-            Utils.enhancedDeepEquals(this.fonts, other.fonts) &&
-            Utils.enhancedDeepEquals(this.login, other.login) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.owner, other.owner)
+                && Utils.enhancedDeepEquals(this.customDomain, other.customDomain)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.colors, other.colors)
+                && Utils.enhancedDeepEquals(this.themeSafeMode, other.themeSafeMode)
+                && Utils.enhancedDeepEquals(this.logo, other.logo)
+                && Utils.enhancedDeepEquals(this.background, other.background)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.calendar, other.calendar)
+                && Utils.enhancedDeepEquals(this.helpEmailAddress, other.helpEmailAddress)
+                && Utils.enhancedDeepEquals(this.autoDetectBrowserLocale, other.autoDetectBrowserLocale)
+                && Utils.enhancedDeepEquals(this.faviconUrl, other.faviconUrl)
+                && Utils.enhancedDeepEquals(this.utmOverride, other.utmOverride)
+                && Utils.enhancedDeepEquals(this.fonts, other.fonts)
+                && Utils.enhancedDeepEquals(this.login, other.login)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, title, owner,
-            customDomain, url, colors,
-            themeSafeMode, logo, background,
-            locale, calendar, helpEmailAddress,
-            autoDetectBrowserLocale, faviconUrl, utmOverride,
-            fonts, login, id,
-            status);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                title,
+                owner,
+                customDomain,
+                url,
+                colors,
+                themeSafeMode,
+                logo,
+                background,
+                locale,
+                calendar,
+                helpEmailAddress,
+                autoDetectBrowserLocale,
+                faviconUrl,
+                utmOverride,
+                fonts,
+                login,
+                id,
+                status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingHub.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "title", title,
-                "owner", owner,
-                "customDomain", customDomain,
-                "url", url,
-                "colors", colors,
-                "themeSafeMode", themeSafeMode,
-                "logo", logo,
-                "background", background,
-                "locale", locale,
-                "calendar", calendar,
-                "helpEmailAddress", helpEmailAddress,
-                "autoDetectBrowserLocale", autoDetectBrowserLocale,
-                "faviconUrl", faviconUrl,
-                "utmOverride", utmOverride,
-                "fonts", fonts,
-                "login", login,
-                "id", id,
-                "status", status);
+        return Utils.toString(
+                ExistingHub.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "title",
+                title,
+                "owner",
+                owner,
+                "customDomain",
+                customDomain,
+                "url",
+                url,
+                "colors",
+                colors,
+                "themeSafeMode",
+                themeSafeMode,
+                "logo",
+                logo,
+                "background",
+                background,
+                "locale",
+                locale,
+                "calendar",
+                calendar,
+                "helpEmailAddress",
+                helpEmailAddress,
+                "autoDetectBrowserLocale",
+                autoDetectBrowserLocale,
+                "faviconUrl",
+                faviconUrl,
+                "utmOverride",
+                utmOverride,
+                "fonts",
+                fonts,
+                "login",
+                login,
+                "id",
+                id,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -738,7 +760,7 @@ public class ExistingHub {
         private HubStatusPropertyJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -915,7 +937,7 @@ public class ExistingHub {
         /**
          * The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members.
          * Active: Members can access the Events+ Hub.
-         * 
+         *
          * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
          */
         public Builder status(@Nullable HubStatusPropertyJson status) {
@@ -925,27 +947,34 @@ public class ExistingHub {
 
         public ExistingHub build() {
             return new ExistingHub(
-                created, createdBy, lastModified,
-                lastModifiedBy, title, owner,
-                customDomain, url, colors,
-                themeSafeMode, logo, background,
-                locale, calendar, helpEmailAddress,
-                autoDetectBrowserLocale, faviconUrl, utmOverride,
-                fonts, login, id,
-                status);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    title,
+                    owner,
+                    customDomain,
+                    url,
+                    colors,
+                    themeSafeMode,
+                    logo,
+                    background,
+                    locale,
+                    calendar,
+                    helpEmailAddress,
+                    autoDetectBrowserLocale,
+                    faviconUrl,
+                    utmOverride,
+                    fonts,
+                    login,
+                    id,
+                    status);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ThemeSafeMode =
-                new LazySingletonValue<>(
-                        "themeSafeMode",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("themeSafeMode", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<UtmOverrideJson> _SINGLETON_VALUE_UtmOverride =
-                new LazySingletonValue<>(
-                        "utmOverride",
-                        "\"use-existing-parameter\"",
-                        new TypeReference<UtmOverrideJson>() {});
+                new LazySingletonValue<>("utmOverride", "\"use-existing-parameter\"", new TypeReference<UtmOverrideJson>() {});
     }
 }

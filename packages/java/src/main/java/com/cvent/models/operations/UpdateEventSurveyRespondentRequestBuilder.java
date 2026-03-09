@@ -28,7 +28,7 @@ public class UpdateEventSurveyRespondentRequestBuilder {
     private UpdateEventSurveyRespondentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateEventSurveyRespondentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateEventSurveyRespondentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateEventSurveyRespondentResponse call() {
-        RequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation
-              = new UpdateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateEventSurveyRespondentRequest, UpdateEventSurveyRespondentResponse> operation =
+                new UpdateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

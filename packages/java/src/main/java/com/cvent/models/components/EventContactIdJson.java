@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EventContactIdJson
- * 
+ *
  * <p>A pair of event and contact id.
  */
 public class EventContactIdJson {
@@ -31,12 +31,11 @@ public class EventContactIdJson {
 
     @JsonCreator
     public EventContactIdJson(
-            @JsonProperty("eventId") @Nonnull String eventId,
-            @JsonProperty("contactId") @Nonnull String contactId) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+            @JsonProperty("eventId") @Nonnull String eventId, @JsonProperty("contactId") @Nonnull String contactId) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
         this.contactId = Optional.ofNullable(contactId)
-            .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactId cannot be null"));
     }
 
     /**
@@ -57,7 +56,6 @@ public class EventContactIdJson {
         return new Builder();
     }
 
-
     /**
      * ID of the event.
      */
@@ -66,7 +64,6 @@ public class EventContactIdJson {
         return this;
     }
 
-
     /**
      * ID of the contact.
      */
@@ -74,7 +71,6 @@ public class EventContactIdJson {
         this.contactId = Utils.checkNotNull(contactId, "contactId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +81,29 @@ public class EventContactIdJson {
             return false;
         }
         EventContactIdJson other = (EventContactIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.contactId, other.contactId);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId)
+                && Utils.enhancedDeepEquals(this.contactId, other.contactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, contactId);
+        return Utils.enhancedHash(eventId, contactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventContactIdJson.class,
-                "eventId", eventId,
-                "contactId", contactId);
+        return Utils.toString(EventContactIdJson.class, "eventId", eventId, "contactId", contactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
         private String contactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +123,7 @@ public class EventContactIdJson {
         }
 
         public EventContactIdJson build() {
-            return new EventContactIdJson(
-                eventId, contactId);
+            return new EventContactIdJson(eventId, contactId);
         }
-
     }
 }

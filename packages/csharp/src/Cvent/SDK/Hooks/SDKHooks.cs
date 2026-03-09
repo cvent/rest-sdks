@@ -19,12 +19,14 @@ namespace Cvent.SDK.Hooks
     /// <summary>
     /// Exception that can be thrown in <see cref="IAfterErrorHook"/> implementations to prevent subsequent hooks from executing.
     /// </summary>
-    public sealed class FailEarlyException : Exception {}
+    public sealed class FailEarlyException : Exception
+    {
+    }
 
     /// <summary>
     /// Manages and executes SDK hooks at various stages of the request lifecycle.
     /// </summary>
-    public class SDKHooks: IHooks
+    public class SDKHooks : IHooks
     {
         public List<ISDKInitHook> sdkInitHooks;
         public List<IBeforeRequestHook> beforeRequestHooks;
@@ -79,7 +81,7 @@ namespace Cvent.SDK.Hooks
         {
             this.afterErrorHooks.Add(hook);
         }
-        
+
         /// <summary>
         /// Executes all registered SDK initialization hooks.
         /// </summary>
@@ -92,14 +94,15 @@ namespace Cvent.SDK.Hooks
                 try
                 {
                     config = hook.SDKInit(config);
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     throw new Exception("An error occurred while calling SDKInit hook.", ex);
                 }
             }
             return config;
         }
-        
+
         /// <summary>
         /// Executes all registered before request hooks.
         /// </summary>

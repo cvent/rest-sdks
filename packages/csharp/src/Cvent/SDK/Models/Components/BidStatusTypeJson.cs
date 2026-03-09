@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BidStatusTypeJson
     {
-        [JsonProperty("in_progress")]
-        InProgress,
-        [JsonProperty("attached")]
-        Attached,
-        [JsonProperty("deleted")]
-        Deleted,
+        [JsonProperty("in_progress")] InProgress,
+        [JsonProperty("attached")] Attached,
+        [JsonProperty("deleted")] Deleted,
     }
 
     public static class BidStatusTypeJsonExtension
     {
         public static string Value(this BidStatusTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BidStatusTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BidStatusTypeJson).GetFields())
+            foreach (var field in typeof(BidStatusTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

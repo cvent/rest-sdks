@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AttendeeSubscriptionResponse
- * 
+ *
  * <p>Response body for successful attendee subscription status update.
  */
 public class AttendeeSubscriptionResponse {
@@ -35,7 +35,7 @@ public class AttendeeSubscriptionResponse {
             @JsonProperty("attendee") @Nonnull AttendeeSubscriptionResponseAttendee attendee,
             @JsonProperty("unsubscribed") boolean unsubscribed) {
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.unsubscribed = unsubscribed;
     }
 
@@ -58,7 +58,6 @@ public class AttendeeSubscriptionResponse {
         return new Builder();
     }
 
-
     /**
      * The attendee whose subscription status is being updated.
      */
@@ -66,7 +65,6 @@ public class AttendeeSubscriptionResponse {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * The updated subscription status. True means the attendee is unsubscribed from email communications,
@@ -77,7 +75,6 @@ public class AttendeeSubscriptionResponse {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -87,33 +84,29 @@ public class AttendeeSubscriptionResponse {
             return false;
         }
         AttendeeSubscriptionResponse other = (AttendeeSubscriptionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, unsubscribed);
+        return Utils.enhancedHash(attendee, unsubscribed);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeSubscriptionResponse.class,
-                "attendee", attendee,
-                "unsubscribed", unsubscribed);
+        return Utils.toString(AttendeeSubscriptionResponse.class, "attendee", attendee, "unsubscribed", unsubscribed);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeSubscriptionResponseAttendee attendee;
 
         private boolean unsubscribed;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -134,9 +127,7 @@ public class AttendeeSubscriptionResponse {
         }
 
         public AttendeeSubscriptionResponse build() {
-            return new AttendeeSubscriptionResponse(
-                attendee, unsubscribed);
+            return new AttendeeSubscriptionResponse(attendee, unsubscribed);
         }
-
     }
 }

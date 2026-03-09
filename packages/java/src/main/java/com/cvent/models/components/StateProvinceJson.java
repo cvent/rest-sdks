@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * StateProvinceJson
- * 
+ *
  * <p>The state province code used for contact information.
  */
 public enum StateProvinceJson {
@@ -840,13 +840,13 @@ public enum StateProvinceJson {
     StateProvinceJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<StateProvinceJson> fromValue(String value) {
-        for (StateProvinceJson o: StateProvinceJson.values()) {
+        for (StateProvinceJson o : StateProvinceJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -854,4 +854,3 @@ public enum StateProvinceJson {
         return Optional.empty();
     }
 }
-

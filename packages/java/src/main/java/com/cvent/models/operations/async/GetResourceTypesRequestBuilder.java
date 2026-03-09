@@ -19,7 +19,6 @@ public class GetResourceTypesRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetResourceTypesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -28,14 +27,13 @@ public class GetResourceTypesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetResourceTypesResponse> call() {
-        AsyncRequestlessOperation<GetResourceTypesResponse> operation
-            = new GetResourceTypes.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetResourceTypesResponse> operation =
+                new GetResourceTypes.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

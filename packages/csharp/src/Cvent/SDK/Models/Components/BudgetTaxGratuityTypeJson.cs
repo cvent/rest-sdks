@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BudgetTaxGratuityTypeJson
     {
-        [JsonProperty("AMOUNT")]
-        Amount,
-        [JsonProperty("PERCENTAGE")]
-        Percentage,
+        [JsonProperty("AMOUNT")] Amount,
+        [JsonProperty("PERCENTAGE")] Percentage,
     }
 
     public static class BudgetTaxGratuityTypeJsonExtension
     {
         public static string Value(this BudgetTaxGratuityTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BudgetTaxGratuityTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BudgetTaxGratuityTypeJson).GetFields())
+            foreach (var field in typeof(BudgetTaxGratuityTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

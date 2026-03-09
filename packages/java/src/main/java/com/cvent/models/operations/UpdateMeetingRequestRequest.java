@@ -15,7 +15,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class UpdateMeetingRequestRequest {
     /**
      * Meeting request form ID.
@@ -40,16 +39,13 @@ public class UpdateMeetingRequestRequest {
             @Nonnull String id,
             @Nullable Boolean skipRequiredQuestionValidation,
             @Nonnull List<MeetingRequestUpdateJson> requestBody) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
-    
-    public UpdateMeetingRequestRequest(
-            @Nonnull String id,
-            @Nonnull List<MeetingRequestUpdateJson> requestBody) {
+
+    public UpdateMeetingRequestRequest(@Nonnull String id, @Nonnull List<MeetingRequestUpdateJson> requestBody) {
         this(id, null, requestBody);
     }
 
@@ -78,7 +74,6 @@ public class UpdateMeetingRequestRequest {
         return new Builder();
     }
 
-
     /**
      * Meeting request form ID.
      */
@@ -87,15 +82,14 @@ public class UpdateMeetingRequestRequest {
         return this;
     }
 
-
     /**
      * Flag `true` to skip required field validation.
      */
-    public UpdateMeetingRequestRequest withSkipRequiredQuestionValidation(@Nullable Boolean skipRequiredQuestionValidation) {
+    public UpdateMeetingRequestRequest withSkipRequiredQuestionValidation(
+            @Nullable Boolean skipRequiredQuestionValidation) {
         this.skipRequiredQuestionValidation = skipRequiredQuestionValidation;
         return this;
     }
-
 
     /**
      * Up to **5 meeting requests** can be updated per call.
@@ -104,7 +98,6 @@ public class UpdateMeetingRequestRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -115,28 +108,30 @@ public class UpdateMeetingRequestRequest {
             return false;
         }
         UpdateMeetingRequestRequest other = (UpdateMeetingRequestRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.skipRequiredQuestionValidation, other.skipRequiredQuestionValidation) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.skipRequiredQuestionValidation, other.skipRequiredQuestionValidation)
+                && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, skipRequiredQuestionValidation, requestBody);
+        return Utils.enhancedHash(id, skipRequiredQuestionValidation, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateMeetingRequestRequest.class,
-                "id", id,
-                "skipRequiredQuestionValidation", skipRequiredQuestionValidation,
-                "requestBody", requestBody);
+        return Utils.toString(
+                UpdateMeetingRequestRequest.class,
+                "id",
+                id,
+                "skipRequiredQuestionValidation",
+                skipRequiredQuestionValidation,
+                "requestBody",
+                requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -145,7 +140,7 @@ public class UpdateMeetingRequestRequest {
         private List<MeetingRequestUpdateJson> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -173,9 +168,7 @@ public class UpdateMeetingRequestRequest {
         }
 
         public UpdateMeetingRequestRequest build() {
-            return new UpdateMeetingRequestRequest(
-                id, skipRequiredQuestionValidation, requestBody);
+            return new UpdateMeetingRequestRequest(id, skipRequiredQuestionValidation, requestBody);
         }
-
     }
 }

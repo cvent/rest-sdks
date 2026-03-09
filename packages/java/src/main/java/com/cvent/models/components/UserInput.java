@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * UserInput
- * 
+ *
  * <p>Generic sample User. Not a real model used by any Cvent service.
  */
 public class UserInput {
@@ -70,7 +70,7 @@ public class UserInput {
     /**
      * The address of the user. The user can have only one address. <br> If multiple addresses are
      * provided, only one is accepted and rest are ignored.
-     * 
+     *
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
@@ -122,30 +122,28 @@ public class UserInput {
             @JsonProperty("timezone") @Nullable String timezone,
             @JsonProperty("locale") @Nonnull String locale,
             @JsonProperty("groups") @Nonnull List<GroupJson> groups,
-            @JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User") @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+            @JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User") @Nonnull
+                    UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.userName = Optional.ofNullable(userName)
-            .orElseThrow(() -> new IllegalArgumentException("userName cannot be null"));
-        this.active = Optional.ofNullable(active)
-            .orElse(Builder._SINGLETON_VALUE_Active.value());
-        this.emails = Optional.ofNullable(emails)
-            .orElseThrow(() -> new IllegalArgumentException("emails cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userName cannot be null"));
+        this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
+        this.emails =
+                Optional.ofNullable(emails).orElseThrow(() -> new IllegalArgumentException("emails cannot be null"));
         this.title = title;
         this.phoneNumbers = phoneNumbers;
         this.addresses = addresses;
         this.userType = Optional.ofNullable(userType)
-            .orElseThrow(() -> new IllegalArgumentException("userType cannot be null"));
-        this.timezone = Optional.ofNullable(timezone)
-            .orElse(Builder._SINGLETON_VALUE_Timezone.value());
-        this.locale = Optional.ofNullable(locale)
-            .orElseThrow(() -> new IllegalArgumentException("locale cannot be null"));
-        this.groups = Optional.ofNullable(groups)
-            .orElseThrow(() -> new IllegalArgumentException("groups cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userType cannot be null"));
+        this.timezone = Optional.ofNullable(timezone).orElse(Builder._SINGLETON_VALUE_Timezone.value());
+        this.locale =
+                Optional.ofNullable(locale).orElseThrow(() -> new IllegalArgumentException("locale cannot be null"));
+        this.groups =
+                Optional.ofNullable(groups).orElseThrow(() -> new IllegalArgumentException("groups cannot be null"));
         this.urnIetfParamsScimSchemasExtensionEnterprise20User = Optional.ofNullable(urnIetfParamsScimSchemasExtensionEnterprise20User)
-            .orElseThrow(() -> new IllegalArgumentException("urnIetfParamsScimSchemasExtensionEnterprise20User cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("urnIetfParamsScimSchemasExtensionEnterprise20User cannot be null"));
     }
-    
+
     public UserInput(
             @Nonnull NameJson name,
             @Nonnull String userName,
@@ -154,10 +152,19 @@ public class UserInput {
             @Nonnull String locale,
             @Nonnull List<GroupJson> groups,
             @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
-        this(name, userName, null,
-            emails, null, null,
-            null, userType, null,
-            locale, groups, urnIetfParamsScimSchemasExtensionEnterprise20User);
+        this(
+                name,
+                userName,
+                null,
+                emails,
+                null,
+                null,
+                null,
+                userType,
+                null,
+                locale,
+                groups,
+                urnIetfParamsScimSchemasExtensionEnterprise20User);
     }
 
     /**
@@ -209,7 +216,7 @@ public class UserInput {
     /**
      * The address of the user. The user can have only one address. <br> If multiple addresses are
      * provided, only one is accepted and rest are ignored.
-     * 
+     *
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
@@ -256,7 +263,6 @@ public class UserInput {
         return new Builder();
     }
 
-
     /**
      * The name of the user.
      */
@@ -264,7 +270,6 @@ public class UserInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The user name of the user to be used during identification.
@@ -274,7 +279,6 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * True indicates the user is active.
      */
@@ -282,7 +286,6 @@ public class UserInput {
         this.active = active;
         return this;
     }
-
 
     /**
      * The email of the user. The Cvent user can have only one email address.<br> If multiple email
@@ -295,7 +298,6 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * The title of the user.
      */
@@ -303,7 +305,6 @@ public class UserInput {
         this.title = title;
         return this;
     }
-
 
     /**
      * The phone numbers of the user.<br> If more than one number per type is provided, only one is
@@ -314,11 +315,10 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * The address of the user. The user can have only one address. <br> If multiple addresses are
      * provided, only one is accepted and rest are ignored.
-     * 
+     *
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
@@ -326,7 +326,6 @@ public class UserInput {
         this.addresses = addresses;
         return this;
     }
-
 
     /**
      * The type of the user.
@@ -336,7 +335,6 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * List of <a href="#section/Getting-Started/Time-Zones">Timezones</a> supported.
      */
@@ -344,7 +342,6 @@ public class UserInput {
         this.timezone = timezone;
         return this;
     }
-
 
     /**
      * The locale of the user. The IETF Language Tag format is used.
@@ -354,7 +351,6 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * The SCIM group (representing Cvent user role) of the user.
      */
@@ -363,15 +359,15 @@ public class UserInput {
         return this;
     }
 
-
     /**
      * Enterprise extension model for the user.
      */
-    public UserInput withUrnIetfParamsScimSchemasExtensionEnterprise20User(@Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
-        this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(urnIetfParamsScimSchemasExtensionEnterprise20User, "urnIetfParamsScimSchemasExtensionEnterprise20User");
+    public UserInput withUrnIetfParamsScimSchemasExtensionEnterprise20User(
+            @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+        this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(
+                urnIetfParamsScimSchemasExtensionEnterprise20User, "urnIetfParamsScimSchemasExtensionEnterprise20User");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -382,49 +378,71 @@ public class UserInput {
             return false;
         }
         UserInput other = (UserInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.userName, other.userName) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.emails, other.emails) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.phoneNumbers, other.phoneNumbers) &&
-            Utils.enhancedDeepEquals(this.addresses, other.addresses) &&
-            Utils.enhancedDeepEquals(this.userType, other.userType) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.groups, other.groups) &&
-            Utils.enhancedDeepEquals(this.urnIetfParamsScimSchemasExtensionEnterprise20User, other.urnIetfParamsScimSchemasExtensionEnterprise20User);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.userName, other.userName)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.emails, other.emails)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.phoneNumbers, other.phoneNumbers)
+                && Utils.enhancedDeepEquals(this.addresses, other.addresses)
+                && Utils.enhancedDeepEquals(this.userType, other.userType)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.groups, other.groups)
+                && Utils.enhancedDeepEquals(
+                        this.urnIetfParamsScimSchemasExtensionEnterprise20User,
+                        other.urnIetfParamsScimSchemasExtensionEnterprise20User);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, userName, active,
-            emails, title, phoneNumbers,
-            addresses, userType, timezone,
-            locale, groups, urnIetfParamsScimSchemasExtensionEnterprise20User);
+                name,
+                userName,
+                active,
+                emails,
+                title,
+                phoneNumbers,
+                addresses,
+                userType,
+                timezone,
+                locale,
+                groups,
+                urnIetfParamsScimSchemasExtensionEnterprise20User);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UserInput.class,
-                "name", name,
-                "userName", userName,
-                "active", active,
-                "emails", emails,
-                "title", title,
-                "phoneNumbers", phoneNumbers,
-                "addresses", addresses,
-                "userType", userType,
-                "timezone", timezone,
-                "locale", locale,
-                "groups", groups,
-                "urnIetfParamsScimSchemasExtensionEnterprise20User", urnIetfParamsScimSchemasExtensionEnterprise20User);
+        return Utils.toString(
+                UserInput.class,
+                "name",
+                name,
+                "userName",
+                userName,
+                "active",
+                active,
+                "emails",
+                emails,
+                "title",
+                title,
+                "phoneNumbers",
+                phoneNumbers,
+                "addresses",
+                addresses,
+                "userType",
+                userType,
+                "timezone",
+                timezone,
+                "locale",
+                locale,
+                "groups",
+                groups,
+                "urnIetfParamsScimSchemasExtensionEnterprise20User",
+                urnIetfParamsScimSchemasExtensionEnterprise20User);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private NameJson name;
 
@@ -451,7 +469,7 @@ public class UserInput {
         private UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -509,7 +527,7 @@ public class UserInput {
         /**
          * The address of the user. The user can have only one address. <br> If multiple addresses are
          * provided, only one is accepted and rest are ignored.
-         * 
+         *
          * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
          * the sequence
          */
@@ -553,30 +571,34 @@ public class UserInput {
         /**
          * Enterprise extension model for the user.
          */
-        public Builder urnIetfParamsScimSchemasExtensionEnterprise20User(@Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
-            this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(urnIetfParamsScimSchemasExtensionEnterprise20User, "urnIetfParamsScimSchemasExtensionEnterprise20User");
+        public Builder urnIetfParamsScimSchemasExtensionEnterprise20User(
+                @Nonnull UserEnterpriseExtensionJson urnIetfParamsScimSchemasExtensionEnterprise20User) {
+            this.urnIetfParamsScimSchemasExtensionEnterprise20User = Utils.checkNotNull(
+                    urnIetfParamsScimSchemasExtensionEnterprise20User,
+                    "urnIetfParamsScimSchemasExtensionEnterprise20User");
             return this;
         }
 
         public UserInput build() {
             return new UserInput(
-                name, userName, active,
-                emails, title, phoneNumbers,
-                addresses, userType, timezone,
-                locale, groups, urnIetfParamsScimSchemasExtensionEnterprise20User);
+                    name,
+                    userName,
+                    active,
+                    emails,
+                    title,
+                    phoneNumbers,
+                    addresses,
+                    userType,
+                    timezone,
+                    locale,
+                    groups,
+                    urnIetfParamsScimSchemasExtensionEnterprise20User);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Active =
-                new LazySingletonValue<>(
-                        "active",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("active", "true", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<String> _SINGLETON_VALUE_Timezone =
-                new LazySingletonValue<>(
-                        "timezone",
-                        "\"America/New_York\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("timezone", "\"America/New_York\"", new TypeReference<String>() {});
     }
 }

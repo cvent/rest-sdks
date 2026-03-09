@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * AttendeeUpdate
- * 
+ *
  * <p>Model representing an attendee to be updated in an event.
  */
 public class AttendeeUpdate {
@@ -101,10 +101,10 @@ public class AttendeeUpdate {
     /**
      * Denotes the status of an attendee to be updated. No Response: The attendee was added to an
      * invitation list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the
      * event's webpage but didn't finish registration. Declined: The attendee declined to attend the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
      * status indicates the attendee has been denied approval by the planner. <br>The following status
@@ -129,7 +129,7 @@ public class AttendeeUpdate {
     /**
      * Method by which the attendee was invited to the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -140,7 +140,7 @@ public class AttendeeUpdate {
     /**
      * Method by which attendee registered for the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -164,10 +164,9 @@ public class AttendeeUpdate {
             @JsonProperty("registrationType") @Nullable AttendeeUpdateRegistrationType registrationType,
             @JsonProperty("invitedBy") @Nullable DeprecatedAttendeeInvitedByJson invitedBy,
             @JsonProperty("responseMethod") @Nullable DeprecatedAttendeeResponseMethodJson responseMethod) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.contact = Optional.ofNullable(contact)
-            .orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.contact =
+                Optional.ofNullable(contact).orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
         this.invitationList = invitationList;
         this.referenceId = referenceId;
         this.note = note;
@@ -176,21 +175,14 @@ public class AttendeeUpdate {
         this.visibility = visibility;
         this.answers = answers;
         this.sendEmail = sendEmail;
-        this.status = Optional.ofNullable(status)
-            .orElse(Builder._SINGLETON_VALUE_Status.value());
+        this.status = Optional.ofNullable(status).orElse(Builder._SINGLETON_VALUE_Status.value());
         this.registrationType = registrationType;
         this.invitedBy = invitedBy;
         this.responseMethod = responseMethod;
     }
-    
-    public AttendeeUpdate(
-            @Nonnull AttendeeUpdateEvent event,
-            @Nonnull AttendeeUpdateContact contact) {
-        this(event, contact, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public AttendeeUpdate(@Nonnull AttendeeUpdateEvent event, @Nonnull AttendeeUpdateContact contact) {
+        this(event, contact, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -271,10 +263,10 @@ public class AttendeeUpdate {
     /**
      * Denotes the status of an attendee to be updated. No Response: The attendee was added to an
      * invitation list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the
      * event's webpage but didn't finish registration. Declined: The attendee declined to attend the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
      * status indicates the attendee has been denied approval by the planner. <br>The following status
@@ -299,7 +291,7 @@ public class AttendeeUpdate {
     /**
      * Method by which the attendee was invited to the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -310,7 +302,7 @@ public class AttendeeUpdate {
     /**
      * Method by which attendee registered for the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -322,7 +314,6 @@ public class AttendeeUpdate {
         return new Builder();
     }
 
-
     /**
      * The ID of the event associated with the attendee.
      */
@@ -330,7 +321,6 @@ public class AttendeeUpdate {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The ID of the address book contact associated with the attendee.
@@ -340,7 +330,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * The ID of the invitation list associated with the attendee.
      */
@@ -348,7 +337,6 @@ public class AttendeeUpdate {
         this.invitationList = invitationList;
         return this;
     }
-
 
     /**
      * The reference ID of an attendee. A planner determined string used to track which link attendee's
@@ -359,7 +347,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * A planner created note for an attendee, used to track details about the attendee.
      */
@@ -368,7 +355,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * The ID of the administrator contact whom registered this attendee.
      */
@@ -376,7 +362,6 @@ public class AttendeeUpdate {
         this.administrator = administrator;
         return this;
     }
-
 
     /**
      * The ID of the attendee's admission item. Required when registering, updating a registered attendee,
@@ -387,7 +372,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
@@ -397,7 +381,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * The list of answers to the attendee's registration questions.
      */
@@ -405,7 +388,6 @@ public class AttendeeUpdate {
         this.answers = answers;
         return this;
     }
-
 
     /**
      * True indicates a confirmation email should be sent to the attendee. Cancelled attendees will not
@@ -417,14 +399,13 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * Denotes the status of an attendee to be updated. No Response: The attendee was added to an
      * invitation list but hasn't taken any action. Accepted: The attendee is registered for the event.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the
      * event's webpage but didn't finish registration. Declined: The attendee declined to attend the event.
-     * 
+     *
      * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
      * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
      * status indicates the attendee has been denied approval by the planner. <br>The following status
@@ -440,7 +421,6 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * The attendee's registration type.
      */
@@ -449,11 +429,10 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * Method by which the attendee was invited to the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -462,11 +441,10 @@ public class AttendeeUpdate {
         return this;
     }
 
-
     /**
      * Method by which attendee registered for the event. Note: This field is deprecated. Previous
      * documentation incorrectly listed support for this feature.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -474,7 +452,6 @@ public class AttendeeUpdate {
         this.responseMethod = responseMethod;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -485,54 +462,77 @@ public class AttendeeUpdate {
             return false;
         }
         AttendeeUpdate other = (AttendeeUpdate) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.contact, other.contact) &&
-            Utils.enhancedDeepEquals(this.invitationList, other.invitationList) &&
-            Utils.enhancedDeepEquals(this.referenceId, other.referenceId) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.administrator, other.administrator) &&
-            Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem) &&
-            Utils.enhancedDeepEquals(this.visibility, other.visibility) &&
-            Utils.enhancedDeepEquals(this.answers, other.answers) &&
-            Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.registrationType, other.registrationType) &&
-            Utils.enhancedDeepEquals(this.invitedBy, other.invitedBy) &&
-            Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.administrator, other.administrator)
+                && Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem)
+                && Utils.enhancedDeepEquals(this.visibility, other.visibility)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.sendEmail, other.sendEmail)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
+                && Utils.enhancedDeepEquals(this.invitedBy, other.invitedBy)
+                && Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, contact, invitationList,
-            referenceId, note, administrator,
-            admissionItem, visibility, answers,
-            sendEmail, status, registrationType,
-            invitedBy, responseMethod);
+                event,
+                contact,
+                invitationList,
+                referenceId,
+                note,
+                administrator,
+                admissionItem,
+                visibility,
+                answers,
+                sendEmail,
+                status,
+                registrationType,
+                invitedBy,
+                responseMethod);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeUpdate.class,
-                "event", event,
-                "contact", contact,
-                "invitationList", invitationList,
-                "referenceId", referenceId,
-                "note", note,
-                "administrator", administrator,
-                "admissionItem", admissionItem,
-                "visibility", visibility,
-                "answers", answers,
-                "sendEmail", sendEmail,
-                "status", status,
-                "registrationType", registrationType,
-                "invitedBy", invitedBy,
-                "responseMethod", responseMethod);
+        return Utils.toString(
+                AttendeeUpdate.class,
+                "event",
+                event,
+                "contact",
+                contact,
+                "invitationList",
+                invitationList,
+                "referenceId",
+                referenceId,
+                "note",
+                note,
+                "administrator",
+                administrator,
+                "admissionItem",
+                admissionItem,
+                "visibility",
+                visibility,
+                "answers",
+                answers,
+                "sendEmail",
+                sendEmail,
+                "status",
+                status,
+                "registrationType",
+                registrationType,
+                "invitedBy",
+                invitedBy,
+                "responseMethod",
+                responseMethod);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeUpdateEvent event;
 
@@ -565,7 +565,7 @@ public class AttendeeUpdate {
         private DeprecatedAttendeeResponseMethodJson responseMethod;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -656,10 +656,10 @@ public class AttendeeUpdate {
         /**
          * Denotes the status of an attendee to be updated. No Response: The attendee was added to an
          * invitation list but hasn't taken any action. Accepted: The attendee is registered for the event.
-         * 
+         *
          * <p>Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the
          * event's webpage but didn't finish registration. Declined: The attendee declined to attend the event.
-         * 
+         *
          * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
          * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
          * status indicates the attendee has been denied approval by the planner. <br>The following status
@@ -686,7 +686,7 @@ public class AttendeeUpdate {
         /**
          * Method by which the attendee was invited to the event. Note: This field is deprecated. Previous
          * documentation incorrectly listed support for this feature.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -698,7 +698,7 @@ public class AttendeeUpdate {
         /**
          * Method by which attendee registered for the event. Note: This field is deprecated. Previous
          * documentation incorrectly listed support for this feature.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -709,18 +709,23 @@ public class AttendeeUpdate {
 
         public AttendeeUpdate build() {
             return new AttendeeUpdate(
-                event, contact, invitationList,
-                referenceId, note, administrator,
-                admissionItem, visibility, answers,
-                sendEmail, status, registrationType,
-                invitedBy, responseMethod);
+                    event,
+                    contact,
+                    invitationList,
+                    referenceId,
+                    note,
+                    administrator,
+                    admissionItem,
+                    visibility,
+                    answers,
+                    sendEmail,
+                    status,
+                    registrationType,
+                    invitedBy,
+                    responseMethod);
         }
 
-
         private static final LazySingletonValue<AttendeeUpdateStatusJson> _SINGLETON_VALUE_Status =
-                new LazySingletonValue<>(
-                        "status",
-                        "\"No Response\"",
-                        new TypeReference<AttendeeUpdateStatusJson>() {});
+                new LazySingletonValue<>("status", "\"No Response\"", new TypeReference<AttendeeUpdateStatusJson>() {});
     }
 }

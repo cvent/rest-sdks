@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetSurveyRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -48,12 +47,12 @@ public class GetSurveyRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * type (eq|ne)
      */
@@ -69,15 +68,13 @@ public class GetSurveyRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetSurveyRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -115,12 +112,12 @@ public class GetSurveyRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * type (eq|ne)
      */
@@ -132,7 +129,6 @@ public class GetSurveyRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -142,7 +138,6 @@ public class GetSurveyRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -151,7 +146,6 @@ public class GetSurveyRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -159,7 +153,6 @@ public class GetSurveyRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -170,18 +163,17 @@ public class GetSurveyRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
      * Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * type (eq|ne)
      */
@@ -189,7 +181,6 @@ public class GetSurveyRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -200,33 +191,36 @@ public class GetSurveyRequest {
             return false;
         }
         GetSurveyRequest other = (GetSurveyRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSurveyRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetSurveyRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -239,7 +233,7 @@ public class GetSurveyRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -281,12 +275,12 @@ public class GetSurveyRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
          * Following are the comparison types that can be used in filter expressions:
-         * 
+         *
          * <p>* equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* id (eq|ne)
          * * type (eq|ne)
          */
@@ -296,16 +290,10 @@ public class GetSurveyRequest {
         }
 
         public GetSurveyRequest build() {
-            return new GetSurveyRequest(
-                after, before, limit,
-                token, filter);
+            return new GetSurveyRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

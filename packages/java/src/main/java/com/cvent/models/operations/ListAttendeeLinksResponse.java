@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListAttendeeLinksResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListAttendeeLinksResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
     }
-    
+
     public ListAttendeeLinksResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListAttendeeLinksResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListAttendeeLinksResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListAttendeeLinksResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListAttendeeLinksResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of attendee links.
      */
-    public ListAttendeeLinksResponse withAttendeeLinkPaginatedResponse(@Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
+    public ListAttendeeLinksResponse withAttendeeLinkPaginatedResponse(
+            @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
         this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListAttendeeLinksResponse implements Response {
             return false;
         }
         ListAttendeeLinksResponse other = (ListAttendeeLinksResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeLinkPaginatedResponse, other.attendeeLinkPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeLinkPaginatedResponse, other.attendeeLinkPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeLinkPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeLinkPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAttendeeLinksResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeLinkPaginatedResponse", attendeeLinkPaginatedResponse);
+        return Utils.toString(
+                ListAttendeeLinksResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeLinkPaginatedResponse",
+                attendeeLinkPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListAttendeeLinksResponse implements Response {
         private AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class ListAttendeeLinksResponse implements Response {
         /**
          * Successfully retrieved a paginated list of attendee links.
          */
-        public Builder attendeeLinkPaginatedResponse(@Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
+        public Builder attendeeLinkPaginatedResponse(
+                @Nullable AttendeeLinkPaginatedResponse attendeeLinkPaginatedResponse) {
             this.attendeeLinkPaginatedResponse = attendeeLinkPaginatedResponse;
             return this;
         }
 
         public ListAttendeeLinksResponse build() {
-            return new ListAttendeeLinksResponse(
-                contentType, statusCode, rawResponse,
-                attendeeLinkPaginatedResponse);
+            return new ListAttendeeLinksResponse(contentType, statusCode, rawResponse, attendeeLinkPaginatedResponse);
         }
-
     }
 }

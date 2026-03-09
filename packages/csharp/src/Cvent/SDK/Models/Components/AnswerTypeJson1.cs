@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AnswerTypeJson1
     {
-        [JsonProperty("Choice")]
-        Choice,
-        [JsonProperty("Text")]
-        Text,
-        [JsonProperty("ChoiceText")]
-        ChoiceText,
-        [JsonProperty("Comment")]
-        Comment,
-        [JsonProperty("Other")]
-        Other,
-        [JsonProperty("NA")]
-        Na,
-        [JsonProperty("File")]
-        File,
+        [JsonProperty("Choice")] Choice,
+        [JsonProperty("Text")] Text,
+        [JsonProperty("ChoiceText")] ChoiceText,
+        [JsonProperty("Comment")] Comment,
+        [JsonProperty("Other")] Other,
+        [JsonProperty("NA")] Na,
+        [JsonProperty("File")] File,
     }
 
     public static class AnswerTypeJson1Extension
     {
         public static string Value(this AnswerTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AnswerTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(AnswerTypeJson1).GetFields())
+            foreach (var field in typeof(AnswerTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ThumbnailTypeJson
     {
-        [JsonProperty("bmp")]
-        Bmp,
-        [JsonProperty("gif")]
-        Gif,
-        [JsonProperty("jpe")]
-        Jpe,
-        [JsonProperty("jpeg")]
-        Jpeg,
-        [JsonProperty("jpg")]
-        Jpg,
-        [JsonProperty("png")]
-        Png,
-        [JsonProperty("svg")]
-        Svg,
+        [JsonProperty("bmp")] Bmp,
+        [JsonProperty("gif")] Gif,
+        [JsonProperty("jpe")] Jpe,
+        [JsonProperty("jpeg")] Jpeg,
+        [JsonProperty("jpg")] Jpg,
+        [JsonProperty("png")] Png,
+        [JsonProperty("svg")] Svg,
     }
 
     public static class ThumbnailTypeJsonExtension
     {
         public static string Value(this ThumbnailTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ThumbnailTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ThumbnailTypeJson).GetFields())
+            foreach (var field in typeof(ThumbnailTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

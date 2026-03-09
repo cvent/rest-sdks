@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AudienceSegmentCreationTypeJson
- * 
+ *
  * <p>Creation type of the audience segment.
  */
 public enum AudienceSegmentCreationTypeJson {
@@ -22,13 +22,13 @@ public enum AudienceSegmentCreationTypeJson {
     AudienceSegmentCreationTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AudienceSegmentCreationTypeJson> fromValue(String value) {
-        for (AudienceSegmentCreationTypeJson o: AudienceSegmentCreationTypeJson.values()) {
+        for (AudienceSegmentCreationTypeJson o : AudienceSegmentCreationTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -36,4 +36,3 @@ public enum AudienceSegmentCreationTypeJson {
         return Optional.empty();
     }
 }
-

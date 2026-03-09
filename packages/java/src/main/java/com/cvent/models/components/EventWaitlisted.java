@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventWaitlisted
- * 
+ *
  * <p>An event-registered activity.
  */
 public class EventWaitlisted {
@@ -40,7 +40,7 @@ public class EventWaitlisted {
         this.event = event;
         this.status = status;
     }
-    
+
     public EventWaitlisted() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class EventWaitlisted {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -72,7 +71,6 @@ public class EventWaitlisted {
         return this;
     }
 
-
     /**
      * This is used to denote the status of an attendee.
      */
@@ -80,7 +78,6 @@ public class EventWaitlisted {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class EventWaitlisted {
             return false;
         }
         EventWaitlisted other = (EventWaitlisted) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.event, other.event) && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, status);
+        return Utils.enhancedHash(event, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventWaitlisted.class,
-                "event", event,
-                "status", status);
+        return Utils.toString(EventWaitlisted.class, "event", event, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent9 event;
 
         private AttendeeStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class EventWaitlisted {
         }
 
         public EventWaitlisted build() {
-            return new EventWaitlisted(
-                event, status);
+            return new EventWaitlisted(event, status);
         }
-
     }
 }

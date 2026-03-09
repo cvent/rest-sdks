@@ -2,6 +2,14 @@
 
 This is used to denote the error codes for a video entity.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = VideoErrorCodeJson.SixHundred;
+```
+
 
 ## Values
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExternalActivitiesAdditionalFieldsMetadataJson
- * 
+ *
  * <p>Additional fields metadata for an external activity.
  */
 public class ExternalActivitiesAdditionalFieldsMetadataJson {
@@ -35,15 +35,12 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
 
     @JsonCreator
     public ExternalActivitiesAdditionalFieldsMetadataJson(
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("description") @Nullable String description) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+            @JsonProperty("name") @Nonnull String name, @JsonProperty("description") @Nullable String description) {
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
-    
-    public ExternalActivitiesAdditionalFieldsMetadataJson(
-            @Nonnull String name) {
+
+    public ExternalActivitiesAdditionalFieldsMetadataJson(@Nonnull String name) {
         this(name, null);
     }
 
@@ -65,7 +62,6 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
         return new Builder();
     }
 
-
     /**
      * The name of the additional field.
      */
@@ -74,7 +70,6 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
         return this;
     }
 
-
     /**
      * Description of the additional field.
      */
@@ -82,7 +77,6 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
         this.description = description;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +87,30 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
             return false;
         }
         ExternalActivitiesAdditionalFieldsMetadataJson other = (ExternalActivitiesAdditionalFieldsMetadataJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, description);
+        return Utils.enhancedHash(name, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExternalActivitiesAdditionalFieldsMetadataJson.class,
-                "name", name,
-                "description", description);
+        return Utils.toString(
+                ExternalActivitiesAdditionalFieldsMetadataJson.class, "name", name, "description", description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +130,7 @@ public class ExternalActivitiesAdditionalFieldsMetadataJson {
         }
 
         public ExternalActivitiesAdditionalFieldsMetadataJson build() {
-            return new ExternalActivitiesAdditionalFieldsMetadataJson(
-                name, description);
+            return new ExternalActivitiesAdditionalFieldsMetadataJson(name, description);
         }
-
     }
 }

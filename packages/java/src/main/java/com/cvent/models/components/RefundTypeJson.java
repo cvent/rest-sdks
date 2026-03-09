@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * RefundTypeJson
- * 
+ *
  * <p>The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee
  * as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an
  * cancellation fee chosen by the planner.
- * 
+ *
  * <p>`RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
  */
 public enum RefundTypeJson {
@@ -28,13 +28,13 @@ public enum RefundTypeJson {
     RefundTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RefundTypeJson> fromValue(String value) {
-        for (RefundTypeJson o: RefundTypeJson.values()) {
+        for (RefundTypeJson o : RefundTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum RefundTypeJson {
         return Optional.empty();
     }
 }
-

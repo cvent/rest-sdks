@@ -28,7 +28,7 @@ public class GetExhibitorAdminRequestBuilder {
     private GetExhibitorAdminRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorAdminRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetExhibitorAdminRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetExhibitorAdminResponse call() {
-        RequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation
-              = new GetExhibitorAdmin.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetExhibitorAdminRequest, GetExhibitorAdminResponse> operation =
+                new GetExhibitorAdmin.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

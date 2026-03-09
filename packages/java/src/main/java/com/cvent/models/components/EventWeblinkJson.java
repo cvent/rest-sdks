@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventWeblinkJson
- * 
+ *
  * <p>Metadata for an event weblink.
  */
 public class EventWeblinkJson {
@@ -58,10 +58,9 @@ public class EventWeblinkJson {
         this.landingPage = landingPage;
         this.locale = locale;
     }
-    
+
     public EventWeblinkJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventWeblinkJson {
         return new Builder();
     }
 
-
     /**
      * Name of the weblink, used by planners to identify the weblinks in their event.
      */
@@ -104,7 +102,6 @@ public class EventWeblinkJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Short URL of the webpage.
@@ -114,7 +111,6 @@ public class EventWeblinkJson {
         return this;
     }
 
-
     /**
      * The name of the webpage attendees will be directed to when using the weblink.
      */
@@ -123,7 +119,6 @@ public class EventWeblinkJson {
         return this;
     }
 
-
     /**
      * Locale code
      */
@@ -131,7 +126,6 @@ public class EventWeblinkJson {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class EventWeblinkJson {
             return false;
         }
         EventWeblinkJson other = (EventWeblinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.url, other.url) &&
-            Utils.enhancedDeepEquals(this.landingPage, other.landingPage) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.url, other.url)
+                && Utils.enhancedDeepEquals(this.landingPage, other.landingPage)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, url, landingPage,
-            locale);
+        return Utils.enhancedHash(name, url, landingPage, locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventWeblinkJson.class,
-                "name", name,
-                "url", url,
-                "landingPage", landingPage,
-                "locale", locale);
+        return Utils.toString(
+                EventWeblinkJson.class, "name", name, "url", url, "landingPage", landingPage, "locale", locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -177,7 +165,7 @@ public class EventWeblinkJson {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class EventWeblinkJson {
         }
 
         public EventWeblinkJson build() {
-            return new EventWeblinkJson(
-                name, url, landingPage,
-                locale);
+            return new EventWeblinkJson(name, url, landingPage, locale);
         }
-
     }
 }

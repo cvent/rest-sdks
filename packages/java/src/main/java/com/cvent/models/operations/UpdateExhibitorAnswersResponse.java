@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateExhibitorAnswersResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateExhibitorAnswersResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExhibitorAnswersResponse exhibitorAnswersResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.exhibitorAnswersResponse = exhibitorAnswersResponse;
     }
-    
+
     public UpdateExhibitorAnswersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateExhibitorAnswersResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateExhibitorAnswersResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateExhibitorAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class UpdateExhibitorAnswersResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated exhibitor answers.
      */
-    public UpdateExhibitorAnswersResponse withExhibitorAnswersResponse(@Nullable ExhibitorAnswersResponse exhibitorAnswersResponse) {
+    public UpdateExhibitorAnswersResponse withExhibitorAnswersResponse(
+            @Nullable ExhibitorAnswersResponse exhibitorAnswersResponse) {
         this.exhibitorAnswersResponse = exhibitorAnswersResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class UpdateExhibitorAnswersResponse implements Response {
             return false;
         }
         UpdateExhibitorAnswersResponse other = (UpdateExhibitorAnswersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.exhibitorAnswersResponse, other.exhibitorAnswersResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.exhibitorAnswersResponse, other.exhibitorAnswersResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            exhibitorAnswersResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, exhibitorAnswersResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateExhibitorAnswersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "exhibitorAnswersResponse", exhibitorAnswersResponse);
+        return Utils.toString(
+                UpdateExhibitorAnswersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "exhibitorAnswersResponse",
+                exhibitorAnswersResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class UpdateExhibitorAnswersResponse implements Response {
         private ExhibitorAnswersResponse exhibitorAnswersResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class UpdateExhibitorAnswersResponse implements Response {
         }
 
         public UpdateExhibitorAnswersResponse build() {
-            return new UpdateExhibitorAnswersResponse(
-                contentType, statusCode, rawResponse,
-                exhibitorAnswersResponse);
+            return new UpdateExhibitorAnswersResponse(contentType, statusCode, rawResponse, exhibitorAnswersResponse);
         }
-
     }
 }

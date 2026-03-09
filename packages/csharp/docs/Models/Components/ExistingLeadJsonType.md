@@ -2,6 +2,14 @@
 
 The type of lead.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ExistingLeadJsonType.Leadcapture;
+```
+
 
 ## Values
 

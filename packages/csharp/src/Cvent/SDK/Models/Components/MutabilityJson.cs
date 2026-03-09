@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum MutabilityJson
     {
-        [JsonProperty("readOnly")]
-        ReadOnly,
-        [JsonProperty("readWrite")]
-        ReadWrite,
-        [JsonProperty("immutable")]
-        Immutable,
-        [JsonProperty("writeOnly")]
-        WriteOnly,
+        [JsonProperty("readOnly")] ReadOnly,
+        [JsonProperty("readWrite")] ReadWrite,
+        [JsonProperty("immutable")] Immutable,
+        [JsonProperty("writeOnly")] WriteOnly,
     }
 
     public static class MutabilityJsonExtension
     {
         public static string Value(this MutabilityJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static MutabilityJson ToEnum(this string value)
         {
-            foreach(var field in typeof(MutabilityJson).GetFields())
+            foreach (var field in typeof(MutabilityJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

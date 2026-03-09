@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,9 +15,9 @@ import java.util.Optional;
 
 /**
  * ExpandableSeatJson
- * 
+ *
  * <p>An object that contains the associated seat ID.
- * 
+ *
  * <p>This is an **expandable** object and if requested will contain all the properties of a seat object.
  */
 public class ExpandableSeatJson {
@@ -29,11 +29,10 @@ public class ExpandableSeatJson {
     private String id;
 
     @JsonCreator
-    public ExpandableSeatJson(
-            @JsonProperty("id") @Nullable String id) {
+    public ExpandableSeatJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public ExpandableSeatJson() {
         this(null);
     }
@@ -49,7 +48,6 @@ public class ExpandableSeatJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the seat.
      */
@@ -57,7 +55,6 @@ public class ExpandableSeatJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -68,29 +65,26 @@ public class ExpandableSeatJson {
             return false;
         }
         ExpandableSeatJson other = (ExpandableSeatJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExpandableSeatJson.class,
-                "id", id);
+        return Utils.toString(ExpandableSeatJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -102,9 +96,7 @@ public class ExpandableSeatJson {
         }
 
         public ExpandableSeatJson build() {
-            return new ExpandableSeatJson(
-                id);
+            return new ExpandableSeatJson(id);
         }
-
     }
 }

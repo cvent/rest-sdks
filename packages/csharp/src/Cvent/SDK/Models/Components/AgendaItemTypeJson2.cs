@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AgendaItemTypeJson2
     {
-        [JsonProperty("AdmissionItem")]
-        AdmissionItem,
-        [JsonProperty("MembershipItem")]
-        MembershipItem,
-        [JsonProperty("QuantityItem")]
-        QuantityItem,
-        [JsonProperty("Session")]
-        Session,
-        [JsonProperty("SessionBundle")]
-        SessionBundle,
+        [JsonProperty("AdmissionItem")] AdmissionItem,
+        [JsonProperty("MembershipItem")] MembershipItem,
+        [JsonProperty("QuantityItem")] QuantityItem,
+        [JsonProperty("Session")] Session,
+        [JsonProperty("SessionBundle")] SessionBundle,
     }
 
     public static class AgendaItemTypeJson2Extension
     {
         public static string Value(this AgendaItemTypeJson2 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AgendaItemTypeJson2 ToEnum(this string value)
         {
-            foreach(var field in typeof(AgendaItemTypeJson2).GetFields())
+            foreach (var field in typeof(AgendaItemTypeJson2).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

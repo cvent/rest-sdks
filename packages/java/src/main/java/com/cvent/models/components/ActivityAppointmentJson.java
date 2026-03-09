@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ActivityAppointmentJson
- * 
+ *
  * <p>An activity appointment.
  */
 public class ActivityAppointmentJson {
@@ -40,7 +40,6 @@ public class ActivityAppointmentJson {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
-
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointmentEvent")
@@ -75,10 +74,9 @@ public class ActivityAppointmentJson {
         this.start = start;
         this.end = end;
     }
-    
+
     public ActivityAppointmentJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -124,7 +122,6 @@ public class ActivityAppointmentJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -132,7 +129,6 @@ public class ActivityAppointmentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the appointment.
@@ -142,7 +138,6 @@ public class ActivityAppointmentJson {
         return this;
     }
 
-
     /**
      * The code of an appointment.
      */
@@ -151,12 +146,11 @@ public class ActivityAppointmentJson {
         return this;
     }
 
-
-    public ActivityAppointmentJson withAppointmentEvent(@Nullable ActivityAppointmentJsonAppointmentEvent appointmentEvent) {
+    public ActivityAppointmentJson withAppointmentEvent(
+            @Nullable ActivityAppointmentJsonAppointmentEvent appointmentEvent) {
         this.appointmentEvent = appointmentEvent;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when an appointment starts.
@@ -166,7 +160,6 @@ public class ActivityAppointmentJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when an appointment ends.
      */
@@ -174,7 +167,6 @@ public class ActivityAppointmentJson {
         this.end = end;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -185,35 +177,39 @@ public class ActivityAppointmentJson {
             return false;
         }
         ActivityAppointmentJson other = (ActivityAppointmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.start, other.start) &&
-            Utils.enhancedDeepEquals(this.end, other.end);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            appointmentEvent, start, end);
+        return Utils.enhancedHash(id, name, code, appointmentEvent, start, end);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityAppointmentJson.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "appointmentEvent", appointmentEvent,
-                "start", start,
-                "end", end);
+        return Utils.toString(
+                ActivityAppointmentJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "appointmentEvent",
+                appointmentEvent,
+                "start",
+                start,
+                "end",
+                end);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -228,7 +224,7 @@ public class ActivityAppointmentJson {
         private OffsetDateTime end;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -277,10 +273,7 @@ public class ActivityAppointmentJson {
         }
 
         public ActivityAppointmentJson build() {
-            return new ActivityAppointmentJson(
-                id, name, code,
-                appointmentEvent, start, end);
+            return new ActivityAppointmentJson(id, name, code, appointmentEvent, start, end);
         }
-
     }
 }

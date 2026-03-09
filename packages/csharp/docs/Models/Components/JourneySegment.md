@@ -2,6 +2,14 @@
 
 Journey Segment
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = JourneySegment.LeavingEvent;
+```
+
 
 ## Values
 

@@ -10,18 +10,16 @@ import java.lang.String;
 
 /**
  * NewReservationReservationRequest
- * 
+ *
  * <p>Reservation request information.
  */
 public class NewReservationReservationRequest {
     @JsonCreator
-    public NewReservationReservationRequest() {
-    }
+    public NewReservationReservationRequest() {}
 
     public static Builder builder() {
         return new Builder();
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -33,29 +31,26 @@ public class NewReservationReservationRequest {
         }
         return true;
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            );
+        return Utils.enhancedHash();
     }
-    
+
     @Override
     public String toString() {
         return Utils.toString(NewReservationReservationRequest.class);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public NewReservationReservationRequest build() {
-            return new NewReservationReservationRequest(
-                );
+            return new NewReservationReservationRequest();
         }
-
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateAudienceSegmentResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class CreateAudienceSegmentResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExistingAudienceSegment existingAudienceSegment) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.existingAudienceSegment = existingAudienceSegment;
     }
-    
+
     public CreateAudienceSegmentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class CreateAudienceSegmentResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class CreateAudienceSegmentResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class CreateAudienceSegmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class CreateAudienceSegmentResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully created an audience segment.
      */
-    public CreateAudienceSegmentResponse withExistingAudienceSegment(@Nullable ExistingAudienceSegment existingAudienceSegment) {
+    public CreateAudienceSegmentResponse withExistingAudienceSegment(
+            @Nullable ExistingAudienceSegment existingAudienceSegment) {
         this.existingAudienceSegment = existingAudienceSegment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class CreateAudienceSegmentResponse implements Response {
             return false;
         }
         CreateAudienceSegmentResponse other = (CreateAudienceSegmentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.existingAudienceSegment, other.existingAudienceSegment);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.existingAudienceSegment, other.existingAudienceSegment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            existingAudienceSegment);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, existingAudienceSegment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateAudienceSegmentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "existingAudienceSegment", existingAudienceSegment);
+        return Utils.toString(
+                CreateAudienceSegmentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "existingAudienceSegment",
+                existingAudienceSegment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class CreateAudienceSegmentResponse implements Response {
         private ExistingAudienceSegment existingAudienceSegment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class CreateAudienceSegmentResponse implements Response {
         }
 
         public CreateAudienceSegmentResponse build() {
-            return new CreateAudienceSegmentResponse(
-                contentType, statusCode, rawResponse,
-                existingAudienceSegment);
+            return new CreateAudienceSegmentResponse(contentType, statusCode, rawResponse, existingAudienceSegment);
         }
-
     }
 }

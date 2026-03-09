@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventQuestionJson
- * 
+ *
  * <p>Represents a question associated with an event.
  */
 public class EventQuestionJson {
@@ -143,13 +143,9 @@ public class EventQuestionJson {
         this.type = type;
         this.internalNote = internalNote;
     }
-    
+
     public EventQuestionJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -250,7 +246,6 @@ public class EventQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -258,7 +253,6 @@ public class EventQuestionJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -268,7 +262,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -276,7 +269,6 @@ public class EventQuestionJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -286,7 +278,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -294,7 +285,6 @@ public class EventQuestionJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -304,7 +294,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * Text of the question.
      */
@@ -312,7 +301,6 @@ public class EventQuestionJson {
         this.text = text;
         return this;
     }
-
 
     /**
      * Code of the question.
@@ -322,7 +310,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * Tag of the question. It allows comparison of similar questions across multiple events.
      */
@@ -330,7 +317,6 @@ public class EventQuestionJson {
         this.tag = tag;
         return this;
     }
-
 
     /**
      * Represents the session associated to the question, if any. Blank if no session is associated. In
@@ -340,7 +326,6 @@ public class EventQuestionJson {
         this.session = session;
         return this;
     }
-
 
     /**
      * Represents the admission item associated to the question, if any. Blank if no admission item is
@@ -352,7 +337,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * This object represents the type of a question
      */
@@ -361,7 +345,6 @@ public class EventQuestionJson {
         return this;
     }
 
-
     /**
      * Optional description to provide additional context of the question.
      */
@@ -369,7 +352,6 @@ public class EventQuestionJson {
         this.internalNote = internalNote;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -380,52 +362,73 @@ public class EventQuestionJson {
             return false;
         }
         EventQuestionJson other = (EventQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.tag, other.tag) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.internalNote, other.internalNote);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.tag, other.tag)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.internalNote, other.internalNote);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            text, code, tag,
-            session, admissionItem, type,
-            internalNote);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                text,
+                code,
+                tag,
+                session,
+                admissionItem,
+                type,
+                internalNote);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventQuestionJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "text", text,
-                "code", code,
-                "tag", tag,
-                "session", session,
-                "admissionItem", admissionItem,
-                "type", type,
-                "internalNote", internalNote);
+        return Utils.toString(
+                EventQuestionJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "text",
+                text,
+                "code",
+                code,
+                "tag",
+                tag,
+                "session",
+                session,
+                "admissionItem",
+                admissionItem,
+                "type",
+                type,
+                "internalNote",
+                internalNote);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -454,7 +457,7 @@ public class EventQuestionJson {
         private String internalNote;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -566,12 +569,19 @@ public class EventQuestionJson {
 
         public EventQuestionJson build() {
             return new EventQuestionJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                text, code, tag,
-                session, admissionItem, type,
-                internalNote);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    text,
+                    code,
+                    tag,
+                    session,
+                    admissionItem,
+                    type,
+                    internalNote);
         }
-
     }
 }

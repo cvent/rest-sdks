@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BusinessTypeJson
- * 
+ *
  * <p>Business type.
  */
 public enum BusinessTypeJson {
@@ -23,13 +23,13 @@ public enum BusinessTypeJson {
     BusinessTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BusinessTypeJson> fromValue(String value) {
-        for (BusinessTypeJson o: BusinessTypeJson.values()) {
+        for (BusinessTypeJson o : BusinessTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum BusinessTypeJson {
         return Optional.empty();
     }
 }
-

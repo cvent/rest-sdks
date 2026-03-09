@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * Payment
- * 
+ *
  * <p>Payment for a budget item in an event.
  */
 public class Payment {
@@ -76,26 +76,18 @@ public class Payment {
             @JsonProperty("date") @Nonnull LocalDate date,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("type") @Nullable PaymentTypeJson1 type) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.referenceNumber = referenceNumber;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.amount = amount;
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.note = note;
         this.type = type;
     }
-    
-    public Payment(
-            @Nonnull String name,
-            @Nonnull String currency,
-            double amount,
-            @Nonnull LocalDate date) {
-        this(name, null, currency,
-            amount, date, null,
-            null);
+
+    public Payment(@Nonnull String name, @Nonnull String currency, double amount, @Nonnull LocalDate date) {
+        this(name, null, currency, amount, date, null, null);
     }
 
     /**
@@ -152,7 +144,6 @@ public class Payment {
         return new Builder();
     }
 
-
     /**
      * Name of the payment.
      */
@@ -160,7 +151,6 @@ public class Payment {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Reference number for the payment. Assists the user in reconciling the payment with their bank
@@ -171,7 +161,6 @@ public class Payment {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code used of payment currency.
      */
@@ -179,7 +168,6 @@ public class Payment {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Payment amount.
@@ -189,7 +177,6 @@ public class Payment {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date assigned to the payment, typically denotes the date of payment.
      */
@@ -197,7 +184,6 @@ public class Payment {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     /**
      * Note for the payment done.
@@ -207,7 +193,6 @@ public class Payment {
         return this;
     }
 
-
     /**
      * Denotes the method of payment.
      */
@@ -215,7 +200,6 @@ public class Payment {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -226,38 +210,42 @@ public class Payment {
             return false;
         }
         Payment other = (Payment) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, referenceNumber, currency,
-            amount, date, note,
-            type);
+        return Utils.enhancedHash(name, referenceNumber, currency, amount, date, note, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Payment.class,
-                "name", name,
-                "referenceNumber", referenceNumber,
-                "currency", currency,
-                "amount", amount,
-                "date", date,
-                "note", note,
-                "type", type);
+        return Utils.toString(
+                Payment.class,
+                "name",
+                name,
+                "referenceNumber",
+                referenceNumber,
+                "currency",
+                currency,
+                "amount",
+                amount,
+                "date",
+                date,
+                "note",
+                note,
+                "type",
+                type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -274,7 +262,7 @@ public class Payment {
         private PaymentTypeJson1 type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -335,11 +323,7 @@ public class Payment {
         }
 
         public Payment build() {
-            return new Payment(
-                name, referenceNumber, currency,
-                amount, date, note,
-                type);
+            return new Payment(name, referenceNumber, currency, amount, date, note, type);
         }
-
     }
 }

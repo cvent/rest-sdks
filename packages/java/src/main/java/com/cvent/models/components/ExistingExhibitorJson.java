@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ExistingExhibitorJson
- * 
+ *
  * <p>JSON schema for the exhibitor object
  */
 public class ExistingExhibitorJson {
@@ -245,10 +245,8 @@ public class ExistingExhibitorJson {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.code = code;
         this.sourceId = sourceId;
@@ -260,14 +258,10 @@ public class ExistingExhibitorJson {
         this.otherPhone = otherPhone;
         this.website = website;
         this.contactLinks = contactLinks;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
-        this.hidden = Optional.ofNullable(hidden)
-            .orElse(Builder._SINGLETON_VALUE_Hidden.value());
-        this.eventSponsor = Optional.ofNullable(eventSponsor)
-            .orElse(Builder._SINGLETON_VALUE_EventSponsor.value());
-        this.featured = Optional.ofNullable(featured)
-            .orElse(Builder._SINGLETON_VALUE_Featured.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.hidden = Optional.ofNullable(hidden).orElse(Builder._SINGLETON_VALUE_Hidden.value());
+        this.eventSponsor = Optional.ofNullable(eventSponsor).orElse(Builder._SINGLETON_VALUE_EventSponsor.value());
+        this.featured = Optional.ofNullable(featured).orElse(Builder._SINGLETON_VALUE_Featured.value());
         this.sponsorshipLevel = sponsorshipLevel;
         this.id = id;
         this.profileLogoId = profileLogoId;
@@ -275,19 +269,36 @@ public class ExistingExhibitorJson {
         this.bannerId = bannerId;
         this.bannerUrl = bannerUrl;
     }
-    
-    public ExistingExhibitorJson(
-            @Nonnull EventJson5 event,
-            @Nonnull String name) {
-        this(null, null, null,
-            null, event, name,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+
+    public ExistingExhibitorJson(@Nonnull EventJson5 event, @Nonnull String name) {
+        this(
+                null,
+                null,
+                null,
+                null,
+                event,
+                name,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -484,7 +495,6 @@ public class ExistingExhibitorJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -492,7 +502,6 @@ public class ExistingExhibitorJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -502,7 +511,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -510,7 +518,6 @@ public class ExistingExhibitorJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -520,7 +527,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -528,7 +534,6 @@ public class ExistingExhibitorJson {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
@@ -539,7 +544,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * Exhibitor description
      */
@@ -547,7 +551,6 @@ public class ExistingExhibitorJson {
         this.description = description;
         return this;
     }
-
 
     /**
      * Code used to identify the exhibitor
@@ -557,7 +560,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * Code used for marketing groupings
      */
@@ -565,7 +567,6 @@ public class ExistingExhibitorJson {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Exhibitor location
@@ -575,7 +576,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * An object representing an address with various properties.
      */
@@ -583,7 +583,6 @@ public class ExistingExhibitorJson {
         this.address = address;
         return this;
     }
-
 
     /**
      * Email address of the exhibitor
@@ -593,7 +592,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * Mobile Phone of the exhibitor
      */
@@ -601,7 +599,6 @@ public class ExistingExhibitorJson {
         this.mobilePhone = mobilePhone;
         return this;
     }
-
 
     /**
      * Work Phone of the exhibitor
@@ -611,7 +608,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * Any other phone of the exhibitor
      */
@@ -619,7 +615,6 @@ public class ExistingExhibitorJson {
         this.otherPhone = otherPhone;
         return this;
     }
-
 
     /**
      * Exhibitor's website URL
@@ -629,7 +624,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
      */
@@ -637,7 +631,6 @@ public class ExistingExhibitorJson {
         this.contactLinks = contactLinks;
         return this;
     }
-
 
     /**
      * A boolean indicating whether the exhibitor is deleted or not
@@ -647,7 +640,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * True indicates that the exhibitor is hidden.
      */
@@ -655,7 +647,6 @@ public class ExistingExhibitorJson {
         this.hidden = hidden;
         return this;
     }
-
 
     /**
      * A boolean indicating whether the exhibitor is an event sponsor or not
@@ -665,7 +656,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * A boolean indicating whether the exhibitor is designated as featured or not
      */
@@ -673,7 +663,6 @@ public class ExistingExhibitorJson {
         this.featured = featured;
         return this;
     }
-
 
     /**
      * Associated sponsorship level for an exhibitor
@@ -683,7 +672,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * ID of an exhibitor.
      */
@@ -691,7 +679,6 @@ public class ExistingExhibitorJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * File ID for exhibitor profile logo.
@@ -701,7 +688,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * URL for exhibitor profile logo.
      */
@@ -709,7 +695,6 @@ public class ExistingExhibitorJson {
         this.profileLogoUrl = profileLogoUrl;
         return this;
     }
-
 
     /**
      * File ID for exhibitor banner.
@@ -719,7 +704,6 @@ public class ExistingExhibitorJson {
         return this;
     }
 
-
     /**
      * URL for exhibitor banner.
      */
@@ -727,7 +711,6 @@ public class ExistingExhibitorJson {
         this.bannerUrl = bannerUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -738,84 +721,129 @@ public class ExistingExhibitorJson {
             return false;
         }
         ExistingExhibitorJson other = (ExistingExhibitorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.otherPhone, other.otherPhone) &&
-            Utils.enhancedDeepEquals(this.website, other.website) &&
-            Utils.enhancedDeepEquals(this.contactLinks, other.contactLinks) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.hidden, other.hidden) &&
-            Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor) &&
-            Utils.enhancedDeepEquals(this.featured, other.featured) &&
-            Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.profileLogoId, other.profileLogoId) &&
-            Utils.enhancedDeepEquals(this.profileLogoUrl, other.profileLogoUrl) &&
-            Utils.enhancedDeepEquals(this.bannerId, other.bannerId) &&
-            Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.mobilePhone, other.mobilePhone)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.otherPhone, other.otherPhone)
+                && Utils.enhancedDeepEquals(this.website, other.website)
+                && Utils.enhancedDeepEquals(this.contactLinks, other.contactLinks)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.hidden, other.hidden)
+                && Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.profileLogoId, other.profileLogoId)
+                && Utils.enhancedDeepEquals(this.profileLogoUrl, other.profileLogoUrl)
+                && Utils.enhancedDeepEquals(this.bannerId, other.bannerId)
+                && Utils.enhancedDeepEquals(this.bannerUrl, other.bannerUrl);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, name,
-            description, code, sourceId,
-            location, address, email,
-            mobilePhone, workPhone, otherPhone,
-            website, contactLinks, deleted,
-            hidden, eventSponsor, featured,
-            sponsorshipLevel, id, profileLogoId,
-            profileLogoUrl, bannerId, bannerUrl);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                name,
+                description,
+                code,
+                sourceId,
+                location,
+                address,
+                email,
+                mobilePhone,
+                workPhone,
+                otherPhone,
+                website,
+                contactLinks,
+                deleted,
+                hidden,
+                eventSponsor,
+                featured,
+                sponsorshipLevel,
+                id,
+                profileLogoId,
+                profileLogoUrl,
+                bannerId,
+                bannerUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingExhibitorJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "name", name,
-                "description", description,
-                "code", code,
-                "sourceId", sourceId,
-                "location", location,
-                "address", address,
-                "email", email,
-                "mobilePhone", mobilePhone,
-                "workPhone", workPhone,
-                "otherPhone", otherPhone,
-                "website", website,
-                "contactLinks", contactLinks,
-                "deleted", deleted,
-                "hidden", hidden,
-                "eventSponsor", eventSponsor,
-                "featured", featured,
-                "sponsorshipLevel", sponsorshipLevel,
-                "id", id,
-                "profileLogoId", profileLogoId,
-                "profileLogoUrl", profileLogoUrl,
-                "bannerId", bannerId,
-                "bannerUrl", bannerUrl);
+        return Utils.toString(
+                ExistingExhibitorJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "name",
+                name,
+                "description",
+                description,
+                "code",
+                code,
+                "sourceId",
+                sourceId,
+                "location",
+                location,
+                "address",
+                address,
+                "email",
+                email,
+                "mobilePhone",
+                mobilePhone,
+                "workPhone",
+                workPhone,
+                "otherPhone",
+                otherPhone,
+                "website",
+                website,
+                "contactLinks",
+                contactLinks,
+                "deleted",
+                deleted,
+                "hidden",
+                hidden,
+                "eventSponsor",
+                eventSponsor,
+                "featured",
+                featured,
+                "sponsorshipLevel",
+                sponsorshipLevel,
+                "id",
+                id,
+                "profileLogoId",
+                profileLogoId,
+                "profileLogoUrl",
+                profileLogoUrl,
+                "bannerId",
+                bannerId,
+                "bannerUrl",
+                bannerUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -872,7 +900,7 @@ public class ExistingExhibitorJson {
         private String bannerUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1094,40 +1122,45 @@ public class ExistingExhibitorJson {
 
         public ExistingExhibitorJson build() {
             return new ExistingExhibitorJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, name,
-                description, code, sourceId,
-                location, address, email,
-                mobilePhone, workPhone, otherPhone,
-                website, contactLinks, deleted,
-                hidden, eventSponsor, featured,
-                sponsorshipLevel, id, profileLogoId,
-                profileLogoUrl, bannerId, bannerUrl);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    name,
+                    description,
+                    code,
+                    sourceId,
+                    location,
+                    address,
+                    email,
+                    mobilePhone,
+                    workPhone,
+                    otherPhone,
+                    website,
+                    contactLinks,
+                    deleted,
+                    hidden,
+                    eventSponsor,
+                    featured,
+                    sponsorshipLevel,
+                    id,
+                    profileLogoId,
+                    profileLogoUrl,
+                    bannerId,
+                    bannerUrl);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Hidden =
-                new LazySingletonValue<>(
-                        "hidden",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("hidden", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_EventSponsor =
-                new LazySingletonValue<>(
-                        "eventSponsor",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("eventSponsor", "false", new TypeReference<Boolean>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Featured =
-                new LazySingletonValue<>(
-                        "featured",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("featured", "false", new TypeReference<Boolean>() {});
     }
 }

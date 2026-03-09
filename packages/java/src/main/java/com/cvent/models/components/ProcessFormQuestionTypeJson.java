@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ProcessFormQuestionTypeJson
- * 
+ *
  * <p>Denotes the type of data collected by a question.
  */
 public enum ProcessFormQuestionTypeJson {
@@ -32,13 +32,13 @@ public enum ProcessFormQuestionTypeJson {
     ProcessFormQuestionTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProcessFormQuestionTypeJson> fromValue(String value) {
-        for (ProcessFormQuestionTypeJson o: ProcessFormQuestionTypeJson.values()) {
+        for (ProcessFormQuestionTypeJson o : ProcessFormQuestionTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -46,4 +46,3 @@ public enum ProcessFormQuestionTypeJson {
         return Optional.empty();
     }
 }
-

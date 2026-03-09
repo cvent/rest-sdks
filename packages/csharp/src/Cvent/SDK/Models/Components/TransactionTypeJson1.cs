@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TransactionTypeJson1
     {
-        [JsonProperty("Payments")]
-        Payments,
-        [JsonProperty("Refunds")]
-        Refunds,
-        [JsonProperty("Authorized")]
-        Authorized,
-        [JsonProperty("Approved")]
-        Approved,
-        [JsonProperty("Declined")]
-        Declined,
+        [JsonProperty("Payments")] Payments,
+        [JsonProperty("Refunds")] Refunds,
+        [JsonProperty("Authorized")] Authorized,
+        [JsonProperty("Approved")] Approved,
+        [JsonProperty("Declined")] Declined,
     }
 
     public static class TransactionTypeJson1Extension
     {
         public static string Value(this TransactionTypeJson1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TransactionTypeJson1 ToEnum(this string value)
         {
-            foreach(var field in typeof(TransactionTypeJson1).GetFields())
+            foreach (var field in typeof(TransactionTypeJson1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

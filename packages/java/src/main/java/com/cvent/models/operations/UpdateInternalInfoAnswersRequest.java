@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateInternalInfoAnswersRequest {
     /**
      * The unique ID of an attendee.
@@ -20,18 +19,14 @@ public class UpdateInternalInfoAnswersRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private AttendeeInternalInfo attendeeInternalInfo;
 
     @JsonCreator
-    public UpdateInternalInfoAnswersRequest(
-            @Nonnull String id,
-            @Nonnull AttendeeInternalInfo attendeeInternalInfo) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateInternalInfoAnswersRequest(@Nonnull String id, @Nonnull AttendeeInternalInfo attendeeInternalInfo) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendeeInternalInfo = Optional.ofNullable(attendeeInternalInfo)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeInternalInfo cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeInternalInfo cannot be null"));
     }
 
     /**
@@ -49,7 +44,6 @@ public class UpdateInternalInfoAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * The unique ID of an attendee.
      */
@@ -58,12 +52,11 @@ public class UpdateInternalInfoAnswersRequest {
         return this;
     }
 
-
-    public UpdateInternalInfoAnswersRequest withAttendeeInternalInfo(@Nonnull AttendeeInternalInfo attendeeInternalInfo) {
+    public UpdateInternalInfoAnswersRequest withAttendeeInternalInfo(
+            @Nonnull AttendeeInternalInfo attendeeInternalInfo) {
         this.attendeeInternalInfo = Utils.checkNotNull(attendeeInternalInfo, "attendeeInternalInfo");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -74,33 +67,30 @@ public class UpdateInternalInfoAnswersRequest {
             return false;
         }
         UpdateInternalInfoAnswersRequest other = (UpdateInternalInfoAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendeeInternalInfo, other.attendeeInternalInfo);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendeeInternalInfo, other.attendeeInternalInfo);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendeeInternalInfo);
+        return Utils.enhancedHash(id, attendeeInternalInfo);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateInternalInfoAnswersRequest.class,
-                "id", id,
-                "attendeeInternalInfo", attendeeInternalInfo);
+        return Utils.toString(
+                UpdateInternalInfoAnswersRequest.class, "id", id, "attendeeInternalInfo", attendeeInternalInfo);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private AttendeeInternalInfo attendeeInternalInfo;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -117,9 +107,7 @@ public class UpdateInternalInfoAnswersRequest {
         }
 
         public UpdateInternalInfoAnswersRequest build() {
-            return new UpdateInternalInfoAnswersRequest(
-                id, attendeeInternalInfo);
+            return new UpdateInternalInfoAnswersRequest(id, attendeeInternalInfo);
         }
-
     }
 }

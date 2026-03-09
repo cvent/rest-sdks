@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * AgeQualifyingCode
- * 
+ *
  * <p>Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
  */
 public enum AgeQualifyingCode {
@@ -22,13 +22,13 @@ public enum AgeQualifyingCode {
     AgeQualifyingCode(long value) {
         this.value = value;
     }
-    
+
     public long value() {
         return value;
     }
-    
+
     public static Optional<AgeQualifyingCode> fromValue(long value) {
-        for (AgeQualifyingCode o: AgeQualifyingCode.values()) {
+        for (AgeQualifyingCode o : AgeQualifyingCode.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -36,4 +36,3 @@ public enum AgeQualifyingCode {
         return Optional.empty();
     }
 }
-

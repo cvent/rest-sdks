@@ -5,8 +5,8 @@ package com.cvent.models.operations;
 
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.utils.Utils.transform;
 import static com.cvent.utils.Utils.toStream;
+import static com.cvent.utils.Utils.transform;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetContactIdsByContactGroup;
@@ -39,7 +39,7 @@ public class GetContactIdsByContactGroupRequestBuilder {
     private GetContactIdsByContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetContactIdsByContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -48,48 +48,48 @@ public class GetContactIdsByContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetContactIdsByContactGroupResponse call() {
-        RequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation
-              = new GetContactIdsByContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation =
+                new GetContactIdsByContactGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
-    
+
     /**
-    * Returns an iterable that performs next page calls till no more pages
-    * are returned.
-    *
-    * <p>The returned iterable can be used in a for-each loop:
-    * <pre><code>
-    * for (GetContactIdsByContactGroupResponse page : builder.callAsIterable()) {
-    *     // Process each page
-    * }
-    * </code></pre>
-    * 
-    * @return An iterable that can be used to iterate through all pages
-    */
+     * Returns an iterable that performs next page calls till no more pages
+     * are returned.
+     *
+     * <p>The returned iterable can be used in a for-each loop:
+     * <pre><code>
+     * for (GetContactIdsByContactGroupResponse page : builder.callAsIterable()) {
+     *     // Process each page
+     * }
+     * </code></pre>
+     *
+     * @return An iterable that can be used to iterate through all pages
+     */
     public Iterable<GetContactIdsByContactGroupResponse> callAsIterable() {
         GetContactIdsByContactGroupRequest request = this.request;
-        RequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation
-              = new GetContactIdsByContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation =
+                new GetContactIdsByContactGroup.Sync(sdkConfiguration, _headers);
         // foobar
-        
+
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetContactIdsByContactGroupRequest::withToken,
-            nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetContactIdsByContactGroupRequest::withToken,
+                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
 
         return () -> transform(iterator, operation::handleResponse);
     }
 
     /**
-    * Returns a stream that performs next page calls till no more pages
-    * are returned.
-    **/  
+     * Returns a stream that performs next page calls till no more pages
+     * are returned.
+     **/
     public Stream<GetContactIdsByContactGroupResponse> callAsStream() {
         return toStream(callAsIterable());
     }

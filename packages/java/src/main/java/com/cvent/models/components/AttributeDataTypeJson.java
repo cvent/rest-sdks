@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttributeDataTypeJson
- * 
+ *
  * <p>This is used to denote the type of the attribute.
  */
 public enum AttributeDataTypeJson {
@@ -28,13 +28,13 @@ public enum AttributeDataTypeJson {
     AttributeDataTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttributeDataTypeJson> fromValue(String value) {
-        for (AttributeDataTypeJson o: AttributeDataTypeJson.values()) {
+        for (AttributeDataTypeJson o : AttributeDataTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum AttributeDataTypeJson {
         return Optional.empty();
     }
 }
-

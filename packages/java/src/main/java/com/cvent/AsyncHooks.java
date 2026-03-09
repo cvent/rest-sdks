@@ -29,7 +29,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * These APIs allow you to create hooks. When triggered, a hook sends a request to your service to
  * get updated data related to the related Cvent object.
- * 
+ *
  * <p>For more information on using hooks, see the
  * [getting started guide](https://developers.cvent.com/docs/cid/attendee-identification-service).
  */
@@ -45,21 +45,20 @@ public class AsyncHooks {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Hooks sync() {
         return syncSDK;
     }
 
-
     /**
      * List Contact Hooks
-     * 
+     *
      * <p>Gets a list of contact hooks configured in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListContactHooksRequestBuilder listContactHooks() {
@@ -68,30 +67,28 @@ public class AsyncHooks {
 
     /**
      * List Contact Hooks
-     * 
+     *
      * <p>Gets a list of contact hooks configured in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListContactHooksResponse>} - The async response
      */
     public CompletableFuture<ListContactHooksResponse> listContactHooks(@Nonnull ListContactHooksRequest request) {
-        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation
-              = new ListContactHooks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListContactHooksRequest, ListContactHooksResponse> operation =
+                new ListContactHooks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateContactHookRequestBuilder createContactHook() {
@@ -100,12 +97,12 @@ public class AsyncHooks {
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<CreateContactHookResponse>} - The async response
      */
     public CompletableFuture<CreateContactHookResponse> createContactHookDirect() {
@@ -114,30 +111,28 @@ public class AsyncHooks {
 
     /**
      * Create Contact Hook
-     * 
+     *
      * <p>Creates a contact hook. Contact hooks have a callback URI pointing to your system where Cvent will
      * request contact information.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateContactHookResponse>} - The async response
      */
     public CompletableFuture<CreateContactHookResponse> createContactHook(@Nullable HookInput request) {
-        AsyncRequestOperation<HookInput, CreateContactHookResponse> operation
-              = new CreateContactHook.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<HookInput, CreateContactHookResponse> operation =
+                new CreateContactHook.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Contact Hook
-     * 
+     *
      * <p>Update a contact hook's details, including its associated callback URI.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateContactHookRequestBuilder updateContactHook() {
@@ -146,29 +141,27 @@ public class AsyncHooks {
 
     /**
      * Update Contact Hook
-     * 
+     *
      * <p>Update a contact hook's details, including its associated callback URI.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateContactHookResponse>} - The async response
      */
     public CompletableFuture<UpdateContactHookResponse> updateContactHook(@Nonnull UpdateContactHookRequest request) {
-        AsyncRequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation
-              = new UpdateContactHook.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateContactHookRequest, UpdateContactHookResponse> operation =
+                new UpdateContactHook.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Contact Hook
-     * 
+     *
      * <p>Delete a contact hook's details.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteContactHookRequestBuilder deleteContactHook() {
@@ -177,19 +170,17 @@ public class AsyncHooks {
 
     /**
      * Delete Contact Hook
-     * 
+     *
      * <p>Delete a contact hook's details.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteContactHookResponse>} - The async response
      */
     public CompletableFuture<DeleteContactHookResponse> deleteContactHook(@Nonnull DeleteContactHookRequest request) {
-        AsyncRequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation
-              = new DeleteContactHook.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteContactHookRequest, DeleteContactHookResponse> operation =
+                new DeleteContactHook.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

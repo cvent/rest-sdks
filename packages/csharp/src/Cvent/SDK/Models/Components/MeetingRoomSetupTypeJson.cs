@@ -18,68 +18,43 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum MeetingRoomSetupTypeJson
     {
-        [JsonProperty("10x10")]
-        Tenx10,
-        [JsonProperty("8x10")]
-        Eightx10,
-        [JsonProperty("Buffet")]
-        Buffet,
-        [JsonProperty("Cabaret")]
-        Cabaret,
-        [JsonProperty("Chevron")]
-        Chevron,
-        [JsonProperty("Classroom")]
-        Classroom,
-        [JsonProperty("Conference")]
-        Conference,
-        [JsonProperty("Crescent Rounds")]
-        CrescentRounds,
-        [JsonProperty("Flow")]
-        Flow,
-        [JsonProperty("Herringbone")]
-        Herringbone,
-        [JsonProperty("Hollow Square")]
-        HollowSquare,
-        [JsonProperty("Island")]
-        Island,
-        [JsonProperty("Other")]
-        Other,
-        [JsonProperty("Peninsula")]
-        Peninsula,
-        [JsonProperty("Plated")]
-        Plated,
-        [JsonProperty("Reception")]
-        Reception,
-        [JsonProperty("Rounds")]
-        Rounds,
-        [JsonProperty("Rounds of 10")]
-        RoundsOf10,
-        [JsonProperty("Rounds of 6")]
-        RoundsOf6,
-        [JsonProperty("Rounds of 8")]
-        RoundsOf8,
-        [JsonProperty("School Room")]
-        SchoolRoom,
-        [JsonProperty("Tabletop")]
-        Tabletop,
-        [JsonProperty("Theater")]
-        Theater,
-        [JsonProperty("T-Shaped")]
-        TShaped,
-        [JsonProperty("U-Shaped")]
-        UShaped,
+        [JsonProperty("10x10")] Tenx10,
+        [JsonProperty("8x10")] Eightx10,
+        [JsonProperty("Buffet")] Buffet,
+        [JsonProperty("Cabaret")] Cabaret,
+        [JsonProperty("Chevron")] Chevron,
+        [JsonProperty("Classroom")] Classroom,
+        [JsonProperty("Conference")] Conference,
+        [JsonProperty("Crescent Rounds")] CrescentRounds,
+        [JsonProperty("Flow")] Flow,
+        [JsonProperty("Herringbone")] Herringbone,
+        [JsonProperty("Hollow Square")] HollowSquare,
+        [JsonProperty("Island")] Island,
+        [JsonProperty("Other")] Other,
+        [JsonProperty("Peninsula")] Peninsula,
+        [JsonProperty("Plated")] Plated,
+        [JsonProperty("Reception")] Reception,
+        [JsonProperty("Rounds")] Rounds,
+        [JsonProperty("Rounds of 10")] RoundsOf10,
+        [JsonProperty("Rounds of 6")] RoundsOf6,
+        [JsonProperty("Rounds of 8")] RoundsOf8,
+        [JsonProperty("School Room")] SchoolRoom,
+        [JsonProperty("Tabletop")] Tabletop,
+        [JsonProperty("Theater")] Theater,
+        [JsonProperty("T-Shaped")] TShaped,
+        [JsonProperty("U-Shaped")] UShaped,
     }
 
     public static class MeetingRoomSetupTypeJsonExtension
     {
         public static string Value(this MeetingRoomSetupTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static MeetingRoomSetupTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(MeetingRoomSetupTypeJson).GetFields())
+            foreach (var field in typeof(MeetingRoomSetupTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

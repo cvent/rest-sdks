@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AssignContactProfileImageRequest {
     /**
      * ID of a contact.
@@ -27,13 +26,10 @@ public class AssignContactProfileImageRequest {
     private ContactFileInput contactFile;
 
     @JsonCreator
-    public AssignContactProfileImageRequest(
-            @Nonnull String id,
-            @Nonnull ContactFileInput contactFile) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AssignContactProfileImageRequest(@Nonnull String id, @Nonnull ContactFileInput contactFile) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.contactFile = Optional.ofNullable(contactFile)
-            .orElseThrow(() -> new IllegalArgumentException("contactFile cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactFile cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class AssignContactProfileImageRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact.
      */
@@ -63,7 +58,6 @@ public class AssignContactProfileImageRequest {
         return this;
     }
 
-
     /**
      * The file ID provided by the <a href="#operation/uploadFile">file upload</a> endpoint.
      */
@@ -71,7 +65,6 @@ public class AssignContactProfileImageRequest {
         this.contactFile = Utils.checkNotNull(contactFile, "contactFile");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,28 @@ public class AssignContactProfileImageRequest {
             return false;
         }
         AssignContactProfileImageRequest other = (AssignContactProfileImageRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.contactFile, other.contactFile);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.contactFile, other.contactFile);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, contactFile);
+        return Utils.enhancedHash(id, contactFile);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssignContactProfileImageRequest.class,
-                "id", id,
-                "contactFile", contactFile);
+        return Utils.toString(AssignContactProfileImageRequest.class, "id", id, "contactFile", contactFile);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ContactFileInput contactFile;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +116,7 @@ public class AssignContactProfileImageRequest {
         }
 
         public AssignContactProfileImageRequest build() {
-            return new AssignContactProfileImageRequest(
-                id, contactFile);
+            return new AssignContactProfileImageRequest(id, contactFile);
         }
-
     }
 }

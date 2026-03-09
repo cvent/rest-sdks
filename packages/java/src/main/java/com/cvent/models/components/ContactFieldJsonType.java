@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ContactFieldJsonType
- * 
+ *
  * <p>The type of the field.
  */
 public enum ContactFieldJsonType {
@@ -28,13 +28,13 @@ public enum ContactFieldJsonType {
     ContactFieldJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ContactFieldJsonType> fromValue(String value) {
-        for (ContactFieldJsonType o: ContactFieldJsonType.values()) {
+        for (ContactFieldJsonType o : ContactFieldJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum ContactFieldJsonType {
         return Optional.empty();
     }
 }
-

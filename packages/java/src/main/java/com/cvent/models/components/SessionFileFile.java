@@ -5,14 +5,13 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
-
 
 public class SessionFileFile {
     /**
@@ -23,11 +22,10 @@ public class SessionFileFile {
     private String id;
 
     @JsonCreator
-    public SessionFileFile(
-            @JsonProperty("id") @Nullable String id) {
+    public SessionFileFile(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public SessionFileFile() {
         this(null);
     }
@@ -43,7 +41,6 @@ public class SessionFileFile {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -51,7 +48,6 @@ public class SessionFileFile {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -62,29 +58,26 @@ public class SessionFileFile {
             return false;
         }
         SessionFileFile other = (SessionFileFile) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionFileFile.class,
-                "id", id);
+        return Utils.toString(SessionFileFile.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -96,9 +89,7 @@ public class SessionFileFile {
         }
 
         public SessionFileFile build() {
-            return new SessionFileFile(
-                id);
+            return new SessionFileFile(id);
         }
-
     }
 }

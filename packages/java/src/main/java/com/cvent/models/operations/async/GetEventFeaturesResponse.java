@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEventFeaturesResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetEventFeaturesResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventFeaturesPaginatedResponse = eventFeaturesPaginatedResponse;
     }
-    
+
     public GetEventFeaturesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved event features
      */
-    public GetEventFeaturesResponse withEventFeaturesPaginatedResponse(@Nullable EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse) {
+    public GetEventFeaturesResponse withEventFeaturesPaginatedResponse(
+            @Nullable EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse) {
         this.eventFeaturesPaginatedResponse = eventFeaturesPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetEventFeaturesResponse implements AsyncResponse {
             return false;
         }
         GetEventFeaturesResponse other = (GetEventFeaturesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventFeaturesPaginatedResponse, other.eventFeaturesPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventFeaturesPaginatedResponse, other.eventFeaturesPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventFeaturesPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventFeaturesPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventFeaturesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventFeaturesPaginatedResponse", eventFeaturesPaginatedResponse);
+        return Utils.toString(
+                GetEventFeaturesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventFeaturesPaginatedResponse",
+                eventFeaturesPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         private EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,14 @@ public class GetEventFeaturesResponse implements AsyncResponse {
         /**
          * Successfully retrieved event features
          */
-        public Builder eventFeaturesPaginatedResponse(@Nullable EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse) {
+        public Builder eventFeaturesPaginatedResponse(
+                @Nullable EventFeaturesPaginatedResponse eventFeaturesPaginatedResponse) {
             this.eventFeaturesPaginatedResponse = eventFeaturesPaginatedResponse;
             return this;
         }
 
         public GetEventFeaturesResponse build() {
-            return new GetEventFeaturesResponse(
-                contentType, statusCode, rawResponse,
-                eventFeaturesPaginatedResponse);
+            return new GetEventFeaturesResponse(contentType, statusCode, rawResponse, eventFeaturesPaginatedResponse);
         }
-
     }
 }

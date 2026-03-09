@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TaxTypeJson
- * 
+ *
  * <p>Bid tax type.
  */
 public enum TaxTypeJson {
@@ -30,13 +30,13 @@ public enum TaxTypeJson {
     TaxTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TaxTypeJson> fromValue(String value) {
-        for (TaxTypeJson o: TaxTypeJson.values()) {
+        for (TaxTypeJson o : TaxTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -44,4 +44,3 @@ public enum TaxTypeJson {
         return Optional.empty();
     }
 }
-

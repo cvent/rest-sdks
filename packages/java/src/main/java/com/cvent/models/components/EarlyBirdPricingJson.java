@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EarlyBirdPricingJson
- * 
+ *
  * <p>Early bird pricing for a fee, where attendees receive a discounted fee if they register before a
  * given date.
  */
@@ -61,10 +61,9 @@ public class EarlyBirdPricingJson {
         this.registerByDate = registerByDate;
         this.maxRefund = maxRefund;
     }
-    
+
     public EarlyBirdPricingJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -99,7 +98,6 @@ public class EarlyBirdPricingJson {
         return new Builder();
     }
 
-
     /**
      * The ID of an early bird price.
      */
@@ -107,7 +105,6 @@ public class EarlyBirdPricingJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Fee amount for an early bird price.
@@ -117,7 +114,6 @@ public class EarlyBirdPricingJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date by which attendees should register to receive the early bird price.
      */
@@ -126,7 +122,6 @@ public class EarlyBirdPricingJson {
         return this;
     }
 
-
     /**
      * Maximum refund amount for an early bird price.
      */
@@ -134,7 +129,6 @@ public class EarlyBirdPricingJson {
         this.maxRefund = maxRefund;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +139,33 @@ public class EarlyBirdPricingJson {
             return false;
         }
         EarlyBirdPricingJson other = (EarlyBirdPricingJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.registerByDate, other.registerByDate) &&
-            Utils.enhancedDeepEquals(this.maxRefund, other.maxRefund);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.registerByDate, other.registerByDate)
+                && Utils.enhancedDeepEquals(this.maxRefund, other.maxRefund);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, amount, registerByDate,
-            maxRefund);
+        return Utils.enhancedHash(id, amount, registerByDate, maxRefund);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EarlyBirdPricingJson.class,
-                "id", id,
-                "amount", amount,
-                "registerByDate", registerByDate,
-                "maxRefund", maxRefund);
+        return Utils.toString(
+                EarlyBirdPricingJson.class,
+                "id",
+                id,
+                "amount",
+                amount,
+                "registerByDate",
+                registerByDate,
+                "maxRefund",
+                maxRefund);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -180,7 +176,7 @@ public class EarlyBirdPricingJson {
         private Double maxRefund;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,10 +212,7 @@ public class EarlyBirdPricingJson {
         }
 
         public EarlyBirdPricingJson build() {
-            return new EarlyBirdPricingJson(
-                id, amount, registerByDate,
-                maxRefund);
+            return new EarlyBirdPricingJson(id, amount, registerByDate, maxRefund);
         }
-
     }
 }

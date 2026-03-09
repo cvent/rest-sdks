@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * CommunicationConfiguration
- * 
+ *
  * <p>Communication compliance settings e.g. Configure which communication types will be tracked and
  * logged for this account.
  */
@@ -29,7 +29,7 @@ public class CommunicationConfiguration {
     public CommunicationConfiguration(
             @JsonProperty("enabledMessageTypes") @Nonnull List<CommunicationLogMessageTypeJson> enabledMessageTypes) {
         this.enabledMessageTypes = Optional.ofNullable(enabledMessageTypes)
-            .orElseThrow(() -> new IllegalArgumentException("enabledMessageTypes cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("enabledMessageTypes cannot be null"));
     }
 
     /**
@@ -43,15 +43,14 @@ public class CommunicationConfiguration {
         return new Builder();
     }
 
-
     /**
      * The list of message types that communication compliance is enabled for.
      */
-    public CommunicationConfiguration withEnabledMessageTypes(@Nonnull List<CommunicationLogMessageTypeJson> enabledMessageTypes) {
+    public CommunicationConfiguration withEnabledMessageTypes(
+            @Nonnull List<CommunicationLogMessageTypeJson> enabledMessageTypes) {
         this.enabledMessageTypes = Utils.checkNotNull(enabledMessageTypes, "enabledMessageTypes");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -62,29 +61,26 @@ public class CommunicationConfiguration {
             return false;
         }
         CommunicationConfiguration other = (CommunicationConfiguration) o;
-        return 
-            Utils.enhancedDeepEquals(this.enabledMessageTypes, other.enabledMessageTypes);
+        return Utils.enhancedDeepEquals(this.enabledMessageTypes, other.enabledMessageTypes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            enabledMessageTypes);
+        return Utils.enhancedHash(enabledMessageTypes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CommunicationConfiguration.class,
-                "enabledMessageTypes", enabledMessageTypes);
+        return Utils.toString(CommunicationConfiguration.class, "enabledMessageTypes", enabledMessageTypes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<CommunicationLogMessageTypeJson> enabledMessageTypes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -96,9 +92,7 @@ public class CommunicationConfiguration {
         }
 
         public CommunicationConfiguration build() {
-            return new CommunicationConfiguration(
-                enabledMessageTypes);
+            return new CommunicationConfiguration(enabledMessageTypes);
         }
-
     }
 }

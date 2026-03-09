@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum VideoSourceJsonStatus
     {
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Inactive")]
-        Inactive,
-        [JsonProperty("Pending")]
-        Pending,
-        [JsonProperty("Deleted")]
-        Deleted,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Inactive")] Inactive,
+        [JsonProperty("Pending")] Pending,
+        [JsonProperty("Deleted")] Deleted,
     }
 
     public static class VideoSourceJsonStatusExtension
     {
         public static string Value(this VideoSourceJsonStatus value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static VideoSourceJsonStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(VideoSourceJsonStatus).GetFields())
+            foreach (var field in typeof(VideoSourceJsonStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

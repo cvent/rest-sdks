@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * LeadQualificationQuestionJsonType
- * 
+ *
  * <p>Type of question
  */
 public enum LeadQualificationQuestionJsonType {
@@ -27,13 +27,13 @@ public enum LeadQualificationQuestionJsonType {
     LeadQualificationQuestionJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<LeadQualificationQuestionJsonType> fromValue(String value) {
-        for (LeadQualificationQuestionJsonType o: LeadQualificationQuestionJsonType.values()) {
+        for (LeadQualificationQuestionJsonType o : LeadQualificationQuestionJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum LeadQualificationQuestionJsonType {
         return Optional.empty();
     }
 }
-

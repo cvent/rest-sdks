@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CategoryJson2
- * 
+ *
  * <p>A survey category.
  */
 public class CategoryJson2 {
@@ -59,13 +59,11 @@ public class CategoryJson2 {
         this.id = id;
         this.text = text;
         this.shortText = shortText;
-        this.required = Optional.ofNullable(required)
-            .orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
     }
-    
+
     public CategoryJson2() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -100,7 +98,6 @@ public class CategoryJson2 {
         return new Builder();
     }
 
-
     /**
      * Text field ID.
      */
@@ -108,7 +105,6 @@ public class CategoryJson2 {
         this.id = id;
         return this;
     }
-
 
     /**
      * text Value of the Field
@@ -118,7 +114,6 @@ public class CategoryJson2 {
         return this;
     }
 
-
     /**
      * Reporting value of the Category, Its like a custom abbreviation
      */
@@ -127,7 +122,6 @@ public class CategoryJson2 {
         return this;
     }
 
-
     /**
      * is the category mandatory for answer
      */
@@ -135,7 +129,6 @@ public class CategoryJson2 {
         this.required = required;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -146,31 +139,25 @@ public class CategoryJson2 {
             return false;
         }
         CategoryJson2 other = (CategoryJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText) &&
-            Utils.enhancedDeepEquals(this.required, other.required);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.required, other.required);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, shortText,
-            required);
+        return Utils.enhancedHash(id, text, shortText, required);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CategoryJson2.class,
-                "id", id,
-                "text", text,
-                "shortText", shortText,
-                "required", required);
+        return Utils.toString(
+                CategoryJson2.class, "id", id, "text", text, "shortText", shortText, "required", required);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -181,7 +168,7 @@ public class CategoryJson2 {
         private Boolean required;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -217,16 +204,10 @@ public class CategoryJson2 {
         }
 
         public CategoryJson2 build() {
-            return new CategoryJson2(
-                id, text, shortText,
-                required);
+            return new CategoryJson2(id, text, shortText, required);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
-                new LazySingletonValue<>(
-                        "required",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

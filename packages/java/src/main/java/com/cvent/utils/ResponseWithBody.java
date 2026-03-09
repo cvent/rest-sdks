@@ -3,7 +3,6 @@
  */
 package com.cvent.utils;
 
-import javax.net.ssl.SSLSession;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
@@ -11,6 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 import java.util.function.Function;
+import javax.net.ssl.SSLSession;
 
 /**
  * A wrapper for {@link HttpResponse} that allows mappi ng the response body from type {@code R} to type {@code B}.
@@ -64,8 +64,7 @@ public class ResponseWithBody<R, B> implements HttpResponse<B> {
 
     @Override
     public Optional<HttpResponse<B>> previousResponse() {
-        return original.previousResponse()
-                .map(prev -> new ResponseWithBody<>(prev, bodyMapper));
+        return original.previousResponse().map(prev -> new ResponseWithBody<>(prev, bodyMapper));
     }
 
     @Override

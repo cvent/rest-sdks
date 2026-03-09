@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AmenityTypeJson
- * 
+ *
  * <p>Amenity type
  */
 public enum AmenityTypeJson {
@@ -24,13 +24,13 @@ public enum AmenityTypeJson {
     AmenityTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AmenityTypeJson> fromValue(String value) {
-        for (AmenityTypeJson o: AmenityTypeJson.values()) {
+        for (AmenityTypeJson o : AmenityTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AmenityTypeJson {
         return Optional.empty();
     }
 }
-

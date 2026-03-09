@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetEventQuestionsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -47,7 +46,7 @@ public class GetEventQuestionsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -55,7 +54,7 @@ public class GetEventQuestionsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * id (eq|ne)
@@ -76,15 +75,13 @@ public class GetEventQuestionsRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetEventQuestionsRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -121,7 +118,7 @@ public class GetEventQuestionsRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -129,7 +126,7 @@ public class GetEventQuestionsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * id (eq|ne)
@@ -146,7 +143,6 @@ public class GetEventQuestionsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -156,7 +152,6 @@ public class GetEventQuestionsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -165,7 +160,6 @@ public class GetEventQuestionsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -173,7 +167,6 @@ public class GetEventQuestionsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -184,12 +177,11 @@ public class GetEventQuestionsRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -197,7 +189,7 @@ public class GetEventQuestionsRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * id (eq|ne)
@@ -211,7 +203,6 @@ public class GetEventQuestionsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -221,33 +212,36 @@ public class GetEventQuestionsRequest {
             return false;
         }
         GetEventQuestionsRequest other = (GetEventQuestionsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventQuestionsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetEventQuestionsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -260,7 +254,7 @@ public class GetEventQuestionsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -301,7 +295,7 @@ public class GetEventQuestionsRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -309,7 +303,7 @@ public class GetEventQuestionsRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * event.id (eq|ne)
          * * id (eq|ne)
@@ -324,16 +318,10 @@ public class GetEventQuestionsRequest {
         }
 
         public GetEventQuestionsRequest build() {
-            return new GetEventQuestionsRequest(
-                after, before, limit,
-                token, filter);
+            return new GetEventQuestionsRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

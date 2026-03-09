@@ -64,19 +64,18 @@ public class AsyncTravelRFPs {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public TravelRFPs sync() {
         return syncSDK;
     }
 
-
     /**
      * List Travel Programs
-     * 
+     *
      * <p>Returns a paginated list of travel programs based on the specified filters.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelProgramsRequestBuilder listTravelPrograms() {
@@ -85,25 +84,24 @@ public class AsyncTravelRFPs {
 
     /**
      * List Travel Programs
-     * 
+     *
      * <p>Returns a paginated list of travel programs based on the specified filters.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelProgramsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelProgramsResponse> listTravelPrograms(@Nonnull ListTravelProgramsRequest request) {
-        AsyncRequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation
-              = new ListTravelPrograms.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelProgramsResponse> listTravelPrograms(
+            @Nonnull ListTravelProgramsRequest request) {
+        AsyncRequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation =
+                new ListTravelPrograms.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Travel Programs Questions
-     * 
+     *
      * <p>Returns a paginated list of travel programs questions.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelProgramsQuestionsRequestBuilder listTravelProgramsQuestions() {
@@ -112,25 +110,24 @@ public class AsyncTravelRFPs {
 
     /**
      * List Travel Programs Questions
-     * 
+     *
      * <p>Returns a paginated list of travel programs questions.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelProgramsQuestionsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelProgramsQuestionsResponse> listTravelProgramsQuestions(@Nonnull ListTravelProgramsQuestionsRequest request) {
-        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation
-              = new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelProgramsQuestionsResponse> listTravelProgramsQuestions(
+            @Nonnull ListTravelProgramsQuestionsRequest request) {
+        AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
+                new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Travel Program
-     * 
+     *
      * <p>Returns the details of a single travel program based on the specified program ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetTravelProgramRequestBuilder getTravelProgram() {
@@ -139,25 +136,23 @@ public class AsyncTravelRFPs {
 
     /**
      * Get Travel Program
-     * 
+     *
      * <p>Returns the details of a single travel program based on the specified program ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTravelProgramResponse>} - The async response
      */
     public CompletableFuture<GetTravelProgramResponse> getTravelProgram(@Nonnull GetTravelProgramRequest request) {
-        AsyncRequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation
-              = new GetTravelProgram.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
+                new GetTravelProgram.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Travel Program Questions
-     * 
+     *
      * <p>Returns a paginated list of travel program questions.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelProgramQuestionsRequestBuilder listTravelProgramQuestions() {
@@ -166,25 +161,24 @@ public class AsyncTravelRFPs {
 
     /**
      * List Travel Program Questions
-     * 
+     *
      * <p>Returns a paginated list of travel program questions.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelProgramQuestionsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelProgramQuestionsResponse> listTravelProgramQuestions(@Nonnull ListTravelProgramQuestionsRequest request) {
-        AsyncRequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation
-              = new ListTravelProgramQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelProgramQuestionsResponse> listTravelProgramQuestions(
+            @Nonnull ListTravelProgramQuestionsRequest request) {
+        AsyncRequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
+                new ListTravelProgramQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Travel Program Question
-     * 
+     *
      * <p>Returns the details of a single question based on the specified program and question ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetTravelProgramQuestionRequestBuilder getTravelProgramQuestion() {
@@ -193,25 +187,24 @@ public class AsyncTravelRFPs {
 
     /**
      * Get Travel Program Question
-     * 
+     *
      * <p>Returns the details of a single question based on the specified program and question ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTravelProgramQuestionResponse>} - The async response
      */
-    public CompletableFuture<GetTravelProgramQuestionResponse> getTravelProgramQuestion(@Nonnull GetTravelProgramQuestionRequest request) {
-        AsyncRequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation
-              = new GetTravelProgramQuestion.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetTravelProgramQuestionResponse> getTravelProgramQuestion(
+            @Nonnull GetTravelProgramQuestionRequest request) {
+        AsyncRequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation =
+                new GetTravelProgramQuestion.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Travel Proposals
-     * 
+     *
      * <p>Get a paginated list of travel proposal details.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelProposalsRequestBuilder listTravelProposals() {
@@ -220,25 +213,24 @@ public class AsyncTravelRFPs {
 
     /**
      * List Travel Proposals
-     * 
+     *
      * <p>Get a paginated list of travel proposal details.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelProposalsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelProposalsResponse> listTravelProposals(@Nonnull ListTravelProposalsRequest request) {
-        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation
-              = new ListTravelProposals.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelProposalsResponse> listTravelProposals(
+            @Nonnull ListTravelProposalsRequest request) {
+        AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
+                new ListTravelProposals.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Travel Proposal Bids
-     * 
+     *
      * <p>Get a paginated list of travel proposal bids.
-     * 
+     *
      * @return The async call builder
      */
     public ListTravelProposalBidsRequestBuilder listTravelProposalBids() {
@@ -247,25 +239,24 @@ public class AsyncTravelRFPs {
 
     /**
      * List Travel Proposal Bids
-     * 
+     *
      * <p>Get a paginated list of travel proposal bids.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListTravelProposalBidsResponse>} - The async response
      */
-    public CompletableFuture<ListTravelProposalBidsResponse> listTravelProposalBids(@Nonnull ListTravelProposalBidsRequest request) {
-        AsyncRequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation
-              = new ListTravelProposalBids.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListTravelProposalBidsResponse> listTravelProposalBids(
+            @Nonnull ListTravelProposalBidsRequest request) {
+        AsyncRequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation =
+                new ListTravelProposalBids.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Travel Proposal Bid
-     * 
+     *
      * <p>Gets a travel proposal bid for the given travel proposal bid ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetTravelProposalBidRequestBuilder getTravelProposalBid() {
@@ -274,25 +265,24 @@ public class AsyncTravelRFPs {
 
     /**
      * Get Travel Proposal Bid
-     * 
+     *
      * <p>Gets a travel proposal bid for the given travel proposal bid ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTravelProposalBidResponse>} - The async response
      */
-    public CompletableFuture<GetTravelProposalBidResponse> getTravelProposalBid(@Nonnull GetTravelProposalBidRequest request) {
-        AsyncRequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation
-              = new GetTravelProposalBid.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetTravelProposalBidResponse> getTravelProposalBid(
+            @Nonnull GetTravelProposalBidRequest request) {
+        AsyncRequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation =
+                new GetTravelProposalBid.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Travel Proposal
-     * 
+     *
      * <p>Gets a travel proposal for the given travel proposal ID.
-     * 
+     *
      * @return The async call builder
      */
     public GetTravelProposalRequestBuilder getTravelProposal() {
@@ -301,17 +291,15 @@ public class AsyncTravelRFPs {
 
     /**
      * Get Travel Proposal
-     * 
+     *
      * <p>Gets a travel proposal for the given travel proposal ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetTravelProposalResponse>} - The async response
      */
     public CompletableFuture<GetTravelProposalResponse> getTravelProposal(@Nonnull GetTravelProposalRequest request) {
-        AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation
-              = new GetTravelProposal.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
+                new GetTravelProposal.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

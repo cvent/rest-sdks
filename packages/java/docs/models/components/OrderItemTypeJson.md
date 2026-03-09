@@ -2,6 +2,14 @@
 
 This is used to denote the product type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.OrderItemTypeJson;
+
+OrderItemTypeJson value = OrderItemTypeJson.ADMISSION_ITEM;
+```
+
 
 ## Values
 

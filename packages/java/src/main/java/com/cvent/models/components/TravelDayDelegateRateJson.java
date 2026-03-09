@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelDayDelegateRateJson
- * 
+ *
  * <p>Day delegate rate information. This represents the costs for hosting meeting at the venue for a half
  * or full day.
  */
@@ -60,10 +60,9 @@ public class TravelDayDelegateRateJson {
         this.halfDay10To50People = halfDay10To50People;
         this.halfDay51To100People = halfDay51To100People;
     }
-    
+
     public TravelDayDelegateRateJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -98,7 +97,6 @@ public class TravelDayDelegateRateJson {
         return new Builder();
     }
 
-
     /**
      * Full day delegate rate for 10 to 50 people.
      */
@@ -106,7 +104,6 @@ public class TravelDayDelegateRateJson {
         this.fullDay10To50People = fullDay10To50People;
         return this;
     }
-
 
     /**
      * Full day delegate rate for 51 to 100 people.
@@ -116,7 +113,6 @@ public class TravelDayDelegateRateJson {
         return this;
     }
 
-
     /**
      * Half day delegate rate for 10 to 50 people.
      */
@@ -125,7 +121,6 @@ public class TravelDayDelegateRateJson {
         return this;
     }
 
-
     /**
      * Half day delegate rate for 51 to 100 people.
      */
@@ -133,7 +128,6 @@ public class TravelDayDelegateRateJson {
         this.halfDay51To100People = halfDay51To100People;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -144,31 +138,33 @@ public class TravelDayDelegateRateJson {
             return false;
         }
         TravelDayDelegateRateJson other = (TravelDayDelegateRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.fullDay10To50People, other.fullDay10To50People) &&
-            Utils.enhancedDeepEquals(this.fullDay51To100People, other.fullDay51To100People) &&
-            Utils.enhancedDeepEquals(this.halfDay10To50People, other.halfDay10To50People) &&
-            Utils.enhancedDeepEquals(this.halfDay51To100People, other.halfDay51To100People);
+        return Utils.enhancedDeepEquals(this.fullDay10To50People, other.fullDay10To50People)
+                && Utils.enhancedDeepEquals(this.fullDay51To100People, other.fullDay51To100People)
+                && Utils.enhancedDeepEquals(this.halfDay10To50People, other.halfDay10To50People)
+                && Utils.enhancedDeepEquals(this.halfDay51To100People, other.halfDay51To100People);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            fullDay10To50People, fullDay51To100People, halfDay10To50People,
-            halfDay51To100People);
+        return Utils.enhancedHash(fullDay10To50People, fullDay51To100People, halfDay10To50People, halfDay51To100People);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelDayDelegateRateJson.class,
-                "fullDay10To50People", fullDay10To50People,
-                "fullDay51To100People", fullDay51To100People,
-                "halfDay10To50People", halfDay10To50People,
-                "halfDay51To100People", halfDay51To100People);
+        return Utils.toString(
+                TravelDayDelegateRateJson.class,
+                "fullDay10To50People",
+                fullDay10To50People,
+                "fullDay51To100People",
+                fullDay51To100People,
+                "halfDay10To50People",
+                halfDay10To50People,
+                "halfDay51To100People",
+                halfDay51To100People);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double fullDay10To50People;
 
@@ -179,7 +175,7 @@ public class TravelDayDelegateRateJson {
         private Double halfDay51To100People;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,9 +212,7 @@ public class TravelDayDelegateRateJson {
 
         public TravelDayDelegateRateJson build() {
             return new TravelDayDelegateRateJson(
-                fullDay10To50People, fullDay51To100People, halfDay10To50People,
-                halfDay51To100People);
+                    fullDay10To50People, fullDay51To100People, halfDay10To50People, halfDay51To100People);
         }
-
     }
 }

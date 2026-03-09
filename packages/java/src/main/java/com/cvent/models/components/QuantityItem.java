@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * QuantityItem
- * 
+ *
  * <p>Represents a quantity item. A quantity item allows invitees to specify the amount of a particular
  * product, such as raffle tickets, t-shirts, or tote bags, they would like to purchase.
  */
@@ -117,8 +117,7 @@ public class QuantityItem {
             @JsonProperty("closeEventOnCapacityFull") @Nullable Boolean closeEventOnCapacityFull) {
         this.registrantInformation = registrantInformation;
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.code = code;
         this.maximumItemsPerInvitee = maximumItemsPerInvitee;
@@ -128,13 +127,9 @@ public class QuantityItem {
         this.capacity = capacity;
         this.closeEventOnCapacityFull = closeEventOnCapacityFull;
     }
-    
-    public QuantityItem(
-            @Nonnull String name) {
-        this(null, null, name,
-            null, null, null,
-            null, null, null,
-            null, null);
+
+    public QuantityItem(@Nonnull String name) {
+        this(null, null, name, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -219,7 +214,6 @@ public class QuantityItem {
         return new Builder();
     }
 
-
     /**
      * This text will be displayed in emails using the registration information widget.
      */
@@ -227,7 +221,6 @@ public class QuantityItem {
         this.registrantInformation = registrantInformation;
         return this;
     }
-
 
     /**
      * A unique identifier of the quantity item.
@@ -237,7 +230,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * Title of the quantity item.
      */
@@ -245,7 +237,6 @@ public class QuantityItem {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * Description of the quantity item.
@@ -255,7 +246,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * A planner-specified code for the quantity item. By default, it matches the title.
      */
@@ -263,7 +253,6 @@ public class QuantityItem {
         this.code = code;
         return this;
     }
-
 
     /**
      * The maximum number of items that an invitee can purchase during registration.
@@ -273,7 +262,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * Contains unique identifiers for registration types associated with this quantity item.
      */
@@ -282,7 +270,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * True indicates the quantity item is selectable during registration.
      */
@@ -290,7 +277,6 @@ public class QuantityItem {
         this.openForRegistration = openForRegistration;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date when the quantity item registration automatically closes. The item
@@ -301,7 +287,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * The maximum number of attendees who can purchase the quantity item.
      */
@@ -310,7 +295,6 @@ public class QuantityItem {
         return this;
     }
 
-
     /**
      * True indicates the event will close if the quantity item reaches capacity.
      */
@@ -318,7 +302,6 @@ public class QuantityItem {
         this.closeEventOnCapacityFull = closeEventOnCapacityFull;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -329,47 +312,65 @@ public class QuantityItem {
             return false;
         }
         QuantityItem other = (QuantityItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.maximumItemsPerInvitee, other.maximumItemsPerInvitee) &&
-            Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.closeEventOnCapacityFull, other.closeEventOnCapacityFull);
+        return Utils.enhancedDeepEquals(this.registrantInformation, other.registrantInformation)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.maximumItemsPerInvitee, other.maximumItemsPerInvitee)
+                && Utils.enhancedDeepEquals(this.registrationTypes, other.registrationTypes)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticallyClosesOn, other.automaticallyClosesOn)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.closeEventOnCapacityFull, other.closeEventOnCapacityFull);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            registrantInformation, id, name,
-            description, code, maximumItemsPerInvitee,
-            registrationTypes, openForRegistration, automaticallyClosesOn,
-            capacity, closeEventOnCapacityFull);
+                registrantInformation,
+                id,
+                name,
+                description,
+                code,
+                maximumItemsPerInvitee,
+                registrationTypes,
+                openForRegistration,
+                automaticallyClosesOn,
+                capacity,
+                closeEventOnCapacityFull);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuantityItem.class,
-                "registrantInformation", registrantInformation,
-                "id", id,
-                "name", name,
-                "description", description,
-                "code", code,
-                "maximumItemsPerInvitee", maximumItemsPerInvitee,
-                "registrationTypes", registrationTypes,
-                "openForRegistration", openForRegistration,
-                "automaticallyClosesOn", automaticallyClosesOn,
-                "capacity", capacity,
-                "closeEventOnCapacityFull", closeEventOnCapacityFull);
+        return Utils.toString(
+                QuantityItem.class,
+                "registrantInformation",
+                registrantInformation,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description,
+                "code",
+                code,
+                "maximumItemsPerInvitee",
+                maximumItemsPerInvitee,
+                "registrationTypes",
+                registrationTypes,
+                "openForRegistration",
+                openForRegistration,
+                "automaticallyClosesOn",
+                automaticallyClosesOn,
+                "capacity",
+                capacity,
+                "closeEventOnCapacityFull",
+                closeEventOnCapacityFull);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String registrantInformation;
 
@@ -394,7 +395,7 @@ public class QuantityItem {
         private Boolean closeEventOnCapacityFull;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -488,11 +489,17 @@ public class QuantityItem {
 
         public QuantityItem build() {
             return new QuantityItem(
-                registrantInformation, id, name,
-                description, code, maximumItemsPerInvitee,
-                registrationTypes, openForRegistration, automaticallyClosesOn,
-                capacity, closeEventOnCapacityFull);
+                    registrantInformation,
+                    id,
+                    name,
+                    description,
+                    code,
+                    maximumItemsPerInvitee,
+                    registrationTypes,
+                    openForRegistration,
+                    automaticallyClosesOn,
+                    capacity,
+                    closeEventOnCapacityFull);
         }
-
     }
 }

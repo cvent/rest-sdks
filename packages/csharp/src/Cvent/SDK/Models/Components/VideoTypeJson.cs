@@ -18,40 +18,29 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum VideoTypeJson
     {
-        [JsonProperty("mpg2")]
-        Mpg2,
-        [JsonProperty("mov")]
-        Mov,
-        [JsonProperty("mp2")]
-        Mp2,
-        [JsonProperty("mp4")]
-        Mp4,
-        [JsonProperty("mpe")]
-        Mpe,
-        [JsonProperty("mpeg")]
-        Mpeg,
-        [JsonProperty("mpg")]
-        Mpg,
-        [JsonProperty("mpv")]
-        Mpv,
-        [JsonProperty("qt")]
-        Qt,
-        [JsonProperty("webm")]
-        Webm,
-        [JsonProperty("hls")]
-        Hls,
+        [JsonProperty("mpg2")] Mpg2,
+        [JsonProperty("mov")] Mov,
+        [JsonProperty("mp2")] Mp2,
+        [JsonProperty("mp4")] Mp4,
+        [JsonProperty("mpe")] Mpe,
+        [JsonProperty("mpeg")] Mpeg,
+        [JsonProperty("mpg")] Mpg,
+        [JsonProperty("mpv")] Mpv,
+        [JsonProperty("qt")] Qt,
+        [JsonProperty("webm")] Webm,
+        [JsonProperty("hls")] Hls,
     }
 
     public static class VideoTypeJsonExtension
     {
         public static string Value(this VideoTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static VideoTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(VideoTypeJson).GetFields())
+            foreach (var field in typeof(VideoTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

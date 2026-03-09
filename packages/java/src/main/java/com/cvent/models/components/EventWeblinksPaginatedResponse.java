@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * EventWeblinksPaginatedResponse
- * 
+ *
  * <p>Paginated collection of event weblinks.
  */
 public class EventWeblinksPaginatedResponse {
@@ -32,10 +32,9 @@ public class EventWeblinksPaginatedResponse {
     public EventWeblinksPaginatedResponse(
             @JsonProperty("paging") @Nonnull EventWeblinksPaginatedResponsePaging paging,
             @JsonProperty("data") @Nonnull List<EventWeblinkJson> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     public EventWeblinksPaginatedResponsePaging paging() {
@@ -53,12 +52,10 @@ public class EventWeblinksPaginatedResponse {
         return new Builder();
     }
 
-
     public EventWeblinksPaginatedResponse withPaging(@Nonnull EventWeblinksPaginatedResponsePaging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
-
 
     /**
      * Collection of event weblinks.
@@ -67,7 +64,6 @@ public class EventWeblinksPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -78,33 +74,28 @@ public class EventWeblinksPaginatedResponse {
             return false;
         }
         EventWeblinksPaginatedResponse other = (EventWeblinksPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventWeblinksPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(EventWeblinksPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventWeblinksPaginatedResponsePaging paging;
 
         private List<EventWeblinkJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder paging(@Nonnull EventWeblinksPaginatedResponsePaging paging) {
@@ -121,9 +112,7 @@ public class EventWeblinksPaginatedResponse {
         }
 
         public EventWeblinksPaginatedResponse build() {
-            return new EventWeblinksPaginatedResponse(
-                paging, data);
+            return new EventWeblinksPaginatedResponse(paging, data);
         }
-
     }
 }

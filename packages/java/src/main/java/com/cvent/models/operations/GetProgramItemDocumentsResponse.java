@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetProgramItemDocumentsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetProgramItemDocumentsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ProgramItemSessionDocuments programItemSessionDocuments) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.programItemSessionDocuments = programItemSessionDocuments;
     }
-    
+
     public GetProgramItemDocumentsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -93,7 +89,6 @@ public class GetProgramItemDocumentsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -101,7 +96,6 @@ public class GetProgramItemDocumentsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -111,7 +105,6 @@ public class GetProgramItemDocumentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -120,16 +113,15 @@ public class GetProgramItemDocumentsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of program item to session document relationships for the specified
      * program item ID.
      */
-    public GetProgramItemDocumentsResponse withProgramItemSessionDocuments(@Nullable ProgramItemSessionDocuments programItemSessionDocuments) {
+    public GetProgramItemDocumentsResponse withProgramItemSessionDocuments(
+            @Nullable ProgramItemSessionDocuments programItemSessionDocuments) {
         this.programItemSessionDocuments = programItemSessionDocuments;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -140,31 +132,33 @@ public class GetProgramItemDocumentsResponse implements Response {
             return false;
         }
         GetProgramItemDocumentsResponse other = (GetProgramItemDocumentsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.programItemSessionDocuments, other.programItemSessionDocuments);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.programItemSessionDocuments, other.programItemSessionDocuments);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            programItemSessionDocuments);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, programItemSessionDocuments);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetProgramItemDocumentsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "programItemSessionDocuments", programItemSessionDocuments);
+        return Utils.toString(
+                GetProgramItemDocumentsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "programItemSessionDocuments",
+                programItemSessionDocuments);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -175,7 +169,7 @@ public class GetProgramItemDocumentsResponse implements Response {
         private ProgramItemSessionDocuments programItemSessionDocuments;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,9 +207,7 @@ public class GetProgramItemDocumentsResponse implements Response {
 
         public GetProgramItemDocumentsResponse build() {
             return new GetProgramItemDocumentsResponse(
-                contentType, statusCode, rawResponse,
-                programItemSessionDocuments);
+                    contentType, statusCode, rawResponse, programItemSessionDocuments);
         }
-
     }
 }

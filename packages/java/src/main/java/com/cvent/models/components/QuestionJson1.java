@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * QuestionJson1
- * 
+ *
  * <p>Question details
  */
 public class QuestionJson1 {
@@ -62,18 +62,15 @@ public class QuestionJson1 {
             @JsonProperty("status") @Nullable String status,
             @JsonProperty("anonymous") @Nullable Boolean anonymous,
             @JsonProperty("answer") @Nullable String answer) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.text = text;
         this.status = status;
         this.anonymous = anonymous;
         this.answer = answer;
     }
-    
-    public QuestionJson1(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null);
+
+    public QuestionJson1(@Nonnull String id) {
+        this(id, null, null, null, null);
     }
 
     /**
@@ -115,7 +112,6 @@ public class QuestionJson1 {
         return new Builder();
     }
 
-
     /**
      * The question ID.
      */
@@ -123,7 +119,6 @@ public class QuestionJson1 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The question text.
@@ -133,7 +128,6 @@ public class QuestionJson1 {
         return this;
     }
 
-
     /**
      * The status of the question.
      */
@@ -141,7 +135,6 @@ public class QuestionJson1 {
         this.status = status;
         return this;
     }
-
 
     /**
      * Whether question is asked anonymously.
@@ -151,7 +144,6 @@ public class QuestionJson1 {
         return this;
     }
 
-
     /**
      * The answer text.
      */
@@ -159,7 +151,6 @@ public class QuestionJson1 {
         this.answer = answer;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -170,33 +161,36 @@ public class QuestionJson1 {
             return false;
         }
         QuestionJson1 other = (QuestionJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.anonymous, other.anonymous) &&
-            Utils.enhancedDeepEquals(this.answer, other.answer);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.anonymous, other.anonymous)
+                && Utils.enhancedDeepEquals(this.answer, other.answer);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, status,
-            anonymous, answer);
+        return Utils.enhancedHash(id, text, status, anonymous, answer);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionJson1.class,
-                "id", id,
-                "text", text,
-                "status", status,
-                "anonymous", anonymous,
-                "answer", answer);
+        return Utils.toString(
+                QuestionJson1.class,
+                "id",
+                id,
+                "text",
+                text,
+                "status",
+                status,
+                "anonymous",
+                anonymous,
+                "answer",
+                answer);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -209,7 +203,7 @@ public class QuestionJson1 {
         private String answer;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -253,10 +247,7 @@ public class QuestionJson1 {
         }
 
         public QuestionJson1 build() {
-            return new QuestionJson1(
-                id, text, status,
-                anonymous, answer);
+            return new QuestionJson1(id, text, status, anonymous, answer);
         }
-
     }
 }

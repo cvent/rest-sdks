@@ -28,7 +28,7 @@ public class GetTravelProgramRequestBuilder {
     private GetTravelProgramRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetTravelProgramRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetTravelProgramRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetTravelProgramResponse call() {
-        RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation
-              = new GetTravelProgram.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
+                new GetTravelProgram.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

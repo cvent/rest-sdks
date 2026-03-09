@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum PaymentTypesJson
     {
-        [JsonProperty("CreditCard")]
-        CreditCard,
-        [JsonProperty("Other")]
-        Other,
+        [JsonProperty("CreditCard")] CreditCard,
+        [JsonProperty("Other")] Other,
     }
 
     public static class PaymentTypesJsonExtension
     {
         public static string Value(this PaymentTypesJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static PaymentTypesJson ToEnum(this string value)
         {
-            foreach(var field in typeof(PaymentTypesJson).GetFields())
+            foreach (var field in typeof(PaymentTypesJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

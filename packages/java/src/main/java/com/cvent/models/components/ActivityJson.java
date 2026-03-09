@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ActivityJson
- * 
+ *
  * <p>An attendee activity.
  */
 public class ActivityJson {
@@ -87,22 +87,17 @@ public class ActivityJson {
             @JsonProperty("data") @Nullable ActivityDataJson data) {
         this.id = id;
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.time = time;
         this.created = created;
         this.name = name;
         this.type = type;
         this.data = data;
     }
-    
-    public ActivityJson(
-            @Nonnull UuidJson attendee,
-            @Nonnull EventActivityDetailsJson event) {
-        this(null, attendee, event,
-            null, null, null,
-            null, null);
+
+    public ActivityJson(@Nonnull UuidJson attendee, @Nonnull EventActivityDetailsJson event) {
+        this(null, attendee, event, null, null, null, null, null);
     }
 
     /**
@@ -165,7 +160,6 @@ public class ActivityJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of the attendee activity.
      */
@@ -173,7 +167,6 @@ public class ActivityJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -183,7 +176,6 @@ public class ActivityJson {
         return this;
     }
 
-
     /**
      * Details for an event activity.
      */
@@ -191,7 +183,6 @@ public class ActivityJson {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * ISO 8601 date and time when this attendee activity occurred.
@@ -201,7 +192,6 @@ public class ActivityJson {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when this record was created.
      */
@@ -209,7 +199,6 @@ public class ActivityJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * Unique name corresponding to the attendee activity type.
@@ -219,7 +208,6 @@ public class ActivityJson {
         return this;
     }
 
-
     /**
      * This is used to denote the type of the attendee activity.
      */
@@ -228,7 +216,6 @@ public class ActivityJson {
         return this;
     }
 
-
     /**
      * This is used to denote the type of the attendee activity
      */
@@ -236,7 +223,6 @@ public class ActivityJson {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -247,40 +233,45 @@ public class ActivityJson {
             return false;
         }
         ActivityJson other = (ActivityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.time, other.time) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.time, other.time)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendee, event,
-            time, created, name,
-            type, data);
+        return Utils.enhancedHash(id, attendee, event, time, created, name, type, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityJson.class,
-                "id", id,
-                "attendee", attendee,
-                "event", event,
-                "time", time,
-                "created", created,
-                "name", name,
-                "type", type,
-                "data", data);
+        return Utils.toString(
+                ActivityJson.class,
+                "id",
+                id,
+                "attendee",
+                attendee,
+                "event",
+                event,
+                "time",
+                time,
+                "created",
+                created,
+                "name",
+                name,
+                "type",
+                type,
+                "data",
+                data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -299,7 +290,7 @@ public class ActivityJson {
         private ActivityDataJson data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -367,11 +358,7 @@ public class ActivityJson {
         }
 
         public ActivityJson build() {
-            return new ActivityJson(
-                id, attendee, event,
-                time, created, name,
-                type, data);
+            return new ActivityJson(id, attendee, event, time, created, name, type, data);
         }
-
     }
 }

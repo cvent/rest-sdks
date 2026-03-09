@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BadgeStatusJson
     {
-        [JsonProperty("Assigned")]
-        Assigned,
-        [JsonProperty("Active")]
-        Active,
-        [JsonProperty("Deactivated")]
-        Deactivated,
-        [JsonProperty("Deleted")]
-        Deleted,
+        [JsonProperty("Assigned")] Assigned,
+        [JsonProperty("Active")] Active,
+        [JsonProperty("Deactivated")] Deactivated,
+        [JsonProperty("Deleted")] Deleted,
     }
 
     public static class BadgeStatusJsonExtension
     {
         public static string Value(this BadgeStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BadgeStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BadgeStatusJson).GetFields())
+            foreach (var field in typeof(BadgeStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class PropertyApiListChainsResponse
     {
-        public Func<Task<PropertyApiListChainsResponse?>>? Next {get;set;}
+        public Func<Task<PropertyApiListChainsResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

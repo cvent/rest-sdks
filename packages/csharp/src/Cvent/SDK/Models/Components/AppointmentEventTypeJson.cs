@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AppointmentEventTypeJson
     {
-        [JsonProperty("STANDARD")]
-        Standard,
-        [JsonProperty("UNIVERSAL")]
-        Universal,
-        [JsonProperty("PLANNER_COORDINATED")]
-        PlannerCoordinated,
-        [JsonProperty("SIMPLE")]
-        Simple,
+        [JsonProperty("STANDARD")] Standard,
+        [JsonProperty("UNIVERSAL")] Universal,
+        [JsonProperty("PLANNER_COORDINATED")] PlannerCoordinated,
+        [JsonProperty("SIMPLE")] Simple,
     }
 
     public static class AppointmentEventTypeJsonExtension
     {
         public static string Value(this AppointmentEventTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AppointmentEventTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AppointmentEventTypeJson).GetFields())
+            foreach (var field in typeof(AppointmentEventTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

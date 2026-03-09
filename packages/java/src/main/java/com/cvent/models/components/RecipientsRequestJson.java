@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * RecipientsRequestJson
- * 
+ *
  * <p>Recipient contains the recipient ID of a recipient.
  */
 public class RecipientsRequestJson {
@@ -24,10 +24,8 @@ public class RecipientsRequestJson {
     private String id;
 
     @JsonCreator
-    public RecipientsRequestJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public RecipientsRequestJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class RecipientsRequestJson {
         return new Builder();
     }
 
-
     /**
      * The ID of a recipient whom you'd like to send an email.
      */
@@ -49,7 +46,6 @@ public class RecipientsRequestJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class RecipientsRequestJson {
             return false;
         }
         RecipientsRequestJson other = (RecipientsRequestJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RecipientsRequestJson.class,
-                "id", id);
+        return Utils.toString(RecipientsRequestJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class RecipientsRequestJson {
         }
 
         public RecipientsRequestJson build() {
-            return new RecipientsRequestJson(
-                id);
+            return new RecipientsRequestJson(id);
         }
-
     }
 }

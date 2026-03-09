@@ -2,6 +2,14 @@
 
 Code representing the travel account type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TravelAccountTypeJson;
+
+TravelAccountTypeJson value = TravelAccountTypeJson.CORPORATE;
+```
+
 
 ## Values
 

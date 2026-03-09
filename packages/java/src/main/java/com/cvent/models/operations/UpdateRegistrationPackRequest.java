@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateRegistrationPackRequest {
     /**
      * ID of an event.
@@ -44,14 +43,13 @@ public class UpdateRegistrationPackRequest {
             @Nonnull String exhibitorId,
             @Nonnull String registrationPackId,
             @Nonnull RegistrationPackRequest registrationPackRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
         this.registrationPackId = Optional.ofNullable(registrationPackId)
-            .orElseThrow(() -> new IllegalArgumentException("registrationPackId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationPackId cannot be null"));
         this.registrationPackRequest = Optional.ofNullable(registrationPackRequest)
-            .orElseThrow(() -> new IllegalArgumentException("registrationPackRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationPackRequest cannot be null"));
     }
 
     /**
@@ -86,7 +84,6 @@ public class UpdateRegistrationPackRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -94,7 +91,6 @@ public class UpdateRegistrationPackRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -104,7 +100,6 @@ public class UpdateRegistrationPackRequest {
         return this;
     }
 
-
     /**
      * ID of a registration pack.
      */
@@ -113,15 +108,14 @@ public class UpdateRegistrationPackRequest {
         return this;
     }
 
-
     /**
      * Registration pack details
      */
-    public UpdateRegistrationPackRequest withRegistrationPackRequest(@Nonnull RegistrationPackRequest registrationPackRequest) {
+    public UpdateRegistrationPackRequest withRegistrationPackRequest(
+            @Nonnull RegistrationPackRequest registrationPackRequest) {
         this.registrationPackRequest = Utils.checkNotNull(registrationPackRequest, "registrationPackRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +126,33 @@ public class UpdateRegistrationPackRequest {
             return false;
         }
         UpdateRegistrationPackRequest other = (UpdateRegistrationPackRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.registrationPackId, other.registrationPackId) &&
-            Utils.enhancedDeepEquals(this.registrationPackRequest, other.registrationPackRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.registrationPackId, other.registrationPackId)
+                && Utils.enhancedDeepEquals(this.registrationPackRequest, other.registrationPackRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, registrationPackId,
-            registrationPackRequest);
+        return Utils.enhancedHash(id, exhibitorId, registrationPackId, registrationPackRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateRegistrationPackRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "registrationPackId", registrationPackId,
-                "registrationPackRequest", registrationPackRequest);
+        return Utils.toString(
+                UpdateRegistrationPackRequest.class,
+                "id",
+                id,
+                "exhibitorId",
+                exhibitorId,
+                "registrationPackId",
+                registrationPackId,
+                "registrationPackRequest",
+                registrationPackRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +163,7 @@ public class UpdateRegistrationPackRequest {
         private RegistrationPackRequest registrationPackRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +199,7 @@ public class UpdateRegistrationPackRequest {
         }
 
         public UpdateRegistrationPackRequest build() {
-            return new UpdateRegistrationPackRequest(
-                id, exhibitorId, registrationPackId,
-                registrationPackRequest);
+            return new UpdateRegistrationPackRequest(id, exhibitorId, registrationPackId, registrationPackRequest);
         }
-
     }
 }

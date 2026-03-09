@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteAttendeeLinkRequest {
     /**
      * The identifier of the webcast.
@@ -26,13 +25,10 @@ public class DeleteAttendeeLinkRequest {
     private String attendeeLinkId;
 
     @JsonCreator
-    public DeleteAttendeeLinkRequest(
-            @Nonnull String id,
-            @Nonnull String attendeeLinkId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteAttendeeLinkRequest(@Nonnull String id, @Nonnull String attendeeLinkId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.attendeeLinkId = Optional.ofNullable(attendeeLinkId)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeLinkId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeLinkId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteAttendeeLinkRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of the webcast.
      */
@@ -62,7 +57,6 @@ public class DeleteAttendeeLinkRequest {
         return this;
     }
 
-
     /**
      * The identifier of an attendee link in a webcast.
      */
@@ -70,7 +64,6 @@ public class DeleteAttendeeLinkRequest {
         this.attendeeLinkId = Utils.checkNotNull(attendeeLinkId, "attendeeLinkId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class DeleteAttendeeLinkRequest {
             return false;
         }
         DeleteAttendeeLinkRequest other = (DeleteAttendeeLinkRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendeeLinkId, other.attendeeLinkId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendeeLinkId, other.attendeeLinkId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendeeLinkId);
+        return Utils.enhancedHash(id, attendeeLinkId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteAttendeeLinkRequest.class,
-                "id", id,
-                "attendeeLinkId", attendeeLinkId);
+        return Utils.toString(DeleteAttendeeLinkRequest.class, "id", id, "attendeeLinkId", attendeeLinkId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String attendeeLinkId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class DeleteAttendeeLinkRequest {
         }
 
         public DeleteAttendeeLinkRequest build() {
-            return new DeleteAttendeeLinkRequest(
-                id, attendeeLinkId);
+            return new DeleteAttendeeLinkRequest(id, attendeeLinkId);
         }
-
     }
 }

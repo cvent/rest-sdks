@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AgendaItemTypeJson2
- * 
+ *
  * <p>Specifies the type of agenda item that a discount is associated with.
  */
 public enum AgendaItemTypeJson2 {
@@ -26,13 +26,13 @@ public enum AgendaItemTypeJson2 {
     AgendaItemTypeJson2(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AgendaItemTypeJson2> fromValue(String value) {
-        for (AgendaItemTypeJson2 o: AgendaItemTypeJson2.values()) {
+        for (AgendaItemTypeJson2 o : AgendaItemTypeJson2.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum AgendaItemTypeJson2 {
         return Optional.empty();
     }
 }
-

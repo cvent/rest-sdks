@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TransactionItemCreateJson
- * 
+ *
  * <p>The item in the created transaction.
  */
 public class TransactionItemCreateJson {
@@ -42,7 +42,7 @@ public class TransactionItemCreateJson {
         this.product = product;
         this.amount = amount;
     }
-    
+
     public TransactionItemCreateJson() {
         this(null, null);
     }
@@ -66,7 +66,6 @@ public class TransactionItemCreateJson {
         return new Builder();
     }
 
-
     /**
      * This is used to denote the product details in an order item
      */
@@ -74,7 +73,6 @@ public class TransactionItemCreateJson {
         this.product = product;
         return this;
     }
-
 
     /**
      * Amount of the overall transaction you're allotting to the specified product. This amount is in the
@@ -85,7 +83,6 @@ public class TransactionItemCreateJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -95,33 +92,28 @@ public class TransactionItemCreateJson {
             return false;
         }
         TransactionItemCreateJson other = (TransactionItemCreateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.product, other.product) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount);
+        return Utils.enhancedDeepEquals(this.product, other.product) && Utils.enhancedDeepEquals(this.amount, other.amount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            product, amount);
+        return Utils.enhancedHash(product, amount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionItemCreateJson.class,
-                "product", product,
-                "amount", amount);
+        return Utils.toString(TransactionItemCreateJson.class, "product", product, "amount", amount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ProductOrderItemJson product;
 
         private Double amount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -142,9 +134,7 @@ public class TransactionItemCreateJson {
         }
 
         public TransactionItemCreateJson build() {
-            return new TransactionItemCreateJson(
-                product, amount);
+            return new TransactionItemCreateJson(product, amount);
         }
-
     }
 }

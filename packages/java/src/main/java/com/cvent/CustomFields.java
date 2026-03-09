@@ -53,7 +53,7 @@ public class CustomFields {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncCustomFields async() {
@@ -62,11 +62,11 @@ public class CustomFields {
 
     /**
      * List Custom Fields
-     * 
+     *
      * <p>Get a paginated list of custom fields in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListCustomFieldsRequestBuilder listCustomFields() {
@@ -75,28 +75,28 @@ public class CustomFields {
 
     /**
      * List Custom Fields
-     * 
+     *
      * <p>Get a paginated list of custom fields in an account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListCustomFieldsResponse listCustomFields(@Nonnull ListCustomFieldsRequest request) {
-        RequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation
-              = new ListCustomFields.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation =
+                new ListCustomFields.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Custom Field
-     * 
+     *
      * <p>Creates a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateCustomFieldRequestBuilder createCustomField() {
@@ -105,28 +105,28 @@ public class CustomFields {
 
     /**
      * Create Custom Field
-     * 
+     *
      * <p>Creates a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateCustomFieldResponse createCustomField(@Nonnull CustomField2 request) {
-        RequestOperation<CustomField2, CreateCustomFieldResponse> operation
-              = new CreateCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<CustomField2, CreateCustomFieldResponse> operation =
+                new CreateCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Custom Field
-     * 
+     *
      * <p>Updates a custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateCustomFieldRequestBuilder updateCustomField() {
@@ -135,28 +135,28 @@ public class CustomFields {
 
     /**
      * Update Custom Field
-     * 
+     *
      * <p>Updates a custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateCustomFieldResponse updateCustomField(@Nonnull UpdateCustomFieldRequest request) {
-        RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation
-              = new UpdateCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation =
+                new UpdateCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Custom Field
-     * 
+     *
      * <p>Get a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetCustomFieldRequestBuilder getCustomField() {
@@ -165,32 +165,32 @@ public class CustomFields {
 
     /**
      * Get Custom Field
-     * 
+     *
      * <p>Get a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCustomFieldResponse getCustomField(@Nonnull GetCustomFieldRequest request) {
-        RequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation
-              = new GetCustomField.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation =
+                new GetCustomField.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Advanced Logic
-     * 
+     *
      * <p>Updates the advanced logic for a custom field. Links the field given in the path to a 'source'
      * custom field. Answers to the source custom field determine the visible choices in the given custom
      * field.
-     * 
+     *
      * <p>If the source field has no answers, only the default choices for the given field are visible.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateCustomFieldAdvancedLogicRequestBuilder updateCustomFieldAdvancedLogic() {
@@ -199,32 +199,33 @@ public class CustomFields {
 
     /**
      * Update Advanced Logic
-     * 
+     *
      * <p>Updates the advanced logic for a custom field. Links the field given in the path to a 'source'
      * custom field. Answers to the source custom field determine the visible choices in the given custom
      * field.
-     * 
+     *
      * <p>If the source field has no answers, only the default choices for the given field are visible.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateCustomFieldAdvancedLogicResponse updateCustomFieldAdvancedLogic(@Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
-        RequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation
-              = new UpdateCustomFieldAdvancedLogic.Sync(sdkConfiguration, _headers);
+    public UpdateCustomFieldAdvancedLogicResponse updateCustomFieldAdvancedLogic(
+            @Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
+        RequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation =
+                new UpdateCustomFieldAdvancedLogic.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Custom Fld. Translation
-     * 
+     *
      * <p>Creates translations for a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateCustomFieldTranslationRequestBuilder createCustomFieldTranslation() {
@@ -233,28 +234,29 @@ public class CustomFields {
 
     /**
      * Create Custom Fld. Translation
-     * 
+     *
      * <p>Creates translations for a single custom field based on the values provided.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateCustomFieldTranslationResponse createCustomFieldTranslation(@Nonnull CreateCustomFieldTranslationRequest request) {
-        RequestOperation<CreateCustomFieldTranslationRequest, CreateCustomFieldTranslationResponse> operation
-              = new CreateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
+    public CreateCustomFieldTranslationResponse createCustomFieldTranslation(
+            @Nonnull CreateCustomFieldTranslationRequest request) {
+        RequestOperation<CreateCustomFieldTranslationRequest, CreateCustomFieldTranslationResponse> operation =
+                new CreateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Custom Fld. Translation
-     * 
+     *
      * <p>Updates translations for a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateCustomFieldTranslationRequestBuilder updateCustomFieldTranslation() {
@@ -263,19 +265,19 @@ public class CustomFields {
 
     /**
      * Update Custom Fld. Translation
-     * 
+     *
      * <p>Updates translations for a single custom field based on the given custom field ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateCustomFieldTranslationResponse updateCustomFieldTranslation(@Nonnull UpdateCustomFieldTranslationRequest request) {
-        RequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation
-              = new UpdateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
+    public UpdateCustomFieldTranslationResponse updateCustomFieldTranslation(
+            @Nonnull UpdateCustomFieldTranslationRequest request) {
+        RequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation =
+                new UpdateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

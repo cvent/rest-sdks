@@ -20,7 +20,8 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DisassociateAttendeeFromAudienceSegmentsRequestBuilder request(@Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
+    public DisassociateAttendeeFromAudienceSegmentsRequestBuilder request(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
     private DisassociateAttendeeFromAudienceSegmentsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DisassociateAttendeeFromAudienceSegmentsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,15 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DisassociateAttendeeFromAudienceSegmentsResponse call() {
-        RequestOperation<DisassociateAttendeeFromAudienceSegmentsRequest, DisassociateAttendeeFromAudienceSegmentsResponse> operation
-              = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, _headers);
+        RequestOperation<
+                        DisassociateAttendeeFromAudienceSegmentsRequest,
+                        DisassociateAttendeeFromAudienceSegmentsResponse>
+                operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -75,7 +75,7 @@ public class Attendees {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncAttendees async() {
@@ -84,12 +84,12 @@ public class Attendees {
 
     /**
      * List Attendance Duration
-     * 
+     *
      * <p>Gets a paginated list of durations attendees were engaged (in person or virtually) in a session,
      * appointment or watching a video.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListDurationsRequestBuilder listDurations() {
@@ -98,29 +98,29 @@ public class Attendees {
 
     /**
      * List Attendance Duration
-     * 
+     *
      * <p>Gets a paginated list of durations attendees were engaged (in person or virtually) in a session,
      * appointment or watching a video.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListDurationsResponse listDurations(@Nonnull ListDurationsRequest request) {
-        RequestOperation<ListDurationsRequest, ListDurationsResponse> operation
-              = new ListDurations.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListDurationsRequest, ListDurationsResponse> operation =
+                new ListDurations.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Add Attendees
-     * 
+     *
      * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateAttendeeRequestBuilder createAttendee() {
@@ -129,28 +129,28 @@ public class Attendees {
 
     /**
      * Add Attendees
-     * 
+     *
      * <p>Adds given contacts to an event as attendees, either inviting them or registering them directly.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAttendeeResponse createAttendee(@Nonnull List<AttendeeAddJson> request) {
-        RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation
-              = new CreateAttendee.Sync(sdkConfiguration, _headers);
+        RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+                new CreateAttendee.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAttendeesRequestBuilder listAttendees() {
@@ -159,30 +159,30 @@ public class Attendees {
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees in your account.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeesResponse listAttendees(@Nonnull ListAttendeesRequest request) {
-        RequestOperation<ListAttendeesRequest, ListAttendeesResponse> operation
-              = new ListAttendees.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAttendeesRequest, ListAttendeesResponse> operation =
+                new ListAttendees.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
      * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAttendeesPostFilterRequestBuilder listAttendeesPostFilter() {
@@ -191,30 +191,30 @@ public class Attendees {
 
     /**
      * List Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees by sending a filter in the body of the request. This method will
      * return the same data as  [GET List Attendees](#operation/listAttendees) but allows for longer
      * filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeesPostFilterResponse listAttendeesPostFilter(@Nonnull ListAttendeesPostFilterRequest request) {
-        RequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation
-              = new ListAttendeesPostFilter.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAttendeesPostFilterRequest, ListAttendeesPostFilterResponse> operation =
+                new ListAttendeesPostFilter.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Attendee
-     * 
+     *
      * <p>Gets a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetAttendeeByIdRequestBuilder getAttendeeById() {
@@ -223,28 +223,28 @@ public class Attendees {
 
     /**
      * Get Attendee
-     * 
+     *
      * <p>Gets a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAttendeeByIdResponse getAttendeeById(@Nonnull GetAttendeeByIdRequest request) {
-        RequestOperation<GetAttendeeByIdRequest, GetAttendeeByIdResponse> operation
-              = new GetAttendeeById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetAttendeeByIdRequest, GetAttendeeByIdResponse> operation =
+                new GetAttendeeById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Attendee
-     * 
+     *
      * <p>Updates a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateAttendeeRequestBuilder updateAttendee() {
@@ -253,28 +253,28 @@ public class Attendees {
 
     /**
      * Update Attendee
-     * 
+     *
      * <p>Updates a single attendee based on their ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAttendeeResponse updateAttendee(@Nonnull UpdateAttendeeRequest request) {
-        RequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation
-              = new UpdateAttendee.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation =
+                new UpdateAttendee.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Email Subscription
-     * 
+     *
      * <p>Updates an attendee's email subscription status for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateAttendeeSubscriptionStatusRequestBuilder updateAttendeeSubscriptionStatus() {
@@ -283,29 +283,30 @@ public class Attendees {
 
     /**
      * Update Email Subscription
-     * 
+     *
      * <p>Updates an attendee's email subscription status for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateAttendeeSubscriptionStatusResponse updateAttendeeSubscriptionStatus(@Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
-        RequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation
-              = new UpdateAttendeeSubscriptionStatus.Sync(sdkConfiguration, _headers);
+    public UpdateAttendeeSubscriptionStatusResponse updateAttendeeSubscriptionStatus(
+            @Nonnull UpdateAttendeeSubscriptionStatusRequest request) {
+        RequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation =
+                new UpdateAttendeeSubscriptionStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Internal Information
-     * 
+     *
      * <p>Update internal information answers for an attendee. Use either question code or id to identify
      * which question's answers are being updated.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateInternalInfoAnswersRequestBuilder updateInternalInfoAnswers() {
@@ -314,29 +315,30 @@ public class Attendees {
 
     /**
      * Update Internal Information
-     * 
+     *
      * <p>Update internal information answers for an attendee. Use either question code or id to identify
      * which question's answers are being updated.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UpdateInternalInfoAnswersResponse updateInternalInfoAnswers(@Nonnull UpdateInternalInfoAnswersRequest request) {
-        RequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation
-              = new UpdateInternalInfoAnswers.Sync(sdkConfiguration, _headers);
+    public UpdateInternalInfoAnswersResponse updateInternalInfoAnswers(
+            @Nonnull UpdateInternalInfoAnswersRequest request) {
+        RequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
+                new UpdateInternalInfoAnswers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Badge
-     * 
+     *
      * <p>Create a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public PostBadgeRequestBuilder postBadge() {
@@ -345,28 +347,28 @@ public class Attendees {
 
     /**
      * Create Badge
-     * 
+     *
      * <p>Create a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public PostBadgeResponse postBadge(@Nonnull PostBadgeRequest request) {
-        RequestOperation<PostBadgeRequest, PostBadgeResponse> operation
-              = new PostBadge.Sync(sdkConfiguration, _headers);
+        RequestOperation<PostBadgeRequest, PostBadgeResponse> operation =
+                new PostBadge.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Badge
-     * 
+     *
      * <p>Retrieves a list of third-party badge associations for attendees within the event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBadgeRequestBuilder getBadge() {
@@ -375,29 +377,28 @@ public class Attendees {
 
     /**
      * Get Badge
-     * 
+     *
      * <p>Retrieves a list of third-party badge associations for attendees within the event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgeResponse getBadge(@Nonnull GetBadgeRequest request) {
-        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation
-              = new GetBadge.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation = new GetBadge.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Badges
-     * 
+     *
      * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
      * return the same data as the getBadge but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBadgesPostFiltersRequestBuilder getBadgesPostFilters() {
@@ -406,29 +407,29 @@ public class Attendees {
 
     /**
      * Get Badges
-     * 
+     *
      * <p>Gets a paginated list of Badges by sending a filter in the body of the request. This method will
      * return the same data as the getBadge but allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgesPostFiltersResponse getBadgesPostFilters(@Nonnull GetBadgesPostFiltersRequest request) {
-        RequestOperation<GetBadgesPostFiltersRequest, GetBadgesPostFiltersResponse> operation
-              = new GetBadgesPostFilters.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBadgesPostFiltersRequest, GetBadgesPostFiltersResponse> operation =
+                new GetBadgesPostFilters.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Badge
-     * 
+     *
      * <p>Update a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateBadgeRequestBuilder updateBadge() {
@@ -437,19 +438,18 @@ public class Attendees {
 
     /**
      * Update Badge
-     * 
+     *
      * <p>Update a badge for an attendee associated with an event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateBadgeResponse updateBadge(@Nonnull UpdateBadgeRequest request) {
-        RequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation
-              = new UpdateBadge.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation =
+                new UpdateBadge.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

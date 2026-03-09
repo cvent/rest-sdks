@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ContactHistoryJson
- * 
+ *
  * <p>A single instance of change for a specific contact in the contact's change history.
  */
 public class ContactHistoryJson {
@@ -80,10 +80,9 @@ public class ContactHistoryJson {
         this.updatedDate = updatedDate;
         this.updatedBy = updatedBy;
     }
-    
+
     public ContactHistoryJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -135,7 +134,6 @@ public class ContactHistoryJson {
         return new Builder();
     }
 
-
     /**
      * The name of a field that was changed and tracked by this single instance of change in contact change
      * history.
@@ -145,7 +143,6 @@ public class ContactHistoryJson {
         return this;
     }
 
-
     /**
      * The old value of a field that was changed.
      */
@@ -153,7 +150,6 @@ public class ContactHistoryJson {
         this.oldValue = oldValue;
         return this;
     }
-
 
     /**
      * The new value of a field that was changed.
@@ -163,7 +159,6 @@ public class ContactHistoryJson {
         return this;
     }
 
-
     /**
      * Name of the place where this change was updated through.
      */
@@ -171,7 +166,6 @@ public class ContactHistoryJson {
         this.updatedThroughName = updatedThroughName;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date-time when the associated contact, of this single instance of change in
@@ -182,7 +176,6 @@ public class ContactHistoryJson {
         return this;
     }
 
-
     /**
      * The name of a person who updated a contact that is associated with this single instance of change in
      * contact change history.
@@ -191,7 +184,6 @@ public class ContactHistoryJson {
         this.updatedBy = updatedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -202,35 +194,39 @@ public class ContactHistoryJson {
             return false;
         }
         ContactHistoryJson other = (ContactHistoryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.updatedFieldName, other.updatedFieldName) &&
-            Utils.enhancedDeepEquals(this.oldValue, other.oldValue) &&
-            Utils.enhancedDeepEquals(this.newValue, other.newValue) &&
-            Utils.enhancedDeepEquals(this.updatedThroughName, other.updatedThroughName) &&
-            Utils.enhancedDeepEquals(this.updatedDate, other.updatedDate) &&
-            Utils.enhancedDeepEquals(this.updatedBy, other.updatedBy);
+        return Utils.enhancedDeepEquals(this.updatedFieldName, other.updatedFieldName)
+                && Utils.enhancedDeepEquals(this.oldValue, other.oldValue)
+                && Utils.enhancedDeepEquals(this.newValue, other.newValue)
+                && Utils.enhancedDeepEquals(this.updatedThroughName, other.updatedThroughName)
+                && Utils.enhancedDeepEquals(this.updatedDate, other.updatedDate)
+                && Utils.enhancedDeepEquals(this.updatedBy, other.updatedBy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            updatedFieldName, oldValue, newValue,
-            updatedThroughName, updatedDate, updatedBy);
+        return Utils.enhancedHash(updatedFieldName, oldValue, newValue, updatedThroughName, updatedDate, updatedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactHistoryJson.class,
-                "updatedFieldName", updatedFieldName,
-                "oldValue", oldValue,
-                "newValue", newValue,
-                "updatedThroughName", updatedThroughName,
-                "updatedDate", updatedDate,
-                "updatedBy", updatedBy);
+        return Utils.toString(
+                ContactHistoryJson.class,
+                "updatedFieldName",
+                updatedFieldName,
+                "oldValue",
+                oldValue,
+                "newValue",
+                newValue,
+                "updatedThroughName",
+                updatedThroughName,
+                "updatedDate",
+                updatedDate,
+                "updatedBy",
+                updatedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String updatedFieldName;
 
@@ -245,7 +241,7 @@ public class ContactHistoryJson {
         private String updatedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -301,9 +297,7 @@ public class ContactHistoryJson {
 
         public ContactHistoryJson build() {
             return new ContactHistoryJson(
-                updatedFieldName, oldValue, newValue,
-                updatedThroughName, updatedDate, updatedBy);
+                    updatedFieldName, oldValue, newValue, updatedThroughName, updatedDate, updatedBy);
         }
-
     }
 }

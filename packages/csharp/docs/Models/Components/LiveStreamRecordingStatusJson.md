@@ -2,6 +2,14 @@
 
 This is used to denote the status of the live stream recording job
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = LiveStreamRecordingStatusJson.Error;
+```
+
 
 ## Values
 

@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TravelProgramTypeJson
     {
-        [JsonProperty("corporate")]
-        Corporate,
-        [JsonProperty("leisure")]
-        Leisure,
-        [JsonProperty("consortia")]
-        Consortia,
+        [JsonProperty("corporate")] Corporate,
+        [JsonProperty("leisure")] Leisure,
+        [JsonProperty("consortia")] Consortia,
     }
 
     public static class TravelProgramTypeJsonExtension
     {
         public static string Value(this TravelProgramTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TravelProgramTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TravelProgramTypeJson).GetFields())
+            foreach (var field in typeof(TravelProgramTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

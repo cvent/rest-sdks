@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateAppointmentRequest {
     /**
      * The unique identifier of an appointment event.
@@ -37,7 +36,6 @@ public class UpdateAppointmentRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=suppressNotifications")
     private Boolean suppressNotifications;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest;
 
@@ -47,20 +45,16 @@ public class UpdateAppointmentRequest {
             @Nonnull String apptId,
             @Nullable Boolean suppressNotifications,
             @Nullable com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.apptId = Optional.ofNullable(apptId)
-            .orElseThrow(() -> new IllegalArgumentException("apptId cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.apptId =
+                Optional.ofNullable(apptId).orElseThrow(() -> new IllegalArgumentException("apptId cannot be null"));
         this.suppressNotifications = Optional.ofNullable(suppressNotifications)
-            .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
+                .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
         this.updateAppointmentRequest = updateAppointmentRequest;
     }
-    
-    public UpdateAppointmentRequest(
-            @Nonnull String id,
-            @Nonnull String apptId) {
-        this(id, apptId, null,
-            null);
+
+    public UpdateAppointmentRequest(@Nonnull String id, @Nonnull String apptId) {
+        this(id, apptId, null, null);
     }
 
     /**
@@ -94,7 +88,6 @@ public class UpdateAppointmentRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an appointment event.
      */
@@ -103,7 +96,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * The unique identifier of an appointment.
      */
@@ -111,7 +103,6 @@ public class UpdateAppointmentRequest {
         this.apptId = Utils.checkNotNull(apptId, "apptId");
         return this;
     }
-
 
     /**
      * Flag to choose whether to suppress notifications on successful completion of operation.
@@ -123,12 +114,11 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
-    public UpdateAppointmentRequest withUpdateAppointmentRequest(@Nullable com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest) {
+    public UpdateAppointmentRequest withUpdateAppointmentRequest(
+            @Nullable com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest) {
         this.updateAppointmentRequest = updateAppointmentRequest;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -139,31 +129,33 @@ public class UpdateAppointmentRequest {
             return false;
         }
         UpdateAppointmentRequest other = (UpdateAppointmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.apptId, other.apptId) &&
-            Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications) &&
-            Utils.enhancedDeepEquals(this.updateAppointmentRequest, other.updateAppointmentRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.apptId, other.apptId)
+                && Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications)
+                && Utils.enhancedDeepEquals(this.updateAppointmentRequest, other.updateAppointmentRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, apptId, suppressNotifications,
-            updateAppointmentRequest);
+        return Utils.enhancedHash(id, apptId, suppressNotifications, updateAppointmentRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAppointmentRequest.class,
-                "id", id,
-                "apptId", apptId,
-                "suppressNotifications", suppressNotifications,
-                "updateAppointmentRequest", updateAppointmentRequest);
+        return Utils.toString(
+                UpdateAppointmentRequest.class,
+                "id",
+                id,
+                "apptId",
+                apptId,
+                "suppressNotifications",
+                suppressNotifications,
+                "updateAppointmentRequest",
+                updateAppointmentRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -174,7 +166,7 @@ public class UpdateAppointmentRequest {
         private com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,22 +195,17 @@ public class UpdateAppointmentRequest {
             return this;
         }
 
-        public Builder updateAppointmentRequest(@Nullable com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest) {
+        public Builder updateAppointmentRequest(
+                @Nullable com.cvent.models.components.UpdateAppointmentRequest updateAppointmentRequest) {
             this.updateAppointmentRequest = updateAppointmentRequest;
             return this;
         }
 
         public UpdateAppointmentRequest build() {
-            return new UpdateAppointmentRequest(
-                id, apptId, suppressNotifications,
-                updateAppointmentRequest);
+            return new UpdateAppointmentRequest(id, apptId, suppressNotifications, updateAppointmentRequest);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SuppressNotifications =
-                new LazySingletonValue<>(
-                        "suppressNotifications",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("suppressNotifications", "false", new TypeReference<Boolean>() {});
     }
 }

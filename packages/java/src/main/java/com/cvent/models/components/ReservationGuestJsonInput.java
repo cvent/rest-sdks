@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ReservationGuestJsonInput
- * 
+ *
  * <p>Guest details for confirmed reservation.
  */
 public class ReservationGuestJsonInput {
@@ -158,44 +158,54 @@ public class ReservationGuestJsonInput {
             @JsonProperty("ageQualifyingCode") @Nullable AgeQualifyingCode ageQualifyingCode,
             @JsonProperty("primary") @Nullable Boolean primary,
             @JsonProperty("locale") @Nullable String locale) {
-        this.arrival = Optional.ofNullable(arrival)
-            .orElseThrow(() -> new IllegalArgumentException("arrival cannot be null"));
+        this.arrival =
+                Optional.ofNullable(arrival).orElseThrow(() -> new IllegalArgumentException("arrival cannot be null"));
         this.departure = Optional.ofNullable(departure)
-            .orElseThrow(() -> new IllegalArgumentException("departure cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("departure cannot be null"));
         this.firstName = Optional.ofNullable(firstName)
-            .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("firstName cannot be null"));
         this.lastName = Optional.ofNullable(lastName)
-            .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("lastName cannot be null"));
         this.middleName = middleName;
         this.title = title;
         this.position = position;
         this.company = company;
         this.homeFax = homeFax;
-        this.email = Optional.ofNullable(email)
-            .orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
+        this.email = Optional.ofNullable(email).orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
         this.homePhone = homePhone;
         this.workPhone = workPhone;
         this.homeAddress = homeAddress;
         this.paymentInfo = paymentInfo;
-        this.ageQualifyingCode = Optional.ofNullable(ageQualifyingCode)
-            .orElse(Builder._SINGLETON_VALUE_AgeQualifyingCode.value());
-        this.primary = Optional.ofNullable(primary)
-            .orElse(Builder._SINGLETON_VALUE_Primary.value());
+        this.ageQualifyingCode =
+                Optional.ofNullable(ageQualifyingCode).orElse(Builder._SINGLETON_VALUE_AgeQualifyingCode.value());
+        this.primary = Optional.ofNullable(primary).orElse(Builder._SINGLETON_VALUE_Primary.value());
         this.locale = locale;
     }
-    
+
     public ReservationGuestJsonInput(
             @Nonnull LocalDate arrival,
             @Nonnull LocalDate departure,
             @Nonnull String firstName,
             @Nonnull String lastName,
             @Nonnull String email) {
-        this(arrival, departure, firstName,
-            lastName, null, null,
-            null, null, null,
-            email, null, null,
-            null, null, null,
-            null, null);
+        this(
+                arrival,
+                departure,
+                firstName,
+                lastName,
+                null,
+                null,
+                null,
+                null,
+                null,
+                email,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -322,7 +332,6 @@ public class ReservationGuestJsonInput {
         return new Builder();
     }
 
-
     /**
      * Arrival date in ISO 8601 format.
      */
@@ -330,7 +339,6 @@ public class ReservationGuestJsonInput {
         this.arrival = Utils.checkNotNull(arrival, "arrival");
         return this;
     }
-
 
     /**
      * Departure date in ISO 8601 format.
@@ -340,7 +348,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * First name of the guest.
      */
@@ -348,7 +355,6 @@ public class ReservationGuestJsonInput {
         this.firstName = Utils.checkNotNull(firstName, "firstName");
         return this;
     }
-
 
     /**
      * Last name of the guest.
@@ -358,7 +364,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Middle name of the guest.
      */
@@ -366,7 +371,6 @@ public class ReservationGuestJsonInput {
         this.middleName = middleName;
         return this;
     }
-
 
     /**
      * Title of the guest.
@@ -376,7 +380,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Position of the guest.
      */
@@ -384,7 +387,6 @@ public class ReservationGuestJsonInput {
         this.position = position;
         return this;
     }
-
 
     /**
      * Organization or company name of the guest.
@@ -394,7 +396,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Home fax number of the guest.
      */
@@ -402,7 +403,6 @@ public class ReservationGuestJsonInput {
         this.homeFax = homeFax;
         return this;
     }
-
 
     /**
      * Email address of the guest.
@@ -412,7 +412,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Home phone number of the guest. Required if the hotel/event requires address in reservations.
      */
@@ -421,7 +420,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Work phone number of the guest.
      */
@@ -429,7 +427,6 @@ public class ReservationGuestJsonInput {
         this.workPhone = workPhone;
         return this;
     }
-
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -440,7 +437,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Payment information.
      */
@@ -448,7 +444,6 @@ public class ReservationGuestJsonInput {
         this.paymentInfo = paymentInfo;
         return this;
     }
-
 
     /**
      * Code that specifies if the guest is an adult or child. (10 - adult, 8 - child)
@@ -458,7 +453,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * True indicates this guest is the primary guest for the reservation.
      */
@@ -467,7 +461,6 @@ public class ReservationGuestJsonInput {
         return this;
     }
 
-
     /**
      * Locale code in IETF language tag format.
      */
@@ -475,7 +468,6 @@ public class ReservationGuestJsonInput {
         this.locale = locale;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -486,61 +478,89 @@ public class ReservationGuestJsonInput {
             return false;
         }
         ReservationGuestJsonInput other = (ReservationGuestJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.arrival, other.arrival) &&
-            Utils.enhancedDeepEquals(this.departure, other.departure) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.middleName, other.middleName) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.position, other.position) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.homePhone, other.homePhone) &&
-            Utils.enhancedDeepEquals(this.workPhone, other.workPhone) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.paymentInfo, other.paymentInfo) &&
-            Utils.enhancedDeepEquals(this.ageQualifyingCode, other.ageQualifyingCode) &&
-            Utils.enhancedDeepEquals(this.primary, other.primary) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale);
+        return Utils.enhancedDeepEquals(this.arrival, other.arrival)
+                && Utils.enhancedDeepEquals(this.departure, other.departure)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.middleName, other.middleName)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.position, other.position)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.homePhone, other.homePhone)
+                && Utils.enhancedDeepEquals(this.workPhone, other.workPhone)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.paymentInfo, other.paymentInfo)
+                && Utils.enhancedDeepEquals(this.ageQualifyingCode, other.ageQualifyingCode)
+                && Utils.enhancedDeepEquals(this.primary, other.primary)
+                && Utils.enhancedDeepEquals(this.locale, other.locale);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            arrival, departure, firstName,
-            lastName, middleName, title,
-            position, company, homeFax,
-            email, homePhone, workPhone,
-            homeAddress, paymentInfo, ageQualifyingCode,
-            primary, locale);
+                arrival,
+                departure,
+                firstName,
+                lastName,
+                middleName,
+                title,
+                position,
+                company,
+                homeFax,
+                email,
+                homePhone,
+                workPhone,
+                homeAddress,
+                paymentInfo,
+                ageQualifyingCode,
+                primary,
+                locale);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationGuestJsonInput.class,
-                "arrival", arrival,
-                "departure", departure,
-                "firstName", firstName,
-                "lastName", lastName,
-                "middleName", middleName,
-                "title", title,
-                "position", position,
-                "company", company,
-                "homeFax", homeFax,
-                "email", email,
-                "homePhone", homePhone,
-                "workPhone", workPhone,
-                "homeAddress", homeAddress,
-                "paymentInfo", paymentInfo,
-                "ageQualifyingCode", ageQualifyingCode,
-                "primary", primary,
-                "locale", locale);
+        return Utils.toString(
+                ReservationGuestJsonInput.class,
+                "arrival",
+                arrival,
+                "departure",
+                departure,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "middleName",
+                middleName,
+                "title",
+                title,
+                "position",
+                position,
+                "company",
+                company,
+                "homeFax",
+                homeFax,
+                "email",
+                email,
+                "homePhone",
+                homePhone,
+                "workPhone",
+                workPhone,
+                "homeAddress",
+                homeAddress,
+                "paymentInfo",
+                paymentInfo,
+                "ageQualifyingCode",
+                ageQualifyingCode,
+                "primary",
+                primary,
+                "locale",
+                locale);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LocalDate arrival;
 
@@ -577,7 +597,7 @@ public class ReservationGuestJsonInput {
         private String locale;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -719,25 +739,29 @@ public class ReservationGuestJsonInput {
 
         public ReservationGuestJsonInput build() {
             return new ReservationGuestJsonInput(
-                arrival, departure, firstName,
-                lastName, middleName, title,
-                position, company, homeFax,
-                email, homePhone, workPhone,
-                homeAddress, paymentInfo, ageQualifyingCode,
-                primary, locale);
+                    arrival,
+                    departure,
+                    firstName,
+                    lastName,
+                    middleName,
+                    title,
+                    position,
+                    company,
+                    homeFax,
+                    email,
+                    homePhone,
+                    workPhone,
+                    homeAddress,
+                    paymentInfo,
+                    ageQualifyingCode,
+                    primary,
+                    locale);
         }
 
-
         private static final LazySingletonValue<AgeQualifyingCode> _SINGLETON_VALUE_AgeQualifyingCode =
-                new LazySingletonValue<>(
-                        "ageQualifyingCode",
-                        "10",
-                        new TypeReference<AgeQualifyingCode>() {});
+                new LazySingletonValue<>("ageQualifyingCode", "10", new TypeReference<AgeQualifyingCode>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
-                new LazySingletonValue<>(
-                        "primary",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});
     }
 }

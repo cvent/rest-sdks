@@ -18,36 +18,27 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum CreditCardTypesJson
     {
-        [JsonProperty("VISA")]
-        Visa,
-        [JsonProperty("MasterCard")]
-        MasterCard,
-        [JsonProperty("AmericanExpr")]
-        AmericanExpr,
-        [JsonProperty("Discover")]
-        Discover,
-        [JsonProperty("DinersClub")]
-        DinersClub,
-        [JsonProperty("JCB")]
-        Jcb,
-        [JsonProperty("UnionPay")]
-        UnionPay,
-        [JsonProperty("AliPay")]
-        AliPay,
-        [JsonProperty("NotSupported")]
-        NotSupported,
+        [JsonProperty("VISA")] Visa,
+        [JsonProperty("MasterCard")] MasterCard,
+        [JsonProperty("AmericanExpr")] AmericanExpr,
+        [JsonProperty("Discover")] Discover,
+        [JsonProperty("DinersClub")] DinersClub,
+        [JsonProperty("JCB")] Jcb,
+        [JsonProperty("UnionPay")] UnionPay,
+        [JsonProperty("AliPay")] AliPay,
+        [JsonProperty("NotSupported")] NotSupported,
     }
 
     public static class CreditCardTypesJsonExtension
     {
         public static string Value(this CreditCardTypesJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static CreditCardTypesJson ToEnum(this string value)
         {
-            foreach(var field in typeof(CreditCardTypesJson).GetFields())
+            foreach (var field in typeof(CreditCardTypesJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

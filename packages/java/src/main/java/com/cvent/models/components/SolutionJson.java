@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SolutionJson
- * 
+ *
  * <p>The solution where the video exists. Attendee Hub and Events+ represent two different solutions
  * where the video can be found.
  */
@@ -24,13 +24,13 @@ public enum SolutionJson {
     SolutionJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SolutionJson> fromValue(String value) {
-        for (SolutionJson o: SolutionJson.values()) {
+        for (SolutionJson o : SolutionJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum SolutionJson {
         return Optional.empty();
     }
 }
-

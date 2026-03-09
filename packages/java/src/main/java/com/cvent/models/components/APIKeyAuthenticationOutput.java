@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * APIKeyAuthenticationOutput
- * 
+ *
  * <p>API Key Authentication.
  */
 public class APIKeyAuthenticationOutput {
@@ -51,16 +51,12 @@ public class APIKeyAuthenticationOutput {
             @JsonProperty("type") @Nonnull AuthorizationHeaderType1 type,
             @JsonProperty("authHeaderKey") @Nullable String authHeaderKey,
             @JsonProperty("apiKeyPrefix") @Nullable Boolean apiKeyPrefix) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.authHeaderKey = Optional.ofNullable(authHeaderKey)
-            .orElse(Builder._SINGLETON_VALUE_AuthHeaderKey.value());
-        this.apiKeyPrefix = Optional.ofNullable(apiKeyPrefix)
-            .orElse(Builder._SINGLETON_VALUE_ApiKeyPrefix.value());
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.authHeaderKey = Optional.ofNullable(authHeaderKey).orElse(Builder._SINGLETON_VALUE_AuthHeaderKey.value());
+        this.apiKeyPrefix = Optional.ofNullable(apiKeyPrefix).orElse(Builder._SINGLETON_VALUE_ApiKeyPrefix.value());
     }
-    
-    public APIKeyAuthenticationOutput(
-            @Nonnull AuthorizationHeaderType1 type) {
+
+    public APIKeyAuthenticationOutput(@Nonnull AuthorizationHeaderType1 type) {
         this(type, null, null);
     }
 
@@ -92,7 +88,6 @@ public class APIKeyAuthenticationOutput {
         return new Builder();
     }
 
-
     /**
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
@@ -101,7 +96,6 @@ public class APIKeyAuthenticationOutput {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     /**
      * The header key for which API Key will be sent in callback requests. If this field is not set, the
@@ -112,7 +106,6 @@ public class APIKeyAuthenticationOutput {
         return this;
     }
 
-
     /**
      * Whether API Key Value is prefixed by 'api_key'. When set to true, the authorization header's value
      * in callback requests will be 'api_key 2b3cc2bf083ff11206ce6b2f3ee09591'
@@ -121,7 +114,6 @@ public class APIKeyAuthenticationOutput {
         this.apiKeyPrefix = apiKeyPrefix;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,28 +124,30 @@ public class APIKeyAuthenticationOutput {
             return false;
         }
         APIKeyAuthenticationOutput other = (APIKeyAuthenticationOutput) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.authHeaderKey, other.authHeaderKey) &&
-            Utils.enhancedDeepEquals(this.apiKeyPrefix, other.apiKeyPrefix);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.authHeaderKey, other.authHeaderKey)
+                && Utils.enhancedDeepEquals(this.apiKeyPrefix, other.apiKeyPrefix);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, authHeaderKey, apiKeyPrefix);
+        return Utils.enhancedHash(type, authHeaderKey, apiKeyPrefix);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(APIKeyAuthenticationOutput.class,
-                "type", type,
-                "authHeaderKey", authHeaderKey,
-                "apiKeyPrefix", apiKeyPrefix);
+        return Utils.toString(
+                APIKeyAuthenticationOutput.class,
+                "type",
+                type,
+                "authHeaderKey",
+                authHeaderKey,
+                "apiKeyPrefix",
+                apiKeyPrefix);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AuthorizationHeaderType1 type;
 
@@ -162,7 +156,7 @@ public class APIKeyAuthenticationOutput {
         private Boolean apiKeyPrefix;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -193,21 +187,13 @@ public class APIKeyAuthenticationOutput {
         }
 
         public APIKeyAuthenticationOutput build() {
-            return new APIKeyAuthenticationOutput(
-                type, authHeaderKey, apiKeyPrefix);
+            return new APIKeyAuthenticationOutput(type, authHeaderKey, apiKeyPrefix);
         }
 
-
         private static final LazySingletonValue<String> _SINGLETON_VALUE_AuthHeaderKey =
-                new LazySingletonValue<>(
-                        "authHeaderKey",
-                        "\"Authorization\"",
-                        new TypeReference<String>() {});
+                new LazySingletonValue<>("authHeaderKey", "\"Authorization\"", new TypeReference<String>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ApiKeyPrefix =
-                new LazySingletonValue<>(
-                        "apiKeyPrefix",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("apiKeyPrefix", "true", new TypeReference<Boolean>() {});
     }
 }

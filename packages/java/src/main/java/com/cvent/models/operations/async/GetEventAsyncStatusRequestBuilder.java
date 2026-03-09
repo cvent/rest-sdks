@@ -30,7 +30,7 @@ public class GetEventAsyncStatusRequestBuilder {
     private GetEventAsyncStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventAsyncStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEventAsyncStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventAsyncStatusResponse> call() {
-        AsyncRequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation
-              = new GetEventAsyncStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation =
+                new GetEventAsyncStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

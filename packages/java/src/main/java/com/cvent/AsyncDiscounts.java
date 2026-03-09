@@ -49,20 +49,19 @@ public class AsyncDiscounts {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public Discounts sync() {
         return syncSDK;
     }
 
-
     /**
      * List Event Discounts
-     * 
+     *
      * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
      * account-level discount codes used in an event.
-     * 
+     *
      * @return The async call builder
      */
     public ListEventDiscountsRequestBuilder listEventDiscounts() {
@@ -71,26 +70,25 @@ public class AsyncDiscounts {
 
     /**
      * List Event Discounts
-     * 
+     *
      * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
      * account-level discount codes used in an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListEventDiscountsResponse>} - The async response
      */
-    public CompletableFuture<ListEventDiscountsResponse> listEventDiscounts(@Nonnull ListEventDiscountsRequest request) {
-        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation
-              = new ListEventDiscounts.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListEventDiscountsResponse> listEventDiscounts(
+            @Nonnull ListEventDiscountsRequest request) {
+        AsyncRequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation =
+                new ListEventDiscounts.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Event Discount
-     * 
+     *
      * <p>Create discount in an event.
-     * 
+     *
      * @return The async call builder
      */
     public CreateEventDiscountRequestBuilder createEventDiscount() {
@@ -99,27 +97,26 @@ public class AsyncDiscounts {
 
     /**
      * Create Event Discount
-     * 
+     *
      * <p>Create discount in an event.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateEventDiscountResponse>} - The async response
      */
-    public CompletableFuture<CreateEventDiscountResponse> createEventDiscount(@Nonnull CreateEventDiscountRequest request) {
-        AsyncRequestOperation<CreateEventDiscountRequest, CreateEventDiscountResponse> operation
-              = new CreateEventDiscount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateEventDiscountResponse> createEventDiscount(
+            @Nonnull CreateEventDiscountRequest request) {
+        AsyncRequestOperation<CreateEventDiscountRequest, CreateEventDiscountResponse> operation =
+                new CreateEventDiscount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Discounted Agenda Items
-     * 
+     *
      * <p>Returns a paginated list of agenda items that are associated with discounts for the specified event.
      * This endpoint helps identify which agenda items (such as admission items, sessions, session bundles,
      * membership-items or quantity-items) are currently associated with discounts.
-     * 
+     *
      * @return The async call builder
      */
     public ListDiscountedAgendaItemsRequestBuilder listDiscountedAgendaItems() {
@@ -128,28 +125,27 @@ public class AsyncDiscounts {
 
     /**
      * List Discounted Agenda Items
-     * 
+     *
      * <p>Returns a paginated list of agenda items that are associated with discounts for the specified event.
      * This endpoint helps identify which agenda items (such as admission items, sessions, session bundles,
      * membership-items or quantity-items) are currently associated with discounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListDiscountedAgendaItemsResponse>} - The async response
      */
-    public CompletableFuture<ListDiscountedAgendaItemsResponse> listDiscountedAgendaItems(@Nonnull ListDiscountedAgendaItemsRequest request) {
-        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation
-              = new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListDiscountedAgendaItemsResponse> listDiscountedAgendaItems(
+            @Nonnull ListDiscountedAgendaItemsRequest request) {
+        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation =
+                new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Event Discount
-     * 
+     *
      * <p>Update a discount in an event based on details in the request body. Fields not included in the
      * request will revert to their default value.
-     * 
+     *
      * @return The async call builder
      */
     public UpdateEventDiscountRequestBuilder updateEventDiscount() {
@@ -158,26 +154,25 @@ public class AsyncDiscounts {
 
     /**
      * Update Event Discount
-     * 
+     *
      * <p>Update a discount in an event based on details in the request body. Fields not included in the
      * request will revert to their default value.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateEventDiscountResponse>} - The async response
      */
-    public CompletableFuture<UpdateEventDiscountResponse> updateEventDiscount(@Nonnull UpdateEventDiscountRequest request) {
-        AsyncRequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation
-              = new UpdateEventDiscount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateEventDiscountResponse> updateEventDiscount(
+            @Nonnull UpdateEventDiscountRequest request) {
+        AsyncRequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation =
+                new UpdateEventDiscount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Link Agenda Item to Discount
-     * 
+     *
      * <p>Links an agenda item to a given event discount.
-     * 
+     *
      * @return The async call builder
      */
     public LinkAgendaItemToDiscountRequestBuilder linkAgendaItemToDiscount() {
@@ -186,25 +181,24 @@ public class AsyncDiscounts {
 
     /**
      * Link Agenda Item to Discount
-     * 
+     *
      * <p>Links an agenda item to a given event discount.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<LinkAgendaItemToDiscountResponse>} - The async response
      */
-    public CompletableFuture<LinkAgendaItemToDiscountResponse> linkAgendaItemToDiscount(@Nonnull LinkAgendaItemToDiscountRequest request) {
-        AsyncRequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation
-              = new LinkAgendaItemToDiscount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<LinkAgendaItemToDiscountResponse> linkAgendaItemToDiscount(
+            @Nonnull LinkAgendaItemToDiscountRequest request) {
+        AsyncRequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation =
+                new LinkAgendaItemToDiscount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Unlink Agenda Item Discount
-     * 
+     *
      * <p>Unlinks an agenda item from a given event discount.
-     * 
+     *
      * @return The async call builder
      */
     public UnlinkAgendaItemFromDiscountRequestBuilder unlinkAgendaItemFromDiscount() {
@@ -213,17 +207,16 @@ public class AsyncDiscounts {
 
     /**
      * Unlink Agenda Item Discount
-     * 
+     *
      * <p>Unlinks an agenda item from a given event discount.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UnlinkAgendaItemFromDiscountResponse>} - The async response
      */
-    public CompletableFuture<UnlinkAgendaItemFromDiscountResponse> unlinkAgendaItemFromDiscount(@Nonnull UnlinkAgendaItemFromDiscountRequest request) {
-        AsyncRequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation
-              = new UnlinkAgendaItemFromDiscount.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UnlinkAgendaItemFromDiscountResponse> unlinkAgendaItemFromDiscount(
+            @Nonnull UnlinkAgendaItemFromDiscountRequest request) {
+        AsyncRequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation =
+                new UnlinkAgendaItemFromDiscount.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

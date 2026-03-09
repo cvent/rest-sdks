@@ -30,7 +30,7 @@ public class GetEventEmailStatusRequestBuilder {
     private GetEventEmailStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventEmailStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetEventEmailStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventEmailStatusResponse> call() {
-        AsyncRequestOperation<GetEventEmailStatusRequest, GetEventEmailStatusResponse> operation
-              = new GetEventEmailStatus.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventEmailStatusRequest, GetEventEmailStatusResponse> operation =
+                new GetEventEmailStatus.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

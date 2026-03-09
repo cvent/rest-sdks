@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * OpenEndedOneLine
- * 
+ *
  * <p>This is used to denote the open ended one line type of custom field.
  */
 public class OpenEndedOneLine {
@@ -52,7 +52,7 @@ public class OpenEndedOneLine {
         this.minimum = minimum;
         this.maximum = maximum;
     }
-    
+
     public OpenEndedOneLine() {
         this(null, null, null);
     }
@@ -84,7 +84,6 @@ public class OpenEndedOneLine {
         return new Builder();
     }
 
-
     /**
      * The supported answer formats are: General, Number, Currency, Decimal, USPhoneNumber, and
      * EmailAddress. Custom answer formats are also supported and can be created in the Admin section of
@@ -95,7 +94,6 @@ public class OpenEndedOneLine {
         return this;
     }
 
-
     /**
      * Minimum number/characters allowed.
      */
@@ -104,7 +102,6 @@ public class OpenEndedOneLine {
         return this;
     }
 
-
     /**
      * Maximum number/characters allowed.
      */
@@ -112,7 +109,6 @@ public class OpenEndedOneLine {
         this.maximum = maximum;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +119,24 @@ public class OpenEndedOneLine {
             return false;
         }
         OpenEndedOneLine other = (OpenEndedOneLine) o;
-        return 
-            Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat) &&
-            Utils.enhancedDeepEquals(this.minimum, other.minimum) &&
-            Utils.enhancedDeepEquals(this.maximum, other.maximum);
+        return Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat)
+                && Utils.enhancedDeepEquals(this.minimum, other.minimum)
+                && Utils.enhancedDeepEquals(this.maximum, other.maximum);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            answerFormat, minimum, maximum);
+        return Utils.enhancedHash(answerFormat, minimum, maximum);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OpenEndedOneLine.class,
-                "answerFormat", answerFormat,
-                "minimum", minimum,
-                "maximum", maximum);
+        return Utils.toString(
+                OpenEndedOneLine.class, "answerFormat", answerFormat, "minimum", minimum, "maximum", maximum);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String answerFormat;
 
@@ -153,7 +145,7 @@ public class OpenEndedOneLine {
         private Long maximum;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -183,9 +175,7 @@ public class OpenEndedOneLine {
         }
 
         public OpenEndedOneLine build() {
-            return new OpenEndedOneLine(
-                answerFormat, minimum, maximum);
+            return new OpenEndedOneLine(answerFormat, minimum, maximum);
         }
-
     }
 }

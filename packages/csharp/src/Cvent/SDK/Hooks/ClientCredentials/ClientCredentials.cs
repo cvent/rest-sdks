@@ -171,7 +171,7 @@ namespace Cvent.SDK.Hooks.ClientCredentials
             return request;
         }
 
-        #pragma warning disable CS1998
+#pragma warning disable CS1998
         /// <summary>
         /// Removes the session if the last HTTP request resulted in an unauthorized error.
         /// </summary>
@@ -206,7 +206,7 @@ namespace Cvent.SDK.Hooks.ClientCredentials
 
             return (response, error);
         }
-        #pragma warning restore CS1998
+#pragma warning restore CS1998
 
         /// <summary>
         /// Retrieves the client credentials from the appropriate security source.
@@ -223,7 +223,6 @@ namespace Cvent.SDK.Hooks.ClientCredentials
 
             return GetCredentialsGlobal(hookCtx.SecuritySource);
         }
-
 
         /// <summary>
         /// Retrieves Client Credentials OAuth2 credentials from the security source.
@@ -256,7 +255,7 @@ namespace Cvent.SDK.Hooks.ClientCredentials
         /// <returns>A session containing the access token and associated metadata.</returns>
         private async Task<Session> DoTokenRequestAsync(string baseURL, Credentials credentials, List<string> scopes)
         {
-            if( Client == null )
+            if (Client == null)
             {
                 throw new Exception("CventSDKHttpClient not provided");
             }
@@ -271,14 +270,12 @@ namespace Cvent.SDK.Hooks.ClientCredentials
                 throw new Exception($"Failed to parse token URL: {ex}");
             }
 
-            var request = new HttpRequestMessage
-                {
-                    Method = HttpMethod.Post,
-                    RequestUri = tokenUri
-                };
+            var request = new HttpRequestMessage {
+                Method = HttpMethod.Post,
+                RequestUri = tokenUri
+            };
 
-            var payload = new List<PayloadValue>
-            {
+            var payload = new List<PayloadValue> {
                 new PayloadValue("grant_type", "client_credentials"),
             };
             var basicAuth = Convert.ToBase64String(
@@ -469,6 +466,5 @@ namespace Cvent.SDK.Hooks.ClientCredentials
         {
             return expiresAt != null && DateTime.UtcNow.AddSeconds(60) >= expiresAt;
         }
-
     }
 }

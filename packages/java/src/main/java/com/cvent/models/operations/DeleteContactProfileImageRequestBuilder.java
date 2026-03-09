@@ -28,7 +28,7 @@ public class DeleteContactProfileImageRequestBuilder {
     private DeleteContactProfileImageRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteContactProfileImageRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteContactProfileImageRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteContactProfileImageResponse call() {
-        RequestOperation<DeleteContactProfileImageRequest, DeleteContactProfileImageResponse> operation
-              = new DeleteContactProfileImage.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteContactProfileImageRequest, DeleteContactProfileImageResponse> operation =
+                new DeleteContactProfileImage.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

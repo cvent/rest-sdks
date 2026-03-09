@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * WebcastProviderJson
- * 
+ *
  * <p>Name of the webcast provider.
  */
 public enum WebcastProviderJson {
@@ -38,13 +38,13 @@ public enum WebcastProviderJson {
     WebcastProviderJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<WebcastProviderJson> fromValue(String value) {
-        for (WebcastProviderJson o: WebcastProviderJson.values()) {
+        for (WebcastProviderJson o : WebcastProviderJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -52,4 +52,3 @@ public enum WebcastProviderJson {
         return Optional.empty();
     }
 }
-

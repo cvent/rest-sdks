@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -22,8 +22,8 @@ import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.SerializedBody;
-import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils;
+import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
 import java.io.InputStream;
@@ -37,10 +37,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class ListQuantityItemsPostFilter {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -49,7 +48,7 @@ public class ListQuantityItemsPostFilter {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -85,31 +84,18 @@ public class ListQuantityItemsPostFilter {
                     java.util.Optional.of(java.util.List.of("event/quantity-items:read")),
                     securitySource());
         }
-        <T, U>HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/events/{id}/quantity-items/filter",
-                    request, null);
+
+        <T, U> HttpRequest buildRequest(T request, Class<T> klass, TypeReference<U> typeReference) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/events/{id}/quantity-items/filter", request, null);
             HTTPRequest req = new HTTPRequest(url, "POST");
-            Object convertedRequest = Utils.convertToShape(
-                    request,
-                    JsonShape.DEFAULT,
-                    typeReference);
-            SerializedBody serializedRequestBody = Utils.serializeRequestBody(
-                    convertedRequest,
-                    "filter",
-                    "json",
-                    false);
+            Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
+            SerializedBody serializedRequestBody =
+                    Utils.serializeRequestBody(convertedRequest, "filter", "json", false);
             req.setBody(Optional.ofNullable(serializedRequestBody));
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
 
-            req.addQueryParams(Utils.getQueryParams(
-                    klass,
-                    request,
-                    null));
+            req.addQueryParams(Utils.getQueryParams(klass, request, null));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
             return req.build();
@@ -123,15 +109,18 @@ public class ListQuantityItemsPostFilter {
         }
 
         private HttpRequest onBuildRequest(ListQuantityItemsPostFilterRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, ListQuantityItemsPostFilterRequest.class, new TypeReference<ListQuantityItemsPostFilterRequest>() {});
+            HttpRequest req = buildRequest(
+                    request,
+                    ListQuantityItemsPostFilterRequest.class,
+                    new TypeReference<ListQuantityItemsPostFilterRequest>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -156,25 +145,20 @@ public class ListQuantityItemsPostFilter {
             return httpRes;
         }
 
-
         @Override
         public ListQuantityItemsPostFilterResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            ListQuantityItemsPostFilterResponse.Builder resBuilder =
-                    ListQuantityItemsPostFilterResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            ListQuantityItemsPostFilterResponse.Builder resBuilder = ListQuantityItemsPostFilterResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             ListQuantityItemsPostFilterResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withQuantityItemsPaginatedResponse(Utils.unmarshal(response, new TypeReference<QuantityItemsPaginatedResponse>() {}));
+                    return res.withQuantityItemsPaginatedResponse(
+                            Utils.unmarshal(response, new TypeReference<QuantityItemsPaginatedResponse>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -197,15 +181,22 @@ public class ListQuantityItemsPostFilter {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
-            implements AsyncRequestOperation<ListQuantityItemsPostFilterRequest, com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse> {
+            implements AsyncRequestOperation<
+                    ListQuantityItemsPostFilterRequest,
+                    com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse> {
 
         public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(ListQuantityItemsPostFilterRequest request) throws Exception {
-            HttpRequest req = buildRequest(request, ListQuantityItemsPostFilterRequest.class, new TypeReference<ListQuantityItemsPostFilterRequest>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(ListQuantityItemsPostFilterRequest request)
+                throws Exception {
+            HttpRequest req = buildRequest(
+                    request,
+                    ListQuantityItemsPostFilterRequest.class,
+                    new TypeReference<ListQuantityItemsPostFilterRequest>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -219,7 +210,9 @@ public class ListQuantityItemsPostFilter {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(ListQuantityItemsPostFilterRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
@@ -236,19 +229,15 @@ public class ListQuantityItemsPostFilter {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse
-                            .builder()
+                    com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.ListQuantityItemsPostFilterResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<QuantityItemsPaginatedResponse>() {})
@@ -259,8 +248,7 @@ public class ListQuantityItemsPostFilter {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

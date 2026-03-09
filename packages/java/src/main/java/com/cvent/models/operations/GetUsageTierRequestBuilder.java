@@ -18,7 +18,6 @@ public class GetUsageTierRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetUsageTierRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -27,13 +26,12 @@ public class GetUsageTierRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetUsageTierResponse call() {
-        RequestlessOperation<GetUsageTierResponse> operation
-            = new GetUsageTier.Sync(sdkConfiguration, _headers);
+        RequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

@@ -30,7 +30,7 @@ public class GetSponsorshipLevelsRequestBuilder {
     private GetSponsorshipLevelsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSponsorshipLevelsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetSponsorshipLevelsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSponsorshipLevelsResponse> call() {
-        AsyncRequestOperation<GetSponsorshipLevelsRequest, GetSponsorshipLevelsResponse> operation
-              = new GetSponsorshipLevels.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSponsorshipLevelsRequest, GetSponsorshipLevelsResponse> operation =
+                new GetSponsorshipLevels.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

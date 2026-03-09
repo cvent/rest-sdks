@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * SendEmailEventRequest
- * 
+ *
  * <p>Request object to send an email to one or more event attendees.
  */
 public class SendEmailEventRequest {
@@ -49,13 +49,11 @@ public class SendEmailEventRequest {
             @JsonProperty("email") @Nonnull EmailJson2 email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendees") @Nonnull List<String> attendees) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.email = Optional.ofNullable(email)
-            .orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.email = Optional.ofNullable(email).orElseThrow(() -> new IllegalArgumentException("email cannot be null"));
         this.resendToPreviousRecipients = resendToPreviousRecipients;
         this.attendees = Optional.ofNullable(attendees)
-            .orElseThrow(() -> new IllegalArgumentException("attendees cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendees cannot be null"));
     }
 
     /**
@@ -91,7 +89,6 @@ public class SendEmailEventRequest {
         return new Builder();
     }
 
-
     /**
      * Details of the event.
      */
@@ -100,7 +97,6 @@ public class SendEmailEventRequest {
         return this;
     }
 
-
     /**
      * Details of an email to be send.
      */
@@ -108,7 +104,6 @@ public class SendEmailEventRequest {
         this.email = Utils.checkNotNull(email, "email");
         return this;
     }
-
 
     /**
      * True indicates this email should be resent to attendees who had already received this email
@@ -119,7 +114,6 @@ public class SendEmailEventRequest {
         return this;
     }
 
-
     /**
      * Array of attendee identifiers to whom email is to be sent.
      */
@@ -127,7 +121,6 @@ public class SendEmailEventRequest {
         this.attendees = Utils.checkNotNull(attendees, "attendees");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +131,33 @@ public class SendEmailEventRequest {
             return false;
         }
         SendEmailEventRequest other = (SendEmailEventRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.resendToPreviousRecipients, other.resendToPreviousRecipients) &&
-            Utils.enhancedDeepEquals(this.attendees, other.attendees);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.resendToPreviousRecipients, other.resendToPreviousRecipients)
+                && Utils.enhancedDeepEquals(this.attendees, other.attendees);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, email, resendToPreviousRecipients,
-            attendees);
+        return Utils.enhancedHash(event, email, resendToPreviousRecipients, attendees);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEmailEventRequest.class,
-                "event", event,
-                "email", email,
-                "resendToPreviousRecipients", resendToPreviousRecipients,
-                "attendees", attendees);
+        return Utils.toString(
+                SendEmailEventRequest.class,
+                "event",
+                event,
+                "email",
+                email,
+                "resendToPreviousRecipients",
+                resendToPreviousRecipients,
+                "attendees",
+                attendees);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson10 event;
 
@@ -173,7 +168,7 @@ public class SendEmailEventRequest {
         private List<String> attendees;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -210,10 +205,7 @@ public class SendEmailEventRequest {
         }
 
         public SendEmailEventRequest build() {
-            return new SendEmailEventRequest(
-                event, email, resendToPreviousRecipients,
-                attendees);
+            return new SendEmailEventRequest(event, email, resendToPreviousRecipients, attendees);
         }
-
     }
 }

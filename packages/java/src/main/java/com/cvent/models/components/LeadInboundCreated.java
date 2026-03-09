@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LeadInboundCreated
- * 
+ *
  * <p>A lead inbound-created activity.
  */
 public class LeadInboundCreated {
@@ -40,7 +40,7 @@ public class LeadInboundCreated {
         this.exhibitor = exhibitor;
         this.lead = lead;
     }
-    
+
     public LeadInboundCreated() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class LeadInboundCreated {
         return new Builder();
     }
 
-
     /**
      * An activity exhibitor.
      */
@@ -72,7 +71,6 @@ public class LeadInboundCreated {
         return this;
     }
 
-
     /**
      * A Lead
      */
@@ -80,7 +78,6 @@ public class LeadInboundCreated {
         this.lead = lead;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class LeadInboundCreated {
             return false;
         }
         LeadInboundCreated other = (LeadInboundCreated) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.lead, other.lead);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) && Utils.enhancedDeepEquals(this.lead, other.lead);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, lead);
+        return Utils.enhancedHash(exhibitor, lead);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadInboundCreated.class,
-                "exhibitor", exhibitor,
-                "lead", lead);
+        return Utils.toString(LeadInboundCreated.class, "exhibitor", exhibitor, "lead", lead);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityExhibitorJson exhibitor;
 
         private LeadObjectJson lead;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class LeadInboundCreated {
         }
 
         public LeadInboundCreated build() {
-            return new LeadInboundCreated(
-                exhibitor, lead);
+            return new LeadInboundCreated(exhibitor, lead);
         }
-
     }
 }

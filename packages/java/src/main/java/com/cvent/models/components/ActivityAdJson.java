@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityAdJson
- * 
+ *
  * <p>The details of the advertisement.
  */
 public class ActivityAdJson {
@@ -67,10 +67,9 @@ public class ActivityAdJson {
         this.location = location;
         this.attribution = attribution;
     }
-    
+
     public ActivityAdJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -112,7 +111,6 @@ public class ActivityAdJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the ad.
      */
@@ -120,7 +118,6 @@ public class ActivityAdJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the ad.
@@ -130,7 +127,6 @@ public class ActivityAdJson {
         return this;
     }
 
-
     /**
      * The product for which ad is created
      */
@@ -138,7 +134,6 @@ public class ActivityAdJson {
         this.product = product;
         return this;
     }
-
 
     /**
      * The placement of the ad within the specific product.
@@ -148,7 +143,6 @@ public class ActivityAdJson {
         return this;
     }
 
-
     /**
      * The entity to which the ad is associated.
      */
@@ -156,7 +150,6 @@ public class ActivityAdJson {
         this.attribution = attribution;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,33 +160,36 @@ public class ActivityAdJson {
             return false;
         }
         ActivityAdJson other = (ActivityAdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.product, other.product) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.attribution, other.attribution);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.product, other.product)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.attribution, other.attribution);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, product,
-            location, attribution);
+        return Utils.enhancedHash(id, name, product, location, attribution);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityAdJson.class,
-                "id", id,
-                "name", name,
-                "product", product,
-                "location", location,
-                "attribution", attribution);
+        return Utils.toString(
+                ActivityAdJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "product",
+                product,
+                "location",
+                location,
+                "attribution",
+                attribution);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -206,7 +202,7 @@ public class ActivityAdJson {
         private Attribution attribution;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,10 +246,7 @@ public class ActivityAdJson {
         }
 
         public ActivityAdJson build() {
-            return new ActivityAdJson(
-                id, name, product,
-                location, attribution);
+            return new ActivityAdJson(id, name, product, location, attribution);
         }
-
     }
 }

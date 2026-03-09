@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListSessionProgramSpeakersPostFiltersRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -67,16 +66,14 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
             @Nullable Filter filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
         this.filter = filter;
     }
-    
+
     public ListSessionProgramSpeakersPostFiltersRequest() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -128,7 +125,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -138,7 +134,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -147,7 +142,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -155,7 +149,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -166,7 +159,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -174,7 +166,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * See the filter description of <a href="#operation/getSessionProgramSpeakers">GET Session Program
@@ -185,7 +176,6 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -195,35 +185,39 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
             return false;
         }
         ListSessionProgramSpeakersPostFiltersRequest other = (ListSessionProgramSpeakersPostFiltersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, locale, filter);
+        return Utils.enhancedHash(after, before, limit, token, locale, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionProgramSpeakersPostFiltersRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "locale", locale,
-                "filter", filter);
+        return Utils.toString(
+                ListSessionProgramSpeakersPostFiltersRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "locale",
+                locale,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -238,7 +232,7 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         private Filter filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -293,16 +287,10 @@ public class ListSessionProgramSpeakersPostFiltersRequest {
         }
 
         public ListSessionProgramSpeakersPostFiltersRequest build() {
-            return new ListSessionProgramSpeakersPostFiltersRequest(
-                after, before, limit,
-                token, locale, filter);
+            return new ListSessionProgramSpeakersPostFiltersRequest(after, before, limit, token, locale, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetCampaignsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetCampaignsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CampaignListPaginatedResponse campaignListPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.campaignListPaginatedResponse = campaignListPaginatedResponse;
     }
-    
+
     public GetCampaignsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetCampaignsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetCampaignsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetCampaignsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetCampaignsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of eMarketing campaigns.
      */
-    public GetCampaignsResponse withCampaignListPaginatedResponse(@Nullable CampaignListPaginatedResponse campaignListPaginatedResponse) {
+    public GetCampaignsResponse withCampaignListPaginatedResponse(
+            @Nullable CampaignListPaginatedResponse campaignListPaginatedResponse) {
         this.campaignListPaginatedResponse = campaignListPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetCampaignsResponse implements Response {
             return false;
         }
         GetCampaignsResponse other = (GetCampaignsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.campaignListPaginatedResponse, other.campaignListPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.campaignListPaginatedResponse, other.campaignListPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            campaignListPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, campaignListPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCampaignsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "campaignListPaginatedResponse", campaignListPaginatedResponse);
+        return Utils.toString(
+                GetCampaignsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "campaignListPaginatedResponse",
+                campaignListPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetCampaignsResponse implements Response {
         private CampaignListPaginatedResponse campaignListPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetCampaignsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of eMarketing campaigns.
          */
-        public Builder campaignListPaginatedResponse(@Nullable CampaignListPaginatedResponse campaignListPaginatedResponse) {
+        public Builder campaignListPaginatedResponse(
+                @Nullable CampaignListPaginatedResponse campaignListPaginatedResponse) {
             this.campaignListPaginatedResponse = campaignListPaginatedResponse;
             return this;
         }
 
         public GetCampaignsResponse build() {
-            return new GetCampaignsResponse(
-                contentType, statusCode, rawResponse,
-                campaignListPaginatedResponse);
+            return new GetCampaignsResponse(contentType, statusCode, rawResponse, campaignListPaginatedResponse);
         }
-
     }
 }

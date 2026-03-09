@@ -70,7 +70,7 @@ public class Webcasts {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncWebcasts async() {
@@ -79,11 +79,11 @@ public class Webcasts {
 
     /**
      * Create Webcast
-     * 
+     *
      * <p>Used to create a new webcast for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateWebcastRequestBuilder createWebcast() {
@@ -92,28 +92,27 @@ public class Webcasts {
 
     /**
      * Create Webcast
-     * 
+     *
      * <p>Used to create a new webcast for a specific event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateWebcastResponse createWebcast(@Nonnull Webcast request) {
-        RequestOperation<Webcast, CreateWebcastResponse> operation
-              = new CreateWebcast.Sync(sdkConfiguration, _headers);
+        RequestOperation<Webcast, CreateWebcastResponse> operation = new CreateWebcast.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Webcasts
-     * 
+     *
      * <p>Gets a paginated list of webcasts associated with your event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListWebcastsRequestBuilder listWebcasts() {
@@ -122,28 +121,28 @@ public class Webcasts {
 
     /**
      * List Webcasts
-     * 
+     *
      * <p>Gets a paginated list of webcasts associated with your event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListWebcastsResponse listWebcasts(@Nonnull ListWebcastsRequest request) {
-        RequestOperation<ListWebcastsRequest, ListWebcastsResponse> operation
-              = new ListWebcasts.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListWebcastsRequest, ListWebcastsResponse> operation =
+                new ListWebcasts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Attendee Links
-     * 
+     *
      * <p>Gets a paginated list of attendee links.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListAttendeeLinksRequestBuilder listAttendeeLinks() {
@@ -152,28 +151,28 @@ public class Webcasts {
 
     /**
      * List Attendee Links
-     * 
+     *
      * <p>Gets a paginated list of attendee links.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeeLinksResponse listAttendeeLinks(@Nonnull ListAttendeeLinksRequest request) {
-        RequestOperation<ListAttendeeLinksRequest, ListAttendeeLinksResponse> operation
-              = new ListAttendeeLinks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListAttendeeLinksRequest, ListAttendeeLinksResponse> operation =
+                new ListAttendeeLinks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Players
-     * 
+     *
      * <p>Gets a paginated list of player details associated with webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListPlayersRequestBuilder listPlayers() {
@@ -182,28 +181,28 @@ public class Webcasts {
 
     /**
      * List Players
-     * 
+     *
      * <p>Gets a paginated list of player details associated with webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListPlayersResponse listPlayers(@Nonnull ListPlayersRequest request) {
-        RequestOperation<ListPlayersRequest, ListPlayersResponse> operation
-              = new ListPlayers.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListPlayersRequest, ListPlayersResponse> operation =
+                new ListPlayers.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Webcast
-     * 
+     *
      * <p>Retrieve a single webcast details by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetWebcastByIdRequestBuilder getWebcastById() {
@@ -212,28 +211,28 @@ public class Webcasts {
 
     /**
      * Get Webcast
-     * 
+     *
      * <p>Retrieve a single webcast details by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetWebcastByIdResponse getWebcastById(@Nonnull GetWebcastByIdRequest request) {
-        RequestOperation<GetWebcastByIdRequest, GetWebcastByIdResponse> operation
-              = new GetWebcastById.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetWebcastByIdRequest, GetWebcastByIdResponse> operation =
+                new GetWebcastById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Webcast
-     * 
+     *
      * <p>Delete an existing webcast by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteWebcastRequestBuilder deleteWebcast() {
@@ -242,28 +241,28 @@ public class Webcasts {
 
     /**
      * Delete Webcast
-     * 
+     *
      * <p>Delete an existing webcast by ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteWebcastResponse deleteWebcast(@Nonnull DeleteWebcastRequest request) {
-        RequestOperation<DeleteWebcastRequest, DeleteWebcastResponse> operation
-              = new DeleteWebcast.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteWebcastRequest, DeleteWebcastResponse> operation =
+                new DeleteWebcast.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Webcast
-     * 
+     *
      * <p>Update info for an existing webcast within a Cvent event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateWebcastRequestBuilder updateWebcast() {
@@ -272,28 +271,28 @@ public class Webcasts {
 
     /**
      * Update Webcast
-     * 
+     *
      * <p>Update info for an existing webcast within a Cvent event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateWebcastResponse updateWebcast(@Nonnull UpdateWebcastRequest request) {
-        RequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation
-              = new UpdateWebcast.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation =
+                new UpdateWebcast.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Create Attendee Link
-     * 
+     *
      * <p>Create attendee links in bulk for a given webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateAttendeeLinksRequestBuilder createAttendeeLinks() {
@@ -302,28 +301,28 @@ public class Webcasts {
 
     /**
      * Create Attendee Link
-     * 
+     *
      * <p>Create attendee links in bulk for a given webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAttendeeLinksResponse createAttendeeLinks(@Nonnull CreateAttendeeLinksRequest request) {
-        RequestOperation<CreateAttendeeLinksRequest, CreateAttendeeLinksResponse> operation
-              = new CreateAttendeeLinks.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateAttendeeLinksRequest, CreateAttendeeLinksResponse> operation =
+                new CreateAttendeeLinks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Update Attendee Link
-     * 
+     *
      * <p>Update data for existing attendee links in bulk for a given webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UpdateAttendeeLinksRequestBuilder updateAttendeeLinks() {
@@ -332,28 +331,28 @@ public class Webcasts {
 
     /**
      * Update Attendee Link
-     * 
+     *
      * <p>Update data for existing attendee links in bulk for a given webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAttendeeLinksResponse updateAttendeeLinks(@Nonnull UpdateAttendeeLinksRequest request) {
-        RequestOperation<UpdateAttendeeLinksRequest, UpdateAttendeeLinksResponse> operation
-              = new UpdateAttendeeLinks.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateAttendeeLinksRequest, UpdateAttendeeLinksResponse> operation =
+                new UpdateAttendeeLinks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Attendee Links
-     * 
+     *
      * <p>Gets a paginated list of attendee links in a webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -364,11 +363,11 @@ public class Webcasts {
 
     /**
      * List Attendee Links
-     * 
+     *
      * <p>Gets a paginated list of attendee links in a webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
@@ -376,18 +375,18 @@ public class Webcasts {
      */
     @Deprecated
     public ListWebcastAttendeeLinksResponse listWebcastAttendeeLinks(@Nonnull ListWebcastAttendeeLinksRequest request) {
-        RequestOperation<ListWebcastAttendeeLinksRequest, ListWebcastAttendeeLinksResponse> operation
-              = new ListWebcastAttendeeLinks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListWebcastAttendeeLinksRequest, ListWebcastAttendeeLinksResponse> operation =
+                new ListWebcastAttendeeLinks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Delete Attendee Link
-     * 
+     *
      * <p>Delete attendee links for webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public DeleteAttendeeLinkRequestBuilder deleteAttendeeLink() {
@@ -396,19 +395,18 @@ public class Webcasts {
 
     /**
      * Delete Attendee Link
-     * 
+     *
      * <p>Delete attendee links for webcast.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteAttendeeLinkResponse deleteAttendeeLink(@Nonnull DeleteAttendeeLinkRequest request) {
-        RequestOperation<DeleteAttendeeLinkRequest, DeleteAttendeeLinkResponse> operation
-              = new DeleteAttendeeLink.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteAttendeeLinkRequest, DeleteAttendeeLinkResponse> operation =
+                new DeleteAttendeeLink.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListExternalAttendeeActivitiesMetadataResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.externalActivityMetadataPaginatedResponse = externalActivityMetadataPaginatedResponse;
     }
-    
+
     public ListExternalAttendeeActivitiesMetadataResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,24 +103,23 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
-    public ListExternalAttendeeActivitiesMetadataResponse withRawResponse(@Nonnull HttpResponse<InputStream> rawResponse) {
+    public ListExternalAttendeeActivitiesMetadataResponse withRawResponse(
+            @Nonnull HttpResponse<InputStream> rawResponse) {
         this.rawResponse = Utils.checkNotNull(rawResponse, "rawResponse");
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of external attendee activities metadata.
      */
-    public ListExternalAttendeeActivitiesMetadataResponse withExternalActivityMetadataPaginatedResponse(@Nullable ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse) {
+    public ListExternalAttendeeActivitiesMetadataResponse withExternalActivityMetadataPaginatedResponse(
+            @Nullable ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse) {
         this.externalActivityMetadataPaginatedResponse = externalActivityMetadataPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +130,34 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
             return false;
         }
         ListExternalAttendeeActivitiesMetadataResponse other = (ListExternalAttendeeActivitiesMetadataResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.externalActivityMetadataPaginatedResponse, other.externalActivityMetadataPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.externalActivityMetadataPaginatedResponse, other.externalActivityMetadataPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            externalActivityMetadataPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, externalActivityMetadataPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListExternalAttendeeActivitiesMetadataResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "externalActivityMetadataPaginatedResponse", externalActivityMetadataPaginatedResponse);
+        return Utils.toString(
+                ListExternalAttendeeActivitiesMetadataResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "externalActivityMetadataPaginatedResponse",
+                externalActivityMetadataPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +168,7 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
         private ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +198,15 @@ public class ListExternalAttendeeActivitiesMetadataResponse implements Response 
         /**
          * Successfully retrieved a paginated list of external attendee activities metadata.
          */
-        public Builder externalActivityMetadataPaginatedResponse(@Nullable ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse) {
+        public Builder externalActivityMetadataPaginatedResponse(
+                @Nullable ExternalActivityMetadataPaginatedResponse externalActivityMetadataPaginatedResponse) {
             this.externalActivityMetadataPaginatedResponse = externalActivityMetadataPaginatedResponse;
             return this;
         }
 
         public ListExternalAttendeeActivitiesMetadataResponse build() {
             return new ListExternalAttendeeActivitiesMetadataResponse(
-                contentType, statusCode, rawResponse,
-                externalActivityMetadataPaginatedResponse);
+                    contentType, statusCode, rawResponse, externalActivityMetadataPaginatedResponse);
         }
-
     }
 }

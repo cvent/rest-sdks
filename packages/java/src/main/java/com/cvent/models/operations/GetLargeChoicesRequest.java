@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetLargeChoicesRequest {
     /**
      * The maximum number of records to return per page.
@@ -32,14 +31,14 @@ public class GetLargeChoicesRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * question.id (eq|ne)
      */
@@ -47,16 +46,12 @@ public class GetLargeChoicesRequest {
     private String filter;
 
     @JsonCreator
-    public GetLargeChoicesRequest(
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetLargeChoicesRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public GetLargeChoicesRequest() {
         this(null, null, null);
     }
@@ -79,14 +74,14 @@ public class GetLargeChoicesRequest {
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * question.id (eq|ne)
      */
@@ -98,7 +93,6 @@ public class GetLargeChoicesRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -106,7 +100,6 @@ public class GetLargeChoicesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -117,18 +110,17 @@ public class GetLargeChoicesRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>Following are the comparison types that can be used in filter expressions:
-     * 
+     *
      * <p>* equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* id (eq|ne)
      * * question.id (eq|ne)
      */
@@ -136,7 +128,6 @@ public class GetLargeChoicesRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -147,28 +138,23 @@ public class GetLargeChoicesRequest {
             return false;
         }
         GetLargeChoicesRequest other = (GetLargeChoicesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetLargeChoicesRequest.class,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(GetLargeChoicesRequest.class, "limit", limit, "token", token, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -177,7 +163,7 @@ public class GetLargeChoicesRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -200,14 +186,14 @@ public class GetLargeChoicesRequest {
         /**
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>Following are the comparison types that can be used in filter expressions:
-         * 
+         *
          * <p>* equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* id (eq|ne)
          * * question.id (eq|ne)
          */
@@ -217,15 +203,10 @@ public class GetLargeChoicesRequest {
         }
 
         public GetLargeChoicesRequest build() {
-            return new GetLargeChoicesRequest(
-                limit, token, filter);
+            return new GetLargeChoicesRequest(limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

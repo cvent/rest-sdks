@@ -2,6 +2,14 @@
 
 This is used to denote the product type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = OrderItemTypeJson.AdmissionItem;
+```
+
 
 ## Values
 

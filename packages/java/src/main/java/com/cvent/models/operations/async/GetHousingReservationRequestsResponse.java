@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingReservationRequestsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable ReservationRequestPaginatedResponse reservationRequestPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.reservationRequestPaginatedResponse = reservationRequestPaginatedResponse;
     }
-    
+
     public GetHousingReservationRequestsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved the reservation request detail.
      */
-    public GetHousingReservationRequestsResponse withReservationRequestPaginatedResponse(@Nullable ReservationRequestPaginatedResponse reservationRequestPaginatedResponse) {
+    public GetHousingReservationRequestsResponse withReservationRequestPaginatedResponse(
+            @Nullable ReservationRequestPaginatedResponse reservationRequestPaginatedResponse) {
         this.reservationRequestPaginatedResponse = reservationRequestPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
             return false;
         }
         GetHousingReservationRequestsResponse other = (GetHousingReservationRequestsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.reservationRequestPaginatedResponse, other.reservationRequestPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.reservationRequestPaginatedResponse, other.reservationRequestPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            reservationRequestPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, reservationRequestPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingReservationRequestsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "reservationRequestPaginatedResponse", reservationRequestPaginatedResponse);
+        return Utils.toString(
+                GetHousingReservationRequestsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "reservationRequestPaginatedResponse",
+                reservationRequestPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         private ReservationRequestPaginatedResponse reservationRequestPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetHousingReservationRequestsResponse implements AsyncResponse {
         /**
          * Successfully retrieved the reservation request detail.
          */
-        public Builder reservationRequestPaginatedResponse(@Nullable ReservationRequestPaginatedResponse reservationRequestPaginatedResponse) {
+        public Builder reservationRequestPaginatedResponse(
+                @Nullable ReservationRequestPaginatedResponse reservationRequestPaginatedResponse) {
             this.reservationRequestPaginatedResponse = reservationRequestPaginatedResponse;
             return this;
         }
 
         public GetHousingReservationRequestsResponse build() {
             return new GetHousingReservationRequestsResponse(
-                contentType, statusCode, rawResponse,
-                reservationRequestPaginatedResponse);
+                    contentType, statusCode, rawResponse, reservationRequestPaginatedResponse);
         }
-
     }
 }

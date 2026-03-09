@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExhibitorCategoryResponseType
     {
-        [JsonProperty("BANNER")]
-        Banner,
-        [JsonProperty("LOGO")]
-        Logo,
+        [JsonProperty("BANNER")] Banner,
+        [JsonProperty("LOGO")] Logo,
     }
 
     public static class ExhibitorCategoryResponseTypeExtension
     {
         public static string Value(this ExhibitorCategoryResponseType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExhibitorCategoryResponseType ToEnum(this string value)
         {
-            foreach(var field in typeof(ExhibitorCategoryResponseType).GetFields())
+            foreach (var field in typeof(ExhibitorCategoryResponseType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

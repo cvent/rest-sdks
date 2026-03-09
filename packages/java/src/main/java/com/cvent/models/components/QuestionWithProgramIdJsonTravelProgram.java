@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * QuestionWithProgramIdJsonTravelProgram
- * 
+ *
  * <p>Travel program that the question belongs to.
  */
 public class QuestionWithProgramIdJsonTravelProgram {
@@ -27,11 +27,10 @@ public class QuestionWithProgramIdJsonTravelProgram {
     private String id;
 
     @JsonCreator
-    public QuestionWithProgramIdJsonTravelProgram(
-            @JsonProperty("id") @Nullable String id) {
+    public QuestionWithProgramIdJsonTravelProgram(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public QuestionWithProgramIdJsonTravelProgram() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class QuestionWithProgramIdJsonTravelProgram {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the travel program.
      */
@@ -55,7 +53,6 @@ public class QuestionWithProgramIdJsonTravelProgram {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class QuestionWithProgramIdJsonTravelProgram {
             return false;
         }
         QuestionWithProgramIdJsonTravelProgram other = (QuestionWithProgramIdJsonTravelProgram) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(QuestionWithProgramIdJsonTravelProgram.class,
-                "id", id);
+        return Utils.toString(QuestionWithProgramIdJsonTravelProgram.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class QuestionWithProgramIdJsonTravelProgram {
         }
 
         public QuestionWithProgramIdJsonTravelProgram build() {
-            return new QuestionWithProgramIdJsonTravelProgram(
-                id);
+            return new QuestionWithProgramIdJsonTravelProgram(id);
         }
-
     }
 }

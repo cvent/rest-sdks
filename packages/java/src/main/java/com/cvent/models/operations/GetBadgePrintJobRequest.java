@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetBadgePrintJobRequest {
     /**
      * Id of an event
@@ -26,13 +25,10 @@ public class GetBadgePrintJobRequest {
     private String jobId;
 
     @JsonCreator
-    public GetBadgePrintJobRequest(
-            @Nonnull String eventId,
-            @Nonnull String jobId) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
-        this.jobId = Optional.ofNullable(jobId)
-            .orElseThrow(() -> new IllegalArgumentException("jobId cannot be null"));
+    public GetBadgePrintJobRequest(@Nonnull String eventId, @Nonnull String jobId) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+        this.jobId = Optional.ofNullable(jobId).orElseThrow(() -> new IllegalArgumentException("jobId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class GetBadgePrintJobRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -62,7 +57,6 @@ public class GetBadgePrintJobRequest {
         return this;
     }
 
-
     /**
      * Id of a badge print job
      */
@@ -70,7 +64,6 @@ public class GetBadgePrintJobRequest {
         this.jobId = Utils.checkNotNull(jobId, "jobId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class GetBadgePrintJobRequest {
             return false;
         }
         GetBadgePrintJobRequest other = (GetBadgePrintJobRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.jobId, other.jobId);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId) && Utils.enhancedDeepEquals(this.jobId, other.jobId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, jobId);
+        return Utils.enhancedHash(eventId, jobId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgePrintJobRequest.class,
-                "eventId", eventId,
-                "jobId", jobId);
+        return Utils.toString(GetBadgePrintJobRequest.class, "eventId", eventId, "jobId", jobId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
         private String jobId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class GetBadgePrintJobRequest {
         }
 
         public GetBadgePrintJobRequest build() {
-            return new GetBadgePrintJobRequest(
-                eventId, jobId);
+            return new GetBadgePrintJobRequest(eventId, jobId);
         }
-
     }
 }

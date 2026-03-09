@@ -15,7 +15,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListSessionsEnrollmentRequest {
     /**
      * Used to query records that have been added or updated on or after this time point. Defaults to the
@@ -55,7 +54,7 @@ public class ListSessionsEnrollmentRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * event.id (eq|ne)
@@ -78,15 +77,13 @@ public class ListSessionsEnrollmentRequest {
             @Nullable String filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
+
     public ListSessionsEnrollmentRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -131,7 +128,7 @@ public class ListSessionsEnrollmentRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * event.id (eq|ne)
@@ -150,7 +147,6 @@ public class ListSessionsEnrollmentRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated on or after this time point. Defaults to the
      * beginning of time of the data store.
@@ -159,7 +155,6 @@ public class ListSessionsEnrollmentRequest {
         this.after = after;
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated on or before this time point. The date and
@@ -170,7 +165,6 @@ public class ListSessionsEnrollmentRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -178,7 +172,6 @@ public class ListSessionsEnrollmentRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -188,7 +181,6 @@ public class ListSessionsEnrollmentRequest {
         this.token = token;
         return this;
     }
-
 
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
@@ -201,7 +193,7 @@ public class ListSessionsEnrollmentRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * id (eq|ne)
      * * event.id (eq|ne)
@@ -217,7 +209,6 @@ public class ListSessionsEnrollmentRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -227,33 +218,36 @@ public class ListSessionsEnrollmentRequest {
             return false;
         }
         ListSessionsEnrollmentRequest other = (ListSessionsEnrollmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsEnrollmentRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListSessionsEnrollmentRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -266,7 +260,7 @@ public class ListSessionsEnrollmentRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -315,7 +309,7 @@ public class ListSessionsEnrollmentRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * id (eq|ne)
          * * event.id (eq|ne)
@@ -332,16 +326,10 @@ public class ListSessionsEnrollmentRequest {
         }
 
         public ListSessionsEnrollmentRequest build() {
-            return new ListSessionsEnrollmentRequest(
-                after, before, limit,
-                token, filter);
+            return new ListSessionsEnrollmentRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

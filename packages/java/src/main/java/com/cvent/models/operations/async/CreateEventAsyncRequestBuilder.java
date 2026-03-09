@@ -30,7 +30,7 @@ public class CreateEventAsyncRequestBuilder {
     private EventInput _buildRequest() {
         return this.request;
     }
-    
+
     public CreateEventAsyncRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateEventAsyncRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateEventAsyncResponse> call() {
-        AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation
-              = new CreateEventAsync.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
+                new CreateEventAsync.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum UtmOverrideJson
     {
-        [JsonProperty("use-existing-parameter")]
-        UseExistingParameter,
-        [JsonProperty("use-custom-parameter")]
-        UseCustomParameter,
+        [JsonProperty("use-existing-parameter")] UseExistingParameter,
+        [JsonProperty("use-custom-parameter")] UseCustomParameter,
     }
 
     public static class UtmOverrideJsonExtension
     {
         public static string Value(this UtmOverrideJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static UtmOverrideJson ToEnum(this string value)
         {
-            foreach(var field in typeof(UtmOverrideJson).GetFields())
+            foreach (var field in typeof(UtmOverrideJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

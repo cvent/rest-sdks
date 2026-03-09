@@ -2,6 +2,14 @@
 
 This is used to denote the category of a custom field.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CustomFieldCategoryJson;
+
+CustomFieldCategoryJson value = CustomFieldCategoryJson.CONTACT;
+```
+
 
 ## Values
 

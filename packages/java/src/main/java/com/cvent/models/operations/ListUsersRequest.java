@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListUsersRequest {
     /**
      * Starting index of the response.
@@ -32,7 +31,7 @@ public class ListUsersRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -40,7 +39,7 @@ public class ListUsersRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * userName (eq|ne)
      * * groups.value (eq|ne)
@@ -49,7 +48,7 @@ public class ListUsersRequest {
      * * emails.value (eq|ne)
      * * meta.lastModified (eq|ne|lt|le|gt|ge)
      * * meta.created (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -58,17 +57,12 @@ public class ListUsersRequest {
     private String filter;
 
     @JsonCreator
-    public ListUsersRequest(
-            @Nullable Long startIndex,
-            @Nullable Long count,
-            @Nullable String filter) {
-        this.startIndex = Optional.ofNullable(startIndex)
-            .orElse(Builder._SINGLETON_VALUE_StartIndex.value());
-        this.count = Optional.ofNullable(count)
-            .orElse(Builder._SINGLETON_VALUE_Count.value());
+    public ListUsersRequest(@Nullable Long startIndex, @Nullable Long count, @Nullable String filter) {
+        this.startIndex = Optional.ofNullable(startIndex).orElse(Builder._SINGLETON_VALUE_StartIndex.value());
+        this.count = Optional.ofNullable(count).orElse(Builder._SINGLETON_VALUE_Count.value());
         this.filter = filter;
     }
-    
+
     public ListUsersRequest() {
         this(null, null, null);
     }
@@ -91,7 +85,7 @@ public class ListUsersRequest {
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -99,7 +93,7 @@ public class ListUsersRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * userName (eq|ne)
      * * groups.value (eq|ne)
@@ -108,7 +102,7 @@ public class ListUsersRequest {
      * * emails.value (eq|ne)
      * * meta.lastModified (eq|ne|lt|le|gt|ge)
      * * meta.created (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -121,7 +115,6 @@ public class ListUsersRequest {
         return new Builder();
     }
 
-
     /**
      * Starting index of the response.
      */
@@ -129,7 +122,6 @@ public class ListUsersRequest {
         this.startIndex = startIndex;
         return this;
     }
-
 
     /**
      * The count of records to be retrieved in a response.
@@ -139,12 +131,11 @@ public class ListUsersRequest {
         return this;
     }
 
-
     /**
      * A filter string passed in the body of the request, narrows search results and supports the
      * combination of logical and comparison operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>The following comparison types can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -152,7 +143,7 @@ public class ListUsersRequest {
      * * greater or equal: ge
      * * less than: lt
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
      * * userName (eq|ne)
      * * groups.value (eq|ne)
@@ -161,7 +152,7 @@ public class ListUsersRequest {
      * * emails.value (eq|ne)
      * * meta.lastModified (eq|ne|lt|le|gt|ge)
      * * meta.created (eq|ne|lt|le|gt|ge)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -170,7 +161,6 @@ public class ListUsersRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -181,28 +171,23 @@ public class ListUsersRequest {
             return false;
         }
         ListUsersRequest other = (ListUsersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.startIndex, other.startIndex) &&
-            Utils.enhancedDeepEquals(this.count, other.count) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.startIndex, other.startIndex)
+                && Utils.enhancedDeepEquals(this.count, other.count)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            startIndex, count, filter);
+        return Utils.enhancedHash(startIndex, count, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListUsersRequest.class,
-                "startIndex", startIndex,
-                "count", count,
-                "filter", filter);
+        return Utils.toString(ListUsersRequest.class, "startIndex", startIndex, "count", count, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long startIndex;
 
@@ -211,7 +196,7 @@ public class ListUsersRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -234,7 +219,7 @@ public class ListUsersRequest {
          * A filter string passed in the body of the request, narrows search results and supports the
          * combination of logical and comparison operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>The following comparison types can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -242,7 +227,7 @@ public class ListUsersRequest {
          * * greater or equal: ge
          * * less than: lt
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
          * * userName (eq|ne)
          * * groups.value (eq|ne)
@@ -251,7 +236,7 @@ public class ListUsersRequest {
          * * emails.value (eq|ne)
          * * meta.lastModified (eq|ne|lt|le|gt|ge)
          * * meta.created (eq|ne|lt|le|gt|ge)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -262,21 +247,13 @@ public class ListUsersRequest {
         }
 
         public ListUsersRequest build() {
-            return new ListUsersRequest(
-                startIndex, count, filter);
+            return new ListUsersRequest(startIndex, count, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_StartIndex =
-                new LazySingletonValue<>(
-                        "startIndex",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("startIndex", "1", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Count =
-                new LazySingletonValue<>(
-                        "count",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("count", "100", new TypeReference<Long>() {});
     }
 }

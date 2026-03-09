@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AdLocationJson
     {
-        [JsonProperty("Home Page")]
-        HomePage,
-        [JsonProperty("Exhibitor List")]
-        ExhibitorList,
-        [JsonProperty("Session List")]
-        SessionList,
+        [JsonProperty("Home Page")] HomePage,
+        [JsonProperty("Exhibitor List")] ExhibitorList,
+        [JsonProperty("Session List")] SessionList,
     }
 
     public static class AdLocationJsonExtension
     {
         public static string Value(this AdLocationJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AdLocationJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AdLocationJson).GetFields())
+            foreach (var field in typeof(AdLocationJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -10,11 +10,11 @@ import java.util.Optional;
 
 /**
  * DistributionListSecurityTypeJson
- * 
+ *
  * <p>Type of distribution list security. For a public list, contacts can sign up themselves. For a
  * semi-private list, contacts can add themselves, but a planner must approve their membership before
  * they can receive emails.
- * 
+ *
  * <p>For a private list, only planners can add contacts. Contacts can always remove themselves from lists
  * on the Manage Profile page.
  */
@@ -29,13 +29,13 @@ public enum DistributionListSecurityTypeJson {
     DistributionListSecurityTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DistributionListSecurityTypeJson> fromValue(String value) {
-        for (DistributionListSecurityTypeJson o: DistributionListSecurityTypeJson.values()) {
+        for (DistributionListSecurityTypeJson o : DistributionListSecurityTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum DistributionListSecurityTypeJson {
         return Optional.empty();
     }
 }
-

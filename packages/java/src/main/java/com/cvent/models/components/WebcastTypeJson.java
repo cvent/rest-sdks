@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * WebcastTypeJson
- * 
+ *
  * <p>This is used to denote the type of a webcast
  */
 public enum WebcastTypeJson {
@@ -24,13 +24,13 @@ public enum WebcastTypeJson {
     WebcastTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<WebcastTypeJson> fromValue(String value) {
-        for (WebcastTypeJson o: WebcastTypeJson.values()) {
+        for (WebcastTypeJson o : WebcastTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum WebcastTypeJson {
         return Optional.empty();
     }
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Application
- * 
+ *
  * <p>The application used to capture lead.
  */
 public enum Application {
@@ -25,13 +25,13 @@ public enum Application {
     Application(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Application> fromValue(String value) {
-        for (Application o: Application.values()) {
+        for (Application o : Application.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum Application {
         return Optional.empty();
     }
 }
-

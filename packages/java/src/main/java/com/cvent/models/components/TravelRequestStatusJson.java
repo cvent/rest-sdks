@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelRequestStatusJson
- * 
+ *
  * <p>Status of the travel request done by attendee.
  */
 public enum TravelRequestStatusJson {
@@ -31,13 +31,13 @@ public enum TravelRequestStatusJson {
     TravelRequestStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelRequestStatusJson> fromValue(String value) {
-        for (TravelRequestStatusJson o: TravelRequestStatusJson.values()) {
+        for (TravelRequestStatusJson o : TravelRequestStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum TravelRequestStatusJson {
         return Optional.empty();
     }
 }
-

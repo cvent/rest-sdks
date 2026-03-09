@@ -2,6 +2,14 @@
 
 Defines the agenda item types of a meeting room requirement.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = MeetingRoomAgendaItemTypeJson.Break;
+```
+
 
 ## Values
 

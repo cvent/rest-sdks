@@ -2,6 +2,14 @@
 
 Status of the travel request done by attendee.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TravelRequestStatusJson.Submitted;
+```
+
 
 ## Values
 

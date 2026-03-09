@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetUserGroupsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class GetUserGroupsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable UserGroups userGroups) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.userGroups = userGroups;
     }
-    
-    public GetUserGroupsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetUserGroupsResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class GetUserGroupsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class GetUserGroupsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class GetUserGroupsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +111,6 @@ public class GetUserGroupsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of SCIM groups.
      */
@@ -127,7 +118,6 @@ public class GetUserGroupsResponse implements AsyncResponse {
         this.userGroups = userGroups;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +128,33 @@ public class GetUserGroupsResponse implements AsyncResponse {
             return false;
         }
         GetUserGroupsResponse other = (GetUserGroupsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.userGroups, other.userGroups);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.userGroups, other.userGroups);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            userGroups);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroups);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetUserGroupsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "userGroups", userGroups);
+        return Utils.toString(
+                GetUserGroupsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "userGroups",
+                userGroups);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +165,7 @@ public class GetUserGroupsResponse implements AsyncResponse {
         private UserGroups userGroups;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +201,7 @@ public class GetUserGroupsResponse implements AsyncResponse {
         }
 
         public GetUserGroupsResponse build() {
-            return new GetUserGroupsResponse(
-                contentType, statusCode, rawResponse,
-                userGroups);
+            return new GetUserGroupsResponse(contentType, statusCode, rawResponse, userGroups);
         }
-
     }
 }

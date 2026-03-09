@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateContactHookRequest {
     /**
      * Unique ID of the contact hook.
@@ -21,21 +20,16 @@ public class UpdateContactHookRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
     private String id;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private HookInput hook;
 
     @JsonCreator
-    public UpdateContactHookRequest(
-            @Nonnull String id,
-            @Nullable HookInput hook) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateContactHookRequest(@Nonnull String id, @Nullable HookInput hook) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.hook = hook;
     }
-    
-    public UpdateContactHookRequest(
-            @Nonnull String id) {
+
+    public UpdateContactHookRequest(@Nonnull String id) {
         this(id, null);
     }
 
@@ -54,7 +48,6 @@ public class UpdateContactHookRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the contact hook.
      */
@@ -63,12 +56,10 @@ public class UpdateContactHookRequest {
         return this;
     }
 
-
     public UpdateContactHookRequest withHook(@Nullable HookInput hook) {
         this.hook = hook;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -79,33 +70,28 @@ public class UpdateContactHookRequest {
             return false;
         }
         UpdateContactHookRequest other = (UpdateContactHookRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.hook, other.hook);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.hook, other.hook);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, hook);
+        return Utils.enhancedHash(id, hook);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateContactHookRequest.class,
-                "id", id,
-                "hook", hook);
+        return Utils.toString(UpdateContactHookRequest.class, "id", id, "hook", hook);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private HookInput hook;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -122,9 +108,7 @@ public class UpdateContactHookRequest {
         }
 
         public UpdateContactHookRequest build() {
-            return new UpdateContactHookRequest(
-                id, hook);
+            return new UpdateContactHookRequest(id, hook);
         }
-
     }
 }

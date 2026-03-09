@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum RateTypeJson
     {
-        [JsonProperty("fixed")]
-        Fixed,
-        [JsonProperty("dynamic")]
-        Dynamic,
-        [JsonProperty("dynamicwithceiling")]
-        Dynamicwithceiling,
+        [JsonProperty("fixed")] Fixed,
+        [JsonProperty("dynamic")] Dynamic,
+        [JsonProperty("dynamicwithceiling")] Dynamicwithceiling,
     }
 
     public static class RateTypeJsonExtension
     {
         public static string Value(this RateTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static RateTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(RateTypeJson).GetFields())
+            foreach (var field in typeof(RateTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

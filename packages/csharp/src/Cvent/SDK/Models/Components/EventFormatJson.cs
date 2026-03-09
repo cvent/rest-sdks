@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventFormatJson
     {
-        [JsonProperty("In-person")]
-        InPerson,
-        [JsonProperty("Virtual")]
-        Virtual,
-        [JsonProperty("Hybrid")]
-        Hybrid,
+        [JsonProperty("In-person")] InPerson,
+        [JsonProperty("Virtual")] Virtual,
+        [JsonProperty("Hybrid")] Hybrid,
     }
 
     public static class EventFormatJsonExtension
     {
         public static string Value(this EventFormatJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventFormatJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EventFormatJson).GetFields())
+            foreach (var field in typeof(EventFormatJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

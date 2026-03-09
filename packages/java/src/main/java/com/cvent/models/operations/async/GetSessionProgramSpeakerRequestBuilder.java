@@ -30,7 +30,7 @@ public class GetSessionProgramSpeakerRequestBuilder {
     private GetSessionProgramSpeakerRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSessionProgramSpeakerRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetSessionProgramSpeakerRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSessionProgramSpeakerResponse> call() {
-        AsyncRequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation
-              = new GetSessionProgramSpeaker.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation =
+                new GetSessionProgramSpeaker.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

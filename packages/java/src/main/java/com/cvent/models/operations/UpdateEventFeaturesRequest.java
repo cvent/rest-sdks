@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateEventFeaturesRequest {
     /**
      * Unique Id of an event
@@ -27,21 +26,16 @@ public class UpdateEventFeaturesRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=type")
     private FeatureTypeJson type;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private FeatureUpdate featureUpdate;
 
     @JsonCreator
     public UpdateEventFeaturesRequest(
-            @Nonnull String id,
-            @Nonnull FeatureTypeJson type,
-            @Nonnull FeatureUpdate featureUpdate) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+            @Nonnull String id, @Nonnull FeatureTypeJson type, @Nonnull FeatureUpdate featureUpdate) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.featureUpdate = Optional.ofNullable(featureUpdate)
-            .orElseThrow(() -> new IllegalArgumentException("featureUpdate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("featureUpdate cannot be null"));
     }
 
     /**
@@ -66,7 +60,6 @@ public class UpdateEventFeaturesRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of an event
      */
@@ -74,7 +67,6 @@ public class UpdateEventFeaturesRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * String containing event feature type
@@ -84,12 +76,10 @@ public class UpdateEventFeaturesRequest {
         return this;
     }
 
-
     public UpdateEventFeaturesRequest withFeatureUpdate(@Nonnull FeatureUpdate featureUpdate) {
         this.featureUpdate = Utils.checkNotNull(featureUpdate, "featureUpdate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -100,28 +90,23 @@ public class UpdateEventFeaturesRequest {
             return false;
         }
         UpdateEventFeaturesRequest other = (UpdateEventFeaturesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.featureUpdate, other.featureUpdate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.featureUpdate, other.featureUpdate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, featureUpdate);
+        return Utils.enhancedHash(id, type, featureUpdate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateEventFeaturesRequest.class,
-                "id", id,
-                "type", type,
-                "featureUpdate", featureUpdate);
+        return Utils.toString(UpdateEventFeaturesRequest.class, "id", id, "type", type, "featureUpdate", featureUpdate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -130,7 +115,7 @@ public class UpdateEventFeaturesRequest {
         private FeatureUpdate featureUpdate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -155,9 +140,7 @@ public class UpdateEventFeaturesRequest {
         }
 
         public UpdateEventFeaturesRequest build() {
-            return new UpdateEventFeaturesRequest(
-                id, type, featureUpdate);
+            return new UpdateEventFeaturesRequest(id, type, featureUpdate);
         }
-
     }
 }

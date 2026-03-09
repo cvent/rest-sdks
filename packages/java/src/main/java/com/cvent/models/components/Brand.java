@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * Brand
- * 
+ *
  * <p>Brand details.
  */
 public class Brand {
@@ -96,14 +96,11 @@ public class Brand {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
-    
+
     public Brand() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -166,7 +163,6 @@ public class Brand {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -174,7 +170,6 @@ public class Brand {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -184,7 +179,6 @@ public class Brand {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -192,7 +186,6 @@ public class Brand {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -202,7 +195,6 @@ public class Brand {
         return this;
     }
 
-
     /**
      * The ID of the travel supplier brand.
      */
@@ -210,7 +202,6 @@ public class Brand {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the travel supplier brand.
@@ -220,7 +211,6 @@ public class Brand {
         return this;
     }
 
-
     /**
      * A physical address.
      */
@@ -229,7 +219,6 @@ public class Brand {
         return this;
     }
 
-
     /**
      * True indicates the brand is deleted.
      */
@@ -237,7 +226,6 @@ public class Brand {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -248,40 +236,45 @@ public class Brand {
             return false;
         }
         Brand other = (Brand) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            address, deleted);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, id, name, address, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Brand.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "address", address,
-                "deleted", deleted);
+        return Utils.toString(
+                Brand.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "address",
+                address,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -300,7 +293,7 @@ public class Brand {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -368,17 +361,10 @@ public class Brand {
         }
 
         public Brand build() {
-            return new Brand(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                address, deleted);
+            return new Brand(created, createdBy, lastModified, lastModifiedBy, id, name, address, deleted);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

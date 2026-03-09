@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * TravelBidCommentJson
- * 
+ *
  * <p>A comment on a travel bid.
  */
 public class TravelBidCommentJson {
@@ -40,7 +40,7 @@ public class TravelBidCommentJson {
         this.commentType = commentType;
         this.comment = comment;
     }
-    
+
     public TravelBidCommentJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class TravelBidCommentJson {
         return new Builder();
     }
 
-
     /**
      * Bid comment type
      */
@@ -72,7 +71,6 @@ public class TravelBidCommentJson {
         return this;
     }
 
-
     /**
      * The text of the comment.
      */
@@ -80,7 +78,6 @@ public class TravelBidCommentJson {
         this.comment = comment;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class TravelBidCommentJson {
             return false;
         }
         TravelBidCommentJson other = (TravelBidCommentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.commentType, other.commentType) &&
-            Utils.enhancedDeepEquals(this.comment, other.comment);
+        return Utils.enhancedDeepEquals(this.commentType, other.commentType)
+                && Utils.enhancedDeepEquals(this.comment, other.comment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            commentType, comment);
+        return Utils.enhancedHash(commentType, comment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidCommentJson.class,
-                "commentType", commentType,
-                "comment", comment);
+        return Utils.toString(TravelBidCommentJson.class, "commentType", commentType, "comment", comment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CommentTypeJson commentType;
 
         private String comment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class TravelBidCommentJson {
         }
 
         public TravelBidCommentJson build() {
-            return new TravelBidCommentJson(
-                commentType, comment);
+            return new TravelBidCommentJson(commentType, comment);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CardTransactionJson1
- * 
+ *
  * <p>Card transaction associated with an event.
  */
 public class CardTransactionJson1 {
@@ -78,7 +78,6 @@ public class CardTransactionJson1 {
     @JsonProperty("merchant")
     private String merchant;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("reconciliation")
     private TransactionReconciliation reconciliation;
@@ -122,12 +121,9 @@ public class CardTransactionJson1 {
         this.reconciliations = reconciliations;
         this.descriptions = descriptions;
     }
-    
+
     public CardTransactionJson1() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -208,7 +204,6 @@ public class CardTransactionJson1 {
         return new Builder();
     }
 
-
     /**
      * The identifier of the Event.
      */
@@ -216,7 +211,6 @@ public class CardTransactionJson1 {
         this.event = event;
         return this;
     }
-
 
     /**
      * The identifier of the Card.
@@ -226,7 +220,6 @@ public class CardTransactionJson1 {
         return this;
     }
 
-
     /**
      * Card transaction ID.
      */
@@ -234,7 +227,6 @@ public class CardTransactionJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date and time for Card transaction date.
@@ -244,7 +236,6 @@ public class CardTransactionJson1 {
         return this;
     }
 
-
     /**
      * This is used to denote the transaction type for a transaction.
      */
@@ -252,7 +243,6 @@ public class CardTransactionJson1 {
         this.type = type;
         return this;
     }
-
 
     /**
      * Transaction amount.
@@ -262,7 +252,6 @@ public class CardTransactionJson1 {
         return this;
     }
 
-
     /**
      * The ISO 4217 standard format currency code used of transaction currency.
      */
@@ -270,7 +259,6 @@ public class CardTransactionJson1 {
         this.currency = currency;
         return this;
     }
-
 
     /**
      * Merchant name.
@@ -280,12 +268,10 @@ public class CardTransactionJson1 {
         return this;
     }
 
-
     public CardTransactionJson1 withReconciliation(@Nullable TransactionReconciliation reconciliation) {
         this.reconciliation = reconciliation;
         return this;
     }
-
 
     /**
      * The list of reconciled item.
@@ -295,7 +281,6 @@ public class CardTransactionJson1 {
         return this;
     }
 
-
     /**
      * The list of transaction description.
      */
@@ -303,7 +288,6 @@ public class CardTransactionJson1 {
         this.descriptions = descriptions;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -314,47 +298,65 @@ public class CardTransactionJson1 {
             return false;
         }
         CardTransactionJson1 other = (CardTransactionJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.card, other.card) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.transactionDate, other.transactionDate) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.merchant, other.merchant) &&
-            Utils.enhancedDeepEquals(this.reconciliation, other.reconciliation) &&
-            Utils.enhancedDeepEquals(this.reconciliations, other.reconciliations) &&
-            Utils.enhancedDeepEquals(this.descriptions, other.descriptions);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.card, other.card)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.transactionDate, other.transactionDate)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.merchant, other.merchant)
+                && Utils.enhancedDeepEquals(this.reconciliation, other.reconciliation)
+                && Utils.enhancedDeepEquals(this.reconciliations, other.reconciliations)
+                && Utils.enhancedDeepEquals(this.descriptions, other.descriptions);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, card, id,
-            transactionDate, type, amount,
-            currency, merchant, reconciliation,
-            reconciliations, descriptions);
+                event,
+                card,
+                id,
+                transactionDate,
+                type,
+                amount,
+                currency,
+                merchant,
+                reconciliation,
+                reconciliations,
+                descriptions);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CardTransactionJson1.class,
-                "event", event,
-                "card", card,
-                "id", id,
-                "transactionDate", transactionDate,
-                "type", type,
-                "amount", amount,
-                "currency", currency,
-                "merchant", merchant,
-                "reconciliation", reconciliation,
-                "reconciliations", reconciliations,
-                "descriptions", descriptions);
+        return Utils.toString(
+                CardTransactionJson1.class,
+                "event",
+                event,
+                "card",
+                card,
+                "id",
+                id,
+                "transactionDate",
+                transactionDate,
+                "type",
+                type,
+                "amount",
+                amount,
+                "currency",
+                currency,
+                "merchant",
+                merchant,
+                "reconciliation",
+                reconciliation,
+                "reconciliations",
+                reconciliations,
+                "descriptions",
+                descriptions);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CardTransactionJson1Event event;
 
@@ -379,7 +381,7 @@ public class CardTransactionJson1 {
         private List<String> descriptions;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -469,11 +471,17 @@ public class CardTransactionJson1 {
 
         public CardTransactionJson1 build() {
             return new CardTransactionJson1(
-                event, card, id,
-                transactionDate, type, amount,
-                currency, merchant, reconciliation,
-                reconciliations, descriptions);
+                    event,
+                    card,
+                    id,
+                    transactionDate,
+                    type,
+                    amount,
+                    currency,
+                    merchant,
+                    reconciliation,
+                    reconciliations,
+                    descriptions);
         }
-
     }
 }

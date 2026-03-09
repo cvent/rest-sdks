@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EmailStatusJson
     {
-        [JsonProperty("Sent")]
-        Sent,
-        [JsonProperty("Failed")]
-        Failed,
+        [JsonProperty("Sent")] Sent,
+        [JsonProperty("Failed")] Failed,
     }
 
     public static class EmailStatusJsonExtension
     {
         public static string Value(this EmailStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EmailStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EmailStatusJson).GetFields())
+            foreach (var field in typeof(EmailStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

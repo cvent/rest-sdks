@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListSpeakersRequest {
     /**
      * The maximum number of records to return per page.
@@ -32,11 +31,11 @@ public class ListSpeakersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      * * lastName
@@ -62,7 +61,7 @@ public class ListSpeakersRequest {
      * the endpoint will return a relevance score for each attendee in the list. Higher scores represent a
      * higher
      * relevance to the filter string.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -74,7 +73,7 @@ public class ListSpeakersRequest {
      * * contains a value: contains
      * * match a term: match
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * category.id (eq|ne)
      * * category.name (eq|ne|sw|contains)
@@ -90,7 +89,7 @@ public class ListSpeakersRequest {
      * * lastName (eq|ne|sw|contains|match)
      * * title (eq|ne|sw|contains)
      * * visibility (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -105,17 +104,15 @@ public class ListSpeakersRequest {
             @Nullable String sort,
             @Nullable String locale,
             @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.locale = locale;
         this.filter = filter;
     }
-    
+
     public ListSpeakersRequest() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -136,11 +133,11 @@ public class ListSpeakersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      * * lastName
@@ -168,7 +165,7 @@ public class ListSpeakersRequest {
      * the endpoint will return a relevance score for each attendee in the list. Higher scores represent a
      * higher
      * relevance to the filter string.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -180,7 +177,7 @@ public class ListSpeakersRequest {
      * * contains a value: contains
      * * match a term: match
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * category.id (eq|ne)
      * * category.name (eq|ne|sw|contains)
@@ -196,7 +193,7 @@ public class ListSpeakersRequest {
      * * lastName (eq|ne|sw|contains|match)
      * * title (eq|ne|sw|contains)
      * * visibility (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -209,7 +206,6 @@ public class ListSpeakersRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -217,7 +213,6 @@ public class ListSpeakersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -228,15 +223,14 @@ public class ListSpeakersRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * lastModified
      * * lastName
@@ -250,7 +244,6 @@ public class ListSpeakersRequest {
         return this;
     }
 
-
     /**
      * Locale code in IETF Language tag format. Indicates desired locale of return values.
      */
@@ -258,7 +251,6 @@ public class ListSpeakersRequest {
         this.locale = locale;
         return this;
     }
-
 
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
@@ -268,7 +260,7 @@ public class ListSpeakersRequest {
      * the endpoint will return a relevance score for each attendee in the list. Higher scores represent a
      * higher
      * relevance to the filter string.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
@@ -280,7 +272,7 @@ public class ListSpeakersRequest {
      * * contains a value: contains
      * * match a term: match
      * * includes value(s): in
-     * 
+     *
      * <p>The following fields are filterable:
      * * category.id (eq|ne)
      * * category.name (eq|ne|sw|contains)
@@ -296,7 +288,7 @@ public class ListSpeakersRequest {
      * * lastName (eq|ne|sw|contains|match)
      * * title (eq|ne|sw|contains)
      * * visibility (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -305,7 +297,6 @@ public class ListSpeakersRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -316,33 +307,36 @@ public class ListSpeakersRequest {
             return false;
         }
         ListSpeakersRequest other = (ListSpeakersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.locale, other.locale) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.locale, other.locale)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, sort,
-            locale, filter);
+        return Utils.enhancedHash(limit, token, sort, locale, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSpeakersRequest.class,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "locale", locale,
-                "filter", filter);
+        return Utils.toString(
+                ListSpeakersRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "locale",
+                locale,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -355,7 +349,7 @@ public class ListSpeakersRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -378,11 +372,11 @@ public class ListSpeakersRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * lastModified
          * * lastName
@@ -412,7 +406,7 @@ public class ListSpeakersRequest {
          * the endpoint will return a relevance score for each attendee in the list. Higher scores represent a
          * higher
          * relevance to the filter string.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
@@ -424,7 +418,7 @@ public class ListSpeakersRequest {
          * * contains a value: contains
          * * match a term: match
          * * includes value(s): in
-         * 
+         *
          * <p>The following fields are filterable:
          * * category.id (eq|ne)
          * * category.name (eq|ne|sw|contains)
@@ -440,7 +434,7 @@ public class ListSpeakersRequest {
          * * lastName (eq|ne|sw|contains|match)
          * * title (eq|ne|sw|contains)
          * * visibility (eq|ne)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -451,16 +445,10 @@ public class ListSpeakersRequest {
         }
 
         public ListSpeakersRequest build() {
-            return new ListSpeakersRequest(
-                limit, token, sort,
-                locale, filter);
+            return new ListSpeakersRequest(limit, token, sort, locale, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

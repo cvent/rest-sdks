@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ContactLinksJsonLink
- * 
+ *
  * <p>Reference to a profile picture.
  */
 public class ContactLinksJsonLink {
@@ -24,10 +24,8 @@ public class ContactLinksJsonLink {
     private String href;
 
     @JsonCreator
-    public ContactLinksJsonLink(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public ContactLinksJsonLink(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ContactLinksJsonLink {
         return new Builder();
     }
 
-
     /**
      * The url of the contact's profile picture
      */
@@ -49,7 +46,6 @@ public class ContactLinksJsonLink {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ContactLinksJsonLink {
             return false;
         }
         ContactLinksJsonLink other = (ContactLinksJsonLink) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactLinksJsonLink.class,
-                "href", href);
+        return Utils.toString(ContactLinksJsonLink.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ContactLinksJsonLink {
         }
 
         public ContactLinksJsonLink build() {
-            return new ContactLinksJsonLink(
-                href);
+            return new ContactLinksJsonLink(href);
         }
-
     }
 }

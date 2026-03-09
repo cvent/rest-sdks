@@ -2,6 +2,14 @@
 
 The ISO 4217 standard format currency code used for RFPs.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CurrencyJson1;
+
+CurrencyJson1 value = CurrencyJson1.USD;
+```
+
 
 ## Values
 

@@ -10,15 +10,15 @@ import java.util.Optional;
 
 /**
  * VolumeDiscountThresholdTypeJson
- * 
+ *
  * <p>Specifies who will receive the discount once the threshold for the number of ordered items is met or
  * exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is
  * exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount.
- * 
+ *
  * <p>`BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted.
  * Further registrations are at full price. If primaryRegistrant is not included then the first
  * registrant is full price.
- * 
+ *
  * <p>Every registration afterward, up to and including the threshold, are discounted. Any additional
  * registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth
  * registration counting from the threshold recieves a discount, where N is defined by the `interval`
@@ -36,13 +36,13 @@ public enum VolumeDiscountThresholdTypeJson {
     VolumeDiscountThresholdTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VolumeDiscountThresholdTypeJson> fromValue(String value) {
-        for (VolumeDiscountThresholdTypeJson o: VolumeDiscountThresholdTypeJson.values()) {
+        for (VolumeDiscountThresholdTypeJson o : VolumeDiscountThresholdTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -50,4 +50,3 @@ public enum VolumeDiscountThresholdTypeJson {
         return Optional.empty();
     }
 }
-

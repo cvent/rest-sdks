@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateAppointmentRequest {
     /**
      * The unique identifier of an appointment event.
@@ -31,7 +30,6 @@ public class CreateAppointmentRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=suppressNotifications")
     private Boolean suppressNotifications;
 
-
     @SpeakeasyMetadata("request:mediaType=application/json")
     private com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest;
 
@@ -40,15 +38,13 @@ public class CreateAppointmentRequest {
             @Nonnull String id,
             @Nullable Boolean suppressNotifications,
             @Nullable com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.suppressNotifications = Optional.ofNullable(suppressNotifications)
-            .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
+                .orElse(Builder._SINGLETON_VALUE_SuppressNotifications.value());
         this.createAppointmentRequest = createAppointmentRequest;
     }
-    
-    public CreateAppointmentRequest(
-            @Nonnull String id) {
+
+    public CreateAppointmentRequest(@Nonnull String id) {
         this(id, null, null);
     }
 
@@ -76,7 +72,6 @@ public class CreateAppointmentRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of an appointment event.
      */
@@ -84,7 +79,6 @@ public class CreateAppointmentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Flag to choose whether to suppress notifications on successful completion of operation.
@@ -96,12 +90,11 @@ public class CreateAppointmentRequest {
         return this;
     }
 
-
-    public CreateAppointmentRequest withCreateAppointmentRequest(@Nullable com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest) {
+    public CreateAppointmentRequest withCreateAppointmentRequest(
+            @Nullable com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest) {
         this.createAppointmentRequest = createAppointmentRequest;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -112,28 +105,30 @@ public class CreateAppointmentRequest {
             return false;
         }
         CreateAppointmentRequest other = (CreateAppointmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications) &&
-            Utils.enhancedDeepEquals(this.createAppointmentRequest, other.createAppointmentRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.suppressNotifications, other.suppressNotifications)
+                && Utils.enhancedDeepEquals(this.createAppointmentRequest, other.createAppointmentRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, suppressNotifications, createAppointmentRequest);
+        return Utils.enhancedHash(id, suppressNotifications, createAppointmentRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateAppointmentRequest.class,
-                "id", id,
-                "suppressNotifications", suppressNotifications,
-                "createAppointmentRequest", createAppointmentRequest);
+        return Utils.toString(
+                CreateAppointmentRequest.class,
+                "id",
+                id,
+                "suppressNotifications",
+                suppressNotifications,
+                "createAppointmentRequest",
+                createAppointmentRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -142,7 +137,7 @@ public class CreateAppointmentRequest {
         private com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -163,21 +158,17 @@ public class CreateAppointmentRequest {
             return this;
         }
 
-        public Builder createAppointmentRequest(@Nullable com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest) {
+        public Builder createAppointmentRequest(
+                @Nullable com.cvent.models.components.CreateAppointmentRequest createAppointmentRequest) {
             this.createAppointmentRequest = createAppointmentRequest;
             return this;
         }
 
         public CreateAppointmentRequest build() {
-            return new CreateAppointmentRequest(
-                id, suppressNotifications, createAppointmentRequest);
+            return new CreateAppointmentRequest(id, suppressNotifications, createAppointmentRequest);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SuppressNotifications =
-                new LazySingletonValue<>(
-                        "suppressNotifications",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("suppressNotifications", "false", new TypeReference<Boolean>() {});
     }
 }

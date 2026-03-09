@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityExhibitorJson
- * 
+ *
  * <p>An activity exhibitor.
  */
 public class ActivityExhibitorJson {
@@ -58,10 +58,9 @@ public class ActivityExhibitorJson {
         this.marketingCode = marketingCode;
         this.name = name;
     }
-    
+
     public ActivityExhibitorJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ActivityExhibitorJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the exhibitor.
      */
@@ -104,7 +102,6 @@ public class ActivityExhibitorJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Unique code of an exhibitor at a booth.
@@ -114,7 +111,6 @@ public class ActivityExhibitorJson {
         return this;
     }
 
-
     /**
      * The marketing code of an exhibitor.
      */
@@ -123,7 +119,6 @@ public class ActivityExhibitorJson {
         return this;
     }
 
-
     /**
      * The Name of an exhibitor.
      */
@@ -131,7 +126,6 @@ public class ActivityExhibitorJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class ActivityExhibitorJson {
             return false;
         }
         ActivityExhibitorJson other = (ActivityExhibitorJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.marketingCode, other.marketingCode) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.marketingCode, other.marketingCode)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, marketingCode,
-            name);
+        return Utils.enhancedHash(id, code, marketingCode, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityExhibitorJson.class,
-                "id", id,
-                "code", code,
-                "marketingCode", marketingCode,
-                "name", name);
+        return Utils.toString(
+                ActivityExhibitorJson.class, "id", id, "code", code, "marketingCode", marketingCode, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +165,7 @@ public class ActivityExhibitorJson {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class ActivityExhibitorJson {
         }
 
         public ActivityExhibitorJson build() {
-            return new ActivityExhibitorJson(
-                id, code, marketingCode,
-                name);
+            return new ActivityExhibitorJson(id, code, marketingCode, name);
         }
-
     }
 }

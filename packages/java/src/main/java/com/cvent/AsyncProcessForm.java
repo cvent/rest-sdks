@@ -30,21 +30,20 @@ public class AsyncProcessForm {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public ProcessForm sync() {
         return syncSDK;
     }
 
-
     /**
      * List Process Form Submissions
-     * 
+     *
      * <p>Gets a paginated list of process form submissions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListProcessFormSubmissionRequestBuilder listProcessFormSubmission() {
@@ -53,19 +52,18 @@ public class AsyncProcessForm {
 
     /**
      * List Process Form Submissions
-     * 
+     *
      * <p>Gets a paginated list of process form submissions.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListProcessFormSubmissionResponse>} - The async response
      */
-    public CompletableFuture<ListProcessFormSubmissionResponse> listProcessFormSubmission(@Nonnull ListProcessFormSubmissionRequest request) {
-        AsyncRequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation
-              = new ListProcessFormSubmission.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListProcessFormSubmissionResponse> listProcessFormSubmission(
+            @Nonnull ListProcessFormSubmissionRequest request) {
+        AsyncRequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation =
+                new ListProcessFormSubmission.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

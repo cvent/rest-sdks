@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CurrencyConversionRate
- * 
+ *
  * <p>Currency conversion rate for a currency based on dates in an account.
  */
 public class CurrencyConversionRate {
@@ -50,13 +50,11 @@ public class CurrencyConversionRate {
             @JsonProperty("endDate") @Nullable LocalDate endDate) {
         this.conversionRate = conversionRate;
         this.startDate = Optional.ofNullable(startDate)
-            .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startDate cannot be null"));
         this.endDate = endDate;
     }
-    
-    public CurrencyConversionRate(
-            double conversionRate,
-            @Nonnull LocalDate startDate) {
+
+    public CurrencyConversionRate(double conversionRate, @Nonnull LocalDate startDate) {
         this(conversionRate, startDate, null);
     }
 
@@ -88,7 +86,6 @@ public class CurrencyConversionRate {
         return new Builder();
     }
 
-
     /**
      * Currency conversion rate from accounts base currency to the other defined currency in this
      * conversion rate.
@@ -97,7 +94,6 @@ public class CurrencyConversionRate {
         this.conversionRate = conversionRate;
         return this;
     }
-
 
     /**
      * The ISO 8601 date format assigned for the currency conversion, typically denotes start date from
@@ -108,7 +104,6 @@ public class CurrencyConversionRate {
         return this;
     }
 
-
     /**
      * The ISO 8601 date format for the currency conversion, typically denotes end date till when defined
      * conversion rate is applicable.
@@ -117,7 +112,6 @@ public class CurrencyConversionRate {
         this.endDate = endDate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -128,28 +122,30 @@ public class CurrencyConversionRate {
             return false;
         }
         CurrencyConversionRate other = (CurrencyConversionRate) o;
-        return 
-            Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate);
+        return Utils.enhancedDeepEquals(this.conversionRate, other.conversionRate)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            conversionRate, startDate, endDate);
+        return Utils.enhancedHash(conversionRate, startDate, endDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CurrencyConversionRate.class,
-                "conversionRate", conversionRate,
-                "startDate", startDate,
-                "endDate", endDate);
+        return Utils.toString(
+                CurrencyConversionRate.class,
+                "conversionRate",
+                conversionRate,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double conversionRate;
 
@@ -158,7 +154,7 @@ public class CurrencyConversionRate {
         private LocalDate endDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -189,9 +185,7 @@ public class CurrencyConversionRate {
         }
 
         public CurrencyConversionRate build() {
-            return new CurrencyConversionRate(
-                conversionRate, startDate, endDate);
+            return new CurrencyConversionRate(conversionRate, startDate, endDate);
         }
-
     }
 }

@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class ExistingDiscountPaginatedResponseDataType
     {
-        private ExistingDiscountPaginatedResponseDataType(string value) { Value = value; }
+        private ExistingDiscountPaginatedResponseDataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ExistingDiscountPaginatedResponseDataType DiscountCode { get { return new ExistingDiscountPaginatedResponseDataType("DISCOUNT_CODE"); } }
+        public static ExistingDiscountPaginatedResponseDataType DiscountCode
+        {
+            get {
+                return new ExistingDiscountPaginatedResponseDataType("DISCOUNT_CODE");
+            }
+        }
 
-        public static ExistingDiscountPaginatedResponseDataType VolumeDiscount { get { return new ExistingDiscountPaginatedResponseDataType("VOLUME_DISCOUNT"); } }
+        public static ExistingDiscountPaginatedResponseDataType VolumeDiscount
+        {
+            get {
+                return new ExistingDiscountPaginatedResponseDataType("VOLUME_DISCOUNT");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ExistingDiscountPaginatedResponseDataType v) { return v.Value; }
-        public static ExistingDiscountPaginatedResponseDataType FromString(string v) {
-            switch(v) {
-                case "DISCOUNT_CODE": return DiscountCode;
-                case "VOLUME_DISCOUNT": return VolumeDiscount;
-                default: throw new ArgumentException("Invalid value for ExistingDiscountPaginatedResponseDataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ExistingDiscountPaginatedResponseDataType v)
+        {
+            return v.Value;
+        }
+        public static ExistingDiscountPaginatedResponseDataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "DISCOUNT_CODE":
+                    return DiscountCode;
+                case "VOLUME_DISCOUNT":
+                    return VolumeDiscount;
+                default:
+                    throw new ArgumentException("Invalid value for ExistingDiscountPaginatedResponseDataType");
             }
         }
         public override bool Equals(object? obj)
@@ -138,8 +162,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

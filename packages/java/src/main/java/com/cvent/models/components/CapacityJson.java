@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * CapacityJson
- * 
+ *
  * <p>Registration capacity object containing registration type and reserved capacity
  */
 public class CapacityJson {
@@ -34,7 +34,7 @@ public class CapacityJson {
             @JsonProperty("registrationType") @Nonnull CapacityJsonRegistrationType registrationType,
             @JsonProperty("reservedCapacity") long reservedCapacity) {
         this.registrationType = Optional.ofNullable(registrationType)
-            .orElseThrow(() -> new IllegalArgumentException("registrationType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationType cannot be null"));
         this.reservedCapacity = reservedCapacity;
     }
 
@@ -56,7 +56,6 @@ public class CapacityJson {
         return new Builder();
     }
 
-
     /**
      * Registration type information
      */
@@ -65,7 +64,6 @@ public class CapacityJson {
         return this;
     }
 
-
     /**
      * Reserved capacity of the registration type for an exhibitor
      */
@@ -73,7 +71,6 @@ public class CapacityJson {
         this.reservedCapacity = reservedCapacity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -84,33 +81,30 @@ public class CapacityJson {
             return false;
         }
         CapacityJson other = (CapacityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrationType, other.registrationType) &&
-            Utils.enhancedDeepEquals(this.reservedCapacity, other.reservedCapacity);
+        return Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
+                && Utils.enhancedDeepEquals(this.reservedCapacity, other.reservedCapacity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            registrationType, reservedCapacity);
+        return Utils.enhancedHash(registrationType, reservedCapacity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CapacityJson.class,
-                "registrationType", registrationType,
-                "reservedCapacity", reservedCapacity);
+        return Utils.toString(
+                CapacityJson.class, "registrationType", registrationType, "reservedCapacity", reservedCapacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private CapacityJsonRegistrationType registrationType;
 
         private long reservedCapacity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -130,9 +124,7 @@ public class CapacityJson {
         }
 
         public CapacityJson build() {
-            return new CapacityJson(
-                registrationType, reservedCapacity);
+            return new CapacityJson(registrationType, reservedCapacity);
         }
-
     }
 }

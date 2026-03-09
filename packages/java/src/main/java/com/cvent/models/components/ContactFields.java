@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ContactFields
- * 
+ *
  * <p>An array of standard contact fields supported by Cvent.
  */
 public class ContactFields {
@@ -25,10 +25,8 @@ public class ContactFields {
     private List<ContactFieldJson> data;
 
     @JsonCreator
-    public ContactFields(
-            @JsonProperty("data") @Nonnull List<ContactFieldJson> data) {
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+    public ContactFields(@JsonProperty("data") @Nonnull List<ContactFieldJson> data) {
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -42,7 +40,6 @@ public class ContactFields {
         return new Builder();
     }
 
-
     /**
      * Collection of standard contact fields.
      */
@@ -50,7 +47,6 @@ public class ContactFields {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -61,29 +57,26 @@ public class ContactFields {
             return false;
         }
         ContactFields other = (ContactFields) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactFields.class,
-                "data", data);
+        return Utils.toString(ContactFields.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ContactFieldJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +88,7 @@ public class ContactFields {
         }
 
         public ContactFields build() {
-            return new ContactFields(
-                data);
+            return new ContactFields(data);
         }
-
     }
 }

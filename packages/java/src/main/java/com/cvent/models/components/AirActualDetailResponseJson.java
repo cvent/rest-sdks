@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AirActualDetailResponseJson
- * 
+ *
  * <p>Representation of an air actual detail response.
  */
 public class AirActualDetailResponseJson {
@@ -41,7 +41,7 @@ public class AirActualDetailResponseJson {
         this.attendee = attendee;
         this.airActualDetails = airActualDetails;
     }
-    
+
     public AirActualDetailResponseJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class AirActualDetailResponseJson {
         return new Builder();
     }
 
-
     /**
      * Representation of the attendee
      */
@@ -73,7 +72,6 @@ public class AirActualDetailResponseJson {
         return this;
     }
 
-
     /**
      * List of air actual details for the attendee and its guest.
      */
@@ -81,7 +79,6 @@ public class AirActualDetailResponseJson {
         this.airActualDetails = airActualDetails;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,30 @@ public class AirActualDetailResponseJson {
             return false;
         }
         AirActualDetailResponseJson other = (AirActualDetailResponseJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.airActualDetails, other.airActualDetails);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.airActualDetails, other.airActualDetails);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, airActualDetails);
+        return Utils.enhancedHash(attendee, airActualDetails);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AirActualDetailResponseJson.class,
-                "attendee", attendee,
-                "airActualDetails", airActualDetails);
+        return Utils.toString(
+                AirActualDetailResponseJson.class, "attendee", attendee, "airActualDetails", airActualDetails);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeJson4 attendee;
 
         private List<AirActualJson> airActualDetails;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +132,7 @@ public class AirActualDetailResponseJson {
         }
 
         public AirActualDetailResponseJson build() {
-            return new AirActualDetailResponseJson(
-                attendee, airActualDetails);
+            return new AirActualDetailResponseJson(attendee, airActualDetails);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelProgramTypeJson
- * 
+ *
  * <p>Code representing the travel program type.
  */
 public enum TravelProgramTypeJson {
@@ -24,13 +24,13 @@ public enum TravelProgramTypeJson {
     TravelProgramTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelProgramTypeJson> fromValue(String value) {
-        for (TravelProgramTypeJson o: TravelProgramTypeJson.values()) {
+        for (TravelProgramTypeJson o : TravelProgramTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum TravelProgramTypeJson {
         return Optional.empty();
     }
 }
-

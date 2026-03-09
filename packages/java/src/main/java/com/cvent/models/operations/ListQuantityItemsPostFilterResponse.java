@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListQuantityItemsPostFilterResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListQuantityItemsPostFilterResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable QuantityItemsPaginatedResponse quantityItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.quantityItemsPaginatedResponse = quantityItemsPaginatedResponse;
     }
-    
+
     public ListQuantityItemsPostFilterResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of quantity items.
      */
-    public ListQuantityItemsPostFilterResponse withQuantityItemsPaginatedResponse(@Nullable QuantityItemsPaginatedResponse quantityItemsPaginatedResponse) {
+    public ListQuantityItemsPostFilterResponse withQuantityItemsPaginatedResponse(
+            @Nullable QuantityItemsPaginatedResponse quantityItemsPaginatedResponse) {
         this.quantityItemsPaginatedResponse = quantityItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListQuantityItemsPostFilterResponse implements Response {
             return false;
         }
         ListQuantityItemsPostFilterResponse other = (ListQuantityItemsPostFilterResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.quantityItemsPaginatedResponse, other.quantityItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.quantityItemsPaginatedResponse, other.quantityItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            quantityItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, quantityItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListQuantityItemsPostFilterResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "quantityItemsPaginatedResponse", quantityItemsPaginatedResponse);
+        return Utils.toString(
+                ListQuantityItemsPostFilterResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "quantityItemsPaginatedResponse",
+                quantityItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         private QuantityItemsPaginatedResponse quantityItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListQuantityItemsPostFilterResponse implements Response {
         /**
          * Successfully retrieved a paginated list of quantity items.
          */
-        public Builder quantityItemsPaginatedResponse(@Nullable QuantityItemsPaginatedResponse quantityItemsPaginatedResponse) {
+        public Builder quantityItemsPaginatedResponse(
+                @Nullable QuantityItemsPaginatedResponse quantityItemsPaginatedResponse) {
             this.quantityItemsPaginatedResponse = quantityItemsPaginatedResponse;
             return this;
         }
 
         public ListQuantityItemsPostFilterResponse build() {
             return new ListQuantityItemsPostFilterResponse(
-                contentType, statusCode, rawResponse,
-                quantityItemsPaginatedResponse);
+                    contentType, statusCode, rawResponse, quantityItemsPaginatedResponse);
         }
-
     }
 }

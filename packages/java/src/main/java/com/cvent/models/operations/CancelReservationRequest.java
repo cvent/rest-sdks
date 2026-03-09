@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CancelReservationRequest {
     /**
      * Cvent Passkey confirmation number.
@@ -20,10 +19,9 @@ public class CancelReservationRequest {
     private String reservationId;
 
     @JsonCreator
-    public CancelReservationRequest(
-            @Nonnull String reservationId) {
+    public CancelReservationRequest(@Nonnull String reservationId) {
         this.reservationId = Optional.ofNullable(reservationId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class CancelReservationRequest {
         return new Builder();
     }
 
-
     /**
      * Cvent Passkey confirmation number.
      */
@@ -45,7 +42,6 @@ public class CancelReservationRequest {
         this.reservationId = Utils.checkNotNull(reservationId, "reservationId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class CancelReservationRequest {
             return false;
         }
         CancelReservationRequest other = (CancelReservationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationId, other.reservationId);
+        return Utils.enhancedDeepEquals(this.reservationId, other.reservationId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reservationId);
+        return Utils.enhancedHash(reservationId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CancelReservationRequest.class,
-                "reservationId", reservationId);
+        return Utils.toString(CancelReservationRequest.class, "reservationId", reservationId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reservationId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class CancelReservationRequest {
         }
 
         public CancelReservationRequest build() {
-            return new CancelReservationRequest(
-                reservationId);
+            return new CancelReservationRequest(reservationId);
         }
-
     }
 }

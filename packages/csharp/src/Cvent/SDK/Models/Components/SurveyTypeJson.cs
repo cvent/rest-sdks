@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SurveyTypeJson
     {
-        [JsonProperty("Standalone")]
-        Standalone,
-        [JsonProperty("Event")]
-        Event,
-        [JsonProperty("Assessment")]
-        Assessment,
+        [JsonProperty("Standalone")] Standalone,
+        [JsonProperty("Event")] Event,
+        [JsonProperty("Assessment")] Assessment,
     }
 
     public static class SurveyTypeJsonExtension
     {
         public static string Value(this SurveyTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SurveyTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(SurveyTypeJson).GetFields())
+            foreach (var field in typeof(SurveyTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

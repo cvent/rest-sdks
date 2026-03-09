@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AirActualJson
- * 
+ *
  * <p>Representation of an air actual.
  */
 public class AirActualJson {
@@ -60,7 +60,7 @@ public class AirActualJson {
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -77,7 +77,7 @@ public class AirActualJson {
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -194,14 +194,27 @@ public class AirActualJson {
         this.flightDetail = flightDetail;
         this.airActualAnswers = airActualAnswers;
     }
-    
+
     public AirActualJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -242,7 +255,7 @@ public class AirActualJson {
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     public Optional<String> requesterId() {
@@ -259,7 +272,7 @@ public class AirActualJson {
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     public Optional<AirRequesterTypeJson> requesterType() {
@@ -341,7 +354,6 @@ public class AirActualJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -349,7 +361,6 @@ public class AirActualJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -359,7 +370,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -367,7 +377,6 @@ public class AirActualJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -377,7 +386,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * ID of the air actual.
      */
@@ -386,18 +394,16 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
      * is guest ID.
-     * 
+     *
      * <p>For any other passenger, this fields contains null.
      */
     public AirActualJson withRequesterId(@Nullable String requesterId) {
         this.requesterId = requesterId;
         return this;
     }
-
 
     /**
      * Status of the travel request done by attendee.
@@ -407,18 +413,16 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * Representation of an attendee type of the flight requester. Contact means the requester is an
      * independent attendee. Guest means the attendee is accompanying another attendee.
-     * 
+     *
      * <p>Unknown means attendee has requested a flight for passenger other than its guest.
      */
     public AirActualJson withRequesterType(@Nullable AirRequesterTypeJson requesterType) {
         this.requesterType = requesterType;
         return this;
     }
-
 
     /**
      * Name of the attendee booked for the flight.
@@ -428,7 +432,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * Confirmation Number of the flight.
      */
@@ -436,7 +439,6 @@ public class AirActualJson {
         this.confirmationNumber = confirmationNumber;
         return this;
     }
-
 
     /**
      * Total cost of the flight.
@@ -446,7 +448,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code for the cost of the flight.
      */
@@ -455,7 +456,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * Additional note associated to the air actual.
      */
@@ -463,7 +463,6 @@ public class AirActualJson {
         this.note = note;
         return this;
     }
-
 
     /**
      * The unique reservation number associated with the Global Distribution System (GDS) where the flight
@@ -474,7 +473,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * Additional note from the GDS associated to the air actual.
      */
@@ -482,7 +480,6 @@ public class AirActualJson {
         this.noteGDS = noteGDS;
         return this;
     }
-
 
     /**
      * Type of journey
@@ -492,7 +489,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * List of all the flight details taken by attendee and its guest
      */
@@ -501,7 +497,6 @@ public class AirActualJson {
         return this;
     }
 
-
     /**
      * Answer provided by requester to the air actual related question.
      */
@@ -509,7 +504,6 @@ public class AirActualJson {
         this.airActualAnswers = airActualAnswers;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -520,63 +514,93 @@ public class AirActualJson {
             return false;
         }
         AirActualJson other = (AirActualJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.airActualId, other.airActualId) &&
-            Utils.enhancedDeepEquals(this.requesterId, other.requesterId) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.requesterType, other.requesterType) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber) &&
-            Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.note, other.note) &&
-            Utils.enhancedDeepEquals(this.recordLocatorGDS, other.recordLocatorGDS) &&
-            Utils.enhancedDeepEquals(this.noteGDS, other.noteGDS) &&
-            Utils.enhancedDeepEquals(this.journeyType, other.journeyType) &&
-            Utils.enhancedDeepEquals(this.flightDetail, other.flightDetail) &&
-            Utils.enhancedDeepEquals(this.airActualAnswers, other.airActualAnswers);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.airActualId, other.airActualId)
+                && Utils.enhancedDeepEquals(this.requesterId, other.requesterId)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.requesterType, other.requesterType)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber)
+                && Utils.enhancedDeepEquals(this.totalAmount, other.totalAmount)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.recordLocatorGDS, other.recordLocatorGDS)
+                && Utils.enhancedDeepEquals(this.noteGDS, other.noteGDS)
+                && Utils.enhancedDeepEquals(this.journeyType, other.journeyType)
+                && Utils.enhancedDeepEquals(this.flightDetail, other.flightDetail)
+                && Utils.enhancedDeepEquals(this.airActualAnswers, other.airActualAnswers);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, airActualId, requesterId,
-            status, requesterType, name,
-            confirmationNumber, totalAmount, currencyCode,
-            note, recordLocatorGDS, noteGDS,
-            journeyType, flightDetail, airActualAnswers);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                airActualId,
+                requesterId,
+                status,
+                requesterType,
+                name,
+                confirmationNumber,
+                totalAmount,
+                currencyCode,
+                note,
+                recordLocatorGDS,
+                noteGDS,
+                journeyType,
+                flightDetail,
+                airActualAnswers);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AirActualJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "airActualId", airActualId,
-                "requesterId", requesterId,
-                "status", status,
-                "requesterType", requesterType,
-                "name", name,
-                "confirmationNumber", confirmationNumber,
-                "totalAmount", totalAmount,
-                "currencyCode", currencyCode,
-                "note", note,
-                "recordLocatorGDS", recordLocatorGDS,
-                "noteGDS", noteGDS,
-                "journeyType", journeyType,
-                "flightDetail", flightDetail,
-                "airActualAnswers", airActualAnswers);
+        return Utils.toString(
+                AirActualJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "airActualId",
+                airActualId,
+                "requesterId",
+                requesterId,
+                "status",
+                status,
+                "requesterType",
+                requesterType,
+                "name",
+                name,
+                "confirmationNumber",
+                confirmationNumber,
+                "totalAmount",
+                totalAmount,
+                "currencyCode",
+                currencyCode,
+                "note",
+                note,
+                "recordLocatorGDS",
+                recordLocatorGDS,
+                "noteGDS",
+                noteGDS,
+                "journeyType",
+                journeyType,
+                "flightDetail",
+                flightDetail,
+                "airActualAnswers",
+                airActualAnswers);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -615,7 +639,7 @@ public class AirActualJson {
         private List<AttendeeAnswerJson1> airActualAnswers;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -661,7 +685,7 @@ public class AirActualJson {
         /**
          * ID of the flight requester. For an event attendee, this field is contact ID. For guest, this field
          * is guest ID.
-         * 
+         *
          * <p>For any other passenger, this fields contains null.
          */
         public Builder requesterId(@Nullable String requesterId) {
@@ -680,7 +704,7 @@ public class AirActualJson {
         /**
          * Representation of an attendee type of the flight requester. Contact means the requester is an
          * independent attendee. Guest means the attendee is accompanying another attendee.
-         * 
+         *
          * <p>Unknown means attendee has requested a flight for passenger other than its guest.
          */
         public Builder requesterType(@Nullable AirRequesterTypeJson requesterType) {
@@ -771,13 +795,24 @@ public class AirActualJson {
 
         public AirActualJson build() {
             return new AirActualJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, airActualId, requesterId,
-                status, requesterType, name,
-                confirmationNumber, totalAmount, currencyCode,
-                note, recordLocatorGDS, noteGDS,
-                journeyType, flightDetail, airActualAnswers);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    airActualId,
+                    requesterId,
+                    status,
+                    requesterType,
+                    name,
+                    confirmationNumber,
+                    totalAmount,
+                    currencyCode,
+                    note,
+                    recordLocatorGDS,
+                    noteGDS,
+                    journeyType,
+                    flightDetail,
+                    airActualAnswers);
         }
-
     }
 }

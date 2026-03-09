@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * RecipientJson
- * 
+ *
  * <p>Information of the recipient.
  */
 public class RecipientJson {
@@ -58,10 +58,9 @@ public class RecipientJson {
         this.lastName = lastName;
         this.emailAddress = emailAddress;
     }
-    
+
     public RecipientJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class RecipientJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the recipient.
      */
@@ -104,7 +102,6 @@ public class RecipientJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * First name of the recipient.
@@ -114,7 +111,6 @@ public class RecipientJson {
         return this;
     }
 
-
     /**
      * Last name of the recipient.
      */
@@ -123,7 +119,6 @@ public class RecipientJson {
         return this;
     }
 
-
     /**
      * Email address of the recipient.
      */
@@ -131,7 +126,6 @@ public class RecipientJson {
         this.emailAddress = emailAddress;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class RecipientJson {
             return false;
         }
         RecipientJson other = (RecipientJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.emailAddress, other.emailAddress);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.emailAddress, other.emailAddress);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, firstName, lastName,
-            emailAddress);
+        return Utils.enhancedHash(id, firstName, lastName, emailAddress);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RecipientJson.class,
-                "id", id,
-                "firstName", firstName,
-                "lastName", lastName,
-                "emailAddress", emailAddress);
+        return Utils.toString(
+                RecipientJson.class,
+                "id",
+                id,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "emailAddress",
+                emailAddress);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +173,7 @@ public class RecipientJson {
         private String emailAddress;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class RecipientJson {
         }
 
         public RecipientJson build() {
-            return new RecipientJson(
-                id, firstName, lastName,
-                emailAddress);
+            return new RecipientJson(id, firstName, lastName, emailAddress);
         }
-
     }
 }

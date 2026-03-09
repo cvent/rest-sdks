@@ -2,6 +2,14 @@
 
 This is used to indicate the error code returned from a badge printer.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BadgePrintJobErrorCodeJson.BadgeNotFound;
+```
+
 
 ## Values
 

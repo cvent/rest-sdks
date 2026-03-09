@@ -40,7 +40,7 @@ public class ListDiscountedAgendaItemsRequestBuilder {
     private ListDiscountedAgendaItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListDiscountedAgendaItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListDiscountedAgendaItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListDiscountedAgendaItemsResponse> call() {
-        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation
-              = new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation =
+                new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListDiscountedAgendaItemsRequestBuilder {
      */
     public Publisher<ListDiscountedAgendaItemsResponse> callAsPublisher() {
         ListDiscountedAgendaItemsRequest request = this.request;
-        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation
-              = new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation =
+                new ListDiscountedAgendaItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListDiscountedAgendaItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListDiscountedAgendaItemsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListDiscountedAgendaItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListDiscountedAgendaItemsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

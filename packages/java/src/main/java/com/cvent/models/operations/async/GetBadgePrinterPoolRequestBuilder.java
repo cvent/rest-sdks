@@ -30,7 +30,7 @@ public class GetBadgePrinterPoolRequestBuilder {
     private GetBadgePrinterPoolRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetBadgePrinterPoolRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetBadgePrinterPoolRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetBadgePrinterPoolResponse> call() {
-        AsyncRequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation
-              = new GetBadgePrinterPool.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation =
+                new GetBadgePrinterPool.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

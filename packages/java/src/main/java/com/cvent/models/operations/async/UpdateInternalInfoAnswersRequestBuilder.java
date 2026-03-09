@@ -30,7 +30,7 @@ public class UpdateInternalInfoAnswersRequestBuilder {
     private UpdateInternalInfoAnswersRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateInternalInfoAnswersRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateInternalInfoAnswersRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateInternalInfoAnswersResponse> call() {
-        AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation
-              = new UpdateInternalInfoAnswers.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
+                new UpdateInternalInfoAnswers.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

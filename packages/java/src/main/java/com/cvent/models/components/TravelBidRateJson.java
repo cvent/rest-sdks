@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelBidRateJson
- * 
+ *
  * <p>The rate (cost) information for a travel bid.
  */
 public class TravelBidRateJson {
@@ -56,15 +56,13 @@ public class TravelBidRateJson {
             @JsonProperty("planCode") @Nullable String planCode,
             @JsonProperty("tier") @Nullable String tier) {
         this.level = level;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.planCode = planCode;
         this.tier = tier;
     }
-    
+
     public TravelBidRateJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -99,7 +97,6 @@ public class TravelBidRateJson {
         return new Builder();
     }
 
-
     /**
      * Rate level
      */
@@ -107,7 +104,6 @@ public class TravelBidRateJson {
         this.level = level;
         return this;
     }
-
 
     /**
      * Rate type.
@@ -117,7 +113,6 @@ public class TravelBidRateJson {
         return this;
     }
 
-
     /**
      * The code given to the bid (also called rate plan) by the supplier.
      */
@@ -126,7 +121,6 @@ public class TravelBidRateJson {
         return this;
     }
 
-
     /**
      * The rate tier given to the bid (also called rate plan) by the supplier.
      */
@@ -134,7 +128,6 @@ public class TravelBidRateJson {
         this.tier = tier;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -145,31 +138,25 @@ public class TravelBidRateJson {
             return false;
         }
         TravelBidRateJson other = (TravelBidRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.level, other.level) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.planCode, other.planCode) &&
-            Utils.enhancedDeepEquals(this.tier, other.tier);
+        return Utils.enhancedDeepEquals(this.level, other.level)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.planCode, other.planCode)
+                && Utils.enhancedDeepEquals(this.tier, other.tier);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            level, type, planCode,
-            tier);
+        return Utils.enhancedHash(level, type, planCode, tier);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidRateJson.class,
-                "level", level,
-                "type", type,
-                "planCode", planCode,
-                "tier", tier);
+        return Utils.toString(
+                TravelBidRateJson.class, "level", level, "type", type, "planCode", planCode, "tier", tier);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private RateLevelTypeJson level;
 
@@ -180,7 +167,7 @@ public class TravelBidRateJson {
         private String tier;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -216,16 +203,10 @@ public class TravelBidRateJson {
         }
 
         public TravelBidRateJson build() {
-            return new TravelBidRateJson(
-                level, type, planCode,
-                tier);
+            return new TravelBidRateJson(level, type, planCode, tier);
         }
 
-
         private static final LazySingletonValue<RateTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"fixed\"",
-                        new TypeReference<RateTypeJson>() {});
+                new LazySingletonValue<>("type", "\"fixed\"", new TypeReference<RateTypeJson>() {});
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * FeatureTypeJson
- * 
+ *
  * <p>These are the types of features used in the event container events.
  */
 public enum FeatureTypeJson {
@@ -34,13 +34,13 @@ public enum FeatureTypeJson {
     FeatureTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<FeatureTypeJson> fromValue(String value) {
-        for (FeatureTypeJson o: FeatureTypeJson.values()) {
+        for (FeatureTypeJson o : FeatureTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -48,4 +48,3 @@ public enum FeatureTypeJson {
         return Optional.empty();
     }
 }
-

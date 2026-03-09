@@ -18,52 +18,35 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TransactionTypeJson
     {
-        [JsonProperty("AWARD")]
-        Award,
-        [JsonProperty("CANCEL")]
-        Cancel,
-        [JsonProperty("COPY")]
-        Copy,
-        [JsonProperty("CREATE")]
-        Create,
-        [JsonProperty("DECLINE")]
-        Decline,
-        [JsonProperty("DELETE")]
-        Delete,
-        [JsonProperty("EXPIRE")]
-        Expire,
-        [JsonProperty("MODIFY")]
-        Modify,
-        [JsonProperty("OBFUSCATE")]
-        Obfuscate,
-        [JsonProperty("PUBLISH")]
-        Publish,
-        [JsonProperty("PUBLISH_CANCEL")]
-        PublishCancel,
-        [JsonProperty("PUBLISH_REQUEST")]
-        PublishRequest,
-        [JsonProperty("REOPEN")]
-        Reopen,
-        [JsonProperty("RESEND_EMAIL")]
-        ResendEmail,
-        [JsonProperty("SUBMIT")]
-        Submit,
-        [JsonProperty("VALIDATE")]
-        Validate,
-        [JsonProperty("WITHDRAW")]
-        Withdraw,
+        [JsonProperty("AWARD")] Award,
+        [JsonProperty("CANCEL")] Cancel,
+        [JsonProperty("COPY")] Copy,
+        [JsonProperty("CREATE")] Create,
+        [JsonProperty("DECLINE")] Decline,
+        [JsonProperty("DELETE")] Delete,
+        [JsonProperty("EXPIRE")] Expire,
+        [JsonProperty("MODIFY")] Modify,
+        [JsonProperty("OBFUSCATE")] Obfuscate,
+        [JsonProperty("PUBLISH")] Publish,
+        [JsonProperty("PUBLISH_CANCEL")] PublishCancel,
+        [JsonProperty("PUBLISH_REQUEST")] PublishRequest,
+        [JsonProperty("REOPEN")] Reopen,
+        [JsonProperty("RESEND_EMAIL")] ResendEmail,
+        [JsonProperty("SUBMIT")] Submit,
+        [JsonProperty("VALIDATE")] Validate,
+        [JsonProperty("WITHDRAW")] Withdraw,
     }
 
     public static class TransactionTypeJsonExtension
     {
         public static string Value(this TransactionTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TransactionTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TransactionTypeJson).GetFields())
+            foreach (var field in typeof(TransactionTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -28,7 +28,7 @@ public class ListVideoTextTracksRequestBuilder {
     private ListVideoTextTracksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListVideoTextTracksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class ListVideoTextTracksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public ListVideoTextTracksResponse call() {
-        RequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation
-              = new ListVideoTextTracks.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation =
+                new ListVideoTextTracks.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

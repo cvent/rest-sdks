@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ReservationNightRateJson
- * 
+ *
  * <p>Rate details for a single reservation night.
  */
 public class ReservationNightRateJson {
@@ -57,16 +57,13 @@ public class ReservationNightRateJson {
             @JsonProperty("displayRate") @Nullable Double displayRate) {
         this.base = base;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.additionalGuestFees = additionalGuestFees;
         this.displayRate = displayRate;
     }
-    
-    public ReservationNightRateJson(
-            double base,
-            @Nonnull String currency) {
-        this(base, currency, null,
-            null);
+
+    public ReservationNightRateJson(double base, @Nonnull String currency) {
+        this(base, currency, null, null);
     }
 
     /**
@@ -102,7 +99,6 @@ public class ReservationNightRateJson {
         return new Builder();
     }
 
-
     /**
      * Base rate.
      */
@@ -110,7 +106,6 @@ public class ReservationNightRateJson {
         this.base = base;
         return this;
     }
-
 
     /**
      * ISO 4217 currency code.
@@ -120,15 +115,14 @@ public class ReservationNightRateJson {
         return this;
     }
 
-
     /**
      * List of additional guest fees.
      */
-    public ReservationNightRateJson withAdditionalGuestFees(@Nullable List<AdditionalGuestFeesJson> additionalGuestFees) {
+    public ReservationNightRateJson withAdditionalGuestFees(
+            @Nullable List<AdditionalGuestFeesJson> additionalGuestFees) {
         this.additionalGuestFees = additionalGuestFees;
         return this;
     }
-
 
     /**
      * The room rate displayed to guests, which includes any fees configured to display in the hotel tax
@@ -139,7 +133,6 @@ public class ReservationNightRateJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -149,31 +142,33 @@ public class ReservationNightRateJson {
             return false;
         }
         ReservationNightRateJson other = (ReservationNightRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.base, other.base) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.additionalGuestFees, other.additionalGuestFees) &&
-            Utils.enhancedDeepEquals(this.displayRate, other.displayRate);
+        return Utils.enhancedDeepEquals(this.base, other.base)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.additionalGuestFees, other.additionalGuestFees)
+                && Utils.enhancedDeepEquals(this.displayRate, other.displayRate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            base, currency, additionalGuestFees,
-            displayRate);
+        return Utils.enhancedHash(base, currency, additionalGuestFees, displayRate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationNightRateJson.class,
-                "base", base,
-                "currency", currency,
-                "additionalGuestFees", additionalGuestFees,
-                "displayRate", displayRate);
+        return Utils.toString(
+                ReservationNightRateJson.class,
+                "base",
+                base,
+                "currency",
+                currency,
+                "additionalGuestFees",
+                additionalGuestFees,
+                "displayRate",
+                displayRate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double base;
 
@@ -184,7 +179,7 @@ public class ReservationNightRateJson {
         private Double displayRate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -221,10 +216,7 @@ public class ReservationNightRateJson {
         }
 
         public ReservationNightRateJson build() {
-            return new ReservationNightRateJson(
-                base, currency, additionalGuestFees,
-                displayRate);
+            return new ReservationNightRateJson(base, currency, additionalGuestFees, displayRate);
         }
-
     }
 }

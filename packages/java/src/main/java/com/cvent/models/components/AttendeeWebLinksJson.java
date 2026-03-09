@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AttendeeWebLinksJson
- * 
+ *
  * <p>Web links for an attendee.
  */
 public class AttendeeWebLinksJson {
@@ -40,7 +40,7 @@ public class AttendeeWebLinksJson {
         this.acceptRegistration = acceptRegistration;
         this.declineRegistration = declineRegistration;
     }
-    
+
     public AttendeeWebLinksJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class AttendeeWebLinksJson {
         return new Builder();
     }
 
-
     /**
      * This shortened URL, when used, allows you to accept the registration.
      */
@@ -72,7 +71,6 @@ public class AttendeeWebLinksJson {
         return this;
     }
 
-
     /**
      * This shortened URL, when used, allows you to decline the registration.
      */
@@ -80,7 +78,6 @@ public class AttendeeWebLinksJson {
         this.declineRegistration = declineRegistration;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,34 @@ public class AttendeeWebLinksJson {
             return false;
         }
         AttendeeWebLinksJson other = (AttendeeWebLinksJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.acceptRegistration, other.acceptRegistration) &&
-            Utils.enhancedDeepEquals(this.declineRegistration, other.declineRegistration);
+        return Utils.enhancedDeepEquals(this.acceptRegistration, other.acceptRegistration)
+                && Utils.enhancedDeepEquals(this.declineRegistration, other.declineRegistration);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            acceptRegistration, declineRegistration);
+        return Utils.enhancedHash(acceptRegistration, declineRegistration);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeWebLinksJson.class,
-                "acceptRegistration", acceptRegistration,
-                "declineRegistration", declineRegistration);
+        return Utils.toString(
+                AttendeeWebLinksJson.class,
+                "acceptRegistration",
+                acceptRegistration,
+                "declineRegistration",
+                declineRegistration);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String acceptRegistration;
 
         private String declineRegistration;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +135,7 @@ public class AttendeeWebLinksJson {
         }
 
         public AttendeeWebLinksJson build() {
-            return new AttendeeWebLinksJson(
-                acceptRegistration, declineRegistration);
+            return new AttendeeWebLinksJson(acceptRegistration, declineRegistration);
         }
-
     }
 }

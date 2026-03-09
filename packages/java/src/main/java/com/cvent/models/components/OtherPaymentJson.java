@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * OtherPaymentJson
- * 
+ *
  * <p>Other payment details.
  */
 public class OtherPaymentJson {
@@ -79,10 +79,9 @@ public class OtherPaymentJson {
         this.received = received;
         this.note = note;
     }
-    
+
     public OtherPaymentJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -131,7 +130,6 @@ public class OtherPaymentJson {
         return new Builder();
     }
 
-
     /**
      * Amount paid.
      */
@@ -139,7 +137,6 @@ public class OtherPaymentJson {
         this.amount = amount;
         return this;
     }
-
 
     /**
      * Payment due date or date of payment.
@@ -149,7 +146,6 @@ public class OtherPaymentJson {
         return this;
     }
 
-
     /**
      * Payment reference item.
      */
@@ -157,7 +153,6 @@ public class OtherPaymentJson {
         this.referenceItem = referenceItem;
         return this;
     }
-
 
     /**
      * Pay check number.
@@ -167,7 +162,6 @@ public class OtherPaymentJson {
         return this;
     }
 
-
     /**
      * True indicates a payment was received.
      */
@@ -176,7 +170,6 @@ public class OtherPaymentJson {
         return this;
     }
 
-
     /**
      * Payment note.
      */
@@ -184,7 +177,6 @@ public class OtherPaymentJson {
         this.note = note;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -195,35 +187,39 @@ public class OtherPaymentJson {
             return false;
         }
         OtherPaymentJson other = (OtherPaymentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.paymentDate, other.paymentDate) &&
-            Utils.enhancedDeepEquals(this.referenceItem, other.referenceItem) &&
-            Utils.enhancedDeepEquals(this.checkNumber, other.checkNumber) &&
-            Utils.enhancedDeepEquals(this.received, other.received) &&
-            Utils.enhancedDeepEquals(this.note, other.note);
+        return Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.paymentDate, other.paymentDate)
+                && Utils.enhancedDeepEquals(this.referenceItem, other.referenceItem)
+                && Utils.enhancedDeepEquals(this.checkNumber, other.checkNumber)
+                && Utils.enhancedDeepEquals(this.received, other.received)
+                && Utils.enhancedDeepEquals(this.note, other.note);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            amount, paymentDate, referenceItem,
-            checkNumber, received, note);
+        return Utils.enhancedHash(amount, paymentDate, referenceItem, checkNumber, received, note);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OtherPaymentJson.class,
-                "amount", amount,
-                "paymentDate", paymentDate,
-                "referenceItem", referenceItem,
-                "checkNumber", checkNumber,
-                "received", received,
-                "note", note);
+        return Utils.toString(
+                OtherPaymentJson.class,
+                "amount",
+                amount,
+                "paymentDate",
+                paymentDate,
+                "referenceItem",
+                referenceItem,
+                "checkNumber",
+                checkNumber,
+                "received",
+                received,
+                "note",
+                note);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long amount;
 
@@ -238,7 +234,7 @@ public class OtherPaymentJson {
         private String note;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -290,10 +286,7 @@ public class OtherPaymentJson {
         }
 
         public OtherPaymentJson build() {
-            return new OtherPaymentJson(
-                amount, paymentDate, referenceItem,
-                checkNumber, received, note);
+            return new OtherPaymentJson(amount, paymentDate, referenceItem, checkNumber, received, note);
         }
-
     }
 }

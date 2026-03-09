@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * AdditionalGuestFeesJson
- * 
+ *
  * <p>Details about additional fees for extra guests.
  */
 public class AdditionalGuestFeesJson {
@@ -28,9 +28,7 @@ public class AdditionalGuestFeesJson {
     private double fee;
 
     @JsonCreator
-    public AdditionalGuestFeesJson(
-            @JsonProperty("guestCount") long guestCount,
-            @JsonProperty("fee") double fee) {
+    public AdditionalGuestFeesJson(@JsonProperty("guestCount") long guestCount, @JsonProperty("fee") double fee) {
         this.guestCount = guestCount;
         this.fee = fee;
     }
@@ -53,7 +51,6 @@ public class AdditionalGuestFeesJson {
         return new Builder();
     }
 
-
     /**
      * The number of guests for which the additional fee applies.
      */
@@ -62,7 +59,6 @@ public class AdditionalGuestFeesJson {
         return this;
     }
 
-
     /**
      * The value of the additional fee for extra guests.
      */
@@ -70,7 +66,6 @@ public class AdditionalGuestFeesJson {
         this.fee = fee;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +76,28 @@ public class AdditionalGuestFeesJson {
             return false;
         }
         AdditionalGuestFeesJson other = (AdditionalGuestFeesJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.guestCount, other.guestCount) &&
-            Utils.enhancedDeepEquals(this.fee, other.fee);
+        return Utils.enhancedDeepEquals(this.guestCount, other.guestCount) && Utils.enhancedDeepEquals(this.fee, other.fee);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            guestCount, fee);
+        return Utils.enhancedHash(guestCount, fee);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AdditionalGuestFeesJson.class,
-                "guestCount", guestCount,
-                "fee", fee);
+        return Utils.toString(AdditionalGuestFeesJson.class, "guestCount", guestCount, "fee", fee);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long guestCount;
 
         private double fee;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +117,7 @@ public class AdditionalGuestFeesJson {
         }
 
         public AdditionalGuestFeesJson build() {
-            return new AdditionalGuestFeesJson(
-                guestCount, fee);
+            return new AdditionalGuestFeesJson(guestCount, fee);
         }
-
     }
 }

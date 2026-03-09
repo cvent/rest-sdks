@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreatePaymentRequest {
     /**
      * Unique ID of an event.
@@ -33,16 +32,12 @@ public class CreatePaymentRequest {
     private Payment payment;
 
     @JsonCreator
-    public CreatePaymentRequest(
-            @Nonnull String id,
-            @Nonnull String budgetItemId,
-            @Nonnull Payment payment) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreatePaymentRequest(@Nonnull String id, @Nonnull String budgetItemId, @Nonnull Payment payment) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
-        this.payment = Optional.ofNullable(payment)
-            .orElseThrow(() -> new IllegalArgumentException("payment cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+        this.payment =
+                Optional.ofNullable(payment).orElseThrow(() -> new IllegalArgumentException("payment cannot be null"));
     }
 
     /**
@@ -70,7 +65,6 @@ public class CreatePaymentRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -78,7 +72,6 @@ public class CreatePaymentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -88,7 +81,6 @@ public class CreatePaymentRequest {
         return this;
     }
 
-
     /**
      * Payment to be created.
      */
@@ -96,7 +88,6 @@ public class CreatePaymentRequest {
         this.payment = Utils.checkNotNull(payment, "payment");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +98,23 @@ public class CreatePaymentRequest {
             return false;
         }
         CreatePaymentRequest other = (CreatePaymentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.payment, other.payment);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.payment, other.payment);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, payment);
+        return Utils.enhancedHash(id, budgetItemId, payment);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreatePaymentRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "payment", payment);
+        return Utils.toString(CreatePaymentRequest.class, "id", id, "budgetItemId", budgetItemId, "payment", payment);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +123,7 @@ public class CreatePaymentRequest {
         private Payment payment;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +151,7 @@ public class CreatePaymentRequest {
         }
 
         public CreatePaymentRequest build() {
-            return new CreatePaymentRequest(
-                id, budgetItemId, payment);
+            return new CreatePaymentRequest(id, budgetItemId, payment);
         }
-
     }
 }

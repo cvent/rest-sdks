@@ -2,6 +2,14 @@
 
 This is used to denote the status of the stream
 
+## Example Usage
+
+```java
+import com.cvent.models.components.LiveStreamStatusJson;
+
+LiveStreamStatusJson value = LiveStreamStatusJson.ERROR;
+```
+
 
 ## Values
 

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionCheckedIn
- * 
+ *
  * <p>A session checked-in activity.
  */
 public class SessionCheckedIn {
@@ -41,7 +41,7 @@ public class SessionCheckedIn {
         this.session = session;
         this.checkedIn = checkedIn;
     }
-    
+
     public SessionCheckedIn() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class SessionCheckedIn {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -73,7 +72,6 @@ public class SessionCheckedIn {
         return this;
     }
 
-
     /**
      * ISO 8601 date and time when an attendee checked in to a session.
      */
@@ -81,7 +79,6 @@ public class SessionCheckedIn {
         this.checkedIn = checkedIn;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,29 @@ public class SessionCheckedIn {
             return false;
         }
         SessionCheckedIn other = (SessionCheckedIn) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
+        return Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session, checkedIn);
+        return Utils.enhancedHash(session, checkedIn);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionCheckedIn.class,
-                "session", session,
-                "checkedIn", checkedIn);
+        return Utils.toString(SessionCheckedIn.class, "session", session, "checkedIn", checkedIn);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity1 session;
 
         private OffsetDateTime checkedIn;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +131,7 @@ public class SessionCheckedIn {
         }
 
         public SessionCheckedIn build() {
-            return new SessionCheckedIn(
-                session, checkedIn);
+            return new SessionCheckedIn(session, checkedIn);
         }
-
     }
 }

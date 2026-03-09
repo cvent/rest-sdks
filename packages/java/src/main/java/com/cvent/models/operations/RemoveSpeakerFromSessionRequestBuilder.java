@@ -28,7 +28,7 @@ public class RemoveSpeakerFromSessionRequestBuilder {
     private RemoveSpeakerFromSessionRequest _buildRequest() {
         return this.request;
     }
-    
+
     public RemoveSpeakerFromSessionRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class RemoveSpeakerFromSessionRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public RemoveSpeakerFromSessionResponse call() {
-        RequestOperation<RemoveSpeakerFromSessionRequest, RemoveSpeakerFromSessionResponse> operation
-              = new RemoveSpeakerFromSession.Sync(sdkConfiguration, _headers);
+        RequestOperation<RemoveSpeakerFromSessionRequest, RemoveSpeakerFromSessionResponse> operation =
+                new RemoveSpeakerFromSession.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

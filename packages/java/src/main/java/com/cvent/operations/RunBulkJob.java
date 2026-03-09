@@ -3,9 +3,9 @@
  */
 package com.cvent.operations;
 
+import static com.cvent.operations.Operations.AsyncRequestOperation;
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
@@ -34,10 +34,9 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-
 public class RunBulkJob {
 
-    static abstract class Base {
+    abstract static class Base {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
@@ -46,7 +45,7 @@ public class RunBulkJob {
 
         public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
-            this._headers =_headers;
+            this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             this.client = this.sdkConfiguration.client();
@@ -82,15 +81,11 @@ public class RunBulkJob {
                     java.util.Optional.of(java.util.List.of("bulk/bulk-jobs:write")),
                     securitySource());
         }
-        <T>HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
-            String url = Utils.generateURL(
-                    klass,
-                    this.baseUrl,
-                    "/bulk-jobs/{id}/run",
-                    request, null);
+
+        <T> HttpRequest buildRequest(T request, Class<T> klass) throws Exception {
+            String url = Utils.generateURL(klass, this.baseUrl, "/bulk-jobs/{id}/run", request, null);
             HTTPRequest req = new HTTPRequest(url, "POST");
-            req.addHeader("Accept", "application/json")
-                    .addHeader("user-agent", SDKConfiguration.USER_AGENT);
+            req.addHeader("Accept", "application/json").addHeader("user-agent", SDKConfiguration.USER_AGENT);
             _headers.forEach((k, list) -> list.forEach(v -> req.addHeader(k, v)));
             Utils.configureSecurity(req, this.sdkConfiguration.securitySource().getSecurity());
 
@@ -98,8 +93,7 @@ public class RunBulkJob {
         }
     }
 
-    public static class Sync extends Base
-            implements RequestOperation<RunBulkJobRequest, RunBulkJobResponse> {
+    public static class Sync extends Base implements RequestOperation<RunBulkJobRequest, RunBulkJobResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
             super(sdkConfiguration, _headers);
         }
@@ -109,11 +103,11 @@ public class RunBulkJob {
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
-        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error) throws Exception {
-            return sdkConfiguration.hooks().afterError(
-                    createAfterErrorContext(),
-                    Optional.ofNullable(response),
-                    Optional.ofNullable(error));
+        private HttpResponse<InputStream> onError(HttpResponse<InputStream> response, Exception error)
+                throws Exception {
+            return sdkConfiguration
+                    .hooks()
+                    .afterError(createAfterErrorContext(), Optional.ofNullable(response), Optional.ofNullable(error));
         }
 
         private HttpResponse<InputStream> onSuccess(HttpResponse<InputStream> response) throws Exception {
@@ -138,22 +132,16 @@ public class RunBulkJob {
             return httpRes;
         }
 
-
         @Override
         public RunBulkJobResponse handleResponse(HttpResponse<InputStream> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
-            RunBulkJobResponse.Builder resBuilder =
-                    RunBulkJobResponse
-                            .builder()
-                            .contentType(contentType)
-                            .statusCode(response.statusCode())
-                            .rawResponse(response);
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
+            RunBulkJobResponse.Builder resBuilder = RunBulkJobResponse.builder()
+                    .contentType(contentType)
+                    .statusCode(response.statusCode())
+                    .rawResponse(response);
 
             RunBulkJobResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withBulkJob(Utils.unmarshal(response, new TypeReference<BulkJob>() {}));
@@ -179,6 +167,7 @@ public class RunBulkJob {
             throw APIException.from("Unexpected status code received: " + response.statusCode(), response);
         }
     }
+
     public static class Async extends Base
             implements AsyncRequestOperation<RunBulkJobRequest, com.cvent.models.operations.async.RunBulkJobResponse> {
 
@@ -201,12 +190,15 @@ public class RunBulkJob {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(RunBulkJobRequest request) {
-            return unchecked(() -> onBuildRequest(request)).get().thenCompose(client::sendAsync)
+            return unchecked(() -> onBuildRequest(request))
+                    .get()
+                    .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
                         if (err != null) {
                             return onError(null, err);
                         }
-                        if (Utils.statusCodeMatches(resp.statusCode(), "400", "401", "403", "404", "409", "429", "4XX", "5XX")) {
+                        if (Utils.statusCodeMatches(
+                                resp.statusCode(), "400", "401", "403", "404", "409", "429", "4XX", "5XX")) {
                             return onError(resp, null);
                         }
                         return CompletableFuture.completedFuture(resp);
@@ -218,19 +210,15 @@ public class RunBulkJob {
         @Override
         public CompletableFuture<com.cvent.models.operations.async.RunBulkJobResponse> handleResponse(
                 HttpResponse<Blob> response) {
-            String contentType = response
-                    .headers()
-                    .firstValue("Content-Type")
-                    .orElse("application/octet-stream");
+            String contentType = response.headers().firstValue("Content-Type").orElse("application/octet-stream");
             com.cvent.models.operations.async.RunBulkJobResponse.Builder resBuilder =
-                    com.cvent.models.operations.async.RunBulkJobResponse
-                            .builder()
+                    com.cvent.models.operations.async.RunBulkJobResponse.builder()
                             .contentType(contentType)
                             .statusCode(response.statusCode())
                             .rawResponse(response);
 
             com.cvent.models.operations.async.RunBulkJobResponse res = resBuilder.build();
-            
+
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return Utils.unmarshalAsync(response, new TypeReference<BulkJob>() {})
@@ -241,8 +229,7 @@ public class RunBulkJob {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "409", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response)
-                            .thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

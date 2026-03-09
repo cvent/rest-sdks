@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AppointmentEventTypeJson
- * 
+ *
  * <p>Denotes the type of appointment event.<br/>STANDARD: You or attendees can manage schedules based on
  * the permissions and settings you choose.<br/>UNIVERSAL: Your staff manages their schedules with
  * attendees, at an event your staff is attending.<br/>PLANNER_COORDINATED: You manage attendee
@@ -29,13 +29,13 @@ public enum AppointmentEventTypeJson {
     AppointmentEventTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AppointmentEventTypeJson> fromValue(String value) {
-        for (AppointmentEventTypeJson o: AppointmentEventTypeJson.values()) {
+        for (AppointmentEventTypeJson o : AppointmentEventTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -43,4 +43,3 @@ public enum AppointmentEventTypeJson {
         return Optional.empty();
     }
 }
-

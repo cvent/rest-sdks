@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PropertyRoomExternalCodeJson
- * 
+ *
  * <p>The external room codes for the room
  */
 public class PropertyRoomExternalCodeJson {
@@ -40,7 +40,7 @@ public class PropertyRoomExternalCodeJson {
         this.type = type;
         this.roomCode = roomCode;
     }
-    
+
     public PropertyRoomExternalCodeJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class PropertyRoomExternalCodeJson {
         return new Builder();
     }
 
-
     /**
      * Type of the external Code.
      */
@@ -72,7 +71,6 @@ public class PropertyRoomExternalCodeJson {
         return this;
     }
 
-
     /**
      * The code identifying the room in the given external system.
      */
@@ -80,7 +78,6 @@ public class PropertyRoomExternalCodeJson {
         this.roomCode = roomCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class PropertyRoomExternalCodeJson {
             return false;
         }
         PropertyRoomExternalCodeJson other = (PropertyRoomExternalCodeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.roomCode, other.roomCode);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.roomCode, other.roomCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, roomCode);
+        return Utils.enhancedHash(type, roomCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyRoomExternalCodeJson.class,
-                "type", type,
-                "roomCode", roomCode);
+        return Utils.toString(PropertyRoomExternalCodeJson.class, "type", type, "roomCode", roomCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExternalCodeTypeJson type;
 
         private String roomCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class PropertyRoomExternalCodeJson {
         }
 
         public PropertyRoomExternalCodeJson build() {
-            return new PropertyRoomExternalCodeJson(
-                type, roomCode);
+            return new PropertyRoomExternalCodeJson(type, roomCode);
         }
-
     }
 }

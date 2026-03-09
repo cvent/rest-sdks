@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventHotelAvailabilityRequest {
     /**
      * ID for a Passkey housing event.
@@ -31,22 +30,22 @@ public class GetHousingEventHotelAvailabilityRequest {
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * less or equal: le
      * * greater or equal: ge
      * * greater than: gt
      * * less than: lt
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeType.codes (eq)
      * * attendeeType.id (eq)
      * * roomType.id (eq)
      * * date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 36
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -69,24 +68,16 @@ public class GetHousingEventHotelAvailabilityRequest {
 
     @JsonCreator
     public GetHousingEventHotelAvailabilityRequest(
-            long housingEventId,
-            long hotelId,
-            @Nullable String filter,
-            @Nullable Long limit,
-            @Nullable String token) {
+            long housingEventId, long hotelId, @Nullable String filter, @Nullable Long limit, @Nullable String token) {
         this.housingEventId = housingEventId;
         this.hotelId = hotelId;
         this.filter = filter;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public GetHousingEventHotelAvailabilityRequest(
-            long housingEventId,
-            long hotelId) {
-        this(housingEventId, hotelId, null,
-            null, null);
+
+    public GetHousingEventHotelAvailabilityRequest(long housingEventId, long hotelId) {
+        this(housingEventId, hotelId, null, null, null);
     }
 
     /**
@@ -106,22 +97,22 @@ public class GetHousingEventHotelAvailabilityRequest {
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * less or equal: le
      * * greater or equal: ge
      * * greater than: gt
      * * less than: lt
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeType.codes (eq)
      * * attendeeType.id (eq)
      * * roomType.id (eq)
      * * date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 36
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -149,7 +140,6 @@ public class GetHousingEventHotelAvailabilityRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -157,7 +147,6 @@ public class GetHousingEventHotelAvailabilityRequest {
         this.housingEventId = housingEventId;
         return this;
     }
-
 
     /**
      * The hotel's unique ID.
@@ -167,26 +156,25 @@ public class GetHousingEventHotelAvailabilityRequest {
         return this;
     }
 
-
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * less or equal: le
      * * greater or equal: ge
      * * greater than: gt
      * * less than: lt
-     * 
+     *
      * <p>The following fields are filterable:
      * * attendeeType.codes (eq)
      * * attendeeType.id (eq)
      * * roomType.id (eq)
      * * date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 36
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -196,7 +184,6 @@ public class GetHousingEventHotelAvailabilityRequest {
         return this;
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 50, default of 10.
      */
@@ -204,7 +191,6 @@ public class GetHousingEventHotelAvailabilityRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -215,7 +201,6 @@ public class GetHousingEventHotelAvailabilityRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -225,33 +210,36 @@ public class GetHousingEventHotelAvailabilityRequest {
             return false;
         }
         GetHousingEventHotelAvailabilityRequest other = (GetHousingEventHotelAvailabilityRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.hotelId, other.hotelId) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.hotelId, other.hotelId)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, hotelId, filter,
-            limit, token);
+        return Utils.enhancedHash(housingEventId, hotelId, filter, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventHotelAvailabilityRequest.class,
-                "housingEventId", housingEventId,
-                "hotelId", hotelId,
-                "filter", filter,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                GetHousingEventHotelAvailabilityRequest.class,
+                "housingEventId",
+                housingEventId,
+                "hotelId",
+                hotelId,
+                "filter",
+                filter,
+                "limit",
+                limit,
+                "token",
+                token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -264,7 +252,7 @@ public class GetHousingEventHotelAvailabilityRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -286,22 +274,22 @@ public class GetHousingEventHotelAvailabilityRequest {
         /**
          * "A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'."
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * less or equal: le
          * * greater or equal: ge
          * * greater than: gt
          * * less than: lt
-         * 
+         *
          * <p>The following fields are filterable:
          * * attendeeType.codes (eq)
          * * attendeeType.id (eq)
          * * roomType.id (eq)
          * * date (eq|le|ge|lt|gt)
-         * 
+         *
          * <p>Limits for the number of fields that can be passed in a filter: 36
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -329,16 +317,10 @@ public class GetHousingEventHotelAvailabilityRequest {
         }
 
         public GetHousingEventHotelAvailabilityRequest build() {
-            return new GetHousingEventHotelAvailabilityRequest(
-                housingEventId, hotelId, filter,
-                limit, token);
+            return new GetHousingEventHotelAvailabilityRequest(housingEventId, hotelId, filter, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "10",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "10", new TypeReference<Long>() {});
     }
 }

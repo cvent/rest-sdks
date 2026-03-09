@@ -68,21 +68,20 @@ public class AsyncAudienceSegments {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public AudienceSegments sync() {
         return syncSDK;
     }
 
-
     /**
      * Delete Attendee Associations
-     * 
+     *
      * <p>disassociate an attendee from all audience segments
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DisassociateAttendeeFromAudienceSegmentsRequestBuilder disassociateAttendeeFromAudienceSegments() {
@@ -91,29 +90,30 @@ public class AsyncAudienceSegments {
 
     /**
      * Delete Attendee Associations
-     * 
+     *
      * <p>disassociate an attendee from all audience segments
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DisassociateAttendeeFromAudienceSegmentsResponse>} - The async response
      */
-    public CompletableFuture<DisassociateAttendeeFromAudienceSegmentsResponse> disassociateAttendeeFromAudienceSegments(@Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
-        AsyncRequestOperation<DisassociateAttendeeFromAudienceSegmentsRequest, DisassociateAttendeeFromAudienceSegmentsResponse> operation
-              = new DisassociateAttendeeFromAudienceSegments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DisassociateAttendeeFromAudienceSegmentsResponse> disassociateAttendeeFromAudienceSegments(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
+        AsyncRequestOperation<
+                        DisassociateAttendeeFromAudienceSegmentsRequest,
+                        DisassociateAttendeeFromAudienceSegmentsResponse>
+                operation = new DisassociateAttendeeFromAudienceSegments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Create Audience Segment
-     * 
+     *
      * <p>Creates an audience segment in the given event based on the details supplied in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public CreateAudienceSegmentRequestBuilder createAudienceSegment() {
@@ -122,31 +122,30 @@ public class AsyncAudienceSegments {
 
     /**
      * Create Audience Segment
-     * 
+     *
      * <p>Creates an audience segment in the given event based on the details supplied in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateAudienceSegmentResponse>} - The async response
      */
-    public CompletableFuture<CreateAudienceSegmentResponse> createAudienceSegment(@Nonnull AudienceSegmentCreate request) {
-        AsyncRequestOperation<AudienceSegmentCreate, CreateAudienceSegmentResponse> operation
-              = new CreateAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<CreateAudienceSegmentResponse> createAudienceSegment(
+            @Nonnull AudienceSegmentCreate request) {
+        AsyncRequestOperation<AudienceSegmentCreate, CreateAudienceSegmentResponse> operation =
+                new CreateAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Audience Segments
-     * 
+     *
      * <p>Gets a paginated list of audience segments for your account. By default,
      * the results include all segments present, at the account level, unless you specify
      * otherwise using the filter query parameter.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAudienceSegmentsRequestBuilder listAudienceSegments() {
@@ -155,36 +154,35 @@ public class AsyncAudienceSegments {
 
     /**
      * List Audience Segments
-     * 
+     *
      * <p>Gets a paginated list of audience segments for your account. By default,
      * the results include all segments present, at the account level, unless you specify
      * otherwise using the filter query parameter.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAudienceSegmentsResponse>} - The async response
      */
-    public CompletableFuture<ListAudienceSegmentsResponse> listAudienceSegments(@Nonnull ListAudienceSegmentsRequest request) {
-        AsyncRequestOperation<ListAudienceSegmentsRequest, ListAudienceSegmentsResponse> operation
-              = new ListAudienceSegments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAudienceSegmentsResponse> listAudienceSegments(
+            @Nonnull ListAudienceSegmentsRequest request) {
+        AsyncRequestOperation<ListAudienceSegmentsRequest, ListAudienceSegmentsResponse> operation =
+                new ListAudienceSegments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Audience Segments
-     * 
+     *
      * <p>Gets a paginated list of audience segments for an account by sending a filter
      * in the body of the request. By default, the results include all
      * audience segments at the account level unless you specify otherwise in the filter. This
      * method returns the same data as
      * [GET List Audience Segments](#operation/listAudienceSegments) but
      * allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListAudienceSegmentsPostFilterRequestBuilder listAudienceSegmentsPostFilter() {
@@ -193,34 +191,33 @@ public class AsyncAudienceSegments {
 
     /**
      * List Audience Segments
-     * 
+     *
      * <p>Gets a paginated list of audience segments for an account by sending a filter
      * in the body of the request. By default, the results include all
      * audience segments at the account level unless you specify otherwise in the filter. This
      * method returns the same data as
      * [GET List Audience Segments](#operation/listAudienceSegments) but
      * allows for longer filters.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListAudienceSegmentsPostFilterResponse>} - The async response
      */
-    public CompletableFuture<ListAudienceSegmentsPostFilterResponse> listAudienceSegmentsPostFilter(@Nonnull ListAudienceSegmentsPostFilterRequest request) {
-        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation
-              = new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListAudienceSegmentsPostFilterResponse> listAudienceSegmentsPostFilter(
+            @Nonnull ListAudienceSegmentsPostFilterRequest request) {
+        AsyncRequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation =
+                new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get Audience Segment
-     * 
+     *
      * <p>Gets an audience segment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetAudienceSegmentByIdRequestBuilder getAudienceSegmentById() {
@@ -229,29 +226,28 @@ public class AsyncAudienceSegments {
 
     /**
      * Get Audience Segment
-     * 
+     *
      * <p>Gets an audience segment based on the given ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetAudienceSegmentByIdResponse>} - The async response
      */
-    public CompletableFuture<GetAudienceSegmentByIdResponse> getAudienceSegmentById(@Nonnull GetAudienceSegmentByIdRequest request) {
-        AsyncRequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation
-              = new GetAudienceSegmentById.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<GetAudienceSegmentByIdResponse> getAudienceSegmentById(
+            @Nonnull GetAudienceSegmentByIdRequest request) {
+        AsyncRequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation =
+                new GetAudienceSegmentById.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Update Audience Segment
-     * 
+     *
      * <p>Updates the given audience segment based on the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UpdateAudienceSegmentRequestBuilder updateAudienceSegment() {
@@ -260,29 +256,28 @@ public class AsyncAudienceSegments {
 
     /**
      * Update Audience Segment
-     * 
+     *
      * <p>Updates the given audience segment based on the values provided in the request body.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UpdateAudienceSegmentResponse>} - The async response
      */
-    public CompletableFuture<UpdateAudienceSegmentResponse> updateAudienceSegment(@Nonnull UpdateAudienceSegmentRequest request) {
-        AsyncRequestOperation<UpdateAudienceSegmentRequest, UpdateAudienceSegmentResponse> operation
-              = new UpdateAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<UpdateAudienceSegmentResponse> updateAudienceSegment(
+            @Nonnull UpdateAudienceSegmentRequest request) {
+        AsyncRequestOperation<UpdateAudienceSegmentRequest, UpdateAudienceSegmentResponse> operation =
+                new UpdateAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Delete Audience Segment
-     * 
+     *
      * <p>Deletes the given audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DeleteAudienceSegmentRequestBuilder deleteAudienceSegment() {
@@ -291,30 +286,29 @@ public class AsyncAudienceSegments {
 
     /**
      * Delete Audience Segment
-     * 
+     *
      * <p>Deletes the given audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DeleteAudienceSegmentResponse>} - The async response
      */
-    public CompletableFuture<DeleteAudienceSegmentResponse> deleteAudienceSegment(@Nonnull DeleteAudienceSegmentRequest request) {
-        AsyncRequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation
-              = new DeleteAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DeleteAudienceSegmentResponse> deleteAudienceSegment(
+            @Nonnull DeleteAudienceSegmentRequest request) {
+        AsyncRequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation =
+                new DeleteAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * List Associated Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees associated or disassociated to/from an audience segment. Use the
      * `filter` query parameter to return only associated or only disassociated attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public ListSegmentAssociatedAttendeesRequestBuilder listSegmentAssociatedAttendees() {
@@ -323,30 +317,29 @@ public class AsyncAudienceSegments {
 
     /**
      * List Associated Attendees
-     * 
+     *
      * <p>Gets a paginated list of attendees associated or disassociated to/from an audience segment. Use the
      * `filter` query parameter to return only associated or only disassociated attendees.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<ListSegmentAssociatedAttendeesResponse>} - The async response
      */
-    public CompletableFuture<ListSegmentAssociatedAttendeesResponse> listSegmentAssociatedAttendees(@Nonnull ListSegmentAssociatedAttendeesRequest request) {
-        AsyncRequestOperation<ListSegmentAssociatedAttendeesRequest, ListSegmentAssociatedAttendeesResponse> operation
-              = new ListSegmentAssociatedAttendees.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<ListSegmentAssociatedAttendeesResponse> listSegmentAssociatedAttendees(
+            @Nonnull ListSegmentAssociatedAttendeesRequest request) {
+        AsyncRequestOperation<ListSegmentAssociatedAttendeesRequest, ListSegmentAssociatedAttendeesResponse> operation =
+                new ListSegmentAssociatedAttendees.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Associate Attendee to Segment
-     * 
+     *
      * <p>Associates an attendee to a given audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public AssociateAttendeeToSegmentRequestBuilder associateAttendeeToSegment() {
@@ -355,29 +348,28 @@ public class AsyncAudienceSegments {
 
     /**
      * Associate Attendee to Segment
-     * 
+     *
      * <p>Associates an attendee to a given audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AssociateAttendeeToSegmentResponse>} - The async response
      */
-    public CompletableFuture<AssociateAttendeeToSegmentResponse> associateAttendeeToSegment(@Nonnull AssociateAttendeeToSegmentRequest request) {
-        AsyncRequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation
-              = new AssociateAttendeeToSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<AssociateAttendeeToSegmentResponse> associateAttendeeToSegment(
+            @Nonnull AssociateAttendeeToSegmentRequest request) {
+        AsyncRequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation =
+                new AssociateAttendeeToSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Disassociate Attendee
-     * 
+     *
      * <p>Disassociate an attendee from an audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public DisassociateAttendeeFromAudienceSegmentRequestBuilder disassociateAttendeeFromAudienceSegment() {
@@ -386,19 +378,19 @@ public class AsyncAudienceSegments {
 
     /**
      * Disassociate Attendee
-     * 
+     *
      * <p>Disassociate an attendee from an audience segment.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<DisassociateAttendeeFromAudienceSegmentResponse>} - The async response
      */
-    public CompletableFuture<DisassociateAttendeeFromAudienceSegmentResponse> disassociateAttendeeFromAudienceSegment(@Nonnull DisassociateAttendeeFromAudienceSegmentRequest request) {
-        AsyncRequestOperation<DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse> operation
-              = new DisassociateAttendeeFromAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+    public CompletableFuture<DisassociateAttendeeFromAudienceSegmentResponse> disassociateAttendeeFromAudienceSegment(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentRequest request) {
+        AsyncRequestOperation<
+                        DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse>
+                operation = new DisassociateAttendeeFromAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

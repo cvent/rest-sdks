@@ -14,7 +14,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetHousingEventInventoryRequest {
     /**
      * ID for a Passkey housing event.
@@ -39,20 +38,20 @@ public class GetHousingEventInventoryRequest {
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -62,21 +61,15 @@ public class GetHousingEventInventoryRequest {
 
     @JsonCreator
     public GetHousingEventInventoryRequest(
-            long housingEventId,
-            @Nullable Long limit,
-            @Nullable String token,
-            @Nullable String filter) {
+            long housingEventId, @Nullable Long limit, @Nullable String token, @Nullable String filter) {
         this.housingEventId = housingEventId;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetHousingEventInventoryRequest(
-            long housingEventId) {
-        this(housingEventId, null, null,
-            null);
+
+    public GetHousingEventInventoryRequest(long housingEventId) {
+        this(housingEventId, null, null, null);
     }
 
     /**
@@ -105,20 +98,20 @@ public class GetHousingEventInventoryRequest {
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -131,7 +124,6 @@ public class GetHousingEventInventoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID for a Passkey housing event.
      */
@@ -140,7 +132,6 @@ public class GetHousingEventInventoryRequest {
         return this;
     }
 
-
     /**
      * Limit to this number of search results. Maximum of 200, default of 100.
      */
@@ -148,7 +139,6 @@ public class GetHousingEventInventoryRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -159,25 +149,24 @@ public class GetHousingEventInventoryRequest {
         return this;
     }
 
-
     /**
      * "A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
      * is not specified, all inventory dates will be returned."
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * greater than: gt
      * * less than: lt
      * * greater or equal: ge
      * * less than or equal: le
-     * 
+     *
      * <p>The following fields are filterable:
-     * 
+     *
      * <p>* date (eq|le|ge|lt|gt)
-     * 
+     *
      * <p>Limits for the number of fields that can be passed in a filter: 18
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -186,7 +175,6 @@ public class GetHousingEventInventoryRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -197,31 +185,33 @@ public class GetHousingEventInventoryRequest {
             return false;
         }
         GetHousingEventInventoryRequest other = (GetHousingEventInventoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.housingEventId, other.housingEventId)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            housingEventId, limit, token,
-            filter);
+        return Utils.enhancedHash(housingEventId, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventInventoryRequest.class,
-                "housingEventId", housingEventId,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetHousingEventInventoryRequest.class,
+                "housingEventId",
+                housingEventId,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long housingEventId;
 
@@ -232,7 +222,7 @@ public class GetHousingEventInventoryRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -264,20 +254,20 @@ public class GetHousingEventInventoryRequest {
          * "A filter query string narrows search results and supports the combination of logical and comparison
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'. If the parameter
          * is not specified, all inventory dates will be returned."
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * greater than: gt
          * * less than: lt
          * * greater or equal: ge
          * * less than or equal: le
-         * 
+         *
          * <p>The following fields are filterable:
-         * 
+         *
          * <p>* date (eq|le|ge|lt|gt)
-         * 
+         *
          * <p>Limits for the number of fields that can be passed in a filter: 18
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -288,16 +278,10 @@ public class GetHousingEventInventoryRequest {
         }
 
         public GetHousingEventInventoryRequest build() {
-            return new GetHousingEventInventoryRequest(
-                housingEventId, limit, token,
-                filter);
+            return new GetHousingEventInventoryRequest(housingEventId, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

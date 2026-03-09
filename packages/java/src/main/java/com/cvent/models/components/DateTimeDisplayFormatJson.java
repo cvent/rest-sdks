@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * DateTimeDisplayFormatJson
- * 
+ *
  * <p>This is used to denote the display format type of date time type custom field.
  */
 public enum DateTimeDisplayFormatJson {
@@ -27,13 +27,13 @@ public enum DateTimeDisplayFormatJson {
     DateTimeDisplayFormatJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<DateTimeDisplayFormatJson> fromValue(String value) {
-        for (DateTimeDisplayFormatJson o: DateTimeDisplayFormatJson.values()) {
+        for (DateTimeDisplayFormatJson o : DateTimeDisplayFormatJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum DateTimeDisplayFormatJson {
         return Optional.empty();
     }
 }
-

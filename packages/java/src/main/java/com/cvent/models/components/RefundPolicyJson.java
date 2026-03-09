@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * RefundPolicyJson
- * 
+ *
  * <p>Refund policy associated to a fee.
  */
 public class RefundPolicyJson {
@@ -40,7 +40,7 @@ public class RefundPolicyJson {
      * The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee
      * as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an
      * cancellation fee chosen by the planner.
-     * 
+     *
      * <p>`RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -66,10 +66,9 @@ public class RefundPolicyJson {
         this.type = type;
         this.cancelByDate = cancelByDate;
     }
-    
+
     public RefundPolicyJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -91,7 +90,7 @@ public class RefundPolicyJson {
      * The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee
      * as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an
      * cancellation fee chosen by the planner.
-     * 
+     *
      * <p>`RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
      */
     public Optional<RefundTypeJson> type() {
@@ -110,7 +109,6 @@ public class RefundPolicyJson {
         return new Builder();
     }
 
-
     /**
      * The total refund amount when the related item is canceled from the attendee's agenda.
      */
@@ -118,7 +116,6 @@ public class RefundPolicyJson {
         this.amount = amount;
         return this;
     }
-
 
     /**
      * The total refund percentage when the related item is canceled from the attendee's agenda. Percentage
@@ -129,19 +126,17 @@ public class RefundPolicyJson {
         return this;
     }
 
-
     /**
      * The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee
      * as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an
      * cancellation fee chosen by the planner.
-     * 
+     *
      * <p>`RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
      */
     public RefundPolicyJson withType(@Nullable RefundTypeJson type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * Attendees must cancel by this ISO 8601 formatted date to receive the type of refund. Otherwise,
@@ -152,7 +147,6 @@ public class RefundPolicyJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -162,31 +156,33 @@ public class RefundPolicyJson {
             return false;
         }
         RefundPolicyJson other = (RefundPolicyJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.percentage, other.percentage) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.cancelByDate, other.cancelByDate);
+        return Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.percentage, other.percentage)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.cancelByDate, other.cancelByDate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            amount, percentage, type,
-            cancelByDate);
+        return Utils.enhancedHash(amount, percentage, type, cancelByDate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RefundPolicyJson.class,
-                "amount", amount,
-                "percentage", percentage,
-                "type", type,
-                "cancelByDate", cancelByDate);
+        return Utils.toString(
+                RefundPolicyJson.class,
+                "amount",
+                amount,
+                "percentage",
+                percentage,
+                "type",
+                type,
+                "cancelByDate",
+                cancelByDate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double amount;
 
@@ -197,7 +193,7 @@ public class RefundPolicyJson {
         private LocalDate cancelByDate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -221,7 +217,7 @@ public class RefundPolicyJson {
          * The type of refund policy for the fee. `RefundByFixedAmount`: Returns a fixed amount to the attendee
          * as chosen by the planner. `RefundByCancellationAmount`: Refunds everything to the attendee minus an
          * cancellation fee chosen by the planner.
-         * 
+         *
          * <p>`RefundByPercentage`: Refunds a percentage of the amount as chosen by the planner.
          */
         public Builder type(@Nullable RefundTypeJson type) {
@@ -239,10 +235,7 @@ public class RefundPolicyJson {
         }
 
         public RefundPolicyJson build() {
-            return new RefundPolicyJson(
-                amount, percentage, type,
-                cancelByDate);
+            return new RefundPolicyJson(amount, percentage, type, cancelByDate);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExistingRegistrationPathJson
- * 
+ *
  * <p>Represents the details of an existing registration path.
  */
 public class ExistingRegistrationPathJson {
@@ -58,10 +58,9 @@ public class ExistingRegistrationPathJson {
         this.description = description;
         this.id = id;
     }
-    
+
     public ExistingRegistrationPathJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ExistingRegistrationPathJson {
         return new Builder();
     }
 
-
     /**
      * Name of the registration path.
      */
@@ -104,7 +102,6 @@ public class ExistingRegistrationPathJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Code for this registration path.
@@ -114,7 +111,6 @@ public class ExistingRegistrationPathJson {
         return this;
     }
 
-
     /**
      * Detailed description of the registration path.
      */
@@ -123,7 +119,6 @@ public class ExistingRegistrationPathJson {
         return this;
     }
 
-
     /**
      * A unique identifier of the registration path.
      */
@@ -131,7 +126,6 @@ public class ExistingRegistrationPathJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,25 @@ public class ExistingRegistrationPathJson {
             return false;
         }
         ExistingRegistrationPathJson other = (ExistingRegistrationPathJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, code, description,
-            id);
+        return Utils.enhancedHash(name, code, description, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingRegistrationPathJson.class,
-                "name", name,
-                "code", code,
-                "description", description,
-                "id", id);
+        return Utils.toString(
+                ExistingRegistrationPathJson.class, "name", name, "code", code, "description", description, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -177,7 +165,7 @@ public class ExistingRegistrationPathJson {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +201,7 @@ public class ExistingRegistrationPathJson {
         }
 
         public ExistingRegistrationPathJson build() {
-            return new ExistingRegistrationPathJson(
-                name, code, description,
-                id);
+            return new ExistingRegistrationPathJson(name, code, description, id);
         }
-
     }
 }

@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * CreateUpdateVolumeDiscountType
- * 
+ *
  * <p>The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
  * `DISCOUNT_CODE`: A code the user or system applies to induce a discount.
- * 
+ *
  * <p>`VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
  */
 public enum CreateUpdateVolumeDiscountType {
@@ -25,13 +25,13 @@ public enum CreateUpdateVolumeDiscountType {
     CreateUpdateVolumeDiscountType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CreateUpdateVolumeDiscountType> fromValue(String value) {
-        for (CreateUpdateVolumeDiscountType o: CreateUpdateVolumeDiscountType.values()) {
+        for (CreateUpdateVolumeDiscountType o : CreateUpdateVolumeDiscountType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum CreateUpdateVolumeDiscountType {
         return Optional.empty();
     }
 }
-

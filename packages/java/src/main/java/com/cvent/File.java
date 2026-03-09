@@ -40,7 +40,7 @@ public class File {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncFile async() {
@@ -49,14 +49,14 @@ public class File {
 
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public UploadFileRequestBuilder uploadFile() {
@@ -65,14 +65,14 @@ public class File {
 
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -82,31 +82,30 @@ public class File {
 
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public UploadFileResponse uploadFile(@Nullable FileUpload request) {
-        RequestOperation<FileUpload, UploadFileResponse> operation
-              = new UploadFile.Sync(sdkConfiguration, _headers);
+        RequestOperation<FileUpload, UploadFileResponse> operation = new UploadFile.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get File Location
-     * 
+     *
      * <p>Returns the file upload location for the specified file ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetFileRequestBuilder getFile() {
@@ -115,19 +114,17 @@ public class File {
 
     /**
      * Get File Location
-     * 
+     *
      * <p>Returns the file upload location for the specified file ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetFileResponse getFile(@Nonnull GetFileRequest request) {
-        RequestOperation<GetFileRequest, GetFileResponse> operation
-              = new GetFile.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetFileRequest, GetFileResponse> operation = new GetFile.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

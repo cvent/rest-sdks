@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventSurveyAvailabilityJson
     {
-        [JsonProperty("Event Registrants")]
-        EventRegistrants,
-        [JsonProperty("Event Participants")]
-        EventParticipants,
-        [JsonProperty("Session Registrants")]
-        SessionRegistrants,
-        [JsonProperty("Session Participants")]
-        SessionParticipants,
+        [JsonProperty("Event Registrants")] EventRegistrants,
+        [JsonProperty("Event Participants")] EventParticipants,
+        [JsonProperty("Session Registrants")] SessionRegistrants,
+        [JsonProperty("Session Participants")] SessionParticipants,
     }
 
     public static class EventSurveyAvailabilityJsonExtension
     {
         public static string Value(this EventSurveyAvailabilityJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventSurveyAvailabilityJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EventSurveyAvailabilityJson).GetFields())
+            foreach (var field in typeof(EventSurveyAvailabilityJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

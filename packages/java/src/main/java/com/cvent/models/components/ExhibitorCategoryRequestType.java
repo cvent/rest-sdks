@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryRequestType
- * 
+ *
  * <p>Type of exhibitor category
  */
 public enum ExhibitorCategoryRequestType {
@@ -23,13 +23,13 @@ public enum ExhibitorCategoryRequestType {
     ExhibitorCategoryRequestType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExhibitorCategoryRequestType> fromValue(String value) {
-        for (ExhibitorCategoryRequestType o: ExhibitorCategoryRequestType.values()) {
+        for (ExhibitorCategoryRequestType o : ExhibitorCategoryRequestType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ExhibitorCategoryRequestType {
         return Optional.empty();
     }
 }
-

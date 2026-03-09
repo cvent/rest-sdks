@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum EventStatusJson
     {
-        [JsonProperty("Upcoming")]
-        Upcoming,
-        [JsonProperty("Ongoing")]
-        Ongoing,
-        [JsonProperty("Completed")]
-        Completed,
-        [JsonProperty("Cancelled")]
-        Cancelled,
-        [JsonProperty("Deleted")]
-        Deleted,
-        [JsonProperty("Processing")]
-        Processing,
-        [JsonProperty("Archived")]
-        Archived,
+        [JsonProperty("Upcoming")] Upcoming,
+        [JsonProperty("Ongoing")] Ongoing,
+        [JsonProperty("Completed")] Completed,
+        [JsonProperty("Cancelled")] Cancelled,
+        [JsonProperty("Deleted")] Deleted,
+        [JsonProperty("Processing")] Processing,
+        [JsonProperty("Archived")] Archived,
     }
 
     public static class EventStatusJsonExtension
     {
         public static string Value(this EventStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static EventStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(EventStatusJson).GetFields())
+            foreach (var field in typeof(EventStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

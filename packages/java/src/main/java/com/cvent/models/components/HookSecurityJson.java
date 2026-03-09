@@ -5,9 +5,9 @@ package com.cvent.models.components;
 
 import com.cvent.utils.OneOfDeserializer;
 import com.cvent.utils.TypedObject;
+import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.cvent.utils.Utils.TypeReferenceWithShape;
-import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +17,7 @@ import java.lang.SuppressWarnings;
 
 /**
  * HookSecurityJson
- * 
+ *
  * <p>Describe security for a web hook callback. Each option corresponds to an Authorization header
  * variant.
  */
@@ -26,43 +26,43 @@ public class HookSecurityJson {
 
     @JsonValue
     private final TypedObject value;
-    
+
     private HookSecurityJson(TypedObject value) {
         this.value = value;
     }
 
     public static HookSecurityJson of(APIKeyAuthentication value) {
         Utils.checkNotNull(value, "value");
-        return new HookSecurityJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new HookSecurityJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     public static HookSecurityJson of(BasicAuthentication value) {
         Utils.checkNotNull(value, "value");
-        return new HookSecurityJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>(){}));
+        return new HookSecurityJson(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
-    
+
     /**
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.APIKeyAuthentication}</li>
      * <li>{@code com.cvent.models.components.BasicAuthentication}</li>
      * </ul>
-     * 
+     *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
-     * 
+     *
      * <pre>
      * if (obj.value() instanceof String) {
      *     String answer = (String) obj.value();
      *     System.out.println("answer=" + answer);
      * }
      * </pre>
-     * 
+     *
      * @return value of oneOf type
-     **/ 
+     **/
     public java.lang.Object value() {
         return value.value();
     }
-    
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -74,27 +74,26 @@ public class HookSecurityJson {
         HookSecurityJson other = (HookSecurityJson) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(value.value());
     }
-    
+
     @SuppressWarnings("serial")
     public static final class _Deserializer extends OneOfDeserializer<HookSecurityJson> {
 
         public _Deserializer() {
-            super(HookSecurityJson.class, false,
-                  TypeReferenceWithShape.of(new TypeReference<APIKeyAuthentication>() {}, JsonShape.DEFAULT),
-                  TypeReferenceWithShape.of(new TypeReference<BasicAuthentication>() {}, JsonShape.DEFAULT));
+            super(
+                    HookSecurityJson.class,
+                    false,
+                    TypeReferenceWithShape.of(new TypeReference<APIKeyAuthentication>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<BasicAuthentication>() {}, JsonShape.DEFAULT));
         }
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HookSecurityJson.class,
-                "value", value);
+        return Utils.toString(HookSecurityJson.class, "value", value);
     }
-
 }
-

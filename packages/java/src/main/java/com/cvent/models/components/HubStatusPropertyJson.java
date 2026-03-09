@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * HubStatusPropertyJson
- * 
+ *
  * <p>The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members.
  * Active: Members can access the Events+ Hub.
- * 
+ *
  * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
  */
 public enum HubStatusPropertyJson {
@@ -27,13 +27,13 @@ public enum HubStatusPropertyJson {
     HubStatusPropertyJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<HubStatusPropertyJson> fromValue(String value) {
-        for (HubStatusPropertyJson o: HubStatusPropertyJson.values()) {
+        for (HubStatusPropertyJson o : HubStatusPropertyJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum HubStatusPropertyJson {
         return Optional.empty();
     }
 }
-

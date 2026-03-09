@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum SeatType
     {
-        [JsonProperty("Aisle")]
-        Aisle,
-        [JsonProperty("Window")]
-        Window,
+        [JsonProperty("Aisle")] Aisle,
+        [JsonProperty("Window")] Window,
     }
 
     public static class SeatTypeExtension
     {
         public static string Value(this SeatType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static SeatType ToEnum(this string value)
         {
-            foreach(var field in typeof(SeatType).GetFields())
+            foreach (var field in typeof(SeatType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorCategoryRequest
- * 
+ *
  * <p>JSON schema representing an Exhibitor Category object
  */
 public class ExhibitorCategoryRequest {
@@ -58,23 +58,16 @@ public class ExhibitorCategoryRequest {
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("order") long order,
             @JsonProperty("type") @Nonnull ExhibitorCategoryRequestType type) {
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.order = order;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
-    
+
     public ExhibitorCategoryRequest(
-            @Nonnull EventJson5 event,
-            @Nonnull String name,
-            long order,
-            @Nonnull ExhibitorCategoryRequestType type) {
-        this(event, name, null,
-            order, type);
+            @Nonnull EventJson5 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryRequestType type) {
+        this(event, name, null, order, type);
     }
 
     /**
@@ -116,7 +109,6 @@ public class ExhibitorCategoryRequest {
         return new Builder();
     }
 
-
     /**
      * The Associated Event.
      */
@@ -124,7 +116,6 @@ public class ExhibitorCategoryRequest {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * Name of the exhibitor category
@@ -134,7 +125,6 @@ public class ExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * Exhibitor Category description
      */
@@ -142,7 +132,6 @@ public class ExhibitorCategoryRequest {
         this.description = description;
         return this;
     }
-
 
     /**
      * order for exhibitor category
@@ -152,7 +141,6 @@ public class ExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * Type of exhibitor category
      */
@@ -160,7 +148,6 @@ public class ExhibitorCategoryRequest {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +158,36 @@ public class ExhibitorCategoryRequest {
             return false;
         }
         ExhibitorCategoryRequest other = (ExhibitorCategoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, name, description,
-            order, type);
+        return Utils.enhancedHash(event, name, description, order, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorCategoryRequest.class,
-                "event", event,
-                "name", name,
-                "description", description,
-                "order", order,
-                "type", type);
+        return Utils.toString(
+                ExhibitorCategoryRequest.class,
+                "event",
+                event,
+                "name",
+                name,
+                "description",
+                description,
+                "order",
+                order,
+                "type",
+                type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EventJson5 event;
 
@@ -210,7 +200,7 @@ public class ExhibitorCategoryRequest {
         private ExhibitorCategoryRequestType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +244,7 @@ public class ExhibitorCategoryRequest {
         }
 
         public ExhibitorCategoryRequest build() {
-            return new ExhibitorCategoryRequest(
-                event, name, description,
-                order, type);
+            return new ExhibitorCategoryRequest(event, name, description, order, type);
         }
-
     }
 }

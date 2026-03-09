@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorViewed
- * 
+ *
  * <p>An exhibitor viewed activity.
  */
 public class ExhibitorViewed {
@@ -58,10 +58,9 @@ public class ExhibitorViewed {
         this.sponsorshipLevel = sponsorshipLevel;
         this.navigationSource = navigationSource;
     }
-    
+
     public ExhibitorViewed() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ExhibitorViewed {
         return new Builder();
     }
 
-
     /**
      * An exhibitor.
      */
@@ -104,7 +102,6 @@ public class ExhibitorViewed {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * The platform used by the user.
@@ -114,7 +111,6 @@ public class ExhibitorViewed {
         return this;
     }
 
-
     /**
      * Sponsorship level for an activity exhibitor.
      */
@@ -123,7 +119,6 @@ public class ExhibitorViewed {
         return this;
     }
 
-
     /**
      * Navigation source for an activity exhibitor.
      */
@@ -131,7 +126,6 @@ public class ExhibitorViewed {
         this.navigationSource = navigationSource;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class ExhibitorViewed {
             return false;
         }
         ExhibitorViewed other = (ExhibitorViewed) o;
-        return 
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.platform, other.platform) &&
-            Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel) &&
-            Utils.enhancedDeepEquals(this.navigationSource, other.navigationSource);
+        return Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.platform, other.platform)
+                && Utils.enhancedDeepEquals(this.sponsorshipLevel, other.sponsorshipLevel)
+                && Utils.enhancedDeepEquals(this.navigationSource, other.navigationSource);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            exhibitor, platform, sponsorshipLevel,
-            navigationSource);
+        return Utils.enhancedHash(exhibitor, platform, sponsorshipLevel, navigationSource);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorViewed.class,
-                "exhibitor", exhibitor,
-                "platform", platform,
-                "sponsorshipLevel", sponsorshipLevel,
-                "navigationSource", navigationSource);
+        return Utils.toString(
+                ExhibitorViewed.class,
+                "exhibitor",
+                exhibitor,
+                "platform",
+                platform,
+                "sponsorshipLevel",
+                sponsorshipLevel,
+                "navigationSource",
+                navigationSource);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExhibitorJson1 exhibitor;
 
@@ -177,7 +173,7 @@ public class ExhibitorViewed {
         private ActivityExhibitorNavigationSourceJson navigationSource;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class ExhibitorViewed {
         }
 
         public ExhibitorViewed build() {
-            return new ExhibitorViewed(
-                exhibitor, platform, sponsorshipLevel,
-                navigationSource);
+            return new ExhibitorViewed(exhibitor, platform, sponsorshipLevel, navigationSource);
         }
-
     }
 }

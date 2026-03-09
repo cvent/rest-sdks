@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInternalInfo
- * 
+ *
  * <p>Model representing internal information answers for an attendee to be added or updated.
  */
 public class AttendeeInternalInfo {
@@ -36,9 +36,8 @@ public class AttendeeInternalInfo {
             @JsonProperty("question") @Nonnull AttendeeInternalInfoQuestion question,
             @JsonProperty("value") @Nonnull List<String> value) {
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
     }
 
     /**
@@ -60,7 +59,6 @@ public class AttendeeInternalInfo {
         return new Builder();
     }
 
-
     /**
      * The registration question. Use either question ID or code to identify the question. If both are
      * provided, they must match the same question.
@@ -70,7 +68,6 @@ public class AttendeeInternalInfo {
         return this;
     }
 
-
     /**
      * The set of answers to a question.
      */
@@ -78,7 +75,6 @@ public class AttendeeInternalInfo {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -89,33 +85,28 @@ public class AttendeeInternalInfo {
             return false;
         }
         AttendeeInternalInfo other = (AttendeeInternalInfo) o;
-        return 
-            Utils.enhancedDeepEquals(this.question, other.question) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.question, other.question) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            question, value);
+        return Utils.enhancedHash(question, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeInternalInfo.class,
-                "question", question,
-                "value", value);
+        return Utils.toString(AttendeeInternalInfo.class, "question", question, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeInternalInfoQuestion question;
 
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -136,9 +127,7 @@ public class AttendeeInternalInfo {
         }
 
         public AttendeeInternalInfo build() {
-            return new AttendeeInternalInfo(
-                question, value);
+            return new AttendeeInternalInfo(question, value);
         }
-
     }
 }

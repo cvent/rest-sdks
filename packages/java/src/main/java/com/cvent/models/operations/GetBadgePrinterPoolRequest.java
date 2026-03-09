@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetBadgePrinterPoolRequest {
     /**
      * Id of an event
@@ -26,13 +25,11 @@ public class GetBadgePrinterPoolRequest {
     private String poolId;
 
     @JsonCreator
-    public GetBadgePrinterPoolRequest(
-            @Nonnull String eventId,
-            @Nonnull String poolId) {
-        this.eventId = Optional.ofNullable(eventId)
-            .orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
-        this.poolId = Optional.ofNullable(poolId)
-            .orElseThrow(() -> new IllegalArgumentException("poolId cannot be null"));
+    public GetBadgePrinterPoolRequest(@Nonnull String eventId, @Nonnull String poolId) {
+        this.eventId =
+                Optional.ofNullable(eventId).orElseThrow(() -> new IllegalArgumentException("eventId cannot be null"));
+        this.poolId =
+                Optional.ofNullable(poolId).orElseThrow(() -> new IllegalArgumentException("poolId cannot be null"));
     }
 
     /**
@@ -53,7 +50,6 @@ public class GetBadgePrinterPoolRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -62,7 +58,6 @@ public class GetBadgePrinterPoolRequest {
         return this;
     }
 
-
     /**
      * Id of a badge printer pool
      */
@@ -70,7 +65,6 @@ public class GetBadgePrinterPoolRequest {
         this.poolId = Utils.checkNotNull(poolId, "poolId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +75,28 @@ public class GetBadgePrinterPoolRequest {
             return false;
         }
         GetBadgePrinterPoolRequest other = (GetBadgePrinterPoolRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.eventId, other.eventId) &&
-            Utils.enhancedDeepEquals(this.poolId, other.poolId);
+        return Utils.enhancedDeepEquals(this.eventId, other.eventId) && Utils.enhancedDeepEquals(this.poolId, other.poolId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            eventId, poolId);
+        return Utils.enhancedHash(eventId, poolId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgePrinterPoolRequest.class,
-                "eventId", eventId,
-                "poolId", poolId);
+        return Utils.toString(GetBadgePrinterPoolRequest.class, "eventId", eventId, "poolId", poolId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String eventId;
 
         private String poolId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class GetBadgePrinterPoolRequest {
         }
 
         public GetBadgePrinterPoolRequest build() {
-            return new GetBadgePrinterPoolRequest(
-                eventId, poolId);
+            return new GetBadgePrinterPoolRequest(eventId, poolId);
         }
-
     }
 }

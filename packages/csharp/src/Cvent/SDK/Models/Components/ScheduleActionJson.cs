@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ScheduleActionJson
     {
-        [JsonProperty("provision")]
-        Provision,
-        [JsonProperty("activate")]
-        Activate,
-        [JsonProperty("deactivate")]
-        Deactivate,
-        [JsonProperty("archive")]
-        Archive,
+        [JsonProperty("provision")] Provision,
+        [JsonProperty("activate")] Activate,
+        [JsonProperty("deactivate")] Deactivate,
+        [JsonProperty("archive")] Archive,
     }
 
     public static class ScheduleActionJsonExtension
     {
         public static string Value(this ScheduleActionJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ScheduleActionJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ScheduleActionJson).GetFields())
+            foreach (var field in typeof(ScheduleActionJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

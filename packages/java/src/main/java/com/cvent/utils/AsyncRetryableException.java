@@ -4,7 +4,6 @@
 package com.cvent.utils;
 
 import com.cvent.utils.Blob;
-
 import java.net.http.HttpResponse;
 
 public final class AsyncRetryableException extends Exception {

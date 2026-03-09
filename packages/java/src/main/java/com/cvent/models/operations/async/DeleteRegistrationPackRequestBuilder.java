@@ -30,7 +30,7 @@ public class DeleteRegistrationPackRequestBuilder {
     private DeleteRegistrationPackRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteRegistrationPackRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class DeleteRegistrationPackRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteRegistrationPackResponse> call() {
-        AsyncRequestOperation<DeleteRegistrationPackRequest, DeleteRegistrationPackResponse> operation
-              = new DeleteRegistrationPack.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteRegistrationPackRequest, DeleteRegistrationPackResponse> operation =
+                new DeleteRegistrationPack.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

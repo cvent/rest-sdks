@@ -23,6 +23,14 @@ Client is not allowed for code grant flow or for refreshing tokens.
 Returned if grant_type is anything other than authorization_code or refresh_token.
 
 
+## Example Usage
+
+```java
+import com.cvent.models.errors.Error;
+
+Error value = Error.INVALID_REQUEST;
+```
+
 
 ## Values
 

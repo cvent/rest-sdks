@@ -377,7 +377,7 @@ namespace Cvent.SDK
     /// <br/>
     /// <see href="https://developers.cvent.com/docs">Cvent Developer Documentation</see>
     /// </summary>
-    public class CventSDK: ICventSDK
+    public class CventSDK : ICventSDK
     {
         /// <summary>
         /// The main SDK Configuration.
@@ -707,7 +707,7 @@ namespace Cvent.SDK
             {
                 if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
                 {
-                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive).");
                 }
             }
 
@@ -720,17 +720,16 @@ namespace Cvent.SDK
             }
             Func<Cvent.SDK.Models.Components.Security>? _securitySource = null;
 
-            if(securitySource != null)
+            if (securitySource != null)
             {
                 _securitySource = securitySource;
             }
-            else if(security != null)
+            else if (security != null)
             {
                 _securitySource = () => security;
             }
 
-            SDKConfiguration = new SDKConfig(client)
-            {
+            SDKConfiguration = new SDKConfig(client) {
                 ServerIndex = serverIndex == null ? 0 : serverIndex.Value,
                 ServerUrl = serverUrl == null ? "" : serverUrl,
                 SecuritySource = _securitySource,
@@ -848,7 +847,9 @@ namespace Cvent.SDK
         {
             private SDKConfig _sdkConfig = new SDKConfig(client: new CventSDKHttpClient());
 
-            public SDKBuilder() { }
+            public SDKBuilder()
+            {
+            }
 
             /// <summary>
             /// Overrides the default server by index.
@@ -857,7 +858,7 @@ namespace Cvent.SDK
             {
                 if (serverIndex < 0 || serverIndex >= SDKConfig.ServerList.Length)
                 {
-                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive)." );
+                    throw new ArgumentOutOfRangeException($"Invalid server index {serverIndex}: must be between 0 (inclusive) and {SDKConfig.ServerList.Length} (exclusive).");
                 }
                 _sdkConfig.ServerIndex = serverIndex;
                 return this;
@@ -917,9 +918,8 @@ namespace Cvent.SDK
             /// </summary>
             public CventSDK Build()
             {
-              return new CventSDK(_sdkConfig);
+                return new CventSDK(_sdkConfig);
             }
-
         }
 
         public static SDKBuilder Builder() => new SDKBuilder();

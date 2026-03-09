@@ -15,7 +15,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetExhibitorCategoriesRequest {
     /**
      * ID of an event.
@@ -37,19 +36,13 @@ public class GetExhibitorCategoriesRequest {
     private String token;
 
     @JsonCreator
-    public GetExhibitorCategoriesRequest(
-            @Nonnull String id,
-            @Nullable Long limit,
-            @Nullable String token) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+    public GetExhibitorCategoriesRequest(@Nonnull String id, @Nullable Long limit, @Nullable String token) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public GetExhibitorCategoriesRequest(
-            @Nonnull String id) {
+
+    public GetExhibitorCategoriesRequest(@Nonnull String id) {
         this(id, null, null);
     }
 
@@ -79,7 +72,6 @@ public class GetExhibitorCategoriesRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -88,7 +80,6 @@ public class GetExhibitorCategoriesRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -96,7 +87,6 @@ public class GetExhibitorCategoriesRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -107,7 +97,6 @@ public class GetExhibitorCategoriesRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -117,28 +106,23 @@ public class GetExhibitorCategoriesRequest {
             return false;
         }
         GetExhibitorCategoriesRequest other = (GetExhibitorCategoriesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, limit, token);
+        return Utils.enhancedHash(id, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetExhibitorCategoriesRequest.class,
-                "id", id,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(GetExhibitorCategoriesRequest.class, "id", id, "limit", limit, "token", token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +131,7 @@ public class GetExhibitorCategoriesRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -176,15 +160,10 @@ public class GetExhibitorCategoriesRequest {
         }
 
         public GetExhibitorCategoriesRequest build() {
-            return new GetExhibitorCategoriesRequest(
-                id, limit, token);
+            return new GetExhibitorCategoriesRequest(id, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

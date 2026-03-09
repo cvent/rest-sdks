@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class Oauth2TokenRequest {
     /**
      * The grant type.
@@ -22,7 +21,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     @SpeakeasyMetadata("form:name=client_id")
@@ -33,7 +32,7 @@ public class Oauth2TokenRequest {
      * pre-associated with the client or it will be ignored at runtime.
      * If the client doesn't request any scopes, the authentication server uses all scopes associated with
      * the client.
-     * 
+     *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
      */
     @SpeakeasyMetadata("form:name=scope")
@@ -41,7 +40,7 @@ public class Oauth2TokenRequest {
 
     /**
      * Must be the same *redirect_uri* that was used to get *authorization_code* in * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required only if grant_type is authorization_code.**
      */
     @SpeakeasyMetadata("form:name=redirect_uri")
@@ -49,7 +48,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The refresh token.
-     * 
+     *
      * <p>**Note:** The token endpoint returns *refresh_token* only when the grant_type is
      * *authorization_code*.
      */
@@ -58,7 +57,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The code that is returned from a successful * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required if grant_type is authorization_code.**
      */
     @SpeakeasyMetadata("form:name=code")
@@ -73,20 +72,17 @@ public class Oauth2TokenRequest {
             @Nullable String refreshToken,
             @Nullable String code) {
         this.grantType = Optional.ofNullable(grantType)
-            .orElseThrow(() -> new IllegalArgumentException("grantType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("grantType cannot be null"));
         this.clientId = Optional.ofNullable(clientId)
-            .orElseThrow(() -> new IllegalArgumentException("clientId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("clientId cannot be null"));
         this.scope = scope;
         this.redirectUri = redirectUri;
         this.refreshToken = refreshToken;
         this.code = code;
     }
-    
-    public Oauth2TokenRequest(
-            @Nonnull GrantType grantType,
-            @Nonnull String clientId) {
-        this(grantType, clientId, null,
-            null, null, null);
+
+    public Oauth2TokenRequest(@Nonnull GrantType grantType, @Nonnull String clientId) {
+        this(grantType, clientId, null, null, null, null);
     }
 
     /**
@@ -98,7 +94,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     public String clientId() {
@@ -110,7 +106,7 @@ public class Oauth2TokenRequest {
      * pre-associated with the client or it will be ignored at runtime.
      * If the client doesn't request any scopes, the authentication server uses all scopes associated with
      * the client.
-     * 
+     *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
      */
     public Optional<String> scope() {
@@ -119,7 +115,7 @@ public class Oauth2TokenRequest {
 
     /**
      * Must be the same *redirect_uri* that was used to get *authorization_code* in * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required only if grant_type is authorization_code.**
      */
     public Optional<String> redirectUri() {
@@ -128,7 +124,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The refresh token.
-     * 
+     *
      * <p>**Note:** The token endpoint returns *refresh_token* only when the grant_type is
      * *authorization_code*.
      */
@@ -138,7 +134,7 @@ public class Oauth2TokenRequest {
 
     /**
      * The code that is returned from a successful * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required if grant_type is authorization_code.**
      */
     public Optional<String> code() {
@@ -149,7 +145,6 @@ public class Oauth2TokenRequest {
         return new Builder();
     }
 
-
     /**
      * The grant type.
      */
@@ -158,10 +153,9 @@ public class Oauth2TokenRequest {
         return this;
     }
 
-
     /**
      * The OAuth2 Client application ID.
-     * 
+     *
      * <p>Must be a pre-registered client created in the developer portal.
      */
     public Oauth2TokenRequest withClientId(@Nonnull String clientId) {
@@ -169,13 +163,12 @@ public class Oauth2TokenRequest {
         return this;
     }
 
-
     /**
      * Can be a combination of any scopes associated with a client. Any scope requested must be
      * pre-associated with the client or it will be ignored at runtime.
      * If the client doesn't request any scopes, the authentication server uses all scopes associated with
      * the client.
-     * 
+     *
      * <p>**Optional** - Only used if the grant_type is client_credentials.
      */
     public Oauth2TokenRequest withScope(@Nullable String scope) {
@@ -183,10 +176,9 @@ public class Oauth2TokenRequest {
         return this;
     }
 
-
     /**
      * Must be the same *redirect_uri* that was used to get *authorization_code* in * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required only if grant_type is authorization_code.**
      */
     public Oauth2TokenRequest withRedirectUri(@Nullable String redirectUri) {
@@ -194,10 +186,9 @@ public class Oauth2TokenRequest {
         return this;
     }
 
-
     /**
      * The refresh token.
-     * 
+     *
      * <p>**Note:** The token endpoint returns *refresh_token* only when the grant_type is
      * *authorization_code*.
      */
@@ -206,17 +197,15 @@ public class Oauth2TokenRequest {
         return this;
     }
 
-
     /**
      * The code that is returned from a successful * /oauth2/authorize*.
-     * 
+     *
      * <p>**Required if grant_type is authorization_code.**
      */
     public Oauth2TokenRequest withCode(@Nullable String code) {
         this.code = code;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -227,35 +216,39 @@ public class Oauth2TokenRequest {
             return false;
         }
         Oauth2TokenRequest other = (Oauth2TokenRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.grantType, other.grantType) &&
-            Utils.enhancedDeepEquals(this.clientId, other.clientId) &&
-            Utils.enhancedDeepEquals(this.scope, other.scope) &&
-            Utils.enhancedDeepEquals(this.redirectUri, other.redirectUri) &&
-            Utils.enhancedDeepEquals(this.refreshToken, other.refreshToken) &&
-            Utils.enhancedDeepEquals(this.code, other.code);
+        return Utils.enhancedDeepEquals(this.grantType, other.grantType)
+                && Utils.enhancedDeepEquals(this.clientId, other.clientId)
+                && Utils.enhancedDeepEquals(this.scope, other.scope)
+                && Utils.enhancedDeepEquals(this.redirectUri, other.redirectUri)
+                && Utils.enhancedDeepEquals(this.refreshToken, other.refreshToken)
+                && Utils.enhancedDeepEquals(this.code, other.code);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            grantType, clientId, scope,
-            redirectUri, refreshToken, code);
+        return Utils.enhancedHash(grantType, clientId, scope, redirectUri, refreshToken, code);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Oauth2TokenRequest.class,
-                "grantType", grantType,
-                "clientId", clientId,
-                "scope", scope,
-                "redirectUri", redirectUri,
-                "refreshToken", refreshToken,
-                "code", code);
+        return Utils.toString(
+                Oauth2TokenRequest.class,
+                "grantType",
+                grantType,
+                "clientId",
+                clientId,
+                "scope",
+                scope,
+                "redirectUri",
+                redirectUri,
+                "refreshToken",
+                refreshToken,
+                "code",
+                code);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private GrantType grantType;
 
@@ -270,7 +263,7 @@ public class Oauth2TokenRequest {
         private String code;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -283,7 +276,7 @@ public class Oauth2TokenRequest {
 
         /**
          * The OAuth2 Client application ID.
-         * 
+         *
          * <p>Must be a pre-registered client created in the developer portal.
          */
         public Builder clientId(@Nonnull String clientId) {
@@ -296,7 +289,7 @@ public class Oauth2TokenRequest {
          * pre-associated with the client or it will be ignored at runtime.
          * If the client doesn't request any scopes, the authentication server uses all scopes associated with
          * the client.
-         * 
+         *
          * <p>**Optional** - Only used if the grant_type is client_credentials.
          */
         public Builder scope(@Nullable String scope) {
@@ -306,7 +299,7 @@ public class Oauth2TokenRequest {
 
         /**
          * Must be the same *redirect_uri* that was used to get *authorization_code* in * /oauth2/authorize*.
-         * 
+         *
          * <p>**Required only if grant_type is authorization_code.**
          */
         public Builder redirectUri(@Nullable String redirectUri) {
@@ -316,7 +309,7 @@ public class Oauth2TokenRequest {
 
         /**
          * The refresh token.
-         * 
+         *
          * <p>**Note:** The token endpoint returns *refresh_token* only when the grant_type is
          * *authorization_code*.
          */
@@ -327,7 +320,7 @@ public class Oauth2TokenRequest {
 
         /**
          * The code that is returned from a successful * /oauth2/authorize*.
-         * 
+         *
          * <p>**Required if grant_type is authorization_code.**
          */
         public Builder code(@Nullable String code) {
@@ -336,10 +329,7 @@ public class Oauth2TokenRequest {
         }
 
         public Oauth2TokenRequest build() {
-            return new Oauth2TokenRequest(
-                grantType, clientId, scope,
-                redirectUri, refreshToken, code);
+            return new Oauth2TokenRequest(grantType, clientId, scope, redirectUri, refreshToken, code);
         }
-
     }
 }

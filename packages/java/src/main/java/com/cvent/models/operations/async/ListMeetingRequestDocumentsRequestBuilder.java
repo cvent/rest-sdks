@@ -40,7 +40,7 @@ public class ListMeetingRequestDocumentsRequestBuilder {
     private ListMeetingRequestDocumentsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListMeetingRequestDocumentsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListMeetingRequestDocumentsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListMeetingRequestDocumentsResponse> call() {
-        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation
-              = new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation =
+                new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListMeetingRequestDocumentsRequestBuilder {
      */
     public Publisher<ListMeetingRequestDocumentsResponse> callAsPublisher() {
         ListMeetingRequestDocumentsRequest request = this.request;
-        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation
-              = new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListMeetingRequestDocumentsRequest, ListMeetingRequestDocumentsResponse> operation =
+                new ListMeetingRequestDocuments.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListMeetingRequestDocumentsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListMeetingRequestDocumentsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListMeetingRequestDocumentsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListMeetingRequestDocumentsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

@@ -15,20 +15,19 @@ namespace Cvent.SDK.Models.Components
 
     public enum Expand1
     {
-        [JsonProperty("creditType")]
-        CreditType,
+        [JsonProperty("creditType")] CreditType,
     }
 
     public static class Expand1Extension
     {
         public static string Value(this Expand1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Expand1 ToEnum(this string value)
         {
-            foreach(var field in typeof(Expand1).GetFields())
+            foreach (var field in typeof(Expand1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

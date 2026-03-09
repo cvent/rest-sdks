@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExistingMemberJsonLink
- * 
+ *
  * <p>The optimized URL of the Events+ member's profile image.
  */
 public class ExistingMemberJsonLink {
@@ -24,10 +24,8 @@ public class ExistingMemberJsonLink {
     private String href;
 
     @JsonCreator
-    public ExistingMemberJsonLink(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public ExistingMemberJsonLink(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class ExistingMemberJsonLink {
         return new Builder();
     }
 
-
     /**
      * A URL pointing to the member's profile image.
      */
@@ -49,7 +46,6 @@ public class ExistingMemberJsonLink {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class ExistingMemberJsonLink {
             return false;
         }
         ExistingMemberJsonLink other = (ExistingMemberJsonLink) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingMemberJsonLink.class,
-                "href", href);
+        return Utils.toString(ExistingMemberJsonLink.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class ExistingMemberJsonLink {
         }
 
         public ExistingMemberJsonLink build() {
-            return new ExistingMemberJsonLink(
-                href);
+            return new ExistingMemberJsonLink(href);
         }
-
     }
 }

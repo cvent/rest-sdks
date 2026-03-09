@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestQuestionJson
- * 
+ *
  * <p>A question for a meeting request.
  */
 public class MeetingRequestQuestionJson {
@@ -43,19 +43,19 @@ public class MeetingRequestQuestionJson {
 
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this array contains string values.
-     * 
+     *
      * <p>For the following questions:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer is the country name (for example, "Canada").
-     * 
+     *
      * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     @JsonProperty("value")
@@ -80,20 +80,15 @@ public class MeetingRequestQuestionJson {
             @JsonProperty("type") @Nullable QuestionTypeJson1 type,
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("compositeValue") @Nullable CompositeValueJson compositeValue) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.type = type;
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.compositeValue = compositeValue;
     }
-    
-    public MeetingRequestQuestionJson(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
-        this(id, null, null,
-            value, null);
+
+    public MeetingRequestQuestionJson(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, null, null, value, null);
     }
 
     /**
@@ -119,19 +114,19 @@ public class MeetingRequestQuestionJson {
 
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this array contains string values.
-     * 
+     *
      * <p>For the following questions:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer is the country name (for example, "Canada").
-     * 
+     *
      * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     public List<String> value() {
@@ -154,7 +149,6 @@ public class MeetingRequestQuestionJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this question.
      */
@@ -162,7 +156,6 @@ public class MeetingRequestQuestionJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the question.
@@ -172,7 +165,6 @@ public class MeetingRequestQuestionJson {
         return this;
     }
 
-
     /**
      * Denotes the type of data collected by a question.
      */
@@ -181,29 +173,27 @@ public class MeetingRequestQuestionJson {
         return this;
     }
 
-
     /**
      * An array of non-null answers to the question.
-     * 
+     *
      * <p>For standard questions, this array contains string values.
-     * 
+     *
      * <p>For the following questions:
      * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
      * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
      * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-     * 
+     *
      * <p>the answer is the country name (for example, "Canada").
-     * 
+     *
      * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
      * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     * 
+     *
      * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
      */
     public MeetingRequestQuestionJson withValue(@Nonnull List<String> value) {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     /**
      * A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
@@ -218,7 +208,6 @@ public class MeetingRequestQuestionJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -228,33 +217,36 @@ public class MeetingRequestQuestionJson {
             return false;
         }
         MeetingRequestQuestionJson other = (MeetingRequestQuestionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.compositeValue, other.compositeValue);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.compositeValue, other.compositeValue);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, type,
-            value, compositeValue);
+        return Utils.enhancedHash(id, name, type, value, compositeValue);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestQuestionJson.class,
-                "id", id,
-                "name", name,
-                "type", type,
-                "value", value,
-                "compositeValue", compositeValue);
+        return Utils.toString(
+                MeetingRequestQuestionJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "type",
+                type,
+                "value",
+                value,
+                "compositeValue",
+                compositeValue);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -267,7 +259,7 @@ public class MeetingRequestQuestionJson {
         private CompositeValueJson compositeValue;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -296,19 +288,19 @@ public class MeetingRequestQuestionJson {
 
         /**
          * An array of non-null answers to the question.
-         * 
+         *
          * <p>For standard questions, this array contains string values.
-         * 
+         *
          * <p>For the following questions:
          * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
          * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
          * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
-         * 
+         *
          * <p>the answer is the country name (for example, "Canada").
-         * 
+         *
          * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
          * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-         * 
+         *
          * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
          */
         public Builder value(@Nonnull List<String> value) {
@@ -330,10 +322,7 @@ public class MeetingRequestQuestionJson {
         }
 
         public MeetingRequestQuestionJson build() {
-            return new MeetingRequestQuestionJson(
-                id, name, type,
-                value, compositeValue);
+            return new MeetingRequestQuestionJson(id, name, type, value, compositeValue);
         }
-
     }
 }

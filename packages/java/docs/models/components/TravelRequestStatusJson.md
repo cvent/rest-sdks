@@ -2,6 +2,14 @@
 
 Status of the travel request done by attendee.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TravelRequestStatusJson;
+
+TravelRequestStatusJson value = TravelRequestStatusJson.SUBMITTED;
+```
+
 
 ## Values
 

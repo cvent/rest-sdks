@@ -40,7 +40,7 @@ public class ListAvailabilityRequestBuilder {
     private ListAvailabilityRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListAvailabilityRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListAvailabilityRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListAvailabilityResponse> call() {
-        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation
-              = new ListAvailability.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation =
+                new ListAvailability.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListAvailabilityRequestBuilder {
      */
     public Publisher<ListAvailabilityResponse> callAsPublisher() {
         ListAvailabilityRequest request = this.request;
-        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation
-              = new ListAvailability.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListAvailabilityRequest, ListAvailabilityResponse> operation =
+                new ListAvailability.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListAvailabilityRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListAvailabilityRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListAvailabilityResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

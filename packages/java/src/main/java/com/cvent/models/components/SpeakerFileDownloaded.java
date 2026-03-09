@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SpeakerFileDownloaded
- * 
+ *
  * <p>A speaker file-downloaded activity.
  */
 public class SpeakerFileDownloaded {
@@ -67,10 +67,9 @@ public class SpeakerFileDownloaded {
         this.type = type;
         this.speaker = speaker;
     }
-    
+
     public SpeakerFileDownloaded() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -112,7 +111,6 @@ public class SpeakerFileDownloaded {
         return new Builder();
     }
 
-
     /**
      * The name of the web browser.
      */
@@ -120,7 +118,6 @@ public class SpeakerFileDownloaded {
         this.browser = browser;
         return this;
     }
-
 
     /**
      * The name of the operating system.
@@ -130,7 +127,6 @@ public class SpeakerFileDownloaded {
         return this;
     }
 
-
     /**
      * The name of the file.
      */
@@ -138,7 +134,6 @@ public class SpeakerFileDownloaded {
         this.name = name;
         return this;
     }
-
 
     /**
      * The type of the file.
@@ -148,7 +143,6 @@ public class SpeakerFileDownloaded {
         return this;
     }
 
-
     /**
      * An activity speaker.
      */
@@ -156,7 +150,6 @@ public class SpeakerFileDownloaded {
         this.speaker = speaker;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -167,33 +160,36 @@ public class SpeakerFileDownloaded {
             return false;
         }
         SpeakerFileDownloaded other = (SpeakerFileDownloaded) o;
-        return 
-            Utils.enhancedDeepEquals(this.browser, other.browser) &&
-            Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.speaker, other.speaker);
+        return Utils.enhancedDeepEquals(this.browser, other.browser)
+                && Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.speaker, other.speaker);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            browser, operatingSystem, name,
-            type, speaker);
+        return Utils.enhancedHash(browser, operatingSystem, name, type, speaker);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SpeakerFileDownloaded.class,
-                "browser", browser,
-                "operatingSystem", operatingSystem,
-                "name", name,
-                "type", type,
-                "speaker", speaker);
+        return Utils.toString(
+                SpeakerFileDownloaded.class,
+                "browser",
+                browser,
+                "operatingSystem",
+                operatingSystem,
+                "name",
+                name,
+                "type",
+                type,
+                "speaker",
+                speaker);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String browser;
 
@@ -206,7 +202,7 @@ public class SpeakerFileDownloaded {
         private SpeakerJson speaker;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,10 +246,7 @@ public class SpeakerFileDownloaded {
         }
 
         public SpeakerFileDownloaded build() {
-            return new SpeakerFileDownloaded(
-                browser, operatingSystem, name,
-                type, speaker);
+            return new SpeakerFileDownloaded(browser, operatingSystem, name, type, speaker);
         }
-
     }
 }

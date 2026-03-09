@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class ListAudioTracksRequest {
     /**
      * The identifier of a video.
@@ -20,10 +19,9 @@ public class ListAudioTracksRequest {
     private String videoId;
 
     @JsonCreator
-    public ListAudioTracksRequest(
-            @Nonnull String videoId) {
-        this.videoId = Optional.ofNullable(videoId)
-            .orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
+    public ListAudioTracksRequest(@Nonnull String videoId) {
+        this.videoId =
+                Optional.ofNullable(videoId).orElseThrow(() -> new IllegalArgumentException("videoId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class ListAudioTracksRequest {
         return new Builder();
     }
 
-
     /**
      * The identifier of a video.
      */
@@ -45,7 +42,6 @@ public class ListAudioTracksRequest {
         this.videoId = Utils.checkNotNull(videoId, "videoId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class ListAudioTracksRequest {
             return false;
         }
         ListAudioTracksRequest other = (ListAudioTracksRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.videoId, other.videoId);
+        return Utils.enhancedDeepEquals(this.videoId, other.videoId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            videoId);
+        return Utils.enhancedHash(videoId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListAudioTracksRequest.class,
-                "videoId", videoId);
+        return Utils.toString(ListAudioTracksRequest.class, "videoId", videoId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String videoId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class ListAudioTracksRequest {
         }
 
         public ListAudioTracksRequest build() {
-            return new ListAudioTracksRequest(
-                videoId);
+            return new ListAudioTracksRequest(videoId);
         }
-
     }
 }

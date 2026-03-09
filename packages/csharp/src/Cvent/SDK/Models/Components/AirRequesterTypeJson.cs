@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AirRequesterTypeJson
     {
-        [JsonProperty("Contact")]
-        Contact,
-        [JsonProperty("Guest")]
-        Guest,
-        [JsonProperty("Unknown")]
-        Unknown,
+        [JsonProperty("Contact")] Contact,
+        [JsonProperty("Guest")] Guest,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class AirRequesterTypeJsonExtension
     {
         public static string Value(this AirRequesterTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AirRequesterTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AirRequesterTypeJson).GetFields())
+            foreach (var field in typeof(AirRequesterTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

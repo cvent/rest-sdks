@@ -22,7 +22,8 @@ public class UpdateExternalAttendeeActivityMetadataRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public UpdateExternalAttendeeActivityMetadataRequestBuilder request(@Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
+    public UpdateExternalAttendeeActivityMetadataRequestBuilder request(
+            @Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class UpdateExternalAttendeeActivityMetadataRequestBuilder {
     private UpdateExternalAttendeeActivityMetadataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateExternalAttendeeActivityMetadataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,14 @@ public class UpdateExternalAttendeeActivityMetadataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateExternalAttendeeActivityMetadataResponse> call() {
-        AsyncRequestOperation<UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse> operation
-              = new UpdateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse>
+                operation = new UpdateExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

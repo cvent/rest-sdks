@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateSpeakerRequest {
     /**
      * The unique identifier of a speaker.
@@ -27,13 +26,10 @@ public class UpdateSpeakerRequest {
     private ExistingSpeakerInput existingSpeaker;
 
     @JsonCreator
-    public UpdateSpeakerRequest(
-            @Nonnull String id,
-            @Nonnull ExistingSpeakerInput existingSpeaker) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateSpeakerRequest(@Nonnull String id, @Nonnull ExistingSpeakerInput existingSpeaker) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.existingSpeaker = Optional.ofNullable(existingSpeaker)
-            .orElseThrow(() -> new IllegalArgumentException("existingSpeaker cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("existingSpeaker cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class UpdateSpeakerRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -63,7 +58,6 @@ public class UpdateSpeakerRequest {
         return this;
     }
 
-
     /**
      * Speaker to be updated
      */
@@ -71,7 +65,6 @@ public class UpdateSpeakerRequest {
         this.existingSpeaker = Utils.checkNotNull(existingSpeaker, "existingSpeaker");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,29 @@ public class UpdateSpeakerRequest {
             return false;
         }
         UpdateSpeakerRequest other = (UpdateSpeakerRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.existingSpeaker, other.existingSpeaker);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.existingSpeaker, other.existingSpeaker);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, existingSpeaker);
+        return Utils.enhancedHash(id, existingSpeaker);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateSpeakerRequest.class,
-                "id", id,
-                "existingSpeaker", existingSpeaker);
+        return Utils.toString(UpdateSpeakerRequest.class, "id", id, "existingSpeaker", existingSpeaker);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ExistingSpeakerInput existingSpeaker;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +117,7 @@ public class UpdateSpeakerRequest {
         }
 
         public UpdateSpeakerRequest build() {
-            return new UpdateSpeakerRequest(
-                id, existingSpeaker);
+            return new UpdateSpeakerRequest(id, existingSpeaker);
         }
-
     }
 }

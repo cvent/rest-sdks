@@ -5,15 +5,14 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
-
 
 public class ResourceTypeJsonSchemaExtension {
     /**
@@ -32,12 +31,11 @@ public class ResourceTypeJsonSchemaExtension {
 
     @JsonCreator
     public ResourceTypeJsonSchemaExtension(
-            @JsonProperty("schema") @Nullable String schema,
-            @JsonProperty("required") @Nullable Boolean required) {
+            @JsonProperty("schema") @Nullable String schema, @JsonProperty("required") @Nullable Boolean required) {
         this.schema = schema;
         this.required = required;
     }
-    
+
     public ResourceTypeJsonSchemaExtension() {
         this(null, null);
     }
@@ -60,7 +58,6 @@ public class ResourceTypeJsonSchemaExtension {
         return new Builder();
     }
 
-
     /**
      * The id of the schema extension
      */
@@ -69,7 +66,6 @@ public class ResourceTypeJsonSchemaExtension {
         return this;
     }
 
-
     /**
      * True indicates if the schema extension is required.
      */
@@ -77,7 +73,6 @@ public class ResourceTypeJsonSchemaExtension {
         this.required = required;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -88,33 +83,29 @@ public class ResourceTypeJsonSchemaExtension {
             return false;
         }
         ResourceTypeJsonSchemaExtension other = (ResourceTypeJsonSchemaExtension) o;
-        return 
-            Utils.enhancedDeepEquals(this.schema, other.schema) &&
-            Utils.enhancedDeepEquals(this.required, other.required);
+        return Utils.enhancedDeepEquals(this.schema, other.schema)
+                && Utils.enhancedDeepEquals(this.required, other.required);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            schema, required);
+        return Utils.enhancedHash(schema, required);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ResourceTypeJsonSchemaExtension.class,
-                "schema", schema,
-                "required", required);
+        return Utils.toString(ResourceTypeJsonSchemaExtension.class, "schema", schema, "required", required);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String schema;
 
         private Boolean required;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -134,9 +125,7 @@ public class ResourceTypeJsonSchemaExtension {
         }
 
         public ResourceTypeJsonSchemaExtension build() {
-            return new ResourceTypeJsonSchemaExtension(
-                schema, required);
+            return new ResourceTypeJsonSchemaExtension(schema, required);
         }
-
     }
 }

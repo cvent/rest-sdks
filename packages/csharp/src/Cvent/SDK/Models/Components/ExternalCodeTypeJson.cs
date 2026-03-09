@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExternalCodeTypeJson
     {
-        [JsonProperty("amadeus_gds")]
-        AmadeusGds,
-        [JsonProperty("worldspan_gds")]
-        WorldspanGds,
-        [JsonProperty("galileo_gds")]
-        GalileoGds,
-        [JsonProperty("sabre_gds")]
-        SabreGds,
-        [JsonProperty("crs")]
-        Crs,
+        [JsonProperty("amadeus_gds")] AmadeusGds,
+        [JsonProperty("worldspan_gds")] WorldspanGds,
+        [JsonProperty("galileo_gds")] GalileoGds,
+        [JsonProperty("sabre_gds")] SabreGds,
+        [JsonProperty("crs")] Crs,
     }
 
     public static class ExternalCodeTypeJsonExtension
     {
         public static string Value(this ExternalCodeTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExternalCodeTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ExternalCodeTypeJson).GetFields())
+            foreach (var field in typeof(ExternalCodeTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

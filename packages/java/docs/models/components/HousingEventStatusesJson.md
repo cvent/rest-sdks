@@ -2,6 +2,14 @@
 
 Housing event status.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.HousingEventStatusesJson;
+
+HousingEventStatusesJson value = HousingEventStatusesJson.OPEN;
+```
+
 
 ## Values
 

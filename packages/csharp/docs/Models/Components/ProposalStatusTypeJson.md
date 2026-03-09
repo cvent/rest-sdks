@@ -2,6 +2,14 @@
 
 The status of the proposal
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ProposalStatusTypeJson.ParticipationRequested;
+```
+
 
 ## Values
 

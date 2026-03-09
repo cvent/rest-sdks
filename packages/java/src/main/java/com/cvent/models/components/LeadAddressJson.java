@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LeadAddressJson
- * 
+ *
  * <p>Schema for address information
  */
 public class LeadAddressJson {
@@ -94,11 +94,9 @@ public class LeadAddressJson {
         this.country = country;
         this.countryCode = countryCode;
     }
-    
+
     public LeadAddressJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -161,7 +159,6 @@ public class LeadAddressJson {
         return new Builder();
     }
 
-
     /**
      * The first line of an address
      */
@@ -169,7 +166,6 @@ public class LeadAddressJson {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address
@@ -179,7 +175,6 @@ public class LeadAddressJson {
         return this;
     }
 
-
     /**
      * The name of the city.
      */
@@ -187,7 +182,6 @@ public class LeadAddressJson {
         this.city = city;
         return this;
     }
-
 
     /**
      * The name of the state/province/region of the address.
@@ -197,7 +191,6 @@ public class LeadAddressJson {
         return this;
     }
 
-
     /**
      * The abbreviation of the state/province/region of the address.
      */
@@ -205,7 +198,6 @@ public class LeadAddressJson {
         this.regionCode = regionCode;
         return this;
     }
-
 
     /**
      * postal code (also known as zipcode) of the address
@@ -215,7 +207,6 @@ public class LeadAddressJson {
         return this;
     }
 
-
     /**
      * Name of the country for example, 'United States'
      */
@@ -224,7 +215,6 @@ public class LeadAddressJson {
         return this;
     }
 
-
     /**
      * ISO 3166 two-letter (alpha-2) country code
      */
@@ -232,7 +222,6 @@ public class LeadAddressJson {
         this.countryCode = countryCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -243,40 +232,45 @@ public class LeadAddressJson {
             return false;
         }
         LeadAddressJson other = (LeadAddressJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.country, other.country) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address1, address2, city,
-            region, regionCode, postalCode,
-            country, countryCode);
+        return Utils.enhancedHash(address1, address2, city, region, regionCode, postalCode, country, countryCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadAddressJson.class,
-                "address1", address1,
-                "address2", address2,
-                "city", city,
-                "region", region,
-                "regionCode", regionCode,
-                "postalCode", postalCode,
-                "country", country,
-                "countryCode", countryCode);
+        return Utils.toString(
+                LeadAddressJson.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "city",
+                city,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
+                "postalCode",
+                postalCode,
+                "country",
+                country,
+                "countryCode",
+                countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -295,7 +289,7 @@ public class LeadAddressJson {
         private String countryCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -363,11 +357,7 @@ public class LeadAddressJson {
         }
 
         public LeadAddressJson build() {
-            return new LeadAddressJson(
-                address1, address2, city,
-                region, regionCode, postalCode,
-                country, countryCode);
+            return new LeadAddressJson(address1, address2, city, region, regionCode, postalCode, country, countryCode);
         }
-
     }
 }

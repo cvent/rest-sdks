@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AvailableTimeJson
- * 
+ *
  * <p>Time availability for an event appointment,
  */
 public class AvailableTimeJson {
@@ -78,29 +78,25 @@ public class AvailableTimeJson {
             @JsonProperty("appointmentType") @Nonnull UuidJson appointmentType,
             @JsonProperty("location") @Nullable UuidJson location,
             @JsonProperty("availableAppointments") @Nullable Long availableAppointments) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.startTime = Optional.ofNullable(startTime)
-            .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
-        this.endTime = Optional.ofNullable(endTime)
-            .orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
+        this.endTime =
+                Optional.ofNullable(endTime).orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.appointmentType = Optional.ofNullable(appointmentType)
-            .orElseThrow(() -> new IllegalArgumentException("appointmentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("appointmentType cannot be null"));
         this.location = location;
         this.availableAppointments = availableAppointments;
     }
-    
+
     public AvailableTimeJson(
             @Nonnull String id,
             @Nonnull OffsetDateTime startTime,
             @Nonnull OffsetDateTime endTime,
             @Nonnull TimeRangeTypeJson type,
             @Nonnull UuidJson appointmentType) {
-        this(id, startTime, endTime,
-            type, appointmentType, null,
-            null);
+        this(id, startTime, endTime, type, appointmentType, null, null);
     }
 
     /**
@@ -159,7 +155,6 @@ public class AvailableTimeJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the time range.
      */
@@ -167,7 +162,6 @@ public class AvailableTimeJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted start date/time of the time slot in UTC.
@@ -177,7 +171,6 @@ public class AvailableTimeJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted end date/time of the time slot in UTC.
      */
@@ -185,7 +178,6 @@ public class AvailableTimeJson {
         this.endTime = Utils.checkNotNull(endTime, "endTime");
         return this;
     }
-
 
     /**
      * DEFINED: Appointments of this type can be created at time intervals and locations created by the
@@ -197,7 +189,6 @@ public class AvailableTimeJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -206,7 +197,6 @@ public class AvailableTimeJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -214,7 +204,6 @@ public class AvailableTimeJson {
         this.location = location;
         return this;
     }
-
 
     /**
      * The number of appointments that can be created in this time range. -1 indicates unlimited
@@ -225,7 +214,6 @@ public class AvailableTimeJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -235,38 +223,42 @@ public class AvailableTimeJson {
             return false;
         }
         AvailableTimeJson other = (AvailableTimeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.startTime, other.startTime) &&
-            Utils.enhancedDeepEquals(this.endTime, other.endTime) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.appointmentType, other.appointmentType) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.availableAppointments, other.availableAppointments);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.startTime, other.startTime)
+                && Utils.enhancedDeepEquals(this.endTime, other.endTime)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.appointmentType, other.appointmentType)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.availableAppointments, other.availableAppointments);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, startTime, endTime,
-            type, appointmentType, location,
-            availableAppointments);
+        return Utils.enhancedHash(id, startTime, endTime, type, appointmentType, location, availableAppointments);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AvailableTimeJson.class,
-                "id", id,
-                "startTime", startTime,
-                "endTime", endTime,
-                "type", type,
-                "appointmentType", appointmentType,
-                "location", location,
-                "availableAppointments", availableAppointments);
+        return Utils.toString(
+                AvailableTimeJson.class,
+                "id",
+                id,
+                "startTime",
+                startTime,
+                "endTime",
+                endTime,
+                "type",
+                type,
+                "appointmentType",
+                appointmentType,
+                "location",
+                location,
+                "availableAppointments",
+                availableAppointments);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -283,7 +275,7 @@ public class AvailableTimeJson {
         private Long availableAppointments;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -347,10 +339,7 @@ public class AvailableTimeJson {
 
         public AvailableTimeJson build() {
             return new AvailableTimeJson(
-                id, startTime, endTime,
-                type, appointmentType, location,
-                availableAppointments);
+                    id, startTime, endTime, type, appointmentType, location, availableAppointments);
         }
-
     }
 }

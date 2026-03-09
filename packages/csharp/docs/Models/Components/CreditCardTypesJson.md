@@ -2,6 +2,14 @@
 
 Credit card type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CreditCardTypesJson.Visa;
+```
+
 
 ## Values
 

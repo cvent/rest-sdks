@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * VideoTypeJson
- * 
+ *
  * <p>This is used to denote type of a video
  */
 public enum VideoTypeJson {
@@ -32,13 +32,13 @@ public enum VideoTypeJson {
     VideoTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<VideoTypeJson> fromValue(String value) {
-        for (VideoTypeJson o: VideoTypeJson.values()) {
+        for (VideoTypeJson o : VideoTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -46,4 +46,3 @@ public enum VideoTypeJson {
         return Optional.empty();
     }
 }
-

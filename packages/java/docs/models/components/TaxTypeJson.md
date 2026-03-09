@@ -2,6 +2,14 @@
 
 Bid tax type.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.TaxTypeJson;
+
+TaxTypeJson value = TaxTypeJson.CITY_TAX;
+```
+
 
 ## Values
 

@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AttendeeInsightsStats
- * 
+ *
  * <p>Attendee insights statistics.
  */
 public class AttendeeInsightsStats {
@@ -48,14 +48,12 @@ public class AttendeeInsightsStats {
             @JsonProperty("averageAttendeeScore") @Nullable Long averageAttendeeScore,
             @JsonProperty("attendeeCount") @Nullable Long attendeeCount,
             @JsonProperty("activityCount") @Nullable Long activityCount) {
-        this.averageAttendeeScore = Optional.ofNullable(averageAttendeeScore)
-            .orElse(Builder._SINGLETON_VALUE_AverageAttendeeScore.value());
-        this.attendeeCount = Optional.ofNullable(attendeeCount)
-            .orElse(Builder._SINGLETON_VALUE_AttendeeCount.value());
-        this.activityCount = Optional.ofNullable(activityCount)
-            .orElse(Builder._SINGLETON_VALUE_ActivityCount.value());
+        this.averageAttendeeScore =
+                Optional.ofNullable(averageAttendeeScore).orElse(Builder._SINGLETON_VALUE_AverageAttendeeScore.value());
+        this.attendeeCount = Optional.ofNullable(attendeeCount).orElse(Builder._SINGLETON_VALUE_AttendeeCount.value());
+        this.activityCount = Optional.ofNullable(activityCount).orElse(Builder._SINGLETON_VALUE_ActivityCount.value());
     }
-    
+
     public AttendeeInsightsStats() {
         this(null, null, null);
     }
@@ -85,7 +83,6 @@ public class AttendeeInsightsStats {
         return new Builder();
     }
 
-
     /**
      * Average engagement score across all attendees.
      */
@@ -93,7 +90,6 @@ public class AttendeeInsightsStats {
         this.averageAttendeeScore = averageAttendeeScore;
         return this;
     }
-
 
     /**
      * Count of attendees who've participated in an engagement score.
@@ -103,7 +99,6 @@ public class AttendeeInsightsStats {
         return this;
     }
 
-
     /**
      * Count of all activities included in an engagement score.
      */
@@ -111,7 +106,6 @@ public class AttendeeInsightsStats {
         this.activityCount = activityCount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -122,28 +116,30 @@ public class AttendeeInsightsStats {
             return false;
         }
         AttendeeInsightsStats other = (AttendeeInsightsStats) o;
-        return 
-            Utils.enhancedDeepEquals(this.averageAttendeeScore, other.averageAttendeeScore) &&
-            Utils.enhancedDeepEquals(this.attendeeCount, other.attendeeCount) &&
-            Utils.enhancedDeepEquals(this.activityCount, other.activityCount);
+        return Utils.enhancedDeepEquals(this.averageAttendeeScore, other.averageAttendeeScore)
+                && Utils.enhancedDeepEquals(this.attendeeCount, other.attendeeCount)
+                && Utils.enhancedDeepEquals(this.activityCount, other.activityCount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            averageAttendeeScore, attendeeCount, activityCount);
+        return Utils.enhancedHash(averageAttendeeScore, attendeeCount, activityCount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeInsightsStats.class,
-                "averageAttendeeScore", averageAttendeeScore,
-                "attendeeCount", attendeeCount,
-                "activityCount", activityCount);
+        return Utils.toString(
+                AttendeeInsightsStats.class,
+                "averageAttendeeScore",
+                averageAttendeeScore,
+                "attendeeCount",
+                attendeeCount,
+                "activityCount",
+                activityCount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long averageAttendeeScore;
 
@@ -152,7 +148,7 @@ public class AttendeeInsightsStats {
         private Long activityCount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -180,27 +176,16 @@ public class AttendeeInsightsStats {
         }
 
         public AttendeeInsightsStats build() {
-            return new AttendeeInsightsStats(
-                averageAttendeeScore, attendeeCount, activityCount);
+            return new AttendeeInsightsStats(averageAttendeeScore, attendeeCount, activityCount);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_AverageAttendeeScore =
-                new LazySingletonValue<>(
-                        "averageAttendeeScore",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("averageAttendeeScore", "0", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_AttendeeCount =
-                new LazySingletonValue<>(
-                        "attendeeCount",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("attendeeCount", "0", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_ActivityCount =
-                new LazySingletonValue<>(
-                        "activityCount",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("activityCount", "0", new TypeReference<Long>() {});
     }
 }

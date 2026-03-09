@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetLeadQualificationQuestionsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetLeadQualificationQuestionsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.leadQualificationQuestionsListResponse = leadQualificationQuestionsListResponse;
     }
-    
+
     public GetLeadQualificationQuestionsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a list of Lead Qualification Questions.
      */
-    public GetLeadQualificationQuestionsResponse withLeadQualificationQuestionsListResponse(@Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
+    public GetLeadQualificationQuestionsResponse withLeadQualificationQuestionsListResponse(
+            @Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
         this.leadQualificationQuestionsListResponse = leadQualificationQuestionsListResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class GetLeadQualificationQuestionsResponse implements Response {
             return false;
         }
         GetLeadQualificationQuestionsResponse other = (GetLeadQualificationQuestionsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.leadQualificationQuestionsListResponse, other.leadQualificationQuestionsListResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.leadQualificationQuestionsListResponse, other.leadQualificationQuestionsListResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            leadQualificationQuestionsListResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, leadQualificationQuestionsListResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetLeadQualificationQuestionsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "leadQualificationQuestionsListResponse", leadQualificationQuestionsListResponse);
+        return Utils.toString(
+                GetLeadQualificationQuestionsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "leadQualificationQuestionsListResponse",
+                leadQualificationQuestionsListResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         private LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class GetLeadQualificationQuestionsResponse implements Response {
         /**
          * Successfully retrieved a list of Lead Qualification Questions.
          */
-        public Builder leadQualificationQuestionsListResponse(@Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
+        public Builder leadQualificationQuestionsListResponse(
+                @Nullable LeadQualificationQuestionsListResponse leadQualificationQuestionsListResponse) {
             this.leadQualificationQuestionsListResponse = leadQualificationQuestionsListResponse;
             return this;
         }
 
         public GetLeadQualificationQuestionsResponse build() {
             return new GetLeadQualificationQuestionsResponse(
-                contentType, statusCode, rawResponse,
-                leadQualificationQuestionsListResponse);
+                    contentType, statusCode, rawResponse, leadQualificationQuestionsListResponse);
         }
-
     }
 }

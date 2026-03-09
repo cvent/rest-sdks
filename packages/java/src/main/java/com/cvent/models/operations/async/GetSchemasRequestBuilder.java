@@ -19,7 +19,6 @@ public class GetSchemasRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    
     public GetSchemasRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -28,14 +27,12 @@ public class GetSchemasRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSchemasResponse> call() {
-        AsyncRequestlessOperation<GetSchemasResponse> operation
-            = new GetSchemas.Async(sdkConfiguration, _headers);
-        return operation.doRequest()
-            .thenCompose(operation::handleResponse);
+        AsyncRequestlessOperation<GetSchemasResponse> operation = new GetSchemas.Async(sdkConfiguration, _headers);
+        return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

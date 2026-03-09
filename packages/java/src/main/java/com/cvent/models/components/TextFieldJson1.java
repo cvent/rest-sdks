@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * TextFieldJson1
- * 
+ *
  * <p>A survey text field.
  */
 public class TextFieldJson1 {
@@ -49,7 +49,7 @@ public class TextFieldJson1 {
         this.text = text;
         this.shortText = shortText;
     }
-    
+
     public TextFieldJson1() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class TextFieldJson1 {
         return new Builder();
     }
 
-
     /**
      * Text field ID.
      */
@@ -87,7 +86,6 @@ public class TextFieldJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * text Value of the Field
@@ -97,7 +95,6 @@ public class TextFieldJson1 {
         return this;
     }
 
-
     /**
      * Reporting value of the Category, Its like a custom abbreviation
      */
@@ -105,7 +102,6 @@ public class TextFieldJson1 {
         this.shortText = shortText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class TextFieldJson1 {
             return false;
         }
         TextFieldJson1 other = (TextFieldJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, shortText);
+        return Utils.enhancedHash(id, text, shortText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TextFieldJson1.class,
-                "id", id,
-                "text", text,
-                "shortText", shortText);
+        return Utils.toString(TextFieldJson1.class, "id", id, "text", text, "shortText", shortText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class TextFieldJson1 {
         private String shortText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class TextFieldJson1 {
         }
 
         public TextFieldJson1 build() {
-            return new TextFieldJson1(
-                id, text, shortText);
+            return new TextFieldJson1(id, text, shortText);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ViewTypeJson1
- * 
+ *
  * <p>The view type of the video. Videos can be viewed live or as a recording.
  */
 public enum ViewTypeJson1 {
@@ -23,13 +23,13 @@ public enum ViewTypeJson1 {
     ViewTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ViewTypeJson1> fromValue(String value) {
-        for (ViewTypeJson1 o: ViewTypeJson1.values()) {
+        for (ViewTypeJson1 o : ViewTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ViewTypeJson1 {
         return Optional.empty();
     }
 }
-

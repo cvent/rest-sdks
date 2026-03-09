@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ContactLinksJson2
- * 
+ *
  * <p>A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
  */
 public class ContactLinksJson2 {
@@ -58,10 +58,9 @@ public class ContactLinksJson2 {
         this.linkedInUrl = linkedInUrl;
         this.instagramUrl = instagramUrl;
     }
-    
+
     public ContactLinksJson2() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ContactLinksJson2 {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -104,7 +102,6 @@ public class ContactLinksJson2 {
         this.twitterUrl = twitterUrl;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -114,7 +111,6 @@ public class ContactLinksJson2 {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -123,7 +119,6 @@ public class ContactLinksJson2 {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -131,7 +126,6 @@ public class ContactLinksJson2 {
         this.instagramUrl = instagramUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class ContactLinksJson2 {
             return false;
         }
         ContactLinksJson2 other = (ContactLinksJson2) o;
-        return 
-            Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl) &&
-            Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl) &&
-            Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl) &&
-            Utils.enhancedDeepEquals(this.instagramUrl, other.instagramUrl);
+        return Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl)
+                && Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl)
+                && Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl)
+                && Utils.enhancedDeepEquals(this.instagramUrl, other.instagramUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            twitterUrl, facebookUrl, linkedInUrl,
-            instagramUrl);
+        return Utils.enhancedHash(twitterUrl, facebookUrl, linkedInUrl, instagramUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactLinksJson2.class,
-                "twitterUrl", twitterUrl,
-                "facebookUrl", facebookUrl,
-                "linkedInUrl", linkedInUrl,
-                "instagramUrl", instagramUrl);
+        return Utils.toString(
+                ContactLinksJson2.class,
+                "twitterUrl",
+                twitterUrl,
+                "facebookUrl",
+                facebookUrl,
+                "linkedInUrl",
+                linkedInUrl,
+                "instagramUrl",
+                instagramUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson twitterUrl;
 
@@ -177,7 +173,7 @@ public class ContactLinksJson2 {
         private LinkJson instagramUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class ContactLinksJson2 {
         }
 
         public ContactLinksJson2 build() {
-            return new ContactLinksJson2(
-                twitterUrl, facebookUrl, linkedInUrl,
-                instagramUrl);
+            return new ContactLinksJson2(twitterUrl, facebookUrl, linkedInUrl, instagramUrl);
         }
-
     }
 }

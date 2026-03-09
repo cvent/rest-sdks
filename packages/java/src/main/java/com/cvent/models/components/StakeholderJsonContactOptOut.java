@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,9 +20,9 @@ import java.util.Optional;
 
 /**
  * StakeholderJsonContactOptOut
- * 
+ *
  * <p>Details of an opt-out for a Contact.
- * 
+ *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 @Deprecated
@@ -54,12 +54,11 @@ public class StakeholderJsonContactOptOut {
             @JsonProperty("optedOut") @Nullable Boolean optedOut,
             @JsonProperty("date") @Nullable OffsetDateTime date,
             @JsonProperty("by") @Nullable OptoutByJson by) {
-        this.optedOut = Optional.ofNullable(optedOut)
-            .orElse(Builder._SINGLETON_VALUE_OptedOut.value());
+        this.optedOut = Optional.ofNullable(optedOut).orElse(Builder._SINGLETON_VALUE_OptedOut.value());
         this.date = date;
         this.by = by;
     }
-    
+
     public StakeholderJsonContactOptOut() {
         this(null, null, null);
     }
@@ -90,7 +89,6 @@ public class StakeholderJsonContactOptOut {
         return new Builder();
     }
 
-
     /**
      * Used to denote if a contact has opted-out of receiving system generated emails.
      */
@@ -98,7 +96,6 @@ public class StakeholderJsonContactOptOut {
         this.optedOut = optedOut;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this contact was opted-out. This value can change if the contact
@@ -109,7 +106,6 @@ public class StakeholderJsonContactOptOut {
         return this;
     }
 
-
     /**
      * This is used to denote how a contact is opt'd out of Cvent system.
      */
@@ -117,7 +113,6 @@ public class StakeholderJsonContactOptOut {
         this.by = by;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -128,28 +123,23 @@ public class StakeholderJsonContactOptOut {
             return false;
         }
         StakeholderJsonContactOptOut other = (StakeholderJsonContactOptOut) o;
-        return 
-            Utils.enhancedDeepEquals(this.optedOut, other.optedOut) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.by, other.by);
+        return Utils.enhancedDeepEquals(this.optedOut, other.optedOut)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.by, other.by);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            optedOut, date, by);
+        return Utils.enhancedHash(optedOut, date, by);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StakeholderJsonContactOptOut.class,
-                "optedOut", optedOut,
-                "date", date,
-                "by", by);
+        return Utils.toString(StakeholderJsonContactOptOut.class, "optedOut", optedOut, "date", date, "by", by);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean optedOut;
 
@@ -158,7 +148,7 @@ public class StakeholderJsonContactOptOut {
         private OptoutByJson by;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -187,15 +177,10 @@ public class StakeholderJsonContactOptOut {
         }
 
         public StakeholderJsonContactOptOut build() {
-            return new StakeholderJsonContactOptOut(
-                optedOut, date, by);
+            return new StakeholderJsonContactOptOut(optedOut, date, by);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_OptedOut =
-                new LazySingletonValue<>(
-                        "optedOut",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("optedOut", "false", new TypeReference<Boolean>() {});
     }
 }

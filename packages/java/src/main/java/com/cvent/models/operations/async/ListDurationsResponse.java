@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListDurationsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class ListDurationsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable DurationPaginatedResponse durationPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.durationPaginatedResponse = durationPaginatedResponse;
     }
-    
-    public ListDurationsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public ListDurationsResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class ListDurationsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class ListDurationsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class ListDurationsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +111,14 @@ public class ListDurationsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Durations.
      */
-    public ListDurationsResponse withDurationPaginatedResponse(@Nullable DurationPaginatedResponse durationPaginatedResponse) {
+    public ListDurationsResponse withDurationPaginatedResponse(
+            @Nullable DurationPaginatedResponse durationPaginatedResponse) {
         this.durationPaginatedResponse = durationPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class ListDurationsResponse implements AsyncResponse {
             return false;
         }
         ListDurationsResponse other = (ListDurationsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.durationPaginatedResponse, other.durationPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.durationPaginatedResponse, other.durationPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            durationPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, durationPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListDurationsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "durationPaginatedResponse", durationPaginatedResponse);
+        return Utils.toString(
+                ListDurationsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "durationPaginatedResponse",
+                durationPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class ListDurationsResponse implements AsyncResponse {
         private DurationPaginatedResponse durationPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class ListDurationsResponse implements AsyncResponse {
         }
 
         public ListDurationsResponse build() {
-            return new ListDurationsResponse(
-                contentType, statusCode, rawResponse,
-                durationPaginatedResponse);
+            return new ListDurationsResponse(contentType, statusCode, rawResponse, durationPaginatedResponse);
         }
-
     }
 }

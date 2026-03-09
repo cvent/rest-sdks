@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateAccountUserGroupResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateAccountUserGroupResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable UserGroupJson userGroupJson) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.userGroupJson = userGroupJson;
     }
-    
+
     public UpdateAccountUserGroupResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateAccountUserGroupResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateAccountUserGroupResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateAccountUserGroupResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class UpdateAccountUserGroupResponse implements Response {
         return this;
     }
 
-
     /**
      * A User Group
      */
@@ -126,7 +118,6 @@ public class UpdateAccountUserGroupResponse implements Response {
         this.userGroupJson = userGroupJson;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class UpdateAccountUserGroupResponse implements Response {
             return false;
         }
         UpdateAccountUserGroupResponse other = (UpdateAccountUserGroupResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.userGroupJson, other.userGroupJson);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            userGroupJson);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroupJson);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAccountUserGroupResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "userGroupJson", userGroupJson);
+        return Utils.toString(
+                UpdateAccountUserGroupResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "userGroupJson",
+                userGroupJson);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class UpdateAccountUserGroupResponse implements Response {
         private UserGroupJson userGroupJson;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class UpdateAccountUserGroupResponse implements Response {
         }
 
         public UpdateAccountUserGroupResponse build() {
-            return new UpdateAccountUserGroupResponse(
-                contentType, statusCode, rawResponse,
-                userGroupJson);
+            return new UpdateAccountUserGroupResponse(contentType, statusCode, rawResponse, userGroupJson);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ParticipantTypeJson
- * 
+ *
  * <p>Denotes if a participant is a host or attendee of an appointment.
  */
 public enum ParticipantTypeJson {
@@ -23,13 +23,13 @@ public enum ParticipantTypeJson {
     ParticipantTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ParticipantTypeJson> fromValue(String value) {
-        for (ParticipantTypeJson o: ParticipantTypeJson.values()) {
+        for (ParticipantTypeJson o : ParticipantTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum ParticipantTypeJson {
         return Optional.empty();
     }
 }
-

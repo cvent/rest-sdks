@@ -28,7 +28,7 @@ public class GetEventCopyStatusRequestBuilder {
     private GetEventCopyStatusRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventCopyStatusRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetEventCopyStatusRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetEventCopyStatusResponse call() {
-        RequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation
-              = new GetEventCopyStatus.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation =
+                new GetEventCopyStatus.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

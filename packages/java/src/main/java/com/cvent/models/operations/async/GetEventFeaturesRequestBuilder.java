@@ -40,7 +40,7 @@ public class GetEventFeaturesRequestBuilder {
     private GetEventFeaturesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventFeaturesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetEventFeaturesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventFeaturesResponse> call() {
-        AsyncRequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation
-              = new GetEventFeatures.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation =
+                new GetEventFeatures.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetEventFeaturesRequestBuilder {
      */
     public Publisher<GetEventFeaturesResponse> callAsPublisher() {
         GetEventFeaturesRequest request = this.request;
-        AsyncRequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation
-              = new GetEventFeatures.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation =
+                new GetEventFeatures.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetEventFeaturesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetEventFeaturesRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetEventFeaturesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

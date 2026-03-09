@@ -40,7 +40,7 @@ public class ListMeetingRequestRequestBuilder {
     private ListMeetingRequestRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListMeetingRequestRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListMeetingRequestRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListMeetingRequestResponse> call() {
-        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation
-              = new ListMeetingRequest.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation =
+                new ListMeetingRequest.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListMeetingRequestRequestBuilder {
      */
     public Publisher<ListMeetingRequestResponse> callAsPublisher() {
         ListMeetingRequestRequest request = this.request;
-        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation
-              = new ListMeetingRequest.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListMeetingRequestRequest, ListMeetingRequestResponse> operation =
+                new ListMeetingRequest.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListMeetingRequestRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListMeetingRequestRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListMeetingRequestResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

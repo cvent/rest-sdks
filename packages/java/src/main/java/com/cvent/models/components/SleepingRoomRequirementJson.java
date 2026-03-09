@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SleepingRoomRequirementJson
- * 
+ *
  * <p>The requirements of a sleeping room on the specified date.
  */
 public class SleepingRoomRequirementJson {
@@ -70,19 +70,16 @@ public class SleepingRoomRequirementJson {
             @JsonProperty("suite") @Nullable Long suite,
             @JsonProperty("staff") @Nullable Long staff,
             @JsonProperty("doubleBeds") @Nullable Long doubleBeds) {
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.any = any;
         this.single = single;
         this.suite = suite;
         this.staff = staff;
         this.doubleBeds = doubleBeds;
     }
-    
-    public SleepingRoomRequirementJson(
-            @Nonnull String date) {
-        this(date, null, null,
-            null, null, null);
+
+    public SleepingRoomRequirementJson(@Nonnull String date) {
+        this(date, null, null, null, null, null);
     }
 
     /**
@@ -131,7 +128,6 @@ public class SleepingRoomRequirementJson {
         return new Builder();
     }
 
-
     /**
      * The date for the sleeping room, in format of YYYY-MM-DD.
      */
@@ -139,7 +135,6 @@ public class SleepingRoomRequirementJson {
         this.date = Utils.checkNotNull(date, "date");
         return this;
     }
-
 
     /**
      * The number of any sleeping rooms.
@@ -149,7 +144,6 @@ public class SleepingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The number of 1 bed sleeping rooms.
      */
@@ -157,7 +151,6 @@ public class SleepingRoomRequirementJson {
         this.single = single;
         return this;
     }
-
 
     /**
      * The number of suite sleeping rooms.
@@ -167,7 +160,6 @@ public class SleepingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The number of sleeping rooms for staff.
      */
@@ -176,7 +168,6 @@ public class SleepingRoomRequirementJson {
         return this;
     }
 
-
     /**
      * The number of 2 beds sleeping rooms.
      */
@@ -184,7 +175,6 @@ public class SleepingRoomRequirementJson {
         this.doubleBeds = doubleBeds;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -195,35 +185,39 @@ public class SleepingRoomRequirementJson {
             return false;
         }
         SleepingRoomRequirementJson other = (SleepingRoomRequirementJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.any, other.any) &&
-            Utils.enhancedDeepEquals(this.single, other.single) &&
-            Utils.enhancedDeepEquals(this.suite, other.suite) &&
-            Utils.enhancedDeepEquals(this.staff, other.staff) &&
-            Utils.enhancedDeepEquals(this.doubleBeds, other.doubleBeds);
+        return Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.any, other.any)
+                && Utils.enhancedDeepEquals(this.single, other.single)
+                && Utils.enhancedDeepEquals(this.suite, other.suite)
+                && Utils.enhancedDeepEquals(this.staff, other.staff)
+                && Utils.enhancedDeepEquals(this.doubleBeds, other.doubleBeds);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            date, any, single,
-            suite, staff, doubleBeds);
+        return Utils.enhancedHash(date, any, single, suite, staff, doubleBeds);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SleepingRoomRequirementJson.class,
-                "date", date,
-                "any", any,
-                "single", single,
-                "suite", suite,
-                "staff", staff,
-                "doubleBeds", doubleBeds);
+        return Utils.toString(
+                SleepingRoomRequirementJson.class,
+                "date",
+                date,
+                "any",
+                any,
+                "single",
+                single,
+                "suite",
+                suite,
+                "staff",
+                staff,
+                "doubleBeds",
+                doubleBeds);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String date;
 
@@ -238,7 +232,7 @@ public class SleepingRoomRequirementJson {
         private Long doubleBeds;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -290,10 +284,7 @@ public class SleepingRoomRequirementJson {
         }
 
         public SleepingRoomRequirementJson build() {
-            return new SleepingRoomRequirementJson(
-                date, any, single,
-                suite, staff, doubleBeds);
+            return new SleepingRoomRequirementJson(date, any, single, suite, staff, doubleBeds);
         }
-
     }
 }

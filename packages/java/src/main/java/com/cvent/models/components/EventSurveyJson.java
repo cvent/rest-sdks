@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * EventSurveyJson
- * 
+ *
  * <p>An event survey.
  */
 public class EventSurveyJson {
@@ -177,14 +177,9 @@ public class EventSurveyJson {
         this.sessions = sessions;
         this.parentId = parentId;
     }
-    
+
     public EventSurveyJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -310,7 +305,6 @@ public class EventSurveyJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -318,7 +312,6 @@ public class EventSurveyJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -328,7 +321,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -336,7 +328,6 @@ public class EventSurveyJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -346,7 +337,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * Id of the survey or Id of the chapter in case of event survey
      */
@@ -354,7 +344,6 @@ public class EventSurveyJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Title of the survey or Title of the chapter in case of event survey
@@ -364,7 +353,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * Survey Code or Chapter Code in case of event survey
      */
@@ -372,7 +360,6 @@ public class EventSurveyJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * Timezone of the survey
@@ -382,7 +369,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * Author of the survey
      */
@@ -390,7 +376,6 @@ public class EventSurveyJson {
         this.author = author;
         return this;
     }
-
 
     /**
      * Survey description
@@ -400,7 +385,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * The survey will be closed after this ISO 8601 formatted date and time.
      */
@@ -408,7 +392,6 @@ public class EventSurveyJson {
         this.closeAfter = closeAfter;
         return this;
     }
-
 
     /**
      * This is used to denote the different survey types.
@@ -418,7 +401,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * Describes the availability of the event survey
      */
@@ -426,7 +408,6 @@ public class EventSurveyJson {
         this.availableTo = availableTo;
         return this;
     }
-
 
     /**
      * Audience types of event surveys
@@ -436,7 +417,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * What is the criteria of adding sessions to a event survey
      */
@@ -444,7 +424,6 @@ public class EventSurveyJson {
         this.sessionMatch = sessionMatch;
         return this;
     }
-
 
     /**
      * Associated session ids of the survey, this can also be null
@@ -454,7 +433,6 @@ public class EventSurveyJson {
         return this;
     }
 
-
     /**
      * Id of the parent survey
      */
@@ -462,7 +440,6 @@ public class EventSurveyJson {
         this.parentId = parentId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -473,61 +450,89 @@ public class EventSurveyJson {
             return false;
         }
         EventSurveyJson other = (EventSurveyJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.timezone, other.timezone) &&
-            Utils.enhancedDeepEquals(this.author, other.author) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.availableTo, other.availableTo) &&
-            Utils.enhancedDeepEquals(this.audienceType, other.audienceType) &&
-            Utils.enhancedDeepEquals(this.sessionMatch, other.sessionMatch) &&
-            Utils.enhancedDeepEquals(this.sessions, other.sessions) &&
-            Utils.enhancedDeepEquals(this.parentId, other.parentId);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.timezone, other.timezone)
+                && Utils.enhancedDeepEquals(this.author, other.author)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.closeAfter, other.closeAfter)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.availableTo, other.availableTo)
+                && Utils.enhancedDeepEquals(this.audienceType, other.audienceType)
+                && Utils.enhancedDeepEquals(this.sessionMatch, other.sessionMatch)
+                && Utils.enhancedDeepEquals(this.sessions, other.sessions)
+                && Utils.enhancedDeepEquals(this.parentId, other.parentId);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, title,
-            code, timezone, author,
-            description, closeAfter, type,
-            availableTo, audienceType, sessionMatch,
-            sessions, parentId);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                title,
+                code,
+                timezone,
+                author,
+                description,
+                closeAfter,
+                type,
+                availableTo,
+                audienceType,
+                sessionMatch,
+                sessions,
+                parentId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventSurveyJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "title", title,
-                "code", code,
-                "timezone", timezone,
-                "author", author,
-                "description", description,
-                "closeAfter", closeAfter,
-                "type", type,
-                "availableTo", availableTo,
-                "audienceType", audienceType,
-                "sessionMatch", sessionMatch,
-                "sessions", sessions,
-                "parentId", parentId);
+        return Utils.toString(
+                EventSurveyJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "title",
+                title,
+                "code",
+                code,
+                "timezone",
+                timezone,
+                "author",
+                author,
+                "description",
+                description,
+                "closeAfter",
+                closeAfter,
+                "type",
+                type,
+                "availableTo",
+                availableTo,
+                "audienceType",
+                audienceType,
+                "sessionMatch",
+                sessionMatch,
+                "sessions",
+                sessions,
+                "parentId",
+                parentId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -564,7 +569,7 @@ public class EventSurveyJson {
         private String parentId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -705,13 +710,23 @@ public class EventSurveyJson {
 
         public EventSurveyJson build() {
             return new EventSurveyJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, title,
-                code, timezone, author,
-                description, closeAfter, type,
-                availableTo, audienceType, sessionMatch,
-                sessions, parentId);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    title,
+                    code,
+                    timezone,
+                    author,
+                    description,
+                    closeAfter,
+                    type,
+                    availableTo,
+                    audienceType,
+                    sessionMatch,
+                    sessions,
+                    parentId);
         }
-
     }
 }

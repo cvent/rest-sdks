@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateExhibitorWeblinkRequest {
     /**
      * ID of an event.
@@ -33,16 +32,12 @@ public class CreateExhibitorWeblinkRequest {
     private Weblink weblink;
 
     @JsonCreator
-    public CreateExhibitorWeblinkRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorId,
-            @Nonnull Weblink weblink) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreateExhibitorWeblinkRequest(@Nonnull String id, @Nonnull String exhibitorId, @Nonnull Weblink weblink) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
-        this.weblink = Optional.ofNullable(weblink)
-            .orElseThrow(() -> new IllegalArgumentException("weblink cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+        this.weblink =
+                Optional.ofNullable(weblink).orElseThrow(() -> new IllegalArgumentException("weblink cannot be null"));
     }
 
     /**
@@ -70,7 +65,6 @@ public class CreateExhibitorWeblinkRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -78,7 +72,6 @@ public class CreateExhibitorWeblinkRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor.
@@ -88,7 +81,6 @@ public class CreateExhibitorWeblinkRequest {
         return this;
     }
 
-
     /**
      * Exhibitor content weblink details.
      */
@@ -96,7 +88,6 @@ public class CreateExhibitorWeblinkRequest {
         this.weblink = Utils.checkNotNull(weblink, "weblink");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +98,24 @@ public class CreateExhibitorWeblinkRequest {
             return false;
         }
         CreateExhibitorWeblinkRequest other = (CreateExhibitorWeblinkRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId) &&
-            Utils.enhancedDeepEquals(this.weblink, other.weblink);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId)
+                && Utils.enhancedDeepEquals(this.weblink, other.weblink);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorId, weblink);
+        return Utils.enhancedHash(id, exhibitorId, weblink);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateExhibitorWeblinkRequest.class,
-                "id", id,
-                "exhibitorId", exhibitorId,
-                "weblink", weblink);
+        return Utils.toString(
+                CreateExhibitorWeblinkRequest.class, "id", id, "exhibitorId", exhibitorId, "weblink", weblink);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +124,7 @@ public class CreateExhibitorWeblinkRequest {
         private Weblink weblink;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +152,7 @@ public class CreateExhibitorWeblinkRequest {
         }
 
         public CreateExhibitorWeblinkRequest build() {
-            return new CreateExhibitorWeblinkRequest(
-                id, exhibitorId, weblink);
+            return new CreateExhibitorWeblinkRequest(id, exhibitorId, weblink);
         }
-
     }
 }

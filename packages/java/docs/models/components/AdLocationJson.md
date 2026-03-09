@@ -2,6 +2,14 @@
 
 The placement of the ad within the specific product.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AdLocationJson;
+
+AdLocationJson value = AdLocationJson.HOME_PAGE;
+```
+
 
 ## Values
 

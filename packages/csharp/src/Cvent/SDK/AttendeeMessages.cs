@@ -45,7 +45,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public  Task<GetAttendeeMessagesMembersResponse> GetAttendeeMessagesMembersAsync(
+        public Task<GetAttendeeMessagesMembersResponse> GetAttendeeMessagesMembersAsync(
             GetAttendeeMessagesMembersRequest request
         );
     }
@@ -53,7 +53,7 @@ namespace Cvent.SDK
     /// <summary>
     /// These APIs retrieve and manage attendee messages—communications exchanged between attendees within channels. Channels are virtual spaces created for one-on-one or group conversations, allowing attendees to communicate directly or in groups during an event.
     /// </summary>
-    public class AttendeeMessages: IAttendeeMessages
+    public class AttendeeMessages : IAttendeeMessages
     {
         /// <summary>
         /// SDK Configuration.
@@ -82,7 +82,7 @@ namespace Cvent.SDK
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async  Task<GetAttendeeMessagesMembersResponse> GetAttendeeMessagesMembersAsync(
+        public async Task<GetAttendeeMessagesMembersResponse> GetAttendeeMessagesMembersAsync(
             GetAttendeeMessagesMembersRequest request
         )
         {
@@ -143,7 +143,7 @@ namespace Cvent.SDK
                 var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
                 var nextCursorToken = body.SelectToken("$.paging.nextToken");
 
-                if(nextCursorToken == null)
+                if (nextCursorToken == null)
                 {
                     return null;
                 }
@@ -154,24 +154,23 @@ namespace Cvent.SDK
                     return null;
                 }
 
-                var newRequest = new GetAttendeeMessagesMembersRequest
-                {
+                var newRequest = new GetAttendeeMessagesMembersRequest {
                     EventId = request.EventId,
                     Limit = request.Limit,
                     Token = nextCursor,
                     Filter = request.Filter
                 };
 
-                return await GetAttendeeMessagesMembersAsync (
+                return await GetAttendeeMessagesMembersAsync(
                     request: newRequest
                 );
             };
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
-            if(responseStatusCode == 200)
+            if (responseStatusCode == 200)
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     MessageRecipientsPaginatedResponse obj;
@@ -184,10 +183,8 @@ namespace Cvent.SDK
                         throw new ResponseValidationException("Failed to deserialize response body into MessageRecipientsPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    var response = new GetAttendeeMessagesMembersResponse()
-                    {
-                        HttpMeta = new Models.Components.HTTPMetadata()
-                        {
+                    var response = new GetAttendeeMessagesMembersResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
                             Response = httpResponse,
                             Request = httpRequest
                         },
@@ -199,9 +196,9 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(new List<int>{400, 401, 403, 404, 429}.Contains(responseStatusCode))
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
             {
-                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
                     Models.Errors.ErrorResponsePayload payload;
@@ -219,17 +216,16 @@ namespace Cvent.SDK
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500)
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
-            else if(responseStatusCode >= 500 && responseStatusCode < 600)
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
             {
                 throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
             }
 
             throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BookingWebsiteLinkJson
- * 
+ *
  * <p>Unique URL for a guest to access a reservation in Passkey's booking tool.
  */
 public class BookingWebsiteLinkJson {
@@ -24,10 +24,8 @@ public class BookingWebsiteLinkJson {
     private String href;
 
     @JsonCreator
-    public BookingWebsiteLinkJson(
-            @JsonProperty("href") @Nonnull String href) {
-        this.href = Optional.ofNullable(href)
-            .orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
+    public BookingWebsiteLinkJson(@JsonProperty("href") @Nonnull String href) {
+        this.href = Optional.ofNullable(href).orElseThrow(() -> new IllegalArgumentException("href cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class BookingWebsiteLinkJson {
         return new Builder();
     }
 
-
     /**
      * A url provided that can be followed for linking
      */
@@ -49,7 +46,6 @@ public class BookingWebsiteLinkJson {
         this.href = Utils.checkNotNull(href, "href");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class BookingWebsiteLinkJson {
             return false;
         }
         BookingWebsiteLinkJson other = (BookingWebsiteLinkJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.href, other.href);
+        return Utils.enhancedDeepEquals(this.href, other.href);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            href);
+        return Utils.enhancedHash(href);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BookingWebsiteLinkJson.class,
-                "href", href);
+        return Utils.toString(BookingWebsiteLinkJson.class, "href", href);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String href;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class BookingWebsiteLinkJson {
         }
 
         public BookingWebsiteLinkJson build() {
-            return new BookingWebsiteLinkJson(
-                href);
+            return new BookingWebsiteLinkJson(href);
         }
-
     }
 }

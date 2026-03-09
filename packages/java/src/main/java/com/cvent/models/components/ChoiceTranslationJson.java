@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ChoiceTranslationJson
- * 
+ *
  * <p>This is used to denote that the translation for the choice text of a custom field.
  */
 public class ChoiceTranslationJson {
@@ -40,7 +40,7 @@ public class ChoiceTranslationJson {
         this.choiceId = choiceId;
         this.translatedText = translatedText;
     }
-    
+
     public ChoiceTranslationJson() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class ChoiceTranslationJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the choice that this translation is associated with.
      */
@@ -72,7 +71,6 @@ public class ChoiceTranslationJson {
         return this;
     }
 
-
     /**
      * Translation for the choice text of a custom field.
      */
@@ -80,7 +78,6 @@ public class ChoiceTranslationJson {
         this.translatedText = translatedText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,29 @@ public class ChoiceTranslationJson {
             return false;
         }
         ChoiceTranslationJson other = (ChoiceTranslationJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.choiceId, other.choiceId) &&
-            Utils.enhancedDeepEquals(this.translatedText, other.translatedText);
+        return Utils.enhancedDeepEquals(this.choiceId, other.choiceId)
+                && Utils.enhancedDeepEquals(this.translatedText, other.translatedText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            choiceId, translatedText);
+        return Utils.enhancedHash(choiceId, translatedText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ChoiceTranslationJson.class,
-                "choiceId", choiceId,
-                "translatedText", translatedText);
+        return Utils.toString(ChoiceTranslationJson.class, "choiceId", choiceId, "translatedText", translatedText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String choiceId;
 
         private String translatedText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +130,7 @@ public class ChoiceTranslationJson {
         }
 
         public ChoiceTranslationJson build() {
-            return new ChoiceTranslationJson(
-                choiceId, translatedText);
+            return new ChoiceTranslationJson(choiceId, translatedText);
         }
-
     }
 }

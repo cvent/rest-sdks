@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * AttendeeCreditTypeJson
- * 
+ *
  * <p>Represents the entity that granted the credit. Event: This credit was granted by an event. Session:
  * This credit was granted by a session.
  */
@@ -24,13 +24,13 @@ public enum AttendeeCreditTypeJson {
     AttendeeCreditTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeCreditTypeJson> fromValue(String value) {
-        for (AttendeeCreditTypeJson o: AttendeeCreditTypeJson.values()) {
+        for (AttendeeCreditTypeJson o : AttendeeCreditTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum AttendeeCreditTypeJson {
         return Optional.empty();
     }
 }
-

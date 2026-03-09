@@ -12,6 +12,14 @@ COMPLETED -  The obfuscation request is complete.
 
 FAILED - The obfuscation request failed due to an error.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ContactObfuscationStatusTypeJson.Initiated;
+```
+
 
 ## Values
 

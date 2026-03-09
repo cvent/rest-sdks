@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum LeadQualificationQuestionJsonType
     {
-        [JsonProperty("MultiChoice")]
-        MultiChoice,
-        [JsonProperty("SingleChoice")]
-        SingleChoice,
-        [JsonProperty("Rating")]
-        Rating,
-        [JsonProperty("OpenEndedTextOneLine")]
-        OpenEndedTextOneLine,
-        [JsonProperty("OpenEndedTextCommentBox")]
-        OpenEndedTextCommentBox,
-        [JsonProperty("OpenEndedDateTime")]
-        OpenEndedDateTime,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("Rating")] Rating,
+        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
+        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
+        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
     }
 
     public static class LeadQualificationQuestionJsonTypeExtension
     {
         public static string Value(this LeadQualificationQuestionJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static LeadQualificationQuestionJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(LeadQualificationQuestionJsonType).GetFields())
+            foreach (var field in typeof(LeadQualificationQuestionJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

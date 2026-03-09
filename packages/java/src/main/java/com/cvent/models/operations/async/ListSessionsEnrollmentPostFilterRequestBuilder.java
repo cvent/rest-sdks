@@ -32,7 +32,8 @@ public class ListSessionsEnrollmentPostFilterRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public ListSessionsEnrollmentPostFilterRequestBuilder request(@Nonnull ListSessionsEnrollmentPostFilterRequest request) {
+    public ListSessionsEnrollmentPostFilterRequestBuilder request(
+            @Nonnull ListSessionsEnrollmentPostFilterRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -40,7 +41,7 @@ public class ListSessionsEnrollmentPostFilterRequestBuilder {
     private ListSessionsEnrollmentPostFilterRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListSessionsEnrollmentPostFilterRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +50,16 @@ public class ListSessionsEnrollmentPostFilterRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListSessionsEnrollmentPostFilterResponse> call() {
-        AsyncRequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation
-              = new ListSessionsEnrollmentPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation =
+                new ListSessionsEnrollmentPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +76,17 @@ public class ListSessionsEnrollmentPostFilterRequestBuilder {
      */
     public Publisher<ListSessionsEnrollmentPostFilterResponse> callAsPublisher() {
         ListSessionsEnrollmentPostFilterRequest request = this.request;
-        AsyncRequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation
-              = new ListSessionsEnrollmentPostFilter.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation =
+                new ListSessionsEnrollmentPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListSessionsEnrollmentPostFilterRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListSessionsEnrollmentPostFilterRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListSessionsEnrollmentPostFilterResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListSessionsEnrollmentPostFilterResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

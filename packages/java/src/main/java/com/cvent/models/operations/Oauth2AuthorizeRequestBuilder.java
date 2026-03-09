@@ -28,7 +28,7 @@ public class Oauth2AuthorizeRequestBuilder {
     private Oauth2AuthorizeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public Oauth2AuthorizeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class Oauth2AuthorizeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public Oauth2AuthorizeResponse call() {
-        RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation
-              = new Oauth2Authorize.Sync(sdkConfiguration, _headers);
+        RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
+                new Oauth2Authorize.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

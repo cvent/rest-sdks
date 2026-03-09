@@ -22,7 +22,8 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DeleteUserFromAccountUserGroupRequestBuilder request(@Nonnull DeleteUserFromAccountUserGroupRequest request) {
+    public DeleteUserFromAccountUserGroupRequestBuilder request(
+            @Nonnull DeleteUserFromAccountUserGroupRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
     private DeleteUserFromAccountUserGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteUserFromAccountUserGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,13 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteUserFromAccountUserGroupResponse> call() {
-        AsyncRequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation
-              = new DeleteUserFromAccountUserGroup.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
+                new DeleteUserFromAccountUserGroup.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

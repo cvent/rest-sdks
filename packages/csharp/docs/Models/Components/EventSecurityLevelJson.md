@@ -2,6 +2,14 @@
 
 Represents the security level used for event registrations.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = EventSecurityLevelJson.Private;
+```
+
 
 ## Values
 

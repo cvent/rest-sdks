@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CreditCardTypeJson
- * 
+ *
  * <p>Credit Card Type
  */
 public enum CreditCardTypeJson {
@@ -35,13 +35,13 @@ public enum CreditCardTypeJson {
     CreditCardTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CreditCardTypeJson> fromValue(String value) {
-        for (CreditCardTypeJson o: CreditCardTypeJson.values()) {
+        for (CreditCardTypeJson o : CreditCardTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -49,4 +49,3 @@ public enum CreditCardTypeJson {
         return Optional.empty();
     }
 }
-

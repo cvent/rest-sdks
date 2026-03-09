@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSupplierAccountRequest {
     /**
      * A uuid used to uniquely identify the travel account.
@@ -20,10 +19,9 @@ public class GetSupplierAccountRequest {
     private String travelAccountId;
 
     @JsonCreator
-    public GetSupplierAccountRequest(
-            @Nonnull String travelAccountId) {
+    public GetSupplierAccountRequest(@Nonnull String travelAccountId) {
         this.travelAccountId = Optional.ofNullable(travelAccountId)
-            .orElseThrow(() -> new IllegalArgumentException("travelAccountId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("travelAccountId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetSupplierAccountRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid used to uniquely identify the travel account.
      */
@@ -45,7 +42,6 @@ public class GetSupplierAccountRequest {
         this.travelAccountId = Utils.checkNotNull(travelAccountId, "travelAccountId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetSupplierAccountRequest {
             return false;
         }
         GetSupplierAccountRequest other = (GetSupplierAccountRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelAccountId, other.travelAccountId);
+        return Utils.enhancedDeepEquals(this.travelAccountId, other.travelAccountId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            travelAccountId);
+        return Utils.enhancedHash(travelAccountId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSupplierAccountRequest.class,
-                "travelAccountId", travelAccountId);
+        return Utils.toString(GetSupplierAccountRequest.class, "travelAccountId", travelAccountId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String travelAccountId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetSupplierAccountRequest {
         }
 
         public GetSupplierAccountRequest build() {
-            return new GetSupplierAccountRequest(
-                travelAccountId);
+            return new GetSupplierAccountRequest(travelAccountId);
         }
-
     }
 }

@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ConnectionResponseStatus
     {
-        [JsonProperty("NOT_CONNECTED")]
-        NotConnected,
-        [JsonProperty("CONNECTED")]
-        Connected,
-        [JsonProperty("REQUESTED")]
-        Requested,
+        [JsonProperty("NOT_CONNECTED")] NotConnected,
+        [JsonProperty("CONNECTED")] Connected,
+        [JsonProperty("REQUESTED")] Requested,
     }
 
     public static class ConnectionResponseStatusExtension
     {
         public static string Value(this ConnectionResponseStatus value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ConnectionResponseStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(ConnectionResponseStatus).GetFields())
+            foreach (var field in typeof(ConnectionResponseStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

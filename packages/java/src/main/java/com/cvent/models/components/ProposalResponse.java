@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -23,7 +23,7 @@ import java.util.Optional;
 
 /**
  * ProposalResponse
- * 
+ *
  * <p>Schema for proposal.
  */
 public class ProposalResponse {
@@ -107,7 +107,7 @@ public class ProposalResponse {
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -167,7 +167,7 @@ public class ProposalResponse {
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -304,8 +304,7 @@ public class ProposalResponse {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.scpTemplateId = scpTemplateId;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.supplierSummary = supplierSummary;
         this.rfpSummary = rfpSummary;
         this.eventSummary = eventSummary;
@@ -326,33 +325,51 @@ public class ProposalResponse {
         this.plannerContacts = plannerContacts;
         this.meetingRoom = meetingRoom;
         this.transaction = transaction;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.proposalCode = Optional.ofNullable(proposalCode)
-            .orElseThrow(() -> new IllegalArgumentException("proposalCode cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElse(Builder._SINGLETON_VALUE_Status.value());
+                .orElseThrow(() -> new IllegalArgumentException("proposalCode cannot be null"));
+        this.status = Optional.ofNullable(status).orElse(Builder._SINGLETON_VALUE_Status.value());
         this.version = version;
         this.lastSubmittedTime = lastSubmittedTime;
         this.responseReason = responseReason;
         this.responseDetails = responseDetails;
     }
-    
-    public ProposalResponse(
-            @Nonnull String id,
-            @Nonnull String proposalCode,
-            long version) {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, id,
-            proposalCode, null, version,
-            null, null, null);
+
+    public ProposalResponse(@Nonnull String id, @Nonnull String proposalCode, long version) {
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                id,
+                proposalCode,
+                null,
+                version,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -435,7 +452,7 @@ public class ProposalResponse {
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -495,7 +512,7 @@ public class ProposalResponse {
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -599,7 +616,6 @@ public class ProposalResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -607,7 +623,6 @@ public class ProposalResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -617,7 +632,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -625,7 +639,6 @@ public class ProposalResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -635,7 +648,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The ID of the smart custom proposal template.
      */
@@ -643,7 +655,6 @@ public class ProposalResponse {
         this.scpTemplateId = scpTemplateId;
         return this;
     }
-
 
     /**
      * The type of the proposal.
@@ -653,7 +664,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Represents a summary of supplier information associated with current proposal.
      */
@@ -661,7 +671,6 @@ public class ProposalResponse {
         this.supplierSummary = supplierSummary;
         return this;
     }
-
 
     /**
      * Schema for Rfp details associated with this proposal.
@@ -671,7 +680,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Schema for event summary associated with this proposal.
      */
@@ -679,7 +687,6 @@ public class ProposalResponse {
         this.eventSummary = eventSummary;
         return this;
     }
-
 
     /**
      * Represents a summary of status associated with this proposal.
@@ -689,7 +696,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Introduction text for the proposal.
      */
@@ -698,11 +704,10 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -710,7 +715,6 @@ public class ProposalResponse {
         this.billingContractualResponse = billingContractualResponse;
         return this;
     }
-
 
     /**
      * The ISO 4217 standard format currency code used for RFPs.
@@ -720,7 +724,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * True indicates this is a commissionable bid.
      */
@@ -728,7 +731,6 @@ public class ProposalResponse {
         this.commissionableBid = commissionableBid;
         return this;
     }
-
 
     /**
      * The proposal's commission rate.
@@ -738,7 +740,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Name of the proposal.
      */
@@ -746,7 +747,6 @@ public class ProposalResponse {
         this.name = name;
         return this;
     }
-
 
     /**
      * Block code for the proposal.
@@ -756,7 +756,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * List of dates the venue is available.
      */
@@ -764,7 +763,6 @@ public class ProposalResponse {
         this.proposalDates = proposalDates;
         return this;
     }
-
 
     /**
      * List of all sleeping rooms offered in the proposal.
@@ -774,11 +772,10 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -786,7 +783,6 @@ public class ProposalResponse {
         this.categoryItemsCost = categoryItemsCost;
         return this;
     }
-
 
     /**
      * The aggregated cost
@@ -796,7 +792,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The estimated cost
      */
@@ -804,7 +799,6 @@ public class ProposalResponse {
         this.estimatedCost = estimatedCost;
         return this;
     }
-
 
     /**
      * List of all contacts.
@@ -814,7 +808,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * List of all planner contacts.
      */
@@ -822,7 +815,6 @@ public class ProposalResponse {
         this.plannerContacts = plannerContacts;
         return this;
     }
-
 
     /**
      * The meeting room.
@@ -832,7 +824,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The latest transaction that took place on a given proposal
      */
@@ -840,7 +831,6 @@ public class ProposalResponse {
         this.transaction = transaction;
         return this;
     }
-
 
     /**
      * The unique ID of the proposal.
@@ -850,7 +840,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * A 14-character human readable proposal code.
      */
@@ -858,7 +847,6 @@ public class ProposalResponse {
         this.proposalCode = Utils.checkNotNull(proposalCode, "proposalCode");
         return this;
     }
-
 
     /**
      * The status of the proposal. See [definitions of proposal
@@ -869,7 +857,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The version number associated with the proposal.
      */
@@ -877,7 +864,6 @@ public class ProposalResponse {
         this.version = version;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned Coordinated Universal Time (UTC) when the proposal was last submitted.
@@ -887,7 +873,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * The reason for the response.
      */
@@ -896,7 +881,6 @@ public class ProposalResponse {
         return this;
     }
 
-
     /**
      * Additional details provided while responding to the proposal.
      */
@@ -904,7 +888,6 @@ public class ProposalResponse {
         this.responseDetails = responseDetails;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -915,98 +898,153 @@ public class ProposalResponse {
             return false;
         }
         ProposalResponse other = (ProposalResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.scpTemplateId, other.scpTemplateId) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.supplierSummary, other.supplierSummary) &&
-            Utils.enhancedDeepEquals(this.rfpSummary, other.rfpSummary) &&
-            Utils.enhancedDeepEquals(this.eventSummary, other.eventSummary) &&
-            Utils.enhancedDeepEquals(this.statusSummary, other.statusSummary) &&
-            Utils.enhancedDeepEquals(this.introduction, other.introduction) &&
-            Utils.enhancedDeepEquals(this.billingContractualResponse, other.billingContractualResponse) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.commissionableBid, other.commissionableBid) &&
-            Utils.enhancedDeepEquals(this.commissionRate, other.commissionRate) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.blockCode, other.blockCode) &&
-            Utils.enhancedDeepEquals(this.proposalDates, other.proposalDates) &&
-            Utils.enhancedDeepEquals(this.sleepingRooms, other.sleepingRooms) &&
-            Utils.enhancedDeepEquals(this.categoryItemsCost, other.categoryItemsCost) &&
-            Utils.enhancedDeepEquals(this.aggregatedCost, other.aggregatedCost) &&
-            Utils.enhancedDeepEquals(this.estimatedCost, other.estimatedCost) &&
-            Utils.enhancedDeepEquals(this.contacts, other.contacts) &&
-            Utils.enhancedDeepEquals(this.plannerContacts, other.plannerContacts) &&
-            Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom) &&
-            Utils.enhancedDeepEquals(this.transaction, other.transaction) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.proposalCode, other.proposalCode) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.version, other.version) &&
-            Utils.enhancedDeepEquals(this.lastSubmittedTime, other.lastSubmittedTime) &&
-            Utils.enhancedDeepEquals(this.responseReason, other.responseReason) &&
-            Utils.enhancedDeepEquals(this.responseDetails, other.responseDetails);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.scpTemplateId, other.scpTemplateId)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.supplierSummary, other.supplierSummary)
+                && Utils.enhancedDeepEquals(this.rfpSummary, other.rfpSummary)
+                && Utils.enhancedDeepEquals(this.eventSummary, other.eventSummary)
+                && Utils.enhancedDeepEquals(this.statusSummary, other.statusSummary)
+                && Utils.enhancedDeepEquals(this.introduction, other.introduction)
+                && Utils.enhancedDeepEquals(this.billingContractualResponse, other.billingContractualResponse)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.commissionableBid, other.commissionableBid)
+                && Utils.enhancedDeepEquals(this.commissionRate, other.commissionRate)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.blockCode, other.blockCode)
+                && Utils.enhancedDeepEquals(this.proposalDates, other.proposalDates)
+                && Utils.enhancedDeepEquals(this.sleepingRooms, other.sleepingRooms)
+                && Utils.enhancedDeepEquals(this.categoryItemsCost, other.categoryItemsCost)
+                && Utils.enhancedDeepEquals(this.aggregatedCost, other.aggregatedCost)
+                && Utils.enhancedDeepEquals(this.estimatedCost, other.estimatedCost)
+                && Utils.enhancedDeepEquals(this.contacts, other.contacts)
+                && Utils.enhancedDeepEquals(this.plannerContacts, other.plannerContacts)
+                && Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom)
+                && Utils.enhancedDeepEquals(this.transaction, other.transaction)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.proposalCode, other.proposalCode)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.version, other.version)
+                && Utils.enhancedDeepEquals(this.lastSubmittedTime, other.lastSubmittedTime)
+                && Utils.enhancedDeepEquals(this.responseReason, other.responseReason)
+                && Utils.enhancedDeepEquals(this.responseDetails, other.responseDetails);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, scpTemplateId, type,
-            supplierSummary, rfpSummary, eventSummary,
-            statusSummary, introduction, billingContractualResponse,
-            currencyCode, commissionableBid, commissionRate,
-            name, blockCode, proposalDates,
-            sleepingRooms, categoryItemsCost, aggregatedCost,
-            estimatedCost, contacts, plannerContacts,
-            meetingRoom, transaction, id,
-            proposalCode, status, version,
-            lastSubmittedTime, responseReason, responseDetails);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                scpTemplateId,
+                type,
+                supplierSummary,
+                rfpSummary,
+                eventSummary,
+                statusSummary,
+                introduction,
+                billingContractualResponse,
+                currencyCode,
+                commissionableBid,
+                commissionRate,
+                name,
+                blockCode,
+                proposalDates,
+                sleepingRooms,
+                categoryItemsCost,
+                aggregatedCost,
+                estimatedCost,
+                contacts,
+                plannerContacts,
+                meetingRoom,
+                transaction,
+                id,
+                proposalCode,
+                status,
+                version,
+                lastSubmittedTime,
+                responseReason,
+                responseDetails);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProposalResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "scpTemplateId", scpTemplateId,
-                "type", type,
-                "supplierSummary", supplierSummary,
-                "rfpSummary", rfpSummary,
-                "eventSummary", eventSummary,
-                "statusSummary", statusSummary,
-                "introduction", introduction,
-                "billingContractualResponse", billingContractualResponse,
-                "currencyCode", currencyCode,
-                "commissionableBid", commissionableBid,
-                "commissionRate", commissionRate,
-                "name", name,
-                "blockCode", blockCode,
-                "proposalDates", proposalDates,
-                "sleepingRooms", sleepingRooms,
-                "categoryItemsCost", categoryItemsCost,
-                "aggregatedCost", aggregatedCost,
-                "estimatedCost", estimatedCost,
-                "contacts", contacts,
-                "plannerContacts", plannerContacts,
-                "meetingRoom", meetingRoom,
-                "transaction", transaction,
-                "id", id,
-                "proposalCode", proposalCode,
-                "status", status,
-                "version", version,
-                "lastSubmittedTime", lastSubmittedTime,
-                "responseReason", responseReason,
-                "responseDetails", responseDetails);
+        return Utils.toString(
+                ProposalResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "scpTemplateId",
+                scpTemplateId,
+                "type",
+                type,
+                "supplierSummary",
+                supplierSummary,
+                "rfpSummary",
+                rfpSummary,
+                "eventSummary",
+                eventSummary,
+                "statusSummary",
+                statusSummary,
+                "introduction",
+                introduction,
+                "billingContractualResponse",
+                billingContractualResponse,
+                "currencyCode",
+                currencyCode,
+                "commissionableBid",
+                commissionableBid,
+                "commissionRate",
+                commissionRate,
+                "name",
+                name,
+                "blockCode",
+                blockCode,
+                "proposalDates",
+                proposalDates,
+                "sleepingRooms",
+                sleepingRooms,
+                "categoryItemsCost",
+                categoryItemsCost,
+                "aggregatedCost",
+                aggregatedCost,
+                "estimatedCost",
+                estimatedCost,
+                "contacts",
+                contacts,
+                "plannerContacts",
+                plannerContacts,
+                "meetingRoom",
+                meetingRoom,
+                "transaction",
+                transaction,
+                "id",
+                id,
+                "proposalCode",
+                proposalCode,
+                "status",
+                status,
+                "version",
+                version,
+                "lastSubmittedTime",
+                lastSubmittedTime,
+                "responseReason",
+                responseReason,
+                "responseDetails",
+                responseDetails);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -1077,7 +1115,7 @@ public class ProposalResponse {
         private String responseDetails;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1171,7 +1209,7 @@ public class ProposalResponse {
         /**
          * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
          * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1239,7 +1277,7 @@ public class ProposalResponse {
         /**
          * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
          * vendors, and the vendor marketplace is sunset.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -1355,30 +1393,45 @@ public class ProposalResponse {
 
         public ProposalResponse build() {
             return new ProposalResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, scpTemplateId, type,
-                supplierSummary, rfpSummary, eventSummary,
-                statusSummary, introduction, billingContractualResponse,
-                currencyCode, commissionableBid, commissionRate,
-                name, blockCode, proposalDates,
-                sleepingRooms, categoryItemsCost, aggregatedCost,
-                estimatedCost, contacts, plannerContacts,
-                meetingRoom, transaction, id,
-                proposalCode, status, version,
-                lastSubmittedTime, responseReason, responseDetails);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    scpTemplateId,
+                    type,
+                    supplierSummary,
+                    rfpSummary,
+                    eventSummary,
+                    statusSummary,
+                    introduction,
+                    billingContractualResponse,
+                    currencyCode,
+                    commissionableBid,
+                    commissionRate,
+                    name,
+                    blockCode,
+                    proposalDates,
+                    sleepingRooms,
+                    categoryItemsCost,
+                    aggregatedCost,
+                    estimatedCost,
+                    contacts,
+                    plannerContacts,
+                    meetingRoom,
+                    transaction,
+                    id,
+                    proposalCode,
+                    status,
+                    version,
+                    lastSubmittedTime,
+                    responseReason,
+                    responseDetails);
         }
 
-
         private static final LazySingletonValue<ProposalTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"VENUE\"",
-                        new TypeReference<ProposalTypeJson>() {});
+                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<ProposalTypeJson>() {});
 
         private static final LazySingletonValue<ProposalStatusJson> _SINGLETON_VALUE_Status =
-                new LazySingletonValue<>(
-                        "status",
-                        "\"NOT_SENT\"",
-                        new TypeReference<ProposalStatusJson>() {});
+                new LazySingletonValue<>("status", "\"NOT_SENT\"", new TypeReference<ProposalStatusJson>() {});
     }
 }

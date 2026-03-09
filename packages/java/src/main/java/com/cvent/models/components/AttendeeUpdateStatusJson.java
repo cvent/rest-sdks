@@ -10,13 +10,13 @@ import java.util.Optional;
 
 /**
  * AttendeeUpdateStatusJson
- * 
+ *
  * <p>Denotes the status of an attendee to be updated. No Response: The attendee was added to an
  * invitation list but hasn't taken any action. Accepted: The attendee is registered for the event.
- * 
+ *
  * <p>Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the
  * event's webpage but didn't finish registration. Declined: The attendee declined to attend the event.
- * 
+ *
  * <p>Pending Approval: When registration approval is enabled, this status indicates the attendee is still
  * waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this
  * status indicates the attendee has been denied approval by the planner. <br>The following status
@@ -42,13 +42,13 @@ public enum AttendeeUpdateStatusJson {
     AttendeeUpdateStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeUpdateStatusJson> fromValue(String value) {
-        for (AttendeeUpdateStatusJson o: AttendeeUpdateStatusJson.values()) {
+        for (AttendeeUpdateStatusJson o : AttendeeUpdateStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -56,4 +56,3 @@ public enum AttendeeUpdateStatusJson {
         return Optional.empty();
     }
 }
-

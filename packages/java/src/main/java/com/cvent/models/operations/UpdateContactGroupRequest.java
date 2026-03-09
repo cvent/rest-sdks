@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateContactGroupRequest {
     /**
      * ID of a contact group.
@@ -27,13 +26,10 @@ public class UpdateContactGroupRequest {
     private ContactGroupInput contactGroup;
 
     @JsonCreator
-    public UpdateContactGroupRequest(
-            @Nonnull String id,
-            @Nonnull ContactGroupInput contactGroup) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public UpdateContactGroupRequest(@Nonnull String id, @Nonnull ContactGroupInput contactGroup) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.contactGroup = Optional.ofNullable(contactGroup)
-            .orElseThrow(() -> new IllegalArgumentException("contactGroup cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contactGroup cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class UpdateContactGroupRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact group.
      */
@@ -63,7 +58,6 @@ public class UpdateContactGroupRequest {
         return this;
     }
 
-
     /**
      * Contact Group to be updated
      */
@@ -71,7 +65,6 @@ public class UpdateContactGroupRequest {
         this.contactGroup = Utils.checkNotNull(contactGroup, "contactGroup");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,29 @@ public class UpdateContactGroupRequest {
             return false;
         }
         UpdateContactGroupRequest other = (UpdateContactGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.contactGroup, other.contactGroup);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.contactGroup, other.contactGroup);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, contactGroup);
+        return Utils.enhancedHash(id, contactGroup);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateContactGroupRequest.class,
-                "id", id,
-                "contactGroup", contactGroup);
+        return Utils.toString(UpdateContactGroupRequest.class, "id", id, "contactGroup", contactGroup);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private ContactGroupInput contactGroup;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +117,7 @@ public class UpdateContactGroupRequest {
         }
 
         public UpdateContactGroupRequest build() {
-            return new UpdateContactGroupRequest(
-                id, contactGroup);
+            return new UpdateContactGroupRequest(id, contactGroup);
         }
-
     }
 }

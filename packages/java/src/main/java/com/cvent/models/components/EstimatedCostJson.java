@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EstimatedCostJson
- * 
+ *
  * <p>The estimated cost
  */
 public class EstimatedCostJson {
@@ -68,10 +68,9 @@ public class EstimatedCostJson {
         this.foodAndBeverageMinimum = foodAndBeverageMinimum;
         this.notes = notes;
     }
-    
+
     public EstimatedCostJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +112,6 @@ public class EstimatedCostJson {
         return new Builder();
     }
 
-
     /**
      * Guest room cost.
      */
@@ -121,7 +119,6 @@ public class EstimatedCostJson {
         this.guestRoom = guestRoom;
         return this;
     }
-
 
     /**
      * Meeting room cost.
@@ -131,7 +128,6 @@ public class EstimatedCostJson {
         return this;
     }
 
-
     /**
      * Food and beverage cost.
      */
@@ -139,7 +135,6 @@ public class EstimatedCostJson {
         this.foodAndBeverage = foodAndBeverage;
         return this;
     }
-
 
     /**
      * Minimum cost for food and beverage.
@@ -149,7 +144,6 @@ public class EstimatedCostJson {
         return this;
     }
 
-
     /**
      * Extra notes on the cost.
      */
@@ -157,7 +151,6 @@ public class EstimatedCostJson {
         this.notes = notes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,33 +161,36 @@ public class EstimatedCostJson {
             return false;
         }
         EstimatedCostJson other = (EstimatedCostJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.guestRoom, other.guestRoom) &&
-            Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom) &&
-            Utils.enhancedDeepEquals(this.foodAndBeverage, other.foodAndBeverage) &&
-            Utils.enhancedDeepEquals(this.foodAndBeverageMinimum, other.foodAndBeverageMinimum) &&
-            Utils.enhancedDeepEquals(this.notes, other.notes);
+        return Utils.enhancedDeepEquals(this.guestRoom, other.guestRoom)
+                && Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom)
+                && Utils.enhancedDeepEquals(this.foodAndBeverage, other.foodAndBeverage)
+                && Utils.enhancedDeepEquals(this.foodAndBeverageMinimum, other.foodAndBeverageMinimum)
+                && Utils.enhancedDeepEquals(this.notes, other.notes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            guestRoom, meetingRoom, foodAndBeverage,
-            foodAndBeverageMinimum, notes);
+        return Utils.enhancedHash(guestRoom, meetingRoom, foodAndBeverage, foodAndBeverageMinimum, notes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EstimatedCostJson.class,
-                "guestRoom", guestRoom,
-                "meetingRoom", meetingRoom,
-                "foodAndBeverage", foodAndBeverage,
-                "foodAndBeverageMinimum", foodAndBeverageMinimum,
-                "notes", notes);
+        return Utils.toString(
+                EstimatedCostJson.class,
+                "guestRoom",
+                guestRoom,
+                "meetingRoom",
+                meetingRoom,
+                "foodAndBeverage",
+                foodAndBeverage,
+                "foodAndBeverageMinimum",
+                foodAndBeverageMinimum,
+                "notes",
+                notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Double guestRoom;
 
@@ -207,7 +203,7 @@ public class EstimatedCostJson {
         private String notes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -251,10 +247,7 @@ public class EstimatedCostJson {
         }
 
         public EstimatedCostJson build() {
-            return new EstimatedCostJson(
-                guestRoom, meetingRoom, foodAndBeverage,
-                foodAndBeverageMinimum, notes);
+            return new EstimatedCostJson(guestRoom, meetingRoom, foodAndBeverage, foodAndBeverageMinimum, notes);
         }
-
     }
 }

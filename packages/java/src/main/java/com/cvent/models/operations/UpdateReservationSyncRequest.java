@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateReservationSyncRequest {
     /**
      * Cvent Passkey confirmation number.
@@ -27,13 +26,11 @@ public class UpdateReservationSyncRequest {
     private NewReservation newReservation;
 
     @JsonCreator
-    public UpdateReservationSyncRequest(
-            @Nonnull String reservationId,
-            @Nonnull NewReservation newReservation) {
+    public UpdateReservationSyncRequest(@Nonnull String reservationId, @Nonnull NewReservation newReservation) {
         this.reservationId = Optional.ofNullable(reservationId)
-            .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("reservationId cannot be null"));
         this.newReservation = Optional.ofNullable(newReservation)
-            .orElseThrow(() -> new IllegalArgumentException("newReservation cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("newReservation cannot be null"));
     }
 
     /**
@@ -54,7 +51,6 @@ public class UpdateReservationSyncRequest {
         return new Builder();
     }
 
-
     /**
      * Cvent Passkey confirmation number.
      */
@@ -63,7 +59,6 @@ public class UpdateReservationSyncRequest {
         return this;
     }
 
-
     /**
      * Updated reservation data.
      */
@@ -71,7 +66,6 @@ public class UpdateReservationSyncRequest {
         this.newReservation = Utils.checkNotNull(newReservation, "newReservation");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +76,30 @@ public class UpdateReservationSyncRequest {
             return false;
         }
         UpdateReservationSyncRequest other = (UpdateReservationSyncRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.reservationId, other.reservationId) &&
-            Utils.enhancedDeepEquals(this.newReservation, other.newReservation);
+        return Utils.enhancedDeepEquals(this.reservationId, other.reservationId)
+                && Utils.enhancedDeepEquals(this.newReservation, other.newReservation);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            reservationId, newReservation);
+        return Utils.enhancedHash(reservationId, newReservation);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateReservationSyncRequest.class,
-                "reservationId", reservationId,
-                "newReservation", newReservation);
+        return Utils.toString(
+                UpdateReservationSyncRequest.class, "reservationId", reservationId, "newReservation", newReservation);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String reservationId;
 
         private NewReservation newReservation;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +119,7 @@ public class UpdateReservationSyncRequest {
         }
 
         public UpdateReservationSyncRequest build() {
-            return new UpdateReservationSyncRequest(
-                reservationId, newReservation);
+            return new UpdateReservationSyncRequest(reservationId, newReservation);
         }
-
     }
 }

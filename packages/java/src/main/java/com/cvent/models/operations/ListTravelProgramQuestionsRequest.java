@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListTravelProgramQuestionsRequest {
     /**
      * A uuid used to uniquely identify the program.
@@ -58,18 +57,15 @@ public class ListTravelProgramQuestionsRequest {
             @Nullable Long limit,
             @Nullable String token) {
         this.programId = Optional.ofNullable(programId)
-            .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programId cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public ListTravelProgramQuestionsRequest(
-            @Nonnull String programId) {
-        this(programId, null, null,
-            null, null);
+
+    public ListTravelProgramQuestionsRequest(@Nonnull String programId) {
+        this(programId, null, null, null, null);
     }
 
     /**
@@ -113,7 +109,6 @@ public class ListTravelProgramQuestionsRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid used to uniquely identify the program.
      */
@@ -121,7 +116,6 @@ public class ListTravelProgramQuestionsRequest {
         this.programId = Utils.checkNotNull(programId, "programId");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -132,7 +126,6 @@ public class ListTravelProgramQuestionsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -141,7 +134,6 @@ public class ListTravelProgramQuestionsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -149,7 +141,6 @@ public class ListTravelProgramQuestionsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -160,7 +151,6 @@ public class ListTravelProgramQuestionsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -170,33 +160,36 @@ public class ListTravelProgramQuestionsRequest {
             return false;
         }
         ListTravelProgramQuestionsRequest other = (ListTravelProgramQuestionsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programId, other.programId) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.programId, other.programId)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programId, after, before,
-            limit, token);
+        return Utils.enhancedHash(programId, after, before, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListTravelProgramQuestionsRequest.class,
-                "programId", programId,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                ListTravelProgramQuestionsRequest.class,
+                "programId",
+                programId,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programId;
 
@@ -209,7 +202,7 @@ public class ListTravelProgramQuestionsRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,16 +248,10 @@ public class ListTravelProgramQuestionsRequest {
         }
 
         public ListTravelProgramQuestionsRequest build() {
-            return new ListTravelProgramQuestionsRequest(
-                programId, after, before,
-                limit, token);
+            return new ListTravelProgramQuestionsRequest(programId, after, before, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

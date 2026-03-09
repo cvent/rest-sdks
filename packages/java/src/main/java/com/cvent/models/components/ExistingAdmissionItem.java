@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExistingAdmissionItem
- * 
+ *
  * <p>Represents an existing event admission item.
  */
 public class ExistingAdmissionItem {
@@ -77,10 +77,9 @@ public class ExistingAdmissionItem {
         this.id = id;
         this.event = event;
     }
-    
+
     public ExistingAdmissionItem() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -129,7 +128,6 @@ public class ExistingAdmissionItem {
         return new Builder();
     }
 
-
     /**
      * Title of the admission item.
      */
@@ -137,7 +135,6 @@ public class ExistingAdmissionItem {
         this.name = name;
         return this;
     }
-
 
     /**
      * A planner-specified code for the admission item. By default, it matches the title.
@@ -147,7 +144,6 @@ public class ExistingAdmissionItem {
         return this;
     }
 
-
     /**
      * Description of the admission item.
      */
@@ -155,7 +151,6 @@ public class ExistingAdmissionItem {
         this.description = description;
         return this;
     }
-
 
     /**
      * True indicates the feature to restrict available sessions is active.
@@ -165,7 +160,6 @@ public class ExistingAdmissionItem {
         return this;
     }
 
-
     /**
      * A unique identifier of the admission item.
      */
@@ -174,7 +168,6 @@ public class ExistingAdmissionItem {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -182,7 +175,6 @@ public class ExistingAdmissionItem {
         this.event = event;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -193,35 +185,39 @@ public class ExistingAdmissionItem {
             return false;
         }
         ExistingAdmissionItem other = (ExistingAdmissionItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.allowOptionalSessions, other.allowOptionalSessions) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.allowOptionalSessions, other.allowOptionalSessions)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, code, description,
-            allowOptionalSessions, id, event);
+        return Utils.enhancedHash(name, code, description, allowOptionalSessions, id, event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingAdmissionItem.class,
-                "name", name,
-                "code", code,
-                "description", description,
-                "allowOptionalSessions", allowOptionalSessions,
-                "id", id,
-                "event", event);
+        return Utils.toString(
+                ExistingAdmissionItem.class,
+                "name",
+                name,
+                "code",
+                code,
+                "description",
+                description,
+                "allowOptionalSessions",
+                allowOptionalSessions,
+                "id",
+                id,
+                "event",
+                event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -236,7 +232,7 @@ public class ExistingAdmissionItem {
         private UuidJson event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -288,10 +284,7 @@ public class ExistingAdmissionItem {
         }
 
         public ExistingAdmissionItem build() {
-            return new ExistingAdmissionItem(
-                name, code, description,
-                allowOptionalSessions, id, event);
+            return new ExistingAdmissionItem(name, code, description, allowOptionalSessions, id, event);
         }
-
     }
 }

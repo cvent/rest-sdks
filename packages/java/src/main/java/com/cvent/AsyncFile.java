@@ -41,24 +41,23 @@ public class AsyncFile {
 
     /**
      * Switches to the sync SDK.
-     * 
+     *
      * @return The sync SDK
      */
     public File sync() {
         return syncSDK;
     }
 
-
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public UploadFileRequestBuilder uploadFile() {
@@ -67,14 +66,14 @@ public class AsyncFile {
 
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return {@code CompletableFuture<UploadFileResponse>} - The async response
      */
     public CompletableFuture<UploadFileResponse> uploadFileDirect() {
@@ -83,32 +82,30 @@ public class AsyncFile {
 
     /**
      * Upload a File
-     * 
+     *
      * <p>Uploads a file and returns a unique ID to identify the file. The file must be less than 10MB. The
      * file ID can be used with other APIs to associate the file with an entity.
-     * 
+     *
      * <p>Unassociated files expire within 30 days.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<UploadFileResponse>} - The async response
      */
     public CompletableFuture<UploadFileResponse> uploadFile(@Nullable FileUpload request) {
-        AsyncRequestOperation<FileUpload, UploadFileResponse> operation
-              = new UploadFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<FileUpload, UploadFileResponse> operation =
+                new UploadFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 
     /**
      * Get File Location
-     * 
+     *
      * <p>Returns the file upload location for the specified file ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The async call builder
      */
     public GetFileRequestBuilder getFile() {
@@ -117,19 +114,17 @@ public class AsyncFile {
 
     /**
      * Get File Location
-     * 
+     *
      * <p>Returns the file upload location for the specified file ID.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<GetFileResponse>} - The async response
      */
     public CompletableFuture<GetFileResponse> getFile(@Nonnull GetFileRequest request) {
-        AsyncRequestOperation<GetFileRequest, GetFileResponse> operation
-              = new GetFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(request)
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetFileRequest, GetFileResponse> operation =
+                new GetFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
-
 }

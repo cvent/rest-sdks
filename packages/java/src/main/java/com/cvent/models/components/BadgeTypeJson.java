@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BadgeTypeJson
- * 
+ *
  * <p>Badge type
  */
 public enum BadgeTypeJson {
@@ -23,13 +23,13 @@ public enum BadgeTypeJson {
     BadgeTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BadgeTypeJson> fromValue(String value) {
-        for (BadgeTypeJson o: BadgeTypeJson.values()) {
+        for (BadgeTypeJson o : BadgeTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum BadgeTypeJson {
         return Optional.empty();
     }
 }
-

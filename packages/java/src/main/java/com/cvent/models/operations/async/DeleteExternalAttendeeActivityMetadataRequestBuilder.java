@@ -22,7 +22,8 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DeleteExternalAttendeeActivityMetadataRequestBuilder request(@Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
+    public DeleteExternalAttendeeActivityMetadataRequestBuilder request(
+            @Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
     private DeleteExternalAttendeeActivityMetadataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExternalAttendeeActivityMetadataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,14 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DeleteExternalAttendeeActivityMetadataResponse> call() {
-        AsyncRequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation
-              = new DeleteExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse>
+                operation = new DeleteExternalAttendeeActivityMetadata.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

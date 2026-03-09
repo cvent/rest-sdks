@@ -13,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class EventCheckInRequest {
     /**
      * Unique ID of an event.
@@ -28,13 +27,10 @@ public class EventCheckInRequest {
     private List<CheckinJson> requestBody;
 
     @JsonCreator
-    public EventCheckInRequest(
-            @Nonnull String id,
-            @Nonnull List<CheckinJson> requestBody) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public EventCheckInRequest(@Nonnull String id, @Nonnull List<CheckinJson> requestBody) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.requestBody = Optional.ofNullable(requestBody)
-            .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
     /**
@@ -55,7 +51,6 @@ public class EventCheckInRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -64,7 +59,6 @@ public class EventCheckInRequest {
         return this;
     }
 
-
     /**
      * Attendees to be checked-in. Up to **100 attendees** can be checked-in per call.
      */
@@ -72,7 +66,6 @@ public class EventCheckInRequest {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -83,33 +76,28 @@ public class EventCheckInRequest {
             return false;
         }
         EventCheckInRequest other = (EventCheckInRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.requestBody, other.requestBody);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, requestBody);
+        return Utils.enhancedHash(id, requestBody);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCheckInRequest.class,
-                "id", id,
-                "requestBody", requestBody);
+        return Utils.toString(EventCheckInRequest.class, "id", id, "requestBody", requestBody);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private List<CheckinJson> requestBody;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -129,9 +117,7 @@ public class EventCheckInRequest {
         }
 
         public EventCheckInRequest build() {
-            return new EventCheckInRequest(
-                id, requestBody);
+            return new EventCheckInRequest(id, requestBody);
         }
-
     }
 }

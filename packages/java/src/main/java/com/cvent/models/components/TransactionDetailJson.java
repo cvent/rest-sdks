@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * TransactionDetailJson
- * 
+ *
  * <p>This is used to denote the details of the transaction made by an attendee.
  */
 public class TransactionDetailJson {
@@ -97,7 +97,7 @@ public class TransactionDetailJson {
      * Denotes the type of payment made by an attendee. Authorization: Online payment that has been
      * approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved
      * in Cvent.
-     * 
+     *
      * <p>Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a
      * payment made to the attendee's order electronically in another system of record, or paid in physical
      * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
@@ -231,16 +231,31 @@ public class TransactionDetailJson {
         this.expirationDateOfCreditCard = expirationDateOfCreditCard;
         this.billingAddress = billingAddress;
     }
-    
+
     public TransactionDetailJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -317,7 +332,7 @@ public class TransactionDetailJson {
      * Denotes the type of payment made by an attendee. Authorization: Online payment that has been
      * approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved
      * in Cvent.
-     * 
+     *
      * <p>Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a
      * payment made to the attendee's order electronically in another system of record, or paid in physical
      * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
@@ -408,7 +423,6 @@ public class TransactionDetailJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -416,7 +430,6 @@ public class TransactionDetailJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -426,7 +439,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -434,7 +446,6 @@ public class TransactionDetailJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -444,7 +455,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * A unique id representing the transaction.
      */
@@ -452,7 +462,6 @@ public class TransactionDetailJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * This denotes the online processor transaction Id for transactions.
@@ -462,7 +471,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * The reference to the event. Contains only the ID of the event.
      */
@@ -470,7 +478,6 @@ public class TransactionDetailJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
@@ -480,7 +487,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the order IDs corresponding to this transaction.
      */
@@ -488,7 +494,6 @@ public class TransactionDetailJson {
         this.orders = orders;
         return this;
     }
-
 
     /**
      * Journal number for this transaction.
@@ -498,12 +503,11 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * Denotes the type of payment made by an attendee. Authorization: Online payment that has been
      * approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved
      * in Cvent.
-     * 
+     *
      * <p>Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a
      * payment made to the attendee's order electronically in another system of record, or paid in physical
      * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
@@ -514,7 +518,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the payment method in a transaction.
      */
@@ -522,7 +525,6 @@ public class TransactionDetailJson {
         this.paymentMethod = paymentMethod;
         return this;
     }
-
 
     /**
      * Indicates if the transaction was successful.
@@ -532,7 +534,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when attendee made the transaction.
      */
@@ -540,7 +541,6 @@ public class TransactionDetailJson {
         this.date = date;
         return this;
     }
-
 
     /**
      * This denotes the batch number of this transaction.
@@ -550,7 +550,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the reference number of this transaction.
      */
@@ -558,7 +557,6 @@ public class TransactionDetailJson {
         this.referenceNumber = referenceNumber;
         return this;
     }
-
 
     /**
      * Amount of the transaction.
@@ -568,7 +566,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the currency of this transaction.
      */
@@ -576,7 +573,6 @@ public class TransactionDetailJson {
         this.currency = currency;
         return this;
     }
-
 
     /**
      * This denotes the notes about this transaction.
@@ -586,7 +582,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the name of credit card holder.
      */
@@ -594,7 +589,6 @@ public class TransactionDetailJson {
         this.nameOnCreditCard = nameOnCreditCard;
         return this;
     }
-
 
     /**
      * The expiration date of the attendee's credit card.
@@ -604,7 +598,6 @@ public class TransactionDetailJson {
         return this;
     }
 
-
     /**
      * Billing Address Details
      */
@@ -612,7 +605,6 @@ public class TransactionDetailJson {
         this.billingAddress = billingAddress;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -623,73 +615,109 @@ public class TransactionDetailJson {
             return false;
         }
         TransactionDetailJson other = (TransactionDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.processorTransactionId, other.processorTransactionId) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.orders, other.orders) &&
-            Utils.enhancedDeepEquals(this.journalNumber, other.journalNumber) &&
-            Utils.enhancedDeepEquals(this.paymentType, other.paymentType) &&
-            Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod) &&
-            Utils.enhancedDeepEquals(this.success, other.success) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber) &&
-            Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote) &&
-            Utils.enhancedDeepEquals(this.nameOnCreditCard, other.nameOnCreditCard) &&
-            Utils.enhancedDeepEquals(this.expirationDateOfCreditCard, other.expirationDateOfCreditCard) &&
-            Utils.enhancedDeepEquals(this.billingAddress, other.billingAddress);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.processorTransactionId, other.processorTransactionId)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.orders, other.orders)
+                && Utils.enhancedDeepEquals(this.journalNumber, other.journalNumber)
+                && Utils.enhancedDeepEquals(this.paymentType, other.paymentType)
+                && Utils.enhancedDeepEquals(this.paymentMethod, other.paymentMethod)
+                && Utils.enhancedDeepEquals(this.success, other.success)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.batchNumber, other.batchNumber)
+                && Utils.enhancedDeepEquals(this.referenceNumber, other.referenceNumber)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.paymentNote, other.paymentNote)
+                && Utils.enhancedDeepEquals(this.nameOnCreditCard, other.nameOnCreditCard)
+                && Utils.enhancedDeepEquals(this.expirationDateOfCreditCard, other.expirationDateOfCreditCard)
+                && Utils.enhancedDeepEquals(this.billingAddress, other.billingAddress);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, processorTransactionId,
-            event, attendee, orders,
-            journalNumber, paymentType, paymentMethod,
-            success, date, batchNumber,
-            referenceNumber, amount, currency,
-            paymentNote, nameOnCreditCard, expirationDateOfCreditCard,
-            billingAddress);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                processorTransactionId,
+                event,
+                attendee,
+                orders,
+                journalNumber,
+                paymentType,
+                paymentMethod,
+                success,
+                date,
+                batchNumber,
+                referenceNumber,
+                amount,
+                currency,
+                paymentNote,
+                nameOnCreditCard,
+                expirationDateOfCreditCard,
+                billingAddress);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionDetailJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "processorTransactionId", processorTransactionId,
-                "event", event,
-                "attendee", attendee,
-                "orders", orders,
-                "journalNumber", journalNumber,
-                "paymentType", paymentType,
-                "paymentMethod", paymentMethod,
-                "success", success,
-                "date", date,
-                "batchNumber", batchNumber,
-                "referenceNumber", referenceNumber,
-                "amount", amount,
-                "currency", currency,
-                "paymentNote", paymentNote,
-                "nameOnCreditCard", nameOnCreditCard,
-                "expirationDateOfCreditCard", expirationDateOfCreditCard,
-                "billingAddress", billingAddress);
+        return Utils.toString(
+                TransactionDetailJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "processorTransactionId",
+                processorTransactionId,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "orders",
+                orders,
+                "journalNumber",
+                journalNumber,
+                "paymentType",
+                paymentType,
+                "paymentMethod",
+                paymentMethod,
+                "success",
+                success,
+                "date",
+                date,
+                "batchNumber",
+                batchNumber,
+                "referenceNumber",
+                referenceNumber,
+                "amount",
+                amount,
+                "currency",
+                currency,
+                "paymentNote",
+                paymentNote,
+                "nameOnCreditCard",
+                nameOnCreditCard,
+                "expirationDateOfCreditCard",
+                expirationDateOfCreditCard,
+                "billingAddress",
+                billingAddress);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -736,7 +764,7 @@ public class TransactionDetailJson {
         private BillingAddressJson billingAddress;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -823,7 +851,7 @@ public class TransactionDetailJson {
          * Denotes the type of payment made by an attendee. Authorization: Online payment that has been
          * approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved
          * in Cvent.
-         * 
+         *
          * <p>Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a
          * payment made to the attendee's order electronically in another system of record, or paid in physical
          * currency. Offline Refund: The transaction is a refund issued to the attendee electronically in
@@ -924,15 +952,28 @@ public class TransactionDetailJson {
 
         public TransactionDetailJson build() {
             return new TransactionDetailJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, processorTransactionId,
-                event, attendee, orders,
-                journalNumber, paymentType, paymentMethod,
-                success, date, batchNumber,
-                referenceNumber, amount, currency,
-                paymentNote, nameOnCreditCard, expirationDateOfCreditCard,
-                billingAddress);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    processorTransactionId,
+                    event,
+                    attendee,
+                    orders,
+                    journalNumber,
+                    paymentType,
+                    paymentMethod,
+                    success,
+                    date,
+                    batchNumber,
+                    referenceNumber,
+                    amount,
+                    currency,
+                    paymentNote,
+                    nameOnCreditCard,
+                    expirationDateOfCreditCard,
+                    billingAddress);
         }
-
     }
 }

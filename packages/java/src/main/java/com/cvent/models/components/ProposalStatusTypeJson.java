@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ProposalStatusTypeJson
- * 
+ *
  * <p>The status of the proposal
  */
 public enum ProposalStatusTypeJson {
@@ -34,13 +34,13 @@ public enum ProposalStatusTypeJson {
     ProposalStatusTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ProposalStatusTypeJson> fromValue(String value) {
-        for (ProposalStatusTypeJson o: ProposalStatusTypeJson.values()) {
+        for (ProposalStatusTypeJson o : ProposalStatusTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -48,4 +48,3 @@ public enum ProposalStatusTypeJson {
         return Optional.empty();
     }
 }
-

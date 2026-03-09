@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * LeadQualificationAnswersListResponse
- * 
+ *
  * <p>A JSON schema representing the response for a list of lead qualification answers.
  */
 public class LeadQualificationAnswersListResponse {
@@ -32,7 +32,7 @@ public class LeadQualificationAnswersListResponse {
             @JsonProperty("data") @Nullable List<LeadQualificationAnswersJson> data) {
         this.data = data;
     }
-    
+
     public LeadQualificationAnswersListResponse() {
         this(null);
     }
@@ -48,7 +48,6 @@ public class LeadQualificationAnswersListResponse {
         return new Builder();
     }
 
-
     /**
      * Collection of Lead Qualification Answers.
      */
@@ -56,7 +55,6 @@ public class LeadQualificationAnswersListResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +65,26 @@ public class LeadQualificationAnswersListResponse {
             return false;
         }
         LeadQualificationAnswersListResponse other = (LeadQualificationAnswersListResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadQualificationAnswersListResponse.class,
-                "data", data);
+        return Utils.toString(LeadQualificationAnswersListResponse.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<LeadQualificationAnswersJson> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +96,7 @@ public class LeadQualificationAnswersListResponse {
         }
 
         public LeadQualificationAnswersListResponse build() {
-            return new LeadQualificationAnswersListResponse(
-                data);
+            return new LeadQualificationAnswersListResponse(data);
         }
-
     }
 }

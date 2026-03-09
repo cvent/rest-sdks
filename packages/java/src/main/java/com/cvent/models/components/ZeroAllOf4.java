@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf4
- * 
+ *
  * <p>Booth staff for an activity.
  */
 public class ZeroAllOf4 {
@@ -58,10 +58,9 @@ public class ZeroAllOf4 {
         this.lastName = lastName;
         this.email = email;
     }
-    
+
     public ZeroAllOf4() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ZeroAllOf4 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the exhibitor booth staff.
      */
@@ -104,7 +102,6 @@ public class ZeroAllOf4 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The first name of the booth staff that captured the lead.
@@ -114,7 +111,6 @@ public class ZeroAllOf4 {
         return this;
     }
 
-
     /**
      * The last name of the booth staff that captured the lead.
      */
@@ -123,7 +119,6 @@ public class ZeroAllOf4 {
         return this;
     }
 
-
     /**
      * The email address of the booth staff that captured the lead.
      */
@@ -131,7 +126,6 @@ public class ZeroAllOf4 {
         this.email = email;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,24 @@ public class ZeroAllOf4 {
             return false;
         }
         ZeroAllOf4 other = (ZeroAllOf4) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.email, other.email);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.email, other.email);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, firstName, lastName,
-            email);
+        return Utils.enhancedHash(id, firstName, lastName, email);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf4.class,
-                "id", id,
-                "firstName", firstName,
-                "lastName", lastName,
-                "email", email);
+        return Utils.toString(ZeroAllOf4.class, "id", id, "firstName", firstName, "lastName", lastName, "email", email);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +164,7 @@ public class ZeroAllOf4 {
         private String email;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +200,7 @@ public class ZeroAllOf4 {
         }
 
         public ZeroAllOf4 build() {
-            return new ZeroAllOf4(
-                id, firstName, lastName,
-                email);
+            return new ZeroAllOf4(id, firstName, lastName, email);
         }
-
     }
 }

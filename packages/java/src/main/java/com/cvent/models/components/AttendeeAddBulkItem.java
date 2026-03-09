@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAddBulkItem
- * 
+ *
  * <p>This entity is used to represent a single item that is returned as part of a bulk request call.
  */
 public class AttendeeAddBulkItem {
@@ -52,18 +52,14 @@ public class AttendeeAddBulkItem {
             @JsonProperty("status") long status,
             @JsonProperty("message") @Nullable String message,
             @JsonProperty("request") @Nullable Map<String, Object> request) {
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
         this.status = status;
         this.message = message;
         this.request = request;
     }
-    
-    public AttendeeAddBulkItem(
-            @Nonnull Attendees data,
-            long status) {
-        this(data, status, null,
-            null);
+
+    public AttendeeAddBulkItem(@Nonnull Attendees data, long status) {
+        this(data, status, null, null);
     }
 
     public Attendees data() {
@@ -95,12 +91,10 @@ public class AttendeeAddBulkItem {
         return new Builder();
     }
 
-
     public AttendeeAddBulkItem withData(@Nonnull Attendees data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     /**
      * http status code representing processing status of a single item
@@ -110,7 +104,6 @@ public class AttendeeAddBulkItem {
         return this;
     }
 
-
     /**
      * Quick description of what happened with processing
      */
@@ -119,7 +112,6 @@ public class AttendeeAddBulkItem {
         return this;
     }
 
-
     /**
      * The processed request tied to this response. This field is only sent when processing fails.
      */
@@ -127,7 +119,6 @@ public class AttendeeAddBulkItem {
         this.request = request;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,25 @@ public class AttendeeAddBulkItem {
             return false;
         }
         AttendeeAddBulkItem other = (AttendeeAddBulkItem) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.message, other.message) &&
-            Utils.enhancedDeepEquals(this.request, other.request);
+        return Utils.enhancedDeepEquals(this.data, other.data)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.message, other.message)
+                && Utils.enhancedDeepEquals(this.request, other.request);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data, status, message,
-            request);
+        return Utils.enhancedHash(data, status, message, request);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAddBulkItem.class,
-                "data", data,
-                "status", status,
-                "message", message,
-                "request", request);
+        return Utils.toString(
+                AttendeeAddBulkItem.class, "data", data, "status", status, "message", message, "request", request);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Attendees data;
 
@@ -173,7 +158,7 @@ public class AttendeeAddBulkItem {
         private Map<String, Object> request;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder data(@Nonnull Attendees data) {
@@ -206,10 +191,7 @@ public class AttendeeAddBulkItem {
         }
 
         public AttendeeAddBulkItem build() {
-            return new AttendeeAddBulkItem(
-                data, status, message,
-                request);
+            return new AttendeeAddBulkItem(data, status, message, request);
         }
-
     }
 }

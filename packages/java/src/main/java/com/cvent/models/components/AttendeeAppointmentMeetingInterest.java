@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * AttendeeAppointmentMeetingInterest
- * 
+ *
  * <p>An attendee's meeting interests for an event.
  */
 public class AttendeeAppointmentMeetingInterest {
@@ -88,11 +88,9 @@ public class AttendeeAppointmentMeetingInterest {
         this.lastModified = lastModified;
         this.deleted = deleted;
     }
-    
+
     public AttendeeAppointmentMeetingInterest() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -148,7 +146,6 @@ public class AttendeeAppointmentMeetingInterest {
         return new Builder();
     }
 
-
     /**
      * The unique ID of this meeting interest.
      */
@@ -157,15 +154,14 @@ public class AttendeeAppointmentMeetingInterest {
         return this;
     }
 
-
     /**
      * The appointment attendee the meeting interest is associated to.
      */
-    public AttendeeAppointmentMeetingInterest withAttendee(@Nullable AttendeeAppointmentMeetingInterestAttendee attendee) {
+    public AttendeeAppointmentMeetingInterest withAttendee(
+            @Nullable AttendeeAppointmentMeetingInterestAttendee attendee) {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -175,7 +171,6 @@ public class AttendeeAppointmentMeetingInterest {
         return this;
     }
 
-
     /**
      * An array describing each of the attendee's meeting interests for the given appointment event.
      */
@@ -183,7 +178,6 @@ public class AttendeeAppointmentMeetingInterest {
         this.interests = interests;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date/time when the meeting interest was created.
@@ -193,7 +187,6 @@ public class AttendeeAppointmentMeetingInterest {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date/time when the object was last modified.
      */
@@ -202,7 +195,6 @@ public class AttendeeAppointmentMeetingInterest {
         return this;
     }
 
-
     /**
      * True indicates the record is deleted.
      */
@@ -210,7 +202,6 @@ public class AttendeeAppointmentMeetingInterest {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -221,38 +212,42 @@ public class AttendeeAppointmentMeetingInterest {
             return false;
         }
         AttendeeAppointmentMeetingInterest other = (AttendeeAppointmentMeetingInterest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent) &&
-            Utils.enhancedDeepEquals(this.interests, other.interests) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.appointmentEvent, other.appointmentEvent)
+                && Utils.enhancedDeepEquals(this.interests, other.interests)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, attendee, appointmentEvent,
-            interests, created, lastModified,
-            deleted);
+        return Utils.enhancedHash(id, attendee, appointmentEvent, interests, created, lastModified, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeAppointmentMeetingInterest.class,
-                "id", id,
-                "attendee", attendee,
-                "appointmentEvent", appointmentEvent,
-                "interests", interests,
-                "created", created,
-                "lastModified", lastModified,
-                "deleted", deleted);
+        return Utils.toString(
+                AttendeeAppointmentMeetingInterest.class,
+                "id",
+                id,
+                "attendee",
+                attendee,
+                "appointmentEvent",
+                appointmentEvent,
+                "interests",
+                interests,
+                "created",
+                created,
+                "lastModified",
+                lastModified,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -269,7 +264,7 @@ public class AttendeeAppointmentMeetingInterest {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -330,10 +325,7 @@ public class AttendeeAppointmentMeetingInterest {
 
         public AttendeeAppointmentMeetingInterest build() {
             return new AttendeeAppointmentMeetingInterest(
-                id, attendee, appointmentEvent,
-                interests, created, lastModified,
-                deleted);
+                    id, attendee, appointmentEvent, interests, created, lastModified, deleted);
         }
-
     }
 }

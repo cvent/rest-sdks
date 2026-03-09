@@ -18,13 +18,13 @@ public enum Expand {
     Expand(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Expand> fromValue(String value) {
-        for (Expand o: Expand.values()) {
+        for (Expand o : Expand.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -32,4 +32,3 @@ public enum Expand {
         return Optional.empty();
     }
 }
-

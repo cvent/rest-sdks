@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable EventSurveyRespondent eventSurveyRespondent) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventSurveyRespondent = eventSurveyRespondent;
     }
-    
+
     public UpdateEventSurveyRespondentResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully updated respondent for event survey.
      */
-    public UpdateEventSurveyRespondentResponse withEventSurveyRespondent(@Nullable EventSurveyRespondent eventSurveyRespondent) {
+    public UpdateEventSurveyRespondentResponse withEventSurveyRespondent(
+            @Nullable EventSurveyRespondent eventSurveyRespondent) {
         this.eventSurveyRespondent = eventSurveyRespondent;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
             return false;
         }
         UpdateEventSurveyRespondentResponse other = (UpdateEventSurveyRespondentResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventSurveyRespondent, other.eventSurveyRespondent);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventSurveyRespondent, other.eventSurveyRespondent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventSurveyRespondent);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventSurveyRespondent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateEventSurveyRespondentResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventSurveyRespondent", eventSurveyRespondent);
+        return Utils.toString(
+                UpdateEventSurveyRespondentResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventSurveyRespondent",
+                eventSurveyRespondent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         private EventSurveyRespondent eventSurveyRespondent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +203,7 @@ public class UpdateEventSurveyRespondentResponse implements AsyncResponse {
         }
 
         public UpdateEventSurveyRespondentResponse build() {
-            return new UpdateEventSurveyRespondentResponse(
-                contentType, statusCode, rawResponse,
-                eventSurveyRespondent);
+            return new UpdateEventSurveyRespondentResponse(contentType, statusCode, rawResponse, eventSurveyRespondent);
         }
-
     }
 }

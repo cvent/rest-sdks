@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * AppointmentTypeJson
- * 
+ *
  * <p>This is used for storing details of an appointment type.
  */
 public class AppointmentTypeJson {
@@ -49,14 +49,12 @@ public class AppointmentTypeJson {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("category") @Nonnull AppointmentTypeCategoryJson category,
             @JsonProperty("timeRangeType") @Nonnull TimeRangeTypeJson timeRangeType) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.category = Optional.ofNullable(category)
-            .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("category cannot be null"));
         this.timeRangeType = Optional.ofNullable(timeRangeType)
-            .orElseThrow(() -> new IllegalArgumentException("timeRangeType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("timeRangeType cannot be null"));
     }
 
     /**
@@ -93,7 +91,6 @@ public class AppointmentTypeJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing the appointment type.
      */
@@ -101,7 +98,6 @@ public class AppointmentTypeJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The name of the appointment type.
@@ -111,7 +107,6 @@ public class AppointmentTypeJson {
         return this;
     }
 
-
     /**
      * The category of the appointment type.
      */
@@ -119,7 +114,6 @@ public class AppointmentTypeJson {
         this.category = Utils.checkNotNull(category, "category");
         return this;
     }
-
 
     /**
      * DEFINED: Appointments of this type can be created at time intervals and locations created by the
@@ -131,7 +125,6 @@ public class AppointmentTypeJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -141,31 +134,33 @@ public class AppointmentTypeJson {
             return false;
         }
         AppointmentTypeJson other = (AppointmentTypeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.category, other.category) &&
-            Utils.enhancedDeepEquals(this.timeRangeType, other.timeRangeType);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.category, other.category)
+                && Utils.enhancedDeepEquals(this.timeRangeType, other.timeRangeType);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, category,
-            timeRangeType);
+        return Utils.enhancedHash(id, name, category, timeRangeType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AppointmentTypeJson.class,
-                "id", id,
-                "name", name,
-                "category", category,
-                "timeRangeType", timeRangeType);
+        return Utils.toString(
+                AppointmentTypeJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "category",
+                category,
+                "timeRangeType",
+                timeRangeType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -176,7 +171,7 @@ public class AppointmentTypeJson {
         private TimeRangeTypeJson timeRangeType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +209,7 @@ public class AppointmentTypeJson {
         }
 
         public AppointmentTypeJson build() {
-            return new AppointmentTypeJson(
-                id, name, category,
-                timeRangeType);
+            return new AppointmentTypeJson(id, name, category, timeRangeType);
         }
-
     }
 }

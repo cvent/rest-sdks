@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetUsageRequest {
     /**
      * Returns usage for the seven days before (inclusive) the date provided. If after is also provided,
@@ -34,13 +33,11 @@ public class GetUsageRequest {
     private String after;
 
     @JsonCreator
-    public GetUsageRequest(
-            @Nullable String before,
-            @Nullable String after) {
+    public GetUsageRequest(@Nullable String before, @Nullable String after) {
         this.before = before;
         this.after = after;
     }
-    
+
     public GetUsageRequest() {
         this(null, null);
     }
@@ -71,7 +68,6 @@ public class GetUsageRequest {
         return new Builder();
     }
 
-
     /**
      * Returns usage for the seven days before (inclusive) the date provided. If after is also provided,
      * then
@@ -83,7 +79,6 @@ public class GetUsageRequest {
         this.before = before;
         return this;
     }
-
 
     /**
      * Returns usage for the seven days after (inclusive) the date provided. If before is also provided,
@@ -97,7 +92,6 @@ public class GetUsageRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -107,33 +101,28 @@ public class GetUsageRequest {
             return false;
         }
         GetUsageRequest other = (GetUsageRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.after, other.after);
+        return Utils.enhancedDeepEquals(this.before, other.before) && Utils.enhancedDeepEquals(this.after, other.after);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            before, after);
+        return Utils.enhancedHash(before, after);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetUsageRequest.class,
-                "before", before,
-                "after", after);
+        return Utils.toString(GetUsageRequest.class, "before", before, "after", after);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String before;
 
         private String after;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -161,9 +150,7 @@ public class GetUsageRequest {
         }
 
         public GetUsageRequest build() {
-            return new GetUsageRequest(
-                before, after);
+            return new GetUsageRequest(before, after);
         }
-
     }
 }

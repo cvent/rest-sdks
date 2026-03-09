@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateEventDiscountRequest {
     /**
      * Unique ID of an event.
@@ -35,19 +34,14 @@ public class UpdateEventDiscountRequest {
 
     @JsonCreator
     public UpdateEventDiscountRequest(
-            @Nonnull String id,
-            @Nonnull String discountId,
-            @Nullable CreateUpdateDiscount createUpdateDiscount) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String discountId, @Nullable CreateUpdateDiscount createUpdateDiscount) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.discountId = Optional.ofNullable(discountId)
-            .orElseThrow(() -> new IllegalArgumentException("discountId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("discountId cannot be null"));
         this.createUpdateDiscount = createUpdateDiscount;
     }
-    
-    public UpdateEventDiscountRequest(
-            @Nonnull String id,
-            @Nonnull String discountId) {
+
+    public UpdateEventDiscountRequest(@Nonnull String id, @Nonnull String discountId) {
         this(id, discountId, null);
     }
 
@@ -76,7 +70,6 @@ public class UpdateEventDiscountRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -84,7 +77,6 @@ public class UpdateEventDiscountRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a discount.
@@ -94,7 +86,6 @@ public class UpdateEventDiscountRequest {
         return this;
     }
 
-
     /**
      * Discount to be updated.
      */
@@ -102,7 +93,6 @@ public class UpdateEventDiscountRequest {
         this.createUpdateDiscount = createUpdateDiscount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -113,28 +103,30 @@ public class UpdateEventDiscountRequest {
             return false;
         }
         UpdateEventDiscountRequest other = (UpdateEventDiscountRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.discountId, other.discountId) &&
-            Utils.enhancedDeepEquals(this.createUpdateDiscount, other.createUpdateDiscount);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.discountId, other.discountId)
+                && Utils.enhancedDeepEquals(this.createUpdateDiscount, other.createUpdateDiscount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, discountId, createUpdateDiscount);
+        return Utils.enhancedHash(id, discountId, createUpdateDiscount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateEventDiscountRequest.class,
-                "id", id,
-                "discountId", discountId,
-                "createUpdateDiscount", createUpdateDiscount);
+        return Utils.toString(
+                UpdateEventDiscountRequest.class,
+                "id",
+                id,
+                "discountId",
+                discountId,
+                "createUpdateDiscount",
+                createUpdateDiscount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -143,7 +135,7 @@ public class UpdateEventDiscountRequest {
         private CreateUpdateDiscount createUpdateDiscount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -171,9 +163,7 @@ public class UpdateEventDiscountRequest {
         }
 
         public UpdateEventDiscountRequest build() {
-            return new UpdateEventDiscountRequest(
-                id, discountId, createUpdateDiscount);
+            return new UpdateEventDiscountRequest(id, discountId, createUpdateDiscount);
         }
-
     }
 }

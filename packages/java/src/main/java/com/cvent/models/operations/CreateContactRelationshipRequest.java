@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateContactRelationshipRequest {
     /**
      * ID of a contact.
@@ -26,13 +25,10 @@ public class CreateContactRelationshipRequest {
     private String relatedContactId;
 
     @JsonCreator
-    public CreateContactRelationshipRequest(
-            @Nonnull String id,
-            @Nonnull String relatedContactId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public CreateContactRelationshipRequest(@Nonnull String id, @Nonnull String relatedContactId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.relatedContactId = Optional.ofNullable(relatedContactId)
-            .orElseThrow(() -> new IllegalArgumentException("relatedContactId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("relatedContactId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class CreateContactRelationshipRequest {
         return new Builder();
     }
 
-
     /**
      * ID of a contact.
      */
@@ -62,7 +57,6 @@ public class CreateContactRelationshipRequest {
         return this;
     }
 
-
     /**
      * ID of a related contact.
      */
@@ -70,7 +64,6 @@ public class CreateContactRelationshipRequest {
         this.relatedContactId = Utils.checkNotNull(relatedContactId, "relatedContactId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class CreateContactRelationshipRequest {
             return false;
         }
         CreateContactRelationshipRequest other = (CreateContactRelationshipRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.relatedContactId, other.relatedContactId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.relatedContactId, other.relatedContactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, relatedContactId);
+        return Utils.enhancedHash(id, relatedContactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateContactRelationshipRequest.class,
-                "id", id,
-                "relatedContactId", relatedContactId);
+        return Utils.toString(CreateContactRelationshipRequest.class, "id", id, "relatedContactId", relatedContactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String relatedContactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class CreateContactRelationshipRequest {
         }
 
         public CreateContactRelationshipRequest build() {
-            return new CreateContactRelationshipRequest(
-                id, relatedContactId);
+            return new CreateContactRelationshipRequest(id, relatedContactId);
         }
-
     }
 }

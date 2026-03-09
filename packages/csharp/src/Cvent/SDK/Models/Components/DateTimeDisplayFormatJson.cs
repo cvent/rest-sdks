@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DateTimeDisplayFormatJson
     {
-        [JsonProperty("DateAndTimeMonthFirst12HourTime")]
-        DateAndTimeMonthFirst12HourTime,
-        [JsonProperty("DateAndTimeMonthFirst24HourTime")]
-        DateAndTimeMonthFirst24HourTime,
-        [JsonProperty("DateOnlyMonthFirst")]
-        DateOnlyMonthFirst,
-        [JsonProperty("DateAndTimeDayFirst12HourTime")]
-        DateAndTimeDayFirst12HourTime,
-        [JsonProperty("DateAndTimeDayFirst24HourTime")]
-        DateAndTimeDayFirst24HourTime,
-        [JsonProperty("DateOnlyDayFirst")]
-        DateOnlyDayFirst,
+        [JsonProperty("DateAndTimeMonthFirst12HourTime")] DateAndTimeMonthFirst12HourTime,
+        [JsonProperty("DateAndTimeMonthFirst24HourTime")] DateAndTimeMonthFirst24HourTime,
+        [JsonProperty("DateOnlyMonthFirst")] DateOnlyMonthFirst,
+        [JsonProperty("DateAndTimeDayFirst12HourTime")] DateAndTimeDayFirst12HourTime,
+        [JsonProperty("DateAndTimeDayFirst24HourTime")] DateAndTimeDayFirst24HourTime,
+        [JsonProperty("DateOnlyDayFirst")] DateOnlyDayFirst,
     }
 
     public static class DateTimeDisplayFormatJsonExtension
     {
         public static string Value(this DateTimeDisplayFormatJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DateTimeDisplayFormatJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DateTimeDisplayFormatJson).GetFields())
+            foreach (var field in typeof(DateTimeDisplayFormatJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

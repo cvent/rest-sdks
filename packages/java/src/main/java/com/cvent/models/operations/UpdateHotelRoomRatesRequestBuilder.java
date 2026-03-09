@@ -28,7 +28,7 @@ public class UpdateHotelRoomRatesRequestBuilder {
     private UpdateHotelRoomRatesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateHotelRoomRatesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateHotelRoomRatesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateHotelRoomRatesResponse call() {
-        RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation
-              = new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
+                new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

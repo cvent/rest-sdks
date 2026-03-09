@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * VideoAssetIdJson
- * 
+ *
  * <p>Video that this asset was created with.
  */
 public class VideoAssetIdJson {
@@ -24,10 +24,8 @@ public class VideoAssetIdJson {
     private String id;
 
     @JsonCreator
-    public VideoAssetIdJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public VideoAssetIdJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class VideoAssetIdJson {
         return new Builder();
     }
 
-
     /**
      * The identifier of a video.
      */
@@ -49,7 +46,6 @@ public class VideoAssetIdJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class VideoAssetIdJson {
             return false;
         }
         VideoAssetIdJson other = (VideoAssetIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoAssetIdJson.class,
-                "id", id);
+        return Utils.toString(VideoAssetIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class VideoAssetIdJson {
         }
 
         public VideoAssetIdJson build() {
-            return new VideoAssetIdJson(
-                id);
+            return new VideoAssetIdJson(id);
         }
-
     }
 }

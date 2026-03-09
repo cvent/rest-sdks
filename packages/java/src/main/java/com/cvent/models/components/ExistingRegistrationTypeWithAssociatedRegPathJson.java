@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingRegistrationTypeWithAssociatedRegPathJson
- * 
+ *
  * <p>Represents the details of an existing registration type and registration path associated to it.
  */
 public class ExistingRegistrationTypeWithAssociatedRegPathJson {
@@ -120,19 +120,13 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         this.automaticOpenDate = automaticOpenDate;
         this.automaticEndDate = automaticEndDate;
         this.event = event;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.capacity = capacity;
         this.registrationPath = registrationPath;
     }
-    
-    public ExistingRegistrationTypeWithAssociatedRegPathJson(
-            boolean openForRegistration,
-            @Nonnull String id) {
-        this(null, null, null,
-            null, openForRegistration, null,
-            null, null, id,
-            null, null);
+
+    public ExistingRegistrationTypeWithAssociatedRegPathJson(boolean openForRegistration, @Nonnull String id) {
+        this(null, null, null, null, openForRegistration, null, null, null, id, null, null);
     }
 
     /**
@@ -218,7 +212,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return new Builder();
     }
 
-
     /**
      * Name of the registration type.
      */
@@ -226,7 +219,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Code for this registration type.
@@ -236,7 +228,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return this;
     }
 
-
     /**
      * Detailed description of the registration type.
      */
@@ -244,7 +235,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         this.description = description;
         return this;
     }
-
 
     /**
      * True indicates the registration type is virtual.
@@ -254,7 +244,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return this;
     }
 
-
     /**
      * True indicates the registration type can be chosen for registration.
      */
@@ -263,35 +252,34 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically opens for
      * registration.
      */
-    public ExistingRegistrationTypeWithAssociatedRegPathJson withAutomaticOpenDate(@Nullable OffsetDateTime automaticOpenDate) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJson withAutomaticOpenDate(
+            @Nullable OffsetDateTime automaticOpenDate) {
         this.automaticOpenDate = automaticOpenDate;
         return this;
     }
-
 
     /**
      * The ISO 8601 formatted date-time (in UTC) the registration type automatically closes for
      * registration.
      */
-    public ExistingRegistrationTypeWithAssociatedRegPathJson withAutomaticEndDate(@Nullable OffsetDateTime automaticEndDate) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJson withAutomaticEndDate(
+            @Nullable OffsetDateTime automaticEndDate) {
         this.automaticEndDate = automaticEndDate;
         return this;
     }
 
-
     /**
      * Event associated with the registration.
      */
-    public ExistingRegistrationTypeWithAssociatedRegPathJson withEvent(@Nullable ExistingRegistrationTypeWithAssociatedRegPathJsonEvent event) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJson withEvent(
+            @Nullable ExistingRegistrationTypeWithAssociatedRegPathJsonEvent event) {
         this.event = event;
         return this;
     }
-
 
     /**
      * A unique identifier of the registration type.
@@ -301,7 +289,6 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return this;
     }
 
-
     /**
      * Represents capacity statistics of the registration type.
      */
@@ -310,15 +297,14 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         return this;
     }
 
-
     /**
      * Represents the details of a registration path.
      */
-    public ExistingRegistrationTypeWithAssociatedRegPathJson withRegistrationPath(@Nullable AssociatedRegistrationPathJson registrationPath) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJson withRegistrationPath(
+            @Nullable AssociatedRegistrationPathJson registrationPath) {
         this.registrationPath = registrationPath;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -329,47 +315,65 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
             return false;
         }
         ExistingRegistrationTypeWithAssociatedRegPathJson other = (ExistingRegistrationTypeWithAssociatedRegPathJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.virtual, other.virtual) &&
-            Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration) &&
-            Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate) &&
-            Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.capacity, other.capacity) &&
-            Utils.enhancedDeepEquals(this.registrationPath, other.registrationPath);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.virtual, other.virtual)
+                && Utils.enhancedDeepEquals(this.openForRegistration, other.openForRegistration)
+                && Utils.enhancedDeepEquals(this.automaticOpenDate, other.automaticOpenDate)
+                && Utils.enhancedDeepEquals(this.automaticEndDate, other.automaticEndDate)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.capacity, other.capacity)
+                && Utils.enhancedDeepEquals(this.registrationPath, other.registrationPath);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            name, code, description,
-            virtual, openForRegistration, automaticOpenDate,
-            automaticEndDate, event, id,
-            capacity, registrationPath);
+                name,
+                code,
+                description,
+                virtual,
+                openForRegistration,
+                automaticOpenDate,
+                automaticEndDate,
+                event,
+                id,
+                capacity,
+                registrationPath);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingRegistrationTypeWithAssociatedRegPathJson.class,
-                "name", name,
-                "code", code,
-                "description", description,
-                "virtual", virtual,
-                "openForRegistration", openForRegistration,
-                "automaticOpenDate", automaticOpenDate,
-                "automaticEndDate", automaticEndDate,
-                "event", event,
-                "id", id,
-                "capacity", capacity,
-                "registrationPath", registrationPath);
+        return Utils.toString(
+                ExistingRegistrationTypeWithAssociatedRegPathJson.class,
+                "name",
+                name,
+                "code",
+                code,
+                "description",
+                description,
+                "virtual",
+                virtual,
+                "openForRegistration",
+                openForRegistration,
+                "automaticOpenDate",
+                automaticOpenDate,
+                "automaticEndDate",
+                automaticEndDate,
+                "event",
+                event,
+                "id",
+                id,
+                "capacity",
+                capacity,
+                "registrationPath",
+                registrationPath);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -394,7 +398,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         private AssociatedRegistrationPathJson registrationPath;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -489,11 +493,17 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
 
         public ExistingRegistrationTypeWithAssociatedRegPathJson build() {
             return new ExistingRegistrationTypeWithAssociatedRegPathJson(
-                name, code, description,
-                virtual, openForRegistration, automaticOpenDate,
-                automaticEndDate, event, id,
-                capacity, registrationPath);
+                    name,
+                    code,
+                    description,
+                    virtual,
+                    openForRegistration,
+                    automaticOpenDate,
+                    automaticEndDate,
+                    event,
+                    id,
+                    capacity,
+                    registrationPath);
         }
-
     }
 }

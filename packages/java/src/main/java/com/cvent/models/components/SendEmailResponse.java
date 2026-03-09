@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SendEmailResponse
- * 
+ *
  * <p>Response object containing a request ID and a list of all email responses sent to recipients.
  */
 public class SendEmailResponse {
@@ -62,21 +62,20 @@ public class SendEmailResponse {
             @JsonProperty("status") @Nullable SendEmailRequestStatusJson status,
             @JsonProperty("description") @Nullable String description) {
         this.requestId = Optional.ofNullable(requestId)
-            .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
         this.templateId = Optional.ofNullable(templateId)
-            .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
         this.recipientResponse = Optional.ofNullable(recipientResponse)
-            .orElseThrow(() -> new IllegalArgumentException("recipientResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("recipientResponse cannot be null"));
         this.status = status;
         this.description = description;
     }
-    
+
     public SendEmailResponse(
             @Nonnull String requestId,
             @Nonnull String templateId,
             @Nonnull List<RecipientsResponseJson> recipientResponse) {
-        this(requestId, templateId, recipientResponse,
-            null, null);
+        this(requestId, templateId, recipientResponse, null, null);
     }
 
     /**
@@ -119,7 +118,6 @@ public class SendEmailResponse {
         return new Builder();
     }
 
-
     /**
      * The request ID for the eMarketing email send request.
      */
@@ -127,7 +125,6 @@ public class SendEmailResponse {
         this.requestId = Utils.checkNotNull(requestId, "requestId");
         return this;
     }
-
 
     /**
      * The template ID of the eMarketing email.
@@ -137,7 +134,6 @@ public class SendEmailResponse {
         return this;
     }
 
-
     /**
      * List of responses specifying the status of email request for each recipient.
      */
@@ -146,7 +142,6 @@ public class SendEmailResponse {
         return this;
     }
 
-
     /**
      * Denotes the status of the send email request.
      */
@@ -154,7 +149,6 @@ public class SendEmailResponse {
         this.status = status;
         return this;
     }
-
 
     /**
      * The description of the request status. If the `status` is `ERROR`, this field contains the reason
@@ -165,7 +159,6 @@ public class SendEmailResponse {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -175,33 +168,36 @@ public class SendEmailResponse {
             return false;
         }
         SendEmailResponse other = (SendEmailResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.requestId, other.requestId) &&
-            Utils.enhancedDeepEquals(this.templateId, other.templateId) &&
-            Utils.enhancedDeepEquals(this.recipientResponse, other.recipientResponse) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.description, other.description);
+        return Utils.enhancedDeepEquals(this.requestId, other.requestId)
+                && Utils.enhancedDeepEquals(this.templateId, other.templateId)
+                && Utils.enhancedDeepEquals(this.recipientResponse, other.recipientResponse)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.description, other.description);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            requestId, templateId, recipientResponse,
-            status, description);
+        return Utils.enhancedHash(requestId, templateId, recipientResponse, status, description);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEmailResponse.class,
-                "requestId", requestId,
-                "templateId", templateId,
-                "recipientResponse", recipientResponse,
-                "status", status,
-                "description", description);
+        return Utils.toString(
+                SendEmailResponse.class,
+                "requestId",
+                requestId,
+                "templateId",
+                templateId,
+                "recipientResponse",
+                recipientResponse,
+                "status",
+                status,
+                "description",
+                description);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String requestId;
 
@@ -214,7 +210,7 @@ public class SendEmailResponse {
         private String description;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -259,10 +255,7 @@ public class SendEmailResponse {
         }
 
         public SendEmailResponse build() {
-            return new SendEmailResponse(
-                requestId, templateId, recipientResponse,
-                status, description);
+            return new SendEmailResponse(requestId, templateId, recipientResponse, status, description);
         }
-
     }
 }

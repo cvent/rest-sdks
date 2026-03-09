@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Two
- * 
+ *
  * <p>This is used to denote the open ended comment box type of custom field.
  */
 public class Two {
@@ -35,13 +35,11 @@ public class Two {
     private Long maximum;
 
     @JsonCreator
-    public Two(
-            @JsonProperty("minimum") @Nullable Long minimum,
-            @JsonProperty("maximum") @Nullable Long maximum) {
+    public Two(@JsonProperty("minimum") @Nullable Long minimum, @JsonProperty("maximum") @Nullable Long maximum) {
         this.minimum = minimum;
         this.maximum = maximum;
     }
-    
+
     public Two() {
         this(null, null);
     }
@@ -64,7 +62,6 @@ public class Two {
         return new Builder();
     }
 
-
     /**
      * Minimum number/characters allowed.
      */
@@ -73,7 +70,6 @@ public class Two {
         return this;
     }
 
-
     /**
      * Maximum number/characters allowed.
      */
@@ -81,7 +77,6 @@ public class Two {
         this.maximum = maximum;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +87,29 @@ public class Two {
             return false;
         }
         Two other = (Two) o;
-        return 
-            Utils.enhancedDeepEquals(this.minimum, other.minimum) &&
-            Utils.enhancedDeepEquals(this.maximum, other.maximum);
+        return Utils.enhancedDeepEquals(this.minimum, other.minimum)
+                && Utils.enhancedDeepEquals(this.maximum, other.maximum);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            minimum, maximum);
+        return Utils.enhancedHash(minimum, maximum);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Two.class,
-                "minimum", minimum,
-                "maximum", maximum);
+        return Utils.toString(Two.class, "minimum", minimum, "maximum", maximum);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long minimum;
 
         private Long maximum;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +129,7 @@ public class Two {
         }
 
         public Two build() {
-            return new Two(
-                minimum, maximum);
+            return new Two(minimum, maximum);
         }
-
     }
 }

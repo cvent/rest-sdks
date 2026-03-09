@@ -2,6 +2,14 @@
 
 This is used to denote type of a video
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = VideoTypeJson.Mpg2;
+```
+
 
 ## Values
 

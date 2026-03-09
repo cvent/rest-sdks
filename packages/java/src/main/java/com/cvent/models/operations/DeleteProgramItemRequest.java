@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteProgramItemRequest {
     /**
      * Unique ID of a session program item.
@@ -20,10 +19,9 @@ public class DeleteProgramItemRequest {
     private String programItemId;
 
     @JsonCreator
-    public DeleteProgramItemRequest(
-            @Nonnull String programItemId) {
+    public DeleteProgramItemRequest(@Nonnull String programItemId) {
         this.programItemId = Optional.ofNullable(programItemId)
-            .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItemId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class DeleteProgramItemRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of a session program item.
      */
@@ -45,7 +42,6 @@ public class DeleteProgramItemRequest {
         this.programItemId = Utils.checkNotNull(programItemId, "programItemId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class DeleteProgramItemRequest {
             return false;
         }
         DeleteProgramItemRequest other = (DeleteProgramItemRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.programItemId, other.programItemId);
+        return Utils.enhancedDeepEquals(this.programItemId, other.programItemId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            programItemId);
+        return Utils.enhancedHash(programItemId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteProgramItemRequest.class,
-                "programItemId", programItemId);
+        return Utils.toString(DeleteProgramItemRequest.class, "programItemId", programItemId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String programItemId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class DeleteProgramItemRequest {
         }
 
         public DeleteProgramItemRequest build() {
-            return new DeleteProgramItemRequest(
-                programItemId);
+            return new DeleteProgramItemRequest(programItemId);
         }
-
     }
 }

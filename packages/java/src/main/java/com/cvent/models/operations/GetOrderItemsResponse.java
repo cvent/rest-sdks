@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetOrderItemsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetOrderItemsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable OrderItemsPaginatedResponse orderItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.orderItemsPaginatedResponse = orderItemsPaginatedResponse;
     }
-    
+
     public GetOrderItemsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetOrderItemsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetOrderItemsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetOrderItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetOrderItemsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a Paginated list of Order items in event.
      */
-    public GetOrderItemsResponse withOrderItemsPaginatedResponse(@Nullable OrderItemsPaginatedResponse orderItemsPaginatedResponse) {
+    public GetOrderItemsResponse withOrderItemsPaginatedResponse(
+            @Nullable OrderItemsPaginatedResponse orderItemsPaginatedResponse) {
         this.orderItemsPaginatedResponse = orderItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetOrderItemsResponse implements Response {
             return false;
         }
         GetOrderItemsResponse other = (GetOrderItemsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.orderItemsPaginatedResponse, other.orderItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.orderItemsPaginatedResponse, other.orderItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            orderItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, orderItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetOrderItemsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "orderItemsPaginatedResponse", orderItemsPaginatedResponse);
+        return Utils.toString(
+                GetOrderItemsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "orderItemsPaginatedResponse",
+                orderItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetOrderItemsResponse implements Response {
         private OrderItemsPaginatedResponse orderItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class GetOrderItemsResponse implements Response {
         }
 
         public GetOrderItemsResponse build() {
-            return new GetOrderItemsResponse(
-                contentType, statusCode, rawResponse,
-                orderItemsPaginatedResponse);
+            return new GetOrderItemsResponse(contentType, statusCode, rawResponse, orderItemsPaginatedResponse);
         }
-
     }
 }

@@ -20,24 +20,54 @@ namespace Cvent.SDK.Models.Components
 
     public class CompositeValueJsonType
     {
-        private CompositeValueJsonType(string value) { Value = value; }
+        private CompositeValueJsonType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static CompositeValueJsonType ArrayOfMeetingRoomRequirementJson { get { return new CompositeValueJsonType("arrayOfMeetingRoomRequirementJson"); } }
+        public static CompositeValueJsonType ArrayOfMeetingRoomRequirementJson
+        {
+            get {
+                return new CompositeValueJsonType("arrayOfMeetingRoomRequirementJson");
+            }
+        }
 
-        public static CompositeValueJsonType ArrayOfSleepingRoomRequirementJson { get { return new CompositeValueJsonType("arrayOfSleepingRoomRequirementJson"); } }
+        public static CompositeValueJsonType ArrayOfSleepingRoomRequirementJson
+        {
+            get {
+                return new CompositeValueJsonType("arrayOfSleepingRoomRequirementJson");
+            }
+        }
 
-        public static CompositeValueJsonType ArrayOfBudgetEstimateJson { get { return new CompositeValueJsonType("arrayOfBudgetEstimateJson"); } }
+        public static CompositeValueJsonType ArrayOfBudgetEstimateJson
+        {
+            get {
+                return new CompositeValueJsonType("arrayOfBudgetEstimateJson");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(CompositeValueJsonType v) { return v.Value; }
-        public static CompositeValueJsonType FromString(string v) {
-            switch(v) {
-                case "arrayOfMeetingRoomRequirementJson": return ArrayOfMeetingRoomRequirementJson;
-                case "arrayOfSleepingRoomRequirementJson": return ArrayOfSleepingRoomRequirementJson;
-                case "arrayOfBudgetEstimateJson": return ArrayOfBudgetEstimateJson;
-                default: throw new ArgumentException("Invalid value for CompositeValueJsonType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(CompositeValueJsonType v)
+        {
+            return v.Value;
+        }
+        public static CompositeValueJsonType FromString(string v)
+        {
+            switch (v)
+            {
+                case "arrayOfMeetingRoomRequirementJson":
+                    return ArrayOfMeetingRoomRequirementJson;
+                case "arrayOfSleepingRoomRequirementJson":
+                    return ArrayOfSleepingRoomRequirementJson;
+                case "arrayOfBudgetEstimateJson":
+                    return ArrayOfBudgetEstimateJson;
+                default:
+                    throw new ArgumentException("Invalid value for CompositeValueJsonType");
             }
         }
         public override bool Equals(object? obj)
@@ -119,8 +149,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfMeetingRoomRequirementJson)
-                    {
+                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfMeetingRoomRequirementJson) {
                         ArrayOfMeetingRoomRequirementJson = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<MeetingRoomRequirementJson>>(json)
                     };
                 }
@@ -139,8 +168,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfSleepingRoomRequirementJson)
-                    {
+                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfSleepingRoomRequirementJson) {
                         ArrayOfSleepingRoomRequirementJson = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<SleepingRoomRequirementJson>>(json)
                     };
                 }
@@ -159,8 +187,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfBudgetEstimateJson)
-                    {
+                    return new CompositeValueJson(CompositeValueJsonType.ArrayOfBudgetEstimateJson) {
                         ArrayOfBudgetEstimateJson = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<List<BudgetEstimateJson>>(json)
                     };
                 }
@@ -180,7 +207,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -227,8 +254,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

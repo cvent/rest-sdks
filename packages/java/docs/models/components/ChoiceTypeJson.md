@@ -2,6 +2,14 @@
 
 The type for the event question choice.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ChoiceTypeJson;
+
+ChoiceTypeJson value = ChoiceTypeJson.STANDARD_CHOICE;
+```
+
 
 ## Values
 

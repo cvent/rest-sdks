@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * VenueJsonInput
- * 
+ *
  * <p>An Event Venue
  */
 public class VenueJsonInput {
@@ -40,7 +40,7 @@ public class VenueJsonInput {
         this.name = name;
         this.address = address;
     }
-    
+
     public VenueJsonInput() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class VenueJsonInput {
         return new Builder();
     }
 
-
     /**
      * The name of the venue.
      */
@@ -72,7 +71,6 @@ public class VenueJsonInput {
         return this;
     }
 
-
     /**
      * Venue Address details
      */
@@ -80,7 +78,6 @@ public class VenueJsonInput {
         this.address = address;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,28 @@ public class VenueJsonInput {
             return false;
         }
         VenueJsonInput other = (VenueJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.address, other.address);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.address, other.address);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, address);
+        return Utils.enhancedHash(name, address);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VenueJsonInput.class,
-                "name", name,
-                "address", address);
+        return Utils.toString(VenueJsonInput.class, "name", name, "address", address);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private VenueAddressJsonInput address;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +129,7 @@ public class VenueJsonInput {
         }
 
         public VenueJsonInput build() {
-            return new VenueJsonInput(
-                name, address);
+            return new VenueJsonInput(name, address);
         }
-
     }
 }

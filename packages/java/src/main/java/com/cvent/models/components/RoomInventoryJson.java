@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * RoomInventoryJson
- * 
+ *
  * <p>Room inventory details for single night.
  */
 public class RoomInventoryJson {
@@ -156,8 +156,7 @@ public class RoomInventoryJson {
             @JsonProperty("unassigned") @Nullable Long unassigned,
             @JsonProperty("allocation") @Nullable List<AttendeeInventoryJson> allocation) {
         this.hideRates = hideRates;
-        this.rate = Optional.ofNullable(rate)
-            .orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
+        this.rate = Optional.ofNullable(rate).orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
         this.originalBlock = originalBlock;
         this.currentBlock = currentBlock;
         this.pickup = pickup;
@@ -167,18 +166,16 @@ public class RoomInventoryJson {
         this.waitListRequests = waitListRequests;
         this.available = available;
         this.housingEvent = Optional.ofNullable(housingEvent)
-            .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
-        this.hotel = Optional.ofNullable(hotel)
-            .orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
+        this.hotel = Optional.ofNullable(hotel).orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
         this.roomType = Optional.ofNullable(roomType)
-            .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.freeSell = freeSell;
         this.unassigned = unassigned;
         this.allocation = allocation;
     }
-    
+
     public RoomInventoryJson(
             @Nonnull NightRateJson rate,
             long currentBlock,
@@ -188,12 +185,24 @@ public class RoomInventoryJson {
             @Nonnull HotelIdJson hotel,
             @Nonnull RoomIdJson roomType,
             @Nonnull LocalDate date) {
-        this(null, rate, null,
-            currentBlock, pickup, null,
-            null, null, null,
-            available, housingEvent, hotel,
-            roomType, date, null,
-            null, null);
+        this(
+                null,
+                rate,
+                null,
+                currentBlock,
+                pickup,
+                null,
+                null,
+                null,
+                null,
+                available,
+                housingEvent,
+                hotel,
+                roomType,
+                date,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -320,7 +329,6 @@ public class RoomInventoryJson {
         return new Builder();
     }
 
-
     /**
      * Indicates if rates are hidden on booking site for this night.
      */
@@ -328,7 +336,6 @@ public class RoomInventoryJson {
         this.hideRates = hideRates;
         return this;
     }
-
 
     /**
      * Rate details for single night.
@@ -338,7 +345,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Number of inventory blocked on event creation.
      */
@@ -346,7 +352,6 @@ public class RoomInventoryJson {
         this.originalBlock = originalBlock;
         return this;
     }
-
 
     /**
      * Current inventory number.
@@ -356,7 +361,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Number of rooms sold.
      */
@@ -364,7 +368,6 @@ public class RoomInventoryJson {
         this.pickup = pickup;
         return this;
     }
-
 
     /**
      * Reported number of sold rooms.
@@ -374,7 +377,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Maximum number of guests the room can accommodate.
      */
@@ -382,7 +384,6 @@ public class RoomInventoryJson {
         this.maxGuests = maxGuests;
         return this;
     }
-
 
     /**
      * Minimum number nights of stay when starting from this night.
@@ -392,7 +393,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Number of reservations in wait list.
      */
@@ -400,7 +400,6 @@ public class RoomInventoryJson {
         this.waitListRequests = waitListRequests;
         return this;
     }
-
 
     /**
      * Number of unsold rooms.
@@ -410,7 +409,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Contains unique ID of the housing event.
      */
@@ -418,7 +416,6 @@ public class RoomInventoryJson {
         this.housingEvent = Utils.checkNotNull(housingEvent, "housingEvent");
         return this;
     }
-
 
     /**
      * Contains unique ID of the hotel.
@@ -428,7 +425,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Contains unique ID of the room.
      */
@@ -436,7 +432,6 @@ public class RoomInventoryJson {
         this.roomType = Utils.checkNotNull(roomType, "roomType");
         return this;
     }
-
 
     /**
      * Inventory date.
@@ -446,7 +441,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Number of inventory that can be sold to any attendee type.
      */
@@ -454,7 +448,6 @@ public class RoomInventoryJson {
         this.freeSell = freeSell;
         return this;
     }
-
 
     /**
      * Number of unassigned inventory. Inventory left in unassigned will not be sold until allocated to an
@@ -465,7 +458,6 @@ public class RoomInventoryJson {
         return this;
     }
 
-
     /**
      * Inventory allocation by attendee type.
      */
@@ -473,7 +465,6 @@ public class RoomInventoryJson {
         this.allocation = allocation;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -484,61 +475,89 @@ public class RoomInventoryJson {
             return false;
         }
         RoomInventoryJson other = (RoomInventoryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.hideRates, other.hideRates) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate) &&
-            Utils.enhancedDeepEquals(this.originalBlock, other.originalBlock) &&
-            Utils.enhancedDeepEquals(this.currentBlock, other.currentBlock) &&
-            Utils.enhancedDeepEquals(this.pickup, other.pickup) &&
-            Utils.enhancedDeepEquals(this.finalPickup, other.finalPickup) &&
-            Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests) &&
-            Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay) &&
-            Utils.enhancedDeepEquals(this.waitListRequests, other.waitListRequests) &&
-            Utils.enhancedDeepEquals(this.available, other.available) &&
-            Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent) &&
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.freeSell, other.freeSell) &&
-            Utils.enhancedDeepEquals(this.unassigned, other.unassigned) &&
-            Utils.enhancedDeepEquals(this.allocation, other.allocation);
+        return Utils.enhancedDeepEquals(this.hideRates, other.hideRates)
+                && Utils.enhancedDeepEquals(this.rate, other.rate)
+                && Utils.enhancedDeepEquals(this.originalBlock, other.originalBlock)
+                && Utils.enhancedDeepEquals(this.currentBlock, other.currentBlock)
+                && Utils.enhancedDeepEquals(this.pickup, other.pickup)
+                && Utils.enhancedDeepEquals(this.finalPickup, other.finalPickup)
+                && Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests)
+                && Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay)
+                && Utils.enhancedDeepEquals(this.waitListRequests, other.waitListRequests)
+                && Utils.enhancedDeepEquals(this.available, other.available)
+                && Utils.enhancedDeepEquals(this.housingEvent, other.housingEvent)
+                && Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.freeSell, other.freeSell)
+                && Utils.enhancedDeepEquals(this.unassigned, other.unassigned)
+                && Utils.enhancedDeepEquals(this.allocation, other.allocation);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            hideRates, rate, originalBlock,
-            currentBlock, pickup, finalPickup,
-            maxGuests, minLengthOfStay, waitListRequests,
-            available, housingEvent, hotel,
-            roomType, date, freeSell,
-            unassigned, allocation);
+                hideRates,
+                rate,
+                originalBlock,
+                currentBlock,
+                pickup,
+                finalPickup,
+                maxGuests,
+                minLengthOfStay,
+                waitListRequests,
+                available,
+                housingEvent,
+                hotel,
+                roomType,
+                date,
+                freeSell,
+                unassigned,
+                allocation);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RoomInventoryJson.class,
-                "hideRates", hideRates,
-                "rate", rate,
-                "originalBlock", originalBlock,
-                "currentBlock", currentBlock,
-                "pickup", pickup,
-                "finalPickup", finalPickup,
-                "maxGuests", maxGuests,
-                "minLengthOfStay", minLengthOfStay,
-                "waitListRequests", waitListRequests,
-                "available", available,
-                "housingEvent", housingEvent,
-                "hotel", hotel,
-                "roomType", roomType,
-                "date", date,
-                "freeSell", freeSell,
-                "unassigned", unassigned,
-                "allocation", allocation);
+        return Utils.toString(
+                RoomInventoryJson.class,
+                "hideRates",
+                hideRates,
+                "rate",
+                rate,
+                "originalBlock",
+                originalBlock,
+                "currentBlock",
+                currentBlock,
+                "pickup",
+                pickup,
+                "finalPickup",
+                finalPickup,
+                "maxGuests",
+                maxGuests,
+                "minLengthOfStay",
+                minLengthOfStay,
+                "waitListRequests",
+                waitListRequests,
+                "available",
+                available,
+                "housingEvent",
+                housingEvent,
+                "hotel",
+                hotel,
+                "roomType",
+                roomType,
+                "date",
+                date,
+                "freeSell",
+                freeSell,
+                "unassigned",
+                unassigned,
+                "allocation",
+                allocation);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean hideRates;
 
@@ -575,7 +594,7 @@ public class RoomInventoryJson {
         private List<AttendeeInventoryJson> allocation;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -717,13 +736,23 @@ public class RoomInventoryJson {
 
         public RoomInventoryJson build() {
             return new RoomInventoryJson(
-                hideRates, rate, originalBlock,
-                currentBlock, pickup, finalPickup,
-                maxGuests, minLengthOfStay, waitListRequests,
-                available, housingEvent, hotel,
-                roomType, date, freeSell,
-                unassigned, allocation);
+                    hideRates,
+                    rate,
+                    originalBlock,
+                    currentBlock,
+                    pickup,
+                    finalPickup,
+                    maxGuests,
+                    minLengthOfStay,
+                    waitListRequests,
+                    available,
+                    housingEvent,
+                    hotel,
+                    roomType,
+                    date,
+                    freeSell,
+                    unassigned,
+                    allocation);
         }
-
     }
 }

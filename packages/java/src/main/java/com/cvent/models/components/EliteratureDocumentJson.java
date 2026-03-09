@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EliteratureDocumentJson
- * 
+ *
  * <p>A JSON schema representing an E-literature Document
  */
 public class EliteratureDocumentJson {
@@ -40,12 +40,10 @@ public class EliteratureDocumentJson {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("displayName") @Nonnull String displayName,
             @JsonProperty("type") @Nonnull EliteratureDocumentJsonType type) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.displayName = Optional.ofNullable(displayName)
-            .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("displayName cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
 
     /**
@@ -73,7 +71,6 @@ public class EliteratureDocumentJson {
         return new Builder();
     }
 
-
     /**
      * Document identifier
      */
@@ -81,7 +78,6 @@ public class EliteratureDocumentJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Document display name
@@ -91,7 +87,6 @@ public class EliteratureDocumentJson {
         return this;
     }
 
-
     /**
      * Type of eliterature document
      */
@@ -99,7 +94,6 @@ public class EliteratureDocumentJson {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -110,28 +104,23 @@ public class EliteratureDocumentJson {
             return false;
         }
         EliteratureDocumentJson other = (EliteratureDocumentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.displayName, other.displayName) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.displayName, other.displayName)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, displayName, type);
+        return Utils.enhancedHash(id, displayName, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EliteratureDocumentJson.class,
-                "id", id,
-                "displayName", displayName,
-                "type", type);
+        return Utils.toString(EliteratureDocumentJson.class, "id", id, "displayName", displayName, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -140,7 +129,7 @@ public class EliteratureDocumentJson {
         private EliteratureDocumentJsonType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -168,9 +157,7 @@ public class EliteratureDocumentJson {
         }
 
         public EliteratureDocumentJson build() {
-            return new EliteratureDocumentJson(
-                id, displayName, type);
+            return new EliteratureDocumentJson(id, displayName, type);
         }
-
     }
 }

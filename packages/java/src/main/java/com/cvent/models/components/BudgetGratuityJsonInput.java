@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * BudgetGratuityJsonInput
- * 
+ *
  * <p>Budget item gratuity details.
  */
 public class BudgetGratuityJsonInput {
@@ -23,8 +23,7 @@ public class BudgetGratuityJsonInput {
     private double gratuity;
 
     @JsonCreator
-    public BudgetGratuityJsonInput(
-            @JsonProperty("gratuity") double gratuity) {
+    public BudgetGratuityJsonInput(@JsonProperty("gratuity") double gratuity) {
         this.gratuity = gratuity;
     }
 
@@ -40,7 +39,6 @@ public class BudgetGratuityJsonInput {
         return new Builder();
     }
 
-
     /**
      * Gratuity applied to the budget item. This value can be a percentage of the cost or a flat dollar
      * amount.
@@ -49,7 +47,6 @@ public class BudgetGratuityJsonInput {
         this.gratuity = gratuity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +57,26 @@ public class BudgetGratuityJsonInput {
             return false;
         }
         BudgetGratuityJsonInput other = (BudgetGratuityJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.gratuity, other.gratuity);
+        return Utils.enhancedDeepEquals(this.gratuity, other.gratuity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            gratuity);
+        return Utils.enhancedHash(gratuity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetGratuityJsonInput.class,
-                "gratuity", gratuity);
+        return Utils.toString(BudgetGratuityJsonInput.class, "gratuity", gratuity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private double gratuity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +89,7 @@ public class BudgetGratuityJsonInput {
         }
 
         public BudgetGratuityJsonInput build() {
-            return new BudgetGratuityJsonInput(
-                gratuity);
+            return new BudgetGratuityJsonInput(gratuity);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventRoleAssignmentJson
- * 
+ *
  * <p>An assignment of an event role to a user for an event.
  */
 public class EventRoleAssignmentJson {
@@ -81,10 +81,9 @@ public class EventRoleAssignmentJson {
         this.assigned = assigned;
         this.assignedBy = assignedBy;
     }
-    
+
     public EventRoleAssignmentJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -137,7 +136,6 @@ public class EventRoleAssignmentJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the event role assignment, which concatenates the IDs of the event, the event role,
      * and the user assigned the role.
@@ -146,7 +144,6 @@ public class EventRoleAssignmentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The event where the user gets a role. For more details, use the [Get
@@ -157,7 +154,6 @@ public class EventRoleAssignmentJson {
         return this;
     }
 
-
     /**
      * The user to whom the event role is assigned. For more details, use the [Get
      * User](#tag/User-SCIM/operation/getUser) endpoint with the user ID.
@@ -166,7 +162,6 @@ public class EventRoleAssignmentJson {
         this.user = user;
         return this;
     }
-
 
     /**
      * An object that contains the event role ID. This is an **expandable** object and, if requested, will
@@ -177,7 +172,6 @@ public class EventRoleAssignmentJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date-time when the event role was assigned to the user.
      */
@@ -186,7 +180,6 @@ public class EventRoleAssignmentJson {
         return this;
     }
 
-
     /**
      * The identifier of the user who assigned the event role.
      */
@@ -194,7 +187,6 @@ public class EventRoleAssignmentJson {
         this.assignedBy = assignedBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -205,35 +197,39 @@ public class EventRoleAssignmentJson {
             return false;
         }
         EventRoleAssignmentJson other = (EventRoleAssignmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.user, other.user) &&
-            Utils.enhancedDeepEquals(this.eventRole, other.eventRole) &&
-            Utils.enhancedDeepEquals(this.assigned, other.assigned) &&
-            Utils.enhancedDeepEquals(this.assignedBy, other.assignedBy);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.user, other.user)
+                && Utils.enhancedDeepEquals(this.eventRole, other.eventRole)
+                && Utils.enhancedDeepEquals(this.assigned, other.assigned)
+                && Utils.enhancedDeepEquals(this.assignedBy, other.assignedBy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, event, user,
-            eventRole, assigned, assignedBy);
+        return Utils.enhancedHash(id, event, user, eventRole, assigned, assignedBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventRoleAssignmentJson.class,
-                "id", id,
-                "event", event,
-                "user", user,
-                "eventRole", eventRole,
-                "assigned", assigned,
-                "assignedBy", assignedBy);
+        return Utils.toString(
+                EventRoleAssignmentJson.class,
+                "id",
+                id,
+                "event",
+                event,
+                "user",
+                user,
+                "eventRole",
+                eventRole,
+                "assigned",
+                assigned,
+                "assignedBy",
+                assignedBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -248,7 +244,7 @@ public class EventRoleAssignmentJson {
         private String assignedBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -304,10 +300,7 @@ public class EventRoleAssignmentJson {
         }
 
         public EventRoleAssignmentJson build() {
-            return new EventRoleAssignmentJson(
-                id, event, user,
-                eventRole, assigned, assignedBy);
+            return new EventRoleAssignmentJson(id, event, user, eventRole, assigned, assignedBy);
         }
-
     }
 }

@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class RemoveSpeakerFromSessionRequest {
     /**
      * Unique Id of a session
@@ -26,13 +25,10 @@ public class RemoveSpeakerFromSessionRequest {
     private String speakerId;
 
     @JsonCreator
-    public RemoveSpeakerFromSessionRequest(
-            @Nonnull String id,
-            @Nonnull String speakerId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public RemoveSpeakerFromSessionRequest(@Nonnull String id, @Nonnull String speakerId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.speakerId = Optional.ofNullable(speakerId)
-            .orElseThrow(() -> new IllegalArgumentException("speakerId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("speakerId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class RemoveSpeakerFromSessionRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of a session
      */
@@ -62,7 +57,6 @@ public class RemoveSpeakerFromSessionRequest {
         return this;
     }
 
-
     /**
      * Unique Id of a speaker
      */
@@ -70,7 +64,6 @@ public class RemoveSpeakerFromSessionRequest {
         this.speakerId = Utils.checkNotNull(speakerId, "speakerId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class RemoveSpeakerFromSessionRequest {
             return false;
         }
         RemoveSpeakerFromSessionRequest other = (RemoveSpeakerFromSessionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.speakerId, other.speakerId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.speakerId, other.speakerId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, speakerId);
+        return Utils.enhancedHash(id, speakerId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RemoveSpeakerFromSessionRequest.class,
-                "id", id,
-                "speakerId", speakerId);
+        return Utils.toString(RemoveSpeakerFromSessionRequest.class, "id", id, "speakerId", speakerId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String speakerId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class RemoveSpeakerFromSessionRequest {
         }
 
         public RemoveSpeakerFromSessionRequest build() {
-            return new RemoveSpeakerFromSessionRequest(
-                id, speakerId);
+            return new RemoveSpeakerFromSessionRequest(id, speakerId);
         }
-
     }
 }

@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateCustomFieldRequest {
     /**
      * The unique identifier of a custom field.
@@ -28,12 +27,11 @@ public class UpdateCustomFieldRequest {
 
     @JsonCreator
     public UpdateCustomFieldRequest(
-            @Nonnull String customFieldId,
-            @Nonnull ExistingCustomFieldInput existingCustomField) {
+            @Nonnull String customFieldId, @Nonnull ExistingCustomFieldInput existingCustomField) {
         this.customFieldId = Optional.ofNullable(customFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
         this.existingCustomField = Optional.ofNullable(existingCustomField)
-            .orElseThrow(() -> new IllegalArgumentException("existingCustomField cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("existingCustomField cannot be null"));
     }
 
     /**
@@ -54,7 +52,6 @@ public class UpdateCustomFieldRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a custom field.
      */
@@ -63,7 +60,6 @@ public class UpdateCustomFieldRequest {
         return this;
     }
 
-
     /**
      * Custom field to be updated
      */
@@ -71,7 +67,6 @@ public class UpdateCustomFieldRequest {
         this.existingCustomField = Utils.checkNotNull(existingCustomField, "existingCustomField");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +77,34 @@ public class UpdateCustomFieldRequest {
             return false;
         }
         UpdateCustomFieldRequest other = (UpdateCustomFieldRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId) &&
-            Utils.enhancedDeepEquals(this.existingCustomField, other.existingCustomField);
+        return Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
+                && Utils.enhancedDeepEquals(this.existingCustomField, other.existingCustomField);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            customFieldId, existingCustomField);
+        return Utils.enhancedHash(customFieldId, existingCustomField);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateCustomFieldRequest.class,
-                "customFieldId", customFieldId,
-                "existingCustomField", existingCustomField);
+        return Utils.toString(
+                UpdateCustomFieldRequest.class,
+                "customFieldId",
+                customFieldId,
+                "existingCustomField",
+                existingCustomField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String customFieldId;
 
         private ExistingCustomFieldInput existingCustomField;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +124,7 @@ public class UpdateCustomFieldRequest {
         }
 
         public UpdateCustomFieldRequest build() {
-            return new UpdateCustomFieldRequest(
-                customFieldId, existingCustomField);
+            return new UpdateCustomFieldRequest(customFieldId, existingCustomField);
         }
-
     }
 }

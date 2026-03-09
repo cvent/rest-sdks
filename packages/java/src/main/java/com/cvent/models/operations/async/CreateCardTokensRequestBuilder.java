@@ -37,7 +37,7 @@ public class CreateCardTokensRequestBuilder {
     private CardTokenRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateCardTokensRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -46,14 +46,13 @@ public class CreateCardTokensRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateCardTokensResponse> call() {
-        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation
-              = new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
+                new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AttendeeCreditJson
- * 
+ *
  * <p>Credit details for an attendee.
  */
 public class AttendeeCreditJson {
@@ -39,7 +39,7 @@ public class AttendeeCreditJson {
 
     /**
      * An object that contains the associated credit type ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a credit type object.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -109,11 +109,9 @@ public class AttendeeCreditJson {
         this.created = created;
         this.lastModified = lastModified;
     }
-    
+
     public AttendeeCreditJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -134,7 +132,7 @@ public class AttendeeCreditJson {
 
     /**
      * An object that contains the associated credit type ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a credit type object.
      */
     public Optional<ExpandableCreditTypeJson> creditType() {
@@ -187,7 +185,6 @@ public class AttendeeCreditJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier representing the attendee credit response. Can be the format of a string or
      * UUID.
@@ -196,7 +193,6 @@ public class AttendeeCreditJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Represents the entity that granted the credit. Event: This credit was granted by an event. Session:
@@ -207,17 +203,15 @@ public class AttendeeCreditJson {
         return this;
     }
 
-
     /**
      * An object that contains the associated credit type ID.
-     * 
+     *
      * <p>This is an **expandable** object and if requested will contain the name of a credit type object.
      */
     public AttendeeCreditJson withCreditType(@Nullable ExpandableCreditTypeJson creditType) {
         this.creditType = creditType;
         return this;
     }
-
 
     /**
      * Credit amount earned by the attendee.
@@ -227,7 +221,6 @@ public class AttendeeCreditJson {
         return this;
     }
 
-
     /**
      * The attendee who earned the credit.
      */
@@ -235,7 +228,6 @@ public class AttendeeCreditJson {
         this.attendee = attendee;
         return this;
     }
-
 
     /**
      * The event where the credit was earned.
@@ -245,7 +237,6 @@ public class AttendeeCreditJson {
         return this;
     }
 
-
     /**
      * Session associated to the credit.
      */
@@ -253,7 +244,6 @@ public class AttendeeCreditJson {
         this.session = session;
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time when this record was created.
@@ -263,7 +253,6 @@ public class AttendeeCreditJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was last modified.
      */
@@ -271,7 +260,6 @@ public class AttendeeCreditJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -282,42 +270,48 @@ public class AttendeeCreditJson {
             return false;
         }
         AttendeeCreditJson other = (AttendeeCreditJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.creditType, other.creditType) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.creditType, other.creditType)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, creditType,
-            amount, attendee, event,
-            session, created, lastModified);
+        return Utils.enhancedHash(id, type, creditType, amount, attendee, event, session, created, lastModified);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttendeeCreditJson.class,
-                "id", id,
-                "type", type,
-                "creditType", creditType,
-                "amount", amount,
-                "attendee", attendee,
-                "event", event,
-                "session", session,
-                "created", created,
-                "lastModified", lastModified);
+        return Utils.toString(
+                AttendeeCreditJson.class,
+                "id",
+                id,
+                "type",
+                type,
+                "creditType",
+                creditType,
+                "amount",
+                amount,
+                "attendee",
+                attendee,
+                "event",
+                event,
+                "session",
+                session,
+                "created",
+                created,
+                "lastModified",
+                lastModified);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -338,7 +332,7 @@ public class AttendeeCreditJson {
         private OffsetDateTime lastModified;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -361,7 +355,7 @@ public class AttendeeCreditJson {
 
         /**
          * An object that contains the associated credit type ID.
-         * 
+         *
          * <p>This is an **expandable** object and if requested will contain the name of a credit type object.
          */
         public Builder creditType(@Nullable ExpandableCreditTypeJson creditType) {
@@ -419,10 +413,7 @@ public class AttendeeCreditJson {
 
         public AttendeeCreditJson build() {
             return new AttendeeCreditJson(
-                id, type, creditType,
-                amount, attendee, event,
-                session, created, lastModified);
+                    id, type, creditType, amount, attendee, event, session, created, lastModified);
         }
-
     }
 }

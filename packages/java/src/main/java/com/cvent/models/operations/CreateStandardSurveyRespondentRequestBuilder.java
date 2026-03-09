@@ -20,7 +20,8 @@ public class CreateStandardSurveyRespondentRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public CreateStandardSurveyRespondentRequestBuilder request(@Nonnull CreateStandardSurveyRespondentRequest request) {
+    public CreateStandardSurveyRespondentRequestBuilder request(
+            @Nonnull CreateStandardSurveyRespondentRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class CreateStandardSurveyRespondentRequestBuilder {
     private CreateStandardSurveyRespondentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateStandardSurveyRespondentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class CreateStandardSurveyRespondentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateStandardSurveyRespondentResponse call() {
-        RequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation
-              = new CreateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateStandardSurveyRespondentRequest, CreateStandardSurveyRespondentResponse> operation =
+                new CreateStandardSurveyRespondent.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

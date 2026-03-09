@@ -30,7 +30,7 @@ public class CreateAttendeeLinksRequestBuilder {
     private CreateAttendeeLinksRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAttendeeLinksRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateAttendeeLinksRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateAttendeeLinksResponse> call() {
-        AsyncRequestOperation<CreateAttendeeLinksRequest, CreateAttendeeLinksResponse> operation
-              = new CreateAttendeeLinks.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateAttendeeLinksRequest, CreateAttendeeLinksResponse> operation =
+                new CreateAttendeeLinks.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

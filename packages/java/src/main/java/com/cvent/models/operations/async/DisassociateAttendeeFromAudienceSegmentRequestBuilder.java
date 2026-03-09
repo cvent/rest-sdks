@@ -22,7 +22,8 @@ public class DisassociateAttendeeFromAudienceSegmentRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DisassociateAttendeeFromAudienceSegmentRequestBuilder request(@Nonnull DisassociateAttendeeFromAudienceSegmentRequest request) {
+    public DisassociateAttendeeFromAudienceSegmentRequestBuilder request(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -30,7 +31,7 @@ public class DisassociateAttendeeFromAudienceSegmentRequestBuilder {
     private DisassociateAttendeeFromAudienceSegmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DisassociateAttendeeFromAudienceSegmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +40,14 @@ public class DisassociateAttendeeFromAudienceSegmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<DisassociateAttendeeFromAudienceSegmentResponse> call() {
-        AsyncRequestOperation<DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse> operation
-              = new DisassociateAttendeeFromAudienceSegment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<
+                        DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse>
+                operation = new DisassociateAttendeeFromAudienceSegment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -11,30 +11,28 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class CreateConnectionRequest {
     /**
      * Example:
-     * 
+     *
      * <p>Cvent-Access-Code: c44bf029-f7f1-43dc-95c7-79403b247e2a
-     * 
+     *
      * <p>Access code for the event. It can be provided to integration partner in an email.
      */
     @SpeakeasyMetadata("header:style=simple,explode=false,name=Cvent-Access-Code")
     private String cventAccessCode;
 
     @JsonCreator
-    public CreateConnectionRequest(
-            @Nonnull String cventAccessCode) {
+    public CreateConnectionRequest(@Nonnull String cventAccessCode) {
         this.cventAccessCode = Optional.ofNullable(cventAccessCode)
-            .orElseThrow(() -> new IllegalArgumentException("cventAccessCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("cventAccessCode cannot be null"));
     }
 
     /**
      * Example:
-     * 
+     *
      * <p>Cvent-Access-Code: c44bf029-f7f1-43dc-95c7-79403b247e2a
-     * 
+     *
      * <p>Access code for the event. It can be provided to integration partner in an email.
      */
     public String cventAccessCode() {
@@ -45,19 +43,17 @@ public class CreateConnectionRequest {
         return new Builder();
     }
 
-
     /**
      * Example:
-     * 
+     *
      * <p>Cvent-Access-Code: c44bf029-f7f1-43dc-95c7-79403b247e2a
-     * 
+     *
      * <p>Access code for the event. It can be provided to integration partner in an email.
      */
     public CreateConnectionRequest withCventAccessCode(@Nonnull String cventAccessCode) {
         this.cventAccessCode = Utils.checkNotNull(cventAccessCode, "cventAccessCode");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -68,36 +64,33 @@ public class CreateConnectionRequest {
             return false;
         }
         CreateConnectionRequest other = (CreateConnectionRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.cventAccessCode, other.cventAccessCode);
+        return Utils.enhancedDeepEquals(this.cventAccessCode, other.cventAccessCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            cventAccessCode);
+        return Utils.enhancedHash(cventAccessCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateConnectionRequest.class,
-                "cventAccessCode", cventAccessCode);
+        return Utils.toString(CreateConnectionRequest.class, "cventAccessCode", cventAccessCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String cventAccessCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Example:
-         * 
+         *
          * <p>Cvent-Access-Code: c44bf029-f7f1-43dc-95c7-79403b247e2a
-         * 
+         *
          * <p>Access code for the event. It can be provided to integration partner in an email.
          */
         public Builder cventAccessCode(@Nonnull String cventAccessCode) {
@@ -106,9 +99,7 @@ public class CreateConnectionRequest {
         }
 
         public CreateConnectionRequest build() {
-            return new CreateConnectionRequest(
-                cventAccessCode);
+            return new CreateConnectionRequest(cventAccessCode);
         }
-
     }
 }

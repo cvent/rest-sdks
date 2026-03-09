@@ -2,6 +2,14 @@
 
 The type of data collected by a custom field.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = MeetingRequestCustomFieldJsonCustomFieldType.AutoIncrement;
+```
+
 
 ## Values
 

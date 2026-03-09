@@ -30,7 +30,7 @@ public class CreateExhibitorCategoryRequestBuilder {
     private CreateExhibitorCategoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateExhibitorCategoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateExhibitorCategoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateExhibitorCategoryResponse> call() {
-        AsyncRequestOperation<CreateExhibitorCategoryRequest, CreateExhibitorCategoryResponse> operation
-              = new CreateExhibitorCategory.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreateExhibitorCategoryRequest, CreateExhibitorCategoryResponse> operation =
+                new CreateExhibitorCategory.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

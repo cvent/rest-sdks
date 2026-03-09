@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSponsorshipLevelRequest {
     /**
      * ID of an event.
@@ -26,13 +25,10 @@ public class GetSponsorshipLevelRequest {
     private String sponsorshipLevelId;
 
     @JsonCreator
-    public GetSponsorshipLevelRequest(
-            @Nonnull String id,
-            @Nonnull String sponsorshipLevelId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public GetSponsorshipLevelRequest(@Nonnull String id, @Nonnull String sponsorshipLevelId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.sponsorshipLevelId = Optional.ofNullable(sponsorshipLevelId)
-            .orElseThrow(() -> new IllegalArgumentException("sponsorshipLevelId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("sponsorshipLevelId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class GetSponsorshipLevelRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -62,7 +57,6 @@ public class GetSponsorshipLevelRequest {
         return this;
     }
 
-
     /**
      * ID of sponsorship level.
      */
@@ -70,7 +64,6 @@ public class GetSponsorshipLevelRequest {
         this.sponsorshipLevelId = Utils.checkNotNull(sponsorshipLevelId, "sponsorshipLevelId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,29 @@ public class GetSponsorshipLevelRequest {
             return false;
         }
         GetSponsorshipLevelRequest other = (GetSponsorshipLevelRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.sponsorshipLevelId, other.sponsorshipLevelId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.sponsorshipLevelId, other.sponsorshipLevelId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, sponsorshipLevelId);
+        return Utils.enhancedHash(id, sponsorshipLevelId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSponsorshipLevelRequest.class,
-                "id", id,
-                "sponsorshipLevelId", sponsorshipLevelId);
+        return Utils.toString(GetSponsorshipLevelRequest.class, "id", id, "sponsorshipLevelId", sponsorshipLevelId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String sponsorshipLevelId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +116,7 @@ public class GetSponsorshipLevelRequest {
         }
 
         public GetSponsorshipLevelRequest build() {
-            return new GetSponsorshipLevelRequest(
-                id, sponsorshipLevelId);
+            return new GetSponsorshipLevelRequest(id, sponsorshipLevelId);
         }
-
     }
 }

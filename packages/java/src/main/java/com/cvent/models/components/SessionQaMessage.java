@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SessionQaMessage
- * 
+ *
  * <p>A session question answer message
  */
 public class SessionQaMessage {
@@ -46,11 +46,11 @@ public class SessionQaMessage {
             @JsonProperty("attendee") @Nonnull AttendeeJson2 attendee,
             @JsonProperty("question") @Nonnull QuestionJson1 question) {
         this.actionType = Optional.ofNullable(actionType)
-            .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.question = Optional.ofNullable(question)
-            .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("question cannot be null"));
     }
 
     /**
@@ -83,7 +83,6 @@ public class SessionQaMessage {
         return new Builder();
     }
 
-
     /**
      * The user action that just occurred.
      * `question.asked` - A question was asked.
@@ -97,7 +96,6 @@ public class SessionQaMessage {
         return this;
     }
 
-
     /**
      * Attendee details
      */
@@ -106,7 +104,6 @@ public class SessionQaMessage {
         return this;
     }
 
-
     /**
      * Question details
      */
@@ -114,7 +111,6 @@ public class SessionQaMessage {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,28 +121,24 @@ public class SessionQaMessage {
             return false;
         }
         SessionQaMessage other = (SessionQaMessage) o;
-        return 
-            Utils.enhancedDeepEquals(this.actionType, other.actionType) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.question, other.question);
+        return Utils.enhancedDeepEquals(this.actionType, other.actionType)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.question, other.question);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            actionType, attendee, question);
+        return Utils.enhancedHash(actionType, attendee, question);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionQaMessage.class,
-                "actionType", actionType,
-                "attendee", attendee,
-                "question", question);
+        return Utils.toString(
+                SessionQaMessage.class, "actionType", actionType, "attendee", attendee, "question", question);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionQaActionTypeJson actionType;
 
@@ -155,7 +147,7 @@ public class SessionQaMessage {
         private QuestionJson1 question;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -188,9 +180,7 @@ public class SessionQaMessage {
         }
 
         public SessionQaMessage build() {
-            return new SessionQaMessage(
-                actionType, attendee, question);
+            return new SessionQaMessage(actionType, attendee, question);
         }
-
     }
 }

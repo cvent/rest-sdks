@@ -2,6 +2,14 @@
 
 Credit Card Type
 
+## Example Usage
+
+```java
+import com.cvent.models.components.CreditCardTypeJson;
+
+CreditCardTypeJson value = CreditCardTypeJson.AMERICAN_EXPRESS;
+```
+
 
 ## Values
 

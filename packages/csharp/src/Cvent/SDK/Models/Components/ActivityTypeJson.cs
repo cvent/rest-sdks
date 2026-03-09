@@ -18,122 +18,70 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ActivityTypeJson
     {
-        [JsonProperty("appointment.accepted")]
-        AppointmentAccepted,
-        [JsonProperty("appointment.cancelled")]
-        AppointmentCancelled,
-        [JsonProperty("appointment.checkedIn")]
-        AppointmentCheckedIn,
-        [JsonProperty("appointment.created")]
-        AppointmentCreated,
-        [JsonProperty("appointment.declined")]
-        AppointmentDeclined,
-        [JsonProperty("appointment.denied")]
-        AppointmentDenied,
-        [JsonProperty("appointment.rescheduled")]
-        AppointmentRescheduled,
-        [JsonProperty("email.bounced")]
-        EmailBounced,
-        [JsonProperty("email.clicked")]
-        EmailClicked,
-        [JsonProperty("email.opened")]
-        EmailOpened,
-        [JsonProperty("email.sent")]
-        EmailSent,
-        [JsonProperty("email.undelivered")]
-        EmailUndelivered,
-        [JsonProperty("event.attendeeHubVisited")]
-        EventAttendeeHubVisited,
-        [JsonProperty("event.attendeeSubstituted")]
-        EventAttendeeSubstituted,
-        [JsonProperty("event.bannerLinkClicked")]
-        EventBannerLinkClicked,
-        [JsonProperty("event.checkedIn")]
-        EventCheckedIn,
-        [JsonProperty("event.checkedOut")]
-        EventCheckedOut,
-        [JsonProperty("event.customCardOpened")]
-        EventCustomCardOpened,
-        [JsonProperty("event.feedbackSubmitted")]
-        EventFeedbackSubmitted,
-        [JsonProperty("event.noShow")]
-        EventNoShow,
-        [JsonProperty("event.pageVisitTracked")]
-        EventPageVisitTracked,
-        [JsonProperty("event.registered")]
-        EventRegistered,
-        [JsonProperty("event.registrationAbandoned")]
-        EventRegistrationAbandoned,
-        [JsonProperty("event.registrationCancelled")]
-        EventRegistrationCancelled,
-        [JsonProperty("event.videoPlayed")]
-        EventVideoPlayed,
-        [JsonProperty("event.waitlisted")]
-        EventWaitlisted,
-        [JsonProperty("exhibitor.documentOpened")]
-        ExhibitorDocumentOpened,
-        [JsonProperty("exhibitor.socialLinkOpened")]
-        ExhibitorSocialLinkOpened,
-        [JsonProperty("exhibitor.viewed")]
-        ExhibitorViewed,
-        [JsonProperty("exhibitor.virtualBoothJoined")]
-        ExhibitorVirtualBoothJoined,
-        [JsonProperty("exhibitor.weblinkOpened")]
-        ExhibitorWeblinkOpened,
-        [JsonProperty("lead.inboundCreated")]
-        LeadInboundCreated,
-        [JsonProperty("lead.qualified")]
-        LeadQualified,
-        [JsonProperty("lead.scanned")]
-        LeadScanned,
-        [JsonProperty("session.checkedIn")]
-        SessionCheckedIn,
-        [JsonProperty("session.checkedOut")]
-        SessionCheckedOut,
-        [JsonProperty("session.enrolled")]
-        SessionEnrolled,
-        [JsonProperty("session.feedbackSubmitted")]
-        SessionFeedbackSubmitted,
-        [JsonProperty("session.noShow")]
-        SessionNoShow,
-        [JsonProperty("session.pollResponseSubmitted")]
-        SessionPollResponseSubmitted,
-        [JsonProperty("session.questionAsked")]
-        SessionQuestionAsked,
-        [JsonProperty("session.questionUpvoted")]
-        SessionQuestionUpvoted,
-        [JsonProperty("session.unenrolled")]
-        SessionUnenrolled,
-        [JsonProperty("session.waitlisted")]
-        SessionWaitlisted,
-        [JsonProperty("speaker.feedbackSubmitted")]
-        SpeakerFeedbackSubmitted,
-        [JsonProperty("speaker.fileDownloaded")]
-        SpeakerFileDownloaded,
-        [JsonProperty("appointment.external")]
-        AppointmentExternal,
-        [JsonProperty("event.external")]
-        EventExternal,
-        [JsonProperty("exhibitor.external")]
-        ExhibitorExternal,
-        [JsonProperty("session.external")]
-        SessionExternal,
-        [JsonProperty("event.adViewed")]
-        EventAdViewed,
-        [JsonProperty("event.adClicked")]
-        EventAdClicked,
+        [JsonProperty("appointment.accepted")] AppointmentAccepted,
+        [JsonProperty("appointment.cancelled")] AppointmentCancelled,
+        [JsonProperty("appointment.checkedIn")] AppointmentCheckedIn,
+        [JsonProperty("appointment.created")] AppointmentCreated,
+        [JsonProperty("appointment.declined")] AppointmentDeclined,
+        [JsonProperty("appointment.denied")] AppointmentDenied,
+        [JsonProperty("appointment.rescheduled")] AppointmentRescheduled,
+        [JsonProperty("email.bounced")] EmailBounced,
+        [JsonProperty("email.clicked")] EmailClicked,
+        [JsonProperty("email.opened")] EmailOpened,
+        [JsonProperty("email.sent")] EmailSent,
+        [JsonProperty("email.undelivered")] EmailUndelivered,
+        [JsonProperty("event.attendeeHubVisited")] EventAttendeeHubVisited,
+        [JsonProperty("event.attendeeSubstituted")] EventAttendeeSubstituted,
+        [JsonProperty("event.bannerLinkClicked")] EventBannerLinkClicked,
+        [JsonProperty("event.checkedIn")] EventCheckedIn,
+        [JsonProperty("event.checkedOut")] EventCheckedOut,
+        [JsonProperty("event.customCardOpened")] EventCustomCardOpened,
+        [JsonProperty("event.feedbackSubmitted")] EventFeedbackSubmitted,
+        [JsonProperty("event.noShow")] EventNoShow,
+        [JsonProperty("event.pageVisitTracked")] EventPageVisitTracked,
+        [JsonProperty("event.registered")] EventRegistered,
+        [JsonProperty("event.registrationAbandoned")] EventRegistrationAbandoned,
+        [JsonProperty("event.registrationCancelled")] EventRegistrationCancelled,
+        [JsonProperty("event.videoPlayed")] EventVideoPlayed,
+        [JsonProperty("event.waitlisted")] EventWaitlisted,
+        [JsonProperty("exhibitor.documentOpened")] ExhibitorDocumentOpened,
+        [JsonProperty("exhibitor.socialLinkOpened")] ExhibitorSocialLinkOpened,
+        [JsonProperty("exhibitor.viewed")] ExhibitorViewed,
+        [JsonProperty("exhibitor.virtualBoothJoined")] ExhibitorVirtualBoothJoined,
+        [JsonProperty("exhibitor.weblinkOpened")] ExhibitorWeblinkOpened,
+        [JsonProperty("lead.inboundCreated")] LeadInboundCreated,
+        [JsonProperty("lead.qualified")] LeadQualified,
+        [JsonProperty("lead.scanned")] LeadScanned,
+        [JsonProperty("session.checkedIn")] SessionCheckedIn,
+        [JsonProperty("session.checkedOut")] SessionCheckedOut,
+        [JsonProperty("session.enrolled")] SessionEnrolled,
+        [JsonProperty("session.feedbackSubmitted")] SessionFeedbackSubmitted,
+        [JsonProperty("session.noShow")] SessionNoShow,
+        [JsonProperty("session.pollResponseSubmitted")] SessionPollResponseSubmitted,
+        [JsonProperty("session.questionAsked")] SessionQuestionAsked,
+        [JsonProperty("session.questionUpvoted")] SessionQuestionUpvoted,
+        [JsonProperty("session.unenrolled")] SessionUnenrolled,
+        [JsonProperty("session.waitlisted")] SessionWaitlisted,
+        [JsonProperty("speaker.feedbackSubmitted")] SpeakerFeedbackSubmitted,
+        [JsonProperty("speaker.fileDownloaded")] SpeakerFileDownloaded,
+        [JsonProperty("appointment.external")] AppointmentExternal,
+        [JsonProperty("event.external")] EventExternal,
+        [JsonProperty("exhibitor.external")] ExhibitorExternal,
+        [JsonProperty("session.external")] SessionExternal,
+        [JsonProperty("event.adViewed")] EventAdViewed,
+        [JsonProperty("event.adClicked")] EventAdClicked,
     }
 
     public static class ActivityTypeJsonExtension
     {
         public static string Value(this ActivityTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ActivityTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ActivityTypeJson).GetFields())
+            foreach (var field in typeof(ActivityTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

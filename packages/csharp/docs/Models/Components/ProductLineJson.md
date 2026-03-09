@@ -2,6 +2,14 @@
 
 Cvent product lines or additional features.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ProductLineJson.AbstractManagement;
+```
+
 
 ## Values
 

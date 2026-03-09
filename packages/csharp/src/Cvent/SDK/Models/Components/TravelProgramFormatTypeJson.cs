@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TravelProgramFormatTypeJson
     {
-        [JsonProperty("gbta2013")]
-        Gbta2013,
-        [JsonProperty("universal")]
-        Universal,
+        [JsonProperty("gbta2013")] Gbta2013,
+        [JsonProperty("universal")] Universal,
     }
 
     public static class TravelProgramFormatTypeJsonExtension
     {
         public static string Value(this TravelProgramFormatTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TravelProgramFormatTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TravelProgramFormatTypeJson).GetFields())
+            foreach (var field in typeof(TravelProgramFormatTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

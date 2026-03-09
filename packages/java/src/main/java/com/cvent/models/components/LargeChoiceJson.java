@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LargeChoiceJson
- * 
+ *
  * <p>Choice of large choices question.
  */
 public class LargeChoiceJson {
@@ -49,7 +49,7 @@ public class LargeChoiceJson {
         this.text = text;
         this.question = question;
     }
-    
+
     public LargeChoiceJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class LargeChoiceJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the choice.
      */
@@ -87,7 +86,6 @@ public class LargeChoiceJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The text of the choice.
@@ -97,7 +95,6 @@ public class LargeChoiceJson {
         return this;
     }
 
-
     /**
      * An object that holds the ID of the question.
      */
@@ -105,7 +102,6 @@ public class LargeChoiceJson {
         this.question = question;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class LargeChoiceJson {
             return false;
         }
         LargeChoiceJson other = (LargeChoiceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.question, other.question);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.question, other.question);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, question);
+        return Utils.enhancedHash(id, text, question);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LargeChoiceJson.class,
-                "id", id,
-                "text", text,
-                "question", question);
+        return Utils.toString(LargeChoiceJson.class, "id", id, "text", text, "question", question);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -146,7 +137,7 @@ public class LargeChoiceJson {
         private QuestionIdJson question;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class LargeChoiceJson {
         }
 
         public LargeChoiceJson build() {
-            return new LargeChoiceJson(
-                id, text, question);
+            return new LargeChoiceJson(id, text, question);
         }
-
     }
 }

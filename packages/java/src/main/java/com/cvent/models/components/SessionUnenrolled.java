@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * SessionUnenrolled
- * 
+ *
  * <p>A session activity.
  */
 public class SessionUnenrolled {
@@ -27,11 +27,10 @@ public class SessionUnenrolled {
     private SessionActivity9 session;
 
     @JsonCreator
-    public SessionUnenrolled(
-            @JsonProperty("session") @Nullable SessionActivity9 session) {
+    public SessionUnenrolled(@JsonProperty("session") @Nullable SessionActivity9 session) {
         this.session = session;
     }
-    
+
     public SessionUnenrolled() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class SessionUnenrolled {
         return new Builder();
     }
 
-
     /**
      * The activity session.
      */
@@ -55,7 +53,6 @@ public class SessionUnenrolled {
         this.session = session;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class SessionUnenrolled {
             return false;
         }
         SessionUnenrolled other = (SessionUnenrolled) o;
-        return 
-            Utils.enhancedDeepEquals(this.session, other.session);
+        return Utils.enhancedDeepEquals(this.session, other.session);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            session);
+        return Utils.enhancedHash(session);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionUnenrolled.class,
-                "session", session);
+        return Utils.toString(SessionUnenrolled.class, "session", session);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private SessionActivity9 session;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class SessionUnenrolled {
         }
 
         public SessionUnenrolled build() {
-            return new SessionUnenrolled(
-                session);
+            return new SessionUnenrolled(session);
         }
-
     }
 }

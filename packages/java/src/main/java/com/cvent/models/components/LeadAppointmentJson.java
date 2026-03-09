@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LeadAppointmentJson
- * 
+ *
  * <p>A JSON schema representing the structure of an appointment object.
  */
 public class LeadAppointmentJson {
@@ -27,11 +27,10 @@ public class LeadAppointmentJson {
     private String id;
 
     @JsonCreator
-    public LeadAppointmentJson(
-            @JsonProperty("id") @Nullable String id) {
+    public LeadAppointmentJson(@JsonProperty("id") @Nullable String id) {
         this.id = id;
     }
-    
+
     public LeadAppointmentJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class LeadAppointmentJson {
         return new Builder();
     }
 
-
     /**
      * Appointment id
      */
@@ -55,7 +53,6 @@ public class LeadAppointmentJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class LeadAppointmentJson {
             return false;
         }
         LeadAppointmentJson other = (LeadAppointmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadAppointmentJson.class,
-                "id", id);
+        return Utils.toString(LeadAppointmentJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class LeadAppointmentJson {
         }
 
         public LeadAppointmentJson build() {
-            return new LeadAppointmentJson(
-                id);
+            return new LeadAppointmentJson(id);
         }
-
     }
 }

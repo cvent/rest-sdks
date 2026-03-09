@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * ProposalRequest
- * 
+ *
  * <p>Schema for proposal request.
  */
 public class ProposalRequest {
@@ -77,7 +77,7 @@ public class ProposalRequest {
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -137,7 +137,7 @@ public class ProposalRequest {
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -204,8 +204,7 @@ public class ProposalRequest {
             @JsonProperty("plannerContacts") @Nullable List<ContactJson1> plannerContacts,
             @JsonProperty("meetingRoom") @Nullable MeetingRoomJson meetingRoom) {
         this.scpTemplateId = scpTemplateId;
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.supplierSummary = supplierSummary;
         this.rfpSummary = rfpSummary;
         this.eventSummary = eventSummary;
@@ -226,15 +225,30 @@ public class ProposalRequest {
         this.plannerContacts = plannerContacts;
         this.meetingRoom = meetingRoom;
     }
-    
+
     public ProposalRequest() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -289,7 +303,7 @@ public class ProposalRequest {
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -349,7 +363,7 @@ public class ProposalRequest {
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -396,7 +410,6 @@ public class ProposalRequest {
         return new Builder();
     }
 
-
     /**
      * The ID of the smart custom proposal template.
      */
@@ -404,7 +417,6 @@ public class ProposalRequest {
         this.scpTemplateId = scpTemplateId;
         return this;
     }
-
 
     /**
      * The type of the proposal.
@@ -414,7 +426,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Represents a summary of supplier information associated with current proposal.
      */
@@ -422,7 +433,6 @@ public class ProposalRequest {
         this.supplierSummary = supplierSummary;
         return this;
     }
-
 
     /**
      * Schema for Rfp details associated with this proposal.
@@ -432,7 +442,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Schema for event summary associated with this proposal.
      */
@@ -440,7 +449,6 @@ public class ProposalRequest {
         this.eventSummary = eventSummary;
         return this;
     }
-
 
     /**
      * Represents a summary of status associated with this proposal.
@@ -450,7 +458,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Introduction text for the proposal.
      */
@@ -459,11 +466,10 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
      * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -471,7 +477,6 @@ public class ProposalRequest {
         this.billingContractualResponse = billingContractualResponse;
         return this;
     }
-
 
     /**
      * The ISO 4217 standard format currency code used for RFPs.
@@ -481,7 +486,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * True indicates this is a commissionable bid.
      */
@@ -489,7 +493,6 @@ public class ProposalRequest {
         this.commissionableBid = commissionableBid;
         return this;
     }
-
 
     /**
      * The proposal's commission rate.
@@ -499,7 +502,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Name of the proposal.
      */
@@ -507,7 +509,6 @@ public class ProposalRequest {
         this.name = name;
         return this;
     }
-
 
     /**
      * Block code for the proposal.
@@ -517,7 +518,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * List of dates the venue is available.
      */
@@ -525,7 +525,6 @@ public class ProposalRequest {
         this.proposalDates = proposalDates;
         return this;
     }
-
 
     /**
      * List of all sleeping rooms offered in the proposal.
@@ -535,11 +534,10 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
      * vendors, and the vendor marketplace is sunset.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -547,7 +545,6 @@ public class ProposalRequest {
         this.categoryItemsCost = categoryItemsCost;
         return this;
     }
-
 
     /**
      * The aggregated cost
@@ -557,7 +554,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * The estimated cost
      */
@@ -565,7 +561,6 @@ public class ProposalRequest {
         this.estimatedCost = estimatedCost;
         return this;
     }
-
 
     /**
      * List of all contacts.
@@ -575,7 +570,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * List of all planner contacts.
      */
@@ -584,7 +578,6 @@ public class ProposalRequest {
         return this;
     }
 
-
     /**
      * The meeting room.
      */
@@ -592,7 +585,6 @@ public class ProposalRequest {
         this.meetingRoom = meetingRoom;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -603,70 +595,105 @@ public class ProposalRequest {
             return false;
         }
         ProposalRequest other = (ProposalRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.scpTemplateId, other.scpTemplateId) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.supplierSummary, other.supplierSummary) &&
-            Utils.enhancedDeepEquals(this.rfpSummary, other.rfpSummary) &&
-            Utils.enhancedDeepEquals(this.eventSummary, other.eventSummary) &&
-            Utils.enhancedDeepEquals(this.statusSummary, other.statusSummary) &&
-            Utils.enhancedDeepEquals(this.introduction, other.introduction) &&
-            Utils.enhancedDeepEquals(this.billingContractualResponse, other.billingContractualResponse) &&
-            Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode) &&
-            Utils.enhancedDeepEquals(this.commissionableBid, other.commissionableBid) &&
-            Utils.enhancedDeepEquals(this.commissionRate, other.commissionRate) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.blockCode, other.blockCode) &&
-            Utils.enhancedDeepEquals(this.proposalDates, other.proposalDates) &&
-            Utils.enhancedDeepEquals(this.sleepingRooms, other.sleepingRooms) &&
-            Utils.enhancedDeepEquals(this.categoryItemsCost, other.categoryItemsCost) &&
-            Utils.enhancedDeepEquals(this.aggregatedCost, other.aggregatedCost) &&
-            Utils.enhancedDeepEquals(this.estimatedCost, other.estimatedCost) &&
-            Utils.enhancedDeepEquals(this.contacts, other.contacts) &&
-            Utils.enhancedDeepEquals(this.plannerContacts, other.plannerContacts) &&
-            Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom);
+        return Utils.enhancedDeepEquals(this.scpTemplateId, other.scpTemplateId)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.supplierSummary, other.supplierSummary)
+                && Utils.enhancedDeepEquals(this.rfpSummary, other.rfpSummary)
+                && Utils.enhancedDeepEquals(this.eventSummary, other.eventSummary)
+                && Utils.enhancedDeepEquals(this.statusSummary, other.statusSummary)
+                && Utils.enhancedDeepEquals(this.introduction, other.introduction)
+                && Utils.enhancedDeepEquals(this.billingContractualResponse, other.billingContractualResponse)
+                && Utils.enhancedDeepEquals(this.currencyCode, other.currencyCode)
+                && Utils.enhancedDeepEquals(this.commissionableBid, other.commissionableBid)
+                && Utils.enhancedDeepEquals(this.commissionRate, other.commissionRate)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.blockCode, other.blockCode)
+                && Utils.enhancedDeepEquals(this.proposalDates, other.proposalDates)
+                && Utils.enhancedDeepEquals(this.sleepingRooms, other.sleepingRooms)
+                && Utils.enhancedDeepEquals(this.categoryItemsCost, other.categoryItemsCost)
+                && Utils.enhancedDeepEquals(this.aggregatedCost, other.aggregatedCost)
+                && Utils.enhancedDeepEquals(this.estimatedCost, other.estimatedCost)
+                && Utils.enhancedDeepEquals(this.contacts, other.contacts)
+                && Utils.enhancedDeepEquals(this.plannerContacts, other.plannerContacts)
+                && Utils.enhancedDeepEquals(this.meetingRoom, other.meetingRoom);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            scpTemplateId, type, supplierSummary,
-            rfpSummary, eventSummary, statusSummary,
-            introduction, billingContractualResponse, currencyCode,
-            commissionableBid, commissionRate, name,
-            blockCode, proposalDates, sleepingRooms,
-            categoryItemsCost, aggregatedCost, estimatedCost,
-            contacts, plannerContacts, meetingRoom);
+                scpTemplateId,
+                type,
+                supplierSummary,
+                rfpSummary,
+                eventSummary,
+                statusSummary,
+                introduction,
+                billingContractualResponse,
+                currencyCode,
+                commissionableBid,
+                commissionRate,
+                name,
+                blockCode,
+                proposalDates,
+                sleepingRooms,
+                categoryItemsCost,
+                aggregatedCost,
+                estimatedCost,
+                contacts,
+                plannerContacts,
+                meetingRoom);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProposalRequest.class,
-                "scpTemplateId", scpTemplateId,
-                "type", type,
-                "supplierSummary", supplierSummary,
-                "rfpSummary", rfpSummary,
-                "eventSummary", eventSummary,
-                "statusSummary", statusSummary,
-                "introduction", introduction,
-                "billingContractualResponse", billingContractualResponse,
-                "currencyCode", currencyCode,
-                "commissionableBid", commissionableBid,
-                "commissionRate", commissionRate,
-                "name", name,
-                "blockCode", blockCode,
-                "proposalDates", proposalDates,
-                "sleepingRooms", sleepingRooms,
-                "categoryItemsCost", categoryItemsCost,
-                "aggregatedCost", aggregatedCost,
-                "estimatedCost", estimatedCost,
-                "contacts", contacts,
-                "plannerContacts", plannerContacts,
-                "meetingRoom", meetingRoom);
+        return Utils.toString(
+                ProposalRequest.class,
+                "scpTemplateId",
+                scpTemplateId,
+                "type",
+                type,
+                "supplierSummary",
+                supplierSummary,
+                "rfpSummary",
+                rfpSummary,
+                "eventSummary",
+                eventSummary,
+                "statusSummary",
+                statusSummary,
+                "introduction",
+                introduction,
+                "billingContractualResponse",
+                billingContractualResponse,
+                "currencyCode",
+                currencyCode,
+                "commissionableBid",
+                commissionableBid,
+                "commissionRate",
+                commissionRate,
+                "name",
+                name,
+                "blockCode",
+                blockCode,
+                "proposalDates",
+                proposalDates,
+                "sleepingRooms",
+                sleepingRooms,
+                "categoryItemsCost",
+                categoryItemsCost,
+                "aggregatedCost",
+                aggregatedCost,
+                "estimatedCost",
+                estimatedCost,
+                "contacts",
+                contacts,
+                "plannerContacts",
+                plannerContacts,
+                "meetingRoom",
+                meetingRoom);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String scpTemplateId;
 
@@ -713,7 +740,7 @@ public class ProposalRequest {
         private MeetingRoomJson meetingRoom;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -775,7 +802,7 @@ public class ProposalRequest {
         /**
          * Details about concessions or contractual requirements from the supplier. DEPRECATED - This field is
          * deprecated. Only applied to proposal made from vendor marketplace, a sunset product.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -843,7 +870,7 @@ public class ProposalRequest {
         /**
          * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by
          * vendors, and the vendor marketplace is sunset.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -894,20 +921,30 @@ public class ProposalRequest {
 
         public ProposalRequest build() {
             return new ProposalRequest(
-                scpTemplateId, type, supplierSummary,
-                rfpSummary, eventSummary, statusSummary,
-                introduction, billingContractualResponse, currencyCode,
-                commissionableBid, commissionRate, name,
-                blockCode, proposalDates, sleepingRooms,
-                categoryItemsCost, aggregatedCost, estimatedCost,
-                contacts, plannerContacts, meetingRoom);
+                    scpTemplateId,
+                    type,
+                    supplierSummary,
+                    rfpSummary,
+                    eventSummary,
+                    statusSummary,
+                    introduction,
+                    billingContractualResponse,
+                    currencyCode,
+                    commissionableBid,
+                    commissionRate,
+                    name,
+                    blockCode,
+                    proposalDates,
+                    sleepingRooms,
+                    categoryItemsCost,
+                    aggregatedCost,
+                    estimatedCost,
+                    contacts,
+                    plannerContacts,
+                    meetingRoom);
         }
 
-
         private static final LazySingletonValue<ProposalTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"VENUE\"",
-                        new TypeReference<ProposalTypeJson>() {});
+                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<ProposalTypeJson>() {});
     }
 }

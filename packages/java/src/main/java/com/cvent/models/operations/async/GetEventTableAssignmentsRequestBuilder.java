@@ -40,7 +40,7 @@ public class GetEventTableAssignmentsRequestBuilder {
     private GetEventTableAssignmentsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetEventTableAssignmentsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetEventTableAssignmentsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetEventTableAssignmentsResponse> call() {
-        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation
-              = new GetEventTableAssignments.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation =
+                new GetEventTableAssignments.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetEventTableAssignmentsRequestBuilder {
      */
     public Publisher<GetEventTableAssignmentsResponse> callAsPublisher() {
         GetEventTableAssignmentsRequest request = this.request;
-        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation
-              = new GetEventTableAssignments.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation =
+                new GetEventTableAssignments.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetEventTableAssignmentsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetEventTableAssignmentsRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetEventTableAssignmentsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetEventTableAssignmentsResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

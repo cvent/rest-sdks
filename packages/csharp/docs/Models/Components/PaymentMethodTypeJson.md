@@ -2,6 +2,14 @@
 
 Denotes acceptable payment methods for merchant accounts. Not all options are valid for all merchants.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = PaymentMethodTypeJson.Airplus;
+```
+
 
 ## Values
 

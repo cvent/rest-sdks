@@ -40,9 +40,12 @@ namespace Cvent.SDK.Utils
                 return null;
             }
 
-            try {
+            try
+            {
                 return BigInteger.Parse(reader.Value.ToString()!);
-            } catch (System.FormatException ex) {
+            }
+            catch (System.FormatException ex)
+            {
                 throw new Newtonsoft.Json.JsonSerializationException("Could not parse BigInteger", ex);
             }
         }

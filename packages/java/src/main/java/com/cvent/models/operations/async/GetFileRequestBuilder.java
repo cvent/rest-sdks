@@ -30,7 +30,7 @@ public class GetFileRequestBuilder {
     private GetFileRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetFileRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetFileRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetFileResponse> call() {
-        AsyncRequestOperation<GetFileRequest, GetFileResponse> operation
-              = new GetFile.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetFileRequest, GetFileResponse> operation =
+                new GetFile.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TranscriptionStatus
- * 
+ *
  * <p>Current status of business card transcription
  */
 public enum TranscriptionStatus {
@@ -25,13 +25,13 @@ public enum TranscriptionStatus {
     TranscriptionStatus(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TranscriptionStatus> fromValue(String value) {
-        for (TranscriptionStatus o: TranscriptionStatus.values()) {
+        for (TranscriptionStatus o : TranscriptionStatus.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum TranscriptionStatus {
         return Optional.empty();
     }
 }
-

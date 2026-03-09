@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventNoShow
- * 
+ *
  * <p>An email activity.
  */
 public class EventNoShow {
@@ -27,11 +27,10 @@ public class EventNoShow {
     private ActivityDataJsonEvent5 event;
 
     @JsonCreator
-    public EventNoShow(
-            @JsonProperty("event") @Nullable ActivityDataJsonEvent5 event) {
+    public EventNoShow(@JsonProperty("event") @Nullable ActivityDataJsonEvent5 event) {
         this.event = event;
     }
-    
+
     public EventNoShow() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class EventNoShow {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -55,7 +53,6 @@ public class EventNoShow {
         this.event = event;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class EventNoShow {
             return false;
         }
         EventNoShow other = (EventNoShow) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event);
+        return Utils.enhancedDeepEquals(this.event, other.event);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event);
+        return Utils.enhancedHash(event);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventNoShow.class,
-                "event", event);
+        return Utils.toString(EventNoShow.class, "event", event);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent5 event;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class EventNoShow {
         }
 
         public EventNoShow build() {
-            return new EventNoShow(
-                event);
+            return new EventNoShow(event);
         }
-
     }
 }

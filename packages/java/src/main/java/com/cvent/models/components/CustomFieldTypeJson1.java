@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldTypeJson1
- * 
+ *
  * <p>This is used to denote the type of data collected by a custom field. Auto-Increment custom fields
  * are read only.
  */
@@ -28,13 +28,13 @@ public enum CustomFieldTypeJson1 {
     CustomFieldTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CustomFieldTypeJson1> fromValue(String value) {
-        for (CustomFieldTypeJson1 o: CustomFieldTypeJson1.values()) {
+        for (CustomFieldTypeJson1 o : CustomFieldTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum CustomFieldTypeJson1 {
         return Optional.empty();
     }
 }
-

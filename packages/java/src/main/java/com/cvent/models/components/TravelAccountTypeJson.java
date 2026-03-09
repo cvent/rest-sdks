@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TravelAccountTypeJson
- * 
+ *
  * <p>Code representing the travel account type.
  */
 public enum TravelAccountTypeJson {
@@ -24,13 +24,13 @@ public enum TravelAccountTypeJson {
     TravelAccountTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TravelAccountTypeJson> fromValue(String value) {
-        for (TravelAccountTypeJson o: TravelAccountTypeJson.values()) {
+        for (TravelAccountTypeJson o : TravelAccountTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum TravelAccountTypeJson {
         return Optional.empty();
     }
 }
-

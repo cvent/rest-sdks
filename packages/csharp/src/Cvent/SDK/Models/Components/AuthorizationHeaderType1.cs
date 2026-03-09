@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AuthorizationHeaderType1
     {
-        [JsonProperty("apiKey")]
-        ApiKey,
-        [JsonProperty("basic")]
-        Basic,
+        [JsonProperty("apiKey")] ApiKey,
+        [JsonProperty("basic")] Basic,
     }
 
     public static class AuthorizationHeaderType1Extension
     {
         public static string Value(this AuthorizationHeaderType1 value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AuthorizationHeaderType1 ToEnum(this string value)
         {
-            foreach(var field in typeof(AuthorizationHeaderType1).GetFields())
+            foreach (var field in typeof(AuthorizationHeaderType1).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

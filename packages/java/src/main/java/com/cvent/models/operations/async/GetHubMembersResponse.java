@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHubMembersResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class GetHubMembersResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable PaginatedExistingMember paginatedExistingMember) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.paginatedExistingMember = paginatedExistingMember;
     }
-    
-    public GetHubMembersResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetHubMembersResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class GetHubMembersResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class GetHubMembersResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class GetHubMembersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +111,14 @@ public class GetHubMembersResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Members fetched successfully.
      */
-    public GetHubMembersResponse withPaginatedExistingMember(@Nullable PaginatedExistingMember paginatedExistingMember) {
+    public GetHubMembersResponse withPaginatedExistingMember(
+            @Nullable PaginatedExistingMember paginatedExistingMember) {
         this.paginatedExistingMember = paginatedExistingMember;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class GetHubMembersResponse implements AsyncResponse {
             return false;
         }
         GetHubMembersResponse other = (GetHubMembersResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.paginatedExistingMember, other.paginatedExistingMember);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.paginatedExistingMember, other.paginatedExistingMember);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            paginatedExistingMember);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, paginatedExistingMember);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHubMembersResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "paginatedExistingMember", paginatedExistingMember);
+        return Utils.toString(
+                GetHubMembersResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "paginatedExistingMember",
+                paginatedExistingMember);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class GetHubMembersResponse implements AsyncResponse {
         private PaginatedExistingMember paginatedExistingMember;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class GetHubMembersResponse implements AsyncResponse {
         }
 
         public GetHubMembersResponse build() {
-            return new GetHubMembersResponse(
-                contentType, statusCode, rawResponse,
-                paginatedExistingMember);
+            return new GetHubMembersResponse(contentType, statusCode, rawResponse, paginatedExistingMember);
         }
-
     }
 }

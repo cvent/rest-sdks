@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ExhibitorAnswersRequest
- * 
+ *
  * <p>An object representing the request for exhibitor answers.
  */
 public class ExhibitorAnswersRequest {
@@ -28,11 +28,10 @@ public class ExhibitorAnswersRequest {
     private List<ExistingExhibitorAnswerJsonInput> data;
 
     @JsonCreator
-    public ExhibitorAnswersRequest(
-            @JsonProperty("data") @Nullable List<ExistingExhibitorAnswerJsonInput> data) {
+    public ExhibitorAnswersRequest(@JsonProperty("data") @Nullable List<ExistingExhibitorAnswerJsonInput> data) {
         this.data = data;
     }
-    
+
     public ExhibitorAnswersRequest() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class ExhibitorAnswersRequest {
         return new Builder();
     }
 
-
     /**
      * List of answers for all exhibitor questions.
      */
@@ -56,7 +54,6 @@ public class ExhibitorAnswersRequest {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class ExhibitorAnswersRequest {
             return false;
         }
         ExhibitorAnswersRequest other = (ExhibitorAnswersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorAnswersRequest.class,
-                "data", data);
+        return Utils.toString(ExhibitorAnswersRequest.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ExistingExhibitorAnswerJsonInput> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class ExhibitorAnswersRequest {
         }
 
         public ExhibitorAnswersRequest build() {
-            return new ExhibitorAnswersRequest(
-                data);
+            return new ExhibitorAnswersRequest(data);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 The type of the field.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ContactFieldJsonType;
+
+ContactFieldJsonType value = ContactFieldJsonType.STRING;
+```
+
 
 ## Values
 

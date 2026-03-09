@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PropertyExternalCodeJson
- * 
+ *
  * <p>The external chain and property codes for the property
  */
 public class PropertyExternalCodeJson {
@@ -49,7 +49,7 @@ public class PropertyExternalCodeJson {
         this.chainCode = chainCode;
         this.propertyCode = propertyCode;
     }
-    
+
     public PropertyExternalCodeJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class PropertyExternalCodeJson {
         return new Builder();
     }
 
-
     /**
      * Type of the external Code.
      */
@@ -87,7 +86,6 @@ public class PropertyExternalCodeJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * The code identifying the property's chain in the given external system.
@@ -97,7 +95,6 @@ public class PropertyExternalCodeJson {
         return this;
     }
 
-
     /**
      * The code identifying a property in the given external system.
      */
@@ -105,7 +102,6 @@ public class PropertyExternalCodeJson {
         this.propertyCode = propertyCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,24 @@ public class PropertyExternalCodeJson {
             return false;
         }
         PropertyExternalCodeJson other = (PropertyExternalCodeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.chainCode, other.chainCode) &&
-            Utils.enhancedDeepEquals(this.propertyCode, other.propertyCode);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.chainCode, other.chainCode)
+                && Utils.enhancedDeepEquals(this.propertyCode, other.propertyCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, chainCode, propertyCode);
+        return Utils.enhancedHash(type, chainCode, propertyCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyExternalCodeJson.class,
-                "type", type,
-                "chainCode", chainCode,
-                "propertyCode", propertyCode);
+        return Utils.toString(
+                PropertyExternalCodeJson.class, "type", type, "chainCode", chainCode, "propertyCode", propertyCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExternalCodeTypeJson type;
 
@@ -146,7 +138,7 @@ public class PropertyExternalCodeJson {
         private String propertyCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +166,7 @@ public class PropertyExternalCodeJson {
         }
 
         public PropertyExternalCodeJson build() {
-            return new PropertyExternalCodeJson(
-                type, chainCode, propertyCode);
+            return new PropertyExternalCodeJson(type, chainCode, propertyCode);
         }
-
     }
 }

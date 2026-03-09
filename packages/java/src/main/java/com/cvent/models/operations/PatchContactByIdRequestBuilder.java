@@ -28,7 +28,7 @@ public class PatchContactByIdRequestBuilder {
     private PatchContactByIdRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PatchContactByIdRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class PatchContactByIdRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public PatchContactByIdResponse call() {
-        RequestOperation<PatchContactByIdRequest, PatchContactByIdResponse> operation
-              = new PatchContactById.Sync(sdkConfiguration, _headers);
+        RequestOperation<PatchContactByIdRequest, PatchContactByIdResponse> operation =
+                new PatchContactById.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

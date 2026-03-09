@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AttachInvoiceToPaymentRequest {
     /**
      * Unique ID of an event.
@@ -32,16 +31,12 @@ public class AttachInvoiceToPaymentRequest {
     private String invoiceId;
 
     @JsonCreator
-    public AttachInvoiceToPaymentRequest(
-            @Nonnull String id,
-            @Nonnull String paymentId,
-            @Nonnull String invoiceId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AttachInvoiceToPaymentRequest(@Nonnull String id, @Nonnull String paymentId, @Nonnull String invoiceId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.paymentId = Optional.ofNullable(paymentId)
-            .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
         this.invoiceId = Optional.ofNullable(invoiceId)
-            .orElseThrow(() -> new IllegalArgumentException("invoiceId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("invoiceId cannot be null"));
     }
 
     /**
@@ -69,7 +64,6 @@ public class AttachInvoiceToPaymentRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -77,7 +71,6 @@ public class AttachInvoiceToPaymentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a payment.
@@ -87,7 +80,6 @@ public class AttachInvoiceToPaymentRequest {
         return this;
     }
 
-
     /**
      * Unique ID of an invoice.
      */
@@ -95,7 +87,6 @@ public class AttachInvoiceToPaymentRequest {
         this.invoiceId = Utils.checkNotNull(invoiceId, "invoiceId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +97,24 @@ public class AttachInvoiceToPaymentRequest {
             return false;
         }
         AttachInvoiceToPaymentRequest other = (AttachInvoiceToPaymentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.paymentId, other.paymentId) &&
-            Utils.enhancedDeepEquals(this.invoiceId, other.invoiceId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.paymentId, other.paymentId)
+                && Utils.enhancedDeepEquals(this.invoiceId, other.invoiceId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, paymentId, invoiceId);
+        return Utils.enhancedHash(id, paymentId, invoiceId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AttachInvoiceToPaymentRequest.class,
-                "id", id,
-                "paymentId", paymentId,
-                "invoiceId", invoiceId);
+        return Utils.toString(
+                AttachInvoiceToPaymentRequest.class, "id", id, "paymentId", paymentId, "invoiceId", invoiceId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +123,7 @@ public class AttachInvoiceToPaymentRequest {
         private String invoiceId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +151,7 @@ public class AttachInvoiceToPaymentRequest {
         }
 
         public AttachInvoiceToPaymentRequest build() {
-            return new AttachInvoiceToPaymentRequest(
-                id, paymentId, invoiceId);
+            return new AttachInvoiceToPaymentRequest(id, paymentId, invoiceId);
         }
-
     }
 }

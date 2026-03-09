@@ -28,7 +28,7 @@ public class GetExhibitorRequestBuilder {
     private GetExhibitorRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetExhibitorRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetExhibitorResponse call() {
-        RequestOperation<GetExhibitorRequest, GetExhibitorResponse> operation
-              = new GetExhibitor.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetExhibitorRequest, GetExhibitorResponse> operation =
+                new GetExhibitor.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

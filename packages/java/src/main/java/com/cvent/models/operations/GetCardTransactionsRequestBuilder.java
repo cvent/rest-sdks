@@ -5,8 +5,8 @@ package com.cvent.models.operations;
 
 import static com.cvent.operations.Operations.RequestOperation;
 import static com.cvent.utils.Exceptions.unchecked;
-import static com.cvent.utils.Utils.transform;
 import static com.cvent.utils.Utils.toStream;
+import static com.cvent.utils.Utils.transform;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetCardTransactions;
@@ -39,7 +39,7 @@ public class GetCardTransactionsRequestBuilder {
     private GetCardTransactionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetCardTransactionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -48,48 +48,48 @@ public class GetCardTransactionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetCardTransactionsResponse call() {
-        RequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation
-              = new GetCardTransactions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation =
+                new GetCardTransactions.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
-    
+
     /**
-    * Returns an iterable that performs next page calls till no more pages
-    * are returned.
-    *
-    * <p>The returned iterable can be used in a for-each loop:
-    * <pre><code>
-    * for (GetCardTransactionsResponse page : builder.callAsIterable()) {
-    *     // Process each page
-    * }
-    * </code></pre>
-    * 
-    * @return An iterable that can be used to iterate through all pages
-    */
+     * Returns an iterable that performs next page calls till no more pages
+     * are returned.
+     *
+     * <p>The returned iterable can be used in a for-each loop:
+     * <pre><code>
+     * for (GetCardTransactionsResponse page : builder.callAsIterable()) {
+     *     // Process each page
+     * }
+     * </code></pre>
+     *
+     * @return An iterable that can be used to iterate through all pages
+     */
     public Iterable<GetCardTransactionsResponse> callAsIterable() {
         GetCardTransactionsRequest request = this.request;
-        RequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation
-              = new GetCardTransactions.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation =
+                new GetCardTransactions.Sync(sdkConfiguration, _headers);
         // foobar
-        
+
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetCardTransactionsRequest::withToken,
-            nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetCardTransactionsRequest::withToken,
+                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
 
         return () -> transform(iterator, operation::handleResponse);
     }
 
     /**
-    * Returns a stream that performs next page calls till no more pages
-    * are returned.
-    **/  
+     * Returns a stream that performs next page calls till no more pages
+     * are returned.
+     **/
     public Stream<GetCardTransactionsResponse> callAsStream() {
         return toStream(callAsIterable());
     }

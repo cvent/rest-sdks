@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAccountUserGroupsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetAccountUserGroupsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable UserGroupsJson userGroupsJson) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.userGroupsJson = userGroupsJson;
     }
-    
+
     public GetAccountUserGroupsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetAccountUserGroupsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetAccountUserGroupsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetAccountUserGroupsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class GetAccountUserGroupsResponse implements Response {
         return this;
     }
 
-
     /**
      * List of User Groups
      */
@@ -126,7 +118,6 @@ public class GetAccountUserGroupsResponse implements Response {
         this.userGroupsJson = userGroupsJson;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class GetAccountUserGroupsResponse implements Response {
             return false;
         }
         GetAccountUserGroupsResponse other = (GetAccountUserGroupsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.userGroupsJson, other.userGroupsJson);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.userGroupsJson, other.userGroupsJson);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            userGroupsJson);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, userGroupsJson);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAccountUserGroupsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "userGroupsJson", userGroupsJson);
+        return Utils.toString(
+                GetAccountUserGroupsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "userGroupsJson",
+                userGroupsJson);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class GetAccountUserGroupsResponse implements Response {
         private UserGroupsJson userGroupsJson;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class GetAccountUserGroupsResponse implements Response {
         }
 
         public GetAccountUserGroupsResponse build() {
-            return new GetAccountUserGroupsResponse(
-                contentType, statusCode, rawResponse,
-                userGroupsJson);
+            return new GetAccountUserGroupsResponse(contentType, statusCode, rawResponse, userGroupsJson);
         }
-
     }
 }

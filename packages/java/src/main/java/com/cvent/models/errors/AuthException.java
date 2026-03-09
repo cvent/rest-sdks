@@ -14,7 +14,7 @@ import java.util.Optional;
 public class AuthException extends CventSDKError {
 
     public AuthException(String message, int code, byte[] body, HttpResponse<InputStream> rawResponse) {
-       super(message, code, body, rawResponse, null);
+        super(message, code, body, rawResponse, null);
     }
 
     /**
@@ -26,7 +26,7 @@ public class AuthException extends CventSDKError {
     public Optional<Integer> statusCode() {
         return Optional.of(super.code());
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public HttpResponse<InputStream> rawResponse() {

@@ -2,6 +2,14 @@
 
 The user action that just occurred
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ChatActionTypeJson;
+
+ChatActionTypeJson value = ChatActionTypeJson.MESSAGE_CREATED;
+```
+
 
 ## Values
 

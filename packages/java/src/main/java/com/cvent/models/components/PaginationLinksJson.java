@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * PaginationLinksJson
- * 
+ *
  * <p>Represents pagination links for navigating between pages of data.
  */
 public class PaginationLinksJson {
@@ -49,7 +49,7 @@ public class PaginationLinksJson {
         this.self = self;
         this.prev = prev;
     }
-    
+
     public PaginationLinksJson() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class PaginationLinksJson {
         return new Builder();
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -87,7 +86,6 @@ public class PaginationLinksJson {
         this.next = next;
         return this;
     }
-
 
     /**
      * Represents a link to a related resource.
@@ -97,7 +95,6 @@ public class PaginationLinksJson {
         return this;
     }
 
-
     /**
      * Represents a link to a related resource.
      */
@@ -105,7 +102,6 @@ public class PaginationLinksJson {
         this.prev = prev;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,23 @@ public class PaginationLinksJson {
             return false;
         }
         PaginationLinksJson other = (PaginationLinksJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.next, other.next) &&
-            Utils.enhancedDeepEquals(this.self, other.self) &&
-            Utils.enhancedDeepEquals(this.prev, other.prev);
+        return Utils.enhancedDeepEquals(this.next, other.next)
+                && Utils.enhancedDeepEquals(this.self, other.self)
+                && Utils.enhancedDeepEquals(this.prev, other.prev);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            next, self, prev);
+        return Utils.enhancedHash(next, self, prev);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PaginationLinksJson.class,
-                "next", next,
-                "self", self,
-                "prev", prev);
+        return Utils.toString(PaginationLinksJson.class, "next", next, "self", self, "prev", prev);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LinkJson next;
 
@@ -146,7 +137,7 @@ public class PaginationLinksJson {
         private LinkJson prev;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +165,7 @@ public class PaginationLinksJson {
         }
 
         public PaginationLinksJson build() {
-            return new PaginationLinksJson(
-                next, self, prev);
+            return new PaginationLinksJson(next, self, prev);
         }
-
     }
 }

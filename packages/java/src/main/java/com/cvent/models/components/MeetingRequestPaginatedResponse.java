@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * MeetingRequestPaginatedResponse
- * 
+ *
  * <p>Paginated collection of meeting requests.
  */
 public class MeetingRequestPaginatedResponse {
@@ -34,10 +34,9 @@ public class MeetingRequestPaginatedResponse {
     public MeetingRequestPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
             @JsonProperty("data") @Nonnull List<MeetingRequest> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +57,6 @@ public class MeetingRequestPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +65,6 @@ public class MeetingRequestPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of meeting request objects.
      */
@@ -75,7 +72,6 @@ public class MeetingRequestPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +82,28 @@ public class MeetingRequestPaginatedResponse {
             return false;
         }
         MeetingRequestPaginatedResponse other = (MeetingRequestPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRequestPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(MeetingRequestPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<MeetingRequest> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +123,7 @@ public class MeetingRequestPaginatedResponse {
         }
 
         public MeetingRequestPaginatedResponse build() {
-            return new MeetingRequestPaginatedResponse(
-                paging, data);
+            return new MeetingRequestPaginatedResponse(paging, data);
         }
-
     }
 }

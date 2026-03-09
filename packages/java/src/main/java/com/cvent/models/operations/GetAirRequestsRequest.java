@@ -18,7 +18,6 @@ import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
-
 public class GetAirRequestsRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -49,11 +48,11 @@ public class GetAirRequestsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * airRequestDetails.requesterFirstName
      * * airRequestDetails.requesterLastName
@@ -66,15 +65,15 @@ public class GetAirRequestsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -85,7 +84,7 @@ public class GetAirRequestsRequest {
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
      * Questions</a>)
@@ -111,21 +110,16 @@ public class GetAirRequestsRequest {
             @Nonnull String id) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.filter = filter;
         this.expand = expand;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
-    public GetAirRequestsRequest(
-            @Nonnull String id) {
-        this(null, null, null,
-            null, null, null,
-            null, id);
+
+    public GetAirRequestsRequest(@Nonnull String id) {
+        this(null, null, null, null, null, null, null, id);
     }
 
     /**
@@ -161,11 +155,11 @@ public class GetAirRequestsRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * airRequestDetails.requesterFirstName
      * * airRequestDetails.requesterLastName
@@ -179,15 +173,15 @@ public class GetAirRequestsRequest {
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -199,7 +193,7 @@ public class GetAirRequestsRequest {
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
      * Questions</a>)
@@ -219,7 +213,6 @@ public class GetAirRequestsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -229,7 +222,6 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -238,7 +230,6 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -246,7 +237,6 @@ public class GetAirRequestsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -257,15 +247,14 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * airRequestDetails.requesterFirstName
      * * airRequestDetails.requesterLastName
@@ -276,20 +265,19 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
      * [Filters](/docs/rest-api/reference/filters) for details.
-     * 
+     *
      * <p>Supported fields and operators are listed below:
-     * 
+     *
      * <p>| Field            | Operators                          | Notes
      * |
      * |------------------|-------------------------------------|------------------------------------------------|
      * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
      * filter     |
-     * 
+     *
      * <p>The following logical operators are supported for combining filters:
      * * or
      */
@@ -298,12 +286,11 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * A list of fields to be expanded, returning additional information alongside the specified fields.
      * The expanded entity is retrieved and displayed inline for each specified expansion field. The
      * respective scopes for each expansion are required.
-     * 
+     *
      * <p>The following fields are expandable:
      * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
      * Questions</a>)
@@ -313,7 +300,6 @@ public class GetAirRequestsRequest {
         return this;
     }
 
-
     /**
      * ID of an event.
      */
@@ -321,7 +307,6 @@ public class GetAirRequestsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -332,40 +317,45 @@ public class GetAirRequestsRequest {
             return false;
         }
         GetAirRequestsRequest other = (GetAirRequestsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, sort, filter,
-            expand, id);
+        return Utils.enhancedHash(after, before, limit, token, sort, filter, expand, id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAirRequestsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "filter", filter,
-                "expand", expand,
-                "id", id);
+        return Utils.toString(
+                GetAirRequestsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "filter",
+                filter,
+                "expand",
+                expand,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -384,7 +374,7 @@ public class GetAirRequestsRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -424,11 +414,11 @@ public class GetAirRequestsRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * airRequestDetails.requesterFirstName
          * * airRequestDetails.requesterLastName
@@ -443,15 +433,15 @@ public class GetAirRequestsRequest {
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
          * [Filters](/docs/rest-api/reference/filters) for details.
-         * 
+         *
          * <p>Supported fields and operators are listed below:
-         * 
+         *
          * <p>| Field            | Operators                          | Notes
          * |
          * |------------------|-------------------------------------|------------------------------------------------|
          * | attendee.id      | `eq`, `ne`                          | Limit: 17 fields can be passed in a
          * filter     |
-         * 
+         *
          * <p>The following logical operators are supported for combining filters:
          * * or
          */
@@ -464,7 +454,7 @@ public class GetAirRequestsRequest {
          * A list of fields to be expanded, returning additional information alongside the specified fields.
          * The expanded entity is retrieved and displayed inline for each specified expansion field. The
          * respective scopes for each expansion are required.
-         * 
+         *
          * <p>The following fields are expandable:
          * * airRequestDetails.airRequestAnswers.question (<a href="#operation/getEventQuestions">List Event
          * Questions</a>)
@@ -483,17 +473,10 @@ public class GetAirRequestsRequest {
         }
 
         public GetAirRequestsRequest build() {
-            return new GetAirRequestsRequest(
-                after, before, limit,
-                token, sort, filter,
-                expand, id);
+            return new GetAirRequestsRequest(after, before, limit, token, sort, filter, expand, id);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

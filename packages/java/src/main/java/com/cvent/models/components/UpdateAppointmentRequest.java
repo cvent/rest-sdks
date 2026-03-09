@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -21,7 +21,7 @@ import java.util.Optional;
 
 /**
  * UpdateAppointmentRequest
- * 
+ *
  * <p>A request to update an appointment.
  */
 public class UpdateAppointmentRequest {
@@ -103,34 +103,29 @@ public class UpdateAppointmentRequest {
             @JsonProperty("attendees") @Nullable List<UuidJson> attendees,
             @JsonProperty("enforceScheduleRule") @Nullable Boolean enforceScheduleRule,
             @JsonProperty("id") @Nonnull String id) {
-        this.subject = Optional.ofNullable(subject)
-            .orElseThrow(() -> new IllegalArgumentException("subject cannot be null"));
+        this.subject =
+                Optional.ofNullable(subject).orElseThrow(() -> new IllegalArgumentException("subject cannot be null"));
         this.description = description;
         this.startTime = Optional.ofNullable(startTime)
-            .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
-        this.endTime = Optional.ofNullable(endTime)
-            .orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("startTime cannot be null"));
+        this.endTime =
+                Optional.ofNullable(endTime).orElseThrow(() -> new IllegalArgumentException("endTime cannot be null"));
         this.location = location;
         this.customLocationName = customLocationName;
-        this.hosts = Optional.ofNullable(hosts)
-            .orElseThrow(() -> new IllegalArgumentException("hosts cannot be null"));
+        this.hosts = Optional.ofNullable(hosts).orElseThrow(() -> new IllegalArgumentException("hosts cannot be null"));
         this.attendees = attendees;
-        this.enforceScheduleRule = Optional.ofNullable(enforceScheduleRule)
-            .orElse(Builder._SINGLETON_VALUE_EnforceScheduleRule.value());
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.enforceScheduleRule =
+                Optional.ofNullable(enforceScheduleRule).orElse(Builder._SINGLETON_VALUE_EnforceScheduleRule.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
-    
+
     public UpdateAppointmentRequest(
             @Nonnull String subject,
             @Nonnull OffsetDateTime startTime,
             @Nonnull OffsetDateTime endTime,
             @Nonnull List<UuidJson> hosts,
             @Nonnull String id) {
-        this(subject, null, startTime,
-            endTime, null, null,
-            hosts, null, null,
-            id);
+        this(subject, null, startTime, endTime, null, null, hosts, null, null, id);
     }
 
     /**
@@ -208,7 +203,6 @@ public class UpdateAppointmentRequest {
         return new Builder();
     }
 
-
     /**
      * Name of the appointment.
      */
@@ -216,7 +210,6 @@ public class UpdateAppointmentRequest {
         this.subject = Utils.checkNotNull(subject, "subject");
         return this;
     }
-
 
     /**
      * Description for the appointment.
@@ -226,7 +219,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted start date/time of the appointment in UTC.
      */
@@ -235,7 +227,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * The ISO 8601 formatted end date/time of the appointment in UTC.
      */
@@ -243,7 +234,6 @@ public class UpdateAppointmentRequest {
         this.endTime = Utils.checkNotNull(endTime, "endTime");
         return this;
     }
-
 
     /**
      * Unique identifier of the location to be used for the appointment. Not supported for "SIMPLE" event
@@ -254,7 +244,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Name of the location created by the meeting host. Created ad-hoc for a FLEXIBLE type meeting.
      */
@@ -262,7 +251,6 @@ public class UpdateAppointmentRequest {
         this.customLocationName = customLocationName;
         return this;
     }
-
 
     /**
      * Contact ids of the appointment hosts.
@@ -272,7 +260,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Contact ids of the appointment attendees.
      */
@@ -280,7 +267,6 @@ public class UpdateAppointmentRequest {
         this.attendees = attendees;
         return this;
     }
-
 
     /**
      * Flag to indicate if schedule rule needs to be enforced.
@@ -290,7 +276,6 @@ public class UpdateAppointmentRequest {
         return this;
     }
 
-
     /**
      * Unique identifier of the appointment to be updated.
      */
@@ -298,7 +283,6 @@ public class UpdateAppointmentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -309,45 +293,61 @@ public class UpdateAppointmentRequest {
             return false;
         }
         UpdateAppointmentRequest other = (UpdateAppointmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.subject, other.subject) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.startTime, other.startTime) &&
-            Utils.enhancedDeepEquals(this.endTime, other.endTime) &&
-            Utils.enhancedDeepEquals(this.location, other.location) &&
-            Utils.enhancedDeepEquals(this.customLocationName, other.customLocationName) &&
-            Utils.enhancedDeepEquals(this.hosts, other.hosts) &&
-            Utils.enhancedDeepEquals(this.attendees, other.attendees) &&
-            Utils.enhancedDeepEquals(this.enforceScheduleRule, other.enforceScheduleRule) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.subject, other.subject)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.startTime, other.startTime)
+                && Utils.enhancedDeepEquals(this.endTime, other.endTime)
+                && Utils.enhancedDeepEquals(this.location, other.location)
+                && Utils.enhancedDeepEquals(this.customLocationName, other.customLocationName)
+                && Utils.enhancedDeepEquals(this.hosts, other.hosts)
+                && Utils.enhancedDeepEquals(this.attendees, other.attendees)
+                && Utils.enhancedDeepEquals(this.enforceScheduleRule, other.enforceScheduleRule)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            subject, description, startTime,
-            endTime, location, customLocationName,
-            hosts, attendees, enforceScheduleRule,
-            id);
+                subject,
+                description,
+                startTime,
+                endTime,
+                location,
+                customLocationName,
+                hosts,
+                attendees,
+                enforceScheduleRule,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateAppointmentRequest.class,
-                "subject", subject,
-                "description", description,
-                "startTime", startTime,
-                "endTime", endTime,
-                "location", location,
-                "customLocationName", customLocationName,
-                "hosts", hosts,
-                "attendees", attendees,
-                "enforceScheduleRule", enforceScheduleRule,
-                "id", id);
+        return Utils.toString(
+                UpdateAppointmentRequest.class,
+                "subject",
+                subject,
+                "description",
+                description,
+                "startTime",
+                startTime,
+                "endTime",
+                endTime,
+                "location",
+                location,
+                "customLocationName",
+                customLocationName,
+                "hosts",
+                hosts,
+                "attendees",
+                attendees,
+                "enforceScheduleRule",
+                enforceScheduleRule,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String subject;
 
@@ -370,7 +370,7 @@ public class UpdateAppointmentRequest {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -456,17 +456,19 @@ public class UpdateAppointmentRequest {
 
         public UpdateAppointmentRequest build() {
             return new UpdateAppointmentRequest(
-                subject, description, startTime,
-                endTime, location, customLocationName,
-                hosts, attendees, enforceScheduleRule,
-                id);
+                    subject,
+                    description,
+                    startTime,
+                    endTime,
+                    location,
+                    customLocationName,
+                    hosts,
+                    attendees,
+                    enforceScheduleRule,
+                    id);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_EnforceScheduleRule =
-                new LazySingletonValue<>(
-                        "enforceScheduleRule",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("enforceScheduleRule", "true", new TypeReference<Boolean>() {});
     }
 }

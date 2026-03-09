@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * Chain
- * 
+ *
  * <p>Chain details.
  */
 public class Chain {
@@ -114,15 +114,11 @@ public class Chain {
         this.code = code;
         this.brand = brand;
         this.address = address;
-        this.deleted = Optional.ofNullable(deleted)
-            .orElse(Builder._SINGLETON_VALUE_Deleted.value());
+        this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
-    
+
     public Chain() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -199,7 +195,6 @@ public class Chain {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -207,7 +202,6 @@ public class Chain {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -217,7 +211,6 @@ public class Chain {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -225,7 +218,6 @@ public class Chain {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -235,7 +227,6 @@ public class Chain {
         return this;
     }
 
-
     /**
      * The ID of the chain.
      */
@@ -243,7 +234,6 @@ public class Chain {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the travel supplier chain.
@@ -253,7 +243,6 @@ public class Chain {
         return this;
     }
 
-
     /**
      * The code identifying the travel supplier chain.
      */
@@ -261,7 +250,6 @@ public class Chain {
         this.code = code;
         return this;
     }
-
 
     /**
      * The brand that the chain belongs to.
@@ -271,7 +259,6 @@ public class Chain {
         return this;
     }
 
-
     /**
      * A physical address.
      */
@@ -280,7 +267,6 @@ public class Chain {
         return this;
     }
 
-
     /**
      * True indicates the chain is deleted.
      */
@@ -288,7 +274,6 @@ public class Chain {
         this.deleted = deleted;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -299,45 +284,52 @@ public class Chain {
             return false;
         }
         Chain other = (Chain) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.brand, other.brand) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.brand, other.brand)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            code, brand, address,
-            deleted);
+                created, createdBy, lastModified, lastModifiedBy, id, name, code, brand, address, deleted);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Chain.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "code", code,
-                "brand", brand,
-                "address", address,
-                "deleted", deleted);
+        return Utils.toString(
+                Chain.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "brand",
+                brand,
+                "address",
+                address,
+                "deleted",
+                deleted);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -360,7 +352,7 @@ public class Chain {
         private Boolean deleted;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -444,18 +436,10 @@ public class Chain {
         }
 
         public Chain build() {
-            return new Chain(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                code, brand, address,
-                deleted);
+            return new Chain(created, createdBy, lastModified, lastModifiedBy, id, name, code, brand, address, deleted);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Deleted =
-                new LazySingletonValue<>(
-                        "deleted",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("deleted", "false", new TypeReference<Boolean>() {});
     }
 }

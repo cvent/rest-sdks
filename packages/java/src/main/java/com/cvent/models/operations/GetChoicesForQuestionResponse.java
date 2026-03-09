@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetChoicesForQuestionResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetChoicesForQuestionResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventQuestionChoicesResponse eventQuestionChoicesResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventQuestionChoicesResponse = eventQuestionChoicesResponse;
     }
-    
+
     public GetChoicesForQuestionResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetChoicesForQuestionResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetChoicesForQuestionResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetChoicesForQuestionResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetChoicesForQuestionResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of event question choices.
      */
-    public GetChoicesForQuestionResponse withEventQuestionChoicesResponse(@Nullable EventQuestionChoicesResponse eventQuestionChoicesResponse) {
+    public GetChoicesForQuestionResponse withEventQuestionChoicesResponse(
+            @Nullable EventQuestionChoicesResponse eventQuestionChoicesResponse) {
         this.eventQuestionChoicesResponse = eventQuestionChoicesResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetChoicesForQuestionResponse implements Response {
             return false;
         }
         GetChoicesForQuestionResponse other = (GetChoicesForQuestionResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventQuestionChoicesResponse, other.eventQuestionChoicesResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventQuestionChoicesResponse, other.eventQuestionChoicesResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventQuestionChoicesResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventQuestionChoicesResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetChoicesForQuestionResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventQuestionChoicesResponse", eventQuestionChoicesResponse);
+        return Utils.toString(
+                GetChoicesForQuestionResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventQuestionChoicesResponse",
+                eventQuestionChoicesResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetChoicesForQuestionResponse implements Response {
         private EventQuestionChoicesResponse eventQuestionChoicesResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class GetChoicesForQuestionResponse implements Response {
         /**
          * Successfully retrieved a paginated list of event question choices.
          */
-        public Builder eventQuestionChoicesResponse(@Nullable EventQuestionChoicesResponse eventQuestionChoicesResponse) {
+        public Builder eventQuestionChoicesResponse(
+                @Nullable EventQuestionChoicesResponse eventQuestionChoicesResponse) {
             this.eventQuestionChoicesResponse = eventQuestionChoicesResponse;
             return this;
         }
 
         public GetChoicesForQuestionResponse build() {
             return new GetChoicesForQuestionResponse(
-                contentType, statusCode, rawResponse,
-                eventQuestionChoicesResponse);
+                    contentType, statusCode, rawResponse, eventQuestionChoicesResponse);
         }
-
     }
 }

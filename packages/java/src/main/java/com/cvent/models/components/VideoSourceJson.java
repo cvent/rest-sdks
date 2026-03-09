@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * VideoSourceJson
- * 
+ *
  * <p>Source of video.
  */
 public class VideoSourceJson {
@@ -35,12 +35,11 @@ public class VideoSourceJson {
 
     @JsonCreator
     public VideoSourceJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("status") @Nullable VideoSourceJsonStatus status) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("status") @Nullable VideoSourceJsonStatus status) {
         this.id = id;
         this.status = status;
     }
-    
+
     public VideoSourceJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class VideoSourceJson {
         return new Builder();
     }
 
-
     /**
      * The id of a video in the external system
      */
@@ -72,7 +70,6 @@ public class VideoSourceJson {
         return this;
     }
 
-
     /**
      * Denotes the status of the video in the third-party system.
      */
@@ -80,7 +77,6 @@ public class VideoSourceJson {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class VideoSourceJson {
             return false;
         }
         VideoSourceJson other = (VideoSourceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status);
+        return Utils.enhancedHash(id, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(VideoSourceJson.class,
-                "id", id,
-                "status", status);
+        return Utils.toString(VideoSourceJson.class, "id", id, "status", status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private VideoSourceJsonStatus status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class VideoSourceJson {
         }
 
         public VideoSourceJson build() {
-            return new VideoSourceJson(
-                id, status);
+            return new VideoSourceJson(id, status);
         }
-
     }
 }

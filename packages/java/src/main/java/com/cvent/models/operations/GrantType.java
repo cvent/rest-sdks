@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * GrantType
- * 
+ *
  * <p>The grant type.
  */
 public enum GrantType {
@@ -24,13 +24,13 @@ public enum GrantType {
     GrantType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<GrantType> fromValue(String value) {
-        for (GrantType o: GrantType.values()) {
+        for (GrantType o : GrantType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum GrantType {
         return Optional.empty();
     }
 }
-

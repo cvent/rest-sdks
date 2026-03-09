@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * RoomAttendeeTypeJson
- * 
+ *
  * <p>Attendee type details specific to room.
  */
 public class RoomAttendeeTypeJson {
@@ -61,20 +61,14 @@ public class RoomAttendeeTypeJson {
             @JsonProperty("cancelPolicy") @Nullable String cancelPolicy,
             @JsonProperty("taxPolicy") @Nullable String taxPolicy) {
         this.id = id;
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.codes = Optional.ofNullable(codes)
-            .orElseThrow(() -> new IllegalArgumentException("codes cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.codes = Optional.ofNullable(codes).orElseThrow(() -> new IllegalArgumentException("codes cannot be null"));
         this.cancelPolicy = cancelPolicy;
         this.taxPolicy = taxPolicy;
     }
-    
-    public RoomAttendeeTypeJson(
-            long id,
-            @Nonnull String name,
-            @Nonnull List<String> codes) {
-        this(id, name, codes,
-            null, null);
+
+    public RoomAttendeeTypeJson(long id, @Nonnull String name, @Nonnull List<String> codes) {
+        this(id, name, codes, null, null);
     }
 
     /**
@@ -116,7 +110,6 @@ public class RoomAttendeeTypeJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the attendee type.
      */
@@ -124,7 +117,6 @@ public class RoomAttendeeTypeJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the attendee type.
@@ -134,7 +126,6 @@ public class RoomAttendeeTypeJson {
         return this;
     }
 
-
     /**
      * A list of attendee type codes.
      */
@@ -142,7 +133,6 @@ public class RoomAttendeeTypeJson {
         this.codes = Utils.checkNotNull(codes, "codes");
         return this;
     }
-
 
     /**
      * Room cancellation policy for the attendee types.
@@ -152,7 +142,6 @@ public class RoomAttendeeTypeJson {
         return this;
     }
 
-
     /**
      * Room tax policy for the attendee types.
      */
@@ -160,7 +149,6 @@ public class RoomAttendeeTypeJson {
         this.taxPolicy = taxPolicy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -171,33 +159,36 @@ public class RoomAttendeeTypeJson {
             return false;
         }
         RoomAttendeeTypeJson other = (RoomAttendeeTypeJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.codes, other.codes) &&
-            Utils.enhancedDeepEquals(this.cancelPolicy, other.cancelPolicy) &&
-            Utils.enhancedDeepEquals(this.taxPolicy, other.taxPolicy);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.codes, other.codes)
+                && Utils.enhancedDeepEquals(this.cancelPolicy, other.cancelPolicy)
+                && Utils.enhancedDeepEquals(this.taxPolicy, other.taxPolicy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, codes,
-            cancelPolicy, taxPolicy);
+        return Utils.enhancedHash(id, name, codes, cancelPolicy, taxPolicy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(RoomAttendeeTypeJson.class,
-                "id", id,
-                "name", name,
-                "codes", codes,
-                "cancelPolicy", cancelPolicy,
-                "taxPolicy", taxPolicy);
+        return Utils.toString(
+                RoomAttendeeTypeJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "codes",
+                codes,
+                "cancelPolicy",
+                cancelPolicy,
+                "taxPolicy",
+                taxPolicy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -210,7 +201,7 @@ public class RoomAttendeeTypeJson {
         private String taxPolicy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -254,10 +245,7 @@ public class RoomAttendeeTypeJson {
         }
 
         public RoomAttendeeTypeJson build() {
-            return new RoomAttendeeTypeJson(
-                id, name, codes,
-                cancelPolicy, taxPolicy);
+            return new RoomAttendeeTypeJson(id, name, codes, cancelPolicy, taxPolicy);
         }
-
     }
 }

@@ -40,7 +40,7 @@ public class ListQuantityItemsRequestBuilder {
     private ListQuantityItemsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListQuantityItemsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListQuantityItemsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListQuantityItemsResponse> call() {
-        AsyncRequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation
-              = new ListQuantityItems.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation =
+                new ListQuantityItems.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListQuantityItemsRequestBuilder {
      */
     public Publisher<ListQuantityItemsResponse> callAsPublisher() {
         ListQuantityItemsRequest request = this.request;
-        AsyncRequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation
-              = new ListQuantityItems.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation =
+                new ListQuantityItems.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListQuantityItemsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListQuantityItemsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListQuantityItemsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

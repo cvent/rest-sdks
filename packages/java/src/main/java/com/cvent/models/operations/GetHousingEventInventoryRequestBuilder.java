@@ -28,7 +28,7 @@ public class GetHousingEventInventoryRequestBuilder {
     private GetHousingEventInventoryRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetHousingEventInventoryRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class GetHousingEventInventoryRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public GetHousingEventInventoryResponse call() {
-        RequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation
-              = new GetHousingEventInventory.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation =
+                new GetHousingEventInventory.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

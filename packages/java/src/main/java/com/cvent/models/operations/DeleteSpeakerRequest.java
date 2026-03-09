@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteSpeakerRequest {
     /**
      * The unique identifier of a speaker.
@@ -20,10 +19,8 @@ public class DeleteSpeakerRequest {
     private String id;
 
     @JsonCreator
-    public DeleteSpeakerRequest(
-            @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteSpeakerRequest(@Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -37,7 +34,6 @@ public class DeleteSpeakerRequest {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of a speaker.
      */
@@ -45,7 +41,6 @@ public class DeleteSpeakerRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +51,26 @@ public class DeleteSpeakerRequest {
             return false;
         }
         DeleteSpeakerRequest other = (DeleteSpeakerRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteSpeakerRequest.class,
-                "id", id);
+        return Utils.toString(DeleteSpeakerRequest.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +82,7 @@ public class DeleteSpeakerRequest {
         }
 
         public DeleteSpeakerRequest build() {
-            return new DeleteSpeakerRequest(
-                id);
+            return new DeleteSpeakerRequest(id);
         }
-
     }
 }

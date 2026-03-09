@@ -36,7 +36,7 @@ public class BadgePrintJob {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncBadgePrintJob async() {
@@ -45,11 +45,11 @@ public class BadgePrintJob {
 
     /**
      * Create Badge Print Job
-     * 
+     *
      * <p>Creates a new badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public CreateBadgePrintJobRequestBuilder createBadgePrintJob() {
@@ -58,28 +58,28 @@ public class BadgePrintJob {
 
     /**
      * Create Badge Print Job
-     * 
+     *
      * <p>Creates a new badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateBadgePrintJobResponse createBadgePrintJob(@Nonnull CreateBadgePrintJobRequest request) {
-        RequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation
-              = new CreateBadgePrintJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation =
+                new CreateBadgePrintJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Badge Print Jobs
-     * 
+     *
      * <p>Gets a paginated list of badge print jobs for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetEventBadgePrintJobsRequestBuilder getEventBadgePrintJobs() {
@@ -88,28 +88,28 @@ public class BadgePrintJob {
 
     /**
      * List Badge Print Jobs
-     * 
+     *
      * <p>Gets a paginated list of badge print jobs for a given event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventBadgePrintJobsResponse getEventBadgePrintJobs(@Nonnull GetEventBadgePrintJobsRequest request) {
-        RequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation
-              = new GetEventBadgePrintJobs.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
+                new GetEventBadgePrintJobs.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Badge Print Job
-     * 
+     *
      * <p>Gets a badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public GetBadgePrintJobRequestBuilder getBadgePrintJob() {
@@ -118,19 +118,18 @@ public class BadgePrintJob {
 
     /**
      * Get Badge Print Job
-     * 
+     *
      * <p>Gets a badge print job
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrintJobResponse getBadgePrintJob(@Nonnull GetBadgePrintJobRequest request) {
-        RequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation
-              = new GetBadgePrintJob.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation =
+                new GetBadgePrintJob.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

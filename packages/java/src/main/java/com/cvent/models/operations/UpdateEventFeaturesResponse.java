@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class UpdateEventFeaturesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class UpdateEventFeaturesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable EventFeaturesResponse eventFeaturesResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eventFeaturesResponse = eventFeaturesResponse;
     }
-    
+
     public UpdateEventFeaturesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class UpdateEventFeaturesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class UpdateEventFeaturesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class UpdateEventFeaturesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class UpdateEventFeaturesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully updated event features
      */
-    public UpdateEventFeaturesResponse withEventFeaturesResponse(@Nullable EventFeaturesResponse eventFeaturesResponse) {
+    public UpdateEventFeaturesResponse withEventFeaturesResponse(
+            @Nullable EventFeaturesResponse eventFeaturesResponse) {
         this.eventFeaturesResponse = eventFeaturesResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class UpdateEventFeaturesResponse implements Response {
             return false;
         }
         UpdateEventFeaturesResponse other = (UpdateEventFeaturesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eventFeaturesResponse, other.eventFeaturesResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eventFeaturesResponse, other.eventFeaturesResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eventFeaturesResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eventFeaturesResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateEventFeaturesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eventFeaturesResponse", eventFeaturesResponse);
+        return Utils.toString(
+                UpdateEventFeaturesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eventFeaturesResponse",
+                eventFeaturesResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class UpdateEventFeaturesResponse implements Response {
         private EventFeaturesResponse eventFeaturesResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +202,7 @@ public class UpdateEventFeaturesResponse implements Response {
         }
 
         public UpdateEventFeaturesResponse build() {
-            return new UpdateEventFeaturesResponse(
-                contentType, statusCode, rawResponse,
-                eventFeaturesResponse);
+            return new UpdateEventFeaturesResponse(contentType, statusCode, rawResponse, eventFeaturesResponse);
         }
-
     }
 }

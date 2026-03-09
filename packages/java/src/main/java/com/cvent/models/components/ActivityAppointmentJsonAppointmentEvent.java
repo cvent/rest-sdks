@@ -5,14 +5,13 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
-
 
 public class ActivityAppointmentJsonAppointmentEvent {
     /**
@@ -31,12 +30,11 @@ public class ActivityAppointmentJsonAppointmentEvent {
 
     @JsonCreator
     public ActivityAppointmentJsonAppointmentEvent(
-            @JsonProperty("title") @Nullable String title,
-            @JsonProperty("code") @Nullable String code) {
+            @JsonProperty("title") @Nullable String title, @JsonProperty("code") @Nullable String code) {
         this.title = title;
         this.code = code;
     }
-    
+
     public ActivityAppointmentJsonAppointmentEvent() {
         this(null, null);
     }
@@ -59,7 +57,6 @@ public class ActivityAppointmentJsonAppointmentEvent {
         return new Builder();
     }
 
-
     /**
      * The title of linked appointment event.
      */
@@ -68,7 +65,6 @@ public class ActivityAppointmentJsonAppointmentEvent {
         return this;
     }
 
-
     /**
      * The code of linked appointment event.
      */
@@ -76,7 +72,6 @@ public class ActivityAppointmentJsonAppointmentEvent {
         this.code = code;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -87,33 +82,28 @@ public class ActivityAppointmentJsonAppointmentEvent {
             return false;
         }
         ActivityAppointmentJsonAppointmentEvent other = (ActivityAppointmentJsonAppointmentEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.code, other.code);
+        return Utils.enhancedDeepEquals(this.title, other.title) && Utils.enhancedDeepEquals(this.code, other.code);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            title, code);
+        return Utils.enhancedHash(title, code);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityAppointmentJsonAppointmentEvent.class,
-                "title", title,
-                "code", code);
+        return Utils.toString(ActivityAppointmentJsonAppointmentEvent.class, "title", title, "code", code);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String title;
 
         private String code;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -133,9 +123,7 @@ public class ActivityAppointmentJsonAppointmentEvent {
         }
 
         public ActivityAppointmentJsonAppointmentEvent build() {
-            return new ActivityAppointmentJsonAppointmentEvent(
-                title, code);
+            return new ActivityAppointmentJsonAppointmentEvent(title, code);
         }
-
     }
 }

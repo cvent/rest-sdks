@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * EmailJson1
- * 
+ *
  * <p>Email
  */
 public class EmailJson1 {
@@ -48,16 +48,12 @@ public class EmailJson1 {
             @JsonProperty("type") @Nullable EmailTypeJson1 type,
             @JsonProperty("value") @Nonnull String value,
             @JsonProperty("primary") @Nullable Boolean primary) {
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
-        this.primary = Optional.ofNullable(primary)
-            .orElse(Builder._SINGLETON_VALUE_Primary.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.primary = Optional.ofNullable(primary).orElse(Builder._SINGLETON_VALUE_Primary.value());
     }
-    
-    public EmailJson1(
-            @Nonnull String value) {
+
+    public EmailJson1(@Nonnull String value) {
         this(null, value, null);
     }
 
@@ -86,7 +82,6 @@ public class EmailJson1 {
         return new Builder();
     }
 
-
     /**
      * The type of the email.
      */
@@ -94,7 +89,6 @@ public class EmailJson1 {
         this.type = type;
         return this;
     }
-
 
     /**
      * The email of the user.
@@ -104,7 +98,6 @@ public class EmailJson1 {
         return this;
     }
 
-
     /**
      * True indicates the email is primary.
      */
@@ -112,7 +105,6 @@ public class EmailJson1 {
         this.primary = primary;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -123,28 +115,23 @@ public class EmailJson1 {
             return false;
         }
         EmailJson1 other = (EmailJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.primary, other.primary);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.primary, other.primary);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, value, primary);
+        return Utils.enhancedHash(type, value, primary);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailJson1.class,
-                "type", type,
-                "value", value,
-                "primary", primary);
+        return Utils.toString(EmailJson1.class, "type", type, "value", value, "primary", primary);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private EmailTypeJson1 type;
 
@@ -153,7 +140,7 @@ public class EmailJson1 {
         private Boolean primary;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -181,21 +168,13 @@ public class EmailJson1 {
         }
 
         public EmailJson1 build() {
-            return new EmailJson1(
-                type, value, primary);
+            return new EmailJson1(type, value, primary);
         }
 
-
         private static final LazySingletonValue<EmailTypeJson1> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"work\"",
-                        new TypeReference<EmailTypeJson1>() {});
+                new LazySingletonValue<>("type", "\"work\"", new TypeReference<EmailTypeJson1>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
-                new LazySingletonValue<>(
-                        "primary",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});
     }
 }

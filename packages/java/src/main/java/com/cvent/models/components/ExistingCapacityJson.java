@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * ExistingCapacityJson
- * 
+ *
  * <p>Represents the existing capacity of the registration type for an exhibitor
  */
 public class ExistingCapacityJson {
@@ -41,7 +41,7 @@ public class ExistingCapacityJson {
             @JsonProperty("reservedCapacity") long reservedCapacity,
             @JsonProperty("availableCapacity") long availableCapacity) {
         this.registrationType = Optional.ofNullable(registrationType)
-            .orElseThrow(() -> new IllegalArgumentException("registrationType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("registrationType cannot be null"));
         this.reservedCapacity = reservedCapacity;
         this.availableCapacity = availableCapacity;
     }
@@ -71,7 +71,6 @@ public class ExistingCapacityJson {
         return new Builder();
     }
 
-
     /**
      * Registration type information
      */
@@ -79,7 +78,6 @@ public class ExistingCapacityJson {
         this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
         return this;
     }
-
 
     /**
      * Reserved capacity of the registration type for an exhibitor
@@ -89,7 +87,6 @@ public class ExistingCapacityJson {
         return this;
     }
 
-
     /**
      * Available capacity of the registration type for an exhibitor
      */
@@ -97,7 +94,6 @@ public class ExistingCapacityJson {
         this.availableCapacity = availableCapacity;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -108,28 +104,30 @@ public class ExistingCapacityJson {
             return false;
         }
         ExistingCapacityJson other = (ExistingCapacityJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.registrationType, other.registrationType) &&
-            Utils.enhancedDeepEquals(this.reservedCapacity, other.reservedCapacity) &&
-            Utils.enhancedDeepEquals(this.availableCapacity, other.availableCapacity);
+        return Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
+                && Utils.enhancedDeepEquals(this.reservedCapacity, other.reservedCapacity)
+                && Utils.enhancedDeepEquals(this.availableCapacity, other.availableCapacity);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            registrationType, reservedCapacity, availableCapacity);
+        return Utils.enhancedHash(registrationType, reservedCapacity, availableCapacity);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingCapacityJson.class,
-                "registrationType", registrationType,
-                "reservedCapacity", reservedCapacity,
-                "availableCapacity", availableCapacity);
+        return Utils.toString(
+                ExistingCapacityJson.class,
+                "registrationType",
+                registrationType,
+                "reservedCapacity",
+                reservedCapacity,
+                "availableCapacity",
+                availableCapacity);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ExistingCapacityJsonRegistrationType registrationType;
 
@@ -138,7 +136,7 @@ public class ExistingCapacityJson {
         private long availableCapacity;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -166,9 +164,7 @@ public class ExistingCapacityJson {
         }
 
         public ExistingCapacityJson build() {
-            return new ExistingCapacityJson(
-                registrationType, reservedCapacity, availableCapacity);
+            return new ExistingCapacityJson(registrationType, reservedCapacity, availableCapacity);
         }
-
     }
 }

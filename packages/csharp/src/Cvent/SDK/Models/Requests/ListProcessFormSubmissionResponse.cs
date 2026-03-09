@@ -17,7 +17,7 @@ namespace Cvent.SDK.Models.Requests
 
     public class ListProcessFormSubmissionResponse
     {
-        public Func<Task<ListProcessFormSubmissionResponse?>>? Next {get;set;}
+        public Func<Task<ListProcessFormSubmissionResponse?>>? Next { get; set; }
         [JsonProperty("-")]
         public HTTPMetadata HttpMeta { get; set; } = default!;
 

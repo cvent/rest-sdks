@@ -30,7 +30,7 @@ public class UpdateBadgeRequestBuilder {
     private UpdateBadgeRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateBadgeRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class UpdateBadgeRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<UpdateBadgeResponse> call() {
-        AsyncRequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation
-              = new UpdateBadge.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<UpdateBadgeRequest, UpdateBadgeResponse> operation =
+                new UpdateBadge.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

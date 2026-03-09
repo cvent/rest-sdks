@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ContactTransaction
- * 
+ *
  * <p>A changeset of contact fields.
  */
 public class ContactTransaction {
@@ -25,10 +25,8 @@ public class ContactTransaction {
     private List<ContactFieldJsonInput> data;
 
     @JsonCreator
-    public ContactTransaction(
-            @JsonProperty("data") @Nonnull List<ContactFieldJsonInput> data) {
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+    public ContactTransaction(@JsonProperty("data") @Nonnull List<ContactFieldJsonInput> data) {
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -42,7 +40,6 @@ public class ContactTransaction {
         return new Builder();
     }
 
-
     /**
      * Collection of standard contact fields.
      */
@@ -50,7 +47,6 @@ public class ContactTransaction {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -61,29 +57,26 @@ public class ContactTransaction {
             return false;
         }
         ContactTransaction other = (ContactTransaction) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactTransaction.class,
-                "data", data);
+        return Utils.toString(ContactTransaction.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ContactFieldJsonInput> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +88,7 @@ public class ContactTransaction {
         }
 
         public ContactTransaction build() {
-            return new ContactTransaction(
-                data);
+            return new ContactTransaction(data);
         }
-
     }
 }

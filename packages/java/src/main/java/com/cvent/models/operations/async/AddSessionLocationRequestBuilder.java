@@ -30,7 +30,7 @@ public class AddSessionLocationRequestBuilder {
     private AddSessionLocationRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AddSessionLocationRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AddSessionLocationRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AddSessionLocationResponse> call() {
-        AsyncRequestOperation<AddSessionLocationRequest, AddSessionLocationResponse> operation
-              = new AddSessionLocation.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AddSessionLocationRequest, AddSessionLocationResponse> operation =
+                new AddSessionLocation.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

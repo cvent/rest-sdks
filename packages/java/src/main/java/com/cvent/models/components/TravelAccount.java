@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * TravelAccount
- * 
+ *
  * <p>Travel account details.
  */
 public class TravelAccount {
@@ -106,11 +106,9 @@ public class TravelAccount {
         this.certified = certified;
         this.addresses = addresses;
     }
-    
+
     public TravelAccount() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -180,7 +178,6 @@ public class TravelAccount {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -188,7 +185,6 @@ public class TravelAccount {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -198,7 +194,6 @@ public class TravelAccount {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -206,7 +201,6 @@ public class TravelAccount {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -216,7 +210,6 @@ public class TravelAccount {
         return this;
     }
 
-
     /**
      * A uuid used to uniquely identify the travel account.
      */
@@ -224,7 +217,6 @@ public class TravelAccount {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the travel account.
@@ -234,7 +226,6 @@ public class TravelAccount {
         return this;
     }
 
-
     /**
      * Code representing the travel account type.
      */
@@ -242,7 +233,6 @@ public class TravelAccount {
         this.type = type;
         return this;
     }
-
 
     /**
      * Is this a certified travel account?
@@ -252,7 +242,6 @@ public class TravelAccount {
         return this;
     }
 
-
     /**
      * List of addresses associated with the travel account.
      */
@@ -260,7 +249,6 @@ public class TravelAccount {
         this.addresses = addresses;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -271,42 +259,49 @@ public class TravelAccount {
             return false;
         }
         TravelAccount other = (TravelAccount) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.certified, other.certified) &&
-            Utils.enhancedDeepEquals(this.addresses, other.addresses);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.certified, other.certified)
+                && Utils.enhancedDeepEquals(this.addresses, other.addresses);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, name,
-            type, certified, addresses);
+                created, createdBy, lastModified, lastModifiedBy, id, name, type, certified, addresses);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelAccount.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "name", name,
-                "type", type,
-                "certified", certified,
-                "addresses", addresses);
+        return Utils.toString(
+                TravelAccount.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "name",
+                name,
+                "type",
+                type,
+                "certified",
+                certified,
+                "addresses",
+                addresses);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -327,7 +322,7 @@ public class TravelAccount {
         private List<AddressJson7> addresses;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -404,10 +399,7 @@ public class TravelAccount {
 
         public TravelAccount build() {
             return new TravelAccount(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, name,
-                type, certified, addresses);
+                    created, createdBy, lastModified, lastModifiedBy, id, name, type, certified, addresses);
         }
-
     }
 }

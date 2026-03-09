@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class MembershipItemsPaginatedResponseDataType
     {
-        private MembershipItemsPaginatedResponseDataType(string value) { Value = value; }
+        private MembershipItemsPaginatedResponseDataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static MembershipItemsPaginatedResponseDataType Anniversary { get { return new MembershipItemsPaginatedResponseDataType("Anniversary"); } }
+        public static MembershipItemsPaginatedResponseDataType Anniversary
+        {
+            get {
+                return new MembershipItemsPaginatedResponseDataType("Anniversary");
+            }
+        }
 
-        public static MembershipItemsPaginatedResponseDataType Calendar { get { return new MembershipItemsPaginatedResponseDataType("Calendar"); } }
+        public static MembershipItemsPaginatedResponseDataType Calendar
+        {
+            get {
+                return new MembershipItemsPaginatedResponseDataType("Calendar");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(MembershipItemsPaginatedResponseDataType v) { return v.Value; }
-        public static MembershipItemsPaginatedResponseDataType FromString(string v) {
-            switch(v) {
-                case "Anniversary": return Anniversary;
-                case "Calendar": return Calendar;
-                default: throw new ArgumentException("Invalid value for MembershipItemsPaginatedResponseDataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(MembershipItemsPaginatedResponseDataType v)
+        {
+            return v.Value;
+        }
+        public static MembershipItemsPaginatedResponseDataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "Anniversary":
+                    return Anniversary;
+                case "Calendar":
+                    return Calendar;
+                default:
+                    throw new ArgumentException("Invalid value for MembershipItemsPaginatedResponseDataType");
             }
         }
         public override bool Equals(object? obj)
@@ -138,8 +162,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

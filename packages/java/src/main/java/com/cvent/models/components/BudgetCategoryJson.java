@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BudgetCategoryJson
- * 
+ *
  * <p>Denotes the category assigned to the budget item.
  */
 public class BudgetCategoryJson {
@@ -33,15 +33,12 @@ public class BudgetCategoryJson {
     private String name;
 
     @JsonCreator
-    public BudgetCategoryJson(
-            @JsonProperty("id") long id,
-            @JsonProperty("name") @Nullable String name) {
+    public BudgetCategoryJson(@JsonProperty("id") long id, @JsonProperty("name") @Nullable String name) {
         this.id = id;
         this.name = name;
     }
-    
-    public BudgetCategoryJson(
-            long id) {
+
+    public BudgetCategoryJson(long id) {
         this(id, null);
     }
 
@@ -63,7 +60,6 @@ public class BudgetCategoryJson {
         return new Builder();
     }
 
-
     /**
      * Unique identifier of the budget category.
      */
@@ -72,7 +68,6 @@ public class BudgetCategoryJson {
         return this;
     }
 
-
     /**
      * Name of the budget category assigned to the budget item.
      */
@@ -80,7 +75,6 @@ public class BudgetCategoryJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +85,28 @@ public class BudgetCategoryJson {
             return false;
         }
         BudgetCategoryJson other = (BudgetCategoryJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name);
+        return Utils.enhancedHash(id, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetCategoryJson.class,
-                "id", id,
-                "name", name);
+        return Utils.toString(BudgetCategoryJson.class, "id", id, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +126,7 @@ public class BudgetCategoryJson {
         }
 
         public BudgetCategoryJson build() {
-            return new BudgetCategoryJson(
-                id, name);
+            return new BudgetCategoryJson(id, name);
         }
-
     }
 }

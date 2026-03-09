@@ -16,7 +16,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Optional;
 
-
 public class ListEventRoleAssignmentRequest {
     /**
      * The maximum number of event role assignments that can be fetched at once.
@@ -33,10 +32,10 @@ public class ListEventRoleAssignmentRequest {
 
     /**
      * Use the `expand` query parameter to request additional details for each field specified.
-     * 
+     *
      * <p>Each event role assignment includes the ID of its associated event role. By using the expand
      * parameter, you can also retrieve the name of the event role.
-     * 
+     *
      * <p>The following fields are expandable:
      * * eventRole
      */
@@ -48,7 +47,7 @@ public class ListEventRoleAssignmentRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * eventRole.id (eq)
@@ -63,16 +62,14 @@ public class ListEventRoleAssignmentRequest {
             @Nullable String token,
             @Nullable List<EventRoleExpand> expand,
             @Nullable String filter) {
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.expand = expand;
         this.filter = filter;
     }
-    
+
     public ListEventRoleAssignmentRequest() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -92,10 +89,10 @@ public class ListEventRoleAssignmentRequest {
 
     /**
      * Use the `expand` query parameter to request additional details for each field specified.
-     * 
+     *
      * <p>Each event role assignment includes the ID of its associated event role. By using the expand
      * parameter, you can also retrieve the name of the event role.
-     * 
+     *
      * <p>The following fields are expandable:
      * * eventRole
      */
@@ -108,7 +105,7 @@ public class ListEventRoleAssignmentRequest {
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * eventRole.id (eq)
@@ -122,7 +119,6 @@ public class ListEventRoleAssignmentRequest {
         return new Builder();
     }
 
-
     /**
      * The maximum number of event role assignments that can be fetched at once.
      */
@@ -130,7 +126,6 @@ public class ListEventRoleAssignmentRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -141,13 +136,12 @@ public class ListEventRoleAssignmentRequest {
         return this;
     }
 
-
     /**
      * Use the `expand` query parameter to request additional details for each field specified.
-     * 
+     *
      * <p>Each event role assignment includes the ID of its associated event role. By using the expand
      * parameter, you can also retrieve the name of the event role.
-     * 
+     *
      * <p>The following fields are expandable:
      * * eventRole
      */
@@ -156,13 +150,12 @@ public class ListEventRoleAssignmentRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
      * This is the comparison type that can be used in filter expressions:
      * * equal: eq
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq)
      * * eventRole.id (eq)
@@ -173,7 +166,6 @@ public class ListEventRoleAssignmentRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -183,31 +175,33 @@ public class ListEventRoleAssignmentRequest {
             return false;
         }
         ListEventRoleAssignmentRequest other = (ListEventRoleAssignmentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.expand, other.expand) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.expand, other.expand)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            limit, token, expand,
-            filter);
+        return Utils.enhancedHash(limit, token, expand, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListEventRoleAssignmentRequest.class,
-                "limit", limit,
-                "token", token,
-                "expand", expand,
-                "filter", filter);
+        return Utils.toString(
+                ListEventRoleAssignmentRequest.class,
+                "limit",
+                limit,
+                "token",
+                token,
+                "expand",
+                expand,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Long limit;
 
@@ -218,7 +212,7 @@ public class ListEventRoleAssignmentRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -240,10 +234,10 @@ public class ListEventRoleAssignmentRequest {
 
         /**
          * Use the `expand` query parameter to request additional details for each field specified.
-         * 
+         *
          * <p>Each event role assignment includes the ID of its associated event role. By using the expand
          * parameter, you can also retrieve the name of the event role.
-         * 
+         *
          * <p>The following fields are expandable:
          * * eventRole
          */
@@ -257,7 +251,7 @@ public class ListEventRoleAssignmentRequest {
          * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
          * This is the comparison type that can be used in filter expressions:
          * * equal: eq
-         * 
+         *
          * <p>The following fields are filterable:
          * * event.id (eq)
          * * eventRole.id (eq)
@@ -269,16 +263,10 @@ public class ListEventRoleAssignmentRequest {
         }
 
         public ListEventRoleAssignmentRequest build() {
-            return new ListEventRoleAssignmentRequest(
-                limit, token, expand,
-                filter);
+            return new ListEventRoleAssignmentRequest(limit, token, expand, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "10",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "10", new TypeReference<Long>() {});
     }
 }

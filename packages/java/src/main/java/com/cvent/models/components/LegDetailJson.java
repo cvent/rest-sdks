@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * LegDetailJson
- * 
+ *
  * <p>Representation of a leg detail in air request.
  */
 public class LegDetailJson {
@@ -59,10 +59,9 @@ public class LegDetailJson {
         this.date = date;
         this.time = time;
     }
-    
+
     public LegDetailJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class LegDetailJson {
         return new Builder();
     }
 
-
     /**
      * Name of the airport where the flight of the passenger's journey originates.
      */
@@ -105,7 +103,6 @@ public class LegDetailJson {
         this.origin = origin;
         return this;
     }
-
 
     /**
      * Name of the airport where the flight of the passenger's journey ends.
@@ -115,7 +112,6 @@ public class LegDetailJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time (in UTC) of the flight origin.
      */
@@ -124,7 +120,6 @@ public class LegDetailJson {
         return this;
     }
 
-
     /**
      * General time of day or specific time when the flight of the passenger's journey starts.
      */
@@ -132,7 +127,6 @@ public class LegDetailJson {
         this.time = time;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,25 @@ public class LegDetailJson {
             return false;
         }
         LegDetailJson other = (LegDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.origin, other.origin) &&
-            Utils.enhancedDeepEquals(this.destination, other.destination) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.time, other.time);
+        return Utils.enhancedDeepEquals(this.origin, other.origin)
+                && Utils.enhancedDeepEquals(this.destination, other.destination)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.time, other.time);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            origin, destination, date,
-            time);
+        return Utils.enhancedHash(origin, destination, date, time);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LegDetailJson.class,
-                "origin", origin,
-                "destination", destination,
-                "date", date,
-                "time", time);
+        return Utils.toString(
+                LegDetailJson.class, "origin", origin, "destination", destination, "date", date, "time", time);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String origin;
 
@@ -178,7 +166,7 @@ public class LegDetailJson {
         private String time;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +202,7 @@ public class LegDetailJson {
         }
 
         public LegDetailJson build() {
-            return new LegDetailJson(
-                origin, destination, date,
-                time);
+            return new LegDetailJson(origin, destination, date, time);
         }
-
     }
 }

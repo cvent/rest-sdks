@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SegmentJson0
- * 
+ *
  * <p>Segment details
  */
 public class SegmentJson0 {
@@ -24,10 +24,8 @@ public class SegmentJson0 {
     private String id;
 
     @JsonCreator
-    public SegmentJson0(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public SegmentJson0(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class SegmentJson0 {
         return new Builder();
     }
 
-
     /**
      * Segment Id
      */
@@ -49,7 +46,6 @@ public class SegmentJson0 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class SegmentJson0 {
             return false;
         }
         SegmentJson0 other = (SegmentJson0) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SegmentJson0.class,
-                "id", id);
+        return Utils.toString(SegmentJson0.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class SegmentJson0 {
         }
 
         public SegmentJson0 build() {
-            return new SegmentJson0(
-                id);
+            return new SegmentJson0(id);
         }
-
     }
 }

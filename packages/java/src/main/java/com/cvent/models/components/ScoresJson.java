@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * ScoresJson
- * 
+ *
  * <p>Insight score and ranking.
  */
 public class ScoresJson {
@@ -93,21 +93,14 @@ public class ScoresJson {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.attendee = Optional.ofNullable(attendee)
-            .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.points = Optional.ofNullable(points)
-            .orElse(Builder._SINGLETON_VALUE_Points.value());
-        this.rank = Optional.ofNullable(rank)
-            .orElse(Builder._SINGLETON_VALUE_Rank.value());
+                .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.points = Optional.ofNullable(points).orElse(Builder._SINGLETON_VALUE_Points.value());
+        this.rank = Optional.ofNullable(rank).orElse(Builder._SINGLETON_VALUE_Rank.value());
     }
-    
-    public ScoresJson(
-            @Nonnull ScoresJsonAttendee attendee,
-            @Nonnull EventJson8 event) {
-        this(null, null, null,
-            null, attendee, event,
-            null, null);
+
+    public ScoresJson(@Nonnull ScoresJsonAttendee attendee, @Nonnull EventJson8 event) {
+        this(null, null, null, null, attendee, event, null, null);
     }
 
     /**
@@ -170,7 +163,6 @@ public class ScoresJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -178,7 +170,6 @@ public class ScoresJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -188,7 +179,6 @@ public class ScoresJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -196,7 +186,6 @@ public class ScoresJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -206,7 +195,6 @@ public class ScoresJson {
         return this;
     }
 
-
     /**
      * The attendee with points in this engagement score.
      */
@@ -214,7 +202,6 @@ public class ScoresJson {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
-
 
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
@@ -224,7 +211,6 @@ public class ScoresJson {
         return this;
     }
 
-
     /**
      * The number of points earned by an attendee in this engagement score.
      */
@@ -233,7 +219,6 @@ public class ScoresJson {
         return this;
     }
 
-
     /**
      * Attendees rank amongst other attendees in terms of points scored.
      */
@@ -241,7 +226,6 @@ public class ScoresJson {
         this.rank = rank;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -252,40 +236,45 @@ public class ScoresJson {
             return false;
         }
         ScoresJson other = (ScoresJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.points, other.points) &&
-            Utils.enhancedDeepEquals(this.rank, other.rank);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.points, other.points)
+                && Utils.enhancedDeepEquals(this.rank, other.rank);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, attendee, event,
-            points, rank);
+        return Utils.enhancedHash(created, createdBy, lastModified, lastModifiedBy, attendee, event, points, rank);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ScoresJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "attendee", attendee,
-                "event", event,
-                "points", points,
-                "rank", rank);
+        return Utils.toString(
+                ScoresJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "attendee",
+                attendee,
+                "event",
+                event,
+                "points",
+                points,
+                "rank",
+                rank);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -304,7 +293,7 @@ public class ScoresJson {
         private Long rank;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -372,23 +361,13 @@ public class ScoresJson {
         }
 
         public ScoresJson build() {
-            return new ScoresJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, attendee, event,
-                points, rank);
+            return new ScoresJson(created, createdBy, lastModified, lastModifiedBy, attendee, event, points, rank);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Points =
-                new LazySingletonValue<>(
-                        "points",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("points", "0", new TypeReference<Long>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Rank =
-                new LazySingletonValue<>(
-                        "rank",
-                        "0",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("rank", "0", new TypeReference<Long>() {});
     }
 }

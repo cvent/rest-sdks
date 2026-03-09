@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * PublicUsagePlan
- * 
+ *
  * <p>Object representing an API Platform Usage Tier, including information when the usage plan is
  * scheduled to revert to a previous plan, if any.
  */
@@ -60,21 +60,15 @@ public class PublicUsagePlan {
             @JsonProperty("burstLimit") double burstLimit,
             @JsonProperty("rateLimit") double rateLimit,
             @JsonProperty("switchBackPlan") @Nullable SwitchBackTargetUsagePlanJson switchBackPlan) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.quota = quota;
         this.burstLimit = burstLimit;
         this.rateLimit = rateLimit;
         this.switchBackPlan = switchBackPlan;
     }
-    
-    public PublicUsagePlan(
-            @Nonnull String name,
-            double quota,
-            double burstLimit,
-            double rateLimit) {
-        this(name, quota, burstLimit,
-            rateLimit, null);
+
+    public PublicUsagePlan(@Nonnull String name, double quota, double burstLimit, double rateLimit) {
+        this(name, quota, burstLimit, rateLimit, null);
     }
 
     /**
@@ -117,7 +111,6 @@ public class PublicUsagePlan {
         return new Builder();
     }
 
-
     /**
      * The name of the usage tier
      */
@@ -125,7 +118,6 @@ public class PublicUsagePlan {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The daily quota of the usage tier. If this value is null, this means the usage tier is unlimited.
@@ -135,7 +127,6 @@ public class PublicUsagePlan {
         return this;
     }
 
-
     /**
      * The burst limit capacity of the usage tier
      */
@@ -144,7 +135,6 @@ public class PublicUsagePlan {
         return this;
     }
 
-
     /**
      * The per-second steady rate-limit of the usage tier
      */
@@ -152,7 +142,6 @@ public class PublicUsagePlan {
         this.rateLimit = rateLimit;
         return this;
     }
-
 
     /**
      * Object representing the target usage plan and the date when the current plan is scheduled to revert
@@ -163,7 +152,6 @@ public class PublicUsagePlan {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -173,33 +161,36 @@ public class PublicUsagePlan {
             return false;
         }
         PublicUsagePlan other = (PublicUsagePlan) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.quota, other.quota) &&
-            Utils.enhancedDeepEquals(this.burstLimit, other.burstLimit) &&
-            Utils.enhancedDeepEquals(this.rateLimit, other.rateLimit) &&
-            Utils.enhancedDeepEquals(this.switchBackPlan, other.switchBackPlan);
+        return Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.quota, other.quota)
+                && Utils.enhancedDeepEquals(this.burstLimit, other.burstLimit)
+                && Utils.enhancedDeepEquals(this.rateLimit, other.rateLimit)
+                && Utils.enhancedDeepEquals(this.switchBackPlan, other.switchBackPlan);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, quota, burstLimit,
-            rateLimit, switchBackPlan);
+        return Utils.enhancedHash(name, quota, burstLimit, rateLimit, switchBackPlan);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PublicUsagePlan.class,
-                "name", name,
-                "quota", quota,
-                "burstLimit", burstLimit,
-                "rateLimit", rateLimit,
-                "switchBackPlan", switchBackPlan);
+        return Utils.toString(
+                PublicUsagePlan.class,
+                "name",
+                name,
+                "quota",
+                quota,
+                "burstLimit",
+                burstLimit,
+                "rateLimit",
+                rateLimit,
+                "switchBackPlan",
+                switchBackPlan);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
@@ -212,7 +203,7 @@ public class PublicUsagePlan {
         private SwitchBackTargetUsagePlanJson switchBackPlan;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -257,10 +248,7 @@ public class PublicUsagePlan {
         }
 
         public PublicUsagePlan build() {
-            return new PublicUsagePlan(
-                name, quota, burstLimit,
-                rateLimit, switchBackPlan);
+            return new PublicUsagePlan(name, quota, burstLimit, rateLimit, switchBackPlan);
         }
-
     }
 }

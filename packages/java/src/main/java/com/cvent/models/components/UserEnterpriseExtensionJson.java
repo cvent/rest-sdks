@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * UserEnterpriseExtensionJson
- * 
+ *
  * <p>Enterprise extension model for the user.
  */
 public class UserEnterpriseExtensionJson {
@@ -73,18 +73,17 @@ public class UserEnterpriseExtensionJson {
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("homeFax") @Nullable String homeFax,
             @JsonProperty("pager") @Nullable String pager) {
-        this.sendLoginDetails = Optional.ofNullable(sendLoginDetails)
-            .orElse(Builder._SINGLETON_VALUE_SendLoginDetails.value());
+        this.sendLoginDetails =
+                Optional.ofNullable(sendLoginDetails).orElse(Builder._SINGLETON_VALUE_SendLoginDetails.value());
         this.federatedId = federatedId;
         this.company = company;
         this.workFax = workFax;
         this.homeFax = homeFax;
         this.pager = pager;
     }
-    
+
     public UserEnterpriseExtensionJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -134,7 +133,6 @@ public class UserEnterpriseExtensionJson {
         return new Builder();
     }
 
-
     /**
      * Indicates if the login details are to be sent to user.
      */
@@ -142,7 +140,6 @@ public class UserEnterpriseExtensionJson {
         this.sendLoginDetails = sendLoginDetails;
         return this;
     }
-
 
     /**
      * The ID of the user in your identity management system. Used when you leverage identity management
@@ -153,7 +150,6 @@ public class UserEnterpriseExtensionJson {
         return this;
     }
 
-
     /**
      * The company of the user.
      */
@@ -161,7 +157,6 @@ public class UserEnterpriseExtensionJson {
         this.company = company;
         return this;
     }
-
 
     /**
      * The work fax number of the user
@@ -171,7 +166,6 @@ public class UserEnterpriseExtensionJson {
         return this;
     }
 
-
     /**
      * The home fax number of the user.
      */
@@ -180,7 +174,6 @@ public class UserEnterpriseExtensionJson {
         return this;
     }
 
-
     /**
      * The pager number of the user.
      */
@@ -188,7 +181,6 @@ public class UserEnterpriseExtensionJson {
         this.pager = pager;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -199,35 +191,39 @@ public class UserEnterpriseExtensionJson {
             return false;
         }
         UserEnterpriseExtensionJson other = (UserEnterpriseExtensionJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.sendLoginDetails, other.sendLoginDetails) &&
-            Utils.enhancedDeepEquals(this.federatedId, other.federatedId) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.workFax, other.workFax) &&
-            Utils.enhancedDeepEquals(this.homeFax, other.homeFax) &&
-            Utils.enhancedDeepEquals(this.pager, other.pager);
+        return Utils.enhancedDeepEquals(this.sendLoginDetails, other.sendLoginDetails)
+                && Utils.enhancedDeepEquals(this.federatedId, other.federatedId)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.workFax, other.workFax)
+                && Utils.enhancedDeepEquals(this.homeFax, other.homeFax)
+                && Utils.enhancedDeepEquals(this.pager, other.pager);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            sendLoginDetails, federatedId, company,
-            workFax, homeFax, pager);
+        return Utils.enhancedHash(sendLoginDetails, federatedId, company, workFax, homeFax, pager);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UserEnterpriseExtensionJson.class,
-                "sendLoginDetails", sendLoginDetails,
-                "federatedId", federatedId,
-                "company", company,
-                "workFax", workFax,
-                "homeFax", homeFax,
-                "pager", pager);
+        return Utils.toString(
+                UserEnterpriseExtensionJson.class,
+                "sendLoginDetails",
+                sendLoginDetails,
+                "federatedId",
+                federatedId,
+                "company",
+                company,
+                "workFax",
+                workFax,
+                "homeFax",
+                homeFax,
+                "pager",
+                pager);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean sendLoginDetails;
 
@@ -242,7 +238,7 @@ public class UserEnterpriseExtensionJson {
         private String pager;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -295,16 +291,10 @@ public class UserEnterpriseExtensionJson {
         }
 
         public UserEnterpriseExtensionJson build() {
-            return new UserEnterpriseExtensionJson(
-                sendLoginDetails, federatedId, company,
-                workFax, homeFax, pager);
+            return new UserEnterpriseExtensionJson(sendLoginDetails, federatedId, company, workFax, homeFax, pager);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_SendLoginDetails =
-                new LazySingletonValue<>(
-                        "sendLoginDetails",
-                        "true",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("sendLoginDetails", "true", new TypeReference<Boolean>() {});
     }
 }

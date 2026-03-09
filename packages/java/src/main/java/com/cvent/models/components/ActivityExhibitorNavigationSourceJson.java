@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityExhibitorNavigationSourceJson
- * 
+ *
  * <p>Navigation source for an activity exhibitor.
  */
 public class ActivityExhibitorNavigationSourceJson {
@@ -35,12 +35,11 @@ public class ActivityExhibitorNavigationSourceJson {
 
     @JsonCreator
     public ActivityExhibitorNavigationSourceJson(
-            @JsonProperty("type") @Nullable String type,
-            @JsonProperty("name") @Nullable String name) {
+            @JsonProperty("type") @Nullable String type, @JsonProperty("name") @Nullable String name) {
         this.type = type;
         this.name = name;
     }
-    
+
     public ActivityExhibitorNavigationSourceJson() {
         this(null, null);
     }
@@ -63,7 +62,6 @@ public class ActivityExhibitorNavigationSourceJson {
         return new Builder();
     }
 
-
     /**
      * The source type in the attendee hub from where the user navigated to the exhibitor booth.
      */
@@ -72,7 +70,6 @@ public class ActivityExhibitorNavigationSourceJson {
         return this;
     }
 
-
     /**
      * The source name in the attendee hub from where the user navigated to the exhibitor booth.
      */
@@ -80,7 +77,6 @@ public class ActivityExhibitorNavigationSourceJson {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +87,28 @@ public class ActivityExhibitorNavigationSourceJson {
             return false;
         }
         ActivityExhibitorNavigationSourceJson other = (ActivityExhibitorNavigationSourceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, name);
+        return Utils.enhancedHash(type, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityExhibitorNavigationSourceJson.class,
-                "type", type,
-                "name", name);
+        return Utils.toString(ActivityExhibitorNavigationSourceJson.class, "type", type, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String type;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +128,7 @@ public class ActivityExhibitorNavigationSourceJson {
         }
 
         public ActivityExhibitorNavigationSourceJson build() {
-            return new ActivityExhibitorNavigationSourceJson(
-                type, name);
+            return new ActivityExhibitorNavigationSourceJson(type, name);
         }
-
     }
 }

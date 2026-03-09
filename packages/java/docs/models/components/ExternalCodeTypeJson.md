@@ -2,6 +2,14 @@
 
 Type of the external Code.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.ExternalCodeTypeJson;
+
+ExternalCodeTypeJson value = ExternalCodeTypeJson.AMADEUS_GDS;
+```
+
 
 ## Values
 

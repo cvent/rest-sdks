@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * FieldJson1
- * 
+ *
  * <p>A survey field.
  */
 public class FieldJson1 {
@@ -96,14 +96,11 @@ public class FieldJson1 {
         this.choices = choices;
         this.notApplicableAnswer = notApplicableAnswer;
         this.otherAnswer = otherAnswer;
-        this.required = Optional.ofNullable(required)
-            .orElse(Builder._SINGLETON_VALUE_Required.value());
+        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
     }
-    
+
     public FieldJson1() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -166,7 +163,6 @@ public class FieldJson1 {
         return new Builder();
     }
 
-
     /**
      * Text field ID.
      */
@@ -174,7 +170,6 @@ public class FieldJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * text Value of the Field
@@ -184,7 +179,6 @@ public class FieldJson1 {
         return this;
     }
 
-
     /**
      * Reporting value of the Category, Its like a custom abbreviation
      */
@@ -192,7 +186,6 @@ public class FieldJson1 {
         this.shortText = shortText;
         return this;
     }
-
 
     /**
      * Field Type
@@ -202,7 +195,6 @@ public class FieldJson1 {
         return this;
     }
 
-
     /**
      * List of choices for this field.
      */
@@ -210,7 +202,6 @@ public class FieldJson1 {
         this.choices = choices;
         return this;
     }
-
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
@@ -220,7 +211,6 @@ public class FieldJson1 {
         return this;
     }
 
-
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
@@ -229,7 +219,6 @@ public class FieldJson1 {
         return this;
     }
 
-
     /**
      * Is this a mandatory field
      */
@@ -237,7 +226,6 @@ public class FieldJson1 {
         this.required = required;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -248,40 +236,45 @@ public class FieldJson1 {
             return false;
         }
         FieldJson1 other = (FieldJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.shortText, other.shortText) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices) &&
-            Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer) &&
-            Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer) &&
-            Utils.enhancedDeepEquals(this.required, other.required);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer)
+                && Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer)
+                && Utils.enhancedDeepEquals(this.required, other.required);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, shortText,
-            type, choices, notApplicableAnswer,
-            otherAnswer, required);
+        return Utils.enhancedHash(id, text, shortText, type, choices, notApplicableAnswer, otherAnswer, required);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FieldJson1.class,
-                "id", id,
-                "text", text,
-                "shortText", shortText,
-                "type", type,
-                "choices", choices,
-                "notApplicableAnswer", notApplicableAnswer,
-                "otherAnswer", otherAnswer,
-                "required", required);
+        return Utils.toString(
+                FieldJson1.class,
+                "id",
+                id,
+                "text",
+                text,
+                "shortText",
+                shortText,
+                "type",
+                type,
+                "choices",
+                choices,
+                "notApplicableAnswer",
+                notApplicableAnswer,
+                "otherAnswer",
+                otherAnswer,
+                "required",
+                required);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -300,7 +293,7 @@ public class FieldJson1 {
         private Boolean required;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -368,17 +361,10 @@ public class FieldJson1 {
         }
 
         public FieldJson1 build() {
-            return new FieldJson1(
-                id, text, shortText,
-                type, choices, notApplicableAnswer,
-                otherAnswer, required);
+            return new FieldJson1(id, text, shortText, type, choices, notApplicableAnswer, otherAnswer, required);
         }
 
-
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
-                new LazySingletonValue<>(
-                        "required",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

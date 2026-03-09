@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetVideoViewsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class GetVideoViewsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable VideoViewsPaginatedResponse videoViewsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.videoViewsPaginatedResponse = videoViewsPaginatedResponse;
     }
-    
-    public GetVideoViewsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetVideoViewsResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class GetVideoViewsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class GetVideoViewsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class GetVideoViewsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +111,14 @@ public class GetVideoViewsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved paginated list of videos watched.
      */
-    public GetVideoViewsResponse withVideoViewsPaginatedResponse(@Nullable VideoViewsPaginatedResponse videoViewsPaginatedResponse) {
+    public GetVideoViewsResponse withVideoViewsPaginatedResponse(
+            @Nullable VideoViewsPaginatedResponse videoViewsPaginatedResponse) {
         this.videoViewsPaginatedResponse = videoViewsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class GetVideoViewsResponse implements AsyncResponse {
             return false;
         }
         GetVideoViewsResponse other = (GetVideoViewsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.videoViewsPaginatedResponse, other.videoViewsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.videoViewsPaginatedResponse, other.videoViewsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            videoViewsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, videoViewsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetVideoViewsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "videoViewsPaginatedResponse", videoViewsPaginatedResponse);
+        return Utils.toString(
+                GetVideoViewsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "videoViewsPaginatedResponse",
+                videoViewsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
         private VideoViewsPaginatedResponse videoViewsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class GetVideoViewsResponse implements AsyncResponse {
         }
 
         public GetVideoViewsResponse build() {
-            return new GetVideoViewsResponse(
-                contentType, statusCode, rawResponse,
-                videoViewsPaginatedResponse);
+            return new GetVideoViewsResponse(contentType, statusCode, rawResponse, videoViewsPaginatedResponse);
         }
-
     }
 }

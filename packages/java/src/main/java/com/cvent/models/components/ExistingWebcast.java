@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -19,7 +19,7 @@ import java.util.Optional;
 
 /**
  * ExistingWebcast
- * 
+ *
  * <p>An existing webcast.
  */
 public class ExistingWebcast {
@@ -236,16 +236,15 @@ public class ExistingWebcast {
         this.appointment = appointment;
         this.solutionType = solutionType;
         this.exhibitor = exhibitor;
-        this.format = Optional.ofNullable(format)
-            .orElse(Builder._SINGLETON_VALUE_Format.value());
+        this.format = Optional.ofNullable(format).orElse(Builder._SINGLETON_VALUE_Format.value());
         this.type = type;
         this.provider = provider;
         this.status = status;
         this.playerType = playerType;
         this.simulatedLive = simulatedLive;
         this.recordLiveStream = recordLiveStream;
-        this.autoAddToLibrary = Optional.ofNullable(autoAddToLibrary)
-            .orElse(Builder._SINGLETON_VALUE_AutoAddToLibrary.value());
+        this.autoAddToLibrary =
+                Optional.ofNullable(autoAddToLibrary).orElse(Builder._SINGLETON_VALUE_AutoAddToLibrary.value());
         this.onDemandVideo = onDemandVideo;
         this.sourceId = sourceId;
         this.title = title;
@@ -255,17 +254,34 @@ public class ExistingWebcast {
         this.video = video;
         this.id = id;
     }
-    
+
     public ExistingWebcast() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -449,7 +465,6 @@ public class ExistingWebcast {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -457,7 +472,6 @@ public class ExistingWebcast {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -467,7 +481,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -475,7 +488,6 @@ public class ExistingWebcast {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -485,7 +497,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -493,7 +504,6 @@ public class ExistingWebcast {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -503,7 +513,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -511,7 +520,6 @@ public class ExistingWebcast {
         this.appointment = appointment;
         return this;
     }
-
 
     /**
      * This is used to denote the solution type to be used for webcast. The 'Cvent Video Conferencing'
@@ -523,7 +531,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -531,7 +538,6 @@ public class ExistingWebcast {
         this.exhibitor = exhibitor;
         return this;
     }
-
 
     /**
      * This is used to denote the format of a webcast
@@ -541,7 +547,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * This is used to denote the type of a webcast
      */
@@ -549,7 +554,6 @@ public class ExistingWebcast {
         this.type = type;
         return this;
     }
-
 
     /**
      * Name of the webcast provider.
@@ -559,7 +563,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * This is used to denote the status of a webcast
      */
@@ -567,7 +570,6 @@ public class ExistingWebcast {
         this.status = status;
         return this;
     }
-
 
     /**
      * This is used to denote the type of a video player
@@ -577,7 +579,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Indicates if the webcast is simulated live or not
      */
@@ -585,7 +586,6 @@ public class ExistingWebcast {
         this.simulatedLive = simulatedLive;
         return this;
     }
-
 
     /**
      * Indicates if the live stream recording is enabled
@@ -595,7 +595,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Indicates if the live stream recording will be added to the library automatically
      */
@@ -603,7 +602,6 @@ public class ExistingWebcast {
         this.autoAddToLibrary = autoAddToLibrary;
         return this;
     }
-
 
     /**
      * Indicates if the on demand video is available
@@ -613,7 +611,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Source Id of the webcast provider
      */
@@ -621,7 +618,6 @@ public class ExistingWebcast {
         this.sourceId = sourceId;
         return this;
     }
-
 
     /**
      * Title of the webcast
@@ -631,7 +627,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Id of meeting within a webcast.
      */
@@ -639,7 +634,6 @@ public class ExistingWebcast {
         this.meetingId = meetingId;
         return this;
     }
-
 
     /**
      * webcast link references
@@ -649,7 +643,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Additional information related to the webcast
      */
@@ -657,7 +650,6 @@ public class ExistingWebcast {
         this.details = details;
         return this;
     }
-
 
     /**
      * Video for the webcast.
@@ -667,7 +659,6 @@ public class ExistingWebcast {
         return this;
     }
 
-
     /**
      * Webcast ID
      */
@@ -675,7 +666,6 @@ public class ExistingWebcast {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -686,80 +676,121 @@ public class ExistingWebcast {
             return false;
         }
         ExistingWebcast other = (ExistingWebcast) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.appointment, other.appointment) &&
-            Utils.enhancedDeepEquals(this.solutionType, other.solutionType) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.provider, other.provider) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.playerType, other.playerType) &&
-            Utils.enhancedDeepEquals(this.simulatedLive, other.simulatedLive) &&
-            Utils.enhancedDeepEquals(this.recordLiveStream, other.recordLiveStream) &&
-            Utils.enhancedDeepEquals(this.autoAddToLibrary, other.autoAddToLibrary) &&
-            Utils.enhancedDeepEquals(this.onDemandVideo, other.onDemandVideo) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.meetingId, other.meetingId) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.details, other.details) &&
-            Utils.enhancedDeepEquals(this.video, other.video) &&
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.appointment, other.appointment)
+                && Utils.enhancedDeepEquals(this.solutionType, other.solutionType)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.provider, other.provider)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.playerType, other.playerType)
+                && Utils.enhancedDeepEquals(this.simulatedLive, other.simulatedLive)
+                && Utils.enhancedDeepEquals(this.recordLiveStream, other.recordLiveStream)
+                && Utils.enhancedDeepEquals(this.autoAddToLibrary, other.autoAddToLibrary)
+                && Utils.enhancedDeepEquals(this.onDemandVideo, other.onDemandVideo)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.meetingId, other.meetingId)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.details, other.details)
+                && Utils.enhancedDeepEquals(this.video, other.video)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, session,
-            appointment, solutionType, exhibitor,
-            format, type, provider,
-            status, playerType, simulatedLive,
-            recordLiveStream, autoAddToLibrary, onDemandVideo,
-            sourceId, title, meetingId,
-            links, details, video,
-            id);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                session,
+                appointment,
+                solutionType,
+                exhibitor,
+                format,
+                type,
+                provider,
+                status,
+                playerType,
+                simulatedLive,
+                recordLiveStream,
+                autoAddToLibrary,
+                onDemandVideo,
+                sourceId,
+                title,
+                meetingId,
+                links,
+                details,
+                video,
+                id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingWebcast.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "session", session,
-                "appointment", appointment,
-                "solutionType", solutionType,
-                "exhibitor", exhibitor,
-                "format", format,
-                "type", type,
-                "provider", provider,
-                "status", status,
-                "playerType", playerType,
-                "simulatedLive", simulatedLive,
-                "recordLiveStream", recordLiveStream,
-                "autoAddToLibrary", autoAddToLibrary,
-                "onDemandVideo", onDemandVideo,
-                "sourceId", sourceId,
-                "title", title,
-                "meetingId", meetingId,
-                "links", links,
-                "details", details,
-                "video", video,
-                "id", id);
+        return Utils.toString(
+                ExistingWebcast.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "session",
+                session,
+                "appointment",
+                appointment,
+                "solutionType",
+                solutionType,
+                "exhibitor",
+                exhibitor,
+                "format",
+                format,
+                "type",
+                type,
+                "provider",
+                provider,
+                "status",
+                status,
+                "playerType",
+                playerType,
+                "simulatedLive",
+                simulatedLive,
+                "recordLiveStream",
+                recordLiveStream,
+                "autoAddToLibrary",
+                autoAddToLibrary,
+                "onDemandVideo",
+                onDemandVideo,
+                "sourceId",
+                sourceId,
+                "title",
+                title,
+                "meetingId",
+                meetingId,
+                "links",
+                links,
+                "details",
+                details,
+                "video",
+                video,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -812,7 +843,7 @@ public class ExistingWebcast {
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -1019,28 +1050,37 @@ public class ExistingWebcast {
 
         public ExistingWebcast build() {
             return new ExistingWebcast(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, session,
-                appointment, solutionType, exhibitor,
-                format, type, provider,
-                status, playerType, simulatedLive,
-                recordLiveStream, autoAddToLibrary, onDemandVideo,
-                sourceId, title, meetingId,
-                links, details, video,
-                id);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    session,
+                    appointment,
+                    solutionType,
+                    exhibitor,
+                    format,
+                    type,
+                    provider,
+                    status,
+                    playerType,
+                    simulatedLive,
+                    recordLiveStream,
+                    autoAddToLibrary,
+                    onDemandVideo,
+                    sourceId,
+                    title,
+                    meetingId,
+                    links,
+                    details,
+                    video,
+                    id);
         }
 
-
         private static final LazySingletonValue<FormatJson> _SINGLETON_VALUE_Format =
-                new LazySingletonValue<>(
-                        "format",
-                        "\"Live\"",
-                        new TypeReference<FormatJson>() {});
+                new LazySingletonValue<>("format", "\"Live\"", new TypeReference<FormatJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_AutoAddToLibrary =
-                new LazySingletonValue<>(
-                        "autoAddToLibrary",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("autoAddToLibrary", "false", new TypeReference<Boolean>() {});
     }
 }

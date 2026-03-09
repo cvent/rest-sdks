@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SendEmailRequestStatusJson
- * 
+ *
  * <p>Denotes the status of the send email request.
  */
 public enum SendEmailRequestStatusJson {
@@ -24,13 +24,13 @@ public enum SendEmailRequestStatusJson {
     SendEmailRequestStatusJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SendEmailRequestStatusJson> fromValue(String value) {
-        for (SendEmailRequestStatusJson o: SendEmailRequestStatusJson.values()) {
+        for (SendEmailRequestStatusJson o : SendEmailRequestStatusJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum SendEmailRequestStatusJson {
         return Optional.empty();
     }
 }
-

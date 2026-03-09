@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * ExistingReservationHousingEventId
- * 
+ *
  * <p>Information about Passkey event for this reservation.
  */
 public class ExistingReservationHousingEventId {
@@ -22,8 +22,7 @@ public class ExistingReservationHousingEventId {
     private long id;
 
     @JsonCreator
-    public ExistingReservationHousingEventId(
-            @JsonProperty("id") long id) {
+    public ExistingReservationHousingEventId(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class ExistingReservationHousingEventId {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the housing event.
      */
@@ -46,7 +44,6 @@ public class ExistingReservationHousingEventId {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class ExistingReservationHousingEventId {
             return false;
         }
         ExistingReservationHousingEventId other = (ExistingReservationHousingEventId) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingReservationHousingEventId.class,
-                "id", id);
+        return Utils.toString(ExistingReservationHousingEventId.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class ExistingReservationHousingEventId {
         }
 
         public ExistingReservationHousingEventId build() {
-            return new ExistingReservationHousingEventId(
-                id);
+            return new ExistingReservationHousingEventId(id);
         }
-
     }
 }

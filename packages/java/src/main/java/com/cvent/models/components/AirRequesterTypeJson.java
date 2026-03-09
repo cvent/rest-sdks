@@ -10,10 +10,10 @@ import java.util.Optional;
 
 /**
  * AirRequesterTypeJson
- * 
+ *
  * <p>Representation of an attendee type of the flight requester. Contact means the requester is an
  * independent attendee. Guest means the attendee is accompanying another attendee.
- * 
+ *
  * <p>Unknown means attendee has requested a flight for passenger other than its guest.
  */
 public enum AirRequesterTypeJson {
@@ -27,13 +27,13 @@ public enum AirRequesterTypeJson {
     AirRequesterTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AirRequesterTypeJson> fromValue(String value) {
-        for (AirRequesterTypeJson o: AirRequesterTypeJson.values()) {
+        for (AirRequesterTypeJson o : AirRequesterTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -41,4 +41,3 @@ public enum AirRequesterTypeJson {
         return Optional.empty();
     }
 }
-

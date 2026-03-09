@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetBadgePrinterPoolsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.badgePrinterPoolsPaginatedResponse = badgePrinterPoolsPaginatedResponse;
     }
-    
+
     public GetBadgePrinterPoolsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of printer pools.
      */
-    public GetBadgePrinterPoolsResponse withBadgePrinterPoolsPaginatedResponse(@Nullable BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse) {
+    public GetBadgePrinterPoolsResponse withBadgePrinterPoolsPaginatedResponse(
+            @Nullable BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse) {
         this.badgePrinterPoolsPaginatedResponse = badgePrinterPoolsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
             return false;
         }
         GetBadgePrinterPoolsResponse other = (GetBadgePrinterPoolsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.badgePrinterPoolsPaginatedResponse, other.badgePrinterPoolsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.badgePrinterPoolsPaginatedResponse, other.badgePrinterPoolsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            badgePrinterPoolsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, badgePrinterPoolsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetBadgePrinterPoolsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "badgePrinterPoolsPaginatedResponse", badgePrinterPoolsPaginatedResponse);
+        return Utils.toString(
+                GetBadgePrinterPoolsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "badgePrinterPoolsPaginatedResponse",
+                badgePrinterPoolsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         private BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetBadgePrinterPoolsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of printer pools.
          */
-        public Builder badgePrinterPoolsPaginatedResponse(@Nullable BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse) {
+        public Builder badgePrinterPoolsPaginatedResponse(
+                @Nullable BadgePrinterPoolsPaginatedResponse badgePrinterPoolsPaginatedResponse) {
             this.badgePrinterPoolsPaginatedResponse = badgePrinterPoolsPaginatedResponse;
             return this;
         }
 
         public GetBadgePrinterPoolsResponse build() {
             return new GetBadgePrinterPoolsResponse(
-                contentType, statusCode, rawResponse,
-                badgePrinterPoolsPaginatedResponse);
+                    contentType, statusCode, rawResponse, badgePrinterPoolsPaginatedResponse);
         }
-
     }
 }

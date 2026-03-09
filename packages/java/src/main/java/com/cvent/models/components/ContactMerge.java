@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ContactMerge
- * 
+ *
  * <p>This entity represents a request to merge one or two contacts with another 'main' contact.
  */
 public class ContactMerge {
@@ -40,12 +40,11 @@ public class ContactMerge {
             @JsonProperty("secondaryContacts") @Nonnull List<String> secondaryContacts,
             @JsonProperty("conflictResolution") @Nullable ConflictResolution conflictResolution) {
         this.secondaryContacts = Optional.ofNullable(secondaryContacts)
-            .orElseThrow(() -> new IllegalArgumentException("secondaryContacts cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("secondaryContacts cannot be null"));
         this.conflictResolution = conflictResolution;
     }
-    
-    public ContactMerge(
-            @Nonnull List<String> secondaryContacts) {
+
+    public ContactMerge(@Nonnull List<String> secondaryContacts) {
         this(secondaryContacts, null);
     }
 
@@ -68,7 +67,6 @@ public class ContactMerge {
         return new Builder();
     }
 
-
     /**
      * Id of the contact(s) to be merged to the main contact.
      */
@@ -76,7 +74,6 @@ public class ContactMerge {
         this.secondaryContacts = Utils.checkNotNull(secondaryContacts, "secondaryContacts");
         return this;
     }
-
 
     /**
      * Represents choices in resolving conflicts in the contacts to be merged or to optionally select
@@ -87,7 +84,6 @@ public class ContactMerge {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -97,33 +93,30 @@ public class ContactMerge {
             return false;
         }
         ContactMerge other = (ContactMerge) o;
-        return 
-            Utils.enhancedDeepEquals(this.secondaryContacts, other.secondaryContacts) &&
-            Utils.enhancedDeepEquals(this.conflictResolution, other.conflictResolution);
+        return Utils.enhancedDeepEquals(this.secondaryContacts, other.secondaryContacts)
+                && Utils.enhancedDeepEquals(this.conflictResolution, other.conflictResolution);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            secondaryContacts, conflictResolution);
+        return Utils.enhancedHash(secondaryContacts, conflictResolution);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactMerge.class,
-                "secondaryContacts", secondaryContacts,
-                "conflictResolution", conflictResolution);
+        return Utils.toString(
+                ContactMerge.class, "secondaryContacts", secondaryContacts, "conflictResolution", conflictResolution);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> secondaryContacts;
 
         private ConflictResolution conflictResolution;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -144,9 +137,7 @@ public class ContactMerge {
         }
 
         public ContactMerge build() {
-            return new ContactMerge(
-                secondaryContacts, conflictResolution);
+            return new ContactMerge(secondaryContacts, conflictResolution);
         }
-
     }
 }

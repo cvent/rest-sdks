@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSeatingResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,15 @@ public class ListSeatingResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable SeatingPaginatedResponse seatingPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.seatingPaginatedResponse = seatingPaginatedResponse;
     }
-    
-    public ListSeatingResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public ListSeatingResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +87,6 @@ public class ListSeatingResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +94,6 @@ public class ListSeatingResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +103,6 @@ public class ListSeatingResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +111,14 @@ public class ListSeatingResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of seatings for the event.
      */
-    public ListSeatingResponse withSeatingPaginatedResponse(@Nullable SeatingPaginatedResponse seatingPaginatedResponse) {
+    public ListSeatingResponse withSeatingPaginatedResponse(
+            @Nullable SeatingPaginatedResponse seatingPaginatedResponse) {
         this.seatingPaginatedResponse = seatingPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +129,33 @@ public class ListSeatingResponse implements AsyncResponse {
             return false;
         }
         ListSeatingResponse other = (ListSeatingResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.seatingPaginatedResponse, other.seatingPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.seatingPaginatedResponse, other.seatingPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            seatingPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, seatingPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSeatingResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "seatingPaginatedResponse", seatingPaginatedResponse);
+        return Utils.toString(
+                ListSeatingResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "seatingPaginatedResponse",
+                seatingPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +166,7 @@ public class ListSeatingResponse implements AsyncResponse {
         private SeatingPaginatedResponse seatingPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +202,7 @@ public class ListSeatingResponse implements AsyncResponse {
         }
 
         public ListSeatingResponse build() {
-            return new ListSeatingResponse(
-                contentType, statusCode, rawResponse,
-                seatingPaginatedResponse);
+            return new ListSeatingResponse(contentType, statusCode, rawResponse, seatingPaginatedResponse);
         }
-
     }
 }

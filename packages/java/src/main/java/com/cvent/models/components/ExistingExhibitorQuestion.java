@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -22,7 +22,7 @@ import java.util.Optional;
 
 /**
  * ExistingExhibitorQuestion
- * 
+ *
  * <p>Schema for an existing exhibitor question
  */
 public class ExistingExhibitorQuestion {
@@ -77,7 +77,7 @@ public class ExistingExhibitorQuestion {
      * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
      * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
      * option from a list, often displayed as a dropdown or radio button.
-     * 
+     *
      * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
      * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
      * captures date and time information from respondents.
@@ -116,7 +116,7 @@ public class ExistingExhibitorQuestion {
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
      * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
      * 'EmailAddress', or 'PhoneNumber'.
-     * 
+     *
      * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -174,13 +174,10 @@ public class ExistingExhibitorQuestion {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.text = Optional.ofNullable(text)
-            .orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
         this.code = code;
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.required = required;
         this.choices = choices;
         this.notApplicableAnswer = notApplicableAnswer;
@@ -188,24 +185,17 @@ public class ExistingExhibitorQuestion {
         this.answerFormat = answerFormat;
         this.answerLimits = answerLimits;
         this.defaultToCurrentDate = defaultToCurrentDate;
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.displayOrder = Optional.ofNullable(displayOrder)
-            .orElse(Builder._SINGLETON_VALUE_DisplayOrder.value());
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.displayOrder = Optional.ofNullable(displayOrder).orElse(Builder._SINGLETON_VALUE_DisplayOrder.value());
     }
-    
+
     public ExistingExhibitorQuestion(
             @Nonnull EventJson5 event,
             @Nonnull String text,
             @Nonnull ExhibitorQuestionTypeJson type,
             boolean required,
             @Nonnull String id) {
-        this(null, null, null,
-            null, event, text,
-            null, type, required,
-            null, null, null,
-            null, null, null,
-            id, null);
+        this(null, null, null, null, event, text, null, type, required, null, null, null, null, null, null, id, null);
     }
 
     /**
@@ -261,7 +251,7 @@ public class ExistingExhibitorQuestion {
      * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
      * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
      * option from a list, often displayed as a dropdown or radio button.
-     * 
+     *
      * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
      * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
      * captures date and time information from respondents.
@@ -302,7 +292,7 @@ public class ExistingExhibitorQuestion {
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
      * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
      * 'EmailAddress', or 'PhoneNumber'.
-     * 
+     *
      * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
      */
     public Optional<ExhibitorAnswerFormatJson> answerFormat() {
@@ -342,7 +332,6 @@ public class ExistingExhibitorQuestion {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -350,7 +339,6 @@ public class ExistingExhibitorQuestion {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -360,7 +348,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -368,7 +355,6 @@ public class ExistingExhibitorQuestion {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -378,7 +364,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * The Associated Event.
      */
@@ -386,7 +371,6 @@ public class ExistingExhibitorQuestion {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
-
 
     /**
      * The actual text of the exhibitor question.
@@ -396,7 +380,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * System or User defined event level unique exhibitor question code.
      */
@@ -405,12 +388,11 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
      * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
      * option from a list, often displayed as a dropdown or radio button.
-     * 
+     *
      * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
      * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
      * captures date and time information from respondents.
@@ -420,7 +402,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * A boolean indicating whether the question is mandatory or not
      */
@@ -428,7 +409,6 @@ public class ExistingExhibitorQuestion {
         this.required = required;
         return this;
     }
-
 
     /**
      * An array of choices for the exhibitor question.
@@ -438,7 +418,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * Contains text of additional choice
      */
@@ -446,7 +425,6 @@ public class ExistingExhibitorQuestion {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
-
 
     /**
      * Contains text of additional choice
@@ -456,19 +434,17 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
      * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
      * 'EmailAddress', or 'PhoneNumber'.
-     * 
+     *
      * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
      */
     public ExistingExhibitorQuestion withAnswerFormat(@Nullable ExhibitorAnswerFormatJson answerFormat) {
         this.answerFormat = answerFormat;
         return this;
     }
-
 
     /**
      * Defines the limits for answers to exhibitor questions.
@@ -477,7 +453,6 @@ public class ExistingExhibitorQuestion {
         this.answerLimits = answerLimits;
         return this;
     }
-
 
     /**
      * True indicates the current date and time is automatically set as the default value for
@@ -488,7 +463,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * Exhibitor Question id
      */
@@ -497,7 +471,6 @@ public class ExistingExhibitorQuestion {
         return this;
     }
 
-
     /**
      * The unique display order of the exhibitor question.
      */
@@ -505,7 +478,6 @@ public class ExistingExhibitorQuestion {
         this.displayOrder = displayOrder;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -516,61 +488,89 @@ public class ExistingExhibitorQuestion {
             return false;
         }
         ExistingExhibitorQuestion other = (ExistingExhibitorQuestion) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.required, other.required) &&
-            Utils.enhancedDeepEquals(this.choices, other.choices) &&
-            Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer) &&
-            Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer) &&
-            Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat) &&
-            Utils.enhancedDeepEquals(this.answerLimits, other.answerLimits) &&
-            Utils.enhancedDeepEquals(this.defaultToCurrentDate, other.defaultToCurrentDate) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.displayOrder, other.displayOrder);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.required, other.required)
+                && Utils.enhancedDeepEquals(this.choices, other.choices)
+                && Utils.enhancedDeepEquals(this.notApplicableAnswer, other.notApplicableAnswer)
+                && Utils.enhancedDeepEquals(this.otherAnswer, other.otherAnswer)
+                && Utils.enhancedDeepEquals(this.answerFormat, other.answerFormat)
+                && Utils.enhancedDeepEquals(this.answerLimits, other.answerLimits)
+                && Utils.enhancedDeepEquals(this.defaultToCurrentDate, other.defaultToCurrentDate)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.displayOrder, other.displayOrder);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, event, text,
-            code, type, required,
-            choices, notApplicableAnswer, otherAnswer,
-            answerFormat, answerLimits, defaultToCurrentDate,
-            id, displayOrder);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                event,
+                text,
+                code,
+                type,
+                required,
+                choices,
+                notApplicableAnswer,
+                otherAnswer,
+                answerFormat,
+                answerLimits,
+                defaultToCurrentDate,
+                id,
+                displayOrder);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingExhibitorQuestion.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "event", event,
-                "text", text,
-                "code", code,
-                "type", type,
-                "required", required,
-                "choices", choices,
-                "notApplicableAnswer", notApplicableAnswer,
-                "otherAnswer", otherAnswer,
-                "answerFormat", answerFormat,
-                "answerLimits", answerLimits,
-                "defaultToCurrentDate", defaultToCurrentDate,
-                "id", id,
-                "displayOrder", displayOrder);
+        return Utils.toString(
+                ExistingExhibitorQuestion.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "event",
+                event,
+                "text",
+                text,
+                "code",
+                code,
+                "type",
+                type,
+                "required",
+                required,
+                "choices",
+                choices,
+                "notApplicableAnswer",
+                notApplicableAnswer,
+                "otherAnswer",
+                otherAnswer,
+                "answerFormat",
+                answerFormat,
+                "answerLimits",
+                answerLimits,
+                "defaultToCurrentDate",
+                defaultToCurrentDate,
+                "id",
+                id,
+                "displayOrder",
+                displayOrder);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -607,7 +607,7 @@ public class ExistingExhibitorQuestion {
         private Long displayOrder;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -670,7 +670,7 @@ public class ExistingExhibitorQuestion {
          * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice':
          * Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single
          * option from a list, often displayed as a dropdown or radio button.
-         * 
+         *
          * <p>'OpenEndedTextOneLine': brief text responses, such as names or short answers.
          * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
          * captures date and time information from respondents.
@@ -716,7 +716,7 @@ public class ExistingExhibitorQuestion {
          * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
          * choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General',
          * 'EmailAddress', or 'PhoneNumber'.
-         * 
+         *
          * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
          */
         public Builder answerFormat(@Nullable ExhibitorAnswerFormatJson answerFormat) {
@@ -759,19 +759,26 @@ public class ExistingExhibitorQuestion {
 
         public ExistingExhibitorQuestion build() {
             return new ExistingExhibitorQuestion(
-                created, createdBy, lastModified,
-                lastModifiedBy, event, text,
-                code, type, required,
-                choices, notApplicableAnswer, otherAnswer,
-                answerFormat, answerLimits, defaultToCurrentDate,
-                id, displayOrder);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    event,
+                    text,
+                    code,
+                    type,
+                    required,
+                    choices,
+                    notApplicableAnswer,
+                    otherAnswer,
+                    answerFormat,
+                    answerLimits,
+                    defaultToCurrentDate,
+                    id,
+                    displayOrder);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_DisplayOrder =
-                new LazySingletonValue<>(
-                        "displayOrder",
-                        "1",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("displayOrder", "1", new TypeReference<Long>() {});
     }
 }

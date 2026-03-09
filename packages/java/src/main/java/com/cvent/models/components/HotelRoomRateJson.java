@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * HotelRoomRateJson
- * 
+ *
  * <p>Representation of a hotel room rate
  */
 public class HotelRoomRateJson {
@@ -42,7 +42,7 @@ public class HotelRoomRateJson {
         this.roomNight = roomNight;
         this.roomRate = roomRate;
     }
-    
+
     public HotelRoomRateJson() {
         this(null, null);
     }
@@ -65,7 +65,6 @@ public class HotelRoomRateJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 date-time (in UTC) of the night for which the room has been booked.
      */
@@ -74,7 +73,6 @@ public class HotelRoomRateJson {
         return this;
     }
 
-
     /**
      * The nightly rate at which the room has been booked.
      */
@@ -82,7 +80,6 @@ public class HotelRoomRateJson {
         this.roomRate = roomRate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -93,33 +90,29 @@ public class HotelRoomRateJson {
             return false;
         }
         HotelRoomRateJson other = (HotelRoomRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.roomNight, other.roomNight) &&
-            Utils.enhancedDeepEquals(this.roomRate, other.roomRate);
+        return Utils.enhancedDeepEquals(this.roomNight, other.roomNight)
+                && Utils.enhancedDeepEquals(this.roomRate, other.roomRate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            roomNight, roomRate);
+        return Utils.enhancedHash(roomNight, roomRate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HotelRoomRateJson.class,
-                "roomNight", roomNight,
-                "roomRate", roomRate);
+        return Utils.toString(HotelRoomRateJson.class, "roomNight", roomNight, "roomRate", roomRate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime roomNight;
 
         private Double roomRate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -139,9 +132,7 @@ public class HotelRoomRateJson {
         }
 
         public HotelRoomRateJson build() {
-            return new HotelRoomRateJson(
-                roomNight, roomRate);
+            return new HotelRoomRateJson(roomNight, roomRate);
         }
-
     }
 }

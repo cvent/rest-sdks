@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Long;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelBidRoomJson
- * 
+ *
  * <p>A room in a travel bid.
  */
 public class TravelBidRoomJson {
@@ -60,10 +60,9 @@ public class TravelBidRoomJson {
         this.order = order;
         this.status = status;
     }
-    
+
     public TravelBidRoomJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -99,7 +98,6 @@ public class TravelBidRoomJson {
         return new Builder();
     }
 
-
     /**
      * ID of the property's room.
      */
@@ -107,7 +105,6 @@ public class TravelBidRoomJson {
         this.propertyRoom = propertyRoom;
         return this;
     }
-
 
     /**
      * The number of rooms allocated to the bid.
@@ -117,7 +114,6 @@ public class TravelBidRoomJson {
         return this;
     }
 
-
     /**
      * The order of the room in the bid.
      */
@@ -125,7 +121,6 @@ public class TravelBidRoomJson {
         this.order = order;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -136,7 +131,6 @@ public class TravelBidRoomJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -146,31 +140,33 @@ public class TravelBidRoomJson {
             return false;
         }
         TravelBidRoomJson other = (TravelBidRoomJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom) &&
-            Utils.enhancedDeepEquals(this.allocation, other.allocation) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom)
+                && Utils.enhancedDeepEquals(this.allocation, other.allocation)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            propertyRoom, allocation, order,
-            status);
+        return Utils.enhancedHash(propertyRoom, allocation, order, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidRoomJson.class,
-                "propertyRoom", propertyRoom,
-                "allocation", allocation,
-                "order", order,
-                "status", status);
+        return Utils.toString(
+                TravelBidRoomJson.class,
+                "propertyRoom",
+                propertyRoom,
+                "allocation",
+                allocation,
+                "order",
+                order,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelBidRoomJsonPropertyRoom propertyRoom;
 
@@ -181,7 +177,7 @@ public class TravelBidRoomJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -218,10 +214,7 @@ public class TravelBidRoomJson {
         }
 
         public TravelBidRoomJson build() {
-            return new TravelBidRoomJson(
-                propertyRoom, allocation, order,
-                status);
+            return new TravelBidRoomJson(propertyRoom, allocation, order, status);
         }
-
     }
 }

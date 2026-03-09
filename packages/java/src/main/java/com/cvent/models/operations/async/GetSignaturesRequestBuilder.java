@@ -40,7 +40,7 @@ public class GetSignaturesRequestBuilder {
     private GetSignaturesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetSignaturesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetSignaturesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetSignaturesResponse> call() {
-        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation
-              = new GetSignatures.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
+                new GetSignatures.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetSignaturesRequestBuilder {
      */
     public Publisher<GetSignaturesResponse> callAsPublisher() {
         GetSignaturesRequest request = this.request;
-        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation
-              = new GetSignatures.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
+                new GetSignatures.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetSignaturesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetSignaturesRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetSignaturesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

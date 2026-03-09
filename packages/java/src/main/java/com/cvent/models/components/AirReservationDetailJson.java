@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AirReservationDetailJson
- * 
+ *
  * <p>Representation of an air reservation detail response.
  */
 public class AirReservationDetailJson {
@@ -41,7 +41,7 @@ public class AirReservationDetailJson {
         this.attendee = attendee;
         this.airRequestDetails = airRequestDetails;
     }
-    
+
     public AirReservationDetailJson() {
         this(null, null);
     }
@@ -64,7 +64,6 @@ public class AirReservationDetailJson {
         return new Builder();
     }
 
-
     /**
      * Representation of the attendee
      */
@@ -73,7 +72,6 @@ public class AirReservationDetailJson {
         return this;
     }
 
-
     /**
      * List of all air request by attendee and its guest.
      */
@@ -81,7 +79,6 @@ public class AirReservationDetailJson {
         this.airRequestDetails = airRequestDetails;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -92,33 +89,30 @@ public class AirReservationDetailJson {
             return false;
         }
         AirReservationDetailJson other = (AirReservationDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.airRequestDetails, other.airRequestDetails);
+        return Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.airRequestDetails, other.airRequestDetails);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            attendee, airRequestDetails);
+        return Utils.enhancedHash(attendee, airRequestDetails);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AirReservationDetailJson.class,
-                "attendee", attendee,
-                "airRequestDetails", airRequestDetails);
+        return Utils.toString(
+                AirReservationDetailJson.class, "attendee", attendee, "airRequestDetails", airRequestDetails);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AttendeeJson4 attendee;
 
         private List<AirRequestJson> airRequestDetails;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -138,9 +132,7 @@ public class AirReservationDetailJson {
         }
 
         public AirReservationDetailJson build() {
-            return new AirReservationDetailJson(
-                attendee, airRequestDetails);
+            return new AirReservationDetailJson(attendee, airRequestDetails);
         }
-
     }
 }

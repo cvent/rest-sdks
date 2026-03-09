@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetUserResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -40,24 +39,17 @@ public class GetUserResponse implements AsyncResponse {
 
     @JsonCreator
     public GetUserResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable User user) {
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse, @Nullable User user) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.user = user;
     }
-    
-    public GetUserResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public GetUserResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +84,6 @@ public class GetUserResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +91,6 @@ public class GetUserResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +100,6 @@ public class GetUserResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,7 +108,6 @@ public class GetUserResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a user.
      */
@@ -127,7 +115,6 @@ public class GetUserResponse implements AsyncResponse {
         this.user = user;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +125,33 @@ public class GetUserResponse implements AsyncResponse {
             return false;
         }
         GetUserResponse other = (GetUserResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.user, other.user);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.user, other.user);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            user);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, user);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetUserResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "user", user);
+        return Utils.toString(
+                GetUserResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "user",
+                user);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +162,7 @@ public class GetUserResponse implements AsyncResponse {
         private User user;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +198,7 @@ public class GetUserResponse implements AsyncResponse {
         }
 
         public GetUserResponse build() {
-            return new GetUserResponse(
-                contentType, statusCode, rawResponse,
-                user);
+            return new GetUserResponse(contentType, statusCode, rawResponse, user);
         }
-
     }
 }

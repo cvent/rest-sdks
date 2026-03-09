@@ -10,30 +10,30 @@ import java.util.Optional;
 
 /**
  * Error
- * 
+ *
  * <p>**invalid_request**
- * 
+ *
  * <p>The request is missing a required parameter, includes an unsupported parameter value (other than
  * unsupported_grant_type), or is otherwise malformed. For example, grant_type is refresh_token but
  * refresh_token is not included.
- * 
+ *
  * <p>**invalid_client**
- * 
+ *
  * <p>Client authentication failed. For example, when the client includes client_id and client_secret in
  * the authorization header, but there's no such client with that client_id and client_secret.
- * 
+ *
  * <p>**invalid_grant**
- * 
+ *
  * <p>Refresh token has been revoked.
- * 
+ *
  * <p>Authorization code has been consumed already or does not exist.
- * 
+ *
  * <p>**unauthorized_client**
- * 
+ *
  * <p>Client is not allowed for code grant flow or for refreshing tokens.
- * 
+ *
  * <p>**unsupported_grant_type**
- * 
+ *
  * <p>Returned if grant_type is anything other than authorization_code or refresh_token.
  */
 public enum Error {
@@ -49,13 +49,13 @@ public enum Error {
     Error(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<Error> fromValue(String value) {
-        for (Error o: Error.values()) {
+        for (Error o : Error.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -63,4 +63,3 @@ public enum Error {
         return Optional.empty();
     }
 }
-

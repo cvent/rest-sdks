@@ -2,6 +2,14 @@
 
 Days considered weekend days for pricing purposes in the travel bid.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = TravelBidWeekendDayJson.Monday;
+```
+
 
 ## Values
 

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class CreateSessionProgramSpeakerResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class CreateSessionProgramSpeakerResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SpeakerProgramItem speakerProgramItem) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.speakerProgramItem = speakerProgramItem;
     }
-    
+
     public CreateSessionProgramSpeakerResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully created the relationship between the session program item and the speaker.
      */
@@ -126,7 +118,6 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         this.speakerProgramItem = speakerProgramItem;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class CreateSessionProgramSpeakerResponse implements Response {
             return false;
         }
         CreateSessionProgramSpeakerResponse other = (CreateSessionProgramSpeakerResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.speakerProgramItem, other.speakerProgramItem);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.speakerProgramItem, other.speakerProgramItem);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            speakerProgramItem);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, speakerProgramItem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CreateSessionProgramSpeakerResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "speakerProgramItem", speakerProgramItem);
+        return Utils.toString(
+                CreateSessionProgramSpeakerResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "speakerProgramItem",
+                speakerProgramItem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         private SpeakerProgramItem speakerProgramItem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class CreateSessionProgramSpeakerResponse implements Response {
         }
 
         public CreateSessionProgramSpeakerResponse build() {
-            return new CreateSessionProgramSpeakerResponse(
-                contentType, statusCode, rawResponse,
-                speakerProgramItem);
+            return new CreateSessionProgramSpeakerResponse(contentType, statusCode, rawResponse, speakerProgramItem);
         }
-
     }
 }

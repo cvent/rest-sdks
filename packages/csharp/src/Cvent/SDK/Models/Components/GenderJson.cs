@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum GenderJson
     {
-        [JsonProperty("Male")]
-        Male,
-        [JsonProperty("Female")]
-        Female,
-        [JsonProperty("Non-binary")]
-        NonBinary,
-        [JsonProperty("Rather not say")]
-        RatherNotSay,
+        [JsonProperty("Male")] Male,
+        [JsonProperty("Female")] Female,
+        [JsonProperty("Non-binary")] NonBinary,
+        [JsonProperty("Rather not say")] RatherNotSay,
     }
 
     public static class GenderJsonExtension
     {
         public static string Value(this GenderJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static GenderJson ToEnum(this string value)
         {
-            foreach(var field in typeof(GenderJson).GetFields())
+            foreach (var field in typeof(GenderJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

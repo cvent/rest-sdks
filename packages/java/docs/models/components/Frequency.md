@@ -6,6 +6,14 @@ Defines how often the tax or fee is applied.
 - per_night: Applied per night.
 - per_stay: Applied per stay.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.Frequency;
+
+Frequency value = Frequency.PER_GUEST;
+```
+
 
 ## Values
 

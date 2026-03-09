@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateHotelRoomRatesRequest {
     /**
      * The hotel code.
@@ -34,15 +33,13 @@ public class UpdateHotelRoomRatesRequest {
 
     @JsonCreator
     public UpdateHotelRoomRatesRequest(
-            @Nonnull String hotelCode,
-            @Nonnull String roomCode,
-            @Nonnull HotelRoomRatesRequest hotelRoomRatesRequest) {
+            @Nonnull String hotelCode, @Nonnull String roomCode, @Nonnull HotelRoomRatesRequest hotelRoomRatesRequest) {
         this.hotelCode = Optional.ofNullable(hotelCode)
-            .orElseThrow(() -> new IllegalArgumentException("hotelCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("hotelCode cannot be null"));
         this.roomCode = Optional.ofNullable(roomCode)
-            .orElseThrow(() -> new IllegalArgumentException("roomCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("roomCode cannot be null"));
         this.hotelRoomRatesRequest = Optional.ofNullable(hotelRoomRatesRequest)
-            .orElseThrow(() -> new IllegalArgumentException("hotelRoomRatesRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("hotelRoomRatesRequest cannot be null"));
     }
 
     /**
@@ -70,7 +67,6 @@ public class UpdateHotelRoomRatesRequest {
         return new Builder();
     }
 
-
     /**
      * The hotel code.
      */
@@ -78,7 +74,6 @@ public class UpdateHotelRoomRatesRequest {
         this.hotelCode = Utils.checkNotNull(hotelCode, "hotelCode");
         return this;
     }
-
 
     /**
      * The room code.
@@ -88,7 +83,6 @@ public class UpdateHotelRoomRatesRequest {
         return this;
     }
 
-
     /**
      * Hotel room rates request.
      */
@@ -96,7 +90,6 @@ public class UpdateHotelRoomRatesRequest {
         this.hotelRoomRatesRequest = Utils.checkNotNull(hotelRoomRatesRequest, "hotelRoomRatesRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +100,30 @@ public class UpdateHotelRoomRatesRequest {
             return false;
         }
         UpdateHotelRoomRatesRequest other = (UpdateHotelRoomRatesRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode) &&
-            Utils.enhancedDeepEquals(this.roomCode, other.roomCode) &&
-            Utils.enhancedDeepEquals(this.hotelRoomRatesRequest, other.hotelRoomRatesRequest);
+        return Utils.enhancedDeepEquals(this.hotelCode, other.hotelCode)
+                && Utils.enhancedDeepEquals(this.roomCode, other.roomCode)
+                && Utils.enhancedDeepEquals(this.hotelRoomRatesRequest, other.hotelRoomRatesRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            hotelCode, roomCode, hotelRoomRatesRequest);
+        return Utils.enhancedHash(hotelCode, roomCode, hotelRoomRatesRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateHotelRoomRatesRequest.class,
-                "hotelCode", hotelCode,
-                "roomCode", roomCode,
-                "hotelRoomRatesRequest", hotelRoomRatesRequest);
+        return Utils.toString(
+                UpdateHotelRoomRatesRequest.class,
+                "hotelCode",
+                hotelCode,
+                "roomCode",
+                roomCode,
+                "hotelRoomRatesRequest",
+                hotelRoomRatesRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String hotelCode;
 
@@ -137,7 +132,7 @@ public class UpdateHotelRoomRatesRequest {
         private HotelRoomRatesRequest hotelRoomRatesRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +160,7 @@ public class UpdateHotelRoomRatesRequest {
         }
 
         public UpdateHotelRoomRatesRequest build() {
-            return new UpdateHotelRoomRatesRequest(
-                hotelCode, roomCode, hotelRoomRatesRequest);
+            return new UpdateHotelRoomRatesRequest(hotelCode, roomCode, hotelRoomRatesRequest);
         }
-
     }
 }

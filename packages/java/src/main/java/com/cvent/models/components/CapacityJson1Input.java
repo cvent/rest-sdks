@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * CapacityJson1Input
- * 
+ *
  * <p>Represents capacity statistics of the registration type.
  */
 public class CapacityJson1Input {
@@ -23,8 +23,7 @@ public class CapacityJson1Input {
     private long total;
 
     @JsonCreator
-    public CapacityJson1Input(
-            @JsonProperty("total") long total) {
+    public CapacityJson1Input(@JsonProperty("total") long total) {
         this.total = total;
     }
 
@@ -40,7 +39,6 @@ public class CapacityJson1Input {
         return new Builder();
     }
 
-
     /**
      * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
      * capacity.
@@ -49,7 +47,6 @@ public class CapacityJson1Input {
         this.total = total;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +57,26 @@ public class CapacityJson1Input {
             return false;
         }
         CapacityJson1Input other = (CapacityJson1Input) o;
-        return 
-            Utils.enhancedDeepEquals(this.total, other.total);
+        return Utils.enhancedDeepEquals(this.total, other.total);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            total);
+        return Utils.enhancedHash(total);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CapacityJson1Input.class,
-                "total", total);
+        return Utils.toString(CapacityJson1Input.class, "total", total);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long total;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -95,9 +89,7 @@ public class CapacityJson1Input {
         }
 
         public CapacityJson1Input build() {
-            return new CapacityJson1Input(
-                total);
+            return new CapacityJson1Input(total);
         }
-
     }
 }

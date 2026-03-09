@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetEventsPostFiltersRequest {
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -47,11 +46,11 @@ public class GetEventsPostFiltersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      */
@@ -75,16 +74,14 @@ public class GetEventsPostFiltersRequest {
             @Nullable Filter filter) {
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.sort = sort;
         this.filter = filter;
     }
-    
+
     public GetEventsPostFiltersRequest() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -120,11 +117,11 @@ public class GetEventsPostFiltersRequest {
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      */
@@ -144,7 +141,6 @@ public class GetEventsPostFiltersRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
@@ -154,7 +150,6 @@ public class GetEventsPostFiltersRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -163,7 +158,6 @@ public class GetEventsPostFiltersRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -171,7 +165,6 @@ public class GetEventsPostFiltersRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -182,15 +175,14 @@ public class GetEventsPostFiltersRequest {
         return this;
     }
 
-
     /**
      * The sort order passed as a parameter, used to control the order of the
      * search results as a priority ordered list of sorts
-     * 
+     *
      * <p>There are two orders:
      * * ascending: ASC
      * * descending: DESC
-     * 
+     *
      * <p>The following fields are sortable:
      * * start
      */
@@ -198,7 +190,6 @@ public class GetEventsPostFiltersRequest {
         this.sort = sort;
         return this;
     }
-
 
     /**
      * See the filters of [GET List Events](#operation/getEvents) for full filtering information you can
@@ -209,7 +200,6 @@ public class GetEventsPostFiltersRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -219,35 +209,39 @@ public class GetEventsPostFiltersRequest {
             return false;
         }
         GetEventsPostFiltersRequest other = (GetEventsPostFiltersRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, sort, filter);
+        return Utils.enhancedHash(after, before, limit, token, sort, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventsPostFiltersRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "sort", sort,
-                "filter", filter);
+        return Utils.toString(
+                GetEventsPostFiltersRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "sort",
+                sort,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -262,7 +256,7 @@ public class GetEventsPostFiltersRequest {
         private Filter filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -302,11 +296,11 @@ public class GetEventsPostFiltersRequest {
         /**
          * The sort order passed as a parameter, used to control the order of the
          * search results as a priority ordered list of sorts
-         * 
+         *
          * <p>There are two orders:
          * * ascending: ASC
          * * descending: DESC
-         * 
+         *
          * <p>The following fields are sortable:
          * * start
          */
@@ -325,16 +319,10 @@ public class GetEventsPostFiltersRequest {
         }
 
         public GetEventsPostFiltersRequest build() {
-            return new GetEventsPostFiltersRequest(
-                after, before, limit,
-                token, sort, filter);
+            return new GetEventsPostFiltersRequest(after, before, limit, token, sort, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

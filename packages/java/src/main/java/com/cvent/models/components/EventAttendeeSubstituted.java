@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventAttendeeSubstituted
- * 
+ *
  * <p>An attendee-substituted activity.
  */
 public class EventAttendeeSubstituted {
@@ -49,7 +49,7 @@ public class EventAttendeeSubstituted {
         this.oldContact = oldContact;
         this.newContact = newContact;
     }
-    
+
     public EventAttendeeSubstituted() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class EventAttendeeSubstituted {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -87,7 +86,6 @@ public class EventAttendeeSubstituted {
         this.event = event;
         return this;
     }
-
 
     /**
      * Details of a contact.
@@ -97,7 +95,6 @@ public class EventAttendeeSubstituted {
         return this;
     }
 
-
     /**
      * Details of a contact.
      */
@@ -105,7 +102,6 @@ public class EventAttendeeSubstituted {
         this.newContact = newContact;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,24 @@ public class EventAttendeeSubstituted {
             return false;
         }
         EventAttendeeSubstituted other = (EventAttendeeSubstituted) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.oldContact, other.oldContact) &&
-            Utils.enhancedDeepEquals(this.newContact, other.newContact);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.oldContact, other.oldContact)
+                && Utils.enhancedDeepEquals(this.newContact, other.newContact);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, oldContact, newContact);
+        return Utils.enhancedHash(event, oldContact, newContact);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventAttendeeSubstituted.class,
-                "event", event,
-                "oldContact", oldContact,
-                "newContact", newContact);
+        return Utils.toString(
+                EventAttendeeSubstituted.class, "event", event, "oldContact", oldContact, "newContact", newContact);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent1 event;
 
@@ -146,7 +138,7 @@ public class EventAttendeeSubstituted {
         private ContactCommonJson newContact;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +166,7 @@ public class EventAttendeeSubstituted {
         }
 
         public EventAttendeeSubstituted build() {
-            return new EventAttendeeSubstituted(
-                event, oldContact, newContact);
+            return new EventAttendeeSubstituted(event, oldContact, newContact);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * AlternateAnswerJson
- * 
+ *
  * <p>Represents the answer(s) to an alternate travel question submitted by an attendee.
  */
 public class AlternateAnswerJson {
@@ -28,11 +28,10 @@ public class AlternateAnswerJson {
     private List<String> value;
 
     @JsonCreator
-    public AlternateAnswerJson(
-            @JsonProperty("value") @Nullable List<String> value) {
+    public AlternateAnswerJson(@JsonProperty("value") @Nullable List<String> value) {
         this.value = value;
     }
-    
+
     public AlternateAnswerJson() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class AlternateAnswerJson {
         return new Builder();
     }
 
-
     /**
      * The set of answers to a single alternate travel question.
      */
@@ -56,7 +54,6 @@ public class AlternateAnswerJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class AlternateAnswerJson {
             return false;
         }
         AlternateAnswerJson other = (AlternateAnswerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            value);
+        return Utils.enhancedHash(value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AlternateAnswerJson.class,
-                "value", value);
+        return Utils.toString(AlternateAnswerJson.class, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class AlternateAnswerJson {
         }
 
         public AlternateAnswerJson build() {
-            return new AlternateAnswerJson(
-                value);
+            return new AlternateAnswerJson(value);
         }
-
     }
 }

@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExternalReferenceTypeJson
     {
-        [JsonProperty("Cvent Salesforce App")]
-        CventSalesforceApp,
-        [JsonProperty("Marketo")]
-        Marketo,
+        [JsonProperty("Cvent Salesforce App")] CventSalesforceApp,
+        [JsonProperty("Marketo")] Marketo,
     }
 
     public static class ExternalReferenceTypeJsonExtension
     {
         public static string Value(this ExternalReferenceTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExternalReferenceTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ExternalReferenceTypeJson).GetFields())
+            foreach (var field in typeof(ExternalReferenceTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

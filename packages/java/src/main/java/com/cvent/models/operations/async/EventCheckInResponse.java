@@ -17,7 +17,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
-
 public class EventCheckInResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -46,19 +45,15 @@ public class EventCheckInResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.attendeeAddBulkResponseEvent = attendeeAddBulkResponseEvent;
     }
-    
-    public EventCheckInResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+
+    public EventCheckInResponse(@Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -93,7 +88,6 @@ public class EventCheckInResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -101,7 +95,6 @@ public class EventCheckInResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -111,7 +104,6 @@ public class EventCheckInResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -120,15 +112,14 @@ public class EventCheckInResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Attendee(s) successfully checked-in.
      */
-    public EventCheckInResponse withAttendeeAddBulkResponseEvent(@Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
+    public EventCheckInResponse withAttendeeAddBulkResponseEvent(
+            @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
         this.attendeeAddBulkResponseEvent = attendeeAddBulkResponseEvent;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -139,31 +130,33 @@ public class EventCheckInResponse implements AsyncResponse {
             return false;
         }
         EventCheckInResponse other = (EventCheckInResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.attendeeAddBulkResponseEvent, other.attendeeAddBulkResponseEvent);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.attendeeAddBulkResponseEvent, other.attendeeAddBulkResponseEvent);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            attendeeAddBulkResponseEvent);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendeeAddBulkResponseEvent);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventCheckInResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "attendeeAddBulkResponseEvent", attendeeAddBulkResponseEvent);
+        return Utils.toString(
+                EventCheckInResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "attendeeAddBulkResponseEvent",
+                attendeeAddBulkResponseEvent);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -174,7 +167,7 @@ public class EventCheckInResponse implements AsyncResponse {
         private List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -204,16 +197,14 @@ public class EventCheckInResponse implements AsyncResponse {
         /**
          * Attendee(s) successfully checked-in.
          */
-        public Builder attendeeAddBulkResponseEvent(@Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
+        public Builder attendeeAddBulkResponseEvent(
+                @Nullable List<AttendeeAddBulkItemEventJson> attendeeAddBulkResponseEvent) {
             this.attendeeAddBulkResponseEvent = attendeeAddBulkResponseEvent;
             return this;
         }
 
         public EventCheckInResponse build() {
-            return new EventCheckInResponse(
-                contentType, statusCode, rawResponse,
-                attendeeAddBulkResponseEvent);
+            return new EventCheckInResponse(contentType, statusCode, rawResponse, attendeeAddBulkResponseEvent);
         }
-
     }
 }

@@ -2,6 +2,14 @@
 
 This is used to denote the status of the stream
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = LiveStreamStatusJson.Error;
+```
+
 
 ## Values
 

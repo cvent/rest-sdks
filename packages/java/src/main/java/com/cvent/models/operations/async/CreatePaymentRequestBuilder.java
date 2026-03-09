@@ -30,7 +30,7 @@ public class CreatePaymentRequestBuilder {
     private CreatePaymentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreatePaymentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreatePaymentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreatePaymentResponse> call() {
-        AsyncRequestOperation<CreatePaymentRequest, CreatePaymentResponse> operation
-              = new CreatePayment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CreatePaymentRequest, CreatePaymentResponse> operation =
+                new CreatePayment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

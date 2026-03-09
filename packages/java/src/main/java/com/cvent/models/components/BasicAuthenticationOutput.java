@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BasicAuthenticationOutput
- * 
+ *
  * <p>HTTP Basic Authentication via Authorization header.
  */
 public class BasicAuthenticationOutput {
@@ -25,10 +25,8 @@ public class BasicAuthenticationOutput {
     private AuthorizationHeaderType2 type;
 
     @JsonCreator
-    public BasicAuthenticationOutput(
-            @JsonProperty("type") @Nonnull AuthorizationHeaderType2 type) {
-        this.type = Optional.ofNullable(type)
-            .orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
+    public BasicAuthenticationOutput(@JsonProperty("type") @Nonnull AuthorizationHeaderType2 type) {
+        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
     }
 
     /**
@@ -43,7 +41,6 @@ public class BasicAuthenticationOutput {
         return new Builder();
     }
 
-
     /**
      * Authorization header support characterizing the authentication type to be used for callbacks to the
      * client system. API Key, or HTTP Basic Authentication, each configured with a corresponding option.
@@ -52,7 +49,6 @@ public class BasicAuthenticationOutput {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -63,29 +59,26 @@ public class BasicAuthenticationOutput {
             return false;
         }
         BasicAuthenticationOutput other = (BasicAuthenticationOutput) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type);
+        return Utils.enhancedHash(type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BasicAuthenticationOutput.class,
-                "type", type);
+        return Utils.toString(BasicAuthenticationOutput.class, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private AuthorizationHeaderType2 type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -98,9 +91,7 @@ public class BasicAuthenticationOutput {
         }
 
         public BasicAuthenticationOutput build() {
-            return new BasicAuthenticationOutput(
-                type);
+            return new BasicAuthenticationOutput(type);
         }
-
     }
 }

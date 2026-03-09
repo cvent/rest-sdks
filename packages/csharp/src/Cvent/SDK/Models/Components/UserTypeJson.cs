@@ -18,20 +18,19 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum UserTypeJson
     {
-        [JsonProperty("Planner Account User")]
-        PlannerAccountUser,
+        [JsonProperty("Planner Account User")] PlannerAccountUser,
     }
 
     public static class UserTypeJsonExtension
     {
         public static string Value(this UserTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static UserTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(UserTypeJson).GetFields())
+            foreach (var field in typeof(UserTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

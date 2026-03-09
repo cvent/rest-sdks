@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * OrderTypeJson
- * 
+ *
  * <p>This is used to denote the type of order made by an attendee.
  */
 public enum OrderTypeJson {
@@ -26,13 +26,13 @@ public enum OrderTypeJson {
     OrderTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<OrderTypeJson> fromValue(String value) {
-        for (OrderTypeJson o: OrderTypeJson.values()) {
+        for (OrderTypeJson o : OrderTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum OrderTypeJson {
         return Optional.empty();
     }
 }
-

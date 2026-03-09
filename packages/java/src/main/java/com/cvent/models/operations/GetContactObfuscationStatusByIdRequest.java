@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetContactObfuscationStatusByIdRequest {
     /**
      * ID of an obfuscation request.
@@ -20,10 +19,9 @@ public class GetContactObfuscationStatusByIdRequest {
     private String obfuscateId;
 
     @JsonCreator
-    public GetContactObfuscationStatusByIdRequest(
-            @Nonnull String obfuscateId) {
+    public GetContactObfuscationStatusByIdRequest(@Nonnull String obfuscateId) {
         this.obfuscateId = Optional.ofNullable(obfuscateId)
-            .orElseThrow(() -> new IllegalArgumentException("obfuscateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("obfuscateId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class GetContactObfuscationStatusByIdRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an obfuscation request.
      */
@@ -45,7 +42,6 @@ public class GetContactObfuscationStatusByIdRequest {
         this.obfuscateId = Utils.checkNotNull(obfuscateId, "obfuscateId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class GetContactObfuscationStatusByIdRequest {
             return false;
         }
         GetContactObfuscationStatusByIdRequest other = (GetContactObfuscationStatusByIdRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.obfuscateId, other.obfuscateId);
+        return Utils.enhancedDeepEquals(this.obfuscateId, other.obfuscateId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            obfuscateId);
+        return Utils.enhancedHash(obfuscateId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetContactObfuscationStatusByIdRequest.class,
-                "obfuscateId", obfuscateId);
+        return Utils.toString(GetContactObfuscationStatusByIdRequest.class, "obfuscateId", obfuscateId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String obfuscateId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class GetContactObfuscationStatusByIdRequest {
         }
 
         public GetContactObfuscationStatusByIdRequest build() {
-            return new GetContactObfuscationStatusByIdRequest(
-                obfuscateId);
+            return new GetContactObfuscationStatusByIdRequest(obfuscateId);
         }
-
     }
 }

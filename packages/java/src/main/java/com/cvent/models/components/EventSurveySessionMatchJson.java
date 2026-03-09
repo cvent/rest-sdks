@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventSurveySessionMatchJson
- * 
+ *
  * <p>What is the criteria of adding sessions to a event survey
  */
 public enum EventSurveySessionMatchJson {
@@ -23,13 +23,13 @@ public enum EventSurveySessionMatchJson {
     EventSurveySessionMatchJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventSurveySessionMatchJson> fromValue(String value) {
-        for (EventSurveySessionMatchJson o: EventSurveySessionMatchJson.values()) {
+        for (EventSurveySessionMatchJson o : EventSurveySessionMatchJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum EventSurveySessionMatchJson {
         return Optional.empty();
     }
 }
-

@@ -28,7 +28,7 @@ public class DeleteEventCheckInRequestBuilder {
     private DeleteEventCheckInRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteEventCheckInRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteEventCheckInRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteEventCheckInResponse call() {
-        RequestOperation<DeleteEventCheckInRequest, DeleteEventCheckInResponse> operation
-              = new DeleteEventCheckIn.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteEventCheckInRequest, DeleteEventCheckInResponse> operation =
+                new DeleteEventCheckIn.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

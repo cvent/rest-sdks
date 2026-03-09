@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ChatTypeJson
     {
-        [JsonProperty("session")]
-        Session,
-        [JsonProperty("exhibitor")]
-        Exhibitor,
-        [JsonProperty("discussion")]
-        Discussion,
-        [JsonProperty("attendee")]
-        Attendee,
-        [JsonProperty("group")]
-        Group,
+        [JsonProperty("session")] Session,
+        [JsonProperty("exhibitor")] Exhibitor,
+        [JsonProperty("discussion")] Discussion,
+        [JsonProperty("attendee")] Attendee,
+        [JsonProperty("group")] Group,
     }
 
     public static class ChatTypeJsonExtension
     {
         public static string Value(this ChatTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ChatTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(ChatTypeJson).GetFields())
+            foreach (var field in typeof(ChatTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

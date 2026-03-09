@@ -12,6 +12,14 @@ Enum values:
 - "Mobile" (deprecated): Historically indicated submission from a mobile device. This value is deprecated.
 - "Desktop" (deprecated): Historically indicated submission from a desktop device. This value is deprecated.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = RespondedThroughJson.NotResponded;
+```
+
 
 ## Values
 

@@ -3,15 +3,15 @@
  */
 package com.cvent.models.components;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import java.lang.String;
 
 /**
  * Supplier
- * 
+ *
  * <p>The supplier associated with current proposal.
  */
 @JsonTypeInfo(
@@ -19,12 +19,9 @@ import java.lang.String;
         property = "type",
         include = As.EXISTING_PROPERTY,
         visible = true,
-        defaultImpl = UnknownSupplier.class
-)
+        defaultImpl = UnknownSupplier.class)
 @JsonTypeIdResolver(SupplierTypeIdResolver.class)
 public interface Supplier {
 
     String type();
-
 }
-

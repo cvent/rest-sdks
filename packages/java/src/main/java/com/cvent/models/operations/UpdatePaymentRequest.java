@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdatePaymentRequest {
     /**
      * Unique ID of an event.
@@ -44,14 +43,13 @@ public class UpdatePaymentRequest {
             @Nonnull String budgetItemId,
             @Nonnull String paymentId,
             @Nonnull PaymentRequest paymentRequest) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.paymentId = Optional.ofNullable(paymentId)
-            .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentId cannot be null"));
         this.paymentRequest = Optional.ofNullable(paymentRequest)
-            .orElseThrow(() -> new IllegalArgumentException("paymentRequest cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("paymentRequest cannot be null"));
     }
 
     /**
@@ -86,7 +84,6 @@ public class UpdatePaymentRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -94,7 +91,6 @@ public class UpdatePaymentRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -104,7 +100,6 @@ public class UpdatePaymentRequest {
         return this;
     }
 
-
     /**
      * Unique ID of a payment.
      */
@@ -113,7 +108,6 @@ public class UpdatePaymentRequest {
         return this;
     }
 
-
     /**
      * The budget item payment to be updated.
      */
@@ -121,7 +115,6 @@ public class UpdatePaymentRequest {
         this.paymentRequest = Utils.checkNotNull(paymentRequest, "paymentRequest");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -132,31 +125,33 @@ public class UpdatePaymentRequest {
             return false;
         }
         UpdatePaymentRequest other = (UpdatePaymentRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.paymentId, other.paymentId) &&
-            Utils.enhancedDeepEquals(this.paymentRequest, other.paymentRequest);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.paymentId, other.paymentId)
+                && Utils.enhancedDeepEquals(this.paymentRequest, other.paymentRequest);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, paymentId,
-            paymentRequest);
+        return Utils.enhancedHash(id, budgetItemId, paymentId, paymentRequest);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdatePaymentRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "paymentId", paymentId,
-                "paymentRequest", paymentRequest);
+        return Utils.toString(
+                UpdatePaymentRequest.class,
+                "id",
+                id,
+                "budgetItemId",
+                budgetItemId,
+                "paymentId",
+                paymentId,
+                "paymentRequest",
+                paymentRequest);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -167,7 +162,7 @@ public class UpdatePaymentRequest {
         private PaymentRequest paymentRequest;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,10 +198,7 @@ public class UpdatePaymentRequest {
         }
 
         public UpdatePaymentRequest build() {
-            return new UpdatePaymentRequest(
-                id, budgetItemId, paymentId,
-                paymentRequest);
+            return new UpdatePaymentRequest(id, budgetItemId, paymentId, paymentRequest);
         }
-
     }
 }

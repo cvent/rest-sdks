@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * AvailableNightJson
- * 
+ *
  * <p>Night availability details.
  */
 public class AvailableNightJson {
@@ -129,27 +129,25 @@ public class AvailableNightJson {
             @JsonProperty("minLengthOfStay") long minLengthOfStay,
             @JsonProperty("hideRate") boolean hideRate,
             @JsonProperty("waitListEnabled") boolean waitListEnabled) {
-        this.hotel = Optional.ofNullable(hotel)
-            .orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
+        this.hotel = Optional.ofNullable(hotel).orElseThrow(() -> new IllegalArgumentException("hotel cannot be null"));
         this.roomType = Optional.ofNullable(roomType)
-            .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("roomType cannot be null"));
         this.attendeeType = Optional.ofNullable(attendeeType)
-            .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
-        this.date = Optional.ofNullable(date)
-            .orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("attendeeType cannot be null"));
+        this.date = Optional.ofNullable(date).orElseThrow(() -> new IllegalArgumentException("date cannot be null"));
         this.quantity = quantity;
         this.roomRate = roomRate;
         this.displayRate = displayRate;
         this.additionalGuestFees = additionalGuestFees;
         this.taxStructure = taxStructure;
         this.currency = Optional.ofNullable(currency)
-            .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("currency cannot be null"));
         this.maxGuests = maxGuests;
         this.minLengthOfStay = minLengthOfStay;
         this.hideRate = hideRate;
         this.waitListEnabled = waitListEnabled;
     }
-    
+
     public AvailableNightJson(
             @Nonnull HotelIdJson hotel,
             @Nonnull RoomTypeIdJson roomType,
@@ -161,11 +159,21 @@ public class AvailableNightJson {
             long minLengthOfStay,
             boolean hideRate,
             boolean waitListEnabled) {
-        this(hotel, roomType, attendeeType,
-            date, quantity, roomRate,
-            null, null, null,
-            currency, null, minLengthOfStay,
-            hideRate, waitListEnabled);
+        this(
+                hotel,
+                roomType,
+                attendeeType,
+                date,
+                quantity,
+                roomRate,
+                null,
+                null,
+                null,
+                currency,
+                null,
+                minLengthOfStay,
+                hideRate,
+                waitListEnabled);
     }
 
     /**
@@ -271,7 +279,6 @@ public class AvailableNightJson {
         return new Builder();
     }
 
-
     /**
      * Contains unique ID of the hotel.
      */
@@ -279,7 +286,6 @@ public class AvailableNightJson {
         this.hotel = Utils.checkNotNull(hotel, "hotel");
         return this;
     }
-
 
     /**
      * Contains unique ID of the room type.
@@ -289,7 +295,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * Attendee type details.
      */
@@ -297,7 +302,6 @@ public class AvailableNightJson {
         this.attendeeType = Utils.checkNotNull(attendeeType, "attendeeType");
         return this;
     }
-
 
     /**
      * Date the rooms are available.
@@ -307,7 +311,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * Number of rooms available.
      */
@@ -316,7 +319,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * Cost of room per night booked.
      */
@@ -324,7 +326,6 @@ public class AvailableNightJson {
         this.roomRate = roomRate;
         return this;
     }
-
 
     /**
      * The room rate displayed to guests, which includes any fees configured to display in the hotel tax
@@ -335,7 +336,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * List of additional guest fees.
      */
@@ -343,7 +343,6 @@ public class AvailableNightJson {
         this.additionalGuestFees = additionalGuestFees;
         return this;
     }
-
 
     /**
      * Details about taxes and fees applicable to a room.
@@ -353,7 +352,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * ISO 4217 currency code.
      */
@@ -361,7 +359,6 @@ public class AvailableNightJson {
         this.currency = Utils.checkNotNull(currency, "currency");
         return this;
     }
-
 
     /**
      * Maximum number of guests the room can accommodate.
@@ -371,7 +368,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * Minimum number of nights required for a stay.
      */
@@ -379,7 +375,6 @@ public class AvailableNightJson {
         this.minLengthOfStay = minLengthOfStay;
         return this;
     }
-
 
     /**
      * True indicates the cost of the room is hidden from attendees on the booking site.
@@ -389,7 +384,6 @@ public class AvailableNightJson {
         return this;
     }
 
-
     /**
      * True indicates a waitlist is enabled for this night.
      */
@@ -397,7 +391,6 @@ public class AvailableNightJson {
         this.waitListEnabled = waitListEnabled;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -408,54 +401,77 @@ public class AvailableNightJson {
             return false;
         }
         AvailableNightJson other = (AvailableNightJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.hotel, other.hotel) &&
-            Utils.enhancedDeepEquals(this.roomType, other.roomType) &&
-            Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType) &&
-            Utils.enhancedDeepEquals(this.date, other.date) &&
-            Utils.enhancedDeepEquals(this.quantity, other.quantity) &&
-            Utils.enhancedDeepEquals(this.roomRate, other.roomRate) &&
-            Utils.enhancedDeepEquals(this.displayRate, other.displayRate) &&
-            Utils.enhancedDeepEquals(this.additionalGuestFees, other.additionalGuestFees) &&
-            Utils.enhancedDeepEquals(this.taxStructure, other.taxStructure) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency) &&
-            Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests) &&
-            Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay) &&
-            Utils.enhancedDeepEquals(this.hideRate, other.hideRate) &&
-            Utils.enhancedDeepEquals(this.waitListEnabled, other.waitListEnabled);
+        return Utils.enhancedDeepEquals(this.hotel, other.hotel)
+                && Utils.enhancedDeepEquals(this.roomType, other.roomType)
+                && Utils.enhancedDeepEquals(this.attendeeType, other.attendeeType)
+                && Utils.enhancedDeepEquals(this.date, other.date)
+                && Utils.enhancedDeepEquals(this.quantity, other.quantity)
+                && Utils.enhancedDeepEquals(this.roomRate, other.roomRate)
+                && Utils.enhancedDeepEquals(this.displayRate, other.displayRate)
+                && Utils.enhancedDeepEquals(this.additionalGuestFees, other.additionalGuestFees)
+                && Utils.enhancedDeepEquals(this.taxStructure, other.taxStructure)
+                && Utils.enhancedDeepEquals(this.currency, other.currency)
+                && Utils.enhancedDeepEquals(this.maxGuests, other.maxGuests)
+                && Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay)
+                && Utils.enhancedDeepEquals(this.hideRate, other.hideRate)
+                && Utils.enhancedDeepEquals(this.waitListEnabled, other.waitListEnabled);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            hotel, roomType, attendeeType,
-            date, quantity, roomRate,
-            displayRate, additionalGuestFees, taxStructure,
-            currency, maxGuests, minLengthOfStay,
-            hideRate, waitListEnabled);
+                hotel,
+                roomType,
+                attendeeType,
+                date,
+                quantity,
+                roomRate,
+                displayRate,
+                additionalGuestFees,
+                taxStructure,
+                currency,
+                maxGuests,
+                minLengthOfStay,
+                hideRate,
+                waitListEnabled);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AvailableNightJson.class,
-                "hotel", hotel,
-                "roomType", roomType,
-                "attendeeType", attendeeType,
-                "date", date,
-                "quantity", quantity,
-                "roomRate", roomRate,
-                "displayRate", displayRate,
-                "additionalGuestFees", additionalGuestFees,
-                "taxStructure", taxStructure,
-                "currency", currency,
-                "maxGuests", maxGuests,
-                "minLengthOfStay", minLengthOfStay,
-                "hideRate", hideRate,
-                "waitListEnabled", waitListEnabled);
+        return Utils.toString(
+                AvailableNightJson.class,
+                "hotel",
+                hotel,
+                "roomType",
+                roomType,
+                "attendeeType",
+                attendeeType,
+                "date",
+                date,
+                "quantity",
+                quantity,
+                "roomRate",
+                roomRate,
+                "displayRate",
+                displayRate,
+                "additionalGuestFees",
+                additionalGuestFees,
+                "taxStructure",
+                taxStructure,
+                "currency",
+                currency,
+                "maxGuests",
+                maxGuests,
+                "minLengthOfStay",
+                minLengthOfStay,
+                "hideRate",
+                hideRate,
+                "waitListEnabled",
+                waitListEnabled);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private HotelIdJson hotel;
 
@@ -486,7 +502,7 @@ public class AvailableNightJson {
         private boolean waitListEnabled;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -604,12 +620,20 @@ public class AvailableNightJson {
 
         public AvailableNightJson build() {
             return new AvailableNightJson(
-                hotel, roomType, attendeeType,
-                date, quantity, roomRate,
-                displayRate, additionalGuestFees, taxStructure,
-                currency, maxGuests, minLengthOfStay,
-                hideRate, waitListEnabled);
+                    hotel,
+                    roomType,
+                    attendeeType,
+                    date,
+                    quantity,
+                    roomRate,
+                    displayRate,
+                    additionalGuestFees,
+                    taxStructure,
+                    currency,
+                    maxGuests,
+                    minLengthOfStay,
+                    hideRate,
+                    waitListEnabled);
         }
-
     }
 }

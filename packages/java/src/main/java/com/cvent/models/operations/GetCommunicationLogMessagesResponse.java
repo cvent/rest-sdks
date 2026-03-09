@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetCommunicationLogMessagesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetCommunicationLogMessagesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.communicationLogMessagePaginatedResponse = communicationLogMessagePaginatedResponse;
     }
-    
+
     public GetCommunicationLogMessagesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetCommunicationLogMessagesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetCommunicationLogMessagesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetCommunicationLogMessagesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetCommunicationLogMessagesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of communication log messages.
      */
-    public GetCommunicationLogMessagesResponse withCommunicationLogMessagePaginatedResponse(@Nullable CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse) {
+    public GetCommunicationLogMessagesResponse withCommunicationLogMessagePaginatedResponse(
+            @Nullable CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse) {
         this.communicationLogMessagePaginatedResponse = communicationLogMessagePaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,34 @@ public class GetCommunicationLogMessagesResponse implements Response {
             return false;
         }
         GetCommunicationLogMessagesResponse other = (GetCommunicationLogMessagesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.communicationLogMessagePaginatedResponse, other.communicationLogMessagePaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(
+                        this.communicationLogMessagePaginatedResponse, other.communicationLogMessagePaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            communicationLogMessagePaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, communicationLogMessagePaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetCommunicationLogMessagesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "communicationLogMessagePaginatedResponse", communicationLogMessagePaginatedResponse);
+        return Utils.toString(
+                GetCommunicationLogMessagesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "communicationLogMessagePaginatedResponse",
+                communicationLogMessagePaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +167,7 @@ public class GetCommunicationLogMessagesResponse implements Response {
         private CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +197,15 @@ public class GetCommunicationLogMessagesResponse implements Response {
         /**
          * Successfully retrieved a paginated list of communication log messages.
          */
-        public Builder communicationLogMessagePaginatedResponse(@Nullable CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse) {
+        public Builder communicationLogMessagePaginatedResponse(
+                @Nullable CommunicationLogMessagePaginatedResponse communicationLogMessagePaginatedResponse) {
             this.communicationLogMessagePaginatedResponse = communicationLogMessagePaginatedResponse;
             return this;
         }
 
         public GetCommunicationLogMessagesResponse build() {
             return new GetCommunicationLogMessagesResponse(
-                contentType, statusCode, rawResponse,
-                communicationLogMessagePaginatedResponse);
+                    contentType, statusCode, rawResponse, communicationLogMessagePaginatedResponse);
         }
-
     }
 }

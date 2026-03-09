@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * PlannerJson2Input
- * 
+ *
  * <p>Represents the planner of an event.
  */
 public class PlannerJson2Input {
@@ -67,7 +67,7 @@ public class PlannerJson2Input {
 
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -76,7 +76,7 @@ public class PlannerJson2Input {
     private TypeInput type;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -85,7 +85,7 @@ public class PlannerJson2Input {
     private HomeAddressAddressInput homeAddress;
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -114,11 +114,9 @@ public class PlannerJson2Input {
         this.homeAddress = homeAddress;
         this.workAddress = workAddress;
     }
-    
+
     public PlannerJson2Input() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -168,7 +166,7 @@ public class PlannerJson2Input {
 
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -177,7 +175,7 @@ public class PlannerJson2Input {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -186,7 +184,7 @@ public class PlannerJson2Input {
     }
 
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -198,7 +196,6 @@ public class PlannerJson2Input {
         return new Builder();
     }
 
-
     /**
      * An honorific prefixing a planner's name.
      */
@@ -206,7 +203,6 @@ public class PlannerJson2Input {
         this.prefix = prefix;
         return this;
     }
-
 
     /**
      * The first name of the planner.
@@ -216,7 +212,6 @@ public class PlannerJson2Input {
         return this;
     }
 
-
     /**
      * The last name of the planner.
      */
@@ -224,7 +219,6 @@ public class PlannerJson2Input {
         this.lastName = lastName;
         return this;
     }
-
 
     /**
      * The company/organization the planner belongs to.
@@ -234,7 +228,6 @@ public class PlannerJson2Input {
         return this;
     }
 
-
     /**
      * The job title of the planner.
      */
@@ -242,7 +235,6 @@ public class PlannerJson2Input {
         this.title = title;
         return this;
     }
-
 
     /**
      * The email address of the planner. Field is case-sensitive. For create/update operations, emails must
@@ -255,10 +247,9 @@ public class PlannerJson2Input {
         return this;
     }
 
-
     /**
      * Planner type.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -267,9 +258,8 @@ public class PlannerJson2Input {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -278,9 +268,8 @@ public class PlannerJson2Input {
         return this;
     }
 
-
     /**
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -288,7 +277,6 @@ public class PlannerJson2Input {
         this.workAddress = workAddress;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -299,42 +287,48 @@ public class PlannerJson2Input {
             return false;
         }
         PlannerJson2Input other = (PlannerJson2Input) o;
-        return 
-            Utils.enhancedDeepEquals(this.prefix, other.prefix) &&
-            Utils.enhancedDeepEquals(this.firstName, other.firstName) &&
-            Utils.enhancedDeepEquals(this.lastName, other.lastName) &&
-            Utils.enhancedDeepEquals(this.company, other.company) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.email, other.email) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress) &&
-            Utils.enhancedDeepEquals(this.workAddress, other.workAddress);
+        return Utils.enhancedDeepEquals(this.prefix, other.prefix)
+                && Utils.enhancedDeepEquals(this.firstName, other.firstName)
+                && Utils.enhancedDeepEquals(this.lastName, other.lastName)
+                && Utils.enhancedDeepEquals(this.company, other.company)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.email, other.email)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.homeAddress, other.homeAddress)
+                && Utils.enhancedDeepEquals(this.workAddress, other.workAddress);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            prefix, firstName, lastName,
-            company, title, email,
-            type, homeAddress, workAddress);
+        return Utils.enhancedHash(prefix, firstName, lastName, company, title, email, type, homeAddress, workAddress);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PlannerJson2Input.class,
-                "prefix", prefix,
-                "firstName", firstName,
-                "lastName", lastName,
-                "company", company,
-                "title", title,
-                "email", email,
-                "type", type,
-                "homeAddress", homeAddress,
-                "workAddress", workAddress);
+        return Utils.toString(
+                PlannerJson2Input.class,
+                "prefix",
+                prefix,
+                "firstName",
+                firstName,
+                "lastName",
+                lastName,
+                "company",
+                company,
+                "title",
+                title,
+                "email",
+                email,
+                "type",
+                type,
+                "homeAddress",
+                homeAddress,
+                "workAddress",
+                workAddress);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String prefix;
 
@@ -358,7 +352,7 @@ public class PlannerJson2Input {
         private WorkAddressAddressInput workAddress;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -414,7 +408,7 @@ public class PlannerJson2Input {
 
         /**
          * Planner type.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -424,7 +418,7 @@ public class PlannerJson2Input {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -434,7 +428,7 @@ public class PlannerJson2Input {
         }
 
         /**
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -445,10 +439,7 @@ public class PlannerJson2Input {
 
         public PlannerJson2Input build() {
             return new PlannerJson2Input(
-                prefix, firstName, lastName,
-                company, title, email,
-                type, homeAddress, workAddress);
+                    prefix, firstName, lastName, company, title, email, type, homeAddress, workAddress);
         }
-
     }
 }

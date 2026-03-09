@@ -2,6 +2,14 @@
 
 Denotes how the compliance request was created.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = CreatedBy.Attendee;
+```
+
 
 ## Values
 

@@ -18,42 +18,30 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum LiveStreamStatusJson
     {
-        [JsonProperty("Error")]
-        Error,
-        [JsonProperty("Standby")]
-        Standby,
-        [JsonProperty("Waiting")]
-        Waiting,
-        [JsonProperty("Processing")]
-        Processing,
-        [JsonProperty("Disconnected")]
-        Disconnected,
-        [JsonProperty("Cancelling")]
-        Cancelling,
-        [JsonProperty("Finishing")]
-        Finishing,
-        [JsonProperty("Cancelled")]
-        Cancelled,
-        [JsonProperty("Finished")]
-        Finished,
-        [JsonProperty("Failed")]
-        Failed,
-        [JsonProperty("Scheduled")]
-        Scheduled,
-        [JsonProperty("Starving")]
-        Starving,
+        [JsonProperty("Error")] Error,
+        [JsonProperty("Standby")] Standby,
+        [JsonProperty("Waiting")] Waiting,
+        [JsonProperty("Processing")] Processing,
+        [JsonProperty("Disconnected")] Disconnected,
+        [JsonProperty("Cancelling")] Cancelling,
+        [JsonProperty("Finishing")] Finishing,
+        [JsonProperty("Cancelled")] Cancelled,
+        [JsonProperty("Finished")] Finished,
+        [JsonProperty("Failed")] Failed,
+        [JsonProperty("Scheduled")] Scheduled,
+        [JsonProperty("Starving")] Starving,
     }
 
     public static class LiveStreamStatusJsonExtension
     {
         public static string Value(this LiveStreamStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static LiveStreamStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(LiveStreamStatusJson).GetFields())
+            foreach (var field in typeof(LiveStreamStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

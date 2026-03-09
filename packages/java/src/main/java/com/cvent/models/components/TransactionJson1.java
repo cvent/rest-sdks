@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TransactionJson1
- * 
+ *
  * <p>The latest transaction that took place on a given proposal
  */
 public class TransactionJson1 {
@@ -50,7 +50,7 @@ public class TransactionJson1 {
         this.type = type;
         this.time = time;
     }
-    
+
     public TransactionJson1() {
         this(null, null, null);
     }
@@ -80,7 +80,6 @@ public class TransactionJson1 {
         return new Builder();
     }
 
-
     /**
      * The unique ID of a specific transaction.
      */
@@ -88,7 +87,6 @@ public class TransactionJson1 {
         this.id = id;
         return this;
     }
-
 
     /**
      * The proposal transaction type
@@ -98,7 +96,6 @@ public class TransactionJson1 {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -106,7 +103,6 @@ public class TransactionJson1 {
         this.time = time;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -117,28 +113,23 @@ public class TransactionJson1 {
             return false;
         }
         TransactionJson1 other = (TransactionJson1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.time, other.time);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.time, other.time);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, type, time);
+        return Utils.enhancedHash(id, type, time);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionJson1.class,
-                "id", id,
-                "type", type,
-                "time", time);
+        return Utils.toString(TransactionJson1.class, "id", id, "type", type, "time", time);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -147,7 +138,7 @@ public class TransactionJson1 {
         private OffsetDateTime time;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -175,9 +166,7 @@ public class TransactionJson1 {
         }
 
         public TransactionJson1 build() {
-            return new TransactionJson1(
-                id, type, time);
+            return new TransactionJson1(id, type, time);
         }
-
     }
 }

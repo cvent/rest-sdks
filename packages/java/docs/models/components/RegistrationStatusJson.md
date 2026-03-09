@@ -2,6 +2,14 @@
 
 This is used to denote the registration status for an event.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.RegistrationStatusJson;
+
+RegistrationStatusJson value = RegistrationStatusJson.ACTIVE;
+```
+
 
 ## Values
 

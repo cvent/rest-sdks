@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ResourceType
- * 
+ *
  * <p>Resource Type
  */
 public class ResourceType {
@@ -95,11 +95,9 @@ public class ResourceType {
         this.schemaExtensions = schemaExtensions;
         this.meta = meta;
     }
-    
+
     public ResourceType() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -162,7 +160,6 @@ public class ResourceType {
         return new Builder();
     }
 
-
     /**
      * The list of schemas using this resource.
      */
@@ -170,7 +167,6 @@ public class ResourceType {
         this.schemas = schemas;
         return this;
     }
-
 
     /**
      * The unique identifier of the resource type.
@@ -180,7 +176,6 @@ public class ResourceType {
         return this;
     }
 
-
     /**
      * The name of the resource type.
      */
@@ -188,7 +183,6 @@ public class ResourceType {
         this.name = name;
         return this;
     }
-
 
     /**
      * The description of the resource type.
@@ -198,7 +192,6 @@ public class ResourceType {
         return this;
     }
 
-
     /**
      * The URL of the resource type endpoint.
      */
@@ -206,7 +199,6 @@ public class ResourceType {
         this.endpoint = endpoint;
         return this;
     }
-
 
     /**
      * The schema of the resource type.
@@ -216,7 +208,6 @@ public class ResourceType {
         return this;
     }
 
-
     /**
      * The list of schema extensions for the resource type.
      */
@@ -225,7 +216,6 @@ public class ResourceType {
         return this;
     }
 
-
     /**
      * Metadata of the resource.
      */
@@ -233,7 +223,6 @@ public class ResourceType {
         this.meta = meta;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -244,40 +233,45 @@ public class ResourceType {
             return false;
         }
         ResourceType other = (ResourceType) o;
-        return 
-            Utils.enhancedDeepEquals(this.schemas, other.schemas) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.endpoint, other.endpoint) &&
-            Utils.enhancedDeepEquals(this.schema, other.schema) &&
-            Utils.enhancedDeepEquals(this.schemaExtensions, other.schemaExtensions) &&
-            Utils.enhancedDeepEquals(this.meta, other.meta);
+        return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.endpoint, other.endpoint)
+                && Utils.enhancedDeepEquals(this.schema, other.schema)
+                && Utils.enhancedDeepEquals(this.schemaExtensions, other.schemaExtensions)
+                && Utils.enhancedDeepEquals(this.meta, other.meta);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            schemas, id, name,
-            description, endpoint, schema,
-            schemaExtensions, meta);
+        return Utils.enhancedHash(schemas, id, name, description, endpoint, schema, schemaExtensions, meta);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ResourceType.class,
-                "schemas", schemas,
-                "id", id,
-                "name", name,
-                "description", description,
-                "endpoint", endpoint,
-                "schema", schema,
-                "schemaExtensions", schemaExtensions,
-                "meta", meta);
+        return Utils.toString(
+                ResourceType.class,
+                "schemas",
+                schemas,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description,
+                "endpoint",
+                endpoint,
+                "schema",
+                schema,
+                "schemaExtensions",
+                schemaExtensions,
+                "meta",
+                meta);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> schemas;
 
@@ -296,7 +290,7 @@ public class ResourceType {
         private MetaJson meta;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -364,11 +358,7 @@ public class ResourceType {
         }
 
         public ResourceType build() {
-            return new ResourceType(
-                schemas, id, name,
-                description, endpoint, schema,
-                schemaExtensions, meta);
+            return new ResourceType(schemas, id, name, description, endpoint, schema, schemaExtensions, meta);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * EventTypeJson1
- * 
+ *
  * <p>Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
  * Essentials.
  */
@@ -42,13 +42,13 @@ public enum EventTypeJson1 {
     EventTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventTypeJson1> fromValue(String value) {
-        for (EventTypeJson1 o: EventTypeJson1.values()) {
+        for (EventTypeJson1 o : EventTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -56,4 +56,3 @@ public enum EventTypeJson1 {
         return Optional.empty();
     }
 }
-

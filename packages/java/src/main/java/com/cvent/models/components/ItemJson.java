@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ItemJson
- * 
+ *
  * <p>An item that has cost information.
  */
 public class ItemJson {
@@ -69,10 +69,9 @@ public class ItemJson {
         this.totalCost = totalCost;
         this.notes = notes;
     }
-    
+
     public ItemJson() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -114,7 +113,6 @@ public class ItemJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID for the item.
      */
@@ -122,7 +120,6 @@ public class ItemJson {
         this.itemId = itemId;
         return this;
     }
-
 
     /**
      * The name of the item.
@@ -132,7 +129,6 @@ public class ItemJson {
         return this;
     }
 
-
     /**
      * The number of items.
      */
@@ -140,7 +136,6 @@ public class ItemJson {
         this.quantity = quantity;
         return this;
     }
-
 
     /**
      * Total cost of the item(s).
@@ -150,7 +145,6 @@ public class ItemJson {
         return this;
     }
 
-
     /**
      * Notes associated with the item.
      */
@@ -158,7 +152,6 @@ public class ItemJson {
         this.notes = notes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -169,33 +162,36 @@ public class ItemJson {
             return false;
         }
         ItemJson other = (ItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.itemId, other.itemId) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.quantity, other.quantity) &&
-            Utils.enhancedDeepEquals(this.totalCost, other.totalCost) &&
-            Utils.enhancedDeepEquals(this.notes, other.notes);
+        return Utils.enhancedDeepEquals(this.itemId, other.itemId)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.quantity, other.quantity)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost)
+                && Utils.enhancedDeepEquals(this.notes, other.notes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            itemId, name, quantity,
-            totalCost, notes);
+        return Utils.enhancedHash(itemId, name, quantity, totalCost, notes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ItemJson.class,
-                "itemId", itemId,
-                "name", name,
-                "quantity", quantity,
-                "totalCost", totalCost,
-                "notes", notes);
+        return Utils.toString(
+                ItemJson.class,
+                "itemId",
+                itemId,
+                "name",
+                name,
+                "quantity",
+                quantity,
+                "totalCost",
+                totalCost,
+                "notes",
+                notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String itemId;
 
@@ -208,7 +204,7 @@ public class ItemJson {
         private String notes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -252,10 +248,7 @@ public class ItemJson {
         }
 
         public ItemJson build() {
-            return new ItemJson(
-                itemId, name, quantity,
-                totalCost, notes);
+            return new ItemJson(itemId, name, quantity, totalCost, notes);
         }
-
     }
 }

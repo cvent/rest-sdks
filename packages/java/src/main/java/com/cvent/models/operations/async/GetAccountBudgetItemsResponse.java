@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetAccountBudgetItemsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -46,19 +45,16 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.accountBudgetItemsPaginatedResponse = accountBudgetItemsPaginatedResponse;
     }
-    
+
     public GetAccountBudgetItemsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -94,7 +90,6 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -102,7 +97,6 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -112,7 +106,6 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -121,16 +114,15 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of budget items across all events linked to the account,
      * filtered by the specified after and before date parameters.
      */
-    public GetAccountBudgetItemsResponse withAccountBudgetItemsPaginatedResponse(@Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
+    public GetAccountBudgetItemsResponse withAccountBudgetItemsPaginatedResponse(
+            @Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
         this.accountBudgetItemsPaginatedResponse = accountBudgetItemsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -141,31 +133,33 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
             return false;
         }
         GetAccountBudgetItemsResponse other = (GetAccountBudgetItemsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.accountBudgetItemsPaginatedResponse, other.accountBudgetItemsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.accountBudgetItemsPaginatedResponse, other.accountBudgetItemsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            accountBudgetItemsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, accountBudgetItemsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAccountBudgetItemsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "accountBudgetItemsPaginatedResponse", accountBudgetItemsPaginatedResponse);
+        return Utils.toString(
+                GetAccountBudgetItemsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "accountBudgetItemsPaginatedResponse",
+                accountBudgetItemsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -176,7 +170,7 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
         private AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -207,16 +201,15 @@ public class GetAccountBudgetItemsResponse implements AsyncResponse {
          * Successfully retrieved a paginated list of budget items across all events linked to the account,
          * filtered by the specified after and before date parameters.
          */
-        public Builder accountBudgetItemsPaginatedResponse(@Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
+        public Builder accountBudgetItemsPaginatedResponse(
+                @Nullable AccountBudgetItemsPaginatedResponse accountBudgetItemsPaginatedResponse) {
             this.accountBudgetItemsPaginatedResponse = accountBudgetItemsPaginatedResponse;
             return this;
         }
 
         public GetAccountBudgetItemsResponse build() {
             return new GetAccountBudgetItemsResponse(
-                contentType, statusCode, rawResponse,
-                accountBudgetItemsPaginatedResponse);
+                    contentType, statusCode, rawResponse, accountBudgetItemsPaginatedResponse);
         }
-
     }
 }

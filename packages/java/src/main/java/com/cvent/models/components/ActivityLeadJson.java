@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ActivityLeadJson
- * 
+ *
  * <p>An activity lead.
  */
 public class ActivityLeadJson {
@@ -58,10 +58,9 @@ public class ActivityLeadJson {
         this.deviceName = deviceName;
         this.boothStaff = boothStaff;
     }
-    
+
     public ActivityLeadJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class ActivityLeadJson {
         return new Builder();
     }
 
-
     /**
      * Activity Lead ID
      */
@@ -104,7 +102,6 @@ public class ActivityLeadJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The unique identifier of the device.
@@ -114,7 +111,6 @@ public class ActivityLeadJson {
         return this;
     }
 
-
     /**
      * Name of the device.
      */
@@ -123,7 +119,6 @@ public class ActivityLeadJson {
         return this;
     }
 
-
     /**
      * Booth staff for an activity.
      */
@@ -131,7 +126,6 @@ public class ActivityLeadJson {
         this.boothStaff = boothStaff;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class ActivityLeadJson {
             return false;
         }
         ActivityLeadJson other = (ActivityLeadJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.deviceId, other.deviceId) &&
-            Utils.enhancedDeepEquals(this.deviceName, other.deviceName) &&
-            Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.deviceId, other.deviceId)
+                && Utils.enhancedDeepEquals(this.deviceName, other.deviceName)
+                && Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, deviceId, deviceName,
-            boothStaff);
+        return Utils.enhancedHash(id, deviceId, deviceName, boothStaff);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ActivityLeadJson.class,
-                "id", id,
-                "deviceId", deviceId,
-                "deviceName", deviceName,
-                "boothStaff", boothStaff);
+        return Utils.toString(
+                ActivityLeadJson.class,
+                "id",
+                id,
+                "deviceId",
+                deviceId,
+                "deviceName",
+                deviceName,
+                "boothStaff",
+                boothStaff);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -177,7 +173,7 @@ public class ActivityLeadJson {
         private ZeroAllOf4 boothStaff;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class ActivityLeadJson {
         }
 
         public ActivityLeadJson build() {
-            return new ActivityLeadJson(
-                id, deviceId, deviceName,
-                boothStaff);
+            return new ActivityLeadJson(id, deviceId, deviceName, boothStaff);
         }
-
     }
 }

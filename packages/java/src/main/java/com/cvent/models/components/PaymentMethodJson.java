@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PaymentMethodJson
- * 
+ *
  * <p>This denotes the payment method in a transaction.
  */
 public enum PaymentMethodJson {
@@ -69,13 +69,13 @@ public enum PaymentMethodJson {
     PaymentMethodJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PaymentMethodJson> fromValue(String value) {
-        for (PaymentMethodJson o: PaymentMethodJson.values()) {
+        for (PaymentMethodJson o : PaymentMethodJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -83,4 +83,3 @@ public enum PaymentMethodJson {
         return Optional.empty();
     }
 }
-

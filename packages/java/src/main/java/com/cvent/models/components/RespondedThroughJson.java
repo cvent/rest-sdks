@@ -10,13 +10,13 @@ import java.util.Optional;
 
 /**
  * RespondedThroughJson
- * 
+ *
  * <p>Indicates the mode by which a respondent submitted their response.
- * 
+ *
  * <p>This field contains one of the enumerated, string constants listed below.
- * 
+ *
  * <p>Enum values:
- * 
+ *
  * <p>- "Not Responded": Respondent did not provide a response.
  * - "API": Response was submitted via an API.
  * - "Import": Response was created by a bulk import process.
@@ -38,13 +38,13 @@ public enum RespondedThroughJson {
     RespondedThroughJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<RespondedThroughJson> fromValue(String value) {
-        for (RespondedThroughJson o: RespondedThroughJson.values()) {
+        for (RespondedThroughJson o : RespondedThroughJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -52,4 +52,3 @@ public enum RespondedThroughJson {
         return Optional.empty();
     }
 }
-

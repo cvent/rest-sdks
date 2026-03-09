@@ -44,7 +44,9 @@ namespace Cvent.SDK.Models.Errors
             HttpRequestMessage request,
             HttpResponseMessage response,
             string body
-        ) : this(message, request, response, body, null) {}
+        ) : this(message, request, response, body, null)
+        {
+        }
 
         public CventSDKException(
             string message,
@@ -68,6 +70,5 @@ namespace Cvent.SDK.Models.Errors
             var innerMessage = string.IsNullOrEmpty(InnerException?.Message) ? "" : $"\n{InnerException.Message}";
             return $"Status: {Response.StatusCode}. {Message}{innerMessage}";
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * FileUpload
- * 
+ *
  * <p>File Upload Object
  */
 public class FileUpload {
@@ -25,11 +25,10 @@ public class FileUpload {
     private FileUploadFile file;
 
     @JsonCreator
-    public FileUpload(
-            @Nullable FileUploadFile file) {
+    public FileUpload(@Nullable FileUploadFile file) {
         this.file = file;
     }
-    
+
     public FileUpload() {
         this(null);
     }
@@ -46,7 +45,6 @@ public class FileUpload {
         return new Builder();
     }
 
-
     /**
      * Allowed File Types: ai, bmp, doc, docx, eml, eps, gif, ics, jpeg, msg, otf, ost, pdf, png, ppt,
      * pptx, tif, tiff, ttf, txt, woff, woff2, xls, xlsx
@@ -55,7 +53,6 @@ public class FileUpload {
         this.file = file;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class FileUpload {
             return false;
         }
         FileUpload other = (FileUpload) o;
-        return 
-            Utils.enhancedDeepEquals(this.file, other.file);
+        return Utils.enhancedDeepEquals(this.file, other.file);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            file);
+        return Utils.enhancedHash(file);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(FileUpload.class,
-                "file", file);
+        return Utils.toString(FileUpload.class, "file", file);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private FileUploadFile file;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class FileUpload {
         }
 
         public FileUpload build() {
-            return new FileUpload(
-                file);
+            return new FileUpload(file);
         }
-
     }
 }

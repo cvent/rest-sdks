@@ -2,6 +2,14 @@
 
 The type of target associated with the banner link.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BannerLinkTargetJsonType.AttendeeHubPage;
+```
+
 
 ## Values
 

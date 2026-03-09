@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum ExistingLeadJsonType
     {
-        [JsonProperty("leadcapture")]
-        Leadcapture,
-        [JsonProperty("inbound")]
-        Inbound,
-        [JsonProperty("appointment")]
-        Appointment,
+        [JsonProperty("leadcapture")] Leadcapture,
+        [JsonProperty("inbound")] Inbound,
+        [JsonProperty("appointment")] Appointment,
     }
 
     public static class ExistingLeadJsonTypeExtension
     {
         public static string Value(this ExistingLeadJsonType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ExistingLeadJsonType ToEnum(this string value)
         {
-            foreach(var field in typeof(ExistingLeadJsonType).GetFields())
+            foreach (var field in typeof(ExistingLeadJsonType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

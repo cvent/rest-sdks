@@ -18,32 +18,25 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TravelBidWeekendDayJson
     {
-        [JsonProperty("Monday")]
-        Monday,
-        [JsonProperty("Tuesday")]
-        Tuesday,
-        [JsonProperty("Wednesday")]
-        Wednesday,
-        [JsonProperty("Thursday")]
-        Thursday,
-        [JsonProperty("Friday")]
-        Friday,
-        [JsonProperty("Saturday")]
-        Saturday,
-        [JsonProperty("Sunday")]
-        Sunday,
+        [JsonProperty("Monday")] Monday,
+        [JsonProperty("Tuesday")] Tuesday,
+        [JsonProperty("Wednesday")] Wednesday,
+        [JsonProperty("Thursday")] Thursday,
+        [JsonProperty("Friday")] Friday,
+        [JsonProperty("Saturday")] Saturday,
+        [JsonProperty("Sunday")] Sunday,
     }
 
     public static class TravelBidWeekendDayJsonExtension
     {
         public static string Value(this TravelBidWeekendDayJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TravelBidWeekendDayJson ToEnum(this string value)
         {
-            foreach(var field in typeof(TravelBidWeekendDayJson).GetFields())
+            foreach (var field in typeof(TravelBidWeekendDayJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

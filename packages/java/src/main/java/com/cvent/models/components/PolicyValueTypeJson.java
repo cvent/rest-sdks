@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PolicyValueTypeJson
- * 
+ *
  * <p>Value type of the policy
  */
 public enum PolicyValueTypeJson {
@@ -28,13 +28,13 @@ public enum PolicyValueTypeJson {
     PolicyValueTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PolicyValueTypeJson> fromValue(String value) {
-        for (PolicyValueTypeJson o: PolicyValueTypeJson.values()) {
+        for (PolicyValueTypeJson o : PolicyValueTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -42,4 +42,3 @@ public enum PolicyValueTypeJson {
         return Optional.empty();
     }
 }
-

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * JourneySegment
- * 
+ *
  * <p>Journey Segment
  */
 public enum JourneySegment {
@@ -24,13 +24,13 @@ public enum JourneySegment {
     JourneySegment(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<JourneySegment> fromValue(String value) {
-        for (JourneySegment o: JourneySegment.values()) {
+        for (JourneySegment o : JourneySegment.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum JourneySegment {
         return Optional.empty();
     }
 }
-

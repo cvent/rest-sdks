@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * CustomField1
- * 
+ *
  * <p>A Custom Field
  */
 public class CustomField1 {
@@ -62,20 +62,15 @@ public class CustomField1 {
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("order") @Nullable Long order,
             @JsonProperty("type") @Nullable CustomField1CustomFieldType type) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
-        this.value = Optional.ofNullable(value)
-            .orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.order = order;
         this.type = type;
     }
-    
-    public CustomField1(
-            @Nonnull String id,
-            @Nonnull List<String> value) {
-        this(id, null, value,
-            null, null);
+
+    public CustomField1(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, null, value, null, null);
     }
 
     /**
@@ -117,7 +112,6 @@ public class CustomField1 {
         return new Builder();
     }
 
-
     /**
      * The unique ID representing this custom field.
      */
@@ -125,7 +119,6 @@ public class CustomField1 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -135,7 +128,6 @@ public class CustomField1 {
         return this;
     }
 
-
     /**
      * The set of answers or possible answers to a question.
      */
@@ -143,7 +135,6 @@ public class CustomField1 {
         this.value = Utils.checkNotNull(value, "value");
         return this;
     }
-
 
     /**
      * The order of this question in the bigger list of questions.
@@ -153,7 +144,6 @@ public class CustomField1 {
         return this;
     }
 
-
     /**
      * The type of data collected by a custom field.
      */
@@ -161,7 +151,6 @@ public class CustomField1 {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -172,33 +161,25 @@ public class CustomField1 {
             return false;
         }
         CustomField1 other = (CustomField1) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.order, other.order) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, value,
-            order, type);
+        return Utils.enhancedHash(id, name, value, order, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomField1.class,
-                "id", id,
-                "name", name,
-                "value", value,
-                "order", order,
-                "type", type);
+        return Utils.toString(CustomField1.class, "id", id, "name", name, "value", value, "order", order, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -211,7 +192,7 @@ public class CustomField1 {
         private CustomField1CustomFieldType type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -255,10 +236,7 @@ public class CustomField1 {
         }
 
         public CustomField1 build() {
-            return new CustomField1(
-                id, name, value,
-                order, type);
+            return new CustomField1(id, name, value, order, type);
         }
-
     }
 }

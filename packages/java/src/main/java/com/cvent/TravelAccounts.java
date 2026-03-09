@@ -39,7 +39,7 @@ public class TravelAccounts {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncTravelAccounts async() {
@@ -48,9 +48,9 @@ public class TravelAccounts {
 
     /**
      * List Travel Accounts
-     * 
+     *
      * <p>Gets a paginated list of travel accounts.
-     * 
+     *
      * @return The call builder
      */
     public ListTravelAccountsRequestBuilder listTravelAccounts() {
@@ -59,24 +59,24 @@ public class TravelAccounts {
 
     /**
      * List Travel Accounts
-     * 
+     *
      * <p>Gets a paginated list of travel accounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelAccountsResponse listTravelAccounts(@Nonnull ListTravelAccountsRequest request) {
-        RequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation
-              = new ListTravelAccounts.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
+                new ListTravelAccounts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * List Supplier Accounts
-     * 
+     *
      * <p>Gets a paginated list of supplier travel accounts.
-     * 
+     *
      * @return The call builder
      */
     public ListSupplierAccountsRequestBuilder listSupplierAccounts() {
@@ -85,24 +85,24 @@ public class TravelAccounts {
 
     /**
      * List Supplier Accounts
-     * 
+     *
      * <p>Gets a paginated list of supplier travel accounts.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSupplierAccountsResponse listSupplierAccounts(@Nonnull ListSupplierAccountsRequest request) {
-        RequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation
-              = new ListSupplierAccounts.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
+                new ListSupplierAccounts.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Travel Account
-     * 
+     *
      * <p>Returns the details of a single travel account based on the specified travel account ID.
-     * 
+     *
      * @return The call builder
      */
     public GetTravelAccountRequestBuilder getTravelAccount() {
@@ -111,24 +111,24 @@ public class TravelAccounts {
 
     /**
      * Get Travel Account
-     * 
+     *
      * <p>Returns the details of a single travel account based on the specified travel account ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelAccountResponse getTravelAccount(@Nonnull GetTravelAccountRequest request) {
-        RequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation
-              = new GetTravelAccount.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation =
+                new GetTravelAccount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
      * Get Supplier Account
-     * 
+     *
      * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
-     * 
+     *
      * @return The call builder
      */
     public GetSupplierAccountRequestBuilder getSupplierAccount() {
@@ -137,17 +137,16 @@ public class TravelAccounts {
 
     /**
      * Get Supplier Account
-     * 
+     *
      * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSupplierAccountResponse getSupplierAccount(@Nonnull GetSupplierAccountRequest request) {
-        RequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation
-              = new GetSupplierAccount.Sync(sdkConfiguration, _headers);
+        RequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation =
+                new GetSupplierAccount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

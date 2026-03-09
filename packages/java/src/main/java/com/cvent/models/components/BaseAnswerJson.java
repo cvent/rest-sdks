@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BaseAnswerJson
- * 
+ *
  * <p>Base entity of a question answer.
  */
 public class BaseAnswerJson {
@@ -34,13 +34,11 @@ public class BaseAnswerJson {
     private String value;
 
     @JsonCreator
-    public BaseAnswerJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("value") @Nullable String value) {
+    public BaseAnswerJson(@JsonProperty("id") @Nullable String id, @JsonProperty("value") @Nullable String value) {
         this.id = id;
         this.value = value;
     }
-    
+
     public BaseAnswerJson() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class BaseAnswerJson {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the Answer
      */
@@ -72,7 +69,6 @@ public class BaseAnswerJson {
         return this;
     }
 
-
     /**
      * Value of an answer.
      */
@@ -80,7 +76,6 @@ public class BaseAnswerJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class BaseAnswerJson {
             return false;
         }
         BaseAnswerJson other = (BaseAnswerJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, value);
+        return Utils.enhancedHash(id, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BaseAnswerJson.class,
-                "id", id,
-                "value", value);
+        return Utils.toString(BaseAnswerJson.class, "id", id, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class BaseAnswerJson {
         }
 
         public BaseAnswerJson build() {
-            return new BaseAnswerJson(
-                id, value);
+            return new BaseAnswerJson(id, value);
         }
-
     }
 }

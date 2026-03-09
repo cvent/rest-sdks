@@ -30,7 +30,7 @@ public class AttachInvoiceToPaymentRequestBuilder {
     private AttachInvoiceToPaymentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AttachInvoiceToPaymentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class AttachInvoiceToPaymentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<AttachInvoiceToPaymentResponse> call() {
-        AsyncRequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation
-              = new AttachInvoiceToPayment.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation =
+                new AttachInvoiceToPayment.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

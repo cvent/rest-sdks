@@ -2,6 +2,14 @@
 
 Type of question
 
+## Example Usage
+
+```java
+import com.cvent.models.components.LeadQualificationQuestionJsonType;
+
+LeadQualificationQuestionJsonType value = LeadQualificationQuestionJsonType.MULTI_CHOICE;
+```
+
 
 ## Values
 

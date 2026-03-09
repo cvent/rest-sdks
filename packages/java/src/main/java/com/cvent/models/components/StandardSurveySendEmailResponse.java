@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * StandardSurveySendEmailResponse
- * 
+ *
  * <p>A standard survey, sent-email response.
  */
 public class StandardSurveySendEmailResponse {
@@ -49,7 +49,7 @@ public class StandardSurveySendEmailResponse {
         this.respondent = respondent;
         this.emailTemplate = emailTemplate;
     }
-    
+
     public StandardSurveySendEmailResponse() {
         this(null, null, null);
     }
@@ -79,7 +79,6 @@ public class StandardSurveySendEmailResponse {
         return new Builder();
     }
 
-
     /**
      * Survey of response.
      */
@@ -87,7 +86,6 @@ public class StandardSurveySendEmailResponse {
         this.survey = survey;
         return this;
     }
-
 
     /**
      * Respondent of response.
@@ -97,7 +95,6 @@ public class StandardSurveySendEmailResponse {
         return this;
     }
 
-
     /**
      * Email template used.
      */
@@ -105,7 +102,6 @@ public class StandardSurveySendEmailResponse {
         this.emailTemplate = emailTemplate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +112,30 @@ public class StandardSurveySendEmailResponse {
             return false;
         }
         StandardSurveySendEmailResponse other = (StandardSurveySendEmailResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.survey, other.survey) &&
-            Utils.enhancedDeepEquals(this.respondent, other.respondent) &&
-            Utils.enhancedDeepEquals(this.emailTemplate, other.emailTemplate);
+        return Utils.enhancedDeepEquals(this.survey, other.survey)
+                && Utils.enhancedDeepEquals(this.respondent, other.respondent)
+                && Utils.enhancedDeepEquals(this.emailTemplate, other.emailTemplate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            survey, respondent, emailTemplate);
+        return Utils.enhancedHash(survey, respondent, emailTemplate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(StandardSurveySendEmailResponse.class,
-                "survey", survey,
-                "respondent", respondent,
-                "emailTemplate", emailTemplate);
+        return Utils.toString(
+                StandardSurveySendEmailResponse.class,
+                "survey",
+                survey,
+                "respondent",
+                respondent,
+                "emailTemplate",
+                emailTemplate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Survey survey;
 
@@ -146,7 +144,7 @@ public class StandardSurveySendEmailResponse {
         private EmailTemplate emailTemplate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +172,7 @@ public class StandardSurveySendEmailResponse {
         }
 
         public StandardSurveySendEmailResponse build() {
-            return new StandardSurveySendEmailResponse(
-                survey, respondent, emailTemplate);
+            return new StandardSurveySendEmailResponse(survey, respondent, emailTemplate);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ProgramItemSessionDocument
- * 
+ *
  * <p>Represents a program item object that will be added to a session document.
  */
 public class ProgramItemSessionDocument {
@@ -96,24 +96,21 @@ public class ProgramItemSessionDocument {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.id = id;
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
         this.document = Optional.ofNullable(document)
-            .orElseThrow(() -> new IllegalArgumentException("document cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("document cannot be null"));
         this.programItem = Optional.ofNullable(programItem)
-            .orElseThrow(() -> new IllegalArgumentException("programItem cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("programItem cannot be null"));
     }
-    
+
     public ProgramItemSessionDocument(
             @Nonnull EventLiteJson1 event,
             @Nonnull SessionLiteJson1 session,
             @Nonnull SessionDocumentLiteJson document,
             @Nonnull ProgramItemLiteJson1 programItem) {
-        this(null, null, null,
-            null, null, event,
-            session, document, programItem);
+        this(null, null, null, null, null, event, session, document, programItem);
     }
 
     /**
@@ -183,7 +180,6 @@ public class ProgramItemSessionDocument {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -191,7 +187,6 @@ public class ProgramItemSessionDocument {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -201,7 +196,6 @@ public class ProgramItemSessionDocument {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -209,7 +203,6 @@ public class ProgramItemSessionDocument {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -219,7 +212,6 @@ public class ProgramItemSessionDocument {
         return this;
     }
 
-
     /**
      * ID of the session document to program item relationship.
      */
@@ -227,7 +219,6 @@ public class ProgramItemSessionDocument {
         this.id = id;
         return this;
     }
-
 
     /**
      * The related event object.
@@ -237,7 +228,6 @@ public class ProgramItemSessionDocument {
         return this;
     }
 
-
     /**
      * The related session object.
      */
@@ -245,7 +235,6 @@ public class ProgramItemSessionDocument {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
-
 
     /**
      * The related document object.
@@ -255,7 +244,6 @@ public class ProgramItemSessionDocument {
         return this;
     }
 
-
     /**
      * The program item associated with the session.
      */
@@ -263,7 +251,6 @@ public class ProgramItemSessionDocument {
         this.programItem = Utils.checkNotNull(programItem, "programItem");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -274,42 +261,49 @@ public class ProgramItemSessionDocument {
             return false;
         }
         ProgramItemSessionDocument other = (ProgramItemSessionDocument) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.document, other.document) &&
-            Utils.enhancedDeepEquals(this.programItem, other.programItem);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.document, other.document)
+                && Utils.enhancedDeepEquals(this.programItem, other.programItem);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, event,
-            session, document, programItem);
+                created, createdBy, lastModified, lastModifiedBy, id, event, session, document, programItem);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProgramItemSessionDocument.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "event", event,
-                "session", session,
-                "document", document,
-                "programItem", programItem);
+        return Utils.toString(
+                ProgramItemSessionDocument.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "session",
+                session,
+                "document",
+                document,
+                "programItem",
+                programItem);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -330,7 +324,7 @@ public class ProgramItemSessionDocument {
         private ProgramItemLiteJson1 programItem;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -407,10 +401,7 @@ public class ProgramItemSessionDocument {
 
         public ProgramItemSessionDocument build() {
             return new ProgramItemSessionDocument(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, event,
-                session, document, programItem);
+                    created, createdBy, lastModified, lastModifiedBy, id, event, session, document, programItem);
         }
-
     }
 }

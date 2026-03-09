@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetSupplierAccountResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetSupplierAccountResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable TravelAccountSupplierAccount travelAccountSupplierAccount) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.travelAccountSupplierAccount = travelAccountSupplierAccount;
     }
-    
+
     public GetSupplierAccountResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetSupplierAccountResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetSupplierAccountResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetSupplierAccountResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class GetSupplierAccountResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a supplier travel account.
      */
-    public GetSupplierAccountResponse withTravelAccountSupplierAccount(@Nullable TravelAccountSupplierAccount travelAccountSupplierAccount) {
+    public GetSupplierAccountResponse withTravelAccountSupplierAccount(
+            @Nullable TravelAccountSupplierAccount travelAccountSupplierAccount) {
         this.travelAccountSupplierAccount = travelAccountSupplierAccount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class GetSupplierAccountResponse implements Response {
             return false;
         }
         GetSupplierAccountResponse other = (GetSupplierAccountResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.travelAccountSupplierAccount, other.travelAccountSupplierAccount);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.travelAccountSupplierAccount, other.travelAccountSupplierAccount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            travelAccountSupplierAccount);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, travelAccountSupplierAccount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSupplierAccountResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "travelAccountSupplierAccount", travelAccountSupplierAccount);
+        return Utils.toString(
+                GetSupplierAccountResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "travelAccountSupplierAccount",
+                travelAccountSupplierAccount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class GetSupplierAccountResponse implements Response {
         private TravelAccountSupplierAccount travelAccountSupplierAccount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class GetSupplierAccountResponse implements Response {
         /**
          * Successfully retrieved a supplier travel account.
          */
-        public Builder travelAccountSupplierAccount(@Nullable TravelAccountSupplierAccount travelAccountSupplierAccount) {
+        public Builder travelAccountSupplierAccount(
+                @Nullable TravelAccountSupplierAccount travelAccountSupplierAccount) {
             this.travelAccountSupplierAccount = travelAccountSupplierAccount;
             return this;
         }
 
         public GetSupplierAccountResponse build() {
-            return new GetSupplierAccountResponse(
-                contentType, statusCode, rawResponse,
-                travelAccountSupplierAccount);
+            return new GetSupplierAccountResponse(contentType, statusCode, rawResponse, travelAccountSupplierAccount);
         }
-
     }
 }

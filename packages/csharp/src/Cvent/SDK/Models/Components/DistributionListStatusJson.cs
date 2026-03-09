@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum DistributionListStatusJson
     {
-        [JsonProperty("PENDING")]
-        Pending,
-        [JsonProperty("PROCESSING")]
-        Processing,
-        [JsonProperty("COMPLETE")]
-        Complete,
+        [JsonProperty("PENDING")] Pending,
+        [JsonProperty("PROCESSING")] Processing,
+        [JsonProperty("COMPLETE")] Complete,
     }
 
     public static class DistributionListStatusJsonExtension
     {
         public static string Value(this DistributionListStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static DistributionListStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(DistributionListStatusJson).GetFields())
+            foreach (var field in typeof(DistributionListStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

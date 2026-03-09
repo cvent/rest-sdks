@@ -18,190 +18,104 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum UpdatedThroughNamePropertyJson
     {
-        [JsonProperty("Abstract Guest Side Author Update")]
-        AbstractGuestSideAuthorUpdate,
-        [JsonProperty("Abstract Guest Side Reviewer Update")]
-        AbstractGuestSideReviewerUpdate,
-        [JsonProperty("Abstract Guest Side User")]
-        AbstractGuestSideUser,
-        [JsonProperty("Abstract Planner side")]
-        AbstractPlannerSide,
-        [JsonProperty("Address Book Profile")]
-        AddressBookProfile,
-        [JsonProperty("Amex Card Delete")]
-        AmexCardDelete,
-        [JsonProperty("Amex Card Insert")]
-        AmexCardInsert,
-        [JsonProperty("Amex Card Update")]
-        AmexCardUpdate,
-        [JsonProperty("Answers Replaced from Administration")]
-        AnswersReplacedFromAdministration,
-        [JsonProperty("Appointment Guest Side")]
-        AppointmentGuestSide,
-        [JsonProperty("Attendee Hub")]
-        AttendeeHub,
-        [JsonProperty("Budget Allocation Update")]
-        BudgetAllocationUpdate,
-        [JsonProperty("Budget Attendee Update")]
-        BudgetAttendeeUpdate,
-        [JsonProperty("Budget Item Custom Field Answers Replaced from Administration")]
-        BudgetItemCustomFieldAnswersReplacedFromAdministration,
-        [JsonProperty("Budget Item Delete")]
-        BudgetItemDelete,
-        [JsonProperty("Budget Item Duplicate")]
-        BudgetItemDuplicate,
-        [JsonProperty("Budget Item Import")]
-        BudgetItemImport,
-        [JsonProperty("Budget Item Insert via REST API")]
-        BudgetItemInsertViaRESTAPI,
-        [JsonProperty("Budget Item Insert")]
-        BudgetItemInsert,
-        [JsonProperty("Budget Item Single Update")]
-        BudgetItemSingleUpdate,
-        [JsonProperty("Budget Item Template Import")]
-        BudgetItemTemplateImport,
-        [JsonProperty("Budget Item Update via REST API")]
-        BudgetItemUpdateViaRESTAPI,
-        [JsonProperty("Budget Items Bulk Assign Vendor")]
-        BudgetItemsBulkAssignVendor,
-        [JsonProperty("Budget Items Bulk Copy Cost label")]
-        BudgetItemsBulkCopyCostLabel,
-        [JsonProperty("Budget Items Bulk Copy")]
-        BudgetItemsBulkCopy,
-        [JsonProperty("Budget Items Bulk Delete")]
-        BudgetItemsBulkDelete,
-        [JsonProperty("Budget Items Bulk Update")]
-        BudgetItemsBulkUpdate,
-        [JsonProperty("Budget Version Update")]
-        BudgetVersionUpdate,
-        [JsonProperty("Bulk Update Contact Field Answer")]
-        BulkUpdateContactFieldAnswer,
-        [JsonProperty("Concur Reconciliation - Create New Budget Item For Each Expense")]
-        ConcurReconciliationCreateNewBudgetItemForEachExpense,
-        [JsonProperty("Concur Reconciliation - Map to Existing Budget Item")]
-        ConcurReconciliationMapToExistingBudgetItem,
-        [JsonProperty("Confirm Opt In Email")]
-        ConfirmOptInEmail,
-        [JsonProperty("Contact Import")]
-        ContactImport,
-        [JsonProperty("Contact New Membership")]
-        ContactNewMembership,
-        [JsonProperty("Contact Pending Obfuscation")]
-        ContactPendingObfuscation,
-        [JsonProperty("Contact Website Profile Update")]
-        ContactWebsiteProfileUpdate,
-        [JsonProperty("Created Within Meeting Request")]
-        CreatedWithinMeetingRequest,
-        [JsonProperty("Created from API")]
-        CreatedFromAPI,
-        [JsonProperty("Created from Request Website")]
-        CreatedFromRequestWebsite,
-        [JsonProperty("Crowd Compass Profile Update")]
-        CrowdCompassProfileUpdate,
-        [JsonProperty("Custom Field Added From Admin")]
-        CustomFieldAddedFromAdmin,
-        [JsonProperty("Custom Field Added via REST API")]
-        CustomFieldAddedViaRESTAPI,
-        [JsonProperty("Custom Field Deleted From Admin")]
-        CustomFieldDeletedFromAdmin,
-        [JsonProperty("Custom Field Modified From Admin")]
-        CustomFieldModifiedFromAdmin,
-        [JsonProperty("Custom Field Modified via REST API")]
-        CustomFieldModifiedViaRESTAPI,
-        [JsonProperty("Deleted Within Administration")]
-        DeletedWithinAdministration,
-        [JsonProperty("Deleted from Meeting Request Form")]
-        DeletedFromMeetingRequestForm,
-        [JsonProperty("Deleted from Request Website")]
-        DeletedFromRequestWebsite,
-        [JsonProperty("Deleted within Meeting Request")]
-        DeletedWithinMeetingRequest,
-        [JsonProperty("Event Automatically Created from Meeting Request")]
-        EventAutomaticallyCreatedFromMeetingRequest,
-        [JsonProperty("Event Created from API")]
-        EventCreatedFromAPI,
-        [JsonProperty("Event Created from Event Wizard")]
-        EventCreatedFromEventWizard,
-        [JsonProperty("Event Guest Side Modification")]
-        EventGuestSideModification,
-        [JsonProperty("Event Guest Side Registration")]
-        EventGuestSideRegistration,
-        [JsonProperty("Event Import")]
-        EventImport,
-        [JsonProperty("Event Modified from Meeting Request via API")]
-        EventModifiedFromMeetingRequestViaAPI,
-        [JsonProperty("Event Modified from Meeting Request")]
-        EventModifiedFromMeetingRequest,
-        [JsonProperty("Event Onsite Registration")]
-        EventOnsiteRegistration,
-        [JsonProperty("Event POST")]
-        EventPOST,
-        [JsonProperty("Event Planner Contact Information Update")]
-        EventPlannerContactInformationUpdate,
-        [JsonProperty("Event Planner Side Modification")]
-        EventPlannerSideModification,
-        [JsonProperty("Event Planner Side Registration")]
-        EventPlannerSideRegistration,
-        [JsonProperty("Hotel Request Import")]
-        HotelRequestImport,
-        [JsonProperty("Marketo Contact Import")]
-        MarketoContactImport,
-        [JsonProperty("Modified Within Event")]
-        ModifiedWithinEvent,
-        [JsonProperty("Modified Within Meeting Request")]
-        ModifiedWithinMeetingRequest,
-        [JsonProperty("Modified from API")]
-        ModifiedFromAPI,
-        [JsonProperty("Modified from Event Documents")]
-        ModifiedFromEventDocuments,
-        [JsonProperty("Modified from Meeting Request via Notification")]
-        ModifiedFromMeetingRequestViaNotification,
-        [JsonProperty("Modified from Request Website")]
-        ModifiedFromRequestWebsite,
-        [JsonProperty("Registration Import")]
-        RegistrationImport,
-        [JsonProperty("REST API")]
-        RestApi,
-        [JsonProperty("Salesforce Integration")]
-        SalesforceIntegration,
-        [JsonProperty("Survey Author Modification")]
-        SurveyAuthorModification,
-        [JsonProperty("Survey Author Response")]
-        SurveyAuthorResponse,
-        [JsonProperty("Survey Guest Side Modification")]
-        SurveyGuestSideModification,
-        [JsonProperty("Survey Guest Side Response")]
-        SurveyGuestSideResponse,
-        [JsonProperty("Survey POST")]
-        SurveyPOST,
-        [JsonProperty("Travel Cost Import - Map to Existing Budget item")]
-        TravelCostImportMapToExistingBudgetItem,
-        [JsonProperty("Travel Cost Import - Map to New Budget Item")]
-        TravelCostImportMapToNewBudgetItem,
-        [JsonProperty("VCN Transaction - Create New Budget Item For Each Transaction")]
-        VCNTransactionCreateNewBudgetItemForEachTransaction,
-        [JsonProperty("VCN Transaction - Map to Multiple Budget Item")]
-        VCNTransactionMapToMultipleBudgetItem,
-        [JsonProperty("VCN Transaction - Map to Single Budget Item")]
-        VCNTransactionMapToSingleBudgetItem,
-        [JsonProperty("VCN Transaction - Removed from Budget Item")]
-        VCNTransactionRemovedFromBudgetItem,
-        [JsonProperty("Web Services")]
-        WebServices,
-        [JsonProperty("eMarketing Profile Update")]
-        EMarketingProfileUpdate,
+        [JsonProperty("Abstract Guest Side Author Update")] AbstractGuestSideAuthorUpdate,
+        [JsonProperty("Abstract Guest Side Reviewer Update")] AbstractGuestSideReviewerUpdate,
+        [JsonProperty("Abstract Guest Side User")] AbstractGuestSideUser,
+        [JsonProperty("Abstract Planner side")] AbstractPlannerSide,
+        [JsonProperty("Address Book Profile")] AddressBookProfile,
+        [JsonProperty("Amex Card Delete")] AmexCardDelete,
+        [JsonProperty("Amex Card Insert")] AmexCardInsert,
+        [JsonProperty("Amex Card Update")] AmexCardUpdate,
+        [JsonProperty("Answers Replaced from Administration")] AnswersReplacedFromAdministration,
+        [JsonProperty("Appointment Guest Side")] AppointmentGuestSide,
+        [JsonProperty("Attendee Hub")] AttendeeHub,
+        [JsonProperty("Budget Allocation Update")] BudgetAllocationUpdate,
+        [JsonProperty("Budget Attendee Update")] BudgetAttendeeUpdate,
+        [JsonProperty("Budget Item Custom Field Answers Replaced from Administration")] BudgetItemCustomFieldAnswersReplacedFromAdministration,
+        [JsonProperty("Budget Item Delete")] BudgetItemDelete,
+        [JsonProperty("Budget Item Duplicate")] BudgetItemDuplicate,
+        [JsonProperty("Budget Item Import")] BudgetItemImport,
+        [JsonProperty("Budget Item Insert via REST API")] BudgetItemInsertViaRESTAPI,
+        [JsonProperty("Budget Item Insert")] BudgetItemInsert,
+        [JsonProperty("Budget Item Single Update")] BudgetItemSingleUpdate,
+        [JsonProperty("Budget Item Template Import")] BudgetItemTemplateImport,
+        [JsonProperty("Budget Item Update via REST API")] BudgetItemUpdateViaRESTAPI,
+        [JsonProperty("Budget Items Bulk Assign Vendor")] BudgetItemsBulkAssignVendor,
+        [JsonProperty("Budget Items Bulk Copy Cost label")] BudgetItemsBulkCopyCostLabel,
+        [JsonProperty("Budget Items Bulk Copy")] BudgetItemsBulkCopy,
+        [JsonProperty("Budget Items Bulk Delete")] BudgetItemsBulkDelete,
+        [JsonProperty("Budget Items Bulk Update")] BudgetItemsBulkUpdate,
+        [JsonProperty("Budget Version Update")] BudgetVersionUpdate,
+        [JsonProperty("Bulk Update Contact Field Answer")] BulkUpdateContactFieldAnswer,
+        [JsonProperty("Concur Reconciliation - Create New Budget Item For Each Expense")] ConcurReconciliationCreateNewBudgetItemForEachExpense,
+        [JsonProperty("Concur Reconciliation - Map to Existing Budget Item")] ConcurReconciliationMapToExistingBudgetItem,
+        [JsonProperty("Confirm Opt In Email")] ConfirmOptInEmail,
+        [JsonProperty("Contact Import")] ContactImport,
+        [JsonProperty("Contact New Membership")] ContactNewMembership,
+        [JsonProperty("Contact Pending Obfuscation")] ContactPendingObfuscation,
+        [JsonProperty("Contact Website Profile Update")] ContactWebsiteProfileUpdate,
+        [JsonProperty("Created Within Meeting Request")] CreatedWithinMeetingRequest,
+        [JsonProperty("Created from API")] CreatedFromAPI,
+        [JsonProperty("Created from Request Website")] CreatedFromRequestWebsite,
+        [JsonProperty("Crowd Compass Profile Update")] CrowdCompassProfileUpdate,
+        [JsonProperty("Custom Field Added From Admin")] CustomFieldAddedFromAdmin,
+        [JsonProperty("Custom Field Added via REST API")] CustomFieldAddedViaRESTAPI,
+        [JsonProperty("Custom Field Deleted From Admin")] CustomFieldDeletedFromAdmin,
+        [JsonProperty("Custom Field Modified From Admin")] CustomFieldModifiedFromAdmin,
+        [JsonProperty("Custom Field Modified via REST API")] CustomFieldModifiedViaRESTAPI,
+        [JsonProperty("Deleted Within Administration")] DeletedWithinAdministration,
+        [JsonProperty("Deleted from Meeting Request Form")] DeletedFromMeetingRequestForm,
+        [JsonProperty("Deleted from Request Website")] DeletedFromRequestWebsite,
+        [JsonProperty("Deleted within Meeting Request")] DeletedWithinMeetingRequest,
+        [JsonProperty("Event Automatically Created from Meeting Request")] EventAutomaticallyCreatedFromMeetingRequest,
+        [JsonProperty("Event Created from API")] EventCreatedFromAPI,
+        [JsonProperty("Event Created from Event Wizard")] EventCreatedFromEventWizard,
+        [JsonProperty("Event Guest Side Modification")] EventGuestSideModification,
+        [JsonProperty("Event Guest Side Registration")] EventGuestSideRegistration,
+        [JsonProperty("Event Import")] EventImport,
+        [JsonProperty("Event Modified from Meeting Request via API")] EventModifiedFromMeetingRequestViaAPI,
+        [JsonProperty("Event Modified from Meeting Request")] EventModifiedFromMeetingRequest,
+        [JsonProperty("Event Onsite Registration")] EventOnsiteRegistration,
+        [JsonProperty("Event POST")] EventPOST,
+        [JsonProperty("Event Planner Contact Information Update")] EventPlannerContactInformationUpdate,
+        [JsonProperty("Event Planner Side Modification")] EventPlannerSideModification,
+        [JsonProperty("Event Planner Side Registration")] EventPlannerSideRegistration,
+        [JsonProperty("Hotel Request Import")] HotelRequestImport,
+        [JsonProperty("Marketo Contact Import")] MarketoContactImport,
+        [JsonProperty("Modified Within Event")] ModifiedWithinEvent,
+        [JsonProperty("Modified Within Meeting Request")] ModifiedWithinMeetingRequest,
+        [JsonProperty("Modified from API")] ModifiedFromAPI,
+        [JsonProperty("Modified from Event Documents")] ModifiedFromEventDocuments,
+        [JsonProperty("Modified from Meeting Request via Notification")] ModifiedFromMeetingRequestViaNotification,
+        [JsonProperty("Modified from Request Website")] ModifiedFromRequestWebsite,
+        [JsonProperty("Registration Import")] RegistrationImport,
+        [JsonProperty("REST API")] RestApi,
+        [JsonProperty("Salesforce Integration")] SalesforceIntegration,
+        [JsonProperty("Survey Author Modification")] SurveyAuthorModification,
+        [JsonProperty("Survey Author Response")] SurveyAuthorResponse,
+        [JsonProperty("Survey Guest Side Modification")] SurveyGuestSideModification,
+        [JsonProperty("Survey Guest Side Response")] SurveyGuestSideResponse,
+        [JsonProperty("Survey POST")] SurveyPOST,
+        [JsonProperty("Travel Cost Import - Map to Existing Budget item")] TravelCostImportMapToExistingBudgetItem,
+        [JsonProperty("Travel Cost Import - Map to New Budget Item")] TravelCostImportMapToNewBudgetItem,
+        [JsonProperty("VCN Transaction - Create New Budget Item For Each Transaction")] VCNTransactionCreateNewBudgetItemForEachTransaction,
+        [JsonProperty("VCN Transaction - Map to Multiple Budget Item")] VCNTransactionMapToMultipleBudgetItem,
+        [JsonProperty("VCN Transaction - Map to Single Budget Item")] VCNTransactionMapToSingleBudgetItem,
+        [JsonProperty("VCN Transaction - Removed from Budget Item")] VCNTransactionRemovedFromBudgetItem,
+        [JsonProperty("Web Services")] WebServices,
+        [JsonProperty("eMarketing Profile Update")] EMarketingProfileUpdate,
     }
 
     public static class UpdatedThroughNamePropertyJsonExtension
     {
         public static string Value(this UpdatedThroughNamePropertyJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static UpdatedThroughNamePropertyJson ToEnum(this string value)
         {
-            foreach(var field in typeof(UpdatedThroughNamePropertyJson).GetFields())
+            foreach (var field in typeof(UpdatedThroughNamePropertyJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

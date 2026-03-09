@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class PropertyApiGetBrandRequest {
     /**
      * The ID of the brand.
@@ -20,10 +19,9 @@ public class PropertyApiGetBrandRequest {
     private String brandId;
 
     @JsonCreator
-    public PropertyApiGetBrandRequest(
-            @Nonnull String brandId) {
-        this.brandId = Optional.ofNullable(brandId)
-            .orElseThrow(() -> new IllegalArgumentException("brandId cannot be null"));
+    public PropertyApiGetBrandRequest(@Nonnull String brandId) {
+        this.brandId =
+                Optional.ofNullable(brandId).orElseThrow(() -> new IllegalArgumentException("brandId cannot be null"));
     }
 
     /**
@@ -37,7 +35,6 @@ public class PropertyApiGetBrandRequest {
         return new Builder();
     }
 
-
     /**
      * The ID of the brand.
      */
@@ -45,7 +42,6 @@ public class PropertyApiGetBrandRequest {
         this.brandId = Utils.checkNotNull(brandId, "brandId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -56,29 +52,26 @@ public class PropertyApiGetBrandRequest {
             return false;
         }
         PropertyApiGetBrandRequest other = (PropertyApiGetBrandRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.brandId, other.brandId);
+        return Utils.enhancedDeepEquals(this.brandId, other.brandId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            brandId);
+        return Utils.enhancedHash(brandId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PropertyApiGetBrandRequest.class,
-                "brandId", brandId);
+        return Utils.toString(PropertyApiGetBrandRequest.class, "brandId", brandId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String brandId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -90,9 +83,7 @@ public class PropertyApiGetBrandRequest {
         }
 
         public PropertyApiGetBrandRequest build() {
-            return new PropertyApiGetBrandRequest(
-                brandId);
+            return new PropertyApiGetBrandRequest(brandId);
         }
-
     }
 }

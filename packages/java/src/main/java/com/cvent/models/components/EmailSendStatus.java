@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EmailSendStatus
- * 
+ *
  * <p>The response from a request to get the list of recipients with email status.
  */
 public class EmailSendStatus {
@@ -50,13 +50,13 @@ public class EmailSendStatus {
             @JsonProperty("requestedBy") @Nonnull String requestedBy,
             @JsonProperty("recipientStatus") @Nonnull List<RecipientsDataJson> recipientStatus) {
         this.emailRequestId = Optional.ofNullable(emailRequestId)
-            .orElseThrow(() -> new IllegalArgumentException("emailRequestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("emailRequestId cannot be null"));
         this.requestedDate = Optional.ofNullable(requestedDate)
-            .orElseThrow(() -> new IllegalArgumentException("requestedDate cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestedDate cannot be null"));
         this.requestedBy = Optional.ofNullable(requestedBy)
-            .orElseThrow(() -> new IllegalArgumentException("requestedBy cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestedBy cannot be null"));
         this.recipientStatus = Optional.ofNullable(recipientStatus)
-            .orElseThrow(() -> new IllegalArgumentException("recipientStatus cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("recipientStatus cannot be null"));
     }
 
     /**
@@ -91,7 +91,6 @@ public class EmailSendStatus {
         return new Builder();
     }
 
-
     /**
      * ID of the send email request.
      */
@@ -99,7 +98,6 @@ public class EmailSendStatus {
         this.emailRequestId = Utils.checkNotNull(emailRequestId, "emailRequestId");
         return this;
     }
-
 
     /**
      * The ISO 8601 zoned date time (in UTC) when this request was made.
@@ -109,7 +107,6 @@ public class EmailSendStatus {
         return this;
     }
 
-
     /**
      * The identifier of the user that requested this record.
      */
@@ -118,7 +115,6 @@ public class EmailSendStatus {
         return this;
     }
 
-
     /**
      * A list of recipients to whom emails were tried to send.
      */
@@ -126,7 +122,6 @@ public class EmailSendStatus {
         this.recipientStatus = Utils.checkNotNull(recipientStatus, "recipientStatus");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +132,33 @@ public class EmailSendStatus {
             return false;
         }
         EmailSendStatus other = (EmailSendStatus) o;
-        return 
-            Utils.enhancedDeepEquals(this.emailRequestId, other.emailRequestId) &&
-            Utils.enhancedDeepEquals(this.requestedDate, other.requestedDate) &&
-            Utils.enhancedDeepEquals(this.requestedBy, other.requestedBy) &&
-            Utils.enhancedDeepEquals(this.recipientStatus, other.recipientStatus);
+        return Utils.enhancedDeepEquals(this.emailRequestId, other.emailRequestId)
+                && Utils.enhancedDeepEquals(this.requestedDate, other.requestedDate)
+                && Utils.enhancedDeepEquals(this.requestedBy, other.requestedBy)
+                && Utils.enhancedDeepEquals(this.recipientStatus, other.recipientStatus);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            emailRequestId, requestedDate, requestedBy,
-            recipientStatus);
+        return Utils.enhancedHash(emailRequestId, requestedDate, requestedBy, recipientStatus);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailSendStatus.class,
-                "emailRequestId", emailRequestId,
-                "requestedDate", requestedDate,
-                "requestedBy", requestedBy,
-                "recipientStatus", recipientStatus);
+        return Utils.toString(
+                EmailSendStatus.class,
+                "emailRequestId",
+                emailRequestId,
+                "requestedDate",
+                requestedDate,
+                "requestedBy",
+                requestedBy,
+                "recipientStatus",
+                recipientStatus);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String emailRequestId;
 
@@ -172,7 +169,7 @@ public class EmailSendStatus {
         private List<RecipientsDataJson> recipientStatus;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +205,7 @@ public class EmailSendStatus {
         }
 
         public EmailSendStatus build() {
-            return new EmailSendStatus(
-                emailRequestId, requestedDate, requestedBy,
-                recipientStatus);
+            return new EmailSendStatus(emailRequestId, requestedDate, requestedBy, recipientStatus);
         }
-
     }
 }

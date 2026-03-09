@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * MeetingRoomJson
- * 
+ *
  * <p>The meeting room.
  */
 public class MeetingRoomJson {
@@ -27,11 +27,10 @@ public class MeetingRoomJson {
     private String notes;
 
     @JsonCreator
-    public MeetingRoomJson(
-            @JsonProperty("notes") @Nullable String notes) {
+    public MeetingRoomJson(@JsonProperty("notes") @Nullable String notes) {
         this.notes = notes;
     }
-    
+
     public MeetingRoomJson() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class MeetingRoomJson {
         return new Builder();
     }
 
-
     /**
      * Planner note about the meeting room.
      */
@@ -55,7 +53,6 @@ public class MeetingRoomJson {
         this.notes = notes;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class MeetingRoomJson {
             return false;
         }
         MeetingRoomJson other = (MeetingRoomJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.notes, other.notes);
+        return Utils.enhancedDeepEquals(this.notes, other.notes);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            notes);
+        return Utils.enhancedHash(notes);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(MeetingRoomJson.class,
-                "notes", notes);
+        return Utils.toString(MeetingRoomJson.class, "notes", notes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String notes;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class MeetingRoomJson {
         }
 
         public MeetingRoomJson build() {
-            return new MeetingRoomJson(
-                notes);
+            return new MeetingRoomJson(notes);
         }
-
     }
 }

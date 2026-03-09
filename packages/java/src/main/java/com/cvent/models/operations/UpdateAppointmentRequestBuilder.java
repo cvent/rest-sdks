@@ -28,7 +28,7 @@ public class UpdateAppointmentRequestBuilder {
     private UpdateAppointmentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UpdateAppointmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UpdateAppointmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UpdateAppointmentResponse call() {
-        RequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation
-              = new UpdateAppointment.Sync(sdkConfiguration, _headers);
+        RequestOperation<UpdateAppointmentRequest, UpdateAppointmentResponse> operation =
+                new UpdateAppointment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

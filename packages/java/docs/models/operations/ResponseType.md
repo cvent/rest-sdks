@@ -5,6 +5,14 @@ The response type must be code. Indicates the client wants an authorization code
 **Note:** *implicit flow* or the *token* value is not supported at this time.
 
 
+## Example Usage
+
+```java
+import com.cvent.models.operations.ResponseType;
+
+ResponseType value = ResponseType.CODE;
+```
+
 
 ## Values
 

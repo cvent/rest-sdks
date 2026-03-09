@@ -2,6 +2,14 @@
 
 Indicates how the vendor was added to your account. CSN indicates the vendor was sourced from the Cvent Supplier Network. VENDOR indicates a user added the vendor information to your account.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.BudgetVendorJsonType;
+
+BudgetVendorJsonType value = BudgetVendorJsonType.NOT_SPECIFIED;
+```
+
 
 ## Values
 

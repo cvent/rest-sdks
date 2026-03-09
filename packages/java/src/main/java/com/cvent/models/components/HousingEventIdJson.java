@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * HousingEventIdJson
- * 
+ *
  * <p>Contains unique ID of the housing event.
  */
 public class HousingEventIdJson {
@@ -22,8 +22,7 @@ public class HousingEventIdJson {
     private long id;
 
     @JsonCreator
-    public HousingEventIdJson(
-            @JsonProperty("id") long id) {
+    public HousingEventIdJson(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class HousingEventIdJson {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the housing event.
      */
@@ -46,7 +44,6 @@ public class HousingEventIdJson {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class HousingEventIdJson {
             return false;
         }
         HousingEventIdJson other = (HousingEventIdJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HousingEventIdJson.class,
-                "id", id);
+        return Utils.toString(HousingEventIdJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class HousingEventIdJson {
         }
 
         public HousingEventIdJson build() {
-            return new HousingEventIdJson(
-                id);
+            return new HousingEventIdJson(id);
         }
-
     }
 }

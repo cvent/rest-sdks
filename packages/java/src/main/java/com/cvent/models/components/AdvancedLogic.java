@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * AdvancedLogic
- * 
+ *
  * <p>Describes the advanced logic for a custom field.
  */
 public class AdvancedLogic {
@@ -49,13 +49,12 @@ public class AdvancedLogic {
             @JsonProperty("defaultChoices") @Nullable List<String> defaultChoices,
             @JsonProperty("sourceChoices") @Nullable List<AdvancedLogicChoicesJson> sourceChoices) {
         this.sourceCustomFieldId = Optional.ofNullable(sourceCustomFieldId)
-            .orElseThrow(() -> new IllegalArgumentException("sourceCustomFieldId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("sourceCustomFieldId cannot be null"));
         this.defaultChoices = defaultChoices;
         this.sourceChoices = sourceChoices;
     }
-    
-    public AdvancedLogic(
-            @Nonnull String sourceCustomFieldId) {
+
+    public AdvancedLogic(@Nonnull String sourceCustomFieldId) {
         this(sourceCustomFieldId, null, null);
     }
 
@@ -86,7 +85,6 @@ public class AdvancedLogic {
         return new Builder();
     }
 
-
     /**
      * The ID of the source custom field.
      */
@@ -94,7 +92,6 @@ public class AdvancedLogic {
         this.sourceCustomFieldId = Utils.checkNotNull(sourceCustomFieldId, "sourceCustomFieldId");
         return this;
     }
-
 
     /**
      * The choices of this custom field to display by default (when no choice is selected for the source
@@ -105,7 +102,6 @@ public class AdvancedLogic {
         return this;
     }
 
-
     /**
      * The choices of this custom field to display based on the choice selected for the source custom
      * field, specified by choice ID.
@@ -114,7 +110,6 @@ public class AdvancedLogic {
         this.sourceChoices = sourceChoices;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -125,28 +120,30 @@ public class AdvancedLogic {
             return false;
         }
         AdvancedLogic other = (AdvancedLogic) o;
-        return 
-            Utils.enhancedDeepEquals(this.sourceCustomFieldId, other.sourceCustomFieldId) &&
-            Utils.enhancedDeepEquals(this.defaultChoices, other.defaultChoices) &&
-            Utils.enhancedDeepEquals(this.sourceChoices, other.sourceChoices);
+        return Utils.enhancedDeepEquals(this.sourceCustomFieldId, other.sourceCustomFieldId)
+                && Utils.enhancedDeepEquals(this.defaultChoices, other.defaultChoices)
+                && Utils.enhancedDeepEquals(this.sourceChoices, other.sourceChoices);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            sourceCustomFieldId, defaultChoices, sourceChoices);
+        return Utils.enhancedHash(sourceCustomFieldId, defaultChoices, sourceChoices);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AdvancedLogic.class,
-                "sourceCustomFieldId", sourceCustomFieldId,
-                "defaultChoices", defaultChoices,
-                "sourceChoices", sourceChoices);
+        return Utils.toString(
+                AdvancedLogic.class,
+                "sourceCustomFieldId",
+                sourceCustomFieldId,
+                "defaultChoices",
+                defaultChoices,
+                "sourceChoices",
+                sourceChoices);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String sourceCustomFieldId;
 
@@ -155,7 +152,7 @@ public class AdvancedLogic {
         private List<AdvancedLogicChoicesJson> sourceChoices;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -185,9 +182,7 @@ public class AdvancedLogic {
         }
 
         public AdvancedLogic build() {
-            return new AdvancedLogic(
-                sourceCustomFieldId, defaultChoices, sourceChoices);
+            return new AdvancedLogic(sourceCustomFieldId, defaultChoices, sourceChoices);
         }
-
     }
 }

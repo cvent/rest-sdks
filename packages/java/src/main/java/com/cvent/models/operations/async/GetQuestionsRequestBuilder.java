@@ -40,7 +40,7 @@ public class GetQuestionsRequestBuilder {
     private GetQuestionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetQuestionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetQuestionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetQuestionsResponse> call() {
-        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation
-              = new GetQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation =
+                new GetQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetQuestionsRequestBuilder {
      */
     public Publisher<GetQuestionsResponse> callAsPublisher() {
         GetQuestionsRequest request = this.request;
-        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation
-              = new GetQuestions.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetQuestionsRequest, GetQuestionsResponse> operation =
+                new GetQuestions.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetQuestionsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetQuestionsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetQuestionsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

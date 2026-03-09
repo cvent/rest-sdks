@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BadgePrintJobStatusJson
     {
-        [JsonProperty("Scheduled")]
-        Scheduled,
-        [JsonProperty("Rescheduled")]
-        Rescheduled,
-        [JsonProperty("Assigned")]
-        Assigned,
-        [JsonProperty("Failed")]
-        Failed,
-        [JsonProperty("Done")]
-        Done,
-        [JsonProperty("Canceled")]
-        Canceled,
+        [JsonProperty("Scheduled")] Scheduled,
+        [JsonProperty("Rescheduled")] Rescheduled,
+        [JsonProperty("Assigned")] Assigned,
+        [JsonProperty("Failed")] Failed,
+        [JsonProperty("Done")] Done,
+        [JsonProperty("Canceled")] Canceled,
     }
 
     public static class BadgePrintJobStatusJsonExtension
     {
         public static string Value(this BadgePrintJobStatusJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BadgePrintJobStatusJson ToEnum(this string value)
         {
-            foreach(var field in typeof(BadgePrintJobStatusJson).GetFields())
+            foreach (var field in typeof(BadgePrintJobStatusJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

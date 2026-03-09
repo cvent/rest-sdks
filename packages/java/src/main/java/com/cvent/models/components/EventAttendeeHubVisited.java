@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * EventAttendeeHubVisited
- * 
+ *
  * <p>An event attendee-hub-visited activity.
  */
 public class EventAttendeeHubVisited {
@@ -58,10 +58,9 @@ public class EventAttendeeHubVisited {
         this.pageName = pageName;
         this.buttonText = buttonText;
     }
-    
+
     public EventAttendeeHubVisited() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -96,7 +95,6 @@ public class EventAttendeeHubVisited {
         return new Builder();
     }
 
-
     /**
      * The name of the web browser.
      */
@@ -104,7 +102,6 @@ public class EventAttendeeHubVisited {
         this.browser = browser;
         return this;
     }
-
 
     /**
      * The name of the operating system.
@@ -114,7 +111,6 @@ public class EventAttendeeHubVisited {
         return this;
     }
 
-
     /**
      * The name of the event website page before the attendee arrived in Attendee Hub.
      */
@@ -123,7 +119,6 @@ public class EventAttendeeHubVisited {
         return this;
     }
 
-
     /**
      * Text on the button.
      */
@@ -131,7 +126,6 @@ public class EventAttendeeHubVisited {
         this.buttonText = buttonText;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -142,31 +136,33 @@ public class EventAttendeeHubVisited {
             return false;
         }
         EventAttendeeHubVisited other = (EventAttendeeHubVisited) o;
-        return 
-            Utils.enhancedDeepEquals(this.browser, other.browser) &&
-            Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem) &&
-            Utils.enhancedDeepEquals(this.pageName, other.pageName) &&
-            Utils.enhancedDeepEquals(this.buttonText, other.buttonText);
+        return Utils.enhancedDeepEquals(this.browser, other.browser)
+                && Utils.enhancedDeepEquals(this.operatingSystem, other.operatingSystem)
+                && Utils.enhancedDeepEquals(this.pageName, other.pageName)
+                && Utils.enhancedDeepEquals(this.buttonText, other.buttonText);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            browser, operatingSystem, pageName,
-            buttonText);
+        return Utils.enhancedHash(browser, operatingSystem, pageName, buttonText);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventAttendeeHubVisited.class,
-                "browser", browser,
-                "operatingSystem", operatingSystem,
-                "pageName", pageName,
-                "buttonText", buttonText);
+        return Utils.toString(
+                EventAttendeeHubVisited.class,
+                "browser",
+                browser,
+                "operatingSystem",
+                operatingSystem,
+                "pageName",
+                pageName,
+                "buttonText",
+                buttonText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String browser;
 
@@ -177,7 +173,7 @@ public class EventAttendeeHubVisited {
         private String buttonText;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -213,10 +209,7 @@ public class EventAttendeeHubVisited {
         }
 
         public EventAttendeeHubVisited build() {
-            return new EventAttendeeHubVisited(
-                browser, operatingSystem, pageName,
-                buttonText);
+            return new EventAttendeeHubVisited(browser, operatingSystem, pageName, buttonText);
         }
-
     }
 }

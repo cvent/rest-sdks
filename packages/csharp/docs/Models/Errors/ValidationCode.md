@@ -2,6 +2,14 @@
 
 Business validation code for bad requests.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Errors;
+
+var value = ValidationCode.AttendeesPerSegmentLimitReached;
+```
+
 
 ## Values
 

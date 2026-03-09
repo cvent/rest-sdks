@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * WeblinkListResponse
- * 
+ *
  * <p>A response object containing a list of weblinks associated with an exhibitor.
  */
 public class WeblinkListResponse {
@@ -28,11 +28,10 @@ public class WeblinkListResponse {
     private List<ExistingWeblink> data;
 
     @JsonCreator
-    public WeblinkListResponse(
-            @JsonProperty("data") @Nullable List<ExistingWeblink> data) {
+    public WeblinkListResponse(@JsonProperty("data") @Nullable List<ExistingWeblink> data) {
         this.data = data;
     }
-    
+
     public WeblinkListResponse() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class WeblinkListResponse {
         return new Builder();
     }
 
-
     /**
      * List of weblinks associated with an exhibitor.
      */
@@ -56,7 +54,6 @@ public class WeblinkListResponse {
         this.data = data;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class WeblinkListResponse {
             return false;
         }
         WeblinkListResponse other = (WeblinkListResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            data);
+        return Utils.enhancedHash(data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(WeblinkListResponse.class,
-                "data", data);
+        return Utils.toString(WeblinkListResponse.class, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<ExistingWeblink> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class WeblinkListResponse {
         }
 
         public WeblinkListResponse build() {
-            return new WeblinkListResponse(
-                data);
+            return new WeblinkListResponse(data);
         }
-
     }
 }

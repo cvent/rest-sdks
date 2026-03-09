@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CommentTypeJson
- * 
+ *
  * <p>Bid comment type
  */
 public enum CommentTypeJson {
@@ -26,13 +26,13 @@ public enum CommentTypeJson {
     CommentTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CommentTypeJson> fromValue(String value) {
-        for (CommentTypeJson o: CommentTypeJson.values()) {
+        for (CommentTypeJson o : CommentTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum CommentTypeJson {
         return Optional.empty();
     }
 }
-

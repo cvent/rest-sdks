@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * ProgramItemPaginatedResponse
- * 
+ *
  * <p>The response from a request to get the list of session program items.
  */
 public class ProgramItemPaginatedResponse {
@@ -32,12 +32,10 @@ public class ProgramItemPaginatedResponse {
 
     @JsonCreator
     public ProgramItemPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ProgramItem> data) {
-        this.paging = Optional.ofNullable(paging)
-            .orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
-        this.data = Optional.ofNullable(data)
-            .orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ProgramItem> data) {
+        this.paging =
+                Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
+        this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
     /**
@@ -58,7 +56,6 @@ public class ProgramItemPaginatedResponse {
         return new Builder();
     }
 
-
     /**
      * Represents pagination information for a collection of resources.
      */
@@ -67,7 +64,6 @@ public class ProgramItemPaginatedResponse {
         return this;
     }
 
-
     /**
      * Collection of Session Program Items.
      */
@@ -75,7 +71,6 @@ public class ProgramItemPaginatedResponse {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -86,33 +81,28 @@ public class ProgramItemPaginatedResponse {
             return false;
         }
         ProgramItemPaginatedResponse other = (ProgramItemPaginatedResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.paging, other.paging) &&
-            Utils.enhancedDeepEquals(this.data, other.data);
+        return Utils.enhancedDeepEquals(this.paging, other.paging) && Utils.enhancedDeepEquals(this.data, other.data);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paging, data);
+        return Utils.enhancedHash(paging, data);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProgramItemPaginatedResponse.class,
-                "paging", paging,
-                "data", data);
+        return Utils.toString(ProgramItemPaginatedResponse.class, "paging", paging, "data", data);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PagingJson paging;
 
         private List<ProgramItem> data;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -132,9 +122,7 @@ public class ProgramItemPaginatedResponse {
         }
 
         public ProgramItemPaginatedResponse build() {
-            return new ProgramItemPaginatedResponse(
-                paging, data);
+            return new ProgramItemPaginatedResponse(paging, data);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ZeroAllOf5
- * 
+ *
  * <p>The question that was answered.
  */
 public class ZeroAllOf5 {
@@ -34,13 +34,11 @@ public class ZeroAllOf5 {
     private String text;
 
     @JsonCreator
-    public ZeroAllOf5(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text) {
+    public ZeroAllOf5(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nullable String text) {
         this.id = id;
         this.text = text;
     }
-    
+
     public ZeroAllOf5() {
         this(null, null);
     }
@@ -63,7 +61,6 @@ public class ZeroAllOf5 {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the question.
      */
@@ -72,7 +69,6 @@ public class ZeroAllOf5 {
         return this;
     }
 
-
     /**
      * Question text.
      */
@@ -80,7 +76,6 @@ public class ZeroAllOf5 {
         this.text = text;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +86,28 @@ public class ZeroAllOf5 {
             return false;
         }
         ZeroAllOf5 other = (ZeroAllOf5) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text);
+        return Utils.enhancedHash(id, text);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf5.class,
-                "id", id,
-                "text", text);
+        return Utils.toString(ZeroAllOf5.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String text;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +127,7 @@ public class ZeroAllOf5 {
         }
 
         public ZeroAllOf5 build() {
-            return new ZeroAllOf5(
-                id, text);
+            return new ZeroAllOf5(id, text);
         }
-
     }
 }

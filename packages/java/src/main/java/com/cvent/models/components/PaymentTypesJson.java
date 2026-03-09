@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * PaymentTypesJson
- * 
+ *
  * <p>Payment type.
  */
 public enum PaymentTypesJson {
@@ -23,13 +23,13 @@ public enum PaymentTypesJson {
     PaymentTypesJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<PaymentTypesJson> fromValue(String value) {
-        for (PaymentTypesJson o: PaymentTypesJson.values()) {
+        for (PaymentTypesJson o : PaymentTypesJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum PaymentTypesJson {
         return Optional.empty();
     }
 }
-

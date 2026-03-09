@@ -18,28 +18,23 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum VideoTextTrackKindJson
     {
-        [JsonProperty("subtitles")]
-        Subtitles,
-        [JsonProperty("captions")]
-        Captions,
-        [JsonProperty("descriptions")]
-        Descriptions,
-        [JsonProperty("chapters")]
-        Chapters,
-        [JsonProperty("metadata")]
-        Metadata,
+        [JsonProperty("subtitles")] Subtitles,
+        [JsonProperty("captions")] Captions,
+        [JsonProperty("descriptions")] Descriptions,
+        [JsonProperty("chapters")] Chapters,
+        [JsonProperty("metadata")] Metadata,
     }
 
     public static class VideoTextTrackKindJsonExtension
     {
         public static string Value(this VideoTextTrackKindJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static VideoTextTrackKindJson ToEnum(this string value)
         {
-            foreach(var field in typeof(VideoTextTrackKindJson).GetFields())
+            foreach (var field in typeof(VideoTextTrackKindJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * LeadObjectJson
- * 
+ *
  * <p>A Lead
  */
 public class LeadObjectJson {
@@ -29,7 +29,7 @@ public class LeadObjectJson {
 
     /**
      * The unique identifier of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -39,7 +39,7 @@ public class LeadObjectJson {
 
     /**
      * Name of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -49,7 +49,7 @@ public class LeadObjectJson {
 
     /**
      * Booth staff for the lead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -68,10 +68,9 @@ public class LeadObjectJson {
         this.deviceName = deviceName;
         this.boothStaff = boothStaff;
     }
-    
+
     public LeadObjectJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -83,7 +82,7 @@ public class LeadObjectJson {
 
     /**
      * The unique identifier of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -93,7 +92,7 @@ public class LeadObjectJson {
 
     /**
      * Name of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -103,7 +102,7 @@ public class LeadObjectJson {
 
     /**
      * Booth staff for the lead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -115,7 +114,6 @@ public class LeadObjectJson {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -124,10 +122,9 @@ public class LeadObjectJson {
         return this;
     }
 
-
     /**
      * The unique identifier of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -136,10 +133,9 @@ public class LeadObjectJson {
         return this;
     }
 
-
     /**
      * Name of the device.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -148,10 +144,9 @@ public class LeadObjectJson {
         return this;
     }
 
-
     /**
      * Booth staff for the lead.
-     * 
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
@@ -159,7 +154,6 @@ public class LeadObjectJson {
         this.boothStaff = boothStaff;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -170,31 +164,33 @@ public class LeadObjectJson {
             return false;
         }
         LeadObjectJson other = (LeadObjectJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.deviceId, other.deviceId) &&
-            Utils.enhancedDeepEquals(this.deviceName, other.deviceName) &&
-            Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.deviceId, other.deviceId)
+                && Utils.enhancedDeepEquals(this.deviceName, other.deviceName)
+                && Utils.enhancedDeepEquals(this.boothStaff, other.boothStaff);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, deviceId, deviceName,
-            boothStaff);
+        return Utils.enhancedHash(id, deviceId, deviceName, boothStaff);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LeadObjectJson.class,
-                "id", id,
-                "deviceId", deviceId,
-                "deviceName", deviceName,
-                "boothStaff", boothStaff);
+        return Utils.toString(
+                LeadObjectJson.class,
+                "id",
+                id,
+                "deviceId",
+                deviceId,
+                "deviceName",
+                deviceName,
+                "boothStaff",
+                boothStaff);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -208,7 +204,7 @@ public class LeadObjectJson {
         private ActivityBoothStaff boothStaff;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -221,7 +217,7 @@ public class LeadObjectJson {
 
         /**
          * The unique identifier of the device.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -232,7 +228,7 @@ public class LeadObjectJson {
 
         /**
          * Name of the device.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -243,7 +239,7 @@ public class LeadObjectJson {
 
         /**
          * Booth staff for the lead.
-         * 
+         *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
@@ -253,10 +249,7 @@ public class LeadObjectJson {
         }
 
         public LeadObjectJson build() {
-            return new LeadObjectJson(
-                id, deviceId, deviceName,
-                boothStaff);
+            return new LeadObjectJson(id, deviceId, deviceName, boothStaff);
         }
-
     }
 }

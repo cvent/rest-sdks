@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * TravelAccountSupplierAccount
- * 
+ *
  * <p>Details for the supplier travel account. These details are supplier specific and only visible for
  * supply-side clients.
  */
@@ -88,11 +88,9 @@ public class TravelAccountSupplierAccount {
         this.chainDefinedId = chainDefinedId;
         this.chainDefinedType = chainDefinedType;
     }
-    
+
     public TravelAccountSupplierAccount() {
-        this(null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null);
     }
 
     /**
@@ -149,15 +147,14 @@ public class TravelAccountSupplierAccount {
         return new Builder();
     }
 
-
     /**
      * The travel account that the supplier account is associated with.
      */
-    public TravelAccountSupplierAccount withTravelAccount(@Nullable TravelAccountSupplierAccountTravelAccount travelAccount) {
+    public TravelAccountSupplierAccount withTravelAccount(
+            @Nullable TravelAccountSupplierAccountTravelAccount travelAccount) {
         this.travelAccount = travelAccount;
         return this;
     }
-
 
     /**
      * The name of the travel account.
@@ -167,7 +164,6 @@ public class TravelAccountSupplierAccount {
         return this;
     }
 
-
     /**
      * The management level of the travel account. Defined by the supply-side.
      */
@@ -176,7 +172,6 @@ public class TravelAccountSupplierAccount {
         return this;
     }
 
-
     /**
      * Is this account active for the supplier's hotels.
      */
@@ -184,7 +179,6 @@ public class TravelAccountSupplierAccount {
         this.active = active;
         return this;
     }
-
 
     /**
      * ID of the travel account in the suppliers Customer Relationship Management system. Defined by
@@ -195,7 +189,6 @@ public class TravelAccountSupplierAccount {
         return this;
     }
 
-
     /**
      * Travel account ID defined at the supplier chain level.
      */
@@ -204,7 +197,6 @@ public class TravelAccountSupplierAccount {
         return this;
     }
 
-
     /**
      * Travel account type defined at the supplier chain level.
      */
@@ -212,7 +204,6 @@ public class TravelAccountSupplierAccount {
         this.chainDefinedType = chainDefinedType;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -223,38 +214,43 @@ public class TravelAccountSupplierAccount {
             return false;
         }
         TravelAccountSupplierAccount other = (TravelAccountSupplierAccount) o;
-        return 
-            Utils.enhancedDeepEquals(this.travelAccount, other.travelAccount) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.managementLevel, other.managementLevel) &&
-            Utils.enhancedDeepEquals(this.active, other.active) &&
-            Utils.enhancedDeepEquals(this.crmId, other.crmId) &&
-            Utils.enhancedDeepEquals(this.chainDefinedId, other.chainDefinedId) &&
-            Utils.enhancedDeepEquals(this.chainDefinedType, other.chainDefinedType);
+        return Utils.enhancedDeepEquals(this.travelAccount, other.travelAccount)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.managementLevel, other.managementLevel)
+                && Utils.enhancedDeepEquals(this.active, other.active)
+                && Utils.enhancedDeepEquals(this.crmId, other.crmId)
+                && Utils.enhancedDeepEquals(this.chainDefinedId, other.chainDefinedId)
+                && Utils.enhancedDeepEquals(this.chainDefinedType, other.chainDefinedType);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            travelAccount, name, managementLevel,
-            active, crmId, chainDefinedId,
-            chainDefinedType);
+                travelAccount, name, managementLevel, active, crmId, chainDefinedId, chainDefinedType);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelAccountSupplierAccount.class,
-                "travelAccount", travelAccount,
-                "name", name,
-                "managementLevel", managementLevel,
-                "active", active,
-                "crmId", crmId,
-                "chainDefinedId", chainDefinedId,
-                "chainDefinedType", chainDefinedType);
+        return Utils.toString(
+                TravelAccountSupplierAccount.class,
+                "travelAccount",
+                travelAccount,
+                "name",
+                name,
+                "managementLevel",
+                managementLevel,
+                "active",
+                active,
+                "crmId",
+                crmId,
+                "chainDefinedId",
+                chainDefinedId,
+                "chainDefinedType",
+                chainDefinedType);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelAccountSupplierAccountTravelAccount travelAccount;
 
@@ -271,7 +267,7 @@ public class TravelAccountSupplierAccount {
         private String chainDefinedType;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -333,10 +329,7 @@ public class TravelAccountSupplierAccount {
 
         public TravelAccountSupplierAccount build() {
             return new TravelAccountSupplierAccount(
-                travelAccount, name, managementLevel,
-                active, crmId, chainDefinedId,
-                chainDefinedType);
+                    travelAccount, name, managementLevel, active, crmId, chainDefinedId, chainDefinedType);
         }
-
     }
 }

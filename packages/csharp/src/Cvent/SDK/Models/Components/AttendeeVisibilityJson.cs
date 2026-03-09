@@ -18,22 +18,20 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AttendeeVisibilityJson
     {
-        [JsonProperty("Private")]
-        Private,
-        [JsonProperty("Public")]
-        Public,
+        [JsonProperty("Private")] Private,
+        [JsonProperty("Public")] Public,
     }
 
     public static class AttendeeVisibilityJsonExtension
     {
         public static string Value(this AttendeeVisibilityJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AttendeeVisibilityJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AttendeeVisibilityJson).GetFields())
+            foreach (var field in typeof(AttendeeVisibilityJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

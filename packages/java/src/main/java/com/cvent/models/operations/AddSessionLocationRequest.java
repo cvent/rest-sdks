@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AddSessionLocationRequest {
     /**
      * Unique Id of Event
@@ -27,13 +26,10 @@ public class AddSessionLocationRequest {
     private SessionLocationInput sessionLocation;
 
     @JsonCreator
-    public AddSessionLocationRequest(
-            @Nonnull String id,
-            @Nonnull SessionLocationInput sessionLocation) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public AddSessionLocationRequest(@Nonnull String id, @Nonnull SessionLocationInput sessionLocation) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.sessionLocation = Optional.ofNullable(sessionLocation)
-            .orElseThrow(() -> new IllegalArgumentException("sessionLocation cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("sessionLocation cannot be null"));
     }
 
     /**
@@ -54,7 +50,6 @@ public class AddSessionLocationRequest {
         return new Builder();
     }
 
-
     /**
      * Unique Id of Event
      */
@@ -63,7 +58,6 @@ public class AddSessionLocationRequest {
         return this;
     }
 
-
     /**
      * Details of the session location you're creating.
      */
@@ -71,7 +65,6 @@ public class AddSessionLocationRequest {
         this.sessionLocation = Utils.checkNotNull(sessionLocation, "sessionLocation");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -82,33 +75,29 @@ public class AddSessionLocationRequest {
             return false;
         }
         AddSessionLocationRequest other = (AddSessionLocationRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.sessionLocation, other.sessionLocation);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.sessionLocation, other.sessionLocation);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, sessionLocation);
+        return Utils.enhancedHash(id, sessionLocation);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddSessionLocationRequest.class,
-                "id", id,
-                "sessionLocation", sessionLocation);
+        return Utils.toString(AddSessionLocationRequest.class, "id", id, "sessionLocation", sessionLocation);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private SessionLocationInput sessionLocation;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -128,9 +117,7 @@ public class AddSessionLocationRequest {
         }
 
         public AddSessionLocationRequest build() {
-            return new AddSessionLocationRequest(
-                id, sessionLocation);
+            return new AddSessionLocationRequest(id, sessionLocation);
         }
-
     }
 }

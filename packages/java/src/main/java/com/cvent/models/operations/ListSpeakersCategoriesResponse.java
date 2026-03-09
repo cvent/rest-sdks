@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListSpeakersCategoriesResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListSpeakersCategoriesResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.speakerCategoryPaginatedResponse = speakerCategoryPaginatedResponse;
     }
-    
+
     public ListSpeakersCategoriesResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListSpeakersCategoriesResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListSpeakersCategoriesResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListSpeakersCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListSpeakersCategoriesResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of speakers categories.
      */
-    public ListSpeakersCategoriesResponse withSpeakerCategoryPaginatedResponse(@Nullable SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse) {
+    public ListSpeakersCategoriesResponse withSpeakerCategoryPaginatedResponse(
+            @Nullable SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse) {
         this.speakerCategoryPaginatedResponse = speakerCategoryPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListSpeakersCategoriesResponse implements Response {
             return false;
         }
         ListSpeakersCategoriesResponse other = (ListSpeakersCategoriesResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.speakerCategoryPaginatedResponse, other.speakerCategoryPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.speakerCategoryPaginatedResponse, other.speakerCategoryPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            speakerCategoryPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, speakerCategoryPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListSpeakersCategoriesResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "speakerCategoryPaginatedResponse", speakerCategoryPaginatedResponse);
+        return Utils.toString(
+                ListSpeakersCategoriesResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "speakerCategoryPaginatedResponse",
+                speakerCategoryPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListSpeakersCategoriesResponse implements Response {
         private SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,15 @@ public class ListSpeakersCategoriesResponse implements Response {
         /**
          * Successfully retrieved a paginated list of speakers categories.
          */
-        public Builder speakerCategoryPaginatedResponse(@Nullable SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse) {
+        public Builder speakerCategoryPaginatedResponse(
+                @Nullable SpeakerCategoryPaginatedResponse speakerCategoryPaginatedResponse) {
             this.speakerCategoryPaginatedResponse = speakerCategoryPaginatedResponse;
             return this;
         }
 
         public ListSpeakersCategoriesResponse build() {
             return new ListSpeakersCategoriesResponse(
-                contentType, statusCode, rawResponse,
-                speakerCategoryPaginatedResponse);
+                    contentType, statusCode, rawResponse, speakerCategoryPaginatedResponse);
         }
-
     }
 }

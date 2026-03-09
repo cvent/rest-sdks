@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,13 +15,13 @@ import java.util.Optional;
 
 /**
  * PassportJsonInput
- * 
+ *
  * <p>This entity represents a contact's passport information.
  */
 public class PassportJsonInput {
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -43,14 +43,14 @@ public class PassportJsonInput {
         this.number = number;
         this.countryCode = countryCode;
     }
-    
+
     public PassportJsonInput() {
         this(null, null);
     }
 
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -69,10 +69,9 @@ public class PassportJsonInput {
         return new Builder();
     }
 
-
     /**
      * The passport number of the contact.
-     * 
+     *
      * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
      * `event/contacts:write-sensitive` scopes respectively.
      */
@@ -81,7 +80,6 @@ public class PassportJsonInput {
         return this;
     }
 
-
     /**
      * The passport country code of the contact.
      */
@@ -89,7 +87,6 @@ public class PassportJsonInput {
         this.countryCode = countryCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -100,38 +97,34 @@ public class PassportJsonInput {
             return false;
         }
         PassportJsonInput other = (PassportJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.number, other.number) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
+        return Utils.enhancedDeepEquals(this.number, other.number)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            number, countryCode);
+        return Utils.enhancedHash(number, countryCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(PassportJsonInput.class,
-                "number", number,
-                "countryCode", countryCode);
+        return Utils.toString(PassportJsonInput.class, "number", number, "countryCode", countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String number;
 
         private String countryCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The passport number of the contact.
-         * 
+         *
          * <p>Reading and writing of this field require the `event/contacts:read-sensitive` and
          * `event/contacts:write-sensitive` scopes respectively.
          */
@@ -149,9 +142,7 @@ public class PassportJsonInput {
         }
 
         public PassportJsonInput build() {
-            return new PassportJsonInput(
-                number, countryCode);
+            return new PassportJsonInput(number, countryCode);
         }
-
     }
 }

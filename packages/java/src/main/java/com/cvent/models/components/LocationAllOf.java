@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * LocationAllOf
- * 
+ *
  * <p>The location of the appointment.
  */
 public class LocationAllOf {
@@ -27,11 +27,10 @@ public class LocationAllOf {
     private String name;
 
     @JsonCreator
-    public LocationAllOf(
-            @JsonProperty("name") @Nullable String name) {
+    public LocationAllOf(@JsonProperty("name") @Nullable String name) {
         this.name = name;
     }
-    
+
     public LocationAllOf() {
         this(null);
     }
@@ -47,7 +46,6 @@ public class LocationAllOf {
         return new Builder();
     }
 
-
     /**
      * The name of the location.
      */
@@ -55,7 +53,6 @@ public class LocationAllOf {
         this.name = name;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -66,29 +63,26 @@ public class LocationAllOf {
             return false;
         }
         LocationAllOf other = (LocationAllOf) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name);
+        return Utils.enhancedHash(name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(LocationAllOf.class,
-                "name", name);
+        return Utils.toString(LocationAllOf.class, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -100,9 +94,7 @@ public class LocationAllOf {
         }
 
         public LocationAllOf build() {
-            return new LocationAllOf(
-                name);
+            return new LocationAllOf(name);
         }
-
     }
 }

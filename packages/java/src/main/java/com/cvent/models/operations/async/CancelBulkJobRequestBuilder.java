@@ -30,7 +30,7 @@ public class CancelBulkJobRequestBuilder {
     private CancelBulkJobRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CancelBulkJobRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CancelBulkJobRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CancelBulkJobResponse> call() {
-        AsyncRequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation
-              = new CancelBulkJob.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation =
+                new CancelBulkJob.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

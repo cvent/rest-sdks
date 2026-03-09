@@ -20,21 +20,45 @@ namespace Cvent.SDK.Models.Components
 
     public class ContactBulkItemJsonDataType
     {
-        private ContactBulkItemJsonDataType(string value) { Value = value; }
+        private ContactBulkItemJsonDataType(string value)
+        {
+            Value = value;
+        }
 
         public string Value { get; private set; }
 
-        public static ContactBulkItemJsonDataType ZeroAllOf7 { get { return new ContactBulkItemJsonDataType("0_AllOf_7"); } }
+        public static ContactBulkItemJsonDataType ZeroAllOf7
+        {
+            get {
+                return new ContactBulkItemJsonDataType("0_AllOf_7");
+            }
+        }
 
-        public static ContactBulkItemJsonDataType ErrorResponse { get { return new ContactBulkItemJsonDataType("error-response"); } }
+        public static ContactBulkItemJsonDataType ErrorResponse
+        {
+            get {
+                return new ContactBulkItemJsonDataType("error-response");
+            }
+        }
 
-        public override string ToString() { return Value; }
-        public static implicit operator String(ContactBulkItemJsonDataType v) { return v.Value; }
-        public static ContactBulkItemJsonDataType FromString(string v) {
-            switch(v) {
-                case "0_AllOf_7": return ZeroAllOf7;
-                case "error-response": return ErrorResponse;
-                default: throw new ArgumentException("Invalid value for ContactBulkItemJsonDataType");
+        public override string ToString()
+        {
+            return Value;
+        }
+        public static implicit operator String(ContactBulkItemJsonDataType v)
+        {
+            return v.Value;
+        }
+        public static ContactBulkItemJsonDataType FromString(string v)
+        {
+            switch (v)
+            {
+                case "0_AllOf_7":
+                    return ZeroAllOf7;
+                case "error-response":
+                    return ErrorResponse;
+                default:
+                    throw new ArgumentException("Invalid value for ContactBulkItemJsonDataType");
             }
         }
         public override bool Equals(object? obj)
@@ -102,8 +126,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ErrorResponse)
-                    {
+                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ErrorResponse) {
                         ErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse>(json)
                     };
                 }
@@ -122,8 +145,7 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf7)
-                    {
+                    return new ContactBulkItemJsonData(ContactBulkItemJsonDataType.ZeroAllOf7) {
                         ZeroAllOf7 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<ZeroAllOf7>(json)
                     };
                 }
@@ -143,7 +165,7 @@ namespace Cvent.SDK.Models.Components
                 if (fallbackCandidates.Count > 0)
                 {
                     fallbackCandidates.Sort((a, b) => ResponseBodyDeserializer.CompareFallbackCandidates(a.Item1, b.Item1, json));
-                    foreach(var (deserializationType, returnObject, propertyName) in fallbackCandidates)
+                    foreach (var (deserializationType, returnObject, propertyName) in fallbackCandidates)
                     {
                         try
                         {
@@ -184,8 +206,6 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
             }
-
         }
-
     }
 }

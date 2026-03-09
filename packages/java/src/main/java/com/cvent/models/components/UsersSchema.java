@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * UsersSchema
- * 
+ *
  * <p>Schema
  */
 public class UsersSchema {
@@ -68,10 +68,9 @@ public class UsersSchema {
         this.attributes = attributes;
         this.meta = meta;
     }
-    
+
     public UsersSchema() {
-        this(null, null, null,
-            null, null);
+        this(null, null, null, null, null);
     }
 
     /**
@@ -113,7 +112,6 @@ public class UsersSchema {
         return new Builder();
     }
 
-
     /**
      * The unique identifier of the schema.
      */
@@ -121,7 +119,6 @@ public class UsersSchema {
         this.id = id;
         return this;
     }
-
 
     /**
      * The name of the schema.
@@ -131,7 +128,6 @@ public class UsersSchema {
         return this;
     }
 
-
     /**
      * The description of the schema.
      */
@@ -139,7 +135,6 @@ public class UsersSchema {
         this.description = description;
         return this;
     }
-
 
     /**
      * The collection of attributes for the schema.
@@ -149,7 +144,6 @@ public class UsersSchema {
         return this;
     }
 
-
     /**
      * Metadata of the resource.
      */
@@ -157,7 +151,6 @@ public class UsersSchema {
         this.meta = meta;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -168,33 +161,36 @@ public class UsersSchema {
             return false;
         }
         UsersSchema other = (UsersSchema) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.attributes, other.attributes) &&
-            Utils.enhancedDeepEquals(this.meta, other.meta);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.attributes, other.attributes)
+                && Utils.enhancedDeepEquals(this.meta, other.meta);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, description,
-            attributes, meta);
+        return Utils.enhancedHash(id, name, description, attributes, meta);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UsersSchema.class,
-                "id", id,
-                "name", name,
-                "description", description,
-                "attributes", attributes,
-                "meta", meta);
+        return Utils.toString(
+                UsersSchema.class,
+                "id",
+                id,
+                "name",
+                name,
+                "description",
+                description,
+                "attributes",
+                attributes,
+                "meta",
+                meta);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -207,7 +203,7 @@ public class UsersSchema {
         private MetaJson meta;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -251,10 +247,7 @@ public class UsersSchema {
         }
 
         public UsersSchema build() {
-            return new UsersSchema(
-                id, name, description,
-                attributes, meta);
+            return new UsersSchema(id, name, description, attributes, meta);
         }
-
     }
 }

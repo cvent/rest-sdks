@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetEliteratureRequestsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.eliteratureRequestPaginatedResponse = eliteratureRequestPaginatedResponse;
     }
-    
+
     public GetEliteratureRequestsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of eliterature requests data.
      */
-    public GetEliteratureRequestsResponse withEliteratureRequestPaginatedResponse(@Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
+    public GetEliteratureRequestsResponse withEliteratureRequestPaginatedResponse(
+            @Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
         this.eliteratureRequestPaginatedResponse = eliteratureRequestPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
             return false;
         }
         GetEliteratureRequestsResponse other = (GetEliteratureRequestsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.eliteratureRequestPaginatedResponse, other.eliteratureRequestPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.eliteratureRequestPaginatedResponse, other.eliteratureRequestPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            eliteratureRequestPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, eliteratureRequestPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEliteratureRequestsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "eliteratureRequestPaginatedResponse", eliteratureRequestPaginatedResponse);
+        return Utils.toString(
+                GetEliteratureRequestsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "eliteratureRequestPaginatedResponse",
+                eliteratureRequestPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         private EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -203,16 +197,15 @@ public class GetEliteratureRequestsResponse implements AsyncResponse {
         /**
          * Successfully retrieved a paginated list of eliterature requests data.
          */
-        public Builder eliteratureRequestPaginatedResponse(@Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
+        public Builder eliteratureRequestPaginatedResponse(
+                @Nullable EliteratureRequestPaginatedResponse eliteratureRequestPaginatedResponse) {
             this.eliteratureRequestPaginatedResponse = eliteratureRequestPaginatedResponse;
             return this;
         }
 
         public GetEliteratureRequestsResponse build() {
             return new GetEliteratureRequestsResponse(
-                contentType, statusCode, rawResponse,
-                eliteratureRequestPaginatedResponse);
+                    contentType, statusCode, rawResponse, eliteratureRequestPaginatedResponse);
         }
-
     }
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * EmailHistoryJsonEvent
- * 
+ *
  * <p>Event Id for email history record.
  */
 public class EmailHistoryJsonEvent {
@@ -24,10 +24,8 @@ public class EmailHistoryJsonEvent {
     private String id;
 
     @JsonCreator
-    public EmailHistoryJsonEvent(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public EmailHistoryJsonEvent(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class EmailHistoryJsonEvent {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -49,7 +46,6 @@ public class EmailHistoryJsonEvent {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class EmailHistoryJsonEvent {
             return false;
         }
         EmailHistoryJsonEvent other = (EmailHistoryJsonEvent) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EmailHistoryJsonEvent.class,
-                "id", id);
+        return Utils.toString(EmailHistoryJsonEvent.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class EmailHistoryJsonEvent {
         }
 
         public EmailHistoryJsonEvent build() {
-            return new EmailHistoryJsonEvent(
-                id);
+            return new EmailHistoryJsonEvent(id);
         }
-
     }
 }

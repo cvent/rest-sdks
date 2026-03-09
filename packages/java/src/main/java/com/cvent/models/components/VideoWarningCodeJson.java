@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * VideoWarningCodeJson
- * 
+ *
  * <p>This is used to denote the warning codes for a video entity.
  */
 public enum VideoWarningCodeJson {
@@ -21,13 +21,13 @@ public enum VideoWarningCodeJson {
     VideoWarningCodeJson(long value) {
         this.value = value;
     }
-    
+
     public long value() {
         return value;
     }
-    
+
     public static Optional<VideoWarningCodeJson> fromValue(long value) {
-        for (VideoWarningCodeJson o: VideoWarningCodeJson.values()) {
+        for (VideoWarningCodeJson o : VideoWarningCodeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -35,4 +35,3 @@ public enum VideoWarningCodeJson {
         return Optional.empty();
     }
 }
-

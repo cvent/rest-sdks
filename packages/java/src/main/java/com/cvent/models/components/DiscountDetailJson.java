@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * DiscountDetailJson
- * 
+ *
  * <p>This is used to denote the discount details
  */
 public class DiscountDetailJson {
@@ -51,7 +51,7 @@ public class DiscountDetailJson {
     /**
      * This denotes the value specified for the discount. How the value applies varies by `type`. For
      * `FlatPrice` discounts, this field represents the final price after the discount has been applied.
-     * 
+     *
      * <p>For `Amount` discounts, this field represents the amount to be discounted. For `Percentage`
      * discounts, this field represents the percentage to be discounted.
      */
@@ -82,10 +82,9 @@ public class DiscountDetailJson {
         this.value = value;
         this.amount = amount;
     }
-    
+
     public DiscountDetailJson() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -119,7 +118,7 @@ public class DiscountDetailJson {
     /**
      * This denotes the value specified for the discount. How the value applies varies by `type`. For
      * `FlatPrice` discounts, this field represents the final price after the discount has been applied.
-     * 
+     *
      * <p>For `Amount` discounts, this field represents the amount to be discounted. For `Percentage`
      * discounts, this field represents the percentage to be discounted.
      */
@@ -139,7 +138,6 @@ public class DiscountDetailJson {
         return new Builder();
     }
 
-
     /**
      * A unique identifier for the discount.
      */
@@ -147,7 +145,6 @@ public class DiscountDetailJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * This denotes the name of the discount applied.
@@ -157,7 +154,6 @@ public class DiscountDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the code of the discount applied.
      */
@@ -165,7 +161,6 @@ public class DiscountDetailJson {
         this.code = code;
         return this;
     }
-
 
     /**
      * This is used to denote the type of discount
@@ -175,11 +170,10 @@ public class DiscountDetailJson {
         return this;
     }
 
-
     /**
      * This denotes the value specified for the discount. How the value applies varies by `type`. For
      * `FlatPrice` discounts, this field represents the final price after the discount has been applied.
-     * 
+     *
      * <p>For `Amount` discounts, this field represents the amount to be discounted. For `Percentage`
      * discounts, this field represents the percentage to be discounted.
      */
@@ -187,7 +181,6 @@ public class DiscountDetailJson {
         this.value = value;
         return this;
     }
-
 
     /**
      * The total discount applied to the order via the order or order items. Represents the amount saved
@@ -198,7 +191,6 @@ public class DiscountDetailJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -208,35 +200,39 @@ public class DiscountDetailJson {
             return false;
         }
         DiscountDetailJson other = (DiscountDetailJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.amount, other.amount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            type, value, amount);
+        return Utils.enhancedHash(id, name, code, type, value, amount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DiscountDetailJson.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "type", type,
-                "value", value,
-                "amount", amount);
+        return Utils.toString(
+                DiscountDetailJson.class,
+                "id",
+                id,
+                "name",
+                name,
+                "code",
+                code,
+                "type",
+                type,
+                "value",
+                value,
+                "amount",
+                amount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -251,7 +247,7 @@ public class DiscountDetailJson {
         private Double amount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -289,7 +285,7 @@ public class DiscountDetailJson {
         /**
          * This denotes the value specified for the discount. How the value applies varies by `type`. For
          * `FlatPrice` discounts, this field represents the final price after the discount has been applied.
-         * 
+         *
          * <p>For `Amount` discounts, this field represents the amount to be discounted. For `Percentage`
          * discounts, this field represents the percentage to be discounted.
          */
@@ -308,10 +304,7 @@ public class DiscountDetailJson {
         }
 
         public DiscountDetailJson build() {
-            return new DiscountDetailJson(
-                id, name, code,
-                type, value, amount);
+            return new DiscountDetailJson(id, name, code, type, value, amount);
         }
-
     }
 }

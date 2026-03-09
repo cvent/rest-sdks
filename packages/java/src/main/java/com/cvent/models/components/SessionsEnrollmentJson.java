@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * SessionsEnrollmentJson
- * 
+ *
  * <p>Represents the attendee registration action for a session.
  */
 public class SessionsEnrollmentJson {
@@ -87,7 +87,7 @@ public class SessionsEnrollmentJson {
     /**
      * Denotes the attendee's status in the session. Registered: The attendee is registered for the
      * session. Waitlisted: The attendee is on a waitlist to register for the session.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the session has been cancelled.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -117,12 +117,9 @@ public class SessionsEnrollmentJson {
         this.deleted = deleted;
         this.status = status;
     }
-    
+
     public SessionsEnrollmentJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -191,7 +188,7 @@ public class SessionsEnrollmentJson {
     /**
      * Denotes the attendee's status in the session. Registered: The attendee is registered for the
      * session. Waitlisted: The attendee is on a waitlist to register for the session.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the session has been cancelled.
      */
     public Optional<SessionEnrollmentStatusJson> status() {
@@ -202,7 +199,6 @@ public class SessionsEnrollmentJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -210,7 +206,6 @@ public class SessionsEnrollmentJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -220,7 +215,6 @@ public class SessionsEnrollmentJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -228,7 +222,6 @@ public class SessionsEnrollmentJson {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -238,7 +231,6 @@ public class SessionsEnrollmentJson {
         return this;
     }
 
-
     /**
      * The identifier of the session registration.
      */
@@ -246,7 +238,6 @@ public class SessionsEnrollmentJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -256,7 +247,6 @@ public class SessionsEnrollmentJson {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -264,7 +254,6 @@ public class SessionsEnrollmentJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -274,7 +263,6 @@ public class SessionsEnrollmentJson {
         return this;
     }
 
-
     /**
      * True indicates the attendee is registered for the session.
      */
@@ -283,18 +271,16 @@ public class SessionsEnrollmentJson {
         return this;
     }
 
-
     /**
      * Denotes the attendee's status in the session. Registered: The attendee is registered for the
      * session. Waitlisted: The attendee is on a waitlist to register for the session.
-     * 
+     *
      * <p>Cancelled: The attendee's registration for the session has been cancelled.
      */
     public SessionsEnrollmentJson withStatus(@Nullable SessionEnrollmentStatusJson status) {
         this.status = status;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -305,45 +291,52 @@ public class SessionsEnrollmentJson {
             return false;
         }
         SessionsEnrollmentJson other = (SessionsEnrollmentJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.deleted, other.deleted) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.deleted, other.deleted)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, session,
-            event, attendee, deleted,
-            status);
+                created, createdBy, lastModified, lastModifiedBy, id, session, event, attendee, deleted, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionsEnrollmentJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "session", session,
-                "event", event,
-                "attendee", attendee,
-                "deleted", deleted,
-                "status", status);
+        return Utils.toString(
+                SessionsEnrollmentJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "session",
+                session,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "deleted",
+                deleted,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -366,7 +359,7 @@ public class SessionsEnrollmentJson {
         private SessionEnrollmentStatusJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -444,7 +437,7 @@ public class SessionsEnrollmentJson {
         /**
          * Denotes the attendee's status in the session. Registered: The attendee is registered for the
          * session. Waitlisted: The attendee is on a waitlist to register for the session.
-         * 
+         *
          * <p>Cancelled: The attendee's registration for the session has been cancelled.
          */
         public Builder status(@Nullable SessionEnrollmentStatusJson status) {
@@ -454,11 +447,7 @@ public class SessionsEnrollmentJson {
 
         public SessionsEnrollmentJson build() {
             return new SessionsEnrollmentJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, session,
-                event, attendee, deleted,
-                status);
+                    created, createdBy, lastModified, lastModifiedBy, id, session, event, attendee, deleted, status);
         }
-
     }
 }

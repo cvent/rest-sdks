@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BillingAddressJson
- * 
+ *
  * <p>Billing Address Details
  */
 public class BillingAddressJson {
@@ -94,11 +94,9 @@ public class BillingAddressJson {
         this.region = region;
         this.regionCode = regionCode;
     }
-    
+
     public BillingAddressJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -161,7 +159,6 @@ public class BillingAddressJson {
         return new Builder();
     }
 
-
     /**
      * The first line of an address.
      */
@@ -169,7 +166,6 @@ public class BillingAddressJson {
         this.address1 = address1;
         return this;
     }
-
 
     /**
      * The second line of an address.
@@ -179,7 +175,6 @@ public class BillingAddressJson {
         return this;
     }
 
-
     /**
      * The third line of an address.
      */
@@ -187,7 +182,6 @@ public class BillingAddressJson {
         this.address3 = address3;
         return this;
     }
-
 
     /**
      * The name of the city.
@@ -197,7 +191,6 @@ public class BillingAddressJson {
         return this;
     }
 
-
     /**
      * ISO 3166 two-letter (alpha-2) country code.
      */
@@ -205,7 +198,6 @@ public class BillingAddressJson {
         this.countryCode = countryCode;
         return this;
     }
-
 
     /**
      * Postal code (also known as zipcode) of the address.
@@ -215,7 +207,6 @@ public class BillingAddressJson {
         return this;
     }
 
-
     /**
      * The name of the state/province/region of the address.
      */
@@ -224,7 +215,6 @@ public class BillingAddressJson {
         return this;
     }
 
-
     /**
      * The abbreviation of the state/province/region of the address.
      */
@@ -232,7 +222,6 @@ public class BillingAddressJson {
         this.regionCode = regionCode;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -243,40 +232,45 @@ public class BillingAddressJson {
             return false;
         }
         BillingAddressJson other = (BillingAddressJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.address1, other.address1) &&
-            Utils.enhancedDeepEquals(this.address2, other.address2) &&
-            Utils.enhancedDeepEquals(this.address3, other.address3) &&
-            Utils.enhancedDeepEquals(this.city, other.city) &&
-            Utils.enhancedDeepEquals(this.countryCode, other.countryCode) &&
-            Utils.enhancedDeepEquals(this.postalCode, other.postalCode) &&
-            Utils.enhancedDeepEquals(this.region, other.region) &&
-            Utils.enhancedDeepEquals(this.regionCode, other.regionCode);
+        return Utils.enhancedDeepEquals(this.address1, other.address1)
+                && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.address3, other.address3)
+                && Utils.enhancedDeepEquals(this.city, other.city)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            address1, address2, address3,
-            city, countryCode, postalCode,
-            region, regionCode);
+        return Utils.enhancedHash(address1, address2, address3, city, countryCode, postalCode, region, regionCode);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BillingAddressJson.class,
-                "address1", address1,
-                "address2", address2,
-                "address3", address3,
-                "city", city,
-                "countryCode", countryCode,
-                "postalCode", postalCode,
-                "region", region,
-                "regionCode", regionCode);
+        return Utils.toString(
+                BillingAddressJson.class,
+                "address1",
+                address1,
+                "address2",
+                address2,
+                "address3",
+                address3,
+                "city",
+                city,
+                "countryCode",
+                countryCode,
+                "postalCode",
+                postalCode,
+                "region",
+                region,
+                "regionCode",
+                regionCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String address1;
 
@@ -295,7 +289,7 @@ public class BillingAddressJson {
         private String regionCode;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -364,10 +358,7 @@ public class BillingAddressJson {
 
         public BillingAddressJson build() {
             return new BillingAddressJson(
-                address1, address2, address3,
-                city, countryCode, postalCode,
-                region, regionCode);
+                    address1, address2, address3, city, countryCode, postalCode, region, regionCode);
         }
-
     }
 }

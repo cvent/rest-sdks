@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * SessionLocationInput
- * 
+ *
  * <p>Used to denote a sessions location.
  */
 public class SessionLocationInput {
@@ -31,12 +31,9 @@ public class SessionLocationInput {
 
     @JsonCreator
     public SessionLocationInput(
-            @JsonProperty("code") @Nonnull String code,
-            @JsonProperty("name") @Nonnull String name) {
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+            @JsonProperty("code") @Nonnull String code, @JsonProperty("name") @Nonnull String name) {
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
 
     /**
@@ -57,7 +54,6 @@ public class SessionLocationInput {
         return new Builder();
     }
 
-
     /**
      * Code / Abbreviation of the location.
      */
@@ -66,7 +62,6 @@ public class SessionLocationInput {
         return this;
     }
 
-
     /**
      * Name of the location.
      */
@@ -74,7 +69,6 @@ public class SessionLocationInput {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -85,33 +79,28 @@ public class SessionLocationInput {
             return false;
         }
         SessionLocationInput other = (SessionLocationInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.code, other.code) && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            code, name);
+        return Utils.enhancedHash(code, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionLocationInput.class,
-                "code", code,
-                "name", name);
+        return Utils.toString(SessionLocationInput.class, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String code;
 
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -131,9 +120,7 @@ public class SessionLocationInput {
         }
 
         public SessionLocationInput build() {
-            return new SessionLocationInput(
-                code, name);
+            return new SessionLocationInput(code, name);
         }
-
     }
 }

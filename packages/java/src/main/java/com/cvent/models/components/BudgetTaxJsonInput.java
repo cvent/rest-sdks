@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * BudgetTaxJsonInput
- * 
+ *
  * <p>Budget item tax details.
  */
 public class BudgetTaxJsonInput {
@@ -40,10 +40,9 @@ public class BudgetTaxJsonInput {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("taxType") @Nonnull BudgetTaxGratuityTypeJson taxType,
             @JsonProperty("tax") double tax) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.taxType = Optional.ofNullable(taxType)
-            .orElseThrow(() -> new IllegalArgumentException("taxType cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.taxType =
+                Optional.ofNullable(taxType).orElseThrow(() -> new IllegalArgumentException("taxType cannot be null"));
         this.tax = tax;
     }
 
@@ -72,7 +71,6 @@ public class BudgetTaxJsonInput {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -80,7 +78,6 @@ public class BudgetTaxJsonInput {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Denotes the type of tax or gratuity.
@@ -90,7 +87,6 @@ public class BudgetTaxJsonInput {
         return this;
     }
 
-
     /**
      * Tax applied to the budget item. This value can be a percentage of the cost or a flat dollar amount.
      */
@@ -98,7 +94,6 @@ public class BudgetTaxJsonInput {
         this.tax = tax;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -109,28 +104,23 @@ public class BudgetTaxJsonInput {
             return false;
         }
         BudgetTaxJsonInput other = (BudgetTaxJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.taxType, other.taxType) &&
-            Utils.enhancedDeepEquals(this.tax, other.tax);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.taxType, other.taxType)
+                && Utils.enhancedDeepEquals(this.tax, other.tax);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, taxType, tax);
+        return Utils.enhancedHash(id, taxType, tax);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetTaxJsonInput.class,
-                "id", id,
-                "taxType", taxType,
-                "tax", tax);
+        return Utils.toString(BudgetTaxJsonInput.class, "id", id, "taxType", taxType, "tax", tax);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -139,7 +129,7 @@ public class BudgetTaxJsonInput {
         private double tax;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -167,9 +157,7 @@ public class BudgetTaxJsonInput {
         }
 
         public BudgetTaxJsonInput build() {
-            return new BudgetTaxJsonInput(
-                id, taxType, tax);
+            return new BudgetTaxJsonInput(id, taxType, tax);
         }
-
     }
 }

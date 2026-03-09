@@ -35,7 +35,7 @@ public class Oauth2TokenRequestBuilder {
     private Oauth2TokenRequest _buildRequest() {
         return this.request;
     }
-    
+
     public Oauth2TokenRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -44,13 +44,13 @@ public class Oauth2TokenRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public Oauth2TokenResponse call() {
-        RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation
-              = new Oauth2Token.Sync(sdkConfiguration, security, _headers);
+        RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
+                new Oauth2Token.Sync(sdkConfiguration, security, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

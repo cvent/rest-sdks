@@ -22,26 +22,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum Frequency
     {
-        [JsonProperty("per_guest")]
-        PerGuest,
-        [JsonProperty("per_room")]
-        PerRoom,
-        [JsonProperty("per_night")]
-        PerNight,
-        [JsonProperty("per_stay")]
-        PerStay,
+        [JsonProperty("per_guest")] PerGuest,
+        [JsonProperty("per_room")] PerRoom,
+        [JsonProperty("per_night")] PerNight,
+        [JsonProperty("per_stay")] PerStay,
     }
 
     public static class FrequencyExtension
     {
         public static string Value(this Frequency value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static Frequency ToEnum(this string value)
         {
-            foreach(var field in typeof(Frequency).GetFields())
+            foreach (var field in typeof(Frequency).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

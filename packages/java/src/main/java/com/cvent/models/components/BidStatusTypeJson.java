@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * BidStatusTypeJson
- * 
+ *
  * <p>Bid stay type.
  */
 public enum BidStatusTypeJson {
@@ -24,13 +24,13 @@ public enum BidStatusTypeJson {
     BidStatusTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<BidStatusTypeJson> fromValue(String value) {
-        for (BidStatusTypeJson o: BidStatusTypeJson.values()) {
+        for (BidStatusTypeJson o : BidStatusTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum BidStatusTypeJson {
         return Optional.empty();
     }
 }
-

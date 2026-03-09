@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ReservationNightJson
- * 
+ *
  * <p>Reservation night details.
  */
 public class ReservationNightJson {
@@ -54,20 +54,18 @@ public class ReservationNightJson {
             @JsonProperty("hideRates") @Nullable Boolean hideRates,
             @JsonProperty("rate") @Nonnull ReservationNightRateJson rate) {
         this.stayDate = Optional.ofNullable(stayDate)
-            .orElseThrow(() -> new IllegalArgumentException("stayDate cannot be null"));
-        this.status = Optional.ofNullable(status)
-            .orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("stayDate cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
         this.hideRates = hideRates;
-        this.rate = Optional.ofNullable(rate)
-            .orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
+        this.rate = Optional.ofNullable(rate).orElseThrow(() -> new IllegalArgumentException("rate cannot be null"));
     }
-    
+
     public ReservationNightJson(
             @Nonnull LocalDate stayDate,
             @Nonnull ReservationNightJsonStatus status,
             @Nonnull ReservationNightRateJson rate) {
-        this(stayDate, status, null,
-            rate);
+        this(stayDate, status, null, rate);
     }
 
     /**
@@ -102,7 +100,6 @@ public class ReservationNightJson {
         return new Builder();
     }
 
-
     /**
      * Night date.
      */
@@ -110,7 +107,6 @@ public class ReservationNightJson {
         this.stayDate = Utils.checkNotNull(stayDate, "stayDate");
         return this;
     }
-
 
     /**
      * Indicator of night's status.
@@ -120,7 +116,6 @@ public class ReservationNightJson {
         return this;
     }
 
-
     /**
      * True indicates the rates are hidden for this night.
      */
@@ -129,7 +124,6 @@ public class ReservationNightJson {
         return this;
     }
 
-
     /**
      * Rate details for a single reservation night.
      */
@@ -137,7 +131,6 @@ public class ReservationNightJson {
         this.rate = Utils.checkNotNull(rate, "rate");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -148,31 +141,33 @@ public class ReservationNightJson {
             return false;
         }
         ReservationNightJson other = (ReservationNightJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.stayDate, other.stayDate) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.hideRates, other.hideRates) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate);
+        return Utils.enhancedDeepEquals(this.stayDate, other.stayDate)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.hideRates, other.hideRates)
+                && Utils.enhancedDeepEquals(this.rate, other.rate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            stayDate, status, hideRates,
-            rate);
+        return Utils.enhancedHash(stayDate, status, hideRates, rate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationNightJson.class,
-                "stayDate", stayDate,
-                "status", status,
-                "hideRates", hideRates,
-                "rate", rate);
+        return Utils.toString(
+                ReservationNightJson.class,
+                "stayDate",
+                stayDate,
+                "status",
+                status,
+                "hideRates",
+                hideRates,
+                "rate",
+                rate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private LocalDate stayDate;
 
@@ -183,7 +178,7 @@ public class ReservationNightJson {
         private ReservationNightRateJson rate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -219,10 +214,7 @@ public class ReservationNightJson {
         }
 
         public ReservationNightJson build() {
-            return new ReservationNightJson(
-                stayDate, status, hideRates,
-                rate);
+            return new ReservationNightJson(stayDate, status, hideRates, rate);
         }
-
     }
 }

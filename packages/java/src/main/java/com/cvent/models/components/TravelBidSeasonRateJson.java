@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TravelBidSeasonRateJson
- * 
+ *
  * <p>The negotiated rates for a property room during a specific season.
  */
 public class TravelBidSeasonRateJson {
@@ -106,11 +106,9 @@ public class TravelBidSeasonRateJson {
         this.allotment = allotment;
         this.status = status;
     }
-    
+
     public TravelBidSeasonRateJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -181,7 +179,6 @@ public class TravelBidSeasonRateJson {
         return new Builder();
     }
 
-
     /**
      * ID of the property's room.
      */
@@ -189,7 +186,6 @@ public class TravelBidSeasonRateJson {
         this.propertyRoom = propertyRoom;
         return this;
     }
-
 
     /**
      * The last room available (LRA) single rate.
@@ -199,7 +195,6 @@ public class TravelBidSeasonRateJson {
         return this;
     }
 
-
     /**
      * The last room available (LRA) double rate.
      */
@@ -207,7 +202,6 @@ public class TravelBidSeasonRateJson {
         this.doubleRate = doubleRate;
         return this;
     }
-
 
     /**
      * The last room available (LRA) triple rate.
@@ -217,7 +211,6 @@ public class TravelBidSeasonRateJson {
         return this;
     }
 
-
     /**
      * The last room available (LRA) quad rate.
      */
@@ -225,7 +218,6 @@ public class TravelBidSeasonRateJson {
         this.quadRate = quadRate;
         return this;
     }
-
 
     /**
      * The non last room available (NLRA) single rate.
@@ -235,7 +227,6 @@ public class TravelBidSeasonRateJson {
         return this;
     }
 
-
     /**
      * The non last room available (NLRA) double rate.
      */
@@ -244,7 +235,6 @@ public class TravelBidSeasonRateJson {
         return this;
     }
 
-
     /**
      * The number of rooms allotted at the negotiated rate.
      */
@@ -252,7 +242,6 @@ public class TravelBidSeasonRateJson {
         this.allotment = allotment;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -263,7 +252,6 @@ public class TravelBidSeasonRateJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -273,42 +261,57 @@ public class TravelBidSeasonRateJson {
             return false;
         }
         TravelBidSeasonRateJson other = (TravelBidSeasonRateJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom) &&
-            Utils.enhancedDeepEquals(this.singleRate, other.singleRate) &&
-            Utils.enhancedDeepEquals(this.doubleRate, other.doubleRate) &&
-            Utils.enhancedDeepEquals(this.tripleRate, other.tripleRate) &&
-            Utils.enhancedDeepEquals(this.quadRate, other.quadRate) &&
-            Utils.enhancedDeepEquals(this.nlraSingleRate, other.nlraSingleRate) &&
-            Utils.enhancedDeepEquals(this.nlraDoubleRate, other.nlraDoubleRate) &&
-            Utils.enhancedDeepEquals(this.allotment, other.allotment) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.propertyRoom, other.propertyRoom)
+                && Utils.enhancedDeepEquals(this.singleRate, other.singleRate)
+                && Utils.enhancedDeepEquals(this.doubleRate, other.doubleRate)
+                && Utils.enhancedDeepEquals(this.tripleRate, other.tripleRate)
+                && Utils.enhancedDeepEquals(this.quadRate, other.quadRate)
+                && Utils.enhancedDeepEquals(this.nlraSingleRate, other.nlraSingleRate)
+                && Utils.enhancedDeepEquals(this.nlraDoubleRate, other.nlraDoubleRate)
+                && Utils.enhancedDeepEquals(this.allotment, other.allotment)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            propertyRoom, singleRate, doubleRate,
-            tripleRate, quadRate, nlraSingleRate,
-            nlraDoubleRate, allotment, status);
+                propertyRoom,
+                singleRate,
+                doubleRate,
+                tripleRate,
+                quadRate,
+                nlraSingleRate,
+                nlraDoubleRate,
+                allotment,
+                status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidSeasonRateJson.class,
-                "propertyRoom", propertyRoom,
-                "singleRate", singleRate,
-                "doubleRate", doubleRate,
-                "tripleRate", tripleRate,
-                "quadRate", quadRate,
-                "nlraSingleRate", nlraSingleRate,
-                "nlraDoubleRate", nlraDoubleRate,
-                "allotment", allotment,
-                "status", status);
+        return Utils.toString(
+                TravelBidSeasonRateJson.class,
+                "propertyRoom",
+                propertyRoom,
+                "singleRate",
+                singleRate,
+                "doubleRate",
+                doubleRate,
+                "tripleRate",
+                tripleRate,
+                "quadRate",
+                quadRate,
+                "nlraSingleRate",
+                nlraSingleRate,
+                "nlraDoubleRate",
+                nlraDoubleRate,
+                "allotment",
+                allotment,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private TravelBidSeasonRateJsonPropertyRoom propertyRoom;
 
@@ -329,7 +332,7 @@ public class TravelBidSeasonRateJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -407,10 +410,15 @@ public class TravelBidSeasonRateJson {
 
         public TravelBidSeasonRateJson build() {
             return new TravelBidSeasonRateJson(
-                propertyRoom, singleRate, doubleRate,
-                tripleRate, quadRate, nlraSingleRate,
-                nlraDoubleRate, allotment, status);
+                    propertyRoom,
+                    singleRate,
+                    doubleRate,
+                    tripleRate,
+                    quadRate,
+                    nlraSingleRate,
+                    nlraDoubleRate,
+                    allotment,
+                    status);
         }
-
     }
 }

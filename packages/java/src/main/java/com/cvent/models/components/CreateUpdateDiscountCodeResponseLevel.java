@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CreateUpdateDiscountCodeResponseLevel
- * 
+ *
  * <p>Whether the discount is created at event level or account level.
  */
 public enum CreateUpdateDiscountCodeResponseLevel {
@@ -23,13 +23,13 @@ public enum CreateUpdateDiscountCodeResponseLevel {
     CreateUpdateDiscountCodeResponseLevel(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CreateUpdateDiscountCodeResponseLevel> fromValue(String value) {
-        for (CreateUpdateDiscountCodeResponseLevel o: CreateUpdateDiscountCodeResponseLevel.values()) {
+        for (CreateUpdateDiscountCodeResponseLevel o : CreateUpdateDiscountCodeResponseLevel.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -37,4 +37,3 @@ public enum CreateUpdateDiscountCodeResponseLevel {
         return Optional.empty();
     }
 }
-

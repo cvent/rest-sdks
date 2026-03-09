@@ -41,7 +41,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.0.9'
+implementation 'com.cvent:sdk:1.0.10'
 ```
 
 Maven:
@@ -49,7 +49,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
 </dependency>
 ```
 
@@ -91,29 +91,26 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
-        sdk.users().getAccountUserGroups()
-                .callAsStream()
-                .forEach((GetAccountUserGroupsResponse item) -> {
-                   // handle page
-                });
-
+        sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+            // handle page
+        });
     }
 }
+
 ```
 #### Asynchronous Call
 An asynchronous SDK client is also available that returns a [`CompletableFuture<T>`][comp-fut]. See [Asynchronous Support](#asynchronous-support) for more details on async benefits and reactive library integration.
@@ -135,34 +132,32 @@ public class Application {
 
         AsyncCventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build()
-            .async();
+                .build()
+                .async();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
         var b = sdk.users().getAccountUserGroups();
 
         // Example using Project Reactor (illustrative) - pages
         Flux<GetAccountUserGroupsResponse> pageFlux = Flux.from(b.callAsPublisher());
         pageFlux.subscribe(
-            page -> System.out.println(page),
-            error -> error.printStackTrace(),
-            () -> System.out.println("Pagination completed")
-        );
-
+                page -> System.out.println(page),
+                error -> error.printStackTrace(),
+                () -> System.out.println("Pagination completed"));
     }
 }
+
 ```
 
 [comp-fut]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
@@ -265,29 +260,26 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
-        sdk.users().getAccountUserGroups()
-                .callAsStream()
-                .forEach((GetAccountUserGroupsResponse item) -> {
-                   // handle page
-                });
-
+        sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+            // handle page
+        });
     }
 }
+
 ```
 
 ### Per-Operation Security Schemes
@@ -305,8 +297,7 @@ public class Application {
 
     public static void main(String[] args) throws BadRequestException, Exception {
 
-        CventSDK sdk = CventSDK.builder()
-            .build();
+        CventSDK sdk = CventSDK.builder().build();
 
         Oauth2TokenRequest req = Oauth2TokenRequest.builder()
                 .grantType(GrantType.CLIENT_CREDENTIALS)
@@ -317,12 +308,13 @@ public class Application {
                 .code("AUTHORIZATION_CODE")
                 .build();
 
-        Oauth2TokenResponse res = sdk.authentication().oauth2Token()
+        Oauth2TokenResponse res = sdk.authentication()
+                .oauth2Token()
                 .request(req)
                 .security(Oauth2TokenSecurity.builder()
-                    .username("")
-                    .password("")
-                    .build())
+                        .username("")
+                        .password("")
+                        .build())
                 .call();
 
         if (res.object().isPresent()) {
@@ -330,6 +322,7 @@ public class Application {
         }
     }
 }
+
 ```
 <!-- End Authentication [security] -->
 
@@ -943,20 +936,19 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
-
 
         var b = sdk.users().getAccountUserGroups();
 
@@ -971,13 +963,12 @@ public class Application {
         // callAsStreamUnwrapped() flattens pages into individual items
 
         // Stream through pages without unwrapping (each item is a complete page)
-        b.callAsStream()
-            .forEach((GetAccountUserGroupsResponse page) -> {
-                // handle page
-            });
-
+        b.callAsStream().forEach((GetAccountUserGroupsResponse page) -> {
+            // handle page
+        });
     }
 }
+
 ```
 #### Asynchronous Pagination
 An asynchronous SDK client is also available for pagination that returns a [`Flow.Publisher<T>`][flow-pub]. For async pagination, you can use `callAsPublisher()` to get pages as a publisher, or `callAsPublisherUnwrapped()` to get individual items directly. See [Asynchronous Support](#asynchronous-support) for more details on async benefits and reactive library integration.
@@ -999,34 +990,32 @@ public class Application {
 
         AsyncCventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build()
-            .async();
+                .build()
+                .async();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
         var b = sdk.users().getAccountUserGroups();
 
         // Example using Project Reactor (illustrative) - pages
         Flux<GetAccountUserGroupsResponse> pageFlux = Flux.from(b.callAsPublisher());
         pageFlux.subscribe(
-            page -> System.out.println(page),
-            error -> error.printStackTrace(),
-            () -> System.out.println("Pagination completed")
-        );
-
+                page -> System.out.println(page),
+                error -> error.printStackTrace(),
+                () -> System.out.println("Pagination completed"));
     }
 }
+
 ```
 
 [flow-pub]: https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html
@@ -1072,14 +1061,14 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
         try {
 
             GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
@@ -1087,12 +1076,9 @@ public class Application {
                     .filter("name eq 'My User Group'")
                     .build();
 
-
-            sdk.users().getAccountUserGroups()
-                    .callAsStream()
-                    .forEach((GetAccountUserGroupsResponse item) -> {
-                       // handle page
-                    });
+            sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+                // handle page
+            });
 
         } catch (CventSDKError ex) { // all SDK exceptions inherit from CventSDKError
 
@@ -1107,28 +1093,30 @@ public class Application {
             int statusCode = ex.code();
             Optional<byte[]> responseBody = ex.body();
 
-            // different error subclasses may be thrown 
+            // different error subclasses may be thrown
             // depending on the service call
             if (ex instanceof ErrorResponse) {
                 var e = (ErrorResponse) ex;
                 // Check error data fields
                 e.data().ifPresent(payload -> {
-                      long code = payload.code();
-                      String message = payload.message();
-                      // ...
+                    long code = payload.code();
+                    String message = payload.message();
+                    // ...
                 });
             }
 
-            // An underlying cause may be provided. If the error payload 
-            // cannot be deserialized then the deserialization exception 
+            // An underlying cause may be provided. If the error payload
+            // cannot be deserialized then the deserialization exception
             // will be set as the cause.
             if (ex.getCause() != null) {
                 var cause = ex.getCause();
             }
         } catch (UncheckedIOException ex) {
             // handle IO error (connection, timeout, etc)
-        }    }
+        }
+    }
 }
+
 ```
 
 ### Error Classes
@@ -1189,29 +1177,26 @@ public class Application {
         CventSDK sdk = CventSDK.builder()
                 .serverIndex(0)
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
-        sdk.users().getAccountUserGroups()
-                .callAsStream()
-                .forEach((GetAccountUserGroupsResponse item) -> {
-                   // handle page
-                });
-
+        sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+            // handle page
+        });
     }
 }
+
 ```
 
 ### Override Server URL Per-Client
@@ -1236,29 +1221,26 @@ public class Application {
         CventSDK sdk = CventSDK.builder()
                 .serverURL("https://api-platform-eur.cvent.com/ea")
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         GetAccountUserGroupsRequest req = GetAccountUserGroupsRequest.builder()
                 .token("1a2b3c4d5e6f7g8h9i10j11k")
                 .filter("name eq 'My User Group'")
                 .build();
 
-
-        sdk.users().getAccountUserGroups()
-                .callAsStream()
-                .forEach((GetAccountUserGroupsResponse item) -> {
-                   // handle page
-                });
-
+        sdk.users().getAccountUserGroups().callAsStream().forEach((GetAccountUserGroupsResponse item) -> {
+            // handle page
+        });
     }
 }
+
 ```
 
 ### Override Server URL Per-Operation
@@ -1280,36 +1262,37 @@ public class Application {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
-                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
-                        .clientID("<id>")
-                        .clientSecret("<value>")
-                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
-                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
                         .build())
-                    .build())
-            .build();
+                .build();
 
         CardTokenRequest req = CardTokenRequest.builder()
                 .creditCard(CreditCardRequestJson.builder()
-                    .accountHolderName("John Doe")
-                    .expMonth(11L)
-                    .expYear(2026L)
-                    .number("4111111111111111")
-                    .cvv("123")
-                    .addressLine1("123 Main Street")
-                    .addressLine2("First Floor")
-                    .addressLine3("Apt 101")
-                    .addressCity("McLean")
-                    .addressStateProvince("VA")
-                    .addressPostalCode("12345")
-                    .addressCountry("USA")
-                    .addressCountryAlpha2("US")
-                    .contactPhone("910-999-9999")
-                    .email("jdoe@example.com")
-                    .build())
+                        .accountHolderName("John Doe")
+                        .expMonth(11L)
+                        .expYear(2026L)
+                        .number("4111111111111111")
+                        .cvv("123")
+                        .addressLine1("123 Main Street")
+                        .addressLine2("First Floor")
+                        .addressLine3("Apt 101")
+                        .addressCity("McLean")
+                        .addressStateProvince("VA")
+                        .addressPostalCode("12345")
+                        .addressCountry("USA")
+                        .addressCountryAlpha2("US")
+                        .contactPhone("910-999-9999")
+                        .email("jdoe@example.com")
+                        .build())
                 .build();
 
-        CreateCardTokensResponse res = sdk.cardTokens().createCardTokens()
+        CreateCardTokensResponse res = sdk.cardTokens()
+                .createCardTokens()
                 .request(req)
                 .serverURL("https://secure-ecommerce.api-platform.cvent.com/ea")
                 .call();
@@ -1319,6 +1302,7 @@ public class Application {
         }
     }
 }
+
 ```
 <!-- End Server Selection [server] -->
 

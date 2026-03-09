@@ -2,6 +2,14 @@
 
 Type of answer
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AnswerTypeJson.Choice;
+```
+
 
 ## Values
 

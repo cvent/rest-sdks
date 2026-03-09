@@ -2,6 +2,14 @@
 
 Denotes the status of an appointment.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.AppointmentStatusJson;
+
+AppointmentStatusJson value = AppointmentStatusJson.ACTIVE;
+```
+
 
 ## Values
 

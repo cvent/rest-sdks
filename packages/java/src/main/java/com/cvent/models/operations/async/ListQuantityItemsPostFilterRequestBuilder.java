@@ -40,7 +40,7 @@ public class ListQuantityItemsPostFilterRequestBuilder {
     private ListQuantityItemsPostFilterRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListQuantityItemsPostFilterRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListQuantityItemsPostFilterRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListQuantityItemsPostFilterResponse> call() {
-        AsyncRequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation
-              = new ListQuantityItemsPostFilter.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation =
+                new ListQuantityItemsPostFilter.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class ListQuantityItemsPostFilterRequestBuilder {
      */
     public Publisher<ListQuantityItemsPostFilterResponse> callAsPublisher() {
         ListQuantityItemsPostFilterRequest request = this.request;
-        AsyncRequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation
-              = new ListQuantityItemsPostFilter.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation =
+                new ListQuantityItemsPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListQuantityItemsPostFilterRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListQuantityItemsPostFilterRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<ListQuantityItemsPostFilterResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<ListQuantityItemsPostFilterResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

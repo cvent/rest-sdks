@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Boolean;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * Patch
- * 
+ *
  * <p>Config details for patch operations.
  */
 public class Patch {
@@ -28,11 +28,10 @@ public class Patch {
     private Boolean supported;
 
     @JsonCreator
-    public Patch(
-            @JsonProperty("supported") @Nullable Boolean supported) {
+    public Patch(@JsonProperty("supported") @Nullable Boolean supported) {
         this.supported = supported;
     }
-    
+
     public Patch() {
         this(null);
     }
@@ -48,7 +47,6 @@ public class Patch {
         return new Builder();
     }
 
-
     /**
      * Indicates if the patch operation is supported.
      */
@@ -56,7 +54,6 @@ public class Patch {
         this.supported = supported;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -67,29 +64,26 @@ public class Patch {
             return false;
         }
         Patch other = (Patch) o;
-        return 
-            Utils.enhancedDeepEquals(this.supported, other.supported);
+        return Utils.enhancedDeepEquals(this.supported, other.supported);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            supported);
+        return Utils.enhancedHash(supported);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(Patch.class,
-                "supported", supported);
+        return Utils.toString(Patch.class, "supported", supported);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private Boolean supported;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -101,9 +95,7 @@ public class Patch {
         }
 
         public Patch build() {
-            return new Patch(
-                supported);
+            return new Patch(supported);
         }
-
     }
 }

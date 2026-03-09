@@ -28,7 +28,7 @@ public class EventRole {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncEventRole async() {
@@ -37,11 +37,11 @@ public class EventRole {
 
     /**
      * List Event Role Assignments
-     * 
+     *
      * <p>Gets a paginated list of event role assignments associated with a single event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @return The call builder
      */
     public ListEventRoleAssignmentRequestBuilder listEventRoleAssignment() {
@@ -50,19 +50,18 @@ public class EventRole {
 
     /**
      * List Event Role Assignments
-     * 
+     *
      * <p>Gets a paginated list of event role assignments associated with a single event.
-     * 
+     *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventRoleAssignmentResponse listEventRoleAssignment(@Nonnull ListEventRoleAssignmentRequest request) {
-        RequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation
-              = new ListEventRoleAssignment.Sync(sdkConfiguration, _headers);
+        RequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation =
+                new ListEventRoleAssignment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

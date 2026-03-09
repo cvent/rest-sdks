@@ -30,7 +30,7 @@ public class CreateCustomFieldRequestBuilder {
     private CustomField2 _buildRequest() {
         return this.request;
     }
-    
+
     public CreateCustomFieldRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class CreateCustomFieldRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<CreateCustomFieldResponse> call() {
-        AsyncRequestOperation<CustomField2, CreateCustomFieldResponse> operation
-              = new CreateCustomField.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<CustomField2, CreateCustomFieldResponse> operation =
+                new CreateCustomField.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

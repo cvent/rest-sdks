@@ -28,7 +28,7 @@ public class DeleteExhibitorRequestBuilder {
     private DeleteExhibitorRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExhibitorRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteExhibitorRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteExhibitorResponse call() {
-        RequestOperation<DeleteExhibitorRequest, DeleteExhibitorResponse> operation
-              = new DeleteExhibitor.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteExhibitorRequest, DeleteExhibitorResponse> operation =
+                new DeleteExhibitor.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHousingEventHotelAvailabilityResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable AvailableNights availableNights) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.availableNights = availableNights;
     }
-    
+
     public GetHousingEventHotelAvailabilityResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,7 +111,6 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of room nights.
      */
@@ -126,7 +118,6 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         this.availableNights = availableNights;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +128,33 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
             return false;
         }
         GetHousingEventHotelAvailabilityResponse other = (GetHousingEventHotelAvailabilityResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.availableNights, other.availableNights);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.availableNights, other.availableNights);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            availableNights);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, availableNights);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHousingEventHotelAvailabilityResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "availableNights", availableNights);
+        return Utils.toString(
+                GetHousingEventHotelAvailabilityResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "availableNights",
+                availableNights);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +165,7 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         private AvailableNights availableNights;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -208,10 +201,7 @@ public class GetHousingEventHotelAvailabilityResponse implements Response {
         }
 
         public GetHousingEventHotelAvailabilityResponse build() {
-            return new GetHousingEventHotelAvailabilityResponse(
-                contentType, statusCode, rawResponse,
-                availableNights);
+            return new GetHousingEventHotelAvailabilityResponse(contentType, statusCode, rawResponse, availableNights);
         }
-
     }
 }

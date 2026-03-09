@@ -29,7 +29,7 @@ public class CreateAudienceSegmentRequestBuilder {
     private AudienceSegmentCreate _buildRequest() {
         return this.request;
     }
-    
+
     public CreateAudienceSegmentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -38,13 +38,13 @@ public class CreateAudienceSegmentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateAudienceSegmentResponse call() {
-        RequestOperation<AudienceSegmentCreate, CreateAudienceSegmentResponse> operation
-              = new CreateAudienceSegment.Sync(sdkConfiguration, _headers);
+        RequestOperation<AudienceSegmentCreate, CreateAudienceSegmentResponse> operation =
+                new CreateAudienceSegment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

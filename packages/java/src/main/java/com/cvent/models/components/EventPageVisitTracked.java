@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * EventPageVisitTracked
- * 
+ *
  * <p>Contains Urchin Tracking Module (UTM) data.
  */
 public class EventPageVisitTracked {
@@ -97,11 +97,9 @@ public class EventPageVisitTracked {
         this.custom = custom;
         this.additional = additional;
     }
-    
+
     public EventPageVisitTracked() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -166,7 +164,6 @@ public class EventPageVisitTracked {
         return new Builder();
     }
 
-
     /**
      * The event in which this activity occurred.
      */
@@ -174,7 +171,6 @@ public class EventPageVisitTracked {
         this.event = event;
         return this;
     }
-
 
     /**
      * Identifies which site sent the traffic.
@@ -184,7 +180,6 @@ public class EventPageVisitTracked {
         return this;
     }
 
-
     /**
      * Identifies what type of link was used, such as cost per click or email.
      */
@@ -192,7 +187,6 @@ public class EventPageVisitTracked {
         this.medium = medium;
         return this;
     }
-
 
     /**
      * Identifies a specific product promotion or strategic campaign.
@@ -202,7 +196,6 @@ public class EventPageVisitTracked {
         return this;
     }
 
-
     /**
      * Identifies search terms.
      */
@@ -210,7 +203,6 @@ public class EventPageVisitTracked {
         this.term = term;
         return this;
     }
-
 
     /**
      * Identifies what specifically was clicked to bring the user to the site, such as a banner ad or a
@@ -221,7 +213,6 @@ public class EventPageVisitTracked {
         return this;
     }
 
-
     /**
      * An additional tracking parameter which can be used to compliment the standard UTM parameters.
      */
@@ -229,7 +220,6 @@ public class EventPageVisitTracked {
         this.custom = custom;
         return this;
     }
-
 
     /**
      * Contains any additional non-standard UTM parameters. Key represents the custom parameters added by
@@ -240,7 +230,6 @@ public class EventPageVisitTracked {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -250,40 +239,45 @@ public class EventPageVisitTracked {
             return false;
         }
         EventPageVisitTracked other = (EventPageVisitTracked) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.source, other.source) &&
-            Utils.enhancedDeepEquals(this.medium, other.medium) &&
-            Utils.enhancedDeepEquals(this.campaign, other.campaign) &&
-            Utils.enhancedDeepEquals(this.term, other.term) &&
-            Utils.enhancedDeepEquals(this.content, other.content) &&
-            Utils.enhancedDeepEquals(this.custom, other.custom) &&
-            Utils.enhancedDeepEquals(this.additional, other.additional);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.source, other.source)
+                && Utils.enhancedDeepEquals(this.medium, other.medium)
+                && Utils.enhancedDeepEquals(this.campaign, other.campaign)
+                && Utils.enhancedDeepEquals(this.term, other.term)
+                && Utils.enhancedDeepEquals(this.content, other.content)
+                && Utils.enhancedDeepEquals(this.custom, other.custom)
+                && Utils.enhancedDeepEquals(this.additional, other.additional);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            event, source, medium,
-            campaign, term, content,
-            custom, additional);
+        return Utils.enhancedHash(event, source, medium, campaign, term, content, custom, additional);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventPageVisitTracked.class,
-                "event", event,
-                "source", source,
-                "medium", medium,
-                "campaign", campaign,
-                "term", term,
-                "content", content,
-                "custom", custom,
-                "additional", additional);
+        return Utils.toString(
+                EventPageVisitTracked.class,
+                "event",
+                event,
+                "source",
+                source,
+                "medium",
+                medium,
+                "campaign",
+                campaign,
+                "term",
+                term,
+                "content",
+                content,
+                "custom",
+                custom,
+                "additional",
+                additional);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private ActivityDataJsonEvent6 event;
 
@@ -302,7 +296,7 @@ public class EventPageVisitTracked {
         private Map<String, String> additional;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -372,11 +366,7 @@ public class EventPageVisitTracked {
         }
 
         public EventPageVisitTracked build() {
-            return new EventPageVisitTracked(
-                event, source, medium,
-                campaign, term, content,
-                custom, additional);
+            return new EventPageVisitTracked(event, source, medium, campaign, term, content, custom, additional);
         }
-
     }
 }

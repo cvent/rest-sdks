@@ -15,7 +15,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class ListCustomFieldsResponse implements Response {
     /**
      * HTTP response content type for this operation
@@ -44,19 +43,16 @@ public class ListCustomFieldsResponse implements Response {
             @Nonnull HttpResponse<InputStream> rawResponse,
             @Nullable CustomFieldsPaginatedResponse customFieldsPaginatedResponse) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.customFieldsPaginatedResponse = customFieldsPaginatedResponse;
     }
-    
+
     public ListCustomFieldsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<InputStream> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<InputStream> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -91,7 +87,6 @@ public class ListCustomFieldsResponse implements Response {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -99,7 +94,6 @@ public class ListCustomFieldsResponse implements Response {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -109,7 +103,6 @@ public class ListCustomFieldsResponse implements Response {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -118,15 +111,14 @@ public class ListCustomFieldsResponse implements Response {
         return this;
     }
 
-
     /**
      * Successfully retrieved a paginated list of custom fields.
      */
-    public ListCustomFieldsResponse withCustomFieldsPaginatedResponse(@Nullable CustomFieldsPaginatedResponse customFieldsPaginatedResponse) {
+    public ListCustomFieldsResponse withCustomFieldsPaginatedResponse(
+            @Nullable CustomFieldsPaginatedResponse customFieldsPaginatedResponse) {
         this.customFieldsPaginatedResponse = customFieldsPaginatedResponse;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -137,31 +129,33 @@ public class ListCustomFieldsResponse implements Response {
             return false;
         }
         ListCustomFieldsResponse other = (ListCustomFieldsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.customFieldsPaginatedResponse, other.customFieldsPaginatedResponse);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.customFieldsPaginatedResponse, other.customFieldsPaginatedResponse);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            customFieldsPaginatedResponse);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, customFieldsPaginatedResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListCustomFieldsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "customFieldsPaginatedResponse", customFieldsPaginatedResponse);
+        return Utils.toString(
+                ListCustomFieldsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "customFieldsPaginatedResponse",
+                customFieldsPaginatedResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -172,7 +166,7 @@ public class ListCustomFieldsResponse implements Response {
         private CustomFieldsPaginatedResponse customFieldsPaginatedResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,16 +196,14 @@ public class ListCustomFieldsResponse implements Response {
         /**
          * Successfully retrieved a paginated list of custom fields.
          */
-        public Builder customFieldsPaginatedResponse(@Nullable CustomFieldsPaginatedResponse customFieldsPaginatedResponse) {
+        public Builder customFieldsPaginatedResponse(
+                @Nullable CustomFieldsPaginatedResponse customFieldsPaginatedResponse) {
             this.customFieldsPaginatedResponse = customFieldsPaginatedResponse;
             return this;
         }
 
         public ListCustomFieldsResponse build() {
-            return new ListCustomFieldsResponse(
-                contentType, statusCode, rawResponse,
-                customFieldsPaginatedResponse);
+            return new ListCustomFieldsResponse(contentType, statusCode, rawResponse, customFieldsPaginatedResponse);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * SessionLocation
- * 
+ *
  * <p>Used to denote a sessions location.
  */
 public class SessionLocation {
@@ -45,15 +45,11 @@ public class SessionLocation {
             @JsonProperty("code") @Nonnull String code,
             @JsonProperty("name") @Nonnull String name) {
         this.id = id;
-        this.code = Optional.ofNullable(code)
-            .orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
     }
-    
-    public SessionLocation(
-            @Nonnull String code,
-            @Nonnull String name) {
+
+    public SessionLocation(@Nonnull String code, @Nonnull String name) {
         this(null, code, name);
     }
 
@@ -82,7 +78,6 @@ public class SessionLocation {
         return new Builder();
     }
 
-
     /**
      * A string that represents a specified location.
      */
@@ -90,7 +85,6 @@ public class SessionLocation {
         this.id = id;
         return this;
     }
-
 
     /**
      * Code / Abbreviation of the location.
@@ -100,7 +94,6 @@ public class SessionLocation {
         return this;
     }
 
-
     /**
      * Name of the location.
      */
@@ -108,7 +101,6 @@ public class SessionLocation {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -119,28 +111,23 @@ public class SessionLocation {
             return false;
         }
         SessionLocation other = (SessionLocation) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.name, other.name);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, code, name);
+        return Utils.enhancedHash(id, code, name);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SessionLocation.class,
-                "id", id,
-                "code", code,
-                "name", name);
+        return Utils.toString(SessionLocation.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -149,7 +136,7 @@ public class SessionLocation {
         private String name;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -177,9 +164,7 @@ public class SessionLocation {
         }
 
         public SessionLocation build() {
-            return new SessionLocation(
-                id, code, name);
+            return new SessionLocation(id, code, name);
         }
-
     }
 }

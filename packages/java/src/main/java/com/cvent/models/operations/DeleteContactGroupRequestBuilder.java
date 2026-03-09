@@ -28,7 +28,7 @@ public class DeleteContactGroupRequestBuilder {
     private DeleteContactGroupRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteContactGroupRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class DeleteContactGroupRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteContactGroupResponse call() {
-        RequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation
-              = new DeleteContactGroup.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation =
+                new DeleteContactGroup.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

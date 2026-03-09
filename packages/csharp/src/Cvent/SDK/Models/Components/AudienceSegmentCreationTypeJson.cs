@@ -18,20 +18,19 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum AudienceSegmentCreationTypeJson
     {
-        [JsonProperty("MANUAL")]
-        Manual,
+        [JsonProperty("MANUAL")] Manual,
     }
 
     public static class AudienceSegmentCreationTypeJsonExtension
     {
         public static string Value(this AudienceSegmentCreationTypeJson value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static AudienceSegmentCreationTypeJson ToEnum(this string value)
         {
-            foreach(var field in typeof(AudienceSegmentCreationTypeJson).GetFields())
+            foreach (var field in typeof(AudienceSegmentCreationTypeJson).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

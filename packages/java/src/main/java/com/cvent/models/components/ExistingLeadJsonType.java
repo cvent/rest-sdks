@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ExistingLeadJsonType
- * 
+ *
  * <p>The type of lead.
  */
 public enum ExistingLeadJsonType {
@@ -24,13 +24,13 @@ public enum ExistingLeadJsonType {
     ExistingLeadJsonType(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ExistingLeadJsonType> fromValue(String value) {
-        for (ExistingLeadJsonType o: ExistingLeadJsonType.values()) {
+        for (ExistingLeadJsonType o : ExistingLeadJsonType.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -38,4 +38,3 @@ public enum ExistingLeadJsonType {
         return Optional.empty();
     }
 }
-

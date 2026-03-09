@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,14 +17,14 @@ import java.util.Optional;
 
 /**
  * DiscountMethodJson
- * 
+ *
  * <p>Details about how the discount applies.
  */
 public class DiscountMethodJson {
     /**
      * The method of the discount. All methods use the `value` field to determine the amount discounted.
      * `BY_PERCENTAGE`: Discounts the item by a percentage.
-     * 
+     *
      * <p>`BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a
      * specific value.
      */
@@ -40,22 +40,19 @@ public class DiscountMethodJson {
 
     @JsonCreator
     public DiscountMethodJson(
-            @JsonProperty("type") @Nullable DiscountMethodTypeJson type,
-            @JsonProperty("value") double value) {
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+            @JsonProperty("type") @Nullable DiscountMethodTypeJson type, @JsonProperty("value") double value) {
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.value = value;
     }
-    
-    public DiscountMethodJson(
-            double value) {
+
+    public DiscountMethodJson(double value) {
         this(null, value);
     }
 
     /**
      * The method of the discount. All methods use the `value` field to determine the amount discounted.
      * `BY_PERCENTAGE`: Discounts the item by a percentage.
-     * 
+     *
      * <p>`BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a
      * specific value.
      */
@@ -74,11 +71,10 @@ public class DiscountMethodJson {
         return new Builder();
     }
 
-
     /**
      * The method of the discount. All methods use the `value` field to determine the amount discounted.
      * `BY_PERCENTAGE`: Discounts the item by a percentage.
-     * 
+     *
      * <p>`BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a
      * specific value.
      */
@@ -87,7 +83,6 @@ public class DiscountMethodJson {
         return this;
     }
 
-
     /**
      * The method value of the discount.
      */
@@ -95,7 +90,6 @@ public class DiscountMethodJson {
         this.value = value;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,39 +100,34 @@ public class DiscountMethodJson {
             return false;
         }
         DiscountMethodJson other = (DiscountMethodJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.type, other.type) && Utils.enhancedDeepEquals(this.value, other.value);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, value);
+        return Utils.enhancedHash(type, value);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DiscountMethodJson.class,
-                "type", type,
-                "value", value);
+        return Utils.toString(DiscountMethodJson.class, "type", type, "value", value);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private DiscountMethodTypeJson type;
 
         private double value;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * The method of the discount. All methods use the `value` field to determine the amount discounted.
          * `BY_PERCENTAGE`: Discounts the item by a percentage.
-         * 
+         *
          * <p>`BY_AMOUNT`: Discount the item by a specific amount. `FLAT_PRICE`: Set the price of the item to a
          * specific value.
          */
@@ -156,15 +145,10 @@ public class DiscountMethodJson {
         }
 
         public DiscountMethodJson build() {
-            return new DiscountMethodJson(
-                type, value);
+            return new DiscountMethodJson(type, value);
         }
 
-
         private static final LazySingletonValue<DiscountMethodTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"BY_AMOUNT\"",
-                        new TypeReference<DiscountMethodTypeJson>() {});
+                new LazySingletonValue<>("type", "\"BY_AMOUNT\"", new TypeReference<DiscountMethodTypeJson>() {});
     }
 }

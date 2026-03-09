@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * AddOnJson
- * 
+ *
  * <p>Common object that holds add-on information.
  */
 public class AddOnJson {
@@ -48,9 +48,8 @@ public class AddOnJson {
         this.name = name;
         this.rate = rate;
     }
-    
-    public AddOnJson(
-            long id) {
+
+    public AddOnJson(long id) {
         this(id, null, null);
     }
 
@@ -79,7 +78,6 @@ public class AddOnJson {
         return new Builder();
     }
 
-
     /**
      * Add-on identifier.
      */
@@ -87,7 +85,6 @@ public class AddOnJson {
         this.id = id;
         return this;
     }
-
 
     /**
      * Add-on name.
@@ -97,7 +94,6 @@ public class AddOnJson {
         return this;
     }
 
-
     /**
      * Add-on rate details.
      */
@@ -105,7 +101,6 @@ public class AddOnJson {
         this.rate = rate;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -116,28 +111,23 @@ public class AddOnJson {
             return false;
         }
         AddOnJson other = (AddOnJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.rate, other.rate);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.rate, other.rate);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, rate);
+        return Utils.enhancedHash(id, name, rate);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddOnJson.class,
-                "id", id,
-                "name", name,
-                "rate", rate);
+        return Utils.toString(AddOnJson.class, "id", id, "name", name, "rate", rate);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
@@ -146,7 +136,7 @@ public class AddOnJson {
         private Rate rate;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -174,9 +164,7 @@ public class AddOnJson {
         }
 
         public AddOnJson build() {
-            return new AddOnJson(
-                id, name, rate);
+            return new AddOnJson(id, name, rate);
         }
-
     }
 }

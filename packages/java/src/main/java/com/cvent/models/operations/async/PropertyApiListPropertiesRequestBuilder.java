@@ -40,7 +40,7 @@ public class PropertyApiListPropertiesRequestBuilder {
     private PropertyApiListPropertiesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public PropertyApiListPropertiesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class PropertyApiListPropertiesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<PropertyApiListPropertiesResponse> call() {
-        AsyncRequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation
-              = new PropertyApiListProperties.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation =
+                new PropertyApiListProperties.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class PropertyApiListPropertiesRequestBuilder {
      */
     public Publisher<PropertyApiListPropertiesResponse> callAsPublisher() {
         PropertyApiListPropertiesRequest request = this.request;
-        AsyncRequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation
-              = new PropertyApiListProperties.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation =
+                new PropertyApiListProperties.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            PropertyApiListPropertiesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                PropertyApiListPropertiesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<PropertyApiListPropertiesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<PropertyApiListPropertiesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

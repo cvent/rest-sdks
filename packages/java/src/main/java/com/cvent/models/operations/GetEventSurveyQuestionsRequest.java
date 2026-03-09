@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetEventSurveyQuestionsRequest {
     /**
      * Id of an event
@@ -64,22 +63,17 @@ public class GetEventSurveyQuestionsRequest {
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.surveyId = Optional.ofNullable(surveyId)
-            .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
     }
-    
-    public GetEventSurveyQuestionsRequest(
-            @Nonnull String id,
-            @Nonnull String surveyId) {
-        this(id, surveyId, null,
-            null, null, null);
+
+    public GetEventSurveyQuestionsRequest(@Nonnull String id, @Nonnull String surveyId) {
+        this(id, surveyId, null, null, null, null);
     }
 
     /**
@@ -130,7 +124,6 @@ public class GetEventSurveyQuestionsRequest {
         return new Builder();
     }
 
-
     /**
      * Id of an event
      */
@@ -139,7 +132,6 @@ public class GetEventSurveyQuestionsRequest {
         return this;
     }
 
-
     /**
      * Id of a survey or Id of a chapter in event survey
      */
@@ -147,7 +139,6 @@ public class GetEventSurveyQuestionsRequest {
         this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -158,7 +149,6 @@ public class GetEventSurveyQuestionsRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -167,7 +157,6 @@ public class GetEventSurveyQuestionsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -175,7 +164,6 @@ public class GetEventSurveyQuestionsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -186,7 +174,6 @@ public class GetEventSurveyQuestionsRequest {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -196,35 +183,39 @@ public class GetEventSurveyQuestionsRequest {
             return false;
         }
         GetEventSurveyQuestionsRequest other = (GetEventSurveyQuestionsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.surveyId, other.surveyId) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, surveyId, after,
-            before, limit, token);
+        return Utils.enhancedHash(id, surveyId, after, before, limit, token);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetEventSurveyQuestionsRequest.class,
-                "id", id,
-                "surveyId", surveyId,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token);
+        return Utils.toString(
+                GetEventSurveyQuestionsRequest.class,
+                "id",
+                id,
+                "surveyId",
+                surveyId,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -239,7 +230,7 @@ public class GetEventSurveyQuestionsRequest {
         private String token;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -293,16 +284,10 @@ public class GetEventSurveyQuestionsRequest {
         }
 
         public GetEventSurveyQuestionsRequest build() {
-            return new GetEventSurveyQuestionsRequest(
-                id, surveyId, after,
-                before, limit, token);
+            return new GetEventSurveyQuestionsRequest(id, surveyId, after, before, limit, token);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * ProgramItemUpdateRequest
- * 
+ *
  * <p>Represents a program item object that will be updated.
  */
 public class ProgramItemUpdateRequest {
@@ -75,27 +75,22 @@ public class ProgramItemUpdateRequest {
             @JsonProperty("duration") @Nullable Long duration,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("rteDescription") @Nullable String rteDescription) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.event = Optional.ofNullable(event)
-            .orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
-        this.session = Optional.ofNullable(session)
-            .orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
+        this.session =
+                Optional.ofNullable(session).orElseThrow(() -> new IllegalArgumentException("session cannot be null"));
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.duration = duration;
         this.description = description;
         this.rteDescription = rteDescription;
     }
-    
+
     public ProgramItemUpdateRequest(
             @Nonnull String id,
             @Nonnull EventLiteJson1 event,
             @Nonnull SessionLiteJson1 session,
             @Nonnull String name) {
-        this(id, event, session,
-            name, null, null,
-            null);
+        this(id, event, session, name, null, null, null);
     }
 
     /**
@@ -151,7 +146,6 @@ public class ProgramItemUpdateRequest {
         return new Builder();
     }
 
-
     /**
      * ID of the program item.
      */
@@ -159,7 +153,6 @@ public class ProgramItemUpdateRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The related event object.
@@ -169,7 +162,6 @@ public class ProgramItemUpdateRequest {
         return this;
     }
 
-
     /**
      * The related session object.
      */
@@ -177,7 +169,6 @@ public class ProgramItemUpdateRequest {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
-
 
     /**
      * Name of the program item.
@@ -187,7 +178,6 @@ public class ProgramItemUpdateRequest {
         return this;
     }
 
-
     /**
      * The duration of the program item in minutes.
      */
@@ -195,7 +185,6 @@ public class ProgramItemUpdateRequest {
         this.duration = duration;
         return this;
     }
-
 
     /**
      * Description of the program item.
@@ -205,7 +194,6 @@ public class ProgramItemUpdateRequest {
         return this;
     }
 
-
     /**
      * Rich-text-editor description in json formatting.
      */
@@ -213,7 +201,6 @@ public class ProgramItemUpdateRequest {
         this.rteDescription = rteDescription;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -224,38 +211,42 @@ public class ProgramItemUpdateRequest {
             return false;
         }
         ProgramItemUpdateRequest other = (ProgramItemUpdateRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.duration, other.duration) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.rteDescription, other.rteDescription);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, event, session,
-            name, duration, description,
-            rteDescription);
+        return Utils.enhancedHash(id, event, session, name, duration, description, rteDescription);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ProgramItemUpdateRequest.class,
-                "id", id,
-                "event", event,
-                "session", session,
-                "name", name,
-                "duration", duration,
-                "description", description,
-                "rteDescription", rteDescription);
+        return Utils.toString(
+                ProgramItemUpdateRequest.class,
+                "id",
+                id,
+                "event",
+                event,
+                "session",
+                session,
+                "name",
+                name,
+                "duration",
+                duration,
+                "description",
+                description,
+                "rteDescription",
+                rteDescription);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -272,7 +263,7 @@ public class ProgramItemUpdateRequest {
         private String rteDescription;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -332,11 +323,7 @@ public class ProgramItemUpdateRequest {
         }
 
         public ProgramItemUpdateRequest build() {
-            return new ProgramItemUpdateRequest(
-                id, event, session,
-                name, duration, description,
-                rteDescription);
+            return new ProgramItemUpdateRequest(id, event, session, name, duration, description, rteDescription);
         }
-
     }
 }

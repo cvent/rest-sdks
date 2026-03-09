@@ -14,7 +14,7 @@ import java.util.Optional;
 
 /**
  * SwitchBackTargetUsagePlanJson
- * 
+ *
  * <p>Object representing the target usage plan and the date when the current plan is scheduled to revert
  * to it. This object is only present when a switch-back is scheduled.
  */
@@ -36,12 +36,9 @@ public class SwitchBackTargetUsagePlanJson {
 
     @JsonCreator
     public SwitchBackTargetUsagePlanJson(
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("time") @Nonnull OffsetDateTime time) {
-        this.name = Optional.ofNullable(name)
-            .orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.time = Optional.ofNullable(time)
-            .orElseThrow(() -> new IllegalArgumentException("time cannot be null"));
+            @JsonProperty("name") @Nonnull String name, @JsonProperty("time") @Nonnull OffsetDateTime time) {
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.time = Optional.ofNullable(time).orElseThrow(() -> new IllegalArgumentException("time cannot be null"));
     }
 
     /**
@@ -65,7 +62,6 @@ public class SwitchBackTargetUsagePlanJson {
         return new Builder();
     }
 
-
     /**
      * Name of the target usage plan to switch back to. This field is only present when the usage plan is
      * scheduled to revert to a previous plan.
@@ -74,7 +70,6 @@ public class SwitchBackTargetUsagePlanJson {
         this.name = Utils.checkNotNull(name, "name");
         return this;
     }
-
 
     /**
      * The date and time when the usage plan is scheduled to revert to a previous plan. This field is only
@@ -86,7 +81,6 @@ public class SwitchBackTargetUsagePlanJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -96,33 +90,28 @@ public class SwitchBackTargetUsagePlanJson {
             return false;
         }
         SwitchBackTargetUsagePlanJson other = (SwitchBackTargetUsagePlanJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.time, other.time);
+        return Utils.enhancedDeepEquals(this.name, other.name) && Utils.enhancedDeepEquals(this.time, other.time);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            name, time);
+        return Utils.enhancedHash(name, time);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SwitchBackTargetUsagePlanJson.class,
-                "name", name,
-                "time", time);
+        return Utils.toString(SwitchBackTargetUsagePlanJson.class, "name", name, "time", time);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String name;
 
         private OffsetDateTime time;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -145,9 +134,7 @@ public class SwitchBackTargetUsagePlanJson {
         }
 
         public SwitchBackTargetUsagePlanJson build() {
-            return new SwitchBackTargetUsagePlanJson(
-                name, time);
+            return new SwitchBackTargetUsagePlanJson(name, time);
         }
-
     }
 }

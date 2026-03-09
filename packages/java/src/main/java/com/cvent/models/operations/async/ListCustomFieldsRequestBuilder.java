@@ -40,7 +40,7 @@ public class ListCustomFieldsRequestBuilder {
     private ListCustomFieldsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public ListCustomFieldsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class ListCustomFieldsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<ListCustomFieldsResponse> call() {
-        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation
-              = new ListCustomFields.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation =
+                new ListCustomFields.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class ListCustomFieldsRequestBuilder {
      */
     public Publisher<ListCustomFieldsResponse> callAsPublisher() {
         ListCustomFieldsRequest request = this.request;
-        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation
-              = new ListCustomFields.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation =
+                new ListCustomFields.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            ListCustomFieldsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                ListCustomFieldsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<ListCustomFieldsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

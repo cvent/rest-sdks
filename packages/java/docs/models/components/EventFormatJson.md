@@ -2,6 +2,14 @@
 
 Denotes the format of an event.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EventFormatJson;
+
+EventFormatJson value = EventFormatJson.IN_PERSON;
+```
+
 
 ## Values
 

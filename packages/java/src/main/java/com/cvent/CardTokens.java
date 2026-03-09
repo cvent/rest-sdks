@@ -35,7 +35,7 @@ public class CardTokens {
 
     /**
      * Switches to the async SDK.
-     * 
+     *
      * @return The async SDK
      */
     public AsyncCardTokens async() {
@@ -44,14 +44,14 @@ public class CardTokens {
 
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @return The call builder
      */
     public CreateCardTokensRequestBuilder createCardTokens() {
@@ -60,14 +60,14 @@ public class CardTokens {
 
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
@@ -77,23 +77,22 @@ public class CardTokens {
 
     /**
      * Create a Credit Card Token
-     * 
+     *
      * <p>Creates a short-lived token representing a credit card. This token replaces the credit card in API
      * methods. It can be used multiple times within a 15-minute time-to-live (TTL) period.
-     * 
+     *
      * <p>After 15 minutes, the token will expire and can no longer be used. If the same credit card is needed
      * to perform additional API methods after the 15-minute TTL, the card will need to be resubmitted for
      * another short-lived token.
-     * 
+     *
      * @param request The request object containing all the parameters for the API call.
      * @param serverURL Overrides the server URL.
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateCardTokensResponse createCardTokens(@Nullable CardTokenRequest request, @Nullable String serverURL) {
-        RequestOperation<CardTokenRequest, CreateCardTokensResponse> operation
-              = new CreateCardTokens.Sync(sdkConfiguration, serverURL, _headers);
+        RequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
+                new CreateCardTokens.Sync(sdkConfiguration, serverURL, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
-
 }

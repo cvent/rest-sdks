@@ -19,16 +19,15 @@ namespace Cvent.SDK.Utils
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
-
     internal class ResponseBodyDeserializer
     {
 
-        public static T? Deserialize<T>(string json, NullValueHandling nullValueHandling=NullValueHandling.Ignore, MissingMemberHandling missingMemberHandling=MissingMemberHandling.Ignore)
+        public static T? Deserialize<T>(string json, NullValueHandling nullValueHandling = NullValueHandling.Ignore, MissingMemberHandling missingMemberHandling = MissingMemberHandling.Ignore)
         {
-            return JsonConvert.DeserializeObject<T>(json, new JsonSerializerSettings(){ NullValueHandling = nullValueHandling, MissingMemberHandling = missingMemberHandling, Converters = Utilities.GetJsonDeserializers(typeof(T))});
+            return JsonConvert.DeserializeObject<T>(json, new JsonSerializerSettings() { NullValueHandling = nullValueHandling, MissingMemberHandling = missingMemberHandling, Converters = Utilities.GetJsonDeserializers(typeof(T)) });
         }
 
-        public static T DeserializeNotNull<T>(string json, NullValueHandling nullValueHandling=NullValueHandling.Ignore, MissingMemberHandling missingMemberHandling=MissingMemberHandling.Ignore)
+        public static T DeserializeNotNull<T>(string json, NullValueHandling nullValueHandling = NullValueHandling.Ignore, MissingMemberHandling missingMemberHandling = MissingMemberHandling.Ignore)
         {
             var result = ResponseBodyDeserializer.Deserialize<T>(json, nullValueHandling, missingMemberHandling);
             if (result == null)
@@ -40,12 +39,16 @@ namespace Cvent.SDK.Utils
 
         public sealed class MissingMemberException : Exception
         {
-            public MissingMemberException() : base("Missing member.") { }
+            public MissingMemberException() : base("Missing member.")
+            {
+            }
         }
 
         public sealed class DeserializationException : Exception
         {
-            public DeserializationException(Type type) : base($"Could not deserialize into {type} type.") { }
+            public DeserializationException(Type type) : base($"Could not deserialize into {type} type.")
+            {
+            }
         }
 
         public static T? DeserializeUndiscriminatedUnionMember<T>(string json)
@@ -63,8 +66,7 @@ namespace Cvent.SDK.Utils
                     throw new MissingMemberException();
                 }
                 else if (ex is Newtonsoft.Json.JsonReaderException ||
-                         ex is Newtonsoft.Json.JsonSerializationException
-                )
+                         ex is Newtonsoft.Json.JsonSerializationException)
                 {
                     throw new DeserializationException(typeof(T));
                 }
@@ -99,15 +101,16 @@ namespace Cvent.SDK.Utils
             JObject jo = JObject.Parse(json);
 
             var jsonPropertyAttributes = type.GetProperties()
-                .Where(prop => Attribute.IsDefined(prop, typeof(JsonPropertyAttribute)))
-                .Select(prop => prop.GetCustomAttribute(typeof(JsonPropertyAttribute)) as JsonPropertyAttribute)
-                .Where(attr => attr != null && attr!.PropertyName != null)
-                .ToList();
+                                             .Where(prop => Attribute.IsDefined(prop, typeof(JsonPropertyAttribute)))
+                                             .Select(prop => prop.GetCustomAttribute(typeof(JsonPropertyAttribute)) as JsonPropertyAttribute)
+                                             .Where(attr => attr != null && attr!.PropertyName != null)
+                                             .ToList();
 
             foreach (var attr in jsonPropertyAttributes)
             {
                 string propertyName = attr!.PropertyName!;
-                if (!jo.TryGetValue(propertyName, out var _value)){
+                if (!jo.TryGetValue(propertyName, out var _value))
+                {
                     missing++;
                 }
             }
@@ -127,6 +130,5 @@ namespace Cvent.SDK.Utils
 
             return missingA.CompareTo(missingB);
         }
-
     }
 }

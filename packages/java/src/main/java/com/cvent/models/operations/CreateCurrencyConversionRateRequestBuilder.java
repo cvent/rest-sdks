@@ -28,7 +28,7 @@ public class CreateCurrencyConversionRateRequestBuilder {
     private CreateCurrencyConversionRateRequest _buildRequest() {
         return this.request;
     }
-    
+
     public CreateCurrencyConversionRateRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class CreateCurrencyConversionRateRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CreateCurrencyConversionRateResponse call() {
-        RequestOperation<CreateCurrencyConversionRateRequest, CreateCurrencyConversionRateResponse> operation
-              = new CreateCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+        RequestOperation<CreateCurrencyConversionRateRequest, CreateCurrencyConversionRateResponse> operation =
+                new CreateCurrencyConversionRate.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

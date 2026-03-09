@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * SendEmailEmarketingResponse
- * 
+ *
  * <p>Response object containing a request ID and a list of all email responses sent to recipients.
  */
 public class SendEmailEmarketingResponse {
@@ -99,22 +99,20 @@ public class SendEmailEmarketingResponse {
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
         this.requestId = Optional.ofNullable(requestId)
-            .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("requestId cannot be null"));
         this.status = status;
         this.description = description;
         this.templateId = Optional.ofNullable(templateId)
-            .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("templateId cannot be null"));
         this.recipientResponse = Optional.ofNullable(recipientResponse)
-            .orElseThrow(() -> new IllegalArgumentException("recipientResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("recipientResponse cannot be null"));
     }
-    
+
     public SendEmailEmarketingResponse(
             @Nonnull String requestId,
             @Nonnull String templateId,
             @Nonnull List<RecipientsResponseJson> recipientResponse) {
-        this(null, null, null,
-            null, requestId, null,
-            null, templateId, recipientResponse);
+        this(null, null, null, null, requestId, null, null, templateId, recipientResponse);
     }
 
     /**
@@ -185,7 +183,6 @@ public class SendEmailEmarketingResponse {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -193,7 +190,6 @@ public class SendEmailEmarketingResponse {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -203,7 +199,6 @@ public class SendEmailEmarketingResponse {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -211,7 +206,6 @@ public class SendEmailEmarketingResponse {
         this.lastModified = lastModified;
         return this;
     }
-
 
     /**
      * The identifier of the user that last updated this record.
@@ -221,7 +215,6 @@ public class SendEmailEmarketingResponse {
         return this;
     }
 
-
     /**
      * The request ID for the email send request.
      */
@@ -230,7 +223,6 @@ public class SendEmailEmarketingResponse {
         return this;
     }
 
-
     /**
      * Denotes the status of the send email request.
      */
@@ -238,7 +230,6 @@ public class SendEmailEmarketingResponse {
         this.status = status;
         return this;
     }
-
 
     /**
      * The description of the response. If the `status` is `ERROR`, this field contains the reason for the
@@ -249,7 +240,6 @@ public class SendEmailEmarketingResponse {
         return this;
     }
 
-
     /**
      * The template ID of the eMarketing email.
      */
@@ -258,7 +248,6 @@ public class SendEmailEmarketingResponse {
         return this;
     }
 
-
     /**
      * List of responses specifying the status of email request for each recipient.
      */
@@ -266,7 +255,6 @@ public class SendEmailEmarketingResponse {
         this.recipientResponse = Utils.checkNotNull(recipientResponse, "recipientResponse");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -277,42 +265,57 @@ public class SendEmailEmarketingResponse {
             return false;
         }
         SendEmailEmarketingResponse other = (SendEmailEmarketingResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.requestId, other.requestId) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.description, other.description) &&
-            Utils.enhancedDeepEquals(this.templateId, other.templateId) &&
-            Utils.enhancedDeepEquals(this.recipientResponse, other.recipientResponse);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.requestId, other.requestId)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.templateId, other.templateId)
+                && Utils.enhancedDeepEquals(this.recipientResponse, other.recipientResponse);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, requestId, status,
-            description, templateId, recipientResponse);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                requestId,
+                status,
+                description,
+                templateId,
+                recipientResponse);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(SendEmailEmarketingResponse.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "requestId", requestId,
-                "status", status,
-                "description", description,
-                "templateId", templateId,
-                "recipientResponse", recipientResponse);
+        return Utils.toString(
+                SendEmailEmarketingResponse.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "requestId",
+                requestId,
+                "status",
+                status,
+                "description",
+                description,
+                "templateId",
+                templateId,
+                "recipientResponse",
+                recipientResponse);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -333,7 +336,7 @@ public class SendEmailEmarketingResponse {
         private List<RecipientsResponseJson> recipientResponse;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -411,10 +414,15 @@ public class SendEmailEmarketingResponse {
 
         public SendEmailEmarketingResponse build() {
             return new SendEmailEmarketingResponse(
-                created, createdBy, lastModified,
-                lastModifiedBy, requestId, status,
-                description, templateId, recipientResponse);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    requestId,
+                    status,
+                    description,
+                    templateId,
+                    recipientResponse);
         }
-
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * CurrencyJson1
- * 
+ *
  * <p>The ISO 4217 standard format currency code used for RFPs.
  */
 public enum CurrencyJson1 {
@@ -188,13 +188,13 @@ public enum CurrencyJson1 {
     CurrencyJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<CurrencyJson1> fromValue(String value) {
-        for (CurrencyJson1 o: CurrencyJson1.values()) {
+        for (CurrencyJson1 o : CurrencyJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -202,4 +202,3 @@ public enum CurrencyJson1 {
         return Optional.empty();
     }
 }
-

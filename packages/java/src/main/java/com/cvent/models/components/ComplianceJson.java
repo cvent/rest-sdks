@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ComplianceJson
- * 
+ *
  * <p>Privacy compliance fields for a contact.
  */
 public class ComplianceJson {
@@ -59,10 +59,9 @@ public class ComplianceJson {
         this.action = action;
         this.createdBy = createdBy;
     }
-    
+
     public ComplianceJson() {
-        this(null, null, null,
-            null);
+        this(null, null, null, null);
     }
 
     /**
@@ -97,7 +96,6 @@ public class ComplianceJson {
         return new Builder();
     }
 
-
     /**
      * Date-time (in GMT) when privacy compliance details were created for the contact.
      */
@@ -105,7 +103,6 @@ public class ComplianceJson {
         this.creationTime = creationTime;
         return this;
     }
-
 
     /**
      * Scope of privacy compliance.
@@ -115,7 +112,6 @@ public class ComplianceJson {
         return this;
     }
 
-
     /**
      * Action to take for a compliance request.
      */
@@ -124,7 +120,6 @@ public class ComplianceJson {
         return this;
     }
 
-
     /**
      * Denotes how the compliance request was created.
      */
@@ -132,7 +127,6 @@ public class ComplianceJson {
         this.createdBy = createdBy;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,31 +137,33 @@ public class ComplianceJson {
             return false;
         }
         ComplianceJson other = (ComplianceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.creationTime, other.creationTime) &&
-            Utils.enhancedDeepEquals(this.complianceScope, other.complianceScope) &&
-            Utils.enhancedDeepEquals(this.action, other.action) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy);
+        return Utils.enhancedDeepEquals(this.creationTime, other.creationTime)
+                && Utils.enhancedDeepEquals(this.complianceScope, other.complianceScope)
+                && Utils.enhancedDeepEquals(this.action, other.action)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            creationTime, complianceScope, action,
-            createdBy);
+        return Utils.enhancedHash(creationTime, complianceScope, action, createdBy);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ComplianceJson.class,
-                "creationTime", creationTime,
-                "complianceScope", complianceScope,
-                "action", action,
-                "createdBy", createdBy);
+        return Utils.toString(
+                ComplianceJson.class,
+                "creationTime",
+                creationTime,
+                "complianceScope",
+                complianceScope,
+                "action",
+                action,
+                "createdBy",
+                createdBy);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime creationTime;
 
@@ -178,7 +174,7 @@ public class ComplianceJson {
         private CreatedBy createdBy;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -214,10 +210,7 @@ public class ComplianceJson {
         }
 
         public ComplianceJson build() {
-            return new ComplianceJson(
-                creationTime, complianceScope, action,
-                createdBy);
+            return new ComplianceJson(creationTime, complianceScope, action, createdBy);
         }
-
     }
 }

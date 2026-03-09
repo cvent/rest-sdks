@@ -40,7 +40,7 @@ public class GetExhibitorCategoriesRequestBuilder {
     private GetExhibitorCategoriesRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorCategoriesRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetExhibitorCategoriesRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetExhibitorCategoriesResponse> call() {
-        AsyncRequestOperation<GetExhibitorCategoriesRequest, GetExhibitorCategoriesResponse> operation
-              = new GetExhibitorCategories.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorCategoriesRequest, GetExhibitorCategoriesResponse> operation =
+                new GetExhibitorCategories.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,16 +75,17 @@ public class GetExhibitorCategoriesRequestBuilder {
      */
     public Publisher<GetExhibitorCategoriesResponse> callAsPublisher() {
         GetExhibitorCategoriesRequest request = this.request;
-        AsyncRequestOperation<GetExhibitorCategoriesRequest, GetExhibitorCategoriesResponse> operation
-              = new GetExhibitorCategories.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetExhibitorCategoriesRequest, GetExhibitorCategoriesResponse> operation =
+                new GetExhibitorCategories.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetExhibitorCategoriesRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetExhibitorCategoriesRequest::withToken,
+                operation::doRequest);
 
-        Flow.Publisher<GetExhibitorCategoriesResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
+        Flow.Publisher<GetExhibitorCategoriesResponse> flowPublisher =
+                mapAsync(asyncPaginator, operation::handleResponse);
 
         // Convert Flow.Publisher to Reactive Streams Publisher at the last stage
         return FlowAdapters.toPublisher(flowPublisher);

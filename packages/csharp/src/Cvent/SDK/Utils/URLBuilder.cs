@@ -61,7 +61,8 @@ namespace Cvent.SDK.Utils
             return url;
         }
 
-        public static string SerializeQueryParams(Dictionary<string, List<string>> queryParams) {
+        public static string SerializeQueryParams(Dictionary<string, List<string>> queryParams)
+        {
             var queries = new List<string>();
 
             foreach (var key in queryParams.Keys)
@@ -89,7 +90,6 @@ namespace Cvent.SDK.Utils
             foreach (var prop in props)
             {
                 var val = prop.GetValue(request);
-
 
                 if (prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetRequestMetadata() != null)
                 {
@@ -165,7 +165,7 @@ namespace Cvent.SDK.Utils
             {
                 var val = prop.GetValue(request);
                 var metadata = prop.GetCustomAttribute<SpeakeasyMetadata>()?.GetQueryParamMetadata();
-                
+
                 if (val == null)
                 {
                     // If this parameter is in allowEmptyValue and val is null, include it as empty

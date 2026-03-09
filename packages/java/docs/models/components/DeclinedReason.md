@@ -2,6 +2,14 @@
 
 The set of decline reasons available for proposals
 
+## Example Usage
+
+```java
+import com.cvent.models.components.DeclinedReason;
+
+DeclinedReason value = DeclinedReason.DID_NOT_MEET_REQUIREMENTS;
+```
+
 
 ## Values
 

@@ -2,6 +2,14 @@
 
 The type of the field.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ContactFieldJsonType.String;
+```
+
 
 ## Values
 

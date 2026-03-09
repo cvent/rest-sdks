@@ -12,7 +12,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class UpdateBudgetAllocationsRequest {
     /**
      * Unique ID of an event.
@@ -34,15 +33,12 @@ public class UpdateBudgetAllocationsRequest {
 
     @JsonCreator
     public UpdateBudgetAllocationsRequest(
-            @Nonnull String id,
-            @Nonnull String budgetItemId,
-            @Nonnull BudgetAllocationsList budgetAllocationsList) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String budgetItemId, @Nonnull BudgetAllocationsList budgetAllocationsList) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
-            .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.budgetAllocationsList = Optional.ofNullable(budgetAllocationsList)
-            .orElseThrow(() -> new IllegalArgumentException("budgetAllocationsList cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("budgetAllocationsList cannot be null"));
     }
 
     /**
@@ -70,7 +66,6 @@ public class UpdateBudgetAllocationsRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -78,7 +73,6 @@ public class UpdateBudgetAllocationsRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of a budget item.
@@ -88,15 +82,14 @@ public class UpdateBudgetAllocationsRequest {
         return this;
     }
 
-
     /**
      * The budget allocations to upsert.
      */
-    public UpdateBudgetAllocationsRequest withBudgetAllocationsList(@Nonnull BudgetAllocationsList budgetAllocationsList) {
+    public UpdateBudgetAllocationsRequest withBudgetAllocationsList(
+            @Nonnull BudgetAllocationsList budgetAllocationsList) {
         this.budgetAllocationsList = Utils.checkNotNull(budgetAllocationsList, "budgetAllocationsList");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -107,28 +100,30 @@ public class UpdateBudgetAllocationsRequest {
             return false;
         }
         UpdateBudgetAllocationsRequest other = (UpdateBudgetAllocationsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId) &&
-            Utils.enhancedDeepEquals(this.budgetAllocationsList, other.budgetAllocationsList);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
+                && Utils.enhancedDeepEquals(this.budgetAllocationsList, other.budgetAllocationsList);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, budgetItemId, budgetAllocationsList);
+        return Utils.enhancedHash(id, budgetItemId, budgetAllocationsList);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(UpdateBudgetAllocationsRequest.class,
-                "id", id,
-                "budgetItemId", budgetItemId,
-                "budgetAllocationsList", budgetAllocationsList);
+        return Utils.toString(
+                UpdateBudgetAllocationsRequest.class,
+                "id",
+                id,
+                "budgetItemId",
+                budgetItemId,
+                "budgetAllocationsList",
+                budgetAllocationsList);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -137,7 +132,7 @@ public class UpdateBudgetAllocationsRequest {
         private BudgetAllocationsList budgetAllocationsList;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -165,9 +160,7 @@ public class UpdateBudgetAllocationsRequest {
         }
 
         public UpdateBudgetAllocationsRequest build() {
-            return new UpdateBudgetAllocationsRequest(
-                id, budgetItemId, budgetAllocationsList);
+            return new UpdateBudgetAllocationsRequest(id, budgetItemId, budgetAllocationsList);
         }
-
     }
 }

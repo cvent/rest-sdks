@@ -2,6 +2,14 @@
 
 Represents the security level used for event registrations.
 
+## Example Usage
+
+```java
+import com.cvent.models.components.EventSecurityLevelJson;
+
+EventSecurityLevelJson value = EventSecurityLevelJson.PRIVATE;
+```
+
 
 ## Values
 

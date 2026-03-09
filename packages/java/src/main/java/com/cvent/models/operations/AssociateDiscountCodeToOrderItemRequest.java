@@ -13,7 +13,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AssociateDiscountCodeToOrderItemRequest {
     /**
      * Unique ID of an Event.
@@ -52,24 +51,19 @@ public class AssociateDiscountCodeToOrderItemRequest {
             @Nonnull String orderItemId,
             @Nonnull String discountCode,
             @Nullable OrderItemAssociateDiscount orderItemAssociateDiscount) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.orderId = Optional.ofNullable(orderId)
-            .orElseThrow(() -> new IllegalArgumentException("orderId cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.orderId =
+                Optional.ofNullable(orderId).orElseThrow(() -> new IllegalArgumentException("orderId cannot be null"));
         this.orderItemId = Optional.ofNullable(orderItemId)
-            .orElseThrow(() -> new IllegalArgumentException("orderItemId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("orderItemId cannot be null"));
         this.discountCode = Optional.ofNullable(discountCode)
-            .orElseThrow(() -> new IllegalArgumentException("discountCode cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("discountCode cannot be null"));
         this.orderItemAssociateDiscount = orderItemAssociateDiscount;
     }
-    
+
     public AssociateDiscountCodeToOrderItemRequest(
-            @Nonnull String id,
-            @Nonnull String orderId,
-            @Nonnull String orderItemId,
-            @Nonnull String discountCode) {
-        this(id, orderId, orderItemId,
-            discountCode, null);
+            @Nonnull String id, @Nonnull String orderId, @Nonnull String orderItemId, @Nonnull String discountCode) {
+        this(id, orderId, orderItemId, discountCode, null);
     }
 
     /**
@@ -111,7 +105,6 @@ public class AssociateDiscountCodeToOrderItemRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an Event.
      */
@@ -119,7 +112,6 @@ public class AssociateDiscountCodeToOrderItemRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Unique ID of an Order.
@@ -129,7 +121,6 @@ public class AssociateDiscountCodeToOrderItemRequest {
         return this;
     }
 
-
     /**
      * Unique ID of an Order Item.
      */
@@ -137,7 +128,6 @@ public class AssociateDiscountCodeToOrderItemRequest {
         this.orderItemId = Utils.checkNotNull(orderItemId, "orderItemId");
         return this;
     }
-
 
     /**
      * Unique Code for a Discount.
@@ -147,15 +137,14 @@ public class AssociateDiscountCodeToOrderItemRequest {
         return this;
     }
 
-
     /**
      * Details in body required to associate discount code to order item.
      */
-    public AssociateDiscountCodeToOrderItemRequest withOrderItemAssociateDiscount(@Nullable OrderItemAssociateDiscount orderItemAssociateDiscount) {
+    public AssociateDiscountCodeToOrderItemRequest withOrderItemAssociateDiscount(
+            @Nullable OrderItemAssociateDiscount orderItemAssociateDiscount) {
         this.orderItemAssociateDiscount = orderItemAssociateDiscount;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -166,33 +155,36 @@ public class AssociateDiscountCodeToOrderItemRequest {
             return false;
         }
         AssociateDiscountCodeToOrderItemRequest other = (AssociateDiscountCodeToOrderItemRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.orderId, other.orderId) &&
-            Utils.enhancedDeepEquals(this.orderItemId, other.orderItemId) &&
-            Utils.enhancedDeepEquals(this.discountCode, other.discountCode) &&
-            Utils.enhancedDeepEquals(this.orderItemAssociateDiscount, other.orderItemAssociateDiscount);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.orderId, other.orderId)
+                && Utils.enhancedDeepEquals(this.orderItemId, other.orderItemId)
+                && Utils.enhancedDeepEquals(this.discountCode, other.discountCode)
+                && Utils.enhancedDeepEquals(this.orderItemAssociateDiscount, other.orderItemAssociateDiscount);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, orderId, orderItemId,
-            discountCode, orderItemAssociateDiscount);
+        return Utils.enhancedHash(id, orderId, orderItemId, discountCode, orderItemAssociateDiscount);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AssociateDiscountCodeToOrderItemRequest.class,
-                "id", id,
-                "orderId", orderId,
-                "orderItemId", orderItemId,
-                "discountCode", discountCode,
-                "orderItemAssociateDiscount", orderItemAssociateDiscount);
+        return Utils.toString(
+                AssociateDiscountCodeToOrderItemRequest.class,
+                "id",
+                id,
+                "orderId",
+                orderId,
+                "orderItemId",
+                orderItemId,
+                "discountCode",
+                discountCode,
+                "orderItemAssociateDiscount",
+                orderItemAssociateDiscount);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -205,7 +197,7 @@ public class AssociateDiscountCodeToOrderItemRequest {
         private OrderItemAssociateDiscount orderItemAssociateDiscount;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -250,9 +242,7 @@ public class AssociateDiscountCodeToOrderItemRequest {
 
         public AssociateDiscountCodeToOrderItemRequest build() {
             return new AssociateDiscountCodeToOrderItemRequest(
-                id, orderId, orderItemId,
-                discountCode, orderItemAssociateDiscount);
+                    id, orderId, orderItemId, discountCode, orderItemAssociateDiscount);
         }
-
     }
 }

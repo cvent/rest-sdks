@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * ReservationPaymentInfoJsonInput
- * 
+ *
  * <p>Payment information.
  */
 public class ReservationPaymentInfoJsonInput {
@@ -77,10 +77,9 @@ public class ReservationPaymentInfoJsonInput {
         this.other = other;
         this.creditCard = creditCard;
     }
-    
+
     public ReservationPaymentInfoJsonInput() {
-        this(null, null, null,
-            null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -130,7 +129,6 @@ public class ReservationPaymentInfoJsonInput {
         return new Builder();
     }
 
-
     /**
      * Payment type.
      */
@@ -139,7 +137,6 @@ public class ReservationPaymentInfoJsonInput {
         return this;
     }
 
-
     /**
      * Full name.
      */
@@ -147,7 +144,6 @@ public class ReservationPaymentInfoJsonInput {
         this.fullName = fullName;
         return this;
     }
-
 
     /**
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
@@ -158,7 +154,6 @@ public class ReservationPaymentInfoJsonInput {
         return this;
     }
 
-
     /**
      * Phone number.
      */
@@ -166,7 +161,6 @@ public class ReservationPaymentInfoJsonInput {
         this.phone = phone;
         return this;
     }
-
 
     /**
      * Other payment details.
@@ -176,7 +170,6 @@ public class ReservationPaymentInfoJsonInput {
         return this;
     }
 
-
     /**
      * Credit card info.
      */
@@ -184,7 +177,6 @@ public class ReservationPaymentInfoJsonInput {
         this.creditCard = creditCard;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -195,35 +187,39 @@ public class ReservationPaymentInfoJsonInput {
             return false;
         }
         ReservationPaymentInfoJsonInput other = (ReservationPaymentInfoJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.paymentType, other.paymentType) &&
-            Utils.enhancedDeepEquals(this.fullName, other.fullName) &&
-            Utils.enhancedDeepEquals(this.address, other.address) &&
-            Utils.enhancedDeepEquals(this.phone, other.phone) &&
-            Utils.enhancedDeepEquals(this.other, other.other) &&
-            Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
+        return Utils.enhancedDeepEquals(this.paymentType, other.paymentType)
+                && Utils.enhancedDeepEquals(this.fullName, other.fullName)
+                && Utils.enhancedDeepEquals(this.address, other.address)
+                && Utils.enhancedDeepEquals(this.phone, other.phone)
+                && Utils.enhancedDeepEquals(this.other, other.other)
+                && Utils.enhancedDeepEquals(this.creditCard, other.creditCard);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            paymentType, fullName, address,
-            phone, other, creditCard);
+        return Utils.enhancedHash(paymentType, fullName, address, phone, other, creditCard);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ReservationPaymentInfoJsonInput.class,
-                "paymentType", paymentType,
-                "fullName", fullName,
-                "address", address,
-                "phone", phone,
-                "other", other,
-                "creditCard", creditCard);
+        return Utils.toString(
+                ReservationPaymentInfoJsonInput.class,
+                "paymentType",
+                paymentType,
+                "fullName",
+                fullName,
+                "address",
+                address,
+                "phone",
+                phone,
+                "other",
+                other,
+                "creditCard",
+                creditCard);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private PaymentTypesJson paymentType;
 
@@ -238,7 +234,7 @@ public class ReservationPaymentInfoJsonInput {
         private TokenizedCreditCardJsonInput creditCard;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -291,10 +287,7 @@ public class ReservationPaymentInfoJsonInput {
         }
 
         public ReservationPaymentInfoJsonInput build() {
-            return new ReservationPaymentInfoJsonInput(
-                paymentType, fullName, address,
-                phone, other, creditCard);
+            return new ReservationPaymentInfoJsonInput(paymentType, fullName, address, phone, other, creditCard);
         }
-
     }
 }

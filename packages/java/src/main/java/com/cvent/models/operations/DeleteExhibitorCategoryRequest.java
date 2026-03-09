@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DeleteExhibitorCategoryRequest {
     /**
      * ID of an event.
@@ -26,13 +25,10 @@ public class DeleteExhibitorCategoryRequest {
     private String exhibitorCategoryId;
 
     @JsonCreator
-    public DeleteExhibitorCategoryRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorCategoryId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DeleteExhibitorCategoryRequest(@Nonnull String id, @Nonnull String exhibitorCategoryId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryId = Optional.ofNullable(exhibitorCategoryId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DeleteExhibitorCategoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -62,7 +57,6 @@ public class DeleteExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor category.
      */
@@ -70,7 +64,6 @@ public class DeleteExhibitorCategoryRequest {
         this.exhibitorCategoryId = Utils.checkNotNull(exhibitorCategoryId, "exhibitorCategoryId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,30 @@ public class DeleteExhibitorCategoryRequest {
             return false;
         }
         DeleteExhibitorCategoryRequest other = (DeleteExhibitorCategoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryId);
+        return Utils.enhancedHash(id, exhibitorCategoryId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DeleteExhibitorCategoryRequest.class,
-                "id", id,
-                "exhibitorCategoryId", exhibitorCategoryId);
+        return Utils.toString(
+                DeleteExhibitorCategoryRequest.class, "id", id, "exhibitorCategoryId", exhibitorCategoryId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String exhibitorCategoryId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +117,7 @@ public class DeleteExhibitorCategoryRequest {
         }
 
         public DeleteExhibitorCategoryRequest build() {
-            return new DeleteExhibitorCategoryRequest(
-                id, exhibitorCategoryId);
+            return new DeleteExhibitorCategoryRequest(id, exhibitorCategoryId);
         }
-
     }
 }

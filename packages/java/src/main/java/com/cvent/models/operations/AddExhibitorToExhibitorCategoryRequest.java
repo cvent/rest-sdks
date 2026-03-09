@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class AddExhibitorToExhibitorCategoryRequest {
     /**
      * ID of an event.
@@ -33,15 +32,12 @@ public class AddExhibitorToExhibitorCategoryRequest {
 
     @JsonCreator
     public AddExhibitorToExhibitorCategoryRequest(
-            @Nonnull String id,
-            @Nonnull String exhibitorCategoryId,
-            @Nonnull String exhibitorId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String exhibitorCategoryId, @Nonnull String exhibitorId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.exhibitorCategoryId = Optional.ofNullable(exhibitorCategoryId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorCategoryId cannot be null"));
         this.exhibitorId = Optional.ofNullable(exhibitorId)
-            .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("exhibitorId cannot be null"));
     }
 
     /**
@@ -69,7 +65,6 @@ public class AddExhibitorToExhibitorCategoryRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -77,7 +72,6 @@ public class AddExhibitorToExhibitorCategoryRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of an exhibitor category.
@@ -87,7 +81,6 @@ public class AddExhibitorToExhibitorCategoryRequest {
         return this;
     }
 
-
     /**
      * ID of an exhibitor.
      */
@@ -95,7 +88,6 @@ public class AddExhibitorToExhibitorCategoryRequest {
         this.exhibitorId = Utils.checkNotNull(exhibitorId, "exhibitorId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -106,28 +98,30 @@ public class AddExhibitorToExhibitorCategoryRequest {
             return false;
         }
         AddExhibitorToExhibitorCategoryRequest other = (AddExhibitorToExhibitorCategoryRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId) &&
-            Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.exhibitorCategoryId, other.exhibitorCategoryId)
+                && Utils.enhancedDeepEquals(this.exhibitorId, other.exhibitorId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, exhibitorCategoryId, exhibitorId);
+        return Utils.enhancedHash(id, exhibitorCategoryId, exhibitorId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(AddExhibitorToExhibitorCategoryRequest.class,
-                "id", id,
-                "exhibitorCategoryId", exhibitorCategoryId,
-                "exhibitorId", exhibitorId);
+        return Utils.toString(
+                AddExhibitorToExhibitorCategoryRequest.class,
+                "id",
+                id,
+                "exhibitorCategoryId",
+                exhibitorCategoryId,
+                "exhibitorId",
+                exhibitorId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -136,7 +130,7 @@ public class AddExhibitorToExhibitorCategoryRequest {
         private String exhibitorId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -164,9 +158,7 @@ public class AddExhibitorToExhibitorCategoryRequest {
         }
 
         public AddExhibitorToExhibitorCategoryRequest build() {
-            return new AddExhibitorToExhibitorCategoryRequest(
-                id, exhibitorCategoryId, exhibitorId);
+            return new AddExhibitorToExhibitorCategoryRequest(id, exhibitorCategoryId, exhibitorId);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Double;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * TransactionItemJson
- * 
+ *
  * <p>This is used to denote an item in the transaction.
  */
 public class TransactionItemJson {
@@ -151,13 +151,9 @@ public class TransactionItemJson {
         this.amount = amount;
         this.currency = currency;
     }
-    
+
     public TransactionItemJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -263,7 +259,6 @@ public class TransactionItemJson {
         return new Builder();
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -271,7 +266,6 @@ public class TransactionItemJson {
         this.created = created;
         return this;
     }
-
 
     /**
      * The identifier of the user that created this record.
@@ -281,7 +275,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was updated.
      */
@@ -290,7 +283,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * The identifier of the user that last updated this record.
      */
@@ -298,7 +290,6 @@ public class TransactionItemJson {
         this.lastModifiedBy = lastModifiedBy;
         return this;
     }
-
 
     /**
      * An identifier for the transaction. This is shared across all items in the transaction and is not
@@ -309,7 +300,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * A unique identifier for the transaction item.
      */
@@ -317,7 +307,6 @@ public class TransactionItemJson {
         this.uniqueId = uniqueId;
         return this;
     }
-
 
     /**
      * This is used to denote the id and merchant/processor transaction id for transaction items.
@@ -327,7 +316,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * The reference to the event. Contains only the ID of the event.
      */
@@ -335,7 +323,6 @@ public class TransactionItemJson {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
@@ -345,7 +332,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * This is used to denote the product details in an order item
      */
@@ -353,7 +339,6 @@ public class TransactionItemJson {
         this.product = product;
         return this;
     }
-
 
     /**
      * Represents an order item by its ID.
@@ -363,7 +348,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * This denotes the name of the item
      */
@@ -371,7 +355,6 @@ public class TransactionItemJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * Transaction amount of the item
@@ -381,7 +364,6 @@ public class TransactionItemJson {
         return this;
     }
 
-
     /**
      * This denotes the currency of this transaction
      */
@@ -389,7 +371,6 @@ public class TransactionItemJson {
         this.currency = currency;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -400,54 +381,77 @@ public class TransactionItemJson {
             return false;
         }
         TransactionItemJson other = (TransactionItemJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.created, other.created) &&
-            Utils.enhancedDeepEquals(this.createdBy, other.createdBy) &&
-            Utils.enhancedDeepEquals(this.lastModified, other.lastModified) &&
-            Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy) &&
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.uniqueId, other.uniqueId) &&
-            Utils.enhancedDeepEquals(this.transaction, other.transaction) &&
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.attendee, other.attendee) &&
-            Utils.enhancedDeepEquals(this.product, other.product) &&
-            Utils.enhancedDeepEquals(this.orderItem, other.orderItem) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.amount, other.amount) &&
-            Utils.enhancedDeepEquals(this.currency, other.currency);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.uniqueId, other.uniqueId)
+                && Utils.enhancedDeepEquals(this.transaction, other.transaction)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.attendee, other.attendee)
+                && Utils.enhancedDeepEquals(this.product, other.product)
+                && Utils.enhancedDeepEquals(this.orderItem, other.orderItem)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.amount, other.amount)
+                && Utils.enhancedDeepEquals(this.currency, other.currency);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            created, createdBy, lastModified,
-            lastModifiedBy, id, uniqueId,
-            transaction, event, attendee,
-            product, orderItem, name,
-            amount, currency);
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                uniqueId,
+                transaction,
+                event,
+                attendee,
+                product,
+                orderItem,
+                name,
+                amount,
+                currency);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TransactionItemJson.class,
-                "created", created,
-                "createdBy", createdBy,
-                "lastModified", lastModified,
-                "lastModifiedBy", lastModifiedBy,
-                "id", id,
-                "uniqueId", uniqueId,
-                "transaction", transaction,
-                "event", event,
-                "attendee", attendee,
-                "product", product,
-                "orderItem", orderItem,
-                "name", name,
-                "amount", amount,
-                "currency", currency);
+        return Utils.toString(
+                TransactionItemJson.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "uniqueId",
+                uniqueId,
+                "transaction",
+                transaction,
+                "event",
+                event,
+                "attendee",
+                attendee,
+                "product",
+                product,
+                "orderItem",
+                orderItem,
+                "name",
+                name,
+                "amount",
+                amount,
+                "currency",
+                currency);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime created;
 
@@ -478,7 +482,7 @@ public class TransactionItemJson {
         private String currency;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -596,12 +600,20 @@ public class TransactionItemJson {
 
         public TransactionItemJson build() {
             return new TransactionItemJson(
-                created, createdBy, lastModified,
-                lastModifiedBy, id, uniqueId,
-                transaction, event, attendee,
-                product, orderItem, name,
-                amount, currency);
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    uniqueId,
+                    transaction,
+                    event,
+                    attendee,
+                    product,
+                    orderItem,
+                    name,
+                    amount,
+                    currency);
         }
-
     }
 }

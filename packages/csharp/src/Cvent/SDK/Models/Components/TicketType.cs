@@ -18,24 +18,21 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum TicketType
     {
-        [JsonProperty("Economy/Coach")]
-        EconomyCoach,
-        [JsonProperty("Business")]
-        Business,
-        [JsonProperty("FirstClass")]
-        FirstClass,
+        [JsonProperty("Economy/Coach")] EconomyCoach,
+        [JsonProperty("Business")] Business,
+        [JsonProperty("FirstClass")] FirstClass,
     }
 
     public static class TicketTypeExtension
     {
         public static string Value(this TicketType value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static TicketType ToEnum(this string value)
         {
-            foreach(var field in typeof(TicketType).GetFields())
+            foreach (var field in typeof(TicketType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

@@ -18,30 +18,24 @@ namespace Cvent.SDK.Models.Errors
     /// </summary>
     public enum ValidationCode
     {
-        [JsonProperty("ATTENDEES_PER_SEGMENT_LIMIT_REACHED")]
-        AttendeesPerSegmentLimitReached,
-        [JsonProperty("DUPLICATE_SEGMENT_NAME")]
-        DuplicateSegmentName,
-        [JsonProperty("ERROR_CHECKING_CONNECTION_TO_LINKEDIN")]
-        ErrorCheckingConnectionToLinkedin,
-        [JsonProperty("SEGMENT_CONNECTED_TO_LINKEDIN")]
-        SegmentConnectedToLinkedin,
-        [JsonProperty("SEGMENTS_PER_ATTENDEE_LIMIT_REACHED")]
-        SegmentsPerAttendeeLimitReached,
-        [JsonProperty("SEGMENTS_PER_EVENT_LIMIT_REACHED")]
-        SegmentsPerEventLimitReached,
+        [JsonProperty("ATTENDEES_PER_SEGMENT_LIMIT_REACHED")] AttendeesPerSegmentLimitReached,
+        [JsonProperty("DUPLICATE_SEGMENT_NAME")] DuplicateSegmentName,
+        [JsonProperty("ERROR_CHECKING_CONNECTION_TO_LINKEDIN")] ErrorCheckingConnectionToLinkedin,
+        [JsonProperty("SEGMENT_CONNECTED_TO_LINKEDIN")] SegmentConnectedToLinkedin,
+        [JsonProperty("SEGMENTS_PER_ATTENDEE_LIMIT_REACHED")] SegmentsPerAttendeeLimitReached,
+        [JsonProperty("SEGMENTS_PER_EVENT_LIMIT_REACHED")] SegmentsPerEventLimitReached,
     }
 
     public static class ValidationCodeExtension
     {
         public static string Value(this ValidationCode value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static ValidationCode ToEnum(this string value)
         {
-            foreach(var field in typeof(ValidationCode).GetFields())
+            foreach (var field in typeof(ValidationCode).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

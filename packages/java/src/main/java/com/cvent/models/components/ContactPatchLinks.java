@@ -5,14 +5,13 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
-
 
 public class ContactPatchLinks {
 
@@ -21,11 +20,10 @@ public class ContactPatchLinks {
     private FacebookUrl facebookUrl;
 
     @JsonCreator
-    public ContactPatchLinks(
-            @JsonProperty("facebookUrl") @Nullable FacebookUrl facebookUrl) {
+    public ContactPatchLinks(@JsonProperty("facebookUrl") @Nullable FacebookUrl facebookUrl) {
         this.facebookUrl = facebookUrl;
     }
-    
+
     public ContactPatchLinks() {
         this(null);
     }
@@ -38,12 +36,10 @@ public class ContactPatchLinks {
         return new Builder();
     }
 
-
     public ContactPatchLinks withFacebookUrl(@Nullable FacebookUrl facebookUrl) {
         this.facebookUrl = facebookUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -54,29 +50,26 @@ public class ContactPatchLinks {
             return false;
         }
         ContactPatchLinks other = (ContactPatchLinks) o;
-        return 
-            Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl);
+        return Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            facebookUrl);
+        return Utils.enhancedHash(facebookUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ContactPatchLinks.class,
-                "facebookUrl", facebookUrl);
+        return Utils.toString(ContactPatchLinks.class, "facebookUrl", facebookUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private FacebookUrl facebookUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         public Builder facebookUrl(@Nullable FacebookUrl facebookUrl) {
@@ -85,9 +78,7 @@ public class ContactPatchLinks {
         }
 
         public ContactPatchLinks build() {
-            return new ContactPatchLinks(
-                facebookUrl);
+            return new ContactPatchLinks(facebookUrl);
         }
-
     }
 }

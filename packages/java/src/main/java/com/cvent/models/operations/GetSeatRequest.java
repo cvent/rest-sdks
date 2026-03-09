@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class GetSeatRequest {
     /**
      * ID of an event.
@@ -39,18 +38,14 @@ public class GetSeatRequest {
 
     @JsonCreator
     public GetSeatRequest(
-            @Nonnull String id,
-            @Nonnull String seatingId,
-            @Nonnull String tableId,
-            @Nonnull String seatId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nonnull String id, @Nonnull String seatingId, @Nonnull String tableId, @Nonnull String seatId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.seatingId = Optional.ofNullable(seatingId)
-            .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
-        this.tableId = Optional.ofNullable(tableId)
-            .orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
-        this.seatId = Optional.ofNullable(seatId)
-            .orElseThrow(() -> new IllegalArgumentException("seatId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("seatingId cannot be null"));
+        this.tableId =
+                Optional.ofNullable(tableId).orElseThrow(() -> new IllegalArgumentException("tableId cannot be null"));
+        this.seatId =
+                Optional.ofNullable(seatId).orElseThrow(() -> new IllegalArgumentException("seatId cannot be null"));
     }
 
     /**
@@ -85,7 +80,6 @@ public class GetSeatRequest {
         return new Builder();
     }
 
-
     /**
      * ID of an event.
      */
@@ -93,7 +87,6 @@ public class GetSeatRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * ID of a seating.
@@ -103,7 +96,6 @@ public class GetSeatRequest {
         return this;
     }
 
-
     /**
      * ID of a table.
      */
@@ -112,7 +104,6 @@ public class GetSeatRequest {
         return this;
     }
 
-
     /**
      * ID of a seat.
      */
@@ -120,7 +111,6 @@ public class GetSeatRequest {
         this.seatId = Utils.checkNotNull(seatId, "seatId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -131,31 +121,25 @@ public class GetSeatRequest {
             return false;
         }
         GetSeatRequest other = (GetSeatRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.seatingId, other.seatingId) &&
-            Utils.enhancedDeepEquals(this.tableId, other.tableId) &&
-            Utils.enhancedDeepEquals(this.seatId, other.seatId);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.seatingId, other.seatingId)
+                && Utils.enhancedDeepEquals(this.tableId, other.tableId)
+                && Utils.enhancedDeepEquals(this.seatId, other.seatId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, seatingId, tableId,
-            seatId);
+        return Utils.enhancedHash(id, seatingId, tableId, seatId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetSeatRequest.class,
-                "id", id,
-                "seatingId", seatingId,
-                "tableId", tableId,
-                "seatId", seatId);
+        return Utils.toString(
+                GetSeatRequest.class, "id", id, "seatingId", seatingId, "tableId", tableId, "seatId", seatId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -166,7 +150,7 @@ public class GetSeatRequest {
         private String seatId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -202,10 +186,7 @@ public class GetSeatRequest {
         }
 
         public GetSeatRequest build() {
-            return new GetSeatRequest(
-                id, seatingId, tableId,
-                seatId);
+            return new GetSeatRequest(id, seatingId, tableId, seatId);
         }
-
     }
 }

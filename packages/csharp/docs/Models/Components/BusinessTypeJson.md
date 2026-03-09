@@ -2,6 +2,14 @@
 
 Business type.
 
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = BusinessTypeJson.Corporate;
+```
+
 
 ## Values
 

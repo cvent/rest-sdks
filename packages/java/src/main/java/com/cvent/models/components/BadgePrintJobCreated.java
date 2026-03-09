@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * BadgePrintJobCreated
- * 
+ *
  * <p>The Badge Print Job that was created.
  */
 public class BadgePrintJobCreated {
@@ -64,18 +64,14 @@ public class BadgePrintJobCreated {
             @JsonProperty("created") @Nullable OffsetDateTime created) {
         this.id = id;
         this.status = status;
-        this.pool = Optional.ofNullable(pool)
-            .orElseThrow(() -> new IllegalArgumentException("pool cannot be null"));
-        this.badgeId = Optional.ofNullable(badgeId)
-            .orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
+        this.pool = Optional.ofNullable(pool).orElseThrow(() -> new IllegalArgumentException("pool cannot be null"));
+        this.badgeId =
+                Optional.ofNullable(badgeId).orElseThrow(() -> new IllegalArgumentException("badgeId cannot be null"));
         this.created = created;
     }
-    
-    public BadgePrintJobCreated(
-            @Nonnull BadgePrinterPoolReferenceJson pool,
-            @Nonnull String badgeId) {
-        this(null, null, pool,
-            badgeId, null);
+
+    public BadgePrintJobCreated(@Nonnull BadgePrinterPoolReferenceJson pool, @Nonnull String badgeId) {
+        this(null, null, pool, badgeId, null);
     }
 
     /**
@@ -118,7 +114,6 @@ public class BadgePrintJobCreated {
         return new Builder();
     }
 
-
     /**
      * A string that has to be a format matching the industry standard uuid
      */
@@ -126,7 +121,6 @@ public class BadgePrintJobCreated {
         this.id = id;
         return this;
     }
-
 
     /**
      * This is used to indicate the status of the badge print job.
@@ -136,7 +130,6 @@ public class BadgePrintJobCreated {
         return this;
     }
 
-
     /**
      * Reference to a Badge Print Pool.
      */
@@ -144,7 +137,6 @@ public class BadgePrintJobCreated {
         this.pool = Utils.checkNotNull(pool, "pool");
         return this;
     }
-
 
     /**
      * A unique id of the attendee for badge printing, which could be confirmation number or secured badge
@@ -155,7 +147,6 @@ public class BadgePrintJobCreated {
         return this;
     }
 
-
     /**
      * The ISO 8601 zoned date time when this record was created.
      */
@@ -163,7 +154,6 @@ public class BadgePrintJobCreated {
         this.created = created;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -174,33 +164,36 @@ public class BadgePrintJobCreated {
             return false;
         }
         BadgePrintJobCreated other = (BadgePrintJobCreated) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.pool, other.pool) &&
-            Utils.enhancedDeepEquals(this.badgeId, other.badgeId) &&
-            Utils.enhancedDeepEquals(this.created, other.created);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.pool, other.pool)
+                && Utils.enhancedDeepEquals(this.badgeId, other.badgeId)
+                && Utils.enhancedDeepEquals(this.created, other.created);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, status, pool,
-            badgeId, created);
+        return Utils.enhancedHash(id, status, pool, badgeId, created);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BadgePrintJobCreated.class,
-                "id", id,
-                "status", status,
-                "pool", pool,
-                "badgeId", badgeId,
-                "created", created);
+        return Utils.toString(
+                BadgePrintJobCreated.class,
+                "id",
+                id,
+                "status",
+                status,
+                "pool",
+                pool,
+                "badgeId",
+                badgeId,
+                "created",
+                created);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -213,7 +206,7 @@ public class BadgePrintJobCreated {
         private OffsetDateTime created;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -258,10 +251,7 @@ public class BadgePrintJobCreated {
         }
 
         public BadgePrintJobCreated build() {
-            return new BadgePrintJobCreated(
-                id, status, pool,
-                badgeId, created);
+            return new BadgePrintJobCreated(id, status, pool, badgeId, created);
         }
-
     }
 }

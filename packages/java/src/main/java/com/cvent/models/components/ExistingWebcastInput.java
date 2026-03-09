@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * ExistingWebcastInput
- * 
+ *
  * <p>An existing webcast.
  */
 public class ExistingWebcastInput {
@@ -172,16 +172,15 @@ public class ExistingWebcastInput {
         this.session = session;
         this.appointment = appointment;
         this.exhibitor = exhibitor;
-        this.format = Optional.ofNullable(format)
-            .orElse(Builder._SINGLETON_VALUE_Format.value());
+        this.format = Optional.ofNullable(format).orElse(Builder._SINGLETON_VALUE_Format.value());
         this.type = type;
         this.provider = provider;
         this.status = status;
         this.playerType = playerType;
         this.simulatedLive = simulatedLive;
         this.recordLiveStream = recordLiveStream;
-        this.autoAddToLibrary = Optional.ofNullable(autoAddToLibrary)
-            .orElse(Builder._SINGLETON_VALUE_AutoAddToLibrary.value());
+        this.autoAddToLibrary =
+                Optional.ofNullable(autoAddToLibrary).orElse(Builder._SINGLETON_VALUE_AutoAddToLibrary.value());
         this.onDemandVideo = onDemandVideo;
         this.sourceId = sourceId;
         this.title = title;
@@ -189,14 +188,27 @@ public class ExistingWebcastInput {
         this.links = links;
         this.details = details;
     }
-    
+
     public ExistingWebcastInput() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null,
-            null, null, null);
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
@@ -329,7 +341,6 @@ public class ExistingWebcastInput {
         return new Builder();
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -337,7 +348,6 @@ public class ExistingWebcastInput {
         this.event = event;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -347,7 +357,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
@@ -355,7 +364,6 @@ public class ExistingWebcastInput {
         this.appointment = appointment;
         return this;
     }
-
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -365,7 +373,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * This is used to denote the format of a webcast
      */
@@ -373,7 +380,6 @@ public class ExistingWebcastInput {
         this.format = format;
         return this;
     }
-
 
     /**
      * This is used to denote the type of a webcast
@@ -383,7 +389,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * Name of the webcast provider.
      */
@@ -391,7 +396,6 @@ public class ExistingWebcastInput {
         this.provider = provider;
         return this;
     }
-
 
     /**
      * This is used to denote the status of a webcast
@@ -401,7 +405,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * This is used to denote the type of a video player
      */
@@ -409,7 +412,6 @@ public class ExistingWebcastInput {
         this.playerType = playerType;
         return this;
     }
-
 
     /**
      * Indicates if the webcast is simulated live or not
@@ -419,7 +421,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * Indicates if the live stream recording is enabled
      */
@@ -427,7 +428,6 @@ public class ExistingWebcastInput {
         this.recordLiveStream = recordLiveStream;
         return this;
     }
-
 
     /**
      * Indicates if the live stream recording will be added to the library automatically
@@ -437,7 +437,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * Indicates if the on demand video is available
      */
@@ -445,7 +444,6 @@ public class ExistingWebcastInput {
         this.onDemandVideo = onDemandVideo;
         return this;
     }
-
 
     /**
      * Source Id of the webcast provider
@@ -455,7 +453,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * Title of the webcast
      */
@@ -463,7 +460,6 @@ public class ExistingWebcastInput {
         this.title = title;
         return this;
     }
-
 
     /**
      * Id of meeting within a webcast.
@@ -473,7 +469,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * webcast link references
      */
@@ -482,7 +477,6 @@ public class ExistingWebcastInput {
         return this;
     }
 
-
     /**
      * Additional information related to the webcast
      */
@@ -490,7 +484,6 @@ public class ExistingWebcastInput {
         this.details = details;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -501,63 +494,93 @@ public class ExistingWebcastInput {
             return false;
         }
         ExistingWebcastInput other = (ExistingWebcastInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.event, other.event) &&
-            Utils.enhancedDeepEquals(this.session, other.session) &&
-            Utils.enhancedDeepEquals(this.appointment, other.appointment) &&
-            Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor) &&
-            Utils.enhancedDeepEquals(this.format, other.format) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.provider, other.provider) &&
-            Utils.enhancedDeepEquals(this.status, other.status) &&
-            Utils.enhancedDeepEquals(this.playerType, other.playerType) &&
-            Utils.enhancedDeepEquals(this.simulatedLive, other.simulatedLive) &&
-            Utils.enhancedDeepEquals(this.recordLiveStream, other.recordLiveStream) &&
-            Utils.enhancedDeepEquals(this.autoAddToLibrary, other.autoAddToLibrary) &&
-            Utils.enhancedDeepEquals(this.onDemandVideo, other.onDemandVideo) &&
-            Utils.enhancedDeepEquals(this.sourceId, other.sourceId) &&
-            Utils.enhancedDeepEquals(this.title, other.title) &&
-            Utils.enhancedDeepEquals(this.meetingId, other.meetingId) &&
-            Utils.enhancedDeepEquals(this.links, other.links) &&
-            Utils.enhancedDeepEquals(this.details, other.details);
+        return Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.session, other.session)
+                && Utils.enhancedDeepEquals(this.appointment, other.appointment)
+                && Utils.enhancedDeepEquals(this.exhibitor, other.exhibitor)
+                && Utils.enhancedDeepEquals(this.format, other.format)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.provider, other.provider)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.playerType, other.playerType)
+                && Utils.enhancedDeepEquals(this.simulatedLive, other.simulatedLive)
+                && Utils.enhancedDeepEquals(this.recordLiveStream, other.recordLiveStream)
+                && Utils.enhancedDeepEquals(this.autoAddToLibrary, other.autoAddToLibrary)
+                && Utils.enhancedDeepEquals(this.onDemandVideo, other.onDemandVideo)
+                && Utils.enhancedDeepEquals(this.sourceId, other.sourceId)
+                && Utils.enhancedDeepEquals(this.title, other.title)
+                && Utils.enhancedDeepEquals(this.meetingId, other.meetingId)
+                && Utils.enhancedDeepEquals(this.links, other.links)
+                && Utils.enhancedDeepEquals(this.details, other.details);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            event, session, appointment,
-            exhibitor, format, type,
-            provider, status, playerType,
-            simulatedLive, recordLiveStream, autoAddToLibrary,
-            onDemandVideo, sourceId, title,
-            meetingId, links, details);
+                event,
+                session,
+                appointment,
+                exhibitor,
+                format,
+                type,
+                provider,
+                status,
+                playerType,
+                simulatedLive,
+                recordLiveStream,
+                autoAddToLibrary,
+                onDemandVideo,
+                sourceId,
+                title,
+                meetingId,
+                links,
+                details);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ExistingWebcastInput.class,
-                "event", event,
-                "session", session,
-                "appointment", appointment,
-                "exhibitor", exhibitor,
-                "format", format,
-                "type", type,
-                "provider", provider,
-                "status", status,
-                "playerType", playerType,
-                "simulatedLive", simulatedLive,
-                "recordLiveStream", recordLiveStream,
-                "autoAddToLibrary", autoAddToLibrary,
-                "onDemandVideo", onDemandVideo,
-                "sourceId", sourceId,
-                "title", title,
-                "meetingId", meetingId,
-                "links", links,
-                "details", details);
+        return Utils.toString(
+                ExistingWebcastInput.class,
+                "event",
+                event,
+                "session",
+                session,
+                "appointment",
+                appointment,
+                "exhibitor",
+                exhibitor,
+                "format",
+                format,
+                "type",
+                type,
+                "provider",
+                provider,
+                "status",
+                status,
+                "playerType",
+                playerType,
+                "simulatedLive",
+                simulatedLive,
+                "recordLiveStream",
+                recordLiveStream,
+                "autoAddToLibrary",
+                autoAddToLibrary,
+                "onDemandVideo",
+                onDemandVideo,
+                "sourceId",
+                sourceId,
+                "title",
+                title,
+                "meetingId",
+                meetingId,
+                "links",
+                links,
+                "details",
+                details);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private UuidJson event;
 
@@ -596,7 +619,7 @@ public class ExistingWebcastInput {
         private String details;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -745,25 +768,30 @@ public class ExistingWebcastInput {
 
         public ExistingWebcastInput build() {
             return new ExistingWebcastInput(
-                event, session, appointment,
-                exhibitor, format, type,
-                provider, status, playerType,
-                simulatedLive, recordLiveStream, autoAddToLibrary,
-                onDemandVideo, sourceId, title,
-                meetingId, links, details);
+                    event,
+                    session,
+                    appointment,
+                    exhibitor,
+                    format,
+                    type,
+                    provider,
+                    status,
+                    playerType,
+                    simulatedLive,
+                    recordLiveStream,
+                    autoAddToLibrary,
+                    onDemandVideo,
+                    sourceId,
+                    title,
+                    meetingId,
+                    links,
+                    details);
         }
 
-
         private static final LazySingletonValue<FormatJson> _SINGLETON_VALUE_Format =
-                new LazySingletonValue<>(
-                        "format",
-                        "\"Live\"",
-                        new TypeReference<FormatJson>() {});
+                new LazySingletonValue<>("format", "\"Live\"", new TypeReference<FormatJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_AutoAddToLibrary =
-                new LazySingletonValue<>(
-                        "autoAddToLibrary",
-                        "false",
-                        new TypeReference<Boolean>() {});
+                new LazySingletonValue<>("autoAddToLibrary", "false", new TypeReference<Boolean>() {});
     }
 }

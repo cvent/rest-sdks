@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * HubLoginJson
- * 
+ *
  * <p>Fields relating to the login process for the Events+ hub.
  */
 public class HubLoginJson {
@@ -25,7 +25,7 @@ public class HubLoginJson {
      * Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic
      * link' provided via email. Magic links are unique for each member, allowing the member to log in
      * without requiring credentials.
-     * 
+     *
      * <p>SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub.
      * BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
      */
@@ -55,12 +55,11 @@ public class HubLoginJson {
             @JsonProperty("type") @Nullable HubLoginJsonType type,
             @JsonProperty("organizationId") @Nullable String organizationId,
             @JsonProperty("idpUrl") @Nullable String idpUrl) {
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.organizationId = organizationId;
         this.idpUrl = idpUrl;
     }
-    
+
     public HubLoginJson() {
         this(null, null, null);
     }
@@ -69,7 +68,7 @@ public class HubLoginJson {
      * Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic
      * link' provided via email. Magic links are unique for each member, allowing the member to log in
      * without requiring credentials.
-     * 
+     *
      * <p>SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub.
      * BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
      */
@@ -98,12 +97,11 @@ public class HubLoginJson {
         return new Builder();
     }
 
-
     /**
      * Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic
      * link' provided via email. Magic links are unique for each member, allowing the member to log in
      * without requiring credentials.
-     * 
+     *
      * <p>SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub.
      * BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
      */
@@ -111,7 +109,6 @@ public class HubLoginJson {
         this.type = type;
         return this;
     }
-
 
     /**
      * Organization identifier of a Cvent identity provider when SSO login type is selected. This value is
@@ -123,7 +120,6 @@ public class HubLoginJson {
         return this;
     }
 
-
     /**
      * The service provider-initiated URL, used by Events+ hub members for single sign-on (SSO). Used when
      * the `type` property is SSO or BOTH.
@@ -132,7 +128,6 @@ public class HubLoginJson {
         this.idpUrl = idpUrl;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -143,28 +138,23 @@ public class HubLoginJson {
             return false;
         }
         HubLoginJson other = (HubLoginJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.organizationId, other.organizationId) &&
-            Utils.enhancedDeepEquals(this.idpUrl, other.idpUrl);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.organizationId, other.organizationId)
+                && Utils.enhancedDeepEquals(this.idpUrl, other.idpUrl);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, organizationId, idpUrl);
+        return Utils.enhancedHash(type, organizationId, idpUrl);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(HubLoginJson.class,
-                "type", type,
-                "organizationId", organizationId,
-                "idpUrl", idpUrl);
+        return Utils.toString(HubLoginJson.class, "type", type, "organizationId", organizationId, "idpUrl", idpUrl);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private HubLoginJsonType type;
 
@@ -173,14 +163,14 @@ public class HubLoginJson {
         private String idpUrl;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
          * Login method for the members of the Events+ hub. MAGIC_LINK: The members can log in via a 'magic
          * link' provided via email. Magic links are unique for each member, allowing the member to log in
          * without requiring credentials.
-         * 
+         *
          * <p>SSO: The members log in via a single-sign-on (SSO) method previously configured in the Events+ hub.
          * BOTH: Members can log in via the magic link method or the single-sign-on (SSO) method.
          */
@@ -209,15 +199,10 @@ public class HubLoginJson {
         }
 
         public HubLoginJson build() {
-            return new HubLoginJson(
-                type, organizationId, idpUrl);
+            return new HubLoginJson(type, organizationId, idpUrl);
         }
 
-
         private static final LazySingletonValue<HubLoginJsonType> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"MAGIC_LINK\"",
-                        new TypeReference<HubLoginJsonType>() {});
+                new LazySingletonValue<>("type", "\"MAGIC_LINK\"", new TypeReference<HubLoginJsonType>() {});
     }
 }

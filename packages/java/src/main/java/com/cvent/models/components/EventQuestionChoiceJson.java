@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 /**
  * EventQuestionChoiceJson
- * 
+ *
  * <p>This is used to denote the choice of questions in an event.
  */
 public class EventQuestionChoiceJson {
@@ -50,14 +50,11 @@ public class EventQuestionChoiceJson {
             @JsonProperty("text") @Nonnull String text,
             @JsonProperty("type") @Nullable ChoiceTypeJson type) {
         this.id = id;
-        this.text = Optional.ofNullable(text)
-            .orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
     }
-    
-    public EventQuestionChoiceJson(
-            @Nonnull String text) {
+
+    public EventQuestionChoiceJson(@Nonnull String text) {
         this(null, text, null);
     }
 
@@ -88,7 +85,6 @@ public class EventQuestionChoiceJson {
         return new Builder();
     }
 
-
     /**
      * The ID of the question choice. If you supply the choice's existing ID in a PUT call, the choice
      * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
@@ -99,7 +95,6 @@ public class EventQuestionChoiceJson {
         return this;
     }
 
-
     /**
      * The text for the question choice.
      */
@@ -108,7 +103,6 @@ public class EventQuestionChoiceJson {
         return this;
     }
 
-
     /**
      * The type for the event question choice.
      */
@@ -116,7 +110,6 @@ public class EventQuestionChoiceJson {
         this.type = type;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -127,28 +120,23 @@ public class EventQuestionChoiceJson {
             return false;
         }
         EventQuestionChoiceJson other = (EventQuestionChoiceJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.text, other.text) &&
-            Utils.enhancedDeepEquals(this.type, other.type);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, text, type);
+        return Utils.enhancedHash(id, text, type);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(EventQuestionChoiceJson.class,
-                "id", id,
-                "text", text,
-                "type", type);
+        return Utils.toString(EventQuestionChoiceJson.class, "id", id, "text", text, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -157,7 +145,7 @@ public class EventQuestionChoiceJson {
         private ChoiceTypeJson type;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -187,15 +175,10 @@ public class EventQuestionChoiceJson {
         }
 
         public EventQuestionChoiceJson build() {
-            return new EventQuestionChoiceJson(
-                id, text, type);
+            return new EventQuestionChoiceJson(id, text, type);
         }
 
-
         private static final LazySingletonValue<ChoiceTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"StandardChoice\"",
-                        new TypeReference<ChoiceTypeJson>() {});
+                new LazySingletonValue<>("type", "\"StandardChoice\"", new TypeReference<ChoiceTypeJson>() {});
     }
 }

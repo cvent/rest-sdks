@@ -16,7 +16,6 @@ import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.Optional;
 
-
 public class GetHotelRequestsResponse implements AsyncResponse {
     /**
      * HTTP response content type for this operation
@@ -45,19 +44,16 @@ public class GetHotelRequestsResponse implements AsyncResponse {
             @Nonnull HttpResponse<Blob> rawResponse,
             @Nullable HotelReservationDetail hotelReservationDetail) {
         this.contentType = Optional.ofNullable(contentType)
-            .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
-            .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
         this.hotelReservationDetail = hotelReservationDetail;
     }
-    
+
     public GetHotelRequestsResponse(
-            @Nonnull String contentType,
-            int statusCode,
-            @Nonnull HttpResponse<Blob> rawResponse) {
-        this(contentType, statusCode, rawResponse,
-            null);
+            @Nonnull String contentType, int statusCode, @Nonnull HttpResponse<Blob> rawResponse) {
+        this(contentType, statusCode, rawResponse, null);
     }
 
     /**
@@ -92,7 +88,6 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         return new Builder();
     }
 
-
     /**
      * HTTP response content type for this operation
      */
@@ -100,7 +95,6 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         this.contentType = Utils.checkNotNull(contentType, "contentType");
         return this;
     }
-
 
     /**
      * HTTP response status code for this operation
@@ -110,7 +104,6 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Raw HTTP response; suitable for custom response parsing
      */
@@ -119,15 +112,14 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         return this;
     }
 
-
     /**
      * Successfully retrieved the hotel request detail.
      */
-    public GetHotelRequestsResponse withHotelReservationDetail(@Nullable HotelReservationDetail hotelReservationDetail) {
+    public GetHotelRequestsResponse withHotelReservationDetail(
+            @Nullable HotelReservationDetail hotelReservationDetail) {
         this.hotelReservationDetail = hotelReservationDetail;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -138,31 +130,33 @@ public class GetHotelRequestsResponse implements AsyncResponse {
             return false;
         }
         GetHotelRequestsResponse other = (GetHotelRequestsResponse) o;
-        return 
-            Utils.enhancedDeepEquals(this.contentType, other.contentType) &&
-            Utils.enhancedDeepEquals(this.statusCode, other.statusCode) &&
-            Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse) &&
-            Utils.enhancedDeepEquals(this.hotelReservationDetail, other.hotelReservationDetail);
+        return Utils.enhancedDeepEquals(this.contentType, other.contentType)
+                && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
+                && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
+                && Utils.enhancedDeepEquals(this.hotelReservationDetail, other.hotelReservationDetail);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            contentType, statusCode, rawResponse,
-            hotelReservationDetail);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, hotelReservationDetail);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetHotelRequestsResponse.class,
-                "contentType", contentType,
-                "statusCode", statusCode,
-                "rawResponse", rawResponse,
-                "hotelReservationDetail", hotelReservationDetail);
+        return Utils.toString(
+                GetHotelRequestsResponse.class,
+                "contentType",
+                contentType,
+                "statusCode",
+                statusCode,
+                "rawResponse",
+                rawResponse,
+                "hotelReservationDetail",
+                hotelReservationDetail);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String contentType;
 
@@ -173,7 +167,7 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         private HotelReservationDetail hotelReservationDetail;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -209,10 +203,7 @@ public class GetHotelRequestsResponse implements AsyncResponse {
         }
 
         public GetHotelRequestsResponse build() {
-            return new GetHotelRequestsResponse(
-                contentType, statusCode, rawResponse,
-                hotelReservationDetail);
+            return new GetHotelRequestsResponse(contentType, statusCode, rawResponse, hotelReservationDetail);
         }
-
     }
 }

@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 /**
  * ServiceProviderConfig
- * 
+ *
  * <p>Service Provider Configs
  */
 public class ServiceProviderConfig {
@@ -113,12 +113,9 @@ public class ServiceProviderConfig {
         this.authenticationSchemes = authenticationSchemes;
         this.meta = meta;
     }
-    
+
     public ServiceProviderConfig() {
-        this(null, null, null,
-            null, null, null,
-            null, null, null,
-            null);
+        this(null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -195,7 +192,6 @@ public class ServiceProviderConfig {
         return new Builder();
     }
 
-
     /**
      * The list of schemas using this resource.
      */
@@ -203,7 +199,6 @@ public class ServiceProviderConfig {
         this.schemas = schemas;
         return this;
     }
-
 
     /**
      * The location of the API documentation.
@@ -213,7 +208,6 @@ public class ServiceProviderConfig {
         return this;
     }
 
-
     /**
      * Config details for patch operations.
      */
@@ -221,7 +215,6 @@ public class ServiceProviderConfig {
         this.patch = patch;
         return this;
     }
-
 
     /**
      * Config details for bulk operations.
@@ -231,7 +224,6 @@ public class ServiceProviderConfig {
         return this;
     }
 
-
     /**
      * Config details for filter operations.
      */
@@ -239,7 +231,6 @@ public class ServiceProviderConfig {
         this.filter = filter;
         return this;
     }
-
 
     /**
      * Config details for change password operations.
@@ -249,7 +240,6 @@ public class ServiceProviderConfig {
         return this;
     }
 
-
     /**
      * Config details for sort operations.
      */
@@ -257,7 +247,6 @@ public class ServiceProviderConfig {
         this.sort = sort;
         return this;
     }
-
 
     /**
      * Config details for change e-tag operations.
@@ -267,15 +256,14 @@ public class ServiceProviderConfig {
         return this;
     }
 
-
     /**
      * The collection of authentication schemas.
      */
-    public ServiceProviderConfig withAuthenticationSchemes(@Nullable List<AuthenticationSchemaJson> authenticationSchemes) {
+    public ServiceProviderConfig withAuthenticationSchemes(
+            @Nullable List<AuthenticationSchemaJson> authenticationSchemes) {
         this.authenticationSchemes = authenticationSchemes;
         return this;
     }
-
 
     /**
      * Metadata of the resource.
@@ -284,7 +272,6 @@ public class ServiceProviderConfig {
         this.meta = meta;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -295,45 +282,61 @@ public class ServiceProviderConfig {
             return false;
         }
         ServiceProviderConfig other = (ServiceProviderConfig) o;
-        return 
-            Utils.enhancedDeepEquals(this.schemas, other.schemas) &&
-            Utils.enhancedDeepEquals(this.documentationUri, other.documentationUri) &&
-            Utils.enhancedDeepEquals(this.patch, other.patch) &&
-            Utils.enhancedDeepEquals(this.bulk, other.bulk) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter) &&
-            Utils.enhancedDeepEquals(this.changePassword, other.changePassword) &&
-            Utils.enhancedDeepEquals(this.sort, other.sort) &&
-            Utils.enhancedDeepEquals(this.etag, other.etag) &&
-            Utils.enhancedDeepEquals(this.authenticationSchemes, other.authenticationSchemes) &&
-            Utils.enhancedDeepEquals(this.meta, other.meta);
+        return Utils.enhancedDeepEquals(this.schemas, other.schemas)
+                && Utils.enhancedDeepEquals(this.documentationUri, other.documentationUri)
+                && Utils.enhancedDeepEquals(this.patch, other.patch)
+                && Utils.enhancedDeepEquals(this.bulk, other.bulk)
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.changePassword, other.changePassword)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.etag, other.etag)
+                && Utils.enhancedDeepEquals(this.authenticationSchemes, other.authenticationSchemes)
+                && Utils.enhancedDeepEquals(this.meta, other.meta);
     }
-    
+
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-            schemas, documentationUri, patch,
-            bulk, filter, changePassword,
-            sort, etag, authenticationSchemes,
-            meta);
+                schemas,
+                documentationUri,
+                patch,
+                bulk,
+                filter,
+                changePassword,
+                sort,
+                etag,
+                authenticationSchemes,
+                meta);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ServiceProviderConfig.class,
-                "schemas", schemas,
-                "documentationUri", documentationUri,
-                "patch", patch,
-                "bulk", bulk,
-                "filter", filter,
-                "changePassword", changePassword,
-                "sort", sort,
-                "etag", etag,
-                "authenticationSchemes", authenticationSchemes,
-                "meta", meta);
+        return Utils.toString(
+                ServiceProviderConfig.class,
+                "schemas",
+                schemas,
+                "documentationUri",
+                documentationUri,
+                "patch",
+                patch,
+                "bulk",
+                bulk,
+                "filter",
+                filter,
+                "changePassword",
+                changePassword,
+                "sort",
+                sort,
+                "etag",
+                etag,
+                "authenticationSchemes",
+                authenticationSchemes,
+                "meta",
+                meta);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private List<String> schemas;
 
@@ -356,7 +359,7 @@ public class ServiceProviderConfig {
         private MetaJson meta;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -441,11 +444,16 @@ public class ServiceProviderConfig {
 
         public ServiceProviderConfig build() {
             return new ServiceProviderConfig(
-                schemas, documentationUri, patch,
-                bulk, filter, changePassword,
-                sort, etag, authenticationSchemes,
-                meta);
+                    schemas,
+                    documentationUri,
+                    patch,
+                    bulk,
+                    filter,
+                    changePassword,
+                    sort,
+                    etag,
+                    authenticationSchemes,
+                    meta);
         }
-
     }
 }

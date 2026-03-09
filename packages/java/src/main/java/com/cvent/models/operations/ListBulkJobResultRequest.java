@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class ListBulkJobResultRequest {
     /**
      * A uuid path parameter.
@@ -54,11 +53,11 @@ public class ListBulkJobResultRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
      */
@@ -73,20 +72,16 @@ public class ListBulkJobResultRequest {
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String filter) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.after = after;
         this.before = before;
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public ListBulkJobResultRequest(
-            @Nonnull String id) {
-        this(id, null, null,
-            null, null, null);
+
+    public ListBulkJobResultRequest(@Nonnull String id) {
+        this(id, null, null, null, null, null);
     }
 
     /**
@@ -130,11 +125,11 @@ public class ListBulkJobResultRequest {
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
      */
@@ -146,7 +141,6 @@ public class ListBulkJobResultRequest {
         return new Builder();
     }
 
-
     /**
      * A uuid path parameter.
      */
@@ -154,7 +148,6 @@ public class ListBulkJobResultRequest {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * Used to query records that have been added or updated after this time point. Default to the
@@ -165,7 +158,6 @@ public class ListBulkJobResultRequest {
         return this;
     }
 
-
     /**
      * Used to query records that have been added or updated before this time point.
      */
@@ -174,7 +166,6 @@ public class ListBulkJobResultRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -182,7 +173,6 @@ public class ListBulkJobResultRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -193,16 +183,15 @@ public class ListBulkJobResultRequest {
         return this;
     }
 
-
     /**
      * A filter query string narrows search results and supports the combination of logical and comparison
      * operators.
      * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * 
+     *
      * <p>These are the comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * failed (eq|ne)
      */
@@ -210,7 +199,6 @@ public class ListBulkJobResultRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -221,35 +209,39 @@ public class ListBulkJobResultRequest {
             return false;
         }
         ListBulkJobResultRequest other = (ListBulkJobResultRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, after, before,
-            limit, token, filter);
+        return Utils.enhancedHash(id, after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(ListBulkJobResultRequest.class,
-                "id", id,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                ListBulkJobResultRequest.class,
+                "id",
+                id,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -264,7 +256,7 @@ public class ListBulkJobResultRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -313,11 +305,11 @@ public class ListBulkJobResultRequest {
          * A filter query string narrows search results and supports the combination of logical and comparison
          * operators.
          * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * 
+         *
          * <p>These are the comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
          * * failed (eq|ne)
          */
@@ -327,16 +319,10 @@ public class ListBulkJobResultRequest {
         }
 
         public ListBulkJobResultRequest build() {
-            return new ListBulkJobResultRequest(
-                id, after, before,
-                limit, token, filter);
+            return new ListBulkJobResultRequest(id, after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

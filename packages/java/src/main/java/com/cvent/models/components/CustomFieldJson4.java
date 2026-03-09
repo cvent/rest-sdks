@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,7 +17,7 @@ import java.util.Optional;
 
 /**
  * CustomFieldJson4
- * 
+ *
  * <p>A survey custom field.
  */
 public class CustomFieldJson4 {
@@ -41,7 +41,6 @@ public class CustomFieldJson4 {
     @JsonProperty("code")
     private String code;
 
-
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private CustomFieldJson4CustomFieldType type;
@@ -59,20 +58,16 @@ public class CustomFieldJson4 {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nullable CustomFieldJson4CustomFieldType type,
             @JsonProperty("values") @Nonnull List<String> values) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.code = code;
         this.type = type;
-        this.values = Optional.ofNullable(values)
-            .orElseThrow(() -> new IllegalArgumentException("values cannot be null"));
+        this.values =
+                Optional.ofNullable(values).orElseThrow(() -> new IllegalArgumentException("values cannot be null"));
     }
-    
-    public CustomFieldJson4(
-            @Nonnull String id,
-            @Nonnull List<String> values) {
-        this(id, null, null,
-            null, values);
+
+    public CustomFieldJson4(@Nonnull String id, @Nonnull List<String> values) {
+        this(id, null, null, null, values);
     }
 
     /**
@@ -111,7 +106,6 @@ public class CustomFieldJson4 {
         return new Builder();
     }
 
-
     /**
      * The unique id representing this custom field.
      */
@@ -119,7 +113,6 @@ public class CustomFieldJson4 {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     /**
      * The actual text of the custom field.
@@ -129,7 +122,6 @@ public class CustomFieldJson4 {
         return this;
     }
 
-
     /**
      * Code to uniquely identify custom field.
      */
@@ -138,12 +130,10 @@ public class CustomFieldJson4 {
         return this;
     }
 
-
     public CustomFieldJson4 withType(@Nullable CustomFieldJson4CustomFieldType type) {
         this.type = type;
         return this;
     }
-
 
     /**
      * The set of values or possible values to a custom field.
@@ -152,7 +142,6 @@ public class CustomFieldJson4 {
         this.values = Utils.checkNotNull(values, "values");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -163,33 +152,26 @@ public class CustomFieldJson4 {
             return false;
         }
         CustomFieldJson4 other = (CustomFieldJson4) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.code, other.code) &&
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.values, other.values);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.values, other.values);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, name, code,
-            type, values);
+        return Utils.enhancedHash(id, name, code, type, values);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(CustomFieldJson4.class,
-                "id", id,
-                "name", name,
-                "code", code,
-                "type", type,
-                "values", values);
+        return Utils.toString(
+                CustomFieldJson4.class, "id", id, "name", name, "code", code, "type", type, "values", values);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
@@ -202,7 +184,7 @@ public class CustomFieldJson4 {
         private List<String> values;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -243,10 +225,7 @@ public class CustomFieldJson4 {
         }
 
         public CustomFieldJson4 build() {
-            return new CustomFieldJson4(
-                id, name, code,
-                type, values);
+            return new CustomFieldJson4(id, name, code, type, values);
         }
-
     }
 }

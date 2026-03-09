@@ -16,7 +16,6 @@ import java.lang.String;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-
 public class GetAccountBudgetItemsRequest {
     /**
      * Used to query records that have been modified after this time point.
@@ -50,7 +49,7 @@ public class GetAccountBudgetItemsRequest {
      * There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * rfp.id (eq|ne)
@@ -60,7 +59,7 @@ public class GetAccountBudgetItemsRequest {
      * * category.name (eq|ne)
      * * subCategory.id (eq|ne)
      * * subCategory.name (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -75,21 +74,16 @@ public class GetAccountBudgetItemsRequest {
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String filter) {
-        this.after = Optional.ofNullable(after)
-            .orElseThrow(() -> new IllegalArgumentException("after cannot be null"));
-        this.before = Optional.ofNullable(before)
-            .orElseThrow(() -> new IllegalArgumentException("before cannot be null"));
-        this.limit = Optional.ofNullable(limit)
-            .orElse(Builder._SINGLETON_VALUE_Limit.value());
+        this.after = Optional.ofNullable(after).orElseThrow(() -> new IllegalArgumentException("after cannot be null"));
+        this.before =
+                Optional.ofNullable(before).orElseThrow(() -> new IllegalArgumentException("before cannot be null"));
+        this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
     }
-    
-    public GetAccountBudgetItemsRequest(
-            @Nonnull OffsetDateTime after,
-            @Nonnull OffsetDateTime before) {
-        this(after, before, null,
-            null, null);
+
+    public GetAccountBudgetItemsRequest(@Nonnull OffsetDateTime after, @Nonnull OffsetDateTime before) {
+        this(after, before, null, null, null);
     }
 
     /**
@@ -128,7 +122,7 @@ public class GetAccountBudgetItemsRequest {
      * There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * rfp.id (eq|ne)
@@ -138,7 +132,7 @@ public class GetAccountBudgetItemsRequest {
      * * category.name (eq|ne)
      * * subCategory.id (eq|ne)
      * * subCategory.name (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -151,7 +145,6 @@ public class GetAccountBudgetItemsRequest {
         return new Builder();
     }
 
-
     /**
      * Used to query records that have been modified after this time point.
      */
@@ -159,7 +152,6 @@ public class GetAccountBudgetItemsRequest {
         this.after = Utils.checkNotNull(after, "after");
         return this;
     }
-
 
     /**
      * Used to query records that have been modified before this point
@@ -169,7 +161,6 @@ public class GetAccountBudgetItemsRequest {
         return this;
     }
 
-
     /**
      * The maximum number of records to return per page.
      */
@@ -177,7 +168,6 @@ public class GetAccountBudgetItemsRequest {
         this.limit = limit;
         return this;
     }
-
 
     /**
      * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
@@ -188,7 +178,6 @@ public class GetAccountBudgetItemsRequest {
         return this;
     }
 
-
     /**
      * A filter string passed as a query parameter, narrows search results and supports the combination of
      * logical and comparison operators.
@@ -196,7 +185,7 @@ public class GetAccountBudgetItemsRequest {
      * There are six comparison types that can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
-     * 
+     *
      * <p>The following fields are filterable:
      * * event.id (eq|ne)
      * * rfp.id (eq|ne)
@@ -206,7 +195,7 @@ public class GetAccountBudgetItemsRequest {
      * * category.name (eq|ne)
      * * subCategory.id (eq|ne)
      * * subCategory.name (eq|ne)
-     * 
+     *
      * <p>The following operators are available:
      * * and
      * * or
@@ -215,7 +204,6 @@ public class GetAccountBudgetItemsRequest {
         this.filter = filter;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -226,33 +214,36 @@ public class GetAccountBudgetItemsRequest {
             return false;
         }
         GetAccountBudgetItemsRequest other = (GetAccountBudgetItemsRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.after, other.after) &&
-            Utils.enhancedDeepEquals(this.before, other.before) &&
-            Utils.enhancedDeepEquals(this.limit, other.limit) &&
-            Utils.enhancedDeepEquals(this.token, other.token) &&
-            Utils.enhancedDeepEquals(this.filter, other.filter);
+        return Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
+                && Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            after, before, limit,
-            token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(GetAccountBudgetItemsRequest.class,
-                "after", after,
-                "before", before,
-                "limit", limit,
-                "token", token,
-                "filter", filter);
+        return Utils.toString(
+                GetAccountBudgetItemsRequest.class,
+                "after",
+                after,
+                "before",
+                before,
+                "limit",
+                limit,
+                "token",
+                token,
+                "filter",
+                filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private OffsetDateTime after;
 
@@ -265,7 +256,7 @@ public class GetAccountBudgetItemsRequest {
         private String filter;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -308,7 +299,7 @@ public class GetAccountBudgetItemsRequest {
          * There are six comparison types that can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
-         * 
+         *
          * <p>The following fields are filterable:
          * * event.id (eq|ne)
          * * rfp.id (eq|ne)
@@ -318,7 +309,7 @@ public class GetAccountBudgetItemsRequest {
          * * category.name (eq|ne)
          * * subCategory.id (eq|ne)
          * * subCategory.name (eq|ne)
-         * 
+         *
          * <p>The following operators are available:
          * * and
          * * or
@@ -329,16 +320,10 @@ public class GetAccountBudgetItemsRequest {
         }
 
         public GetAccountBudgetItemsRequest build() {
-            return new GetAccountBudgetItemsRequest(
-                after, before, limit,
-                token, filter);
+            return new GetAccountBudgetItemsRequest(after, before, limit, token, filter);
         }
 
-
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
-                new LazySingletonValue<>(
-                        "limit",
-                        "100",
-                        new TypeReference<Long>() {});
+                new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
     }
 }

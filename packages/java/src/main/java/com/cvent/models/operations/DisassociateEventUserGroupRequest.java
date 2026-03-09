@@ -11,7 +11,6 @@ import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
 
-
 public class DisassociateEventUserGroupRequest {
     /**
      * Unique ID of an event.
@@ -26,13 +25,10 @@ public class DisassociateEventUserGroupRequest {
     private String userGroupId;
 
     @JsonCreator
-    public DisassociateEventUserGroupRequest(
-            @Nonnull String id,
-            @Nonnull String userGroupId) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public DisassociateEventUserGroupRequest(@Nonnull String id, @Nonnull String userGroupId) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.userGroupId = Optional.ofNullable(userGroupId)
-            .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
+                .orElseThrow(() -> new IllegalArgumentException("userGroupId cannot be null"));
     }
 
     /**
@@ -53,7 +49,6 @@ public class DisassociateEventUserGroupRequest {
         return new Builder();
     }
 
-
     /**
      * Unique ID of an event.
      */
@@ -62,7 +57,6 @@ public class DisassociateEventUserGroupRequest {
         return this;
     }
 
-
     /**
      * Unique ID of the user group to associate or disassociate.
      */
@@ -70,7 +64,6 @@ public class DisassociateEventUserGroupRequest {
         this.userGroupId = Utils.checkNotNull(userGroupId, "userGroupId");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -81,33 +74,28 @@ public class DisassociateEventUserGroupRequest {
             return false;
         }
         DisassociateEventUserGroupRequest other = (DisassociateEventUserGroupRequest) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id) &&
-            Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.userGroupId, other.userGroupId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id, userGroupId);
+        return Utils.enhancedHash(id, userGroupId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(DisassociateEventUserGroupRequest.class,
-                "id", id,
-                "userGroupId", userGroupId);
+        return Utils.toString(DisassociateEventUserGroupRequest.class, "id", id, "userGroupId", userGroupId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private String userGroupId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -127,9 +115,7 @@ public class DisassociateEventUserGroupRequest {
         }
 
         public DisassociateEventUserGroupRequest build() {
-            return new DisassociateEventUserGroupRequest(
-                id, userGroupId);
+            return new DisassociateEventUserGroupRequest(id, userGroupId);
         }
-
     }
 }

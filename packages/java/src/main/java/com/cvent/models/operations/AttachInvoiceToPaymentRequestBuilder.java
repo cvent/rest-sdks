@@ -28,7 +28,7 @@ public class AttachInvoiceToPaymentRequestBuilder {
     private AttachInvoiceToPaymentRequest _buildRequest() {
         return this.request;
     }
-    
+
     public AttachInvoiceToPaymentRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class AttachInvoiceToPaymentRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public AttachInvoiceToPaymentResponse call() {
-        RequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation
-              = new AttachInvoiceToPayment.Sync(sdkConfiguration, _headers);
+        RequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation =
+                new AttachInvoiceToPayment.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -40,7 +40,7 @@ public class GetExhibitorsRequestBuilder {
     private GetExhibitorsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetExhibitorsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -49,17 +49,16 @@ public class GetExhibitorsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetExhibitorsResponse> call() {
-        AsyncRequestOperation<GetExhibitorsRequest, GetExhibitorsResponse> operation
-              = new GetExhibitors.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetExhibitorsRequest, GetExhibitorsResponse> operation =
+                new GetExhibitors.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
-    
+
     /**
      * Returns a {@link Publisher} that performs next page calls till no more pages
      * are returned.
@@ -76,14 +75,14 @@ public class GetExhibitorsRequestBuilder {
      */
     public Publisher<GetExhibitorsResponse> callAsPublisher() {
         GetExhibitorsRequest request = this.request;
-        AsyncRequestOperation<GetExhibitorsRequest, GetExhibitorsResponse> operation
-              = new GetExhibitors.Async(sdkConfiguration, _headers);
+        AsyncRequestOperation<GetExhibitorsRequest, GetExhibitorsResponse> operation =
+                new GetExhibitors.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-            request,
-            new CursorTracker<>("$.paging.nextToken", String.class),
-            GetExhibitorsRequest::withToken,
-            operation::doRequest);
+                request,
+                new CursorTracker<>("$.paging.nextToken", String.class),
+                GetExhibitorsRequest::withToken,
+                operation::doRequest);
 
         Flow.Publisher<GetExhibitorsResponse> flowPublisher = mapAsync(asyncPaginator, operation::handleResponse);
 

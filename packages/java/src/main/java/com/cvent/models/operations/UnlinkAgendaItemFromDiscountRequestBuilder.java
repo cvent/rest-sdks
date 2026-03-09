@@ -28,7 +28,7 @@ public class UnlinkAgendaItemFromDiscountRequestBuilder {
     private UnlinkAgendaItemFromDiscountRequest _buildRequest() {
         return this.request;
     }
-    
+
     public UnlinkAgendaItemFromDiscountRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +37,13 @@ public class UnlinkAgendaItemFromDiscountRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public UnlinkAgendaItemFromDiscountResponse call() {
-        RequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation
-              = new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, _headers);
+        RequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation =
+                new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

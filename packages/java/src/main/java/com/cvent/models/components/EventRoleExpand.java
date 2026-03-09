@@ -17,13 +17,13 @@ public enum EventRoleExpand {
     EventRoleExpand(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<EventRoleExpand> fromValue(String value) {
-        for (EventRoleExpand o: EventRoleExpand.values()) {
+        for (EventRoleExpand o : EventRoleExpand.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -31,4 +31,3 @@ public enum EventRoleExpand {
         return Optional.empty();
     }
 }
-

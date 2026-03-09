@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * SessionQaActionTypeJson
- * 
+ *
  * <p>The user action that just occurred.
  * `question.asked` - A question was asked.
  * `question.upvoted` - A question was upvoted.
@@ -31,13 +31,13 @@ public enum SessionQaActionTypeJson {
     SessionQaActionTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<SessionQaActionTypeJson> fromValue(String value) {
-        for (SessionQaActionTypeJson o: SessionQaActionTypeJson.values()) {
+        for (SessionQaActionTypeJson o : SessionQaActionTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -45,4 +45,3 @@ public enum SessionQaActionTypeJson {
         return Optional.empty();
     }
 }
-

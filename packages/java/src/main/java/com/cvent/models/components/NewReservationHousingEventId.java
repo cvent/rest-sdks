@@ -11,7 +11,7 @@ import java.lang.String;
 
 /**
  * NewReservationHousingEventId
- * 
+ *
  * <p>Information about Passkey event for this reservation.
  */
 public class NewReservationHousingEventId {
@@ -22,8 +22,7 @@ public class NewReservationHousingEventId {
     private long id;
 
     @JsonCreator
-    public NewReservationHousingEventId(
-            @JsonProperty("id") long id) {
+    public NewReservationHousingEventId(@JsonProperty("id") long id) {
         this.id = id;
     }
 
@@ -38,7 +37,6 @@ public class NewReservationHousingEventId {
         return new Builder();
     }
 
-
     /**
      * The unique ID of the housing event.
      */
@@ -46,7 +44,6 @@ public class NewReservationHousingEventId {
         this.id = id;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -57,29 +54,26 @@ public class NewReservationHousingEventId {
             return false;
         }
         NewReservationHousingEventId other = (NewReservationHousingEventId) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(NewReservationHousingEventId.class,
-                "id", id);
+        return Utils.toString(NewReservationHousingEventId.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private long id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -91,9 +85,7 @@ public class NewReservationHousingEventId {
         }
 
         public NewReservationHousingEventId build() {
-            return new NewReservationHousingEventId(
-                id);
+            return new NewReservationHousingEventId(id);
         }
-
     }
 }

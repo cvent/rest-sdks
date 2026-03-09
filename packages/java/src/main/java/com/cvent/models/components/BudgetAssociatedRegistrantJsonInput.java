@@ -5,8 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * BudgetAssociatedRegistrantJsonInput
- * 
+ *
  * <p>Contains information about a registrant associated with a budget.
  */
 public class BudgetAssociatedRegistrantJsonInput {
@@ -40,7 +40,7 @@ public class BudgetAssociatedRegistrantJsonInput {
         this.inviteeId = inviteeId;
         this.contactId = contactId;
     }
-    
+
     public BudgetAssociatedRegistrantJsonInput() {
         this(null, null);
     }
@@ -63,7 +63,6 @@ public class BudgetAssociatedRegistrantJsonInput {
         return new Builder();
     }
 
-
     /**
      * Unique identifier for the invitee associated with the budget.
      */
@@ -72,7 +71,6 @@ public class BudgetAssociatedRegistrantJsonInput {
         return this;
     }
 
-
     /**
      * Unique identifier for the contact associated with the budget.
      */
@@ -80,7 +78,6 @@ public class BudgetAssociatedRegistrantJsonInput {
         this.contactId = contactId;
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -91,33 +88,30 @@ public class BudgetAssociatedRegistrantJsonInput {
             return false;
         }
         BudgetAssociatedRegistrantJsonInput other = (BudgetAssociatedRegistrantJsonInput) o;
-        return 
-            Utils.enhancedDeepEquals(this.inviteeId, other.inviteeId) &&
-            Utils.enhancedDeepEquals(this.contactId, other.contactId);
+        return Utils.enhancedDeepEquals(this.inviteeId, other.inviteeId)
+                && Utils.enhancedDeepEquals(this.contactId, other.contactId);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            inviteeId, contactId);
+        return Utils.enhancedHash(inviteeId, contactId);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(BudgetAssociatedRegistrantJsonInput.class,
-                "inviteeId", inviteeId,
-                "contactId", contactId);
+        return Utils.toString(
+                BudgetAssociatedRegistrantJsonInput.class, "inviteeId", inviteeId, "contactId", contactId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String inviteeId;
 
         private String contactId;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -137,9 +131,7 @@ public class BudgetAssociatedRegistrantJsonInput {
         }
 
         public BudgetAssociatedRegistrantJsonInput build() {
-            return new BudgetAssociatedRegistrantJsonInput(
-                inviteeId, contactId);
+            return new BudgetAssociatedRegistrantJsonInput(inviteeId, contactId);
         }
-
     }
 }

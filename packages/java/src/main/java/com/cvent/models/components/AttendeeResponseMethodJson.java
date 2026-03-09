@@ -10,9 +10,9 @@ import java.util.Optional;
 
 /**
  * AttendeeResponseMethodJson
- * 
+ *
  * <p>Represents the method by which an attendee registered for the event.
- * 
+ *
  * <p>- Administrator Responded: The invitee was registered by another contact acting as their
  * administrator.
  * - API-Responded: The invitee was registered through a custom process configured via an API
@@ -32,7 +32,7 @@ import java.util.Optional;
  * - Post Event: The invitee was registered by an account user after the event's end date or while the
  * event was in Completed status.
  * - Self-Responded: The invitee registered themselves through a weblink or invitation.
- * 
+ *
  * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
  */
 public enum AttendeeResponseMethodJson {
@@ -67,13 +67,13 @@ public enum AttendeeResponseMethodJson {
     AttendeeResponseMethodJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<AttendeeResponseMethodJson> fromValue(String value) {
-        for (AttendeeResponseMethodJson o: AttendeeResponseMethodJson.values()) {
+        for (AttendeeResponseMethodJson o : AttendeeResponseMethodJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -81,4 +81,3 @@ public enum AttendeeResponseMethodJson {
         return Optional.empty();
     }
 }
-

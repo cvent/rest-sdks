@@ -13,7 +13,7 @@ import java.util.Optional;
 
 /**
  * OrderJson
- * 
+ *
  * <p>Represents an order. Contains only the ID of the order.
  */
 public class OrderJson {
@@ -24,10 +24,8 @@ public class OrderJson {
     private String id;
 
     @JsonCreator
-    public OrderJson(
-            @JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id)
-            .orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public OrderJson(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
@@ -41,7 +39,6 @@ public class OrderJson {
         return new Builder();
     }
 
-
     /**
      * Unique ID of the order.
      */
@@ -49,7 +46,6 @@ public class OrderJson {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
-
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -60,29 +56,26 @@ public class OrderJson {
             return false;
         }
         OrderJson other = (OrderJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            id);
+        return Utils.enhancedHash(id);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(OrderJson.class,
-                "id", id);
+        return Utils.toString(OrderJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private String id;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -94,9 +87,7 @@ public class OrderJson {
         }
 
         public OrderJson build() {
-            return new OrderJson(
-                id);
+            return new OrderJson(id);
         }
-
     }
 }

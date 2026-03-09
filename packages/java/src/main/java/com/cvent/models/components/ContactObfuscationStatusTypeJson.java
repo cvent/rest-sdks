@@ -10,17 +10,17 @@ import java.util.Optional;
 
 /**
  * ContactObfuscationStatusTypeJson
- * 
+ *
  * <p>Status of the request to obfuscate a contact.
- * 
+ *
  * <p>INITIATED - The obfuscation request has been received.
- * 
+ *
  * <p>QUEUED - The obfuscation request is currently waiting in the queue to be executed.
- * 
+ *
  * <p>PROCESSING -  The obfuscation request is currently being processed.
- * 
+ *
  * <p>COMPLETED -  The obfuscation request is complete.
- * 
+ *
  * <p>FAILED - The obfuscation request failed due to an error.
  */
 public enum ContactObfuscationStatusTypeJson {
@@ -36,13 +36,13 @@ public enum ContactObfuscationStatusTypeJson {
     ContactObfuscationStatusTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ContactObfuscationStatusTypeJson> fromValue(String value) {
-        for (ContactObfuscationStatusTypeJson o: ContactObfuscationStatusTypeJson.values()) {
+        for (ContactObfuscationStatusTypeJson o : ContactObfuscationStatusTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -50,4 +50,3 @@ public enum ContactObfuscationStatusTypeJson {
         return Optional.empty();
     }
 }
-

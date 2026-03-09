@@ -18,26 +18,22 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum BulkJobWithDataOperation
     {
-        [JsonProperty("PUT")]
-        Put,
-        [JsonProperty("POST")]
-        Post,
-        [JsonProperty("PATCH")]
-        Patch,
-        [JsonProperty("DELETE")]
-        Delete,
+        [JsonProperty("PUT")] Put,
+        [JsonProperty("POST")] Post,
+        [JsonProperty("PATCH")] Patch,
+        [JsonProperty("DELETE")] Delete,
     }
 
     public static class BulkJobWithDataOperationExtension
     {
         public static string Value(this BulkJobWithDataOperation value)
         {
-            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
         public static BulkJobWithDataOperation ToEnum(this string value)
         {
-            foreach(var field in typeof(BulkJobWithDataOperation).GetFields())
+            foreach (var field in typeof(BulkJobWithDataOperation).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)

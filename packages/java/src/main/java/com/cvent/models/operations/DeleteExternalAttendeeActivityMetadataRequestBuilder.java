@@ -20,7 +20,8 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
         this.sdkConfiguration = sdkConfiguration;
     }
 
-    public DeleteExternalAttendeeActivityMetadataRequestBuilder request(@Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
+    public DeleteExternalAttendeeActivityMetadataRequestBuilder request(
+            @Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
@@ -28,7 +29,7 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
     private DeleteExternalAttendeeActivityMetadataRequest _buildRequest() {
         return this.request;
     }
-    
+
     public DeleteExternalAttendeeActivityMetadataRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -37,13 +38,13 @@ public class DeleteExternalAttendeeActivityMetadataRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public DeleteExternalAttendeeActivityMetadataResponse call() {
-        RequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation
-              = new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+        RequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation =
+                new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

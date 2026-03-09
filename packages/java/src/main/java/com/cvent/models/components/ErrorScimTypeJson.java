@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * ErrorScimTypeJson
- * 
+ *
  * <p>This is used to denote the scim type of the error.
  */
 public enum ErrorScimTypeJson {
@@ -25,13 +25,13 @@ public enum ErrorScimTypeJson {
     ErrorScimTypeJson(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<ErrorScimTypeJson> fromValue(String value) {
-        for (ErrorScimTypeJson o: ErrorScimTypeJson.values()) {
+        for (ErrorScimTypeJson o : ErrorScimTypeJson.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -39,4 +39,3 @@ public enum ErrorScimTypeJson {
         return Optional.empty();
     }
 }
-

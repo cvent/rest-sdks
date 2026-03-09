@@ -30,7 +30,7 @@ public class GetLeadQualificationQuestionsRequestBuilder {
     private GetLeadQualificationQuestionsRequest _buildRequest() {
         return this.request;
     }
-    
+
     public GetLeadQualificationQuestionsRequestBuilder header(String name, String value) {
         Utils.checkNotNull(name, "name");
         Utils.checkNotNull(value, "value");
@@ -39,14 +39,13 @@ public class GetLeadQualificationQuestionsRequestBuilder {
     }
 
     /**
-    * Executes the request and returns the response.
-    *
-    * @return The response from the server.
-    */
+     * Executes the request and returns the response.
+     *
+     * @return The response from the server.
+     */
     public CompletableFuture<GetLeadQualificationQuestionsResponse> call() {
-        AsyncRequestOperation<GetLeadQualificationQuestionsRequest, GetLeadQualificationQuestionsResponse> operation
-              = new GetLeadQualificationQuestions.Async(sdkConfiguration, _headers);
-        return operation.doRequest(this._buildRequest())
-            .thenCompose(operation::handleResponse);
+        AsyncRequestOperation<GetLeadQualificationQuestionsRequest, GetLeadQualificationQuestionsResponse> operation =
+                new GetLeadQualificationQuestions.Async(sdkConfiguration, _headers);
+        return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

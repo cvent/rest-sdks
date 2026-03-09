@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * TransactionTypeJson1
- * 
+ *
  * <p>This is used to denote the transaction type for a transaction.
  */
 public enum TransactionTypeJson1 {
@@ -26,13 +26,13 @@ public enum TransactionTypeJson1 {
     TransactionTypeJson1(String value) {
         this.value = value;
     }
-    
+
     public String value() {
         return value;
     }
-    
+
     public static Optional<TransactionTypeJson1> fromValue(String value) {
-        for (TransactionTypeJson1 o: TransactionTypeJson1.values()) {
+        for (TransactionTypeJson1 o : TransactionTypeJson1.values()) {
             if (Objects.deepEquals(o.value, value)) {
                 return Optional.of(o);
             }
@@ -40,4 +40,3 @@ public enum TransactionTypeJson1 {
         return Optional.empty();
     }
 }
-

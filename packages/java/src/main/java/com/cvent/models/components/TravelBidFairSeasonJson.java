@@ -6,8 +6,8 @@ package com.cvent.models.components;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 /**
  * TravelBidFairSeasonJson
- * 
+ *
  * <p>The fair season for a travel bid.
  */
 public class TravelBidFairSeasonJson {
@@ -93,8 +93,7 @@ public class TravelBidFairSeasonJson {
             @JsonProperty("releasePeriod") @Nullable Long releasePeriod,
             @JsonProperty("rates") @Nullable List<TravelBidFairSeasonRateJson> rates,
             @JsonProperty("status") @Nullable BidItemStatusTypeJson status) {
-        this.type = Optional.ofNullable(type)
-            .orElse(Builder._SINGLETON_VALUE_Type.value());
+        this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -103,11 +102,9 @@ public class TravelBidFairSeasonJson {
         this.rates = rates;
         this.status = status;
     }
-    
+
     public TravelBidFairSeasonJson() {
-        this(null, null, null,
-            null, null, null,
-            null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -173,7 +170,6 @@ public class TravelBidFairSeasonJson {
         return new Builder();
     }
 
-
     /**
      * Fair season type. Blackout means that no special rate is negotiated for that date and Best Available
      * Rates will apply
@@ -183,7 +179,6 @@ public class TravelBidFairSeasonJson {
         return this;
     }
 
-
     /**
      * Fair season name.
      */
@@ -191,7 +186,6 @@ public class TravelBidFairSeasonJson {
         this.name = name;
         return this;
     }
-
 
     /**
      * The ISO 8601 start date of the fair season.
@@ -201,7 +195,6 @@ public class TravelBidFairSeasonJson {
         return this;
     }
 
-
     /**
      * The ISO 8601 end date of the fair season.
      */
@@ -210,7 +203,6 @@ public class TravelBidFairSeasonJson {
         return this;
     }
 
-
     /**
      * Minimum length of stay for the fair season.
      */
@@ -218,7 +210,6 @@ public class TravelBidFairSeasonJson {
         this.minLengthOfStay = minLengthOfStay;
         return this;
     }
-
 
     /**
      * Release period for the fair season. Release period is the minimum number of days between the booking
@@ -229,7 +220,6 @@ public class TravelBidFairSeasonJson {
         return this;
     }
 
-
     /**
      * Collection of rates for the fair season.
      */
@@ -237,7 +227,6 @@ public class TravelBidFairSeasonJson {
         this.rates = rates;
         return this;
     }
-
 
     /**
      * The status of the item in negotiation. e.g. The corporation might mark an item as delete_requested,
@@ -248,7 +237,6 @@ public class TravelBidFairSeasonJson {
         return this;
     }
 
-
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -258,40 +246,45 @@ public class TravelBidFairSeasonJson {
             return false;
         }
         TravelBidFairSeasonJson other = (TravelBidFairSeasonJson) o;
-        return 
-            Utils.enhancedDeepEquals(this.type, other.type) &&
-            Utils.enhancedDeepEquals(this.name, other.name) &&
-            Utils.enhancedDeepEquals(this.startDate, other.startDate) &&
-            Utils.enhancedDeepEquals(this.endDate, other.endDate) &&
-            Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay) &&
-            Utils.enhancedDeepEquals(this.releasePeriod, other.releasePeriod) &&
-            Utils.enhancedDeepEquals(this.rates, other.rates) &&
-            Utils.enhancedDeepEquals(this.status, other.status);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.startDate, other.startDate)
+                && Utils.enhancedDeepEquals(this.endDate, other.endDate)
+                && Utils.enhancedDeepEquals(this.minLengthOfStay, other.minLengthOfStay)
+                && Utils.enhancedDeepEquals(this.releasePeriod, other.releasePeriod)
+                && Utils.enhancedDeepEquals(this.rates, other.rates)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
-    
+
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-            type, name, startDate,
-            endDate, minLengthOfStay, releasePeriod,
-            rates, status);
+        return Utils.enhancedHash(type, name, startDate, endDate, minLengthOfStay, releasePeriod, rates, status);
     }
-    
+
     @Override
     public String toString() {
-        return Utils.toString(TravelBidFairSeasonJson.class,
-                "type", type,
-                "name", name,
-                "startDate", startDate,
-                "endDate", endDate,
-                "minLengthOfStay", minLengthOfStay,
-                "releasePeriod", releasePeriod,
-                "rates", rates,
-                "status", status);
+        return Utils.toString(
+                TravelBidFairSeasonJson.class,
+                "type",
+                type,
+                "name",
+                name,
+                "startDate",
+                startDate,
+                "endDate",
+                endDate,
+                "minLengthOfStay",
+                minLengthOfStay,
+                "releasePeriod",
+                releasePeriod,
+                "rates",
+                rates,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
-    public final static class Builder {
+    public static final class Builder {
 
         private FairSeasonTypeJson type;
 
@@ -310,7 +303,7 @@ public class TravelBidFairSeasonJson {
         private BidItemStatusTypeJson status;
 
         private Builder() {
-          // force use of static builder() method
+            // force use of static builder() method
         }
 
         /**
@@ -382,16 +375,10 @@ public class TravelBidFairSeasonJson {
 
         public TravelBidFairSeasonJson build() {
             return new TravelBidFairSeasonJson(
-                type, name, startDate,
-                endDate, minLengthOfStay, releasePeriod,
-                rates, status);
+                    type, name, startDate, endDate, minLengthOfStay, releasePeriod, rates, status);
         }
 
-
         private static final LazySingletonValue<FairSeasonTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>(
-                        "type",
-                        "\"negotiated\"",
-                        new TypeReference<FairSeasonTypeJson>() {});
+                new LazySingletonValue<>("type", "\"negotiated\"", new TypeReference<FairSeasonTypeJson>() {});
     }
 }

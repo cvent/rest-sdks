@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 csharp:
-  version: 1.0.10
+  version: 1.0.11
   additionalDependencies: []
   author: Cvent
   baseErrorName: CventSDKException
@@ -43,7 +43,7 @@ csharp:
   disableNamespacePascalCasingApr2024: true
   dotnetVersion: net8.0
   enableCancellationToken: false
-  enableFormatting: false
+  enableFormatting: true
   enableSourceLink: true
   flattenGlobalSecurity: false
   flatteningOrder: parameters-first
