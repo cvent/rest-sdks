@@ -155,7 +155,7 @@ public class Application {
                 .call();
 
         if (res.sessionLocation().isPresent()) {
-            // handle response
+            System.out.println(res.sessionLocation().get());
         }
     }
 }
@@ -228,7 +228,7 @@ public class Application {
                 .call();
 
         if (res.programItem().isPresent()) {
-            // handle response
+            System.out.println(res.programItem().get());
         }
     }
 }
@@ -516,7 +516,7 @@ public class Application {
                 .call();
 
         if (res.programItem().isPresent()) {
-            // handle response
+            System.out.println(res.programItem().get());
         }
     }
 }
@@ -649,7 +649,7 @@ public class Application {
                 .call();
 
         if (res.programItemSessionDocuments().isPresent()) {
-            // handle response
+            System.out.println(res.programItemSessionDocuments().get());
         }
     }
 }
@@ -716,7 +716,7 @@ public class Application {
                 .call();
 
         if (res.programItemSessionDocument().isPresent()) {
-            // handle response
+            System.out.println(res.programItemSessionDocument().get());
         }
     }
 }
@@ -783,7 +783,7 @@ public class Application {
                 .call();
 
         if (res.programItemSessionDocument().isPresent()) {
-            // handle response
+            System.out.println(res.programItemSessionDocument().get());
         }
     }
 }
@@ -985,7 +985,7 @@ public class Application {
                 .call();
 
         if (res.sessionCategory().isPresent()) {
-            // handle response
+            System.out.println(res.sessionCategory().get());
         }
     }
 }
@@ -1242,7 +1242,7 @@ public class Application {
                 .call();
 
         if (res.session().isPresent()) {
-            // handle response
+            System.out.println(res.session().get());
         }
     }
 }
@@ -1387,7 +1387,7 @@ public class Application {
                 .call();
 
         if (res.session().isPresent()) {
-            // handle response
+            System.out.println(res.session().get());
         }
     }
 }
@@ -1501,7 +1501,7 @@ public class Application {
                 .call();
 
         if (res.session().isPresent()) {
-            // handle response
+            System.out.println(res.session().get());
         }
     }
 }
@@ -1644,7 +1644,7 @@ public class Application {
                 .call();
 
         if (res.customField1().isPresent()) {
-            // handle response
+            System.out.println(res.customField1().get());
         }
     }
 }
@@ -1785,7 +1785,7 @@ public class Application {
                 .call();
 
         if (res.sessionFile().isPresent()) {
-            // handle response
+            System.out.println(res.sessionFile().get());
         }
     }
 }
@@ -1858,7 +1858,7 @@ public class Application {
                 .call();
 
         if (res.sessionFile().isPresent()) {
-            // handle response
+            System.out.println(res.sessionFile().get());
         }
     }
 }

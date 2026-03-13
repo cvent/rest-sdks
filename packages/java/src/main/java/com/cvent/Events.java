@@ -54,6 +54,9 @@ import com.cvent.models.operations.GetEventCopyStatusResponse;
 import com.cvent.models.operations.GetEventEmailStatusRequest;
 import com.cvent.models.operations.GetEventEmailStatusRequestBuilder;
 import com.cvent.models.operations.GetEventEmailStatusResponse;
+import com.cvent.models.operations.GetEventPlanningDocumentsRequest;
+import com.cvent.models.operations.GetEventPlanningDocumentsRequestBuilder;
+import com.cvent.models.operations.GetEventPlanningDocumentsResponse;
 import com.cvent.models.operations.GetEventQuestionsRequest;
 import com.cvent.models.operations.GetEventQuestionsRequestBuilder;
 import com.cvent.models.operations.GetEventQuestionsResponse;
@@ -159,6 +162,7 @@ import com.cvent.operations.GetEventAsyncStatus;
 import com.cvent.operations.GetEventById;
 import com.cvent.operations.GetEventCopyStatus;
 import com.cvent.operations.GetEventEmailStatus;
+import com.cvent.operations.GetEventPlanningDocuments;
 import com.cvent.operations.GetEventQuestions;
 import com.cvent.operations.GetEvents;
 import com.cvent.operations.GetEventsPostFilters;
@@ -1021,6 +1025,37 @@ public class Events {
             @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
         RequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
                 new AssociateDiscountCodeToOrderItem.Sync(sdkConfiguration, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Event Planning Documents
+     *
+     * <p>Gets a paginated list of event planning documents.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The call builder
+     */
+    public GetEventPlanningDocumentsRequestBuilder getEventPlanningDocuments() {
+        return new GetEventPlanningDocumentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Planning Documents
+     *
+     * <p>Gets a paginated list of event planning documents.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEventPlanningDocumentsResponse getEventPlanningDocuments(
+            @Nonnull GetEventPlanningDocumentsRequest request) {
+        RequestOperation<GetEventPlanningDocumentsRequest, GetEventPlanningDocumentsResponse> operation =
+                new GetEventPlanningDocuments.Sync(sdkConfiguration, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

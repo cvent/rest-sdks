@@ -14,7 +14,7 @@ import {
   BaseChoiceJson,
   BaseChoiceJson$inboundSchema,
 } from "./basechoicejson.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import {
   ExhibitorAnswerFormatJson,
   ExhibitorAnswerFormatJson$inboundSchema,
@@ -51,7 +51,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * The actual text of the exhibitor question.
    */
@@ -115,7 +115,7 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson5$inboundSchema,
+  event: EventJson6$inboundSchema,
   text: z.string(),
   code: z.string().optional(),
   type: ExhibitorQuestionTypeJson$inboundSchema,

@@ -9,7 +9,7 @@ let value: UpdateSessionCustomFieldAnswersRequest = {
   id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   customField1: {
-    id: "fca6a3ef-96a5-40fe-a652-65eabffdde13",
+    id: "1b66c479-861d-4de7-9666-fd5487bee091",
     value: [
       "Choice C",
       "Choice A",

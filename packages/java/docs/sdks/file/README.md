@@ -132,7 +132,7 @@ public class Application {
                 .call();
 
         if (res.fileWithAudit().isPresent()) {
-            // handle response
+            System.out.println(res.fileWithAudit().get());
         }
     }
 }

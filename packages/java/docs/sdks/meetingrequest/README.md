@@ -61,7 +61,7 @@ public class Application {
                 .call();
 
         if (res.meetingRequest().isPresent()) {
-            // handle response
+            System.out.println(res.meetingRequest().get());
         }
     }
 }
@@ -200,7 +200,7 @@ public class Application {
                 .call();
 
         if (res.meetingRequestForm().isPresent()) {
-            // handle response
+            System.out.println(res.meetingRequestForm().get());
         }
     }
 }
@@ -279,7 +279,7 @@ public class Application {
                 .call();
 
         if (res.meetingRequestBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.meetingRequestBulkResponse().get());
         }
     }
 }
@@ -349,7 +349,7 @@ public class Application {
                 .call();
 
         if (res.meetingRequestBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.meetingRequestBulkResponse().get());
         }
     }
 }
@@ -493,7 +493,7 @@ public class Application {
                 .call();
 
         if (res.meetingRequest().isPresent()) {
-            // handle response
+            System.out.println(res.meetingRequest().get());
         }
     }
 }

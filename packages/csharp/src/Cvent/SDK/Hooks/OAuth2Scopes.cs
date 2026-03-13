@@ -471,6 +471,11 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("event/orders:read")] EventOrdersRead,
 
         /// <summary>
+        /// Allows the reading of event planning documents.
+        /// </summary>
+        [JsonProperty("event/planning-documents:read")] EventPlanningDocumentsRead,
+
+        /// <summary>
         /// Allows the reading of players.
         /// </summary>
         [JsonProperty("event/players:read")] EventPlayersRead,
@@ -1476,6 +1481,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of orders.
         /// </summary>
         [JsonProperty("event/orders:read")] EventOrdersRead,
+
+        /// <summary>
+        /// Allows the reading of event planning documents.
+        /// </summary>
+        [JsonProperty("event/planning-documents:read")] EventPlanningDocumentsRead,
 
         /// <summary>
         /// Allows the reading of players.

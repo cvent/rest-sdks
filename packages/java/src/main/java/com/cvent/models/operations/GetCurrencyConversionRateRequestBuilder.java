@@ -75,13 +75,12 @@ public class GetCurrencyConversionRateRequestBuilder {
         GetCurrencyConversionRateRequest request = this.request;
         RequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation =
                 new GetCurrencyConversionRate.Sync(sdkConfiguration, _headers);
-        // foobar
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-                request,
-                new CursorTracker<>("$.paging.nextToken", String.class),
-                GetCurrencyConversionRateRequest::withToken,
-                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {
+                    var modifiedReq = pos == null ? req : req.withToken(pos);
+                    return unchecked(() -> operation.doRequest(modifiedReq)).get();
+                });
 
         return () -> transform(iterator, operation::handleResponse);
     }

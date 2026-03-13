@@ -68,7 +68,7 @@ public class LeadQualificationAnswersJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -99,7 +99,7 @@ public class LeadQualificationAnswersJson {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("question") @Nullable UuidJson question,
-            @JsonProperty("event") @Nullable EventJson5 event,
+            @JsonProperty("event") @Nullable EventJson6 event,
             @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("lead") @Nullable LeadJson lead,
             @JsonProperty("answers") @Nullable List<AnswerJson> answers) {
@@ -164,7 +164,7 @@ public class LeadQualificationAnswersJson {
     /**
      * The Associated Event.
      */
-    public Optional<EventJson5> event() {
+    public Optional<EventJson6> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -244,7 +244,7 @@ public class LeadQualificationAnswersJson {
     /**
      * The Associated Event.
      */
-    public LeadQualificationAnswersJson withEvent(@Nullable EventJson5 event) {
+    public LeadQualificationAnswersJson withEvent(@Nullable EventJson6 event) {
         this.event = event;
         return this;
     }
@@ -341,7 +341,7 @@ public class LeadQualificationAnswersJson {
 
         private UuidJson question;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -404,7 +404,7 @@ public class LeadQualificationAnswersJson {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable EventJson5 event) {
+        public Builder event(@Nullable EventJson6 event) {
             this.event = event;
             return this;
         }

@@ -9,10 +9,10 @@ import {
   ContactLinksJson2$outboundSchema,
 } from "./contactlinksjson2.js";
 import {
-  EventJson5,
-  EventJson5$Outbound,
-  EventJson5$outboundSchema,
-} from "./eventjson5.js";
+  EventJson6,
+  EventJson6$Outbound,
+  EventJson6$outboundSchema,
+} from "./eventjson6.js";
 import {
   ExhibitorAddressJson,
   ExhibitorAddressJson$Outbound,
@@ -31,7 +31,7 @@ export type ExhibitorRequest = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -104,7 +104,7 @@ export type ExhibitorRequest = {
 
 /** @internal */
 export type ExhibitorRequest$Outbound = {
-  event: EventJson5$Outbound;
+  event: EventJson6$Outbound;
   name: string;
   description?: string | undefined;
   code?: string | undefined;
@@ -130,7 +130,7 @@ export const ExhibitorRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorRequest
 > = z.object({
-  event: EventJson5$outboundSchema,
+  event: EventJson6$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),

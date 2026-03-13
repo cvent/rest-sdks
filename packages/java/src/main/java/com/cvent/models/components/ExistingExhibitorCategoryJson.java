@@ -53,7 +53,7 @@ public class ExistingExhibitorCategoryJson {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * Name of the exhibitor category
@@ -107,7 +107,7 @@ public class ExistingExhibitorCategoryJson {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("order") long order,
@@ -130,7 +130,7 @@ public class ExistingExhibitorCategoryJson {
     }
 
     public ExistingExhibitorCategoryJson(
-            @Nonnull EventJson5 event,
+            @Nonnull EventJson6 event,
             @Nonnull String name,
             long order,
             @Nonnull ExistingExhibitorCategoryJsonType type) {
@@ -168,7 +168,7 @@ public class ExistingExhibitorCategoryJson {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -260,7 +260,7 @@ public class ExistingExhibitorCategoryJson {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorCategoryJson withEvent(@Nonnull EventJson5 event) {
+    public ExistingExhibitorCategoryJson withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -402,7 +402,7 @@ public class ExistingExhibitorCategoryJson {
 
         private String lastModifiedBy;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private String name;
 
@@ -457,7 +457,7 @@ public class ExistingExhibitorCategoryJson {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

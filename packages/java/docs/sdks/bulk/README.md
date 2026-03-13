@@ -107,7 +107,7 @@ public class Application {
                 .call();
 
         if (res.bulkJobWithData().isPresent()) {
-            // handle response
+            System.out.println(res.bulkJobWithData().get());
         }
     }
 }
@@ -173,7 +173,7 @@ public class Application {
                 .call();
 
         if (res.bulkJob().isPresent()) {
-            // handle response
+            System.out.println(res.bulkJob().get());
         }
     }
 }
@@ -239,7 +239,7 @@ public class Application {
                 .call();
 
         if (res.bulkJob().isPresent()) {
-            // handle response
+            System.out.println(res.bulkJob().get());
         }
     }
 }
@@ -335,7 +335,7 @@ public class Application {
                 .call();
 
         if (res.bulkDataUploadResponse().isPresent()) {
-            // handle response
+            System.out.println(res.bulkDataUploadResponse().get());
         }
     }
 }
@@ -474,7 +474,7 @@ public class Application {
                 .call();
 
         if (res.bulkJob().isPresent()) {
-            // handle response
+            System.out.println(res.bulkJob().get());
         }
     }
 }

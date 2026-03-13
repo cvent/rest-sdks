@@ -56,7 +56,7 @@ public class ExistingWeblink {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -102,7 +102,7 @@ public class ExistingWeblink {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("url") @Nonnull String url,
@@ -124,7 +124,7 @@ public class ExistingWeblink {
     }
 
     public ExistingWeblink(
-            @Nonnull EventJson5 event,
+            @Nonnull EventJson6 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull String name,
             @Nonnull String url,
@@ -163,7 +163,7 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -248,7 +248,7 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public ExistingWeblink withEvent(@Nonnull EventJson5 event) {
+    public ExistingWeblink withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -368,7 +368,7 @@ public class ExistingWeblink {
 
         private String lastModifiedBy;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -421,7 +421,7 @@ public class ExistingWeblink {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

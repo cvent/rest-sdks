@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// ID of the event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson2? Event { get; set; }
+        public EventJson3? Event { get; set; }
 
         /// <summary>
         /// Name of the audience segment. Must be unique in the event where the segment exists.

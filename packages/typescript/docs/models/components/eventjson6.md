@@ -1,6 +1,6 @@
 # EventJson6
 
-Detail object of an event which is associated to a survey.
+The Associated Event.
 
 ## Example Usage
 
@@ -8,7 +8,7 @@ Detail object of an event which is associated to a survey.
 import { EventJson6 } from "@cvent/sdk/models/components";
 
 let value: EventJson6 = {
-  id: "9463c74e-18c6-401a-a710-ae0f485bf059",
+  id: "3db28cfc-db22-11eb-8d19-0242ac130003",
 };
 ```
 
@@ -16,4 +16,4 @@ let value: EventJson6 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_minus_sign:                   | Id of the associated event           | 9463c74e-18c6-401a-a710-ae0f485bf059 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Event id                             | 3db28cfc-db22-11eb-8d19-0242ac130003 |

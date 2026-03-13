@@ -75,13 +75,12 @@ public class ListSessionsCategoriesRequestBuilder {
         ListSessionsCategoriesRequest request = this.request;
         RequestOperation<ListSessionsCategoriesRequest, ListSessionsCategoriesResponse> operation =
                 new ListSessionsCategories.Sync(sdkConfiguration, _headers);
-        // foobar
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-                request,
-                new CursorTracker<>("$.paging.nextToken", String.class),
-                ListSessionsCategoriesRequest::withToken,
-                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {
+                    var modifiedReq = pos == null ? req : req.withToken(pos);
+                    return unchecked(() -> operation.doRequest(modifiedReq)).get();
+                });
 
         return () -> transform(iterator, operation::handleResponse);
     }

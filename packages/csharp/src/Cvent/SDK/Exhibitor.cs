@@ -350,7 +350,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates answers to exhibitor questions for a given exhibitor id.
+        /// Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAnswersResponse"/> response envelope when completed.</returns>
@@ -2929,7 +2929,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates answers to exhibitor questions for a given exhibitor id.
+        /// Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAnswersRequest"/> parameter.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAnswersResponse"/> response envelope when completed.</returns>

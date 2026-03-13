@@ -96,7 +96,7 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 AudienceSegmentCreate req = new AudienceSegmentCreate() {
-    Event = new EventJson2() {
+    Event = new EventJson3() {
         Id = "103097a4-143d-11e5-9f99-d0a637ee0032",
     },
     Name = "VIP Attendees",
@@ -334,7 +334,7 @@ var sdk = new CventSDK(security: new Security() {
 UpdateAudienceSegmentRequest req = new UpdateAudienceSegmentRequest() {
     AudienceSegmentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     AudienceSegment = new AudienceSegment() {
-        Event = new EventJson2() {
+        Event = new EventJson3() {
             Id = "103097a4-143d-11e5-9f99-d0a637ee0032",
         },
         Name = "VIP Attendees",

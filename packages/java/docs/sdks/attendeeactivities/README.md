@@ -160,7 +160,7 @@ public class Application {
                 .call();
 
         if (res.externalActivity().isPresent()) {
-            // handle response
+            System.out.println(res.externalActivity().get());
         }
     }
 }
@@ -308,7 +308,7 @@ public class Application {
                 .call();
 
         if (res.externalActivityMetadata().isPresent()) {
-            // handle response
+            System.out.println(res.externalActivityMetadata().get());
         }
     }
 }
@@ -453,7 +453,7 @@ public class Application {
                 .call();
 
         if (res.externalActivityMetadata().isPresent()) {
-            // handle response
+            System.out.println(res.externalActivityMetadata().get());
         }
     }
 }

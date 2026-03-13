@@ -1,10 +1,10 @@
 # EventJson3
 
-Event ID Information.
+ID of the event.
 
 
 ## Fields
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | Identifier of a particular Event.    | 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329 |
+| `id`                                 | *String*                             | :heavy_check_mark:                   | UUID of the event.                   | 103097a4-143d-11e5-9f99-d0a637ee0032 |

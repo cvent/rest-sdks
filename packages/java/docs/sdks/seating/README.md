@@ -210,7 +210,7 @@ public class Application {
                 .call();
 
         if (res.existingSeating().isPresent()) {
-            // handle response
+            System.out.println(res.existingSeating().get());
         }
     }
 }
@@ -429,7 +429,7 @@ public class Application {
                 .call();
 
         if (res.existingTableWithSeats().isPresent()) {
-            // handle response
+            System.out.println(res.existingTableWithSeats().get());
         }
     }
 }
@@ -574,7 +574,7 @@ public class Application {
                 .call();
 
         if (res.existingSeat().isPresent()) {
-            // handle response
+            System.out.println(res.existingSeat().get());
         }
     }
 }

@@ -231,7 +231,7 @@ public class EventUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomField> customFields;
+    private List<CustomFieldJson5> customFields;
 
     /**
      * The category to which this event belongs (no longer supported).
@@ -322,7 +322,7 @@ public class EventUpdate {
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("planners") @Nonnull List<PlannerJson2> planners,
             @JsonProperty("stakeholders") @Nullable List<StakeholderJson> stakeholders,
-            @JsonProperty("customFields") @Nullable List<CustomField> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson5> customFields,
             @JsonProperty("category") @Nullable EventUpdateLookup category,
             @JsonProperty("type") @Nonnull EventTypeJson1 type,
             @JsonProperty("_links") @Nullable EventLinksJson links,
@@ -630,7 +630,7 @@ public class EventUpdate {
     /**
      * Collection of custom fields.
      */
-    public Optional<List<CustomField>> customFields() {
+    public Optional<List<CustomFieldJson5>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -935,7 +935,7 @@ public class EventUpdate {
     /**
      * Collection of custom fields.
      */
-    public EventUpdate withCustomFields(@Nullable List<CustomField> customFields) {
+    public EventUpdate withCustomFields(@Nullable List<CustomFieldJson5> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -1238,7 +1238,7 @@ public class EventUpdate {
 
         private List<StakeholderJson> stakeholders;
 
-        private List<CustomField> customFields;
+        private List<CustomFieldJson5> customFields;
 
         @Deprecated
         private EventUpdateLookup category;
@@ -1498,7 +1498,7 @@ public class EventUpdate {
         /**
          * Collection of custom fields.
          */
-        public Builder customFields(@Nullable List<CustomField> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson5> customFields) {
             this.customFields = customFields;
             return this;
         }

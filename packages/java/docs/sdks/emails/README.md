@@ -207,7 +207,7 @@ public class Application {
                 .call();
 
         if (res.emailSendStatus().isPresent()) {
-            // handle response
+            System.out.println(res.emailSendStatus().get());
         }
     }
 }

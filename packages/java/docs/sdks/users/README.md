@@ -124,7 +124,7 @@ public class Application {
                 .call();
 
         if (res.userGroupJson().isPresent()) {
-            // handle response
+            System.out.println(res.userGroupJson().get());
         }
     }
 }
@@ -190,7 +190,7 @@ public class Application {
                 .call();
 
         if (res.userGroupJson().isPresent()) {
-            // handle response
+            System.out.println(res.userGroupJson().get());
         }
     }
 }
@@ -259,7 +259,7 @@ public class Application {
                 .call();
 
         if (res.userGroupJson().isPresent()) {
-            // handle response
+            System.out.println(res.userGroupJson().get());
         }
     }
 }

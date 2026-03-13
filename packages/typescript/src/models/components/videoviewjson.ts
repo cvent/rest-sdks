@@ -9,7 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { ContactJson2, ContactJson2$inboundSchema } from "./contactjson2.js";
 import { DeviceJson, DeviceJson$inboundSchema } from "./devicejson.js";
 import { SolutionJson, SolutionJson$inboundSchema } from "./solutionjson.js";
-import { VideoJson, VideoJson$inboundSchema } from "./videojson.js";
+import { VideoJson1, VideoJson1$inboundSchema } from "./videojson1.js";
 import { ViewTypeJson1, ViewTypeJson1$inboundSchema } from "./viewtypejson1.js";
 
 /**
@@ -33,7 +33,7 @@ export type VideoViewJson = {
   /**
    * The details of a video
    */
-  video?: VideoJson | undefined;
+  video?: VideoJson1 | undefined;
   /**
    * The view type of the video. Videos can be viewed live or as a recording.
    */
@@ -61,7 +61,7 @@ export const VideoViewJson$inboundSchema: z.ZodType<
   contact: ContactJson2$inboundSchema.optional(),
   solution: SolutionJson$inboundSchema.optional(),
   device: DeviceJson$inboundSchema.optional(),
-  video: VideoJson$inboundSchema.optional(),
+  video: VideoJson1$inboundSchema.optional(),
   type: ViewTypeJson1$inboundSchema.optional(),
   totalDuration: z.number().int().optional(),
   watchDuration: z.number().int().optional(),

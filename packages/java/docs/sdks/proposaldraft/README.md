@@ -148,7 +148,7 @@ public class Application {
                 .call();
 
         if (res.proposalResponse().isPresent()) {
-            // handle response
+            System.out.println(res.proposalResponse().get());
         }
     }
 }

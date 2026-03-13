@@ -136,7 +136,7 @@ public class Application {
                 .call();
 
         if (res.attendeeInsights().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeInsights().get());
         }
     }
 }
@@ -276,7 +276,7 @@ public class Application {
                 .call();
 
         if (res.attendeeInsightsStats().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeInsightsStats().get());
         }
     }
 }

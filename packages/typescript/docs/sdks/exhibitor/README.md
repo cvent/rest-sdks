@@ -1952,7 +1952,7 @@ run();
 
 ## updateExhibitorAnswers
 
-Updates answers to exhibitor questions for a given exhibitor id.
+Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

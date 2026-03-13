@@ -132,7 +132,7 @@ public class Application {
                 .call();
 
         if (res.emailTemplatePaginatedResponse().isPresent()) {
-            // handle response
+            System.out.println(res.emailTemplatePaginatedResponse().get());
         }
     }
 }
@@ -200,7 +200,7 @@ public class Application {
                 .call();
 
         if (res.sendEmailResponse().isPresent()) {
-            // handle response
+            System.out.println(res.sendEmailResponse().get());
         }
     }
 }
@@ -269,7 +269,7 @@ public class Application {
                 .call();
 
         if (res.sendEmailEmarketingResponse().isPresent()) {
-            // handle response
+            System.out.println(res.sendEmailEmarketingResponse().get());
         }
     }
 }

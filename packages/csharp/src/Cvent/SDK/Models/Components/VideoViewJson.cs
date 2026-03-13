@@ -42,7 +42,7 @@ namespace Cvent.SDK.Models.Components
         /// The details of a video.
         /// </summary>
         [JsonProperty("video")]
-        public VideoJson? Video { get; set; }
+        public VideoJson1? Video { get; set; }
 
         /// <summary>
         /// The view type of the video. Videos can be viewed live or as a recording.

@@ -84,7 +84,7 @@ public class Application {
                 .call();
 
         if (res.contactGroup().isPresent()) {
-            // handle response
+            System.out.println(res.contactGroup().get());
         }
     }
 }
@@ -226,7 +226,7 @@ public class Application {
                 .call();
 
         if (res.contactGroup().isPresent()) {
-            // handle response
+            System.out.println(res.contactGroup().get());
         }
     }
 }
@@ -302,7 +302,7 @@ public class Application {
                 .call();
 
         if (res.contactGroup().isPresent()) {
-            // handle response
+            System.out.println(res.contactGroup().get());
         }
     }
 }
@@ -789,7 +789,7 @@ public class Application {
                 .call();
 
         if (res.contactBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.contactBulkResponse().get());
         }
     }
 }
@@ -903,7 +903,7 @@ public class Application {
                 .call();
 
         if (res.contactBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.contactBulkResponse().get());
         }
     }
 }
@@ -1042,7 +1042,7 @@ public class Application {
                 .call();
 
         if (res.contactBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.contactBulkResponse().get());
         }
     }
 }
@@ -1187,7 +1187,7 @@ public class Application {
                 .call();
 
         if (res.contactObfuscationStatus().isPresent()) {
-            // handle response
+            System.out.println(res.contactObfuscationStatus().get());
         }
     }
 }
@@ -1337,7 +1337,7 @@ public class Application {
                 .call();
 
         if (res.contact().isPresent()) {
-            // handle response
+            System.out.println(res.contact().get());
         }
     }
 }
@@ -1480,7 +1480,7 @@ public class Application {
                 .call();
 
         if (res.contact().isPresent()) {
-            // handle response
+            System.out.println(res.contact().get());
         }
     }
 }
@@ -1596,7 +1596,7 @@ public class Application {
                 .call();
 
         if (res.contact().isPresent()) {
-            // handle response
+            System.out.println(res.contact().get());
         }
     }
 }
@@ -1736,7 +1736,7 @@ public class Application {
                 .call();
 
         if (res.customField().isPresent()) {
-            // handle response
+            System.out.println(res.customField().get());
         }
     }
 }
@@ -1815,7 +1815,7 @@ public class Application {
                 .call();
 
         if (res.contact().isPresent()) {
-            // handle response
+            System.out.println(res.contact().get());
         }
     }
 }
@@ -1889,7 +1889,7 @@ public class Application {
                 .call();
 
         if (res.contactObfuscationStatus().isPresent()) {
-            // handle response
+            System.out.println(res.contactObfuscationStatus().get());
         }
     }
 }
@@ -2028,7 +2028,7 @@ public class Application {
                 .call();
 
         if (res.contactFile().isPresent()) {
-            // handle response
+            System.out.println(res.contactFile().get());
         }
     }
 }

@@ -140,7 +140,17 @@ public class Application {
                 .call();
 
         if (res.createUpdateDiscountResponse().isPresent()) {
-            // handle response
+            CreateUpdateDiscountResponse unionValue = res.createUpdateDiscountResponse().get();
+            switch (unionValue.type()) {
+                case "DISCOUNT_CODE":
+                    // Handle DISCOUNT_CODE discriminator variant
+                    break;
+                case "VOLUME_DISCOUNT":
+                    // Handle VOLUME_DISCOUNT discriminator variant
+                    break;
+                default:
+                    // Handle unknown discriminator variant
+            }
         }
     }
 }
@@ -287,7 +297,17 @@ public class Application {
                 .call();
 
         if (res.createUpdateDiscountResponse().isPresent()) {
-            // handle response
+            CreateUpdateDiscountResponse unionValue = res.createUpdateDiscountResponse().get();
+            switch (unionValue.type()) {
+                case "DISCOUNT_CODE":
+                    // Handle DISCOUNT_CODE discriminator variant
+                    break;
+                case "VOLUME_DISCOUNT":
+                    // Handle VOLUME_DISCOUNT discriminator variant
+                    break;
+                default:
+                    // Handle unknown discriminator variant
+            }
         }
     }
 }

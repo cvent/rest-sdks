@@ -4,3 +4,4 @@ pnpm 8.15.7
 java corretto-21.0.1.12.1
 dotnet 8.0.414
 gradle 8.14.3
+aqua:speakeasy-api/speakeasy 1.752.0

@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AnswerJson, AnswerJson$inboundSchema } from "./answerjson.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 import { LeadJson, LeadJson$inboundSchema } from "./leadjson.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
@@ -43,7 +43,7 @@ export type LeadQualificationAnswersJson = {
   /**
    * The Associated Event.
    */
-  event?: EventJson5 | undefined;
+  event?: EventJson6 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -73,7 +73,7 @@ export const LeadQualificationAnswersJson$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   question: UuidJson$inboundSchema.optional(),
-  event: EventJson5$inboundSchema.optional(),
+  event: EventJson6$inboundSchema.optional(),
   exhibitor: ExhibitorJson$inboundSchema.optional(),
   lead: LeadJson$inboundSchema.optional(),
   answers: z.array(AnswerJson$inboundSchema).optional(),

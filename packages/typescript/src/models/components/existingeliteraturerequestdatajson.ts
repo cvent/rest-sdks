@@ -10,7 +10,7 @@ import {
   EliteratureDocumentJson,
   EliteratureDocumentJson$inboundSchema,
 } from "./eliteraturedocumentjson.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 import { LeadJson, LeadJson$inboundSchema } from "./leadjson.js";
 
@@ -37,7 +37,7 @@ export type ExistingEliteratureRequestDataJson = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * The Associated Exhibitor.
    */
@@ -69,7 +69,7 @@ export const ExistingEliteratureRequestDataJson$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson5$inboundSchema,
+  event: EventJson6$inboundSchema,
   exhibitor: ExhibitorJson$inboundSchema,
   lead: LeadJson$inboundSchema,
   documents: z.array(EliteratureDocumentJson$inboundSchema),

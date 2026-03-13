@@ -22,7 +22,7 @@ public class RegistrationPackRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -38,7 +38,7 @@ public class RegistrationPackRequest {
 
     @JsonCreator
     public RegistrationPackRequest(
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("capacities") @Nonnull List<CapacityJson> capacities) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -51,7 +51,7 @@ public class RegistrationPackRequest {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -76,7 +76,7 @@ public class RegistrationPackRequest {
     /**
      * The Associated Event.
      */
-    public RegistrationPackRequest withEvent(@Nonnull EventJson5 event) {
+    public RegistrationPackRequest withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -125,7 +125,7 @@ public class RegistrationPackRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -138,7 +138,7 @@ public class RegistrationPackRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

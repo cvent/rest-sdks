@@ -131,7 +131,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorCategoryRequest req = new CreateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -191,7 +191,7 @@ UpdateExhibitorCategoryRequest req = new UpdateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryId = "534a465b-b4cb-471d-9498-4bf3917ad8bf",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -679,7 +679,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorRequest req = new CreateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -821,7 +821,7 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -1095,7 +1095,7 @@ var res = await sdk.Exhibitor.GetExhibitorAnswersAsync(req);
 
 ## UpdateExhibitorAnswers
 
-Updates answers to exhibitor questions for a given exhibitor id.
+Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1127,7 +1127,7 @@ UpdateExhibitorAnswersRequest req = new UpdateExhibitorAnswersRequest() {
                 Question = new UuidJson() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Event = new EventJson5() {
+                Event = new EventJson6() {
                     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
                 },
                 Exhibitor = new ExhibitorJson() {
@@ -1410,7 +1410,7 @@ PostRegistrationPackRequest req = new PostRegistrationPackRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new ExhibitorJson() {
@@ -1582,7 +1582,7 @@ UpdateRegistrationPackRequest req = new UpdateRegistrationPackRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackId = "50f4f0df-0c2d-4e6b-8e68-e1413b6917f5",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new EventJson5() {
+        Event = new EventJson6() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new ExhibitorJson() {

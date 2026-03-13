@@ -145,7 +145,7 @@ public class EventSurveyRespondent {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson6 event;
+    private EventJson7 event;
 
     /**
      * Associated attendee.
@@ -185,7 +185,7 @@ public class EventSurveyRespondent {
             @JsonProperty("percentageScore") @Nullable Double percentageScore,
             @JsonProperty("_links") @Nullable EventSurveyRespondentLinks links,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("event") @Nullable EventJson6 event,
+            @JsonProperty("event") @Nullable EventJson7 event,
             @JsonProperty("attendee") @Nullable EventSurveyRespondentAttendee attendee,
             @JsonProperty("contact") @Nullable EventSurveyRespondentContact contact,
             @JsonProperty("surveys") @Nullable List<RespondentEventSurveyReferenceJson> surveys) {
@@ -354,7 +354,7 @@ public class EventSurveyRespondent {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson6> event() {
+    public Optional<EventJson7> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -519,7 +519,7 @@ public class EventSurveyRespondent {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public EventSurveyRespondent withEvent(@Nullable EventJson6 event) {
+    public EventSurveyRespondent withEvent(@Nullable EventJson7 event) {
         this.event = event;
         return this;
     }
@@ -679,7 +679,7 @@ public class EventSurveyRespondent {
 
         private String sourceId;
 
-        private EventJson6 event;
+        private EventJson7 event;
 
         private EventSurveyRespondentAttendee attendee;
 
@@ -827,7 +827,7 @@ public class EventSurveyRespondent {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson6 event) {
+        public Builder event(@Nullable EventJson7 event) {
             this.event = event;
             return this;
         }

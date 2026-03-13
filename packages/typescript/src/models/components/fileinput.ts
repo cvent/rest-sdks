@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  EventJson5,
-  EventJson5$Outbound,
-  EventJson5$outboundSchema,
-} from "./eventjson5.js";
+  EventJson6,
+  EventJson6$Outbound,
+  EventJson6$outboundSchema,
+} from "./eventjson6.js";
 import {
   ExhibitorJson,
   ExhibitorJson$Outbound,
@@ -21,7 +21,7 @@ export type FileInput = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * The Associated Exhibitor.
    */
@@ -42,7 +42,7 @@ export type FileInput = {
 
 /** @internal */
 export type FileInput$Outbound = {
-  event: EventJson5$Outbound;
+  event: EventJson6$Outbound;
   exhibitor: ExhibitorJson$Outbound;
   displayName: string;
   hidden: boolean;
@@ -55,7 +55,7 @@ export const FileInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FileInput
 > = z.object({
-  event: EventJson5$outboundSchema,
+  event: EventJson6$outboundSchema,
   exhibitor: ExhibitorJson$outboundSchema,
   displayName: z.string(),
   hidden: z.boolean().default(false),

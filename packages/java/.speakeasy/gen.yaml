@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 java:
-  version: 1.0.10
+  version: 1.0.11
   additionalDependencies: []
   additionalPlugins: []
   artifactID: sdk
@@ -79,6 +79,7 @@ java:
   operationScopedParams: true
   outputModelSuffix: output
   packageName: com.cvent
+  prefixModeMethodNames: false
   projectName: cvent-sdk
   respectTitlesForPrimitiveUnionMembers: false
   showSetterGetterTypesInDocs: false

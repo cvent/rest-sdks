@@ -135,7 +135,7 @@ public class SurveyJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("events")
-    private List<EventJson6> events;
+    private List<EventJson7> events;
 
     @JsonCreator
     public SurveyJson(
@@ -154,7 +154,7 @@ public class SurveyJson {
             @JsonProperty("status") @Nullable SurveyStatusJson status,
             @JsonProperty("type") @Nullable SurveyTypeJson type,
             @JsonProperty("activateDate") @Nullable OffsetDateTime activateDate,
-            @JsonProperty("events") @Nullable List<EventJson6> events) {
+            @JsonProperty("events") @Nullable List<EventJson7> events) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -288,7 +288,7 @@ public class SurveyJson {
     /**
      * List of events with which this survey is linked.
      */
-    public Optional<List<EventJson6>> events() {
+    public Optional<List<EventJson7>> events() {
         return Optional.ofNullable(this.events);
     }
 
@@ -422,7 +422,7 @@ public class SurveyJson {
     /**
      * List of events with which this survey is linked.
      */
-    public SurveyJson withEvents(@Nullable List<EventJson6> events) {
+    public SurveyJson withEvents(@Nullable List<EventJson7> events) {
         this.events = events;
         return this;
     }
@@ -546,7 +546,7 @@ public class SurveyJson {
 
         private OffsetDateTime activateDate;
 
-        private List<EventJson6> events;
+        private List<EventJson7> events;
 
         private Builder() {
             // force use of static builder() method
@@ -678,7 +678,7 @@ public class SurveyJson {
         /**
          * List of events with which this survey is linked.
          */
-        public Builder events(@Nullable List<EventJson6> events) {
+        public Builder events(@Nullable List<EventJson7> events) {
             this.events = events;
             return this;
         }

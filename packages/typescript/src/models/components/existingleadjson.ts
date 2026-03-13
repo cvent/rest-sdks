@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 import {
   LeadAddressJson,
@@ -115,7 +115,7 @@ export type ExistingLeadJson = {
   /**
    * The Associated Event.
    */
-  event?: EventJson5 | undefined;
+  event?: EventJson6 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -270,7 +270,7 @@ export const ExistingLeadJson$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson5$inboundSchema.optional(),
+  event: EventJson6$inboundSchema.optional(),
   exhibitor: ExhibitorJson$inboundSchema.optional(),
   attendee: LeadAttendeeJson$inboundSchema.optional(),
   boothStaff: LeadBoothStaffJson$inboundSchema.optional(),

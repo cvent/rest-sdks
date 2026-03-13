@@ -18,6 +18,7 @@ import { eventsGetEventAsyncStatus } from "../funcs/eventsGetEventAsyncStatus.js
 import { eventsGetEventById } from "../funcs/eventsGetEventById.js";
 import { eventsGetEventCopyStatus } from "../funcs/eventsGetEventCopyStatus.js";
 import { eventsGetEventEmailStatus } from "../funcs/eventsGetEventEmailStatus.js";
+import { eventsGetEventPlanningDocuments } from "../funcs/eventsGetEventPlanningDocuments.js";
 import { eventsGetEventQuestions } from "../funcs/eventsGetEventQuestions.js";
 import { eventsGetEvents } from "../funcs/eventsGetEvents.js";
 import { eventsGetEventsPostFilters } from "../funcs/eventsGetEventsPostFilters.js";
@@ -387,7 +388,7 @@ export class Events extends ClientSDK {
   async answerEventCustomField(
     request: operations.AnswerEventCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<components.CustomField1> {
     return unwrapAsync(eventsAnswerEventCustomField(
       this,
       request,
@@ -567,6 +568,30 @@ export class Events extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.OrderItemResponse> {
     return unwrapAsync(eventsAssociateDiscountCodeToOrderItem(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Event Planning Documents
+   *
+   * @remarks
+   * Gets a paginated list of event planning documents.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async getEventPlanningDocuments(
+    request: operations.GetEventPlanningDocumentsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<
+      operations.GetEventPlanningDocumentsResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(eventsGetEventPlanningDocuments(
       this,
       request,
       options,

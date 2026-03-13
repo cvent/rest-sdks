@@ -12,7 +12,7 @@ import {
   AdditionalChoiceJson1$inboundSchema,
 } from "./additionalchoicejson1.js";
 import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 
 /**
@@ -60,7 +60,7 @@ export type LeadQualificationQuestionJson = {
   /**
    * The Associated Event.
    */
-  event?: EventJson5 | undefined;
+  event?: EventJson6 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -114,7 +114,7 @@ export const LeadQualificationQuestionJson$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: EventJson5$inboundSchema.optional(),
+  event: EventJson6$inboundSchema.optional(),
   exhibitor: ExhibitorJson$inboundSchema.optional(),
   type: LeadQualificationQuestionJsonType$inboundSchema.optional(),
   code: z.string().optional(),

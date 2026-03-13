@@ -370,6 +370,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "event/orders:read"
   /**
+   * Allows the reading of event planning documents
+   */
+  | "event/planning-documents:read"
+  /**
    * Allows the reading of players
    */
   | "event/players:read"
@@ -1149,6 +1153,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the reading of orders
    */
   | "event/orders:read"
+  /**
+   * Allows the reading of event planning documents
+   */
+  | "event/planning-documents:read"
   /**
    * Allows the reading of players
    */
