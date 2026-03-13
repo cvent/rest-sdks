@@ -62,7 +62,7 @@ public class Application {
                 .call();
 
         if (res.badgePrintJobCreated().isPresent()) {
-            // handle response
+            System.out.println(res.badgePrintJobCreated().get());
         }
     }
 }
@@ -203,7 +203,7 @@ public class Application {
                 .call();
 
         if (res.existingBadgePrintJob().isPresent()) {
-            // handle response
+            System.out.println(res.existingBadgePrintJob().get());
         }
     }
 }

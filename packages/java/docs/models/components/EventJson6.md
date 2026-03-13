@@ -1,10 +1,10 @@
 # EventJson6
 
-Detail object of an event which is associated to a survey.
+The Associated Event.
 
 
 ## Fields
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *Optional\<String>*                  | :heavy_minus_sign:                   | Id of the associated event           | 9463c74e-18c6-401a-a710-ae0f485bf059 |
+| `id`                                 | *String*                             | :heavy_check_mark:                   | Event id                             | 3db28cfc-db22-11eb-8d19-0242ac130003 |

@@ -432,6 +432,7 @@ run();
 * [getOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [getOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [associateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
+* [getEventPlanningDocuments](docs/sdks/events/README.md#geteventplanningdocuments) - List Event Planning Documents
 * [listQuantityItems](docs/sdks/events/README.md#listquantityitems) - List Quantity Items
 * [listQuantityItemsPostFilter](docs/sdks/events/README.md#listquantityitemspostfilter) - List Quantity Items
 * [listRegistrationPaths](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
@@ -940,6 +941,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsGetEventById`](docs/sdks/events/README.md#geteventbyid) - Get Event
 - [`eventsGetEventCopyStatus`](docs/sdks/events/README.md#geteventcopystatus) - Get Event Copy Status
 - [`eventsGetEventEmailStatus`](docs/sdks/events/README.md#geteventemailstatus) - List Event Email Status
+- [`eventsGetEventPlanningDocuments`](docs/sdks/events/README.md#geteventplanningdocuments) - List Event Planning Documents
 - [`eventsGetEventQuestions`](docs/sdks/events/README.md#geteventquestions) - List Event Questions
 - [`eventsGetEvents`](docs/sdks/events/README.md#getevents) - List Events
 - [`eventsGetEventsPostFilters`](docs/sdks/events/README.md#geteventspostfilters) - List Events
@@ -1462,9 +1464,9 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 426 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 426 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 426 methods.*
+* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 427 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 427 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 427 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

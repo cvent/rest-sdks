@@ -71,7 +71,7 @@ public class Application {
                 .call();
 
         if (res.cardTokenResponse().isPresent()) {
-            // handle response
+            System.out.println(res.cardTokenResponse().get());
         }
     }
 }

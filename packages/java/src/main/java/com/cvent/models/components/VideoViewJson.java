@@ -52,7 +52,7 @@ public class VideoViewJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("video")
-    private VideoJson video;
+    private VideoJson1 video;
 
     /**
      * The view type of the video. Videos can be viewed live or as a recording.
@@ -87,7 +87,7 @@ public class VideoViewJson {
             @JsonProperty("contact") @Nullable ContactJson2 contact,
             @JsonProperty("solution") @Nullable SolutionJson solution,
             @JsonProperty("device") @Nullable DeviceJson device,
-            @JsonProperty("video") @Nullable VideoJson video,
+            @JsonProperty("video") @Nullable VideoJson1 video,
             @JsonProperty("type") @Nullable ViewTypeJson1 type,
             @JsonProperty("totalDuration") @Nullable Long totalDuration,
             @JsonProperty("watchDuration") @Nullable Long watchDuration,
@@ -134,7 +134,7 @@ public class VideoViewJson {
     /**
      * The details of a video
      */
-    public Optional<VideoJson> video() {
+    public Optional<VideoJson1> video() {
         return Optional.ofNullable(this.video);
     }
 
@@ -201,7 +201,7 @@ public class VideoViewJson {
     /**
      * The details of a video
      */
-    public VideoViewJson withVideo(@Nullable VideoJson video) {
+    public VideoViewJson withVideo(@Nullable VideoJson1 video) {
         this.video = video;
         return this;
     }
@@ -295,7 +295,7 @@ public class VideoViewJson {
         @Deprecated
         private DeviceJson device;
 
-        private VideoJson video;
+        private VideoJson1 video;
 
         private ViewTypeJson1 type;
 
@@ -340,7 +340,7 @@ public class VideoViewJson {
         /**
          * The details of a video
          */
-        public Builder video(@Nullable VideoJson video) {
+        public Builder video(@Nullable VideoJson1 video) {
             this.video = video;
             return this;
         }

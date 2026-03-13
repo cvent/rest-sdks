@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CustomFieldInput;
+import com.cvent.models.components.CustomField1Input;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,16 +29,16 @@ public class AnswerEventCustomFieldRequest {
      * Custom field answer you're updating.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private CustomFieldInput customField;
+    private CustomField1Input customField1;
 
     @JsonCreator
     public AnswerEventCustomFieldRequest(
-            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomFieldInput customField) {
+            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomField1Input customField1) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
                 .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
-        this.customField = Optional.ofNullable(customField)
-                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
+        this.customField1 = Optional.ofNullable(customField1)
+                .orElseThrow(() -> new IllegalArgumentException("customField1 cannot be null"));
     }
 
     /**
@@ -58,8 +58,8 @@ public class AnswerEventCustomFieldRequest {
     /**
      * Custom field answer you're updating.
      */
-    public CustomFieldInput customField() {
-        return this.customField;
+    public CustomField1Input customField1() {
+        return this.customField1;
     }
 
     public static Builder builder() {
@@ -85,8 +85,8 @@ public class AnswerEventCustomFieldRequest {
     /**
      * Custom field answer you're updating.
      */
-    public AnswerEventCustomFieldRequest withCustomField(@Nonnull CustomFieldInput customField) {
-        this.customField = Utils.checkNotNull(customField, "customField");
+    public AnswerEventCustomFieldRequest withCustomField1(@Nonnull CustomField1Input customField1) {
+        this.customField1 = Utils.checkNotNull(customField1, "customField1");
         return this;
     }
 
@@ -101,12 +101,12 @@ public class AnswerEventCustomFieldRequest {
         AnswerEventCustomFieldRequest other = (AnswerEventCustomFieldRequest) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
-                && Utils.enhancedDeepEquals(this.customField, other.customField);
+                && Utils.enhancedDeepEquals(this.customField1, other.customField1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, customFieldId, customField);
+        return Utils.enhancedHash(id, customFieldId, customField1);
     }
 
     @Override
@@ -117,8 +117,8 @@ public class AnswerEventCustomFieldRequest {
                 id,
                 "customFieldId",
                 customFieldId,
-                "customField",
-                customField);
+                "customField1",
+                customField1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -128,7 +128,7 @@ public class AnswerEventCustomFieldRequest {
 
         private String customFieldId;
 
-        private CustomFieldInput customField;
+        private CustomField1Input customField1;
 
         private Builder() {
             // force use of static builder() method
@@ -153,13 +153,13 @@ public class AnswerEventCustomFieldRequest {
         /**
          * Custom field answer you're updating.
          */
-        public Builder customField(@Nonnull CustomFieldInput customField) {
-            this.customField = Utils.checkNotNull(customField, "customField");
+        public Builder customField1(@Nonnull CustomField1Input customField1) {
+            this.customField1 = Utils.checkNotNull(customField1, "customField1");
             return this;
         }
 
         public AnswerEventCustomFieldRequest build() {
-            return new AnswerEventCustomFieldRequest(id, customFieldId, customField);
+            return new AnswerEventCustomFieldRequest(id, customFieldId, customField1);
         }
     }
 }

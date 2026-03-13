@@ -46,12 +46,15 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// These are comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+        /// Supported fields and operators are listed below:<br/>
+        /// <br/>
+        /// | Field            | Operators                           | Notes                                    |<br/>
+        /// |------------------|-------------------------------------|------------------------------------------|<br/>
+        /// | disassociated    | `eq`                                | To use this filter, `includeDisassociated` query parameter must be true. |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

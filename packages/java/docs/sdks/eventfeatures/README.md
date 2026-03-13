@@ -147,7 +147,7 @@ public class Application {
                 .call();
 
         if (res.eventFeaturesResponse().isPresent()) {
-            // handle response
+            System.out.println(res.eventFeaturesResponse().get());
         }
     }
 }

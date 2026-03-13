@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully updated custom field answer in the event.
         /// </summary>
-        public CustomField? CustomField { get; set; }
+        public CustomField1? CustomField1 { get; set; }
     }
 }

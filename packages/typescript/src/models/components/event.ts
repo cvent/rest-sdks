@@ -7,7 +7,10 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import {
+  CustomFieldJson5,
+  CustomFieldJson5$inboundSchema,
+} from "./customfieldjson5.js";
 import {
   EventFormatJson,
   EventFormatJson$inboundSchema,
@@ -180,7 +183,7 @@ export type Event = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomField> | undefined;
+  customFields?: Array<CustomFieldJson5> | undefined;
   /**
    * The category to which this event belongs (no longer supported).
    *
@@ -277,7 +280,7 @@ export const Event$inboundSchema: z.ZodType<Event, z.ZodTypeDef, unknown> = z
     capacity: z.number().int().optional(),
     planners: z.array(PlannerJson2$inboundSchema),
     stakeholders: z.array(StakeholderJson$inboundSchema).optional(),
-    customFields: z.array(CustomField$inboundSchema).optional(),
+    customFields: z.array(CustomFieldJson5$inboundSchema).optional(),
     category: z.lazy(() => EventLookup$inboundSchema).optional(),
     type: EventTypeJson1$inboundSchema,
     _links: EventLinksJson$inboundSchema.optional(),

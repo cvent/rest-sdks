@@ -143,7 +143,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorAdminResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorAdminResponse().get());
         }
     }
 }
@@ -214,7 +214,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorAdminResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorAdminResponse().get());
         }
     }
 }
@@ -292,7 +292,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorAdminResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorAdminResponse().get());
         }
     }
 }
@@ -429,7 +429,7 @@ public class Application {
                     .attendee(AttendeeJson3.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -443,7 +443,7 @@ public class Application {
                 .call();
 
         if (res.boothStaffResponse().isPresent()) {
-            // handle response
+            System.out.println(res.boothStaffResponse().get());
         }
     }
 }
@@ -514,7 +514,7 @@ public class Application {
                 .call();
 
         if (res.boothStaffResponse().isPresent()) {
-            // handle response
+            System.out.println(res.boothStaffResponse().get());
         }
     }
 }

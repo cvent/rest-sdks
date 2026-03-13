@@ -57,7 +57,7 @@ public class AudienceSegmentResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson2 event;
+    private EventJson3 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -99,7 +99,7 @@ public class AudienceSegmentResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable EventJson2 event,
+            @JsonProperty("event") @Nullable EventJson3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("id") @Nullable String id,
@@ -152,7 +152,7 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public Optional<EventJson2> event() {
+    public Optional<EventJson3> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -230,7 +230,7 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public AudienceSegmentResponse withEvent(@Nullable EventJson2 event) {
+    public AudienceSegmentResponse withEvent(@Nullable EventJson3 event) {
         this.event = event;
         return this;
     }
@@ -339,7 +339,7 @@ public class AudienceSegmentResponse {
 
         private String lastModifiedBy;
 
-        private EventJson2 event;
+        private EventJson3 event;
 
         private String name;
 
@@ -390,7 +390,7 @@ public class AudienceSegmentResponse {
         /**
          * ID of the event.
          */
-        public Builder event(@Nullable EventJson2 event) {
+        public Builder event(@Nullable EventJson3 event) {
             this.event = event;
             return this;
         }

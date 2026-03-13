@@ -27,6 +27,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Custom HTTP Client](#custom-http-client)
   * [Debugging](#debugging)
   * [License](#license)
+  * [Jackson Configuration](#jackson-configuration)
 
 <!-- End Table of Contents [toc] -->
 
@@ -41,7 +42,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.0.10'
+implementation 'com.cvent:sdk:1.0.11'
 ```
 
 Maven:
@@ -49,7 +50,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.0.10</version>
+    <version>1.0.11</version>
 </dependency>
 ```
 
@@ -161,6 +162,15 @@ public class Application {
 ```
 
 [comp-fut]: https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
+
+#### Union Consumption Patterns
+
+When a response field is a union model:
+
+- Discriminated unions: branch on the discriminator (`switch`) and then narrow to the concrete type.
+- Non-discriminated unions: use generated accessors (for example `string()`, `asLong()`, `simpleObject()`) to determine the active variant.
+
+For full model-specific examples (including Java 11/16/21 variants), see each union model's **Supported Types** section in the generated model docs.
 <!-- End SDK Example Usage [usage] -->
 
 <!-- Start Asynchronous Support [async-support] -->
@@ -318,7 +328,7 @@ public class Application {
                 .call();
 
         if (res.object().isPresent()) {
-            // handle response
+            System.out.println(res.object().get());
         }
     }
 }
@@ -580,6 +590,7 @@ public class Application {
 * [getOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [getOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [associateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
+* [getEventPlanningDocuments](docs/sdks/events/README.md#geteventplanningdocuments) - List Event Planning Documents
 * [listQuantityItems](docs/sdks/events/README.md#listquantityitems) - List Quantity Items
 * [listQuantityItemsPostFilter](docs/sdks/events/README.md#listquantityitemspostfilter) - List Quantity Items
 * [listRegistrationPaths](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
@@ -1134,9 +1145,9 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 426 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 426 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 426 methods.*
+* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 427 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 427 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 427 methods.*
 
 
 </details>
@@ -1298,7 +1309,7 @@ public class Application {
                 .call();
 
         if (res.cardTokenResponse().isPresent()) {
-            // handle response
+            System.out.println(res.cardTokenResponse().get());
         }
     }
 }
@@ -1485,5 +1496,35 @@ For information about third-party dependencies and their licenses, see [THIRD_PA
 
 Use of this SDK is subject to [Cvent's Product Terms of Use](https://www.cvent.com/en/product-terms-of-use).
 <!-- End License [license] -->
+
+<!-- Start Jackson Configuration [jackson] -->
+## Jackson Configuration
+
+The SDK ships with a pre-configured Jackson [`ObjectMapper`][jackson-databind] accessible via
+`JSON.getMapper()`. It is set up with type modules, strict deserializers, and the feature flags
+needed for full SDK compatibility (including ISO-8601 `OffsetDateTime` serialization):
+
+```java
+import com.cvent.utils.JSON;
+
+String json = JSON.getMapper().writeValueAsString(response);
+```
+
+To compose with your own `ObjectMapper`, register the provided `SDKJacksonModule`, which
+bundles all the same modules and feature flags as a single plug-and-play module:
+
+```java
+import com.cvent.utils.SDKJacksonModule;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+ObjectMapper myMapper = new ObjectMapper()
+    .registerModule(new SDKJacksonModule());
+
+String json = myMapper.writeValueAsString(response);
+```
+
+[jackson-databind]: https://github.com/FasterXML/jackson-databind
+[jackson-jsr310]: https://github.com/FasterXML/jackson-modules-java8/tree/master/datetime
+<!-- End Jackson Configuration [jackson] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

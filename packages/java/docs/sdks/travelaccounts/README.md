@@ -194,7 +194,7 @@ public class Application {
                 .call();
 
         if (res.travelAccount().isPresent()) {
-            // handle response
+            System.out.println(res.travelAccount().get());
         }
     }
 }
@@ -260,7 +260,7 @@ public class Application {
                 .call();
 
         if (res.travelAccountSupplierAccount().isPresent()) {
-            // handle response
+            System.out.println(res.travelAccountSupplierAccount().get());
         }
     }
 }

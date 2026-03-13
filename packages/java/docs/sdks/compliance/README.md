@@ -61,7 +61,7 @@ public class Application {
                 .call();
 
         if (res.communicationConfiguration().isPresent()) {
-            // handle response
+            System.out.println(res.communicationConfiguration().get());
         }
     }
 }
@@ -123,7 +123,7 @@ public class Application {
                 .call();
 
         if (res.communicationConfiguration().isPresent()) {
-            // handle response
+            System.out.println(res.communicationConfiguration().get());
         }
     }
 }

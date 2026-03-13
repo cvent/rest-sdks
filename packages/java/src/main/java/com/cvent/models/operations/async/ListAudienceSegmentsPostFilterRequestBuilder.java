@@ -4,6 +4,7 @@
 package com.cvent.models.operations.async;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
+import static com.cvent.utils.Exceptions.unchecked;
 import static com.cvent.utils.reactive.ReactiveUtils.mapAsync;
 
 import com.cvent.SDKConfiguration;
@@ -80,10 +81,10 @@ public class ListAudienceSegmentsPostFilterRequestBuilder {
                 new ListAudienceSegmentsPostFilter.Async(sdkConfiguration, _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
-                request,
-                new CursorTracker<>("$.paging.nextToken", String.class),
-                ListAudienceSegmentsPostFilterRequest::withToken,
-                operation::doRequest);
+                request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {
+                    var modifiedReq = pos == null ? req : req.withToken(pos);
+                    return operation.doRequest(modifiedReq);
+                });
 
         Flow.Publisher<ListAudienceSegmentsPostFilterResponse> flowPublisher =
                 mapAsync(asyncPaginator, operation::handleResponse);

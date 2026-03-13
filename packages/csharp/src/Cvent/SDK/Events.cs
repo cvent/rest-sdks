@@ -445,6 +445,24 @@ namespace Cvent.SDK
         );
 
         /// <summary>
+        /// List Event Planning Documents<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event planning documents.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventPlanningDocumentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventPlanningDocumentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public Task<GetEventPlanningDocumentsResponse> GetEventPlanningDocumentsAsync(
+            GetEventPlanningDocumentsRequest request
+        );
+
+        /// <summary>
         /// List Quantity Items.
         /// </summary>
         /// <remarks>
@@ -3104,7 +3122,7 @@ namespace Cvent.SDK
                 httpRequest.Headers.Add("Accept", "application/json");
             }
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField", "json", false, false);
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField1", "json", false, false);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -3156,14 +3174,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    CustomField obj;
+                    CustomField1 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField1>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into CustomField.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into CustomField1.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new AnswerEventCustomFieldResponse() {
@@ -3172,7 +3190,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.CustomField = obj;
+                    response.CustomField1 = obj;
                     return response;
                 }
 
@@ -4589,6 +4607,168 @@ namespace Cvent.SDK
                         }
                     };
                     response.OrderItemResponse = obj;
+                    return response;
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (new List<int> { 400, 401, 403, 404, 429 }.Contains(responseStatusCode))
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    Models.Errors.ErrorResponsePayload payload;
+                    try
+                    {
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                }
+
+                throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 400 && responseStatusCode < 500)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+            else if (responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.APIException("API error occurred", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+            }
+
+            throw new Models.Errors.APIException("Unknown status code received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
+        }
+
+        /// <summary>
+        /// List Event Planning Documents<br/>
+        /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
+        /// </summary>
+        /// <remarks>
+        /// Gets a paginated list of event planning documents.
+        /// </remarks>
+        /// <param name="request">A <see cref="GetEventPlanningDocumentsRequest"/> parameter.</param>
+        /// <returns>An awaitable task that returns a <see cref="GetEventPlanningDocumentsResponse"/> response envelope when completed.</returns>
+        /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
+        /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
+        /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
+        public async Task<GetEventPlanningDocumentsResponse> GetEventPlanningDocumentsAsync(
+            GetEventPlanningDocumentsRequest request
+        )
+        {
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
+            var urlString = URLBuilder.Build(baseUrl, "/events/{id}/planning-documents", request, null);
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
+            httpRequest.Headers.Add("user-agent", SDKConfiguration.UserAgent);
+
+            if (!httpRequest.Headers.Contains("Accept"))
+            {
+                httpRequest.Headers.Add("Accept", "application/json");
+            }
+
+            if (SDKConfiguration.SecuritySource != null)
+            {
+                httpRequest = new SecurityMetadata(SDKConfiguration.SecuritySource).Apply(httpRequest);
+            }
+
+            var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getEventPlanningDocuments", new List<string> { "event/planning-documents:read" }, SDKConfiguration.SecuritySource);
+
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
+            HttpResponseMessage httpResponse;
+            try
+            {
+                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                int _statusCode = (int)httpResponse.StatusCode;
+
+                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                {
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    if (_httpResponse != null)
+                    {
+                        httpResponse = _httpResponse;
+                    }
+                }
+            }
+            catch (Exception _hookError)
+            {
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, _hookError);
+                if (_httpResponse != null)
+                {
+                    httpResponse = _httpResponse;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+
+            Func<Task<GetEventPlanningDocumentsResponse?>> nextFunc = async delegate()
+            {
+                var body = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
+                var nextCursorToken = body.SelectToken("$.paging.nextToken");
+
+                if (nextCursorToken == null)
+                {
+                    return null;
+                }
+
+                var nextCursor = nextCursorToken.Value<string>();
+                if (string.IsNullOrWhiteSpace(nextCursor))
+                {
+                    return null;
+                }
+
+                var newRequest = new GetEventPlanningDocumentsRequest {
+                    Id = request.Id,
+                    After = request.After,
+                    Before = request.Before,
+                    Limit = request.Limit,
+                    Token = nextCursor,
+                    Filter = request.Filter
+                };
+
+                return await GetEventPlanningDocumentsAsync(
+                    request: newRequest
+                );
+            };
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if (responseStatusCode == 200)
+            {
+                if (Utilities.IsContentTypeMatch("application/json", contentType))
+                {
+                    var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                    PlanningDocumentsPaginatedResponse obj;
+                    try
+                    {
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<PlanningDocumentsPaginatedResponse>(httpResponseBody, NullValueHandling.Ignore);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new ResponseValidationException("Failed to deserialize response body into PlanningDocumentsPaginatedResponse.", httpRequest, httpResponse, httpResponseBody, ex);
+                    }
+
+                    var response = new GetEventPlanningDocumentsResponse() {
+                        HttpMeta = new Models.Components.HTTPMetadata() {
+                            Response = httpResponse,
+                            Request = httpRequest
+                        },
+                        Next = nextFunc
+                    };
+                    response.PlanningDocumentsPaginatedResponse = obj;
                     return response;
                 }
 

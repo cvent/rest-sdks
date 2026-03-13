@@ -127,7 +127,7 @@ public class Application {
                 .call();
 
         if (res.existingBadgePrinterPool().isPresent()) {
-            // handle response
+            System.out.println(res.existingBadgePrinterPool().get());
         }
     }
 }

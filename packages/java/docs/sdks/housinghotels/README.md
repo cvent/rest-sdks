@@ -58,7 +58,7 @@ public class Application {
                 .call();
 
         if (res.hotelRoomRatesResponse().isPresent()) {
-            // handle response
+            System.out.println(res.hotelRoomRatesResponse().get());
         }
     }
 }

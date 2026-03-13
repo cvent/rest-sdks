@@ -201,7 +201,7 @@ public class Application {
                 .call();
 
         if (res.audioTracksResponse().isPresent()) {
-            // handle response
+            System.out.println(res.audioTracksResponse().get());
         }
     }
 }
@@ -267,7 +267,7 @@ public class Application {
                 .call();
 
         if (res.videoRenditionsResponse().isPresent()) {
-            // handle response
+            System.out.println(res.videoRenditionsResponse().get());
         }
     }
 }
@@ -341,7 +341,7 @@ public class Application {
                 .call();
 
         if (res.existingVideoTextTrack().isPresent()) {
-            // handle response
+            System.out.println(res.existingVideoTextTrack().get());
         }
     }
 }
@@ -407,7 +407,7 @@ public class Application {
                 .call();
 
         if (res.videoTextTracksResponse().isPresent()) {
-            // handle response
+            System.out.println(res.videoTextTracksResponse().get());
         }
     }
 }
@@ -485,7 +485,7 @@ public class Application {
                 .call();
 
         if (res.existingVideoTextTrack().isPresent()) {
-            // handle response
+            System.out.println(res.existingVideoTextTrack().get());
         }
     }
 }

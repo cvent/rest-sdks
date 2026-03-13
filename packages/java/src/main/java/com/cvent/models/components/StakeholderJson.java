@@ -243,7 +243,7 @@ public class StakeholderJson {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
     @Deprecated
-    private List<CustomField> customFields;
+    private List<CustomFieldJson5> customFields;
 
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
@@ -322,7 +322,7 @@ public class StakeholderJson {
             @JsonProperty("primaryAddressType") @Nullable StakeholderJsonAddressType primaryAddressType,
             @JsonProperty("homeAddress") @Nullable StakeholderJsonHomeAddressAddress homeAddress,
             @JsonProperty("homeFax") @Nullable String homeFax,
-            @JsonProperty("customFields") @Nullable List<CustomField> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson5> customFields,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("createdBy") @Nullable String createdBy,
@@ -610,7 +610,7 @@ public class StakeholderJson {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomField>> customFields() {
+    public Optional<List<CustomFieldJson5>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -909,7 +909,7 @@ public class StakeholderJson {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public StakeholderJson withCustomFields(@Nullable List<CustomField> customFields) {
+    public StakeholderJson withCustomFields(@Nullable List<CustomFieldJson5> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -1180,7 +1180,7 @@ public class StakeholderJson {
         private String homeFax;
 
         @Deprecated
-        private List<CustomField> customFields;
+        private List<CustomFieldJson5> customFields;
 
         @Deprecated
         private String sourceId;
@@ -1441,7 +1441,7 @@ public class StakeholderJson {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder customFields(@Nullable List<CustomField> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson5> customFields) {
             this.customFields = customFields;
             return this;
         }

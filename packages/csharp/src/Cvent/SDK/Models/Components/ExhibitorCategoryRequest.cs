@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson5 Event { get; set; } = default!;
+        public EventJson6 Event { get; set; } = default!;
 
         /// <summary>
         /// Name of the exhibitor category.

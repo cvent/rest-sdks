@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson8, EventJson8$inboundSchema } from "./eventjson8.js";
+import { EventJson9, EventJson9$inboundSchema } from "./eventjson9.js";
 
 /**
  * The attendee with points in this engagement score.
@@ -45,7 +45,7 @@ export type ScoresJson = {
   /**
    * An event reference used in attendee insights to identify the event context for engagement data
    */
-  event: EventJson8;
+  event: EventJson9;
   /**
    * The number of points earned by an attendee in this engagement score.
    */
@@ -89,7 +89,7 @@ export const ScoresJson$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   attendee: z.lazy(() => ScoresJsonAttendee$inboundSchema),
-  event: EventJson8$inboundSchema,
+  event: EventJson9$inboundSchema,
   points: z.number().int().default(0),
   rank: z.number().int().default(0),
 });

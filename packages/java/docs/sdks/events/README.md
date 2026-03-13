@@ -32,6 +32,7 @@ Events are used to collect registrations and allow attendees to select their sch
 * [getOrders](#getorders) - List Orders
 * [getOrderItems](#getorderitems) - List Order Items
 * [associateDiscountCodeToOrderItem](#associatediscountcodetoorderitem) - Assign Discount to Order Item
+* [getEventPlanningDocuments](#geteventplanningdocuments) - List Event Planning Documents
 * [listQuantityItems](#listquantityitems) - List Quantity Items
 * [listQuantityItemsPostFilter](#listquantityitemspostfilter) - List Quantity Items
 * [listRegistrationPaths](#listregistrationpaths) - List Registration Paths
@@ -499,7 +500,7 @@ public class Application {
                 .call();
 
         if (res.eventAsyncResponse().isPresent()) {
-            // handle response
+            System.out.println(res.eventAsyncResponse().get());
         }
     }
 }
@@ -568,7 +569,7 @@ public class Application {
                 .call();
 
         if (res.eventAsyncStatus().isPresent()) {
-            // handle response
+            System.out.println(res.eventAsyncStatus().get());
         }
     }
 }
@@ -637,7 +638,7 @@ public class Application {
                 .call();
 
         if (res.eventAsyncStatus().isPresent()) {
-            // handle response
+            System.out.println(res.eventAsyncStatus().get());
         }
     }
 }
@@ -696,7 +697,7 @@ public class Application {
             .build();
 
         SendEmailEventRequest req = SendEmailEventRequest.builder()
-                .event(EventJson10.builder()
+                .event(EventJson11.builder()
                     .id("a150f1ee-6c54-4b01-90e6-d701748f0851")
                     .build())
                 .email(EmailJson2.builder()
@@ -712,7 +713,7 @@ public class Application {
                 .call();
 
         if (res.sendEmailEventResponse().isPresent()) {
-            // handle response
+            System.out.println(res.sendEmailEventResponse().get());
         }
     }
 }
@@ -781,7 +782,7 @@ public class Application {
                 .call();
 
         if (res.sendEmailEventResponse().isPresent()) {
-            // handle response
+            System.out.println(res.sendEmailEventResponse().get());
         }
     }
 }
@@ -926,7 +927,7 @@ public class Application {
                 .call();
 
         if (res.event().isPresent()) {
-            // handle response
+            System.out.println(res.event().get());
         }
     }
 }
@@ -1024,7 +1025,7 @@ public class Application {
                 .call();
 
         if (res.eventUpdate().isPresent()) {
-            // handle response
+            System.out.println(res.eventUpdate().get());
         }
     }
 }
@@ -1094,7 +1095,7 @@ public class Application {
                 .call();
 
         if (res.attendeeAddBulkResponseEvent().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeAddBulkResponseEvent().get());
         }
     }
 }
@@ -1251,7 +1252,7 @@ public class Application {
                 .call();
 
         if (res.eventAsyncResponse().isPresent()) {
-            // handle response
+            System.out.println(res.eventAsyncResponse().get());
         }
     }
 }
@@ -1315,12 +1316,12 @@ public class Application {
         AnswerEventCustomFieldRequest req = AnswerEventCustomFieldRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .customField(CustomFieldInput.builder()
+                .customField1(CustomField1Input.builder()
                     .id("8daec569-a328-48c3-b205-1fc913fc7c81")
                     .value(List.of(
                         "Choice C",
                         "Choice A"))
-                    .type(CustomFieldCustomFieldType.GENERAL)
+                    .type(CustomField1CustomFieldType.GENERAL)
                     .build())
                 .build();
 
@@ -1328,8 +1329,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.customField().isPresent()) {
-            // handle response
+        if (res.customField1().isPresent()) {
+            System.out.println(res.customField1().get());
         }
     }
 }
@@ -1982,7 +1983,7 @@ public class Application {
                 .call();
 
         if (res.orderItemResponse().isPresent()) {
-            // handle response
+            System.out.println(res.orderItemResponse().get());
         }
     }
 }
@@ -1997,6 +1998,81 @@ public class Application {
 ### Response
 
 **[AssociateDiscountCodeToOrderItemResponse](../../models/operations/AssociateDiscountCodeToOrderItemResponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
+| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+
+## getEventPlanningDocuments
+
+Gets a paginated list of event planning documents.
+
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getEventPlanningDocuments" method="get" path="/events/{id}/planning-documents" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.operations.GetEventPlanningDocumentsRequest;
+import com.cvent.models.operations.GetEventPlanningDocumentsResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetEventPlanningDocumentsRequest req = GetEventPlanningDocumentsRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("mimeType eq 'application/pdf' and name eq 'abc' and uploaded ge '2024-06-15T13:45:30Z'")
+                .build();
+
+
+        sdk.events().getEventPlanningDocuments()
+                .callAsStream()
+                .forEach((GetEventPlanningDocumentsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [GetEventPlanningDocumentsRequest](../../models/operations/GetEventPlanningDocumentsRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[GetEventPlanningDocumentsResponse](../../models/operations/GetEventPlanningDocumentsResponse.md)**
 
 ### Errors
 
@@ -2340,7 +2416,7 @@ public class Application {
                 .call();
 
         if (res.registrationTypeUpdate().isPresent()) {
-            // handle response
+            System.out.println(res.registrationTypeUpdate().get());
         }
     }
 }
@@ -2505,7 +2581,7 @@ public class Application {
                 .call();
 
         if (res.createTransactionResponse().isPresent()) {
-            // handle response
+            System.out.println(res.createTransactionResponse().get());
         }
     }
 }
@@ -2858,7 +2934,7 @@ public class Application {
                 .call();
 
         if (res.quantityItemResponse().isPresent()) {
-            // handle response
+            System.out.println(res.quantityItemResponse().get());
         }
     }
 }
@@ -3223,7 +3299,7 @@ public class Application {
                 .call();
 
         if (res.attendeeAddBulkResponse1().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeAddBulkResponse1().get());
         }
     }
 }
@@ -3293,7 +3369,7 @@ public class Application {
                 .call();
 
         if (res.attendeeAddBulkResponse1().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeAddBulkResponse1().get());
         }
     }
 }

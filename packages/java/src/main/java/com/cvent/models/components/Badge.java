@@ -77,7 +77,7 @@ public class Badge {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     @JsonCreator
     public Badge(
@@ -89,7 +89,7 @@ public class Badge {
             @JsonProperty("status") @Nonnull BadgeStatusJson status,
             @JsonProperty("type") @Nonnull BadgeTypeJson type,
             @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
-            @JsonProperty("event") @Nonnull EventJson5 event) {
+            @JsonProperty("event") @Nonnull EventJson6 event) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -108,7 +108,7 @@ public class Badge {
             @Nonnull BadgeStatusJson status,
             @Nonnull BadgeTypeJson type,
             @Nonnull AttendeeJson3 attendee,
-            @Nonnull EventJson5 event) {
+            @Nonnull EventJson6 event) {
         this(null, null, null, null, id, status, type, attendee, event);
     }
 
@@ -171,7 +171,7 @@ public class Badge {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -246,7 +246,7 @@ public class Badge {
     /**
      * The Associated Event.
      */
-    public Badge withEvent(@Nonnull EventJson5 event) {
+    public Badge withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -319,7 +319,7 @@ public class Badge {
 
         private AttendeeJson3 attendee;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private Builder() {
             // force use of static builder() method
@@ -392,7 +392,7 @@ public class Badge {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

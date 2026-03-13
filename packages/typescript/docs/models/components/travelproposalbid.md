@@ -1,6 +1,6 @@
 # TravelProposalBid
 
-A travel proposal bid erate plan that is being proposed to a customer.
+A travel proposal bid rate plan that is being proposed to a customer.
 
 ## Example Usage
 

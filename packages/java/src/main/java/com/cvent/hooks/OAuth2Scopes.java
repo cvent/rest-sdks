@@ -467,6 +467,11 @@ public final class OAuth2Scopes {
         EventOrdersRead("event/orders:read"),
 
         /**
+         * Allows the reading of event planning documents
+         */
+        EventPlanningDocumentsRead("event/planning-documents:read"),
+
+        /**
          * Allows the reading of players
          */
         EventPlayersRead("event/players:read"),
@@ -1457,6 +1462,11 @@ public final class OAuth2Scopes {
          * Allows the reading of orders
          */
         EventOrdersRead("event/orders:read"),
+
+        /**
+         * Allows the reading of event planning documents
+         */
+        EventPlanningDocumentsRead("event/planning-documents:read"),
 
         /**
          * Allows the reading of players

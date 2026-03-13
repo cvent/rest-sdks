@@ -12,7 +12,7 @@ import {
   BadgeStatusJson$inboundSchema,
 } from "./badgestatusjson.js";
 import { BadgeTypeJson, BadgeTypeJson$inboundSchema } from "./badgetypejson.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 
 /**
  * A JSON Schema for Badge object.
@@ -53,7 +53,7 @@ export type Badge = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
 };
 
 /** @internal */
@@ -70,7 +70,7 @@ export const Badge$inboundSchema: z.ZodType<Badge, z.ZodTypeDef, unknown> = z
     status: BadgeStatusJson$inboundSchema,
     type: BadgeTypeJson$inboundSchema,
     attendee: AttendeeJson3$inboundSchema,
-    event: EventJson5$inboundSchema,
+    event: EventJson6$inboundSchema,
   });
 
 export function badgeFromJSON(

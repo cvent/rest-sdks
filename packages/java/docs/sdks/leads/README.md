@@ -137,7 +137,7 @@ public class Application {
                 .call();
 
         if (res.leadQualificationAnswersListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.leadQualificationAnswersListResponse().get());
         }
     }
 }

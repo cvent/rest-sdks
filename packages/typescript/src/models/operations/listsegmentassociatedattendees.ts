@@ -34,14 +34,17 @@ export type ListSegmentAssociatedAttendeesRequest = {
    */
   after?: Date | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * These are comparison types that can be used in filter expressions:
-   *   * equal: eq
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * The following fields are filterable:
-   *   * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+   * Supported fields and operators are listed below:
+   *
+   * | Field            | Operators                           | Notes                                    |
+   * |------------------|-------------------------------------|------------------------------------------|
+   * | disassociated    | `eq`                                | To use this filter, `includeDisassociated` query parameter must be true. |
    */
   filter?: string | undefined;
   /**

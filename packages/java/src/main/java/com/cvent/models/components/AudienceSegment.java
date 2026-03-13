@@ -27,7 +27,7 @@ public class AudienceSegment {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson2 event;
+    private EventJson3 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -44,7 +44,7 @@ public class AudienceSegment {
 
     @JsonCreator
     public AudienceSegment(
-            @JsonProperty("event") @Nullable EventJson2 event,
+            @JsonProperty("event") @Nullable EventJson3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
         this.event = event;
@@ -59,7 +59,7 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    public Optional<EventJson2> event() {
+    public Optional<EventJson3> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -84,7 +84,7 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    public AudienceSegment withEvent(@Nullable EventJson2 event) {
+    public AudienceSegment withEvent(@Nullable EventJson3 event) {
         this.event = event;
         return this;
     }
@@ -132,7 +132,7 @@ public class AudienceSegment {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson2 event;
+        private EventJson3 event;
 
         private String name;
 
@@ -145,7 +145,7 @@ public class AudienceSegment {
         /**
          * ID of the event.
          */
-        public Builder event(@Nullable EventJson2 event) {
+        public Builder event(@Nullable EventJson3 event) {
             this.event = event;
             return this;
         }

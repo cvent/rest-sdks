@@ -59,7 +59,7 @@ public class BoothStaffResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -81,7 +81,7 @@ public class BoothStaffResponse {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("id") @Nullable String id) {
         this.created = created;
@@ -97,7 +97,7 @@ public class BoothStaffResponse {
     }
 
     public BoothStaffResponse(
-            @Nonnull AttendeeJson3 attendee, @Nonnull EventJson5 event, @Nonnull ExhibitorJson exhibitor) {
+            @Nonnull AttendeeJson3 attendee, @Nonnull EventJson6 event, @Nonnull ExhibitorJson exhibitor) {
         this(null, null, null, null, attendee, event, exhibitor, null);
     }
 
@@ -139,7 +139,7 @@ public class BoothStaffResponse {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -204,7 +204,7 @@ public class BoothStaffResponse {
     /**
      * The Associated Event.
      */
-    public BoothStaffResponse withEvent(@Nonnull EventJson5 event) {
+    public BoothStaffResponse withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -284,7 +284,7 @@ public class BoothStaffResponse {
 
         private AttendeeJson3 attendee;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -337,7 +337,7 @@ public class BoothStaffResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

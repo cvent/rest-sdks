@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A travel proposal bid erate plan that is being proposed to a customer.
+    /// A travel proposal bid rate plan that is being proposed to a customer.
     /// </summary>
     public class TravelProposalBid
     {

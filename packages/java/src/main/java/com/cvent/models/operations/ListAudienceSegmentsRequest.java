@@ -48,21 +48,25 @@ public class ListAudienceSegmentsRequest {
     private String sort;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>These are comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq/in) *(filters the list of all segments present in an event).*
-     * * id (eq/in)
-     * * deleted (eq)
-     * * creationType (eq/in)
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|-------------------------------------------------------|
+     * | event.id         | `eq`, `in`                          | Filters the list of all segments present
+     * in an event. |
+     * | id               | `eq`, `in`                          |
+     * |
+     * | deleted          | `eq`                                |
+     * |
+     * | creationType     | `eq`, `in`                          |
+     * |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -136,21 +140,25 @@ public class ListAudienceSegmentsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>These are comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq/in) *(filters the list of all segments present in an event).*
-     * * id (eq/in)
-     * * deleted (eq)
-     * * creationType (eq/in)
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|-------------------------------------------------------|
+     * | event.id         | `eq`, `in`                          | Filters the list of all segments present
+     * in an event. |
+     * | id               | `eq`, `in`                          |
+     * |
+     * | deleted          | `eq`                                |
+     * |
+     * | creationType     | `eq`, `in`                          |
+     * |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public String filter() {
@@ -213,21 +221,25 @@ public class ListAudienceSegmentsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>These are comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq/in) *(filters the list of all segments present in an event).*
-     * * id (eq/in)
-     * * deleted (eq)
-     * * creationType (eq/in)
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|-------------------------------------------------------|
+     * | event.id         | `eq`, `in`                          | Filters the list of all segments present
+     * in an event. |
+     * | id               | `eq`, `in`                          |
+     * |
+     * | deleted          | `eq`                                |
+     * |
+     * | creationType     | `eq`, `in`                          |
+     * |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public ListAudienceSegmentsRequest withFilter(@Nonnull String filter) {
@@ -348,21 +360,25 @@ public class ListAudienceSegmentsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>These are comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * includes value(s): in
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * event.id (eq/in) *(filters the list of all segments present in an event).*
-         * * id (eq/in)
-         * * deleted (eq)
-         * * creationType (eq/in)
+         * <p>| Field            | Operators                           | Notes
+         * |
+         * |------------------|-------------------------------------|-------------------------------------------------------|
+         * | event.id         | `eq`, `in`                          | Filters the list of all segments present
+         * in an event. |
+         * | id               | `eq`, `in`                          |
+         * |
+         * | deleted          | `eq`                                |
+         * |
+         * | creationType     | `eq`, `in`                          |
+         * |
          *
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          */
         public Builder filter(@Nonnull String filter) {

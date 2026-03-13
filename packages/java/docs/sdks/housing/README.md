@@ -85,7 +85,7 @@ public class Application {
                 .call();
 
         if (res.connectionResponse().isPresent()) {
-            // handle response
+            System.out.println(res.connectionResponse().get());
         }
     }
 }
@@ -153,7 +153,7 @@ public class Application {
                 .call();
 
         if (res.housingEventSummaryList().isPresent()) {
-            // handle response
+            System.out.println(res.housingEventSummaryList().get());
         }
     }
 }
@@ -219,7 +219,7 @@ public class Application {
                 .call();
 
         if (res.housingEvent().isPresent()) {
-            // handle response
+            System.out.println(res.housingEvent().get());
         }
     }
 }
@@ -288,7 +288,7 @@ public class Application {
                 .call();
 
         if (res.housingEventHotelsList().isPresent()) {
-            // handle response
+            System.out.println(res.housingEventHotelsList().get());
         }
     }
 }
@@ -356,7 +356,7 @@ public class Application {
                 .call();
 
         if (res.housingEventHotel().isPresent()) {
-            // handle response
+            System.out.println(res.housingEventHotel().get());
         }
     }
 }
@@ -425,7 +425,7 @@ public class Application {
                 .call();
 
         if (res.availableNights().isPresent()) {
-            // handle response
+            System.out.println(res.availableNights().get());
         }
     }
 }
@@ -496,7 +496,7 @@ public class Application {
                 .call();
 
         if (res.housingEventRoomTypesList().isPresent()) {
-            // handle response
+            System.out.println(res.housingEventRoomTypesList().get());
         }
     }
 }
@@ -565,7 +565,7 @@ public class Application {
                 .call();
 
         if (res.roomTypeDetails().isPresent()) {
-            // handle response
+            System.out.println(res.roomTypeDetails().get());
         }
     }
 }
@@ -636,7 +636,7 @@ public class Application {
                 .call();
 
         if (res.inventoryDetailsList().isPresent()) {
-            // handle response
+            System.out.println(res.inventoryDetailsList().get());
         }
     }
 }
@@ -705,7 +705,7 @@ public class Application {
                 .call();
 
         if (res.inventoryDetailsList().isPresent()) {
-            // handle response
+            System.out.println(res.inventoryDetailsList().get());
         }
     }
 }
@@ -777,7 +777,7 @@ public class Application {
                 .call();
 
         if (res.reservationsPaginatedResponse().isPresent()) {
-            // handle response
+            System.out.println(res.reservationsPaginatedResponse().get());
         }
     }
 }
@@ -888,7 +888,7 @@ public class Application {
                 .call();
 
         if (res.existingReservationRequest().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservationRequest().get());
         }
     }
 }
@@ -954,7 +954,7 @@ public class Application {
                 .call();
 
         if (res.existingReservationRequest().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservationRequest().get());
         }
     }
 }
@@ -1117,7 +1117,7 @@ public class Application {
                 .call();
 
         if (res.existingReservationRequest().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservationRequest().get());
         }
     }
 }
@@ -1422,7 +1422,7 @@ public class Application {
                 .call();
 
         if (res.existingReservation().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservation().get());
         }
     }
 }
@@ -1488,7 +1488,7 @@ public class Application {
                 .call();
 
         if (res.existingReservation().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservation().get());
         }
     }
 }
@@ -1667,7 +1667,7 @@ public class Application {
                 .call();
 
         if (res.existingReservation().isPresent()) {
-            // handle response
+            System.out.println(res.existingReservation().get());
         }
     }
 }

@@ -104,7 +104,7 @@ public class Application {
                 .call();
 
         if (res.existingWebcast().isPresent()) {
-            // handle response
+            System.out.println(res.existingWebcast().get());
         }
     }
 }
@@ -392,7 +392,7 @@ public class Application {
                 .call();
 
         if (res.existingWebcast().isPresent()) {
-            // handle response
+            System.out.println(res.existingWebcast().get());
         }
     }
 }
@@ -572,7 +572,7 @@ public class Application {
                 .call();
 
         if (res.existingWebcast().isPresent()) {
-            // handle response
+            System.out.println(res.existingWebcast().get());
         }
     }
 }
@@ -642,7 +642,7 @@ public class Application {
                 .call();
 
         if (res.attendeeLinkBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeLinkBulkResponse().get());
         }
     }
 }
@@ -712,7 +712,7 @@ public class Application {
                 .call();
 
         if (res.attendeeLinkBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeLinkBulkResponse().get());
         }
     }
 }

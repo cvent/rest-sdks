@@ -127,7 +127,7 @@ public class Application {
 
         AudienceSegmentCreate req = AudienceSegmentCreate.builder()
                 .name("VIP Attendees")
-                .event(EventJson2.builder()
+                .event(EventJson3.builder()
                     .id("103097a4-143d-11e5-9f99-d0a637ee0032")
                     .build())
                 .description("A group of VIP attendees.")
@@ -138,7 +138,7 @@ public class Application {
                 .call();
 
         if (res.existingAudienceSegment().isPresent()) {
-            // handle response
+            System.out.println(res.existingAudienceSegment().get());
         }
     }
 }
@@ -366,7 +366,7 @@ public class Application {
                 .call();
 
         if (res.audienceSegmentResponse().isPresent()) {
-            // handle response
+            System.out.println(res.audienceSegmentResponse().get());
         }
     }
 }
@@ -429,7 +429,7 @@ public class Application {
                 .audienceSegmentId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .audienceSegment(AudienceSegment.builder()
                     .name("VIP Attendees")
-                    .event(EventJson2.builder()
+                    .event(EventJson3.builder()
                         .id("103097a4-143d-11e5-9f99-d0a637ee0032")
                         .build())
                     .description("A group of VIP attendees.")
@@ -441,7 +441,7 @@ public class Application {
                 .call();
 
         if (res.existingAudienceSegment().isPresent()) {
-            // handle response
+            System.out.println(res.existingAudienceSegment().get());
         }
     }
 }

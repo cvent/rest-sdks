@@ -168,7 +168,7 @@ public class Application {
                 .call();
 
         if (res.attendeeAddBulkResponse().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeAddBulkResponse().get());
         }
     }
 }
@@ -394,7 +394,7 @@ public class Application {
                 .call();
 
         if (res.attendee().isPresent()) {
-            // handle response
+            System.out.println(res.attendee().get());
         }
     }
 }
@@ -492,7 +492,7 @@ public class Application {
                 .call();
 
         if (res.attendee().isPresent()) {
-            // handle response
+            System.out.println(res.attendee().get());
         }
     }
 }
@@ -563,7 +563,7 @@ public class Application {
                 .call();
 
         if (res.attendeeSubscriptionResponse().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeSubscriptionResponse().get());
         }
     }
 }
@@ -639,7 +639,7 @@ public class Application {
                 .call();
 
         if (res.attendeeInternalInfo().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeInternalInfo().get());
         }
     }
 }
@@ -707,7 +707,7 @@ public class Application {
                     .attendee(AttendeeJson3.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .build())
@@ -718,7 +718,7 @@ public class Application {
                 .call();
 
         if (res.badge().isPresent()) {
-            // handle response
+            System.out.println(res.badge().get());
         }
     }
 }
@@ -930,7 +930,7 @@ public class Application {
                     .attendee(AttendeeJson3.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .build())
@@ -941,7 +941,7 @@ public class Application {
                 .call();
 
         if (res.badge().isPresent()) {
-            // handle response
+            System.out.println(res.badge().get());
         }
     }
 }

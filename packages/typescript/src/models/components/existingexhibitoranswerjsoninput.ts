@@ -9,10 +9,10 @@ import {
   AnswerJson0$outboundSchema,
 } from "./answerjson0.js";
 import {
-  EventJson5,
-  EventJson5$Outbound,
-  EventJson5$outboundSchema,
-} from "./eventjson5.js";
+  EventJson6,
+  EventJson6$Outbound,
+  EventJson6$outboundSchema,
+} from "./eventjson6.js";
 import {
   ExhibitorJson,
   ExhibitorJson$Outbound,
@@ -35,7 +35,7 @@ export type ExistingExhibitorAnswerJsonInput = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * The Associated Exhibitor.
    */
@@ -49,7 +49,7 @@ export type ExistingExhibitorAnswerJsonInput = {
 /** @internal */
 export type ExistingExhibitorAnswerJsonInput$Outbound = {
   question: UuidJson$Outbound;
-  event: EventJson5$Outbound;
+  event: EventJson6$Outbound;
   exhibitor: ExhibitorJson$Outbound;
   answers: Array<AnswerJson0$Outbound>;
 };
@@ -61,7 +61,7 @@ export const ExistingExhibitorAnswerJsonInput$outboundSchema: z.ZodType<
   ExistingExhibitorAnswerJsonInput
 > = z.object({
   question: UuidJson$outboundSchema,
-  event: EventJson5$outboundSchema,
+  event: EventJson6$outboundSchema,
   exhibitor: ExhibitorJson$outboundSchema,
   answers: z.array(AnswerJson0$outboundSchema),
 });

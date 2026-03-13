@@ -64,7 +64,7 @@ public class Application {
                 .call();
 
         if (res.fileListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.fileListResponse().get());
         }
     }
 }
@@ -135,7 +135,7 @@ public class Application {
                 .call();
 
         if (res.existingFile().isPresent()) {
-            // handle response
+            System.out.println(res.existingFile().get());
         }
     }
 }
@@ -200,7 +200,7 @@ public class Application {
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .fileId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .file(FileInput.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -216,7 +216,7 @@ public class Application {
                 .call();
 
         if (res.existingFile().isPresent()) {
-            // handle response
+            System.out.println(res.existingFile().get());
         }
     }
 }
@@ -355,7 +355,7 @@ public class Application {
                 .call();
 
         if (res.weblinkListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.weblinkListResponse().get());
         }
     }
 }
@@ -418,7 +418,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .weblink(Weblink.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -435,7 +435,7 @@ public class Application {
                 .call();
 
         if (res.existingWeblink().isPresent()) {
-            // handle response
+            System.out.println(res.existingWeblink().get());
         }
     }
 }
@@ -506,7 +506,7 @@ public class Application {
                 .call();
 
         if (res.existingWeblink().isPresent()) {
-            // handle response
+            System.out.println(res.existingWeblink().get());
         }
     }
 }
@@ -570,7 +570,7 @@ public class Application {
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .weblinkId("4d44b9e4-8c1a-403d-a20a-0b981f539935")
                 .weblink(Weblink.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -587,7 +587,7 @@ public class Application {
                 .call();
 
         if (res.existingWeblink().isPresent()) {
-            // handle response
+            System.out.println(res.existingWeblink().get());
         }
     }
 }

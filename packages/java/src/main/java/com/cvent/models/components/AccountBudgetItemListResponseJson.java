@@ -55,7 +55,7 @@ public class AccountBudgetItemListResponseJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson3 event;
+    private EventJson4 event;
 
     /**
      * RFP ID Information.
@@ -119,7 +119,7 @@ public class AccountBudgetItemListResponseJson {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable EventJson3 event,
+            @JsonProperty("event") @Nullable EventJson4 event,
             @JsonProperty("rfp") @Nullable RfpIdJson1 rfp,
             @JsonProperty("budgetVersion") @Nullable BudgetVersionIdJson budgetVersion,
             @JsonProperty("id") @Nullable String id,
@@ -178,7 +178,7 @@ public class AccountBudgetItemListResponseJson {
     /**
      * Event ID Information.
      */
-    public Optional<EventJson3> event() {
+    public Optional<EventJson4> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -277,7 +277,7 @@ public class AccountBudgetItemListResponseJson {
     /**
      * Event ID Information.
      */
-    public AccountBudgetItemListResponseJson withEvent(@Nullable EventJson3 event) {
+    public AccountBudgetItemListResponseJson withEvent(@Nullable EventJson4 event) {
         this.event = event;
         return this;
     }
@@ -431,7 +431,7 @@ public class AccountBudgetItemListResponseJson {
 
         private String lastModifiedBy;
 
-        private EventJson3 event;
+        private EventJson4 event;
 
         private RfpIdJson1 rfp;
 
@@ -488,7 +488,7 @@ public class AccountBudgetItemListResponseJson {
         /**
          * Event ID Information.
          */
-        public Builder event(@Nullable EventJson3 event) {
+        public Builder event(@Nullable EventJson4 event) {
             this.event = event;
             return this;
         }

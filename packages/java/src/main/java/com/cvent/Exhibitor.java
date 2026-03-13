@@ -732,7 +732,8 @@ public class Exhibitor {
     /**
      * Update Exhibitor Answers
      *
-     * <p>Updates answers to exhibitor questions for a given exhibitor id.
+     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
+     * questions marked as required for exhibitor admins.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
@@ -745,7 +746,8 @@ public class Exhibitor {
     /**
      * Update Exhibitor Answers
      *
-     * <p>Updates answers to exhibitor questions for a given exhibitor id.
+     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
+     * questions marked as required for exhibitor admins.
      *
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *

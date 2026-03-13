@@ -46,7 +46,7 @@ namespace Cvent.SDK
             Client = client ?? new CventSDKHttpClient();
             ServerUrl = "";
             ServerIndex = 0;
-            UserAgent = "speakeasy-sdk/csharp 1.0.11 2.849.6 ea Cvent.SDK";
+            UserAgent = "speakeasy-sdk/csharp 1.0.12 2.859.2 ea Cvent.SDK";
             SecuritySource = null;
             Hooks = new SDKHooks();
             RetryConfig = null;
