@@ -28,7 +28,7 @@ public class ExistingExhibitorAnswerJsonInput {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -45,7 +45,7 @@ public class ExistingExhibitorAnswerJsonInput {
     @JsonCreator
     public ExistingExhibitorAnswerJsonInput(
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("answers") @Nonnull List<AnswerJson0> answers) {
         this.question = Optional.ofNullable(question)
@@ -67,7 +67,7 @@ public class ExistingExhibitorAnswerJsonInput {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -100,7 +100,7 @@ public class ExistingExhibitorAnswerJsonInput {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswerJsonInput withEvent(@Nonnull EventJson5 event) {
+    public ExistingExhibitorAnswerJsonInput withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -160,7 +160,7 @@ public class ExistingExhibitorAnswerJsonInput {
 
         private UuidJson question;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -181,7 +181,7 @@ public class ExistingExhibitorAnswerJsonInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

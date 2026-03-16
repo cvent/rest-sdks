@@ -141,7 +141,7 @@ public class Application {
                 .call();
 
         if (res.existingCustomField().isPresent()) {
-            // handle response
+            System.out.println(res.existingCustomField().get());
         }
     }
 }
@@ -223,7 +223,7 @@ public class Application {
                 .call();
 
         if (res.existingCustomField().isPresent()) {
-            // handle response
+            System.out.println(res.existingCustomField().get());
         }
     }
 }
@@ -292,7 +292,7 @@ public class Application {
                 .call();
 
         if (res.existingCustomField().isPresent()) {
-            // handle response
+            System.out.println(res.existingCustomField().get());
         }
     }
 }
@@ -363,7 +363,7 @@ public class Application {
                 .call();
 
         if (res.advancedLogic().isPresent()) {
-            // handle response
+            System.out.println(res.advancedLogic().get());
         }
     }
 }
@@ -442,7 +442,7 @@ public class Application {
                 .call();
 
         if (res.translation1().isPresent()) {
-            // handle response
+            System.out.println(res.translation1().get());
         }
     }
 }
@@ -521,7 +521,7 @@ public class Application {
                 .call();
 
         if (res.translation1().isPresent()) {
-            // handle response
+            System.out.println(res.translation1().get());
         }
     }
 }

@@ -209,7 +209,7 @@ public class Application {
                 .call();
 
         if (res.speakerProgramItem().isPresent()) {
-            // handle response
+            System.out.println(res.speakerProgramItem().get());
         }
     }
 }
@@ -276,7 +276,7 @@ public class Application {
                 .call();
 
         if (res.speakerProgramItem().isPresent()) {
-            // handle response
+            System.out.println(res.speakerProgramItem().get());
         }
     }
 }
@@ -478,7 +478,7 @@ public class Application {
                 .call();
 
         if (res.existingSpeakerCategory().isPresent()) {
-            // handle response
+            System.out.println(res.existingSpeakerCategory().get());
         }
     }
 }
@@ -645,7 +645,7 @@ public class Application {
                 .call();
 
         if (res.existingSpeaker().isPresent()) {
-            // handle response
+            System.out.println(res.existingSpeaker().get());
         }
     }
 }
@@ -818,7 +818,7 @@ public class Application {
                 .call();
 
         if (res.existingSpeaker().isPresent()) {
-            // handle response
+            System.out.println(res.existingSpeaker().get());
         }
     }
 }
@@ -1026,7 +1026,7 @@ public class Application {
                 .call();
 
         if (res.speakerFile().isPresent()) {
-            // handle response
+            System.out.println(res.speakerFile().get());
         }
     }
 }
@@ -1096,7 +1096,7 @@ public class Application {
                 .call();
 
         if (res.speakerFile().isPresent()) {
-            // handle response
+            System.out.println(res.speakerFile().get());
         }
     }
 }
@@ -1304,7 +1304,7 @@ public class Application {
                 .call();
 
         if (res.speakerFile().isPresent()) {
-            // handle response
+            System.out.println(res.speakerFile().get());
         }
     }
 }

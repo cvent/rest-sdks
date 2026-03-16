@@ -45,7 +45,7 @@ public class BadgeInput {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     @JsonCreator
     public BadgeInput(
@@ -53,7 +53,7 @@ public class BadgeInput {
             @JsonProperty("status") @Nonnull BadgeStatusJson status,
             @JsonProperty("type") @Nonnull BadgeTypeJson type,
             @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
-            @JsonProperty("event") @Nonnull EventJson5 event) {
+            @JsonProperty("event") @Nonnull EventJson6 event) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.status =
                 Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
@@ -94,7 +94,7 @@ public class BadgeInput {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -137,7 +137,7 @@ public class BadgeInput {
     /**
      * The Associated Event.
      */
-    public BadgeInput withEvent(@Nonnull EventJson5 event) {
+    public BadgeInput withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -180,7 +180,7 @@ public class BadgeInput {
 
         private AttendeeJson3 attendee;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private Builder() {
             // force use of static builder() method
@@ -221,7 +221,7 @@ public class BadgeInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

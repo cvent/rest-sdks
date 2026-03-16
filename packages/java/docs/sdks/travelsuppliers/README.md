@@ -128,7 +128,7 @@ public class Application {
                 .call();
 
         if (res.brand().isPresent()) {
-            // handle response
+            System.out.println(res.brand().get());
         }
     }
 }
@@ -264,7 +264,7 @@ public class Application {
                 .call();
 
         if (res.chain().isPresent()) {
-            // handle response
+            System.out.println(res.chain().get());
         }
     }
 }
@@ -400,7 +400,7 @@ public class Application {
                 .call();
 
         if (res.property().isPresent()) {
-            // handle response
+            System.out.println(res.property().get());
         }
     }
 }
@@ -536,7 +536,7 @@ public class Application {
                 .call();
 
         if (res.propertyRoom().isPresent()) {
-            // handle response
+            System.out.println(res.propertyRoom().get());
         }
     }
 }

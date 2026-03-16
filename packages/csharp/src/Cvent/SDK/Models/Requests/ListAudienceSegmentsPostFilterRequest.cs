@@ -58,21 +58,21 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? After { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// These are comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * includes value(s): in<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
+        /// | Field            | Operators                           | Notes                                                 |<br/>
+        /// |------------------|-------------------------------------|-------------------------------------------------------|<br/>
+        /// | event.id         | `eq`, `in`                          | Filters the list of all segments present in an event. |<br/>
+        /// | id               | `eq`, `in`                          |                                                       |<br/>
+        /// | deleted          | `eq`                                |                                                       |<br/>
+        /// | creationType     | `eq`, `in`                          |                                                       |<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * event.id (eq/in) *(filters the list of all segments present in an event).*<br/>
-        ///   * id (eq/in)<br/>
-        ///   * deleted (eq)<br/>
-        ///   * creationType (eq/in).
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
         public Filter Filter { get; set; } = default!;

@@ -6,12 +6,9 @@ info:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
   version: ea
-externalDocs:
-  url: https://developers.cvent.com/docs
-  description: Cvent Developer Documentation
 servers:
-  - url: https://api-platform-eur.cvent.com/ea
   - url: https://api-platform.cvent.com/ea
+  - url: https://api-platform-eur.cvent.com/ea
 paths:
   /account-user-groups:
     get:
@@ -2163,21 +2160,21 @@ paths:
             - event/audience-segments:read
       requestBody:
         description: |
-          A filter query string narrows search results and supports the combination of logical and comparison operators.
-          The filter adheres to the pattern filter='field' comparisonType 'value'.
+          Use filter query parameters to limit results
+          to data that matches your criteria. See
+          [Filters](/docs/rest-api/reference/filters) for details.
 
-          These are comparison types that can be used in filter expressions:
-            * equal: eq
-            * includes value(s): in
+          Supported fields and operators are listed below:
 
-          The following operators are available:
-            * and
+          | Field            | Operators                           | Notes                                                 |
+          |------------------|-------------------------------------|-------------------------------------------------------|
+          | event.id         | `eq`, `in`                          | Filters the list of all segments present in an event. |
+          | id               | `eq`, `in`                          |                                                       |
+          | deleted          | `eq`                                |                                                       |
+          | creationType     | `eq`, `in`                          |                                                       |
 
-          The following fields are filterable:
-            * event.id (eq/in) *(filters the list of all segments present in an event).*
-            * id (eq/in)
-            * deleted (eq)
-            * creationType (eq/in)
+          The following logical operators are supported for combining filters:
+          * and
         required: true
         content:
           application/json:
@@ -7140,7 +7137,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field'
+              $ref: '#/components/schemas/custom-field1'
         required: true
       responses:
         '200':
@@ -7149,7 +7146,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/custom-field'
+                $ref: '#/components/schemas/custom-field1'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -8709,7 +8706,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
     put:
       summary: Update Exhibitor Answers
-      description: Updates answers to exhibitor questions for a given exhibitor id.
+      description: Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
       operationId: updateExhibitorAnswers
       tags:
         - Exhibitor
@@ -10020,6 +10017,72 @@ paths:
           $ref: '#/components/responses/NotFound1'
         '429':
           $ref: '#/components/responses/TooManyRequests1'
+  /events/{id}/planning-documents:
+    parameters:
+      - $ref: '#/components/parameters/id4'
+    get:
+      security:
+        - OAuth2.clientCredentials:
+            - event/planning-documents:read
+        - OAuth2.authorizationCode:
+            - event/planning-documents:read
+      summary: List Event Planning Documents
+      description: |
+        Gets a paginated list of event planning documents.
+      operationId: getEventPlanningDocuments
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            A filter query string narrows search results and supports the combination of logical and comparison operators.
+            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            These are the comparison types that can be used in filter expressions:
+              * equal: eq
+              * not equal: ne
+              * greater than: gt
+              * greater or equal: ge
+              * less than: lt
+              * less than or equal: le
+
+            The following fields are filterable:
+              * id (eq|ne)
+              * name (eq)
+              * category (eq)
+              * lastModified (eq|ne|lt|le|gt|ge)
+              * uploaded (eq|ne|lt|le|gt|ge)
+              * mimeType (eq|ne)
+          schema:
+            type: string
+            example: mimeType eq 'application/pdf' and name eq 'abc' and uploaded ge '2024-06-15T13:45:30Z'
+      tags:
+        - Events
+      responses:
+        '200':
+          description: Successfully retrieved a paginated list of event planning documents.
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/planning-documents-paginated-response'
+        '400':
+          $ref: '#/components/responses/BadRequest1'
+        '401':
+          $ref: '#/components/responses/Unauthorized1'
+        '403':
+          $ref: '#/components/responses/Forbidden1'
+        '404':
+          $ref: '#/components/responses/NotFound1'
+        '429':
+          $ref: '#/components/responses/TooManyRequests1'
+      deprecated: false
+      externalDocs:
+        description: More about OAuth2 authorization code support for administrators
+        url: '#oauth2-auth-code-planner-admin'
   /events/{id}/quantity-items:
     get:
       summary: List Quantity Items
@@ -16897,7 +16960,7 @@ paths:
   /travel-programs/{programId}/questions/{questionId}:
     parameters:
       - $ref: '#/components/parameters/programId'
-      - $ref: '#/components/parameters/questionId1'
+      - $ref: '#/components/parameters/questionId2'
     get:
       summary: Get Travel Program Question
       description: Returns the details of a single question based on the specified program and question ID.
@@ -18952,12 +19015,15 @@ components:
       in: query
       required: false
       description: |
-        A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-        These are comparison types that can be used in filter expressions:
-          * equal: eq
+        Use filter query parameters to limit results
+        to data that matches your criteria. See
+        [Filters](/docs/rest-api/reference/filters) for details.
 
-        The following fields are filterable:
-          * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+        Supported fields and operators are listed below:
+
+        | Field            | Operators                           | Notes                                    |
+        |------------------|-------------------------------------|------------------------------------------|
+        | disassociated    | `eq`                                | To use this filter, `includeDisassociated` query parameter must be true. |
       schema:
         type: string
         example: disassociated eq 'false'
@@ -18966,21 +19032,21 @@ components:
       in: query
       required: true
       description: |
-        A filter query string narrows search results and supports the combination of logical and comparison operators.
-        The filter adheres to the pattern filter='field' comparisonType 'value'.
+        Use filter query parameters to limit results
+        to data that matches your criteria. See
+        [Filters](/docs/rest-api/reference/filters) for details.
 
-        These are comparison types that can be used in filter expressions:
-          * equal: eq
-          * includes value(s): in
+        Supported fields and operators are listed below:
 
-        The following fields are filterable:
-          * event.id (eq/in) *(filters the list of all segments present in an event).*
-          * id (eq/in)
-          * deleted (eq)
-          * creationType (eq/in)
+        | Field            | Operators                           | Notes                                                 |
+        |------------------|-------------------------------------|-------------------------------------------------------|
+        | event.id         | `eq`, `in`                          | Filters the list of all segments present in an event. |
+        | id               | `eq`, `in`                          |                                                       |
+        | deleted          | `eq`                                |                                                       |
+        | creationType     | `eq`, `in`                          |                                                       |
 
-        The following operators are available:
-          * and
+        The following logical operators are supported for combining filters:
+        * and
       schema:
         type: string
         example: event.id eq '103097a4-143d-11e5-9f99-d0a637ee0032' and id in ('313097a4-143d-11e5-9f99-d0a637ee0897','423097a4-143d-11e5-9f99-d0a637ee0897') and deleted eq 'false' and creationType eq 'MANUAL'
@@ -19545,7 +19611,7 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    questionId1:
+    questionId2:
       name: questionId
       description: Unique ID for a question
       in: path
@@ -20820,7 +20886,7 @@ components:
               example: hporter
       properties:
         event:
-          $ref: '#/components/schemas/event.json3'
+          $ref: '#/components/schemas/event.json4'
         rfp:
           $ref: '#/components/schemas/rfp-id.json1'
         budgetVersion:
@@ -24470,7 +24536,7 @@ components:
           description: Description of the engagement score.
           example: A score to capture engagement for general attendees.
         event:
-          $ref: '#/components/schemas/event.json8'
+          $ref: '#/components/schemas/event.json9'
         default:
           type: boolean
           description: True indicates this is the default engagement score in the event.
@@ -25201,7 +25267,7 @@ components:
       type: object
       properties:
         event:
-          $ref: '#/components/schemas/event.json2'
+          $ref: '#/components/schemas/event.json3'
         name:
           type: string
           description: Name of the audience segment. Must be unique in the event where the segment exists.
@@ -25226,7 +25292,7 @@ components:
           type: object
           properties:
             event:
-              $ref: '#/components/schemas/event.json2'
+              $ref: '#/components/schemas/event.json3'
             name:
               type: string
               description: Name of the audience segment. Must be unique in the event where the segment exists.
@@ -25541,7 +25607,7 @@ components:
         attendee:
           $ref: '#/components/schemas/attendee.json3'
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
     badge-paginated-response:
       title: BadgeListResponse
       type: object
@@ -26036,7 +26102,7 @@ components:
         attendee:
           $ref: '#/components/schemas/attendee.json3'
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
     booth-staff-response:
@@ -26057,7 +26123,7 @@ components:
             attendee:
               $ref: '#/components/schemas/attendee.json3'
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
       properties:
@@ -29228,7 +29294,7 @@ components:
           description: Unique identifier for the mapping record.
           example: 6b92a82d-4374-40bc-a24f-6dee46d68737
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         type:
           $ref: '#/components/schemas/copy-mapping-entity-type.json'
         mappingIds:
@@ -30605,6 +30671,20 @@ components:
           example:
             - Green
             - Blue
+    custom-field.json5:
+      title: CustomField
+      description: A Custom Field
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/custom-field1/allOf/0'
+      properties:
+        type:
+          description: The type of data collected by a custom field.
+          type: string
+          allOf:
+            - $ref: '#/components/schemas/custom-field1/properties/type/allOf/0'
+            - readOnly: true
+              example: MultiSelect
     custom-field1:
       title: CustomField
       description: A Custom Field
@@ -32240,7 +32320,7 @@ components:
           type: array
           readOnly: true
           items:
-            $ref: '#/components/schemas/custom-field'
+            $ref: '#/components/schemas/custom-field.json5'
           description: Collection of custom fields.
         category:
           type: object
@@ -33134,7 +33214,7 @@ components:
               description: Source IDs track respondents in an external system integrated with the Cvent survey.
       properties:
         event:
-          $ref: '#/components/schemas/event.json6'
+          $ref: '#/components/schemas/event.json7'
         attendee:
           description: Associated attendee.
           type: object
@@ -33215,7 +33295,7 @@ components:
               readOnly: true
       properties:
         event:
-          $ref: '#/components/schemas/event.json6'
+          $ref: '#/components/schemas/event.json7'
         survey:
           $ref: '#/components/schemas/uuid.json'
         session:
@@ -33403,7 +33483,7 @@ components:
           format: uuid
           description: Unique identifier of the event.
           example: 4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56
-    event.json10:
+    event.json11:
       title: Event
       description: Details of the event.
       type: object
@@ -33415,7 +33495,7 @@ components:
           format: uuid
           example: a150f1ee-6c54-4b01-90e6-d701748f0851
           description: The unique ID of the event.
-    event.json2:
+    event.json3:
       title: Event
       required:
         - id
@@ -33427,7 +33507,7 @@ components:
           format: uuid
           description: UUID of the event.
           example: 103097a4-143d-11e5-9f99-d0a637ee0032
-    event.json3:
+    event.json4:
       type: object
       properties:
         id:
@@ -33436,7 +33516,7 @@ components:
           format: uuid
           example: 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329
       description: Event ID Information.
-    event.json5:
+    event.json6:
       description: The Associated Event.
       title: Event
       type: object
@@ -33448,7 +33528,7 @@ components:
           format: uuid
           example: 3db28cfc-db22-11eb-8d19-0242ac130003
           description: Event id
-    event.json6:
+    event.json7:
       title: Event
       type: object
       description: Detail object of an event which is associated to a survey.
@@ -33459,7 +33539,7 @@ components:
           example: 9463c74e-18c6-401a-a710-ae0f485bf059
           description: Id of the associated event
       readOnly: true
-    event.json8:
+    event.json9:
       title: Event
       description: An event reference used in attendee insights to identify the event context for engagement data
       type: object
@@ -33754,7 +33834,7 @@ components:
         - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
       properties:
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         name:
           type: string
           description: Name of the exhibitor category
@@ -33794,7 +33874,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             name:
               type: string
               description: Name of the exhibitor category
@@ -33897,7 +33977,7 @@ components:
         - name
       properties:
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         name:
           type: string
           description: Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
@@ -33980,7 +34060,7 @@ components:
             - name
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             name:
               type: string
               description: Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
@@ -34607,7 +34687,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
             lead:
@@ -34659,7 +34739,7 @@ components:
             question:
               $ref: '#/components/schemas/uuid.json'
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
             answers:
@@ -34718,7 +34798,7 @@ components:
             - required
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             text:
               type: string
               description: The actual text of the exhibitor question.
@@ -34819,7 +34899,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
             displayName:
@@ -34940,7 +35020,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
             attendee:
@@ -35224,7 +35304,7 @@ components:
           example: 50f4f0df-0c2d-4e6b-8e68-e1413b6917f5
           description: Registration pack id
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         capacities:
@@ -35851,7 +35931,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             name:
               type: string
               description: Name of the sponsorship level
@@ -36395,7 +36475,7 @@ components:
             - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
           properties:
             event:
-              $ref: '#/components/schemas/event.json5'
+              $ref: '#/components/schemas/event.json6'
             exhibitor:
               $ref: '#/components/schemas/exhibitor.json'
             name:
@@ -36900,7 +36980,7 @@ components:
           description: Name of the fee.
           maxLength: 100
           example: Orientation Session Registration Fee
-    field-type.json1:
+    field-type.json2:
       title: FieldType
       enum:
         - SingleChoice
@@ -36912,7 +36992,7 @@ components:
       description: Field Type
       example: SingleChoice
       readOnly: true
-    field.json1:
+    field.json5:
       title: Field
       description: A survey field.
       type: object
@@ -36920,7 +37000,7 @@ components:
         - $ref: '#/components/schemas/text-field.json1'
       properties:
         type:
-          $ref: '#/components/schemas/field-type.json1'
+          $ref: '#/components/schemas/field-type.json2'
         choices:
           type: array
           description: List of choices for this field.
@@ -36943,7 +37023,7 @@ components:
         - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
       properties:
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         displayName:
@@ -38763,7 +38843,7 @@ components:
         question:
           $ref: '#/components/schemas/uuid.json'
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         lead:
@@ -38786,7 +38866,7 @@ components:
           example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
           description: Lead Qualification Question id
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         type:
@@ -39126,9 +39206,6 @@ components:
       title: Event copy mapping IDs
       type: object
       description: A map of entity IDs from source event to target event. Keys and values are UUIDs.
-      additionalProperties:
-        type: string
-        format: uuid
       example:
         9a6cea18-2961-4a10-aaaf-2e3a6051ce9b: 84fc290a-9da4-48df-9d94-e7b76bf7391d
     max-guests.json:
@@ -41448,7 +41525,7 @@ components:
           type: array
           deprecated: true
           items:
-            $ref: '#/components/schemas/custom-field'
+            $ref: '#/components/schemas/custom-field.json5'
           description: Collection of custom fields.
           readOnly: true
         sourceId:
@@ -41491,6 +41568,112 @@ components:
           description: The identifier of the user that last updated this record.
           readOnly: true
           example: hporter
+    planning-document-event-id.json:
+      title: PlanningDocumentEventId
+      description: Event associated with the document.
+      type: object
+      properties:
+        id:
+          description: A unique identifier of the event.
+          type: string
+          format: uuid
+          example: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+    planning-document-reference-link.json:
+      title: PlanningDocumentReferenceLink
+      description: A reference link contains the URL that provides direct access to download the file for the document. The expiration of the URL can be included if applicable.
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The URL to download the file resource for the document. This URL will expire after the time indicated by the field expiration. If not provided, the URL is considered dynamic and not guaranteed to remain constant. Clients should always retrieve the latest URL before attempting to download the file, as it may change over time.
+          example: https://custom.cvent.com/4B31940730B6475A8D6A7785748A67EE/files/smm/8cfc2168a00342f5ba9e13f7a808df8e/78ce60fbf1da4cf5af139a65f59aed60.pdf
+        expiration:
+          type: string
+          format: date-time
+          description: The ISO 8601 formatted date and time at which the reference document will expire if an explicit expiration is defined.
+          example: '2025-12-31T23:59:59Z'
+    planning-document.json:
+      title: PlanningDocument
+      description: Represents a planning document associated with an event.
+      type: object
+      allOf:
+        - title: document
+          description: The base model for the document metadata.
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              description: Unique identifier of the document.
+              type: string
+              format: uuid
+            name:
+              type: string
+              maxLength: 255
+              description: Name of the document.
+              example: Agenda
+            size:
+              type: integer
+              description: Size of the document in bytes
+              example: 204800
+            uploaded:
+              type: string
+              format: date-time
+              description: The ISO-8601 formatted date and time when the document was uploaded.
+              example: '2024-06-15T13:45:30Z'
+            uploadedBy:
+              type: string
+              description: The user who uploaded the document.
+              example: John Doe
+            lastModified:
+              type: string
+              format: date-time
+              description: The ISO-8601 formatted date and time when this document was last updated.
+              example: '2024-10-12T03:00:00Z'
+            lastModifiedBy:
+              type: string
+              description: The user who last updated the document.
+              example: John Doe
+      properties:
+        event:
+          $ref: '#/components/schemas/planning-document-event-id.json'
+        category:
+          type: string
+          description: Category of the document.
+          maxLength: 50
+          example: Category 1
+        mimeType:
+          type: string
+          description: 'The MIME type of the document. Supported MIME types: application/pdf, application/vnd.ms-powerpoint, application/msword, text/plain, application/vnd.ms-excel, image/gif, image/jpeg, image/bmp, image/tiff, image/png, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/postscript, application/vnd.ms-outlook, font/ttf, font/woff, font/otf, font/woff2, message/rfc822, video/x-msvideo, video/x-flv, video/quicktime, video/mp4, video/x-ms-wmv, text/calendar'
+          example: application/pdf
+        description:
+          type: string
+          description: Description of the document.
+          maxLength: 255
+          example: A detailed description of the document.
+        secured:
+          type: boolean
+          description: True indicates the document is stored in a secured bucket and needs a signed URL to be retrieved.
+          example: true
+        referenceLink:
+          $ref: '#/components/schemas/planning-document-reference-link.json'
+    planning-documents-paginated-response:
+      title: PlanningDocumentResponse
+      description: Represents a paginated collection of event planning documents.
+      required:
+        - data
+        - paging
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/paging.json'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/planning-document.json'
+          description: Collection of event planning documents.
+          maxItems: 200
     player-paginated-response:
       title: PlayerPaginatedResponse
       description: The response from a request to get the list of players.  This includes the paging object as well as the collection of players.
@@ -42966,7 +43149,7 @@ components:
               type: array
               description: List of fields for form/matrix questions
               items:
-                $ref: '#/components/schemas/field.json1'
+                $ref: '#/components/schemas/field.json5'
             maxScore:
               type: number
               description: Max possible score
@@ -43193,7 +43376,7 @@ components:
       description: A registration pack containing event, exhibitor, and capacities information.
       properties:
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         capacities:
@@ -43218,7 +43401,7 @@ components:
           example: 50f4f0df-0c2d-4e6b-8e68-e1413b6917f5
           description: Registration pack id
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         capacities:
@@ -43907,7 +44090,7 @@ components:
         - $ref: '#/components/schemas/event-survey-respondent/allOf/0'
       properties:
         event:
-          $ref: '#/components/schemas/event.json6'
+          $ref: '#/components/schemas/event.json7'
         contact:
           $ref: '#/components/schemas/uuid.json'
         attendee:
@@ -44373,7 +44556,7 @@ components:
               description: Attendee ID
           description: The attendee with points in this engagement score.
         event:
-          $ref: '#/components/schemas/event.json8'
+          $ref: '#/components/schemas/event.json9'
         points:
           type: integer
           default: 0
@@ -44554,7 +44737,7 @@ components:
       type: object
       properties:
         event:
-          $ref: '#/components/schemas/event.json10'
+          $ref: '#/components/schemas/event.json11'
         email:
           $ref: '#/components/schemas/email.json2'
         resendToPreviousRecipients:
@@ -44627,7 +44810,7 @@ components:
         - attendeeResponse
       properties:
         event:
-          $ref: '#/components/schemas/event.json10'
+          $ref: '#/components/schemas/event.json11'
         email:
           $ref: '#/components/schemas/email.json2'
         resendToPreviousRecipients:
@@ -45515,7 +45698,7 @@ components:
         customFields:
           type: array
           items:
-            $ref: '#/components/schemas/custom-field'
+            $ref: '#/components/schemas/custom-field.json5'
           description: Collection of custom fields.
     sessions-attendance-response.json:
       title: SessionsAttendance
@@ -46304,7 +46487,7 @@ components:
           type: array
           deprecated: true
           items:
-            $ref: '#/components/schemas/custom-field'
+            $ref: '#/components/schemas/custom-field.json5'
           description: Collection of custom fields.
           readOnly: true
         sourceId:
@@ -47630,7 +47813,7 @@ components:
           type: array
           uniqueItems: true
           items:
-            $ref: '#/components/schemas/event.json6'
+            $ref: '#/components/schemas/event.json7'
           description: List of events with which this survey is linked.
     surveys-paginated-response:
       title: SurveysPaginatedResponse
@@ -49232,7 +49415,7 @@ components:
     travel-proposal-bid:
       title: Travel Proposal Bid
       type: object
-      description: A travel proposal bid erate plan that is being proposed to a customer.
+      description: A travel proposal bid rate plan that is being proposed to a customer.
       properties:
         travelProposal:
           description: The travel proposal that the bid belongs to.
@@ -50675,7 +50858,7 @@ components:
         device:
           $ref: '#/components/schemas/device.json'
         video:
-          $ref: '#/components/schemas/video.json'
+          $ref: '#/components/schemas/video.json1'
         type:
           $ref: '#/components/schemas/view-type.json1'
         totalDuration:
@@ -50733,7 +50916,7 @@ components:
       maxItems: 100
       items:
         $ref: '#/components/schemas/video-warning.json'
-    video.json:
+    video.json1:
       title: Video
       type: object
       description: The details of a video
@@ -51046,7 +51229,7 @@ components:
         - $ref: '#/components/schemas/copy-mappings-response/allOf/0'
       properties:
         event:
-          $ref: '#/components/schemas/event.json5'
+          $ref: '#/components/schemas/event.json6'
         exhibitor:
           $ref: '#/components/schemas/exhibitor.json'
         name:
@@ -51204,6 +51387,7 @@ components:
             event/meeting-requests:write: Allows the creation/updating of meeting requests.
             event/membership-items:read: Allows reading of membership items.
             event/orders:read: Allows the reading of orders
+            event/planning-documents:read: Allows the reading of event planning documents
             event/players:read: Allows the reading of players
             event/process-form-submissions:read: Allows the reading of process form submissions.
             event/program-items:delete: Allows deletion of session program items
@@ -51404,6 +51588,7 @@ components:
             event/meeting-requests:write: Allows the creation/updating of meeting requests.
             event/membership-items:read: Allows reading of membership items.
             event/orders:read: Allows the reading of orders
+            event/planning-documents:read: Allows the reading of event planning documents
             event/players:read: Allows the reading of players
             event/process-form-submissions:read: Allows the reading of process form submissions.
             event/program-items:delete: Allows deletion of session program items
@@ -51737,3 +51922,6 @@ tags:
     description: Videos can be added to Cvent events with renditions at various resolutions, audio files, reactions tracks, and text tracks. Attendee viewership is tracked to get insight into durations, devices used and venue where the video is watched. Use these APIs to view and manage videos, related text tracks, and audio files. Use these APIs also to get insight into video viewership.
   - name: Webcasts
     description: Webcasts are virtual or livestreaming components of your Cvent events. Use these APIs to integrate your virtual events from outside sources into your Cvent workflows, create and delete webcasts from within Cvent, and retrieve and update webcast details.
+externalDocs:
+  description: Cvent Developer Documentation
+  url: https://developers.cvent.com/docs

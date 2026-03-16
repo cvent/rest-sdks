@@ -167,7 +167,7 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("customFields")]
-        public List<CustomField>? CustomFields { get; set; }
+        public List<CustomFieldJson5>? CustomFields { get; set; }
 
         /// <summary>
         /// This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.

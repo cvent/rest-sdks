@@ -157,7 +157,7 @@ public class Application {
         CreateExhibitorCategoryRequest req = CreateExhibitorCategoryRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -172,7 +172,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorCategoryResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorCategoryResponse().get());
         }
     }
 }
@@ -235,7 +235,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryId("534a465b-b4cb-471d-9498-4bf3917ad8bf")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -250,7 +250,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorCategoryResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorCategoryResponse().get());
         }
     }
 }
@@ -392,7 +392,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorCategoryBannerFile().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorCategoryBannerFile().get());
         }
     }
 }
@@ -739,7 +739,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorQuestionsResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorQuestionsResponse().get());
         }
     }
 }
@@ -875,7 +875,7 @@ public class Application {
         CreateExhibitorRequest req = CreateExhibitorRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -921,7 +921,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorResponse().get());
         }
     }
 }
@@ -991,7 +991,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorResponse().get());
         }
     }
 }
@@ -1054,7 +1054,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -1100,7 +1100,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorResponse().get());
         }
     }
 }
@@ -1242,7 +1242,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorBannerLogoFile().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorBannerLogoFile().get());
         }
     }
 }
@@ -1381,7 +1381,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorAnswersResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorAnswersResponse().get());
         }
     }
 }
@@ -1406,7 +1406,7 @@ public class Application {
 
 ## updateExhibitorAnswers
 
-Updates answers to exhibitor questions for a given exhibitor id.
+Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the questions marked as required for exhibitor admins.
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>
@@ -1449,7 +1449,7 @@ public class Application {
                             .question(UuidJson.builder()
                                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                                 .build())
-                            .event(EventJson5.builder()
+                            .event(EventJson6.builder()
                                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                                 .build())
                             .exhibitor(ExhibitorJson.builder()
@@ -1469,7 +1469,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorAnswersResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorAnswersResponse().get());
         }
     }
 }
@@ -1614,7 +1614,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorBannerLogoFile().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorBannerLogoFile().get());
         }
     }
 }
@@ -1753,7 +1753,7 @@ public class Application {
                 .call();
 
         if (res.leadQualificationQuestionsListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.leadQualificationQuestionsListResponse().get());
         }
     }
 }
@@ -1816,7 +1816,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -1837,7 +1837,7 @@ public class Application {
                 .call();
 
         if (res.registrationPackResponse().isPresent()) {
-            // handle response
+            System.out.println(res.registrationPackResponse().get());
         }
     }
 }
@@ -1907,7 +1907,7 @@ public class Application {
                 .call();
 
         if (res.exhibitorRegistrationPackListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.exhibitorRegistrationPackListResponse().get());
         }
     }
 }
@@ -1978,7 +1978,7 @@ public class Application {
                 .call();
 
         if (res.registrationPackResponse().isPresent()) {
-            // handle response
+            System.out.println(res.registrationPackResponse().get());
         }
     }
 }
@@ -2042,7 +2042,7 @@ public class Application {
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackId("50f4f0df-0c2d-4e6b-8e68-e1413b6917f5")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(EventJson5.builder()
+                    .event(EventJson6.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(ExhibitorJson.builder()
@@ -2063,7 +2063,7 @@ public class Application {
                 .call();
 
         if (res.registrationPackResponse().isPresent()) {
-            // handle response
+            System.out.println(res.registrationPackResponse().get());
         }
     }
 }
@@ -2201,7 +2201,7 @@ public class Application {
                 .call();
 
         if (res.sponsorshipLevelListResponse().isPresent()) {
-            // handle response
+            System.out.println(res.sponsorshipLevelListResponse().get());
         }
     }
 }
@@ -2271,7 +2271,7 @@ public class Application {
                 .call();
 
         if (res.existingSponsorshipLevel().isPresent()) {
-            // handle response
+            System.out.println(res.existingSponsorshipLevel().get());
         }
     }
 }

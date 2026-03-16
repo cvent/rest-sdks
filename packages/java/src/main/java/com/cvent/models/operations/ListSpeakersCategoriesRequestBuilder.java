@@ -75,13 +75,12 @@ public class ListSpeakersCategoriesRequestBuilder {
         ListSpeakersCategoriesRequest request = this.request;
         RequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation =
                 new ListSpeakersCategories.Sync(sdkConfiguration, _headers);
-        // foobar
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
-                request,
-                new CursorTracker<>("$.paging.nextToken", String.class),
-                ListSpeakersCategoriesRequest::withToken,
-                nextRequest -> unchecked(() -> operation.doRequest(request)).get());
+                request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {
+                    var modifiedReq = pos == null ? req : req.withToken(pos);
+                    return unchecked(() -> operation.doRequest(modifiedReq)).get();
+                });
 
         return () -> transform(iterator, operation::handleResponse);
     }

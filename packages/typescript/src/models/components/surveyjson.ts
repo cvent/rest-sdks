@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
+import { EventJson7, EventJson7$inboundSchema } from "./eventjson7.js";
 import {
   SurveyAuthorJson,
   SurveyAuthorJson$inboundSchema,
@@ -87,7 +87,7 @@ export type SurveyJson = {
   /**
    * List of events with which this survey is linked.
    */
-  events?: Array<EventJson6> | undefined;
+  events?: Array<EventJson7> | undefined;
 };
 
 /** @internal */
@@ -117,7 +117,7 @@ export const SurveyJson$inboundSchema: z.ZodType<
   activateDate: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  events: z.array(EventJson6$inboundSchema).optional(),
+  events: z.array(EventJson7$inboundSchema).optional(),
 });
 
 export function surveyJsonFromJSON(

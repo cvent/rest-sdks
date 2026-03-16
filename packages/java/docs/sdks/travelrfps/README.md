@@ -203,7 +203,7 @@ public class Application {
                 .call();
 
         if (res.travelProgram().isPresent()) {
-            // handle response
+            System.out.println(res.travelProgram().get());
         }
     }
 }
@@ -340,7 +340,7 @@ public class Application {
                 .call();
 
         if (res.question().isPresent()) {
-            // handle response
+            System.out.println(res.question().get());
         }
     }
 }
@@ -546,7 +546,7 @@ public class Application {
                 .call();
 
         if (res.travelProposalBid().isPresent()) {
-            // handle response
+            System.out.println(res.travelProposalBid().get());
         }
     }
 }
@@ -612,7 +612,7 @@ public class Application {
                 .call();
 
         if (res.travelProposal().isPresent()) {
-            // handle response
+            System.out.println(res.travelProposal().get());
         }
     }
 }

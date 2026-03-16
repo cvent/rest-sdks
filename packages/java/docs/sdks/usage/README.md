@@ -48,7 +48,7 @@ public class Application {
                 .call();
 
         if (res.usagePaginatedResponse().isPresent()) {
-            // handle response
+            System.out.println(res.usagePaginatedResponse().get());
         }
     }
 }
@@ -112,7 +112,7 @@ public class Application {
                 .call();
 
         if (res.publicUsagePlan().isPresent()) {
-            // handle response
+            System.out.println(res.publicUsagePlan().get());
         }
     }
 }

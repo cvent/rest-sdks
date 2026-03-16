@@ -54,7 +54,7 @@ public class ExistingEliteratureRequestDataJson {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -87,7 +87,7 @@ public class ExistingEliteratureRequestDataJson {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("lead") @Nonnull LeadJson lead,
             @JsonProperty("documents") @Nonnull List<EliteratureDocumentJson> documents,
@@ -106,7 +106,7 @@ public class ExistingEliteratureRequestDataJson {
     }
 
     public ExistingEliteratureRequestDataJson(
-            @Nonnull EventJson5 event,
+            @Nonnull EventJson6 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull LeadJson lead,
             @Nonnull List<EliteratureDocumentJson> documents) {
@@ -144,7 +144,7 @@ public class ExistingEliteratureRequestDataJson {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -215,7 +215,7 @@ public class ExistingEliteratureRequestDataJson {
     /**
      * The Associated Event.
      */
-    public ExistingEliteratureRequestDataJson withEvent(@Nonnull EventJson5 event) {
+    public ExistingEliteratureRequestDataJson withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -313,7 +313,7 @@ public class ExistingEliteratureRequestDataJson {
 
         private String lastModifiedBy;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -362,7 +362,7 @@ public class ExistingEliteratureRequestDataJson {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

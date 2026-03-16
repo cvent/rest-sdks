@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AttendeeJson3, AttendeeJson3$inboundSchema } from "./attendeejson3.js";
-import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 
 /**
@@ -37,7 +37,7 @@ export type BoothStaffResponse = {
   /**
    * The Associated Event.
    */
-  event: EventJson5;
+  event: EventJson6;
   /**
    * The Associated Exhibitor.
    */
@@ -62,7 +62,7 @@ export const BoothStaffResponse$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   attendee: AttendeeJson3$inboundSchema,
-  event: EventJson5$inboundSchema,
+  event: EventJson6$inboundSchema,
   exhibitor: ExhibitorJson$inboundSchema,
   id: z.string().optional(),
 });

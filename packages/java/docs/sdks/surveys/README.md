@@ -366,7 +366,7 @@ public class Application {
                 .call();
 
         if (res.eventSurveyRespondent().isPresent()) {
-            // handle response
+            System.out.println(res.eventSurveyRespondent().get());
         }
     }
 }
@@ -442,7 +442,7 @@ public class Application {
                 .call();
 
         if (res.eventSurveyRespondent().isPresent()) {
-            // handle response
+            System.out.println(res.eventSurveyRespondent().get());
         }
     }
 }
@@ -540,7 +540,7 @@ public class Application {
                 .call();
 
         if (res.eventSurveyResponse().isPresent()) {
-            // handle response
+            System.out.println(res.eventSurveyResponse().get());
         }
     }
 }
@@ -1316,7 +1316,7 @@ public class Application {
                 .call();
 
         if (res.standardSurveyRespondent().isPresent()) {
-            // handle response
+            System.out.println(res.standardSurveyRespondent().get());
         }
     }
 }
@@ -1396,7 +1396,7 @@ public class Application {
                 .call();
 
         if (res.standardSurveyRespondent().isPresent()) {
-            // handle response
+            System.out.println(res.standardSurveyRespondent().get());
         }
     }
 }
@@ -1464,7 +1464,7 @@ public class Application {
                 .call();
 
         if (res.standardSurveySendEmailResponse().isPresent()) {
-            // handle response
+            System.out.println(res.standardSurveySendEmailResponse().get());
         }
     }
 }
@@ -1542,7 +1542,7 @@ public class Application {
                 .call();
 
         if (res.standardSurveyResponse().isPresent()) {
-            // handle response
+            System.out.println(res.standardSurveyResponse().get());
         }
     }
 }
@@ -1637,7 +1637,7 @@ public class Application {
                 .call();
 
         if (res.standardSurveyResponse().isPresent()) {
-            // handle response
+            System.out.println(res.standardSurveyResponse().get());
         }
     }
 }

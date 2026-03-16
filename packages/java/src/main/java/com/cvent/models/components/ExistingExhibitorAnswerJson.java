@@ -60,7 +60,7 @@ public class ExistingExhibitorAnswerJson {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * The Associated Exhibitor.
@@ -87,7 +87,7 @@ public class ExistingExhibitorAnswerJson {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
             @JsonProperty("answers") @Nonnull List<AnswerJson0> answers,
             @JsonProperty("id") @Nonnull String id) {
@@ -107,7 +107,7 @@ public class ExistingExhibitorAnswerJson {
 
     public ExistingExhibitorAnswerJson(
             @Nonnull UuidJson question,
-            @Nonnull EventJson5 event,
+            @Nonnull EventJson6 event,
             @Nonnull ExhibitorJson exhibitor,
             @Nonnull List<AnswerJson0> answers,
             @Nonnull String id) {
@@ -152,7 +152,7 @@ public class ExistingExhibitorAnswerJson {
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -224,7 +224,7 @@ public class ExistingExhibitorAnswerJson {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswerJson withEvent(@Nonnull EventJson5 event) {
+    public ExistingExhibitorAnswerJson withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -316,7 +316,7 @@ public class ExistingExhibitorAnswerJson {
 
         private UuidJson question;
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private ExhibitorJson exhibitor;
 
@@ -371,7 +371,7 @@ public class ExistingExhibitorAnswerJson {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

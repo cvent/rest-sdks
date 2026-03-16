@@ -156,7 +156,7 @@ public class Application {
                 .call();
 
         if (res.appointmentAttendee().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentAttendee().get());
         }
     }
 }
@@ -298,7 +298,7 @@ public class Application {
                 .call();
 
         if (res.appointmentAvailability().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentAvailability().get());
         }
     }
 }
@@ -440,7 +440,7 @@ public class Application {
                 .call();
 
         if (res.appointmentEvent().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentEvent().get());
         }
     }
 }
@@ -669,7 +669,7 @@ public class Application {
                 .call();
 
         if (res.appointmentWithQuestions().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentWithQuestions().get());
         }
     }
 }
@@ -756,7 +756,7 @@ public class Application {
                 .call();
 
         if (res.appointmentWithQuestions().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentWithQuestions().get());
         }
     }
 }
@@ -1036,7 +1036,7 @@ public class Application {
                 .call();
 
         if (res.attendeeAppointmentMeetingInterest().isPresent()) {
-            // handle response
+            System.out.println(res.attendeeAppointmentMeetingInterest().get());
         }
     }
 }
@@ -1178,7 +1178,7 @@ public class Application {
                 .call();
 
         if (res.appointmentWithQuestions().isPresent()) {
-            // handle response
+            System.out.println(res.appointmentWithQuestions().get());
         }
     }
 }

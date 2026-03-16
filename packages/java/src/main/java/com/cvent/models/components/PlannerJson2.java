@@ -251,7 +251,7 @@ public class PlannerJson2 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
     @Deprecated
-    private List<CustomField> customFields;
+    private List<CustomFieldJson5> customFields;
 
     /**
      * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for
@@ -340,7 +340,7 @@ public class PlannerJson2 {
             @JsonProperty("workAddress") @Nullable PlannerJson2WorkAddressAddress workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
-            @JsonProperty("customFields") @Nullable List<CustomField> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson5> customFields,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("created") @Nullable OffsetDateTime created,
@@ -639,7 +639,7 @@ public class PlannerJson2 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomField>> customFields() {
+    public Optional<List<CustomFieldJson5>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -956,7 +956,7 @@ public class PlannerJson2 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public PlannerJson2 withCustomFields(@Nullable List<CustomField> customFields) {
+    public PlannerJson2 withCustomFields(@Nullable List<CustomFieldJson5> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -1244,7 +1244,7 @@ public class PlannerJson2 {
         private String workFax;
 
         @Deprecated
-        private List<CustomField> customFields;
+        private List<CustomFieldJson5> customFields;
 
         @Deprecated
         private String sourceId;
@@ -1516,7 +1516,7 @@ public class PlannerJson2 {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder customFields(@Nullable List<CustomField> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson5> customFields) {
             this.customFields = customFields;
             return this;
         }

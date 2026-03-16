@@ -142,6 +142,7 @@ export * from "./geteventbyid.js";
 export * from "./geteventcopystatus.js";
 export * from "./geteventemailstatus.js";
 export * from "./geteventfeatures.js";
+export * from "./geteventplanningdocuments.js";
 export * from "./geteventquestions.js";
 export * from "./getevents.js";
 export * from "./geteventspostfilters.js";

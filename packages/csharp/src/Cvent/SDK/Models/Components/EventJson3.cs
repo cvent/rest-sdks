@@ -13,14 +13,14 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Event ID Information.
+    /// ID of the event.
     /// </summary>
     public class EventJson3
     {
         /// <summary>
-        /// Identifier of a particular Event.
+        /// UUID of the event.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
     }
 }

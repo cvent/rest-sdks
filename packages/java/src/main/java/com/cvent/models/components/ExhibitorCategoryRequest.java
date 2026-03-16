@@ -24,7 +24,7 @@ public class ExhibitorCategoryRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson6 event;
 
     /**
      * Name of the exhibitor category
@@ -53,7 +53,7 @@ public class ExhibitorCategoryRequest {
 
     @JsonCreator
     public ExhibitorCategoryRequest(
-            @JsonProperty("event") @Nonnull EventJson5 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("order") long order,
@@ -66,14 +66,14 @@ public class ExhibitorCategoryRequest {
     }
 
     public ExhibitorCategoryRequest(
-            @Nonnull EventJson5 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryRequestType type) {
+            @Nonnull EventJson6 event, @Nonnull String name, long order, @Nonnull ExhibitorCategoryRequestType type) {
         this(event, name, null, order, type);
     }
 
     /**
      * The Associated Event.
      */
-    public EventJson5 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -112,7 +112,7 @@ public class ExhibitorCategoryRequest {
     /**
      * The Associated Event.
      */
-    public ExhibitorCategoryRequest withEvent(@Nonnull EventJson5 event) {
+    public ExhibitorCategoryRequest withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -189,7 +189,7 @@ public class ExhibitorCategoryRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson5 event;
+        private EventJson6 event;
 
         private String name;
 
@@ -206,7 +206,7 @@ public class ExhibitorCategoryRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson5 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

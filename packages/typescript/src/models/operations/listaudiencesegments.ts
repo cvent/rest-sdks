@@ -39,23 +39,23 @@ export type ListAudienceSegmentsRequest = {
    */
   sort?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * These are comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * includes value(s): in
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * event.id (eq/in) *(filters the list of all segments present in an event).*
-   *   * id (eq/in)
-   *   * deleted (eq)
-   *   * creationType (eq/in)
+   * | Field            | Operators                           | Notes                                                 |
+   * |------------------|-------------------------------------|-------------------------------------------------------|
+   * | event.id         | `eq`, `in`                          | Filters the list of all segments present in an event. |
+   * | id               | `eq`, `in`                          |                                                       |
+   * | deleted          | `eq`                                |                                                       |
+   * | creationType     | `eq`, `in`                          |                                                       |
    *
-   * The following operators are available:
-   *   * and
+   * The following logical operators are supported for combining filters:
+   * * and
    */
   filter: string;
   /**

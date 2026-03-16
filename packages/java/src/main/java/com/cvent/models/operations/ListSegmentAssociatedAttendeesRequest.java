@@ -51,13 +51,17 @@ public class ListSegmentAssociatedAttendeesRequest {
     private OffsetDateTime after;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are comparison types that can be used in filter expressions:
-     * * equal: eq
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | disassociated    | `eq`                                | To use this filter,
+     * `includeDisassociated` query parameter must be true. |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -131,13 +135,17 @@ public class ListSegmentAssociatedAttendeesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are comparison types that can be used in filter expressions:
-     * * equal: eq
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | disassociated    | `eq`                                | To use this filter,
+     * `includeDisassociated` query parameter must be true. |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -198,13 +206,17 @@ public class ListSegmentAssociatedAttendeesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are comparison types that can be used in filter expressions:
-     * * equal: eq
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           | Notes
+     * |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | disassociated    | `eq`                                | To use this filter,
+     * `includeDisassociated` query parameter must be true. |
      */
     public ListSegmentAssociatedAttendeesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -327,13 +339,17 @@ public class ListSegmentAssociatedAttendeesRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * These are comparison types that can be used in filter expressions:
-         * * equal: eq
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * disassociated (eq) Note: to use this filter, `includeDisassociated` query parameter must be true.
+         * <p>Supported fields and operators are listed below:
+         *
+         * <p>| Field            | Operators                           | Notes
+         * |
+         * |------------------|-------------------------------------|------------------------------------------|
+         * | disassociated    | `eq`                                | To use this filter,
+         * `includeDisassociated` query parameter must be true. |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

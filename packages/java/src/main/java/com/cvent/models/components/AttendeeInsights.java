@@ -72,7 +72,7 @@ public class AttendeeInsights {
      * An event reference used in attendee insights to identify the event context for engagement data
      */
     @JsonProperty("event")
-    private EventJson8 event;
+    private EventJson9 event;
 
     /**
      * True indicates this is the default engagement score in the event.
@@ -89,7 +89,7 @@ public class AttendeeInsights {
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("event") @Nonnull EventJson8 event,
+            @JsonProperty("event") @Nonnull EventJson9 event,
             @JsonProperty("default") boolean default_) {
         this.created = created;
         this.createdBy = createdBy;
@@ -102,7 +102,7 @@ public class AttendeeInsights {
         this.default_ = default_;
     }
 
-    public AttendeeInsights(@Nonnull String id, @Nonnull String name, @Nonnull EventJson8 event, boolean default_) {
+    public AttendeeInsights(@Nonnull String id, @Nonnull String name, @Nonnull EventJson9 event, boolean default_) {
         this(null, null, null, null, id, name, null, event, default_);
     }
 
@@ -158,7 +158,7 @@ public class AttendeeInsights {
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
      */
-    public EventJson8 event() {
+    public EventJson9 event() {
         return this.event;
     }
 
@@ -232,7 +232,7 @@ public class AttendeeInsights {
     /**
      * An event reference used in attendee insights to identify the event context for engagement data
      */
-    public AttendeeInsights withEvent(@Nonnull EventJson8 event) {
+    public AttendeeInsights withEvent(@Nonnull EventJson9 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -312,7 +312,7 @@ public class AttendeeInsights {
 
         private String description;
 
-        private EventJson8 event;
+        private EventJson9 event;
 
         private boolean default_;
 
@@ -379,7 +379,7 @@ public class AttendeeInsights {
         /**
          * An event reference used in attendee insights to identify the event context for engagement data
          */
-        public Builder event(@Nonnull EventJson8 event) {
+        public Builder event(@Nonnull EventJson9 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

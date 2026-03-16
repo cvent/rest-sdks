@@ -407,6 +407,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [GetOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [GetOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [AssociateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
+* [GetEventPlanningDocuments](docs/sdks/events/README.md#geteventplanningdocuments) - List Event Planning Documents
 * [ListQuantityItems](docs/sdks/events/README.md#listquantityitems) - List Quantity Items
 * [ListQuantityItemsPostFilter](docs/sdks/events/README.md#listquantityitemspostfilter) - List Quantity Items
 * [ListRegistrationPaths](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
@@ -863,9 +864,9 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 426 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 426 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 426 methods.*
+  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 427 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 427 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 427 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

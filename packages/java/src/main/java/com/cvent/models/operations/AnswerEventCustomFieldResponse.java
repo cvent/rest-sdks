@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CustomField;
+import com.cvent.models.components.CustomField1;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,20 +34,20 @@ public class AnswerEventCustomFieldResponse implements Response {
     /**
      * Successfully updated custom field answer in the event.
      */
-    private CustomField customField;
+    private CustomField1 customField1;
 
     @JsonCreator
     public AnswerEventCustomFieldResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable CustomField customField) {
+            @Nullable CustomField1 customField1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.customField = customField;
+        this.customField1 = customField1;
     }
 
     public AnswerEventCustomFieldResponse(
@@ -79,8 +79,8 @@ public class AnswerEventCustomFieldResponse implements Response {
     /**
      * Successfully updated custom field answer in the event.
      */
-    public Optional<CustomField> customField() {
-        return Optional.ofNullable(this.customField);
+    public Optional<CustomField1> customField1() {
+        return Optional.ofNullable(this.customField1);
     }
 
     public static Builder builder() {
@@ -114,8 +114,8 @@ public class AnswerEventCustomFieldResponse implements Response {
     /**
      * Successfully updated custom field answer in the event.
      */
-    public AnswerEventCustomFieldResponse withCustomField(@Nullable CustomField customField) {
-        this.customField = customField;
+    public AnswerEventCustomFieldResponse withCustomField1(@Nullable CustomField1 customField1) {
+        this.customField1 = customField1;
         return this;
     }
 
@@ -131,12 +131,12 @@ public class AnswerEventCustomFieldResponse implements Response {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.customField, other.customField);
+                && Utils.enhancedDeepEquals(this.customField1, other.customField1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField1);
     }
 
     @Override
@@ -149,8 +149,8 @@ public class AnswerEventCustomFieldResponse implements Response {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "customField",
-                customField);
+                "customField1",
+                customField1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -162,7 +162,7 @@ public class AnswerEventCustomFieldResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private CustomField customField;
+        private CustomField1 customField1;
 
         private Builder() {
             // force use of static builder() method
@@ -195,13 +195,13 @@ public class AnswerEventCustomFieldResponse implements Response {
         /**
          * Successfully updated custom field answer in the event.
          */
-        public Builder customField(@Nullable CustomField customField) {
-            this.customField = customField;
+        public Builder customField1(@Nullable CustomField1 customField1) {
+            this.customField1 = customField1;
             return this;
         }
 
         public AnswerEventCustomFieldResponse build() {
-            return new AnswerEventCustomFieldResponse(contentType, statusCode, rawResponse, customField);
+            return new AnswerEventCustomFieldResponse(contentType, statusCode, rawResponse, customField1);
         }
     }
 }

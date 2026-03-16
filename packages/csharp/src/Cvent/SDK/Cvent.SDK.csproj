@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>Cvent.SDK</PackageId>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <TargetFramework>net8.0</TargetFramework>
     <Authors>Cvent</Authors>
     <Copyright>Copyright (c) Cvent 2026</Copyright>

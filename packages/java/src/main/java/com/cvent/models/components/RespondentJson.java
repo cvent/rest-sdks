@@ -146,7 +146,7 @@ public class RespondentJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson6 event;
+    private EventJson7 event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -230,7 +230,7 @@ public class RespondentJson {
             @JsonProperty("percentageScore") @Nullable Double percentageScore,
             @JsonProperty("_links") @Nullable RespondentJsonLinks links,
             @JsonProperty("sourceId") @Nullable String sourceId,
-            @JsonProperty("event") @Nullable EventJson6 event,
+            @JsonProperty("event") @Nullable EventJson7 event,
             @JsonProperty("contact") @Nullable UuidJson contact,
             @JsonProperty("attendee") @Nullable UuidJson attendee,
             @JsonProperty("survey") @Nullable UuidJson survey,
@@ -417,7 +417,7 @@ public class RespondentJson {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson6> event() {
+    public Optional<EventJson7> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -626,7 +626,7 @@ public class RespondentJson {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public RespondentJson withEvent(@Nullable EventJson6 event) {
+    public RespondentJson withEvent(@Nullable EventJson7 event) {
         this.event = event;
         return this;
     }
@@ -860,7 +860,7 @@ public class RespondentJson {
 
         private String sourceId;
 
-        private EventJson6 event;
+        private EventJson7 event;
 
         private UuidJson contact;
 
@@ -1020,7 +1020,7 @@ public class RespondentJson {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson6 event) {
+        public Builder event(@Nullable EventJson7 event) {
             this.event = event;
             return this;
         }

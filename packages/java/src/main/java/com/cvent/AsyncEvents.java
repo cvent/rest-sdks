@@ -22,6 +22,7 @@ import com.cvent.models.operations.GetEventAsyncStatusRequest;
 import com.cvent.models.operations.GetEventByIdRequest;
 import com.cvent.models.operations.GetEventCopyStatusRequest;
 import com.cvent.models.operations.GetEventEmailStatusRequest;
+import com.cvent.models.operations.GetEventPlanningDocumentsRequest;
 import com.cvent.models.operations.GetEventQuestionsRequest;
 import com.cvent.models.operations.GetEventsPostFiltersRequest;
 import com.cvent.models.operations.GetEventsRequest;
@@ -83,6 +84,8 @@ import com.cvent.models.operations.async.GetEventCopyStatusRequestBuilder;
 import com.cvent.models.operations.async.GetEventCopyStatusResponse;
 import com.cvent.models.operations.async.GetEventEmailStatusRequestBuilder;
 import com.cvent.models.operations.async.GetEventEmailStatusResponse;
+import com.cvent.models.operations.async.GetEventPlanningDocumentsRequestBuilder;
+import com.cvent.models.operations.async.GetEventPlanningDocumentsResponse;
 import com.cvent.models.operations.async.GetEventQuestionsRequestBuilder;
 import com.cvent.models.operations.async.GetEventQuestionsResponse;
 import com.cvent.models.operations.async.GetEventsPostFiltersRequestBuilder;
@@ -159,6 +162,7 @@ import com.cvent.operations.GetEventAsyncStatus;
 import com.cvent.operations.GetEventById;
 import com.cvent.operations.GetEventCopyStatus;
 import com.cvent.operations.GetEventEmailStatus;
+import com.cvent.operations.GetEventPlanningDocuments;
 import com.cvent.operations.GetEventQuestions;
 import com.cvent.operations.GetEvents;
 import com.cvent.operations.GetEventsPostFilters;
@@ -1004,6 +1008,36 @@ public class AsyncEvents {
             @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
         AsyncRequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
                 new AssociateDiscountCodeToOrderItem.Async(sdkConfiguration, _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Event Planning Documents
+     *
+     * <p>Gets a paginated list of event planning documents.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public GetEventPlanningDocumentsRequestBuilder getEventPlanningDocuments() {
+        return new GetEventPlanningDocumentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Planning Documents
+     *
+     * <p>Gets a paginated list of event planning documents.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetEventPlanningDocumentsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventPlanningDocumentsResponse> getEventPlanningDocuments(
+            @Nonnull GetEventPlanningDocumentsRequest request) {
+        AsyncRequestOperation<GetEventPlanningDocumentsRequest, GetEventPlanningDocumentsResponse> operation =
+                new GetEventPlanningDocuments.Async(sdkConfiguration, _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

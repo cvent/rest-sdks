@@ -397,7 +397,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"564415c7-4a92-4fe3-93a5-2efd5224d03b","name":"What is a your favorite color?","type":"General","value":["Choice C","Choice A"],"order":1}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
+              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"564415c7-4a92-4fe3-93a5-2efd5224d03b","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
@@ -441,7 +441,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"46d6c042-b23f-477c-a34a-0d801a8dbd63","name":"What is a your favorite color?","type":"General","value":["Choice C","Choice A"],"order":1}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
+              {"id":"9463c74e-18c6-401a-a710-ae0f485bf059","title":"Cvent Connect 2020","code":"R5NP4NJYB3D","format":"Virtual","description":"Cvent annual user conference.","start":"2020-02-03T13:00:00.000Z","end":"2020-02-07T17:00:00.000Z","closeAfter":"2020-02-01T23:59:00.000Z","archiveAfter":"2020-05-07T12:00:00.000Z","launchAfter":"2020-01-07T12:00:00.000Z","timezone":"America/New_York","venues":[{"name":"Capital Convention Center","address":{"address1":"Cvent Inc.","address2":"4001 West Parmer Lane","address3":"PO Box 123","city":"Austin","countryCode":"US","postalCode":"78727","region":"Texas","regionCode":"TX","country":"United States of America","latitude":30.42501,"longitude":-97.71518}}],"phone":"555-555-5555","note":"This event will need some coordination with external systems.","defaultLocale":"en-US","languages":["en-US"],"currency":"USD","registrationSecurityLevel":"Private","status":"Pending","eventStatus":"Upcoming","planningStatus":"Submitted","testMode":false,"capacity":50,"planners":[{"prefix":"Dr.","firstName":"Henry","lastName":"Smith","company":"Cvent Inc","title":"Event Planner","email":"hsmith@example.com","deleted":false}],"stakeholders":[{"firstName":"Henry","lastName":"Potterfield","company":"Cvent Inc","title":"Event stakeholder","email":"stakeholderemail@test.com","workPhone":"555-555-5555","homePhone":"555-555-5555","mobilePhone":"555-555-5555","deleted":false}],"customFields":[{"id":"46d6c042-b23f-477c-a34a-0d801a8dbd63","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}],"type":"Conference","_links":{"invitation":{"href":"https://cvent.com"},"agenda":{"href":"https://cvent.com"},"summary":{"href":"https://cvent.com"},"registration":{"href":"https://cvent.com"}},"created":"2017-01-02T02:00:00Z","lastModified":"2019-02-12T03:00:00Z","meetingRequestId":"b566c24e-12a8-452d-c490-ad0e796be093","createdBy":"John Doe","lastModifiedBy":"Jane Doe"}
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
@@ -525,7 +525,7 @@ workflows:
           - condition: $response.header.Content-Type == application/json
           - context: $response.body
             condition: |
-              {"id":"22dfc499-758f-4009-80f9-233d9d93898f","name":"What is a your favorite color?","type":"General","value":["Choice C","Choice A"],"order":1}
+              {"id":"22dfc499-758f-4009-80f9-233d9d93898f","name":"What is a your favorite color?","value":["Choice C","Choice A"],"order":1,"type":"General"}
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
@@ -10230,4 +10230,36 @@ workflows:
               {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","webcast":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"session":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"attendee":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"sourceId":"kBBBAAcccdddd8U==","join":{"href":"https://cvent.zoom.us/j/7566652259","code":"1456ZS78"},"id":"9cfb6be7-809d-40ef-aaaf-b55ba4ac83aa"}]}
             type: simple
     x-speakeasy-test-group: Webcasts
+    x-speakeasy-test-rebuild: true
+  - workflowId: getEventPlanningDocuments
+    steps:
+      - stepId: test
+        operationId: getEventPlanningDocuments
+        parameters:
+          - name: id
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: mimeType eq 'application/pdf' and name eq 'abc' and uploaded ge '2024-06-15T13:45:30Z'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"a52f3f33-615c-4b67-b27d-763783a40f14","name":"Agenda","size":204800,"uploaded":"2024-06-15T13:45:30Z","uploadedBy":"John Doe","lastModified":"2024-10-12T03:00:00Z","lastModifiedBy":"John Doe","event":{"id":"04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"},"category":"Category 1","mimeType":"application/pdf","description":"A detailed description of the document.","secured":true,"referenceLink":{"url":"https://custom.cvent.com/4B31940730B6475A8D6A7785748A67EE/files/smm/8cfc2168a00342f5ba9e13f7a808df8e/78ce60fbf1da4cf5af139a65f59aed60.pdf","expiration":"2025-12-31T23:59:59Z"}}]}
+            type: simple
+    x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true

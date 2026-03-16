@@ -150,7 +150,7 @@ public class QuestionJson2 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fields")
-    private List<FieldJson1> fields;
+    private List<FieldJson5> fields;
 
     /**
      * Max possible score
@@ -199,7 +199,7 @@ public class QuestionJson2 {
             @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
             @JsonProperty("comments") @Nullable String comments,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("fields") @Nullable List<FieldJson1> fields,
+            @JsonProperty("fields") @Nullable List<FieldJson5> fields,
             @JsonProperty("maxScore") @Nullable Double maxScore,
             @JsonProperty("totalSum") @Nullable Long totalSum,
             @JsonProperty("survey") @Nullable UuidJson survey,
@@ -376,7 +376,7 @@ public class QuestionJson2 {
     /**
      * List of fields for form/matrix questions
      */
-    public Optional<List<FieldJson1>> fields() {
+    public Optional<List<FieldJson5>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
@@ -551,7 +551,7 @@ public class QuestionJson2 {
     /**
      * List of fields for form/matrix questions
      */
-    public QuestionJson2 withFields(@Nullable List<FieldJson1> fields) {
+    public QuestionJson2 withFields(@Nullable List<FieldJson5> fields) {
         this.fields = fields;
         return this;
     }
@@ -735,7 +735,7 @@ public class QuestionJson2 {
 
         private Boolean required;
 
-        private List<FieldJson1> fields;
+        private List<FieldJson5> fields;
 
         private Double maxScore;
 
@@ -888,7 +888,7 @@ public class QuestionJson2 {
         /**
          * List of fields for form/matrix questions
          */
-        public Builder fields(@Nullable List<FieldJson1> fields) {
+        public Builder fields(@Nullable List<FieldJson5> fields) {
             this.fields = fields;
             return this;
         }

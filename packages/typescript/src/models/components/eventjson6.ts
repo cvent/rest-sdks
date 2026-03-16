@@ -8,13 +8,13 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Detail object of an event which is associated to a survey.
+ * The Associated Event.
  */
 export type EventJson6 = {
   /**
-   * Id of the associated event
+   * Event id
    */
-  id?: string | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -23,9 +23,25 @@ export const EventJson6$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
+});
+/** @internal */
+export type EventJson6$Outbound = {
+  id: string;
+};
+
+/** @internal */
+export const EventJson6$outboundSchema: z.ZodType<
+  EventJson6$Outbound,
+  z.ZodTypeDef,
+  EventJson6
+> = z.object({
+  id: z.string(),
 });
 
+export function eventJson6ToJSON(eventJson6: EventJson6): string {
+  return JSON.stringify(EventJson6$outboundSchema.parse(eventJson6));
+}
 export function eventJson6FromJSON(
   jsonString: string,
 ): SafeParseResult<EventJson6, SDKValidationError> {

@@ -53,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// An event reference used in attendee insights to identify the event context for engagement data.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson8 Event { get; set; } = default!;
+        public EventJson9 Event { get; set; } = default!;
 
         /// <summary>
         /// The number of points earned by an attendee in this engagement score.
