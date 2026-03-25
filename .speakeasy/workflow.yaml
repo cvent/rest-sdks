@@ -10,6 +10,7 @@ sources:
       - location: ./overlays/pagination_overlay.yaml
       - location: ./overlays/description_overlay.yaml
       - location: ./overlays/segments_error_response_overlay.yaml
+      - location: ./overlays/retries_overlay.yaml
     registry:
       location: registry.speakeasyapi.dev/cvent/rest-sdks/public
 targets:
