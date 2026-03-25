@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.CommunicationConfiguration;
 import com.cvent.operations.UpdateConfiguration;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateConfigurationRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CommunicationConfiguration request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateConfigurationRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateConfigurationRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateConfigurationRequestBuilder request(@Nonnull CommunicationConfiguration request) {
@@ -43,8 +53,9 @@ public class UpdateConfigurationRequestBuilder {
      * @return The response from the server.
      */
     public UpdateConfigurationResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation =
-                new UpdateConfiguration.Sync(sdkConfiguration, _headers);
+                new UpdateConfiguration.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

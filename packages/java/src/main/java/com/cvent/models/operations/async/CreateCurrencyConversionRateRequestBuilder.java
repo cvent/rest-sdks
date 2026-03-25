@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.CreateCurrencyConversionRateRequest;
 import com.cvent.operations.CreateCurrencyConversionRate;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateCurrencyConversionRateRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateCurrencyConversionRateRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateCurrencyConversionRateRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateCurrencyConversionRateRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateCurrencyConversionRateRequestBuilder request(@Nonnull CreateCurrencyConversionRateRequest request) {
@@ -44,8 +54,9 @@ public class CreateCurrencyConversionRateRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateCurrencyConversionRateResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<CreateCurrencyConversionRateRequest, CreateCurrencyConversionRateResponse> operation =
-                new CreateCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new CreateCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

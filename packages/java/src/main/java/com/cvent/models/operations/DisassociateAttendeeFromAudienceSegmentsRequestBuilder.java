@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegments;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DisassociateAttendeeFromAudienceSegmentsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DisassociateAttendeeFromAudienceSegmentsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DisassociateAttendeeFromAudienceSegmentsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DisassociateAttendeeFromAudienceSegmentsRequestBuilder request(
@@ -43,10 +53,11 @@ public class DisassociateAttendeeFromAudienceSegmentsRequestBuilder {
      * @return The response from the server.
      */
     public DisassociateAttendeeFromAudienceSegmentsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<
                         DisassociateAttendeeFromAudienceSegmentsRequest,
                         DisassociateAttendeeFromAudienceSegmentsResponse>
-                operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, _headers);
+                operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

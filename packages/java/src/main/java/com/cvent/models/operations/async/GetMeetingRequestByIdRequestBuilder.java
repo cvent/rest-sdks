@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetMeetingRequestByIdRequest;
 import com.cvent.operations.GetMeetingRequestById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetMeetingRequestByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetMeetingRequestByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetMeetingRequestByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetMeetingRequestByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetMeetingRequestByIdRequestBuilder request(@Nonnull GetMeetingRequestByIdRequest request) {
@@ -44,8 +54,9 @@ public class GetMeetingRequestByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetMeetingRequestByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetMeetingRequestByIdRequest, GetMeetingRequestByIdResponse> operation =
-                new GetMeetingRequestById.Async(sdkConfiguration, _headers);
+                new GetMeetingRequestById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

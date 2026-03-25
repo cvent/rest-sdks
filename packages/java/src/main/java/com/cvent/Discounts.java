@@ -30,7 +30,9 @@ import com.cvent.operations.ListEventDiscounts;
 import com.cvent.operations.UnlinkAgendaItemFromDiscount;
 import com.cvent.operations.UpdateEventDiscount;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Discounts provide a way to reduce the cost of event registration items. Use these APIs to manage
@@ -78,8 +80,24 @@ public class Discounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventDiscountsResponse listEventDiscounts(@Nonnull ListEventDiscountsRequest request) {
+        return listEventDiscounts(request, null);
+    }
+
+    /**
+     * List Event Discounts
+     *
+     * <p>Returns a paginated list of all discounts used in an event, including both event-specific and
+     * account-level discount codes used in an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventDiscountsResponse listEventDiscounts(
+            @Nonnull ListEventDiscountsRequest request, @Nullable Options options) {
         RequestOperation<ListEventDiscountsRequest, ListEventDiscountsResponse> operation =
-                new ListEventDiscounts.Sync(sdkConfiguration, _headers);
+                new ListEventDiscounts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -104,8 +122,23 @@ public class Discounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateEventDiscountResponse createEventDiscount(@Nonnull CreateEventDiscountRequest request) {
+        return createEventDiscount(request, null);
+    }
+
+    /**
+     * Create Event Discount
+     *
+     * <p>Create discount in an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateEventDiscountResponse createEventDiscount(
+            @Nonnull CreateEventDiscountRequest request, @Nullable Options options) {
         RequestOperation<CreateEventDiscountRequest, CreateEventDiscountResponse> operation =
-                new CreateEventDiscount.Sync(sdkConfiguration, _headers);
+                new CreateEventDiscount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -135,8 +168,25 @@ public class Discounts {
      */
     public ListDiscountedAgendaItemsResponse listDiscountedAgendaItems(
             @Nonnull ListDiscountedAgendaItemsRequest request) {
+        return listDiscountedAgendaItems(request, null);
+    }
+
+    /**
+     * List Discounted Agenda Items
+     *
+     * <p>Returns a paginated list of agenda items that are associated with discounts for the specified event.
+     * This endpoint helps identify which agenda items (such as admission items, sessions, session bundles,
+     * membership-items or quantity-items) are currently associated with discounts.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListDiscountedAgendaItemsResponse listDiscountedAgendaItems(
+            @Nonnull ListDiscountedAgendaItemsRequest request, @Nullable Options options) {
         RequestOperation<ListDiscountedAgendaItemsRequest, ListDiscountedAgendaItemsResponse> operation =
-                new ListDiscountedAgendaItems.Sync(sdkConfiguration, _headers);
+                new ListDiscountedAgendaItems.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -163,8 +213,24 @@ public class Discounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateEventDiscountResponse updateEventDiscount(@Nonnull UpdateEventDiscountRequest request) {
+        return updateEventDiscount(request, null);
+    }
+
+    /**
+     * Update Event Discount
+     *
+     * <p>Update a discount in an event based on details in the request body. Fields not included in the
+     * request will revert to their default value.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateEventDiscountResponse updateEventDiscount(
+            @Nonnull UpdateEventDiscountRequest request, @Nullable Options options) {
         RequestOperation<UpdateEventDiscountRequest, UpdateEventDiscountResponse> operation =
-                new UpdateEventDiscount.Sync(sdkConfiguration, _headers);
+                new UpdateEventDiscount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -189,8 +255,23 @@ public class Discounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public LinkAgendaItemToDiscountResponse linkAgendaItemToDiscount(@Nonnull LinkAgendaItemToDiscountRequest request) {
+        return linkAgendaItemToDiscount(request, null);
+    }
+
+    /**
+     * Link Agenda Item to Discount
+     *
+     * <p>Links an agenda item to a given event discount.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public LinkAgendaItemToDiscountResponse linkAgendaItemToDiscount(
+            @Nonnull LinkAgendaItemToDiscountRequest request, @Nullable Options options) {
         RequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation =
-                new LinkAgendaItemToDiscount.Sync(sdkConfiguration, _headers);
+                new LinkAgendaItemToDiscount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -216,8 +297,23 @@ public class Discounts {
      */
     public UnlinkAgendaItemFromDiscountResponse unlinkAgendaItemFromDiscount(
             @Nonnull UnlinkAgendaItemFromDiscountRequest request) {
+        return unlinkAgendaItemFromDiscount(request, null);
+    }
+
+    /**
+     * Unlink Agenda Item Discount
+     *
+     * <p>Unlinks an agenda item from a given event discount.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UnlinkAgendaItemFromDiscountResponse unlinkAgendaItemFromDiscount(
+            @Nonnull UnlinkAgendaItemFromDiscountRequest request, @Nullable Options options) {
         RequestOperation<UnlinkAgendaItemFromDiscountRequest, UnlinkAgendaItemFromDiscountResponse> operation =
-                new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, _headers);
+                new UnlinkAgendaItemFromDiscount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

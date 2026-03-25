@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteSpeakerProfileImage;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteSpeakerProfileImageRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteSpeakerProfileImageRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteSpeakerProfileImageRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteSpeakerProfileImageRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteSpeakerProfileImageRequestBuilder request(@Nonnull DeleteSpeakerProfileImageRequest request) {
@@ -42,8 +52,9 @@ public class DeleteSpeakerProfileImageRequestBuilder {
      * @return The response from the server.
      */
     public DeleteSpeakerProfileImageResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteSpeakerProfileImageRequest, DeleteSpeakerProfileImageResponse> operation =
-                new DeleteSpeakerProfileImage.Sync(sdkConfiguration, _headers);
+                new DeleteSpeakerProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

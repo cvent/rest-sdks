@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteAudienceSegmentRequest;
 import com.cvent.operations.DeleteAudienceSegment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteAudienceSegmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteAudienceSegmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteAudienceSegmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteAudienceSegmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteAudienceSegmentRequestBuilder request(@Nonnull DeleteAudienceSegmentRequest request) {
@@ -44,8 +54,9 @@ public class DeleteAudienceSegmentRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteAudienceSegmentResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation =
-                new DeleteAudienceSegment.Async(sdkConfiguration, _headers);
+                new DeleteAudienceSegment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -118,7 +118,9 @@ import com.cvent.operations.UpdateContactCustomFieldAnswers;
 import com.cvent.operations.UpdateContactGroup;
 import com.cvent.operations.UpdateContacts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -171,8 +173,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateContactGroupResponse createContactGroup(@Nonnull ContactGroupInput request) {
+        return createContactGroup(request, null);
+    }
+
+    /**
+     * Create Contact Group
+     *
+     * <p>Create a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateContactGroupResponse createContactGroup(
+            @Nonnull ContactGroupInput request, @Nullable Options options) {
         RequestOperation<ContactGroupInput, CreateContactGroupResponse> operation =
-                new CreateContactGroup.Sync(sdkConfiguration, _headers);
+                new CreateContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -201,8 +220,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListContactGroupsResponse listContactGroups(@Nonnull ListContactGroupsRequest request) {
+        return listContactGroups(request, null);
+    }
+
+    /**
+     * List Contact Groups
+     *
+     * <p>Gets a paginated list of contact groups
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListContactGroupsResponse listContactGroups(
+            @Nonnull ListContactGroupsRequest request, @Nullable Options options) {
         RequestOperation<ListContactGroupsRequest, ListContactGroupsResponse> operation =
-                new ListContactGroups.Sync(sdkConfiguration, _headers);
+                new ListContactGroups.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -231,8 +267,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetContactGroupByIdResponse getContactGroupById(@Nonnull GetContactGroupByIdRequest request) {
+        return getContactGroupById(request, null);
+    }
+
+    /**
+     * Get Contact Group
+     *
+     * <p>Get a single contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetContactGroupByIdResponse getContactGroupById(
+            @Nonnull GetContactGroupByIdRequest request, @Nullable Options options) {
         RequestOperation<GetContactGroupByIdRequest, GetContactGroupByIdResponse> operation =
-                new GetContactGroupById.Sync(sdkConfiguration, _headers);
+                new GetContactGroupById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -261,8 +314,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateContactGroupResponse updateContactGroup(@Nonnull UpdateContactGroupRequest request) {
+        return updateContactGroup(request, null);
+    }
+
+    /**
+     * Update Contact Group
+     *
+     * <p>Update a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateContactGroupResponse updateContactGroup(
+            @Nonnull UpdateContactGroupRequest request, @Nullable Options options) {
         RequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation =
-                new UpdateContactGroup.Sync(sdkConfiguration, _headers);
+                new UpdateContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -291,8 +361,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteContactGroupResponse deleteContactGroup(@Nonnull DeleteContactGroupRequest request) {
+        return deleteContactGroup(request, null);
+    }
+
+    /**
+     * Delete Contact Group
+     *
+     * <p>Delete a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteContactGroupResponse deleteContactGroup(
+            @Nonnull DeleteContactGroupRequest request, @Nullable Options options) {
         RequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation =
-                new DeleteContactGroup.Sync(sdkConfiguration, _headers);
+                new DeleteContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -322,8 +409,25 @@ public class Contacts {
      */
     public GetContactIdsByContactGroupResponse getContactIdsByContactGroup(
             @Nonnull GetContactIdsByContactGroupRequest request) {
+        return getContactIdsByContactGroup(request, null);
+    }
+
+    /**
+     * Get Ids in Contact Group
+     *
+     * <p>Get all contact ids in a single contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetContactIdsByContactGroupResponse getContactIdsByContactGroup(
+            @Nonnull GetContactIdsByContactGroupRequest request, @Nullable Options options) {
         RequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation =
-                new GetContactIdsByContactGroup.Sync(sdkConfiguration, _headers);
+                new GetContactIdsByContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -352,8 +456,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddContactToContactGroupResponse addContactToContactGroup(@Nonnull AddContactToContactGroupRequest request) {
+        return addContactToContactGroup(request, null);
+    }
+
+    /**
+     * Add Contact To Group
+     *
+     * <p>Adds a single Contact to a single Contact Group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddContactToContactGroupResponse addContactToContactGroup(
+            @Nonnull AddContactToContactGroupRequest request, @Nullable Options options) {
         RequestOperation<AddContactToContactGroupRequest, AddContactToContactGroupResponse> operation =
-                new AddContactToContactGroup.Sync(sdkConfiguration, _headers);
+                new AddContactToContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -383,8 +504,25 @@ public class Contacts {
      */
     public RemoveContactFromContactGroupResponse removeContactFromContactGroup(
             @Nonnull RemoveContactFromContactGroupRequest request) {
+        return removeContactFromContactGroup(request, null);
+    }
+
+    /**
+     * Remove Contact From Group
+     *
+     * <p>Removes a single Contact from a single Contact Group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public RemoveContactFromContactGroupResponse removeContactFromContactGroup(
+            @Nonnull RemoveContactFromContactGroupRequest request, @Nullable Options options) {
         RequestOperation<RemoveContactFromContactGroupRequest, RemoveContactFromContactGroupResponse> operation =
-                new RemoveContactFromContactGroup.Sync(sdkConfiguration, _headers);
+                new RemoveContactFromContactGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -413,8 +551,25 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListContactTypesResponse listContactTypes(@Nonnull ListContactTypesRequest request) {
+        return listContactTypes(request, null);
+    }
+
+    /**
+     * List Contact Types
+     *
+     * <p>Gets a paginated list of contact types.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListContactTypesResponse listContactTypes(
+            @Nonnull ListContactTypesRequest request, @Nullable Options options) {
         RequestOperation<ListContactTypesRequest, ListContactTypesResponse> operation =
-                new ListContactTypes.Sync(sdkConfiguration, _headers);
+                new ListContactTypes.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -449,8 +604,27 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListContactsResponse listContacts(@Nonnull ListContactsRequest request) {
+        return listContacts(request, null);
+    }
+
+    /**
+     * List Contacts
+     *
+     * <p>Gets a paginated list of Contacts.
+     *
+     * <p>For information on reading secure contact fields, see the description of
+     * <a href="#operation/getContactById">GET Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListContactsResponse listContacts(@Nonnull ListContactsRequest request, @Nullable Options options) {
         RequestOperation<ListContactsRequest, ListContactsResponse> operation =
-                new ListContacts.Sync(sdkConfiguration, _headers);
+                new ListContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -489,8 +663,29 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateContactsResponse updateContacts(@Nonnull List<ContactUpdate> request) {
+        return updateContacts(request, null);
+    }
+
+    /**
+     * Update Contacts
+     *
+     * <p>Updates a list of contacts based on the values provided in the request body. If you're changing
+     * [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * For information on updating secure contact fields, see the description of <a
+     * href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateContactsResponse updateContacts(@Nonnull List<ContactUpdate> request, @Nullable Options options) {
         RequestOperation<List<ContactUpdate>, UpdateContactsResponse> operation =
-                new UpdateContacts.Sync(sdkConfiguration, _headers);
+                new UpdateContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -533,8 +728,31 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public PatchContactsResponse patchContacts(@Nonnull List<ContactPatch> request) {
+        return patchContacts(request, null);
+    }
+
+    /**
+     * Patch Contacts
+     *
+     * <p>Updates a list of contacts based on the values provided only, keeping the existing values intact for
+     * every contact.
+     *
+     * <p>For information on PATCH behavior, see the description of
+     * <a href="#operation/patchContactById">PATCH Contact</a>.
+     *
+     * <p>For information on updating secure contact fields, see the description of
+     * <a href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public PatchContactsResponse patchContacts(@Nonnull List<ContactPatch> request, @Nullable Options options) {
         RequestOperation<List<ContactPatch>, PatchContactsResponse> operation =
-                new PatchContacts.Sync(sdkConfiguration, _headers);
+                new PatchContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -573,8 +791,29 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateContactsResponse createContacts(@Nonnull CreateContactsRequest request) {
+        return createContacts(request, null);
+    }
+
+    /**
+     * Create Contacts
+     *
+     * <p>Creates a list of contacts based on the values provided in the request body. If you're changing
+     * [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * For information on creating contacts with secure contact fields, see the description of <a
+     * href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateContactsResponse createContacts(@Nonnull CreateContactsRequest request, @Nullable Options options) {
         RequestOperation<CreateContactsRequest, CreateContactsResponse> operation =
-                new CreateContacts.Sync(sdkConfiguration, _headers);
+                new CreateContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -609,8 +848,28 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListContactsPostFiltersResponse listContactsPostFilters(@Nonnull ListContactsPostFiltersRequest request) {
+        return listContactsPostFilters(request, null);
+    }
+
+    /**
+     * List Contacts
+     *
+     * <p>Gets a paginated list of Contacts by sending a filter in the body of the request. This method will
+     * return the same data as the GET List Contacts but allows for longer filters.
+     * For information on reading secure contact fields, see the description of  <a
+     * href="#operation/getContactById">GET Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListContactsPostFiltersResponse listContactsPostFilters(
+            @Nonnull ListContactsPostFiltersRequest request, @Nullable Options options) {
         RequestOperation<ListContactsPostFiltersRequest, ListContactsPostFiltersResponse> operation =
-                new ListContactsPostFilters.Sync(sdkConfiguration, _headers);
+                new ListContactsPostFilters.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -640,8 +899,25 @@ public class Contacts {
      */
     public GetContactObfuscationStatusByIdResponse getContactObfuscationStatusById(
             @Nonnull GetContactObfuscationStatusByIdRequest request) {
+        return getContactObfuscationStatusById(request, null);
+    }
+
+    /**
+     * Get Obfuscation Status
+     *
+     * <p>Get the obfuscation status of a contact by the Obfuscate ID provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetContactObfuscationStatusByIdResponse getContactObfuscationStatusById(
+            @Nonnull GetContactObfuscationStatusByIdRequest request, @Nullable Options options) {
         RequestOperation<GetContactObfuscationStatusByIdRequest, GetContactObfuscationStatusByIdResponse> operation =
-                new GetContactObfuscationStatusById.Sync(sdkConfiguration, _headers);
+                new GetContactObfuscationStatusById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -671,8 +947,25 @@ public class Contacts {
      */
     public GetChangeHistoryForASpecificContactResponse getChangeHistoryForASpecificContact(
             @Nonnull GetChangeHistoryForASpecificContactRequest request) {
+        return getChangeHistoryForASpecificContact(request, null);
+    }
+
+    /**
+     * Get Contact Change History
+     *
+     * <p>Get the change history for a specific contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetChangeHistoryForASpecificContactResponse getChangeHistoryForASpecificContact(
+            @Nonnull GetChangeHistoryForASpecificContactRequest request, @Nullable Options options) {
         RequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation =
-                new GetChangeHistoryForASpecificContact.Sync(sdkConfiguration, _headers);
+                new GetChangeHistoryForASpecificContact.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -715,8 +1008,31 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetContactByIdResponse getContactById(@Nonnull GetContactByIdRequest request) {
+        return getContactById(request, null);
+    }
+
+    /**
+     * Get Contact
+     *
+     * <p>Get a single contact.
+     *
+     * <p>When reading a contact, the following secure contact fields are only returned when
+     * also providing the `event/contacts:read-sensitive` scope:
+     * * socialSecurityNumber
+     * * passportNumber
+     * * nationalIdentificationNumber
+     * * dateOfBirth
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetContactByIdResponse getContactById(@Nonnull GetContactByIdRequest request, @Nullable Options options) {
         RequestOperation<GetContactByIdRequest, GetContactByIdResponse> operation =
-                new GetContactById.Sync(sdkConfiguration, _headers);
+                new GetContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -763,8 +1079,34 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateContactByIdResponse updateContactById(@Nonnull UpdateContactByIdRequest request) {
+        return updateContactById(request, null);
+    }
+
+    /**
+     * Update Contact
+     *
+     * <p>Updates a contact based on contact ID and the values provided in the request body. If you're
+     * changing  [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * When writing a contact, the following secure contact fields are only written when also providing the
+     * `event/contacts:write-sensitive` scope:
+     * * socialSecurityNumber
+     * * passportNumber
+     * * nationalIdentificationNumber
+     * * dateOfBirth
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateContactByIdResponse updateContactById(
+            @Nonnull UpdateContactByIdRequest request, @Nullable Options options) {
         RequestOperation<UpdateContactByIdRequest, UpdateContactByIdResponse> operation =
-                new UpdateContactById.Sync(sdkConfiguration, _headers);
+                new UpdateContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -805,8 +1147,31 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public PatchContactByIdResponse patchContactById(@Nonnull PatchContactByIdRequest request) {
+        return patchContactById(request, null);
+    }
+
+    /**
+     * Patch Contact
+     *
+     * <p>Updates a part of a contact based on the given contactId.
+     *
+     * <p>To update a field, pass the value to be updated. To delete a field, set the field to null. Fields
+     * not passed in the request body will remain unchanged.
+     *
+     * <p>For information on updating secure contact fields, see the description of
+     * <a href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public PatchContactByIdResponse patchContactById(
+            @Nonnull PatchContactByIdRequest request, @Nullable Options options) {
         RequestOperation<PatchContactByIdRequest, PatchContactByIdResponse> operation =
-                new PatchContactById.Sync(sdkConfiguration, _headers);
+                new PatchContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -831,8 +1196,23 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteContactByIdResponse deleteContactById(@Nonnull DeleteContactByIdRequest request) {
+        return deleteContactById(request, null);
+    }
+
+    /**
+     * Delete Contact
+     *
+     * <p>Deletes a contact from the address book but does not remove the contact from events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteContactByIdResponse deleteContactById(
+            @Nonnull DeleteContactByIdRequest request, @Nullable Options options) {
         RequestOperation<DeleteContactByIdRequest, DeleteContactByIdResponse> operation =
-                new DeleteContactById.Sync(sdkConfiguration, _headers);
+                new DeleteContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -862,8 +1242,25 @@ public class Contacts {
      */
     public UpdateContactCustomFieldAnswersResponse updateContactCustomFieldAnswers(
             @Nonnull UpdateContactCustomFieldAnswersRequest request) {
+        return updateContactCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Update custom field answers for a single custom field and single contact
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateContactCustomFieldAnswersResponse updateContactCustomFieldAnswers(
+            @Nonnull UpdateContactCustomFieldAnswersRequest request, @Nullable Options options) {
         RequestOperation<UpdateContactCustomFieldAnswersRequest, UpdateContactCustomFieldAnswersResponse> operation =
-                new UpdateContactCustomFieldAnswers.Sync(sdkConfiguration, _headers);
+                new UpdateContactCustomFieldAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -892,8 +1289,24 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public MergeContactsResponse mergeContacts(@Nonnull MergeContactsRequest request) {
+        return mergeContacts(request, null);
+    }
+
+    /**
+     * Merge Contacts
+     *
+     * <p>Merges two or three contacts into a single contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public MergeContactsResponse mergeContacts(@Nonnull MergeContactsRequest request, @Nullable Options options) {
         RequestOperation<MergeContactsRequest, MergeContactsResponse> operation =
-                new MergeContacts.Sync(sdkConfiguration, _headers);
+                new MergeContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -932,8 +1345,30 @@ public class Contacts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ObfuscateContactByIdResponse obfuscateContactById(@Nonnull ObfuscateContactByIdRequest request) {
+        return obfuscateContactById(request, null);
+    }
+
+    /**
+     * Obfuscate a Contact
+     *
+     * <p>Initiate obfuscation of a contact based on the given ID. Verify the status of the obfuscation using
+     * [Get Obfuscation Status](#operation/getContactObfuscationStatusById). Once this process succeeds,
+     * all
+     * the data for the contact will be obfuscated and will no longer be retrievable. See the
+     * [Obfuscation User Guide](https://developers.cvent.com/docs/rest-api/guides/obfuscation-guide) for
+     * more details.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ObfuscateContactByIdResponse obfuscateContactById(
+            @Nonnull ObfuscateContactByIdRequest request, @Nullable Options options) {
         RequestOperation<ObfuscateContactByIdRequest, ObfuscateContactByIdResponse> operation =
-                new ObfuscateContactById.Sync(sdkConfiguration, _headers);
+                new ObfuscateContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -963,8 +1398,25 @@ public class Contacts {
      */
     public DeleteContactProfileImageResponse deleteContactProfileImage(
             @Nonnull DeleteContactProfileImageRequest request) {
+        return deleteContactProfileImage(request, null);
+    }
+
+    /**
+     * Delete Contact Profile Picture
+     *
+     * <p>Deletes the profile picture of the given contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteContactProfileImageResponse deleteContactProfileImage(
+            @Nonnull DeleteContactProfileImageRequest request, @Nullable Options options) {
         RequestOperation<DeleteContactProfileImageRequest, DeleteContactProfileImageResponse> operation =
-                new DeleteContactProfileImage.Sync(sdkConfiguration, _headers);
+                new DeleteContactProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -996,8 +1448,26 @@ public class Contacts {
      */
     public AssignContactProfileImageResponse assignContactProfileImage(
             @Nonnull AssignContactProfileImageRequest request) {
+        return assignContactProfileImage(request, null);
+    }
+
+    /**
+     * Assign Contact Profile Picture
+     *
+     * <p>Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssignContactProfileImageResponse assignContactProfileImage(
+            @Nonnull AssignContactProfileImageRequest request, @Nullable Options options) {
         RequestOperation<AssignContactProfileImageRequest, AssignContactProfileImageResponse> operation =
-                new AssignContactProfileImage.Sync(sdkConfiguration, _headers);
+                new AssignContactProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1027,8 +1497,25 @@ public class Contacts {
      */
     public GetContactRelationshipsByIdResponse getContactRelationshipsById(
             @Nonnull GetContactRelationshipsByIdRequest request) {
+        return getContactRelationshipsById(request, null);
+    }
+
+    /**
+     * Get Related Contact Ids
+     *
+     * <p>Get all contact Ids related to the provided contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetContactRelationshipsByIdResponse getContactRelationshipsById(
+            @Nonnull GetContactRelationshipsByIdRequest request, @Nullable Options options) {
         RequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation =
-                new GetContactRelationshipsById.Sync(sdkConfiguration, _headers);
+                new GetContactRelationshipsById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1058,8 +1545,25 @@ public class Contacts {
      */
     public CreateContactRelationshipResponse createContactRelationship(
             @Nonnull CreateContactRelationshipRequest request) {
+        return createContactRelationship(request, null);
+    }
+
+    /**
+     * Add Contact Relationship
+     *
+     * <p>Adds a single contact relationship between the two contact Ids provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateContactRelationshipResponse createContactRelationship(
+            @Nonnull CreateContactRelationshipRequest request, @Nullable Options options) {
         RequestOperation<CreateContactRelationshipRequest, CreateContactRelationshipResponse> operation =
-                new CreateContactRelationship.Sync(sdkConfiguration, _headers);
+                new CreateContactRelationship.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1089,8 +1593,25 @@ public class Contacts {
      */
     public DeleteContactRelationshipResponse deleteContactRelationship(
             @Nonnull DeleteContactRelationshipRequest request) {
+        return deleteContactRelationship(request, null);
+    }
+
+    /**
+     * Delete Contact Relationship
+     *
+     * <p>Deletes a single contact relationship between the two contact Ids provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteContactRelationshipResponse deleteContactRelationship(
+            @Nonnull DeleteContactRelationshipRequest request, @Nullable Options options) {
         RequestOperation<DeleteContactRelationshipRequest, DeleteContactRelationshipResponse> operation =
-                new DeleteContactRelationship.Sync(sdkConfiguration, _headers);
+                new DeleteContactRelationship.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.RemoveContactFromContactGroupRequest;
 import com.cvent.operations.RemoveContactFromContactGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class RemoveContactFromContactGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private RemoveContactFromContactGroupRequest request;
+    private final Options.Builder optionsBuilder;
 
     public RemoveContactFromContactGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public RemoveContactFromContactGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public RemoveContactFromContactGroupRequestBuilder request(@Nonnull RemoveContactFromContactGroupRequest request) {
@@ -44,8 +54,9 @@ public class RemoveContactFromContactGroupRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<RemoveContactFromContactGroupResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<RemoveContactFromContactGroupRequest, RemoveContactFromContactGroupResponse> operation =
-                new RemoveContactFromContactGroup.Async(sdkConfiguration, _headers);
+                new RemoveContactFromContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

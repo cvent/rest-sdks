@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.UserGroupJsonInput;
 import com.cvent.operations.CreateAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -17,9 +19,16 @@ public class CreateAccountUserGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UserGroupJsonInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateAccountUserGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateAccountUserGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateAccountUserGroupRequestBuilder request(@Nullable UserGroupJsonInput request) {
@@ -44,8 +53,9 @@ public class CreateAccountUserGroupRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateAccountUserGroupResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
-                new CreateAccountUserGroup.Async(sdkConfiguration, _headers);
+                new CreateAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.AssignContactProfileImage;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class AssignContactProfileImageRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssignContactProfileImageRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssignContactProfileImageRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssignContactProfileImageRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssignContactProfileImageRequestBuilder request(@Nonnull AssignContactProfileImageRequest request) {
@@ -42,8 +52,9 @@ public class AssignContactProfileImageRequestBuilder {
      * @return The response from the server.
      */
     public AssignContactProfileImageResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<AssignContactProfileImageRequest, AssignContactProfileImageResponse> operation =
-                new AssignContactProfileImage.Sync(sdkConfiguration, _headers);
+                new AssignContactProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

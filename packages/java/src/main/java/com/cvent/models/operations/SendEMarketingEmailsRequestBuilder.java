@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.SendEmailRequest;
 import com.cvent.operations.SendEMarketingEmails;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class SendEMarketingEmailsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private SendEmailRequest request;
+    private final Options.Builder optionsBuilder;
 
     public SendEMarketingEmailsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public SendEMarketingEmailsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public SendEMarketingEmailsRequestBuilder request(@Nullable SendEmailRequest request) {
@@ -43,8 +52,9 @@ public class SendEMarketingEmailsRequestBuilder {
      * @return The response from the server.
      */
     public SendEMarketingEmailsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation =
-                new SendEMarketingEmails.Sync(sdkConfiguration, _headers);
+                new SendEMarketingEmails.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

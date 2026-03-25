@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CreateEventSurveyRespondent;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateEventSurveyRespondentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateEventSurveyRespondentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateEventSurveyRespondentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateEventSurveyRespondentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateEventSurveyRespondentRequestBuilder request(@Nonnull CreateEventSurveyRespondentRequest request) {
@@ -42,8 +52,9 @@ public class CreateEventSurveyRespondentRequestBuilder {
      * @return The response from the server.
      */
     public CreateEventSurveyRespondentResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CreateEventSurveyRespondentRequest, CreateEventSurveyRespondentResponse> operation =
-                new CreateEventSurveyRespondent.Sync(sdkConfiguration, _headers);
+                new CreateEventSurveyRespondent.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

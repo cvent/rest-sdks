@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateContactById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateContactByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateContactByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateContactByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateContactByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateContactByIdRequestBuilder request(@Nonnull UpdateContactByIdRequest request) {
@@ -42,8 +52,9 @@ public class UpdateContactByIdRequestBuilder {
      * @return The response from the server.
      */
     public UpdateContactByIdResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateContactByIdRequest, UpdateContactByIdResponse> operation =
-                new UpdateContactById.Sync(sdkConfiguration, _headers);
+                new UpdateContactById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

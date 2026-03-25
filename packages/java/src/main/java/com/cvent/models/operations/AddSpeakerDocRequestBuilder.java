@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.AddSpeakerDoc;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class AddSpeakerDocRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AddSpeakerDocRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AddSpeakerDocRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AddSpeakerDocRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AddSpeakerDocRequestBuilder request(@Nonnull AddSpeakerDocRequest request) {
@@ -42,8 +52,9 @@ public class AddSpeakerDocRequestBuilder {
      * @return The response from the server.
      */
     public AddSpeakerDocResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<AddSpeakerDocRequest, AddSpeakerDocResponse> operation =
-                new AddSpeakerDoc.Sync(sdkConfiguration, _headers);
+                new AddSpeakerDoc.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

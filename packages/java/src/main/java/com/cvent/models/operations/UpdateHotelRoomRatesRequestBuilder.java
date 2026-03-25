@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateHotelRoomRates;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateHotelRoomRatesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateHotelRoomRatesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateHotelRoomRatesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateHotelRoomRatesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateHotelRoomRatesRequestBuilder request(@Nonnull UpdateHotelRoomRatesRequest request) {
@@ -42,8 +52,9 @@ public class UpdateHotelRoomRatesRequestBuilder {
      * @return The response from the server.
      */
     public UpdateHotelRoomRatesResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
-                new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
+                new UpdateHotelRoomRates.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

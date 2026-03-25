@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetSessionDocRequest;
 import com.cvent.operations.GetSessionDoc;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetSessionDocRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetSessionDocRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetSessionDocRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetSessionDocRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetSessionDocRequestBuilder request(@Nonnull GetSessionDocRequest request) {
@@ -44,8 +54,9 @@ public class GetSessionDocRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetSessionDocResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetSessionDocRequest, GetSessionDocResponse> operation =
-                new GetSessionDoc.Async(sdkConfiguration, _headers);
+                new GetSessionDoc.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

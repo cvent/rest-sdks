@@ -10,7 +10,9 @@ import com.cvent.models.operations.async.GetAttendeeCreditsRequestBuilder;
 import com.cvent.models.operations.async.GetAttendeeCreditsResponse;
 import com.cvent.operations.GetAttendeeCredits;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -64,8 +66,24 @@ public class AsyncEventCredits {
      */
     public CompletableFuture<GetAttendeeCreditsResponse> getAttendeeCredits(
             @Nonnull GetAttendeeCreditsRequest request) {
+        return getAttendeeCredits(request, null);
+    }
+
+    /**
+     * List Attendee Event Credits
+     *
+     * <p>Gets a paginated list of attendee event credits in your account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAttendeeCreditsResponse>} - The async response
+     */
+    public CompletableFuture<GetAttendeeCreditsResponse> getAttendeeCredits(
+            @Nonnull GetAttendeeCreditsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation =
-                new GetAttendeeCredits.Async(sdkConfiguration, _headers);
+                new GetAttendeeCredits.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

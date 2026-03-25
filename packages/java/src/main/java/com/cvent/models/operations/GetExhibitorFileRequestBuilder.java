@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetExhibitorFile;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetExhibitorFileRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetExhibitorFileRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetExhibitorFileRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetExhibitorFileRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetExhibitorFileRequestBuilder request(@Nonnull GetExhibitorFileRequest request) {
@@ -42,8 +52,9 @@ public class GetExhibitorFileRequestBuilder {
      * @return The response from the server.
      */
     public GetExhibitorFileResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetExhibitorFileRequest, GetExhibitorFileResponse> operation =
-                new GetExhibitorFile.Sync(sdkConfiguration, _headers);
+                new GetExhibitorFile.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -8,6 +8,8 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.Oauth2Token;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
@@ -17,9 +19,16 @@ public class Oauth2TokenRequestBuilder {
     private final Headers _headers = new Headers();
     private Oauth2TokenRequest request;
     private Oauth2TokenSecurity security;
+    private final Options.Builder optionsBuilder;
 
     public Oauth2TokenRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public Oauth2TokenRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public Oauth2TokenRequestBuilder request(@Nullable Oauth2TokenRequest request) {
@@ -49,8 +58,9 @@ public class Oauth2TokenRequestBuilder {
      * @return The response from the server.
      */
     public Oauth2TokenResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
-                new Oauth2Token.Sync(sdkConfiguration, security, _headers);
+                new Oauth2Token.Sync(sdkConfiguration, security, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

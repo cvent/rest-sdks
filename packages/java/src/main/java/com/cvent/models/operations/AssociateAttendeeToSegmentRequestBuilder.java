@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.AssociateAttendeeToSegment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class AssociateAttendeeToSegmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssociateAttendeeToSegmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssociateAttendeeToSegmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssociateAttendeeToSegmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssociateAttendeeToSegmentRequestBuilder request(@Nonnull AssociateAttendeeToSegmentRequest request) {
@@ -42,8 +52,9 @@ public class AssociateAttendeeToSegmentRequestBuilder {
      * @return The response from the server.
      */
     public AssociateAttendeeToSegmentResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation =
-                new AssociateAttendeeToSegment.Sync(sdkConfiguration, _headers);
+                new AssociateAttendeeToSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

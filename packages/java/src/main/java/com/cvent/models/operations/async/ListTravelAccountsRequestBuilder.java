@@ -12,10 +12,13 @@ import com.cvent.models.operations.ListTravelAccountsRequest;
 import com.cvent.operations.ListTravelAccounts;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class ListTravelAccountsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListTravelAccountsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListTravelAccountsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListTravelAccountsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListTravelAccountsRequestBuilder request(@Nonnull ListTravelAccountsRequest request) {
@@ -55,8 +65,9 @@ public class ListTravelAccountsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ListTravelAccountsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
-                new ListTravelAccounts.Async(sdkConfiguration, _headers);
+                new ListTravelAccounts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class ListTravelAccountsRequestBuilder {
      */
     public Publisher<ListTravelAccountsResponse> callAsPublisher() {
         ListTravelAccountsRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
-                new ListTravelAccounts.Async(sdkConfiguration, _headers);
+                new ListTravelAccounts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetRegistrationPack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetRegistrationPackRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetRegistrationPackRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetRegistrationPackRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetRegistrationPackRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetRegistrationPackRequestBuilder request(@Nonnull GetRegistrationPackRequest request) {
@@ -42,8 +52,9 @@ public class GetRegistrationPackRequestBuilder {
      * @return The response from the server.
      */
     public GetRegistrationPackResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetRegistrationPackRequest, GetRegistrationPackResponse> operation =
-                new GetRegistrationPack.Sync(sdkConfiguration, _headers);
+                new GetRegistrationPack.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

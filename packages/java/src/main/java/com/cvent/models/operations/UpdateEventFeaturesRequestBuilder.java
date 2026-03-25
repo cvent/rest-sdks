@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateEventFeatures;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateEventFeaturesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateEventFeaturesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateEventFeaturesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateEventFeaturesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateEventFeaturesRequestBuilder request(@Nonnull UpdateEventFeaturesRequest request) {
@@ -42,8 +52,9 @@ public class UpdateEventFeaturesRequestBuilder {
      * @return The response from the server.
      */
     public UpdateEventFeaturesResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateEventFeaturesRequest, UpdateEventFeaturesResponse> operation =
-                new UpdateEventFeatures.Sync(sdkConfiguration, _headers);
+                new UpdateEventFeatures.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

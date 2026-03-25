@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.FilterCommunicationLogMessages;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class FilterCommunicationLogMessagesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private FilterCommunicationLogMessagesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public FilterCommunicationLogMessagesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public FilterCommunicationLogMessagesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public FilterCommunicationLogMessagesRequestBuilder request(
@@ -54,8 +64,9 @@ public class FilterCommunicationLogMessagesRequestBuilder {
      * @return The response from the server.
      */
     public FilterCommunicationLogMessagesResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
-                new FilterCommunicationLogMessages.Sync(sdkConfiguration, _headers);
+                new FilterCommunicationLogMessages.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -74,8 +85,9 @@ public class FilterCommunicationLogMessagesRequestBuilder {
      */
     public Iterable<FilterCommunicationLogMessagesResponse> callAsIterable() {
         FilterCommunicationLogMessagesRequest request = this.request;
+        Options options = optionsBuilder.build();
         RequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
-                new FilterCommunicationLogMessages.Sync(sdkConfiguration, _headers);
+                new FilterCommunicationLogMessages.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

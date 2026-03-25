@@ -12,10 +12,13 @@ import com.cvent.models.operations.GetAlternateTravelAnswersRequest;
 import com.cvent.operations.GetAlternateTravelAnswers;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class GetAlternateTravelAnswersRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAlternateTravelAnswersRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAlternateTravelAnswersRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAlternateTravelAnswersRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAlternateTravelAnswersRequestBuilder request(@Nonnull GetAlternateTravelAnswersRequest request) {
@@ -55,8 +65,9 @@ public class GetAlternateTravelAnswersRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetAlternateTravelAnswersResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation =
-                new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
+                new GetAlternateTravelAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class GetAlternateTravelAnswersRequestBuilder {
      */
     public Publisher<GetAlternateTravelAnswersResponse> callAsPublisher() {
         GetAlternateTravelAnswersRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation =
-                new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
+                new GetAlternateTravelAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

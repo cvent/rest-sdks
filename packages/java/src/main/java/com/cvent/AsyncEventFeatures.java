@@ -22,7 +22,9 @@ import com.cvent.operations.LaunchEventFeatures;
 import com.cvent.operations.ListEventWeblinks;
 import com.cvent.operations.UpdateEventFeatures;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -71,8 +73,24 @@ public class AsyncEventFeatures {
      * @return {@code CompletableFuture<GetEventFeaturesResponse>} - The async response
      */
     public CompletableFuture<GetEventFeaturesResponse> getEventFeatures(@Nonnull GetEventFeaturesRequest request) {
+        return getEventFeatures(request, null);
+    }
+
+    /**
+     * List Event Features
+     *
+     * <p>A resource responsible for providing the set of event features that are available for an event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventFeaturesResponse>} - The async response
+     */
+    public CompletableFuture<GetEventFeaturesResponse> getEventFeatures(
+            @Nonnull GetEventFeaturesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation =
-                new GetEventFeatures.Async(sdkConfiguration, _headers);
+                new GetEventFeatures.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -101,8 +119,24 @@ public class AsyncEventFeatures {
      */
     public CompletableFuture<UpdateEventFeaturesResponse> updateEventFeatures(
             @Nonnull UpdateEventFeaturesRequest request) {
+        return updateEventFeatures(request, null);
+    }
+
+    /**
+     * Update Event Feature
+     *
+     * <p>A resource responsible to enable / disable an event feature
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateEventFeaturesResponse>} - The async response
+     */
+    public CompletableFuture<UpdateEventFeaturesResponse> updateEventFeatures(
+            @Nonnull UpdateEventFeaturesRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateEventFeaturesRequest, UpdateEventFeaturesResponse> operation =
-                new UpdateEventFeatures.Async(sdkConfiguration, _headers);
+                new UpdateEventFeatures.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -131,8 +165,24 @@ public class AsyncEventFeatures {
      */
     public CompletableFuture<LaunchEventFeaturesResponse> launchEventFeatures(
             @Nonnull LaunchEventFeaturesRequest request) {
+        return launchEventFeatures(request, null);
+    }
+
+    /**
+     * Launch Event Feature
+     *
+     * <p>Launch event features to make them available to an audience.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<LaunchEventFeaturesResponse>} - The async response
+     */
+    public CompletableFuture<LaunchEventFeaturesResponse> launchEventFeatures(
+            @Nonnull LaunchEventFeaturesRequest request, @Nullable Options options) {
         AsyncRequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation =
-                new LaunchEventFeatures.Async(sdkConfiguration, _headers);
+                new LaunchEventFeatures.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -160,8 +210,24 @@ public class AsyncEventFeatures {
      * @return {@code CompletableFuture<ListEventWeblinksResponse>} - The async response
      */
     public CompletableFuture<ListEventWeblinksResponse> listEventWeblinks(@Nonnull ListEventWeblinksRequest request) {
+        return listEventWeblinks(request, null);
+    }
+
+    /**
+     * List Event Weblinks
+     *
+     * <p>Gets a paginated list of weblinks for the given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventWeblinksResponse>} - The async response
+     */
+    public CompletableFuture<ListEventWeblinksResponse> listEventWeblinks(
+            @Nonnull ListEventWeblinksRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListEventWeblinksRequest, ListEventWeblinksResponse> operation =
-                new ListEventWeblinks.Async(sdkConfiguration, _headers);
+                new ListEventWeblinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

@@ -14,7 +14,9 @@ import com.cvent.models.operations.async.GetBadgePrinterPoolsResponse;
 import com.cvent.operations.GetBadgePrinterPool;
 import com.cvent.operations.GetBadgePrinterPools;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -64,8 +66,24 @@ public class AsyncBadgePrinterPools {
      */
     public CompletableFuture<GetBadgePrinterPoolsResponse> getBadgePrinterPools(
             @Nonnull GetBadgePrinterPoolsRequest request) {
+        return getBadgePrinterPools(request, null);
+    }
+
+    /**
+     * List Badge Printer Pools
+     *
+     * <p>Gets a paginated list of badge printer pools
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBadgePrinterPoolsResponse>} - The async response
+     */
+    public CompletableFuture<GetBadgePrinterPoolsResponse> getBadgePrinterPools(
+            @Nonnull GetBadgePrinterPoolsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation =
-                new GetBadgePrinterPools.Async(sdkConfiguration, _headers);
+                new GetBadgePrinterPools.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -94,8 +112,24 @@ public class AsyncBadgePrinterPools {
      */
     public CompletableFuture<GetBadgePrinterPoolResponse> getBadgePrinterPool(
             @Nonnull GetBadgePrinterPoolRequest request) {
+        return getBadgePrinterPool(request, null);
+    }
+
+    /**
+     * Get Badge Printer Pool
+     *
+     * <p>Gets a single badge printer pool by its ID
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBadgePrinterPoolResponse>} - The async response
+     */
+    public CompletableFuture<GetBadgePrinterPoolResponse> getBadgePrinterPool(
+            @Nonnull GetBadgePrinterPoolRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation =
-                new GetBadgePrinterPool.Async(sdkConfiguration, _headers);
+                new GetBadgePrinterPool.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

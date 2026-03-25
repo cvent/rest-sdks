@@ -10,7 +10,9 @@ import com.cvent.models.operations.UpdateHotelRoomRatesRequestBuilder;
 import com.cvent.models.operations.UpdateHotelRoomRatesResponse;
 import com.cvent.operations.UpdateHotelRoomRates;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * APIs for managing hotel-related operations.
@@ -55,8 +57,23 @@ public class HousingHotels {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateHotelRoomRatesResponse updateHotelRoomRates(@Nonnull UpdateHotelRoomRatesRequest request) {
+        return updateHotelRoomRates(request, null);
+    }
+
+    /**
+     * Update Hotel Room Rates
+     *
+     * <p>Updates the given hotel's room rate details based on data in the request body.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateHotelRoomRatesResponse updateHotelRoomRates(
+            @Nonnull UpdateHotelRoomRatesRequest request, @Nullable Options options) {
         RequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
-                new UpdateHotelRoomRates.Sync(sdkConfiguration, _headers);
+                new UpdateHotelRoomRates.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

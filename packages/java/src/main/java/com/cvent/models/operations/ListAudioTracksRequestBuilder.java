@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.ListAudioTracks;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class ListAudioTracksRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListAudioTracksRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListAudioTracksRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListAudioTracksRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListAudioTracksRequestBuilder request(@Nonnull ListAudioTracksRequest request) {
@@ -42,8 +52,9 @@ public class ListAudioTracksRequestBuilder {
      * @return The response from the server.
      */
     public ListAudioTracksResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation =
-                new ListAudioTracks.Sync(sdkConfiguration, _headers);
+                new ListAudioTracks.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

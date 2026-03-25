@@ -10,7 +10,9 @@ import com.cvent.models.operations.GetAttendeeMessagesMembersRequestBuilder;
 import com.cvent.models.operations.GetAttendeeMessagesMembersResponse;
 import com.cvent.operations.GetAttendeeMessagesMembers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * These APIs retrieve and manage attendee messages—communications exchanged between attendees within
@@ -70,8 +72,29 @@ public class AttendeeMessages {
      */
     public GetAttendeeMessagesMembersResponse getAttendeeMessagesMembers(
             @Nonnull GetAttendeeMessagesMembersRequest request) {
+        return getAttendeeMessagesMembers(request, null);
+    }
+
+    /**
+     * Get Messaging Members
+     *
+     * <p>When attendee initiates a chat with other attendee(s), a channel is created for attendees to
+     * communicate over.
+     * This endpoint is used to retrieve the members of these channels using channel ids to filter the
+     * results.
+     * The results will include all the channel members; even the ones that left the channel at some point.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAttendeeMessagesMembersResponse getAttendeeMessagesMembers(
+            @Nonnull GetAttendeeMessagesMembersRequest request, @Nullable Options options) {
         RequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
-                new GetAttendeeMessagesMembers.Sync(sdkConfiguration, _headers);
+                new GetAttendeeMessagesMembers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

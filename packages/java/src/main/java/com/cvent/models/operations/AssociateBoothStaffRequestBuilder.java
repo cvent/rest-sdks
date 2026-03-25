@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.AssociateBoothStaff;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class AssociateBoothStaffRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssociateBoothStaffRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssociateBoothStaffRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssociateBoothStaffRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssociateBoothStaffRequestBuilder request(@Nonnull AssociateBoothStaffRequest request) {
@@ -42,8 +52,9 @@ public class AssociateBoothStaffRequestBuilder {
      * @return The response from the server.
      */
     public AssociateBoothStaffResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<AssociateBoothStaffRequest, AssociateBoothStaffResponse> operation =
-                new AssociateBoothStaff.Sync(sdkConfiguration, _headers);
+                new AssociateBoothStaff.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

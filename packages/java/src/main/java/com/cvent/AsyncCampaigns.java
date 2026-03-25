@@ -22,6 +22,7 @@ import com.cvent.operations.GetEmailTemplates;
 import com.cvent.operations.GetEmarketingEmailStatus;
 import com.cvent.operations.SendEMarketingEmails;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -74,8 +75,24 @@ public class AsyncCampaigns {
      * @return {@code CompletableFuture<GetCampaignsResponse>} - The async response
      */
     public CompletableFuture<GetCampaignsResponse> getCampaigns(@Nonnull GetCampaignsRequest request) {
+        return getCampaigns(request, null);
+    }
+
+    /**
+     * List eMarketing Campaigns
+     *
+     * <p>Gets a list of eMarketing campaigns.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetCampaignsResponse>} - The async response
+     */
+    public CompletableFuture<GetCampaignsResponse> getCampaigns(
+            @Nonnull GetCampaignsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
-                new GetCampaigns.Async(sdkConfiguration, _headers);
+                new GetCampaigns.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -103,8 +120,24 @@ public class AsyncCampaigns {
      * @return {@code CompletableFuture<GetEmailTemplatesResponse>} - The async response
      */
     public CompletableFuture<GetEmailTemplatesResponse> getEmailTemplates(@Nonnull GetEmailTemplatesRequest request) {
+        return getEmailTemplates(request, null);
+    }
+
+    /**
+     * List Email Templates
+     *
+     * <p>Gets a list of eMarketing email templates.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEmailTemplatesResponse>} - The async response
+     */
+    public CompletableFuture<GetEmailTemplatesResponse> getEmailTemplates(
+            @Nonnull GetEmailTemplatesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
-                new GetEmailTemplates.Async(sdkConfiguration, _headers);
+                new GetEmailTemplates.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -131,7 +164,7 @@ public class AsyncCampaigns {
      * @return {@code CompletableFuture<SendEMarketingEmailsResponse>} - The async response
      */
     public CompletableFuture<SendEMarketingEmailsResponse> sendEMarketingEmailsDirect() {
-        return sendEMarketingEmails(null);
+        return sendEMarketingEmails(null, null);
     }
 
     /**
@@ -142,11 +175,13 @@ public class AsyncCampaigns {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return {@code CompletableFuture<SendEMarketingEmailsResponse>} - The async response
      */
-    public CompletableFuture<SendEMarketingEmailsResponse> sendEMarketingEmails(@Nullable SendEmailRequest request) {
+    public CompletableFuture<SendEMarketingEmailsResponse> sendEMarketingEmails(
+            @Nullable SendEmailRequest request, @Nullable Options options) {
         AsyncRequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation =
-                new SendEMarketingEmails.Async(sdkConfiguration, _headers);
+                new SendEMarketingEmails.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -177,8 +212,25 @@ public class AsyncCampaigns {
      */
     public CompletableFuture<GetEmarketingEmailStatusResponse> getEmarketingEmailStatus(
             @Nonnull GetEmarketingEmailStatusRequest request) {
+        return getEmarketingEmailStatus(request, null);
+    }
+
+    /**
+     * List Emarketing Email Status
+     *
+     * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
+     * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEmarketingEmailStatusResponse>} - The async response
+     */
+    public CompletableFuture<GetEmarketingEmailStatusResponse> getEmarketingEmailStatus(
+            @Nonnull GetEmarketingEmailStatusRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation =
-                new GetEmarketingEmailStatus.Async(sdkConfiguration, _headers);
+                new GetEmarketingEmailStatus.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

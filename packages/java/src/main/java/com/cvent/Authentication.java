@@ -19,6 +19,7 @@ import com.cvent.operations.Oauth2Authorize;
 import com.cvent.operations.Oauth2Token;
 import com.cvent.operations.ValidateToken;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -76,8 +77,27 @@ public class Authentication {
      * @throws RuntimeException subclass if the API call fails
      */
     public Oauth2AuthorizeResponse oauth2Authorize(@Nonnull Oauth2AuthorizeRequest request) {
+        return oauth2Authorize(request, null);
+    }
+
+    /**
+     * Authorize
+     *
+     * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
+     * through a browser.
+     *
+     * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
+     * authorization endpoint
+     * except for http://localhost for testing purposes only.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public Oauth2AuthorizeResponse oauth2Authorize(@Nonnull Oauth2AuthorizeRequest request, @Nullable Options options) {
         RequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
-                new Oauth2Authorize.Sync(sdkConfiguration, _headers);
+                new Oauth2Authorize.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -108,7 +128,7 @@ public class Authentication {
      * @throws RuntimeException subclass if the API call fails
      */
     public Oauth2TokenResponse oauth2Token(@Nonnull Oauth2TokenSecurity security) {
-        return oauth2Token(null, security);
+        return oauth2Token(null, security, null);
     }
 
     /**
@@ -121,13 +141,14 @@ public class Authentication {
      *
      * @param request The request object containing all the parameters for the API call.
      * @param security The security details to use for authentication.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
     public Oauth2TokenResponse oauth2Token(
-            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
+            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security, @Nullable Options options) {
         RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
-                new Oauth2Token.Sync(sdkConfiguration, security, _headers);
+                new Oauth2Token.Sync(sdkConfiguration, security, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -155,7 +176,23 @@ public class Authentication {
      * @throws RuntimeException subclass if the API call fails
      */
     public ValidateTokenResponse validateTokenDirect() {
-        RequestlessOperation<ValidateTokenResponse> operation = new ValidateToken.Sync(sdkConfiguration, _headers);
+        return validateToken(null);
+    }
+
+    /**
+     * Validate Token
+     *
+     * <p>Verifies presented authentication token is valid.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ValidateTokenResponse validateToken(@Nullable Options options) {
+        RequestlessOperation<ValidateTokenResponse> operation =
+                new ValidateToken.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

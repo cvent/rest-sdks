@@ -13,6 +13,8 @@ import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.DeleteExhibitorCategoryImageRequest;
 import com.cvent.models.operations.DeleteExhibitorCategoryImageResponse;
+import com.cvent.utils.AsyncRetries;
+import com.cvent.utils.BackoffStrategy;
 import com.cvent.utils.Blob;
 import com.cvent.utils.HTTPClient;
 import com.cvent.utils.HTTPRequest;
@@ -20,16 +22,24 @@ import com.cvent.utils.Headers;
 import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
+import com.cvent.utils.NonRetryableException;
+import com.cvent.utils.Options;
+import com.cvent.utils.Retries;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Exception;
 import java.lang.String;
 import java.lang.Throwable;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 public class DeleteExhibitorCategoryImage {
@@ -38,14 +48,30 @@ public class DeleteExhibitorCategoryImage {
         final SDKConfiguration sdkConfiguration;
         final String baseUrl;
         final SecuritySource securitySource;
+        final List<String> retryStatusCodes;
+        final RetryConfig retryConfig;
         final HTTPClient client;
         final Headers _headers;
 
-        public Base(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
+        public Base(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
             this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
+            Optional.ofNullable(options).ifPresent(o -> o.validate(List.of(Options.Option.RETRY_CONFIG)));
+            this.retryStatusCodes = List.of("429");
+            this.retryConfig = Optional.ofNullable(options)
+                    .flatMap(Options::retryConfig)
+                    .or(sdkConfiguration::retryConfig)
+                    .orElse(RetryConfig.builder()
+                            .backoff(BackoffStrategy.builder()
+                                    .initialInterval(1000, TimeUnit.MILLISECONDS)
+                                    .maxInterval(60000, TimeUnit.MILLISECONDS)
+                                    .baseFactor((double) (1.5))
+                                    .maxElapsedTime(3600000, TimeUnit.MILLISECONDS)
+                                    .retryConnectError(true)
+                                    .build())
+                            .build());
             this.client = this.sdkConfiguration.client();
         }
 
@@ -98,8 +124,8 @@ public class DeleteExhibitorCategoryImage {
 
     public static class Sync extends Base
             implements RequestOperation<DeleteExhibitorCategoryImageRequest, DeleteExhibitorCategoryImageResponse> {
-        public Sync(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
-            super(sdkConfiguration, _headers);
+        public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
+            super(sdkConfiguration, options, _headers);
         }
 
         private HttpRequest onBuildRequest(DeleteExhibitorCategoryImageRequest request) throws Exception {
@@ -120,20 +146,28 @@ public class DeleteExhibitorCategoryImage {
 
         @Override
         public HttpResponse<InputStream> doRequest(DeleteExhibitorCategoryImageRequest request) {
-            HttpRequest r = unchecked(() -> onBuildRequest(request)).get();
-            HttpResponse<InputStream> httpRes;
-            try {
-                httpRes = client.send(r);
-                if (Utils.statusCodeMatches(httpRes.statusCode(), "401", "403", "404", "429", "4XX", "5XX")) {
-                    httpRes = onError(httpRes, null);
-                } else {
-                    httpRes = onSuccess(httpRes);
-                }
-            } catch (Exception e) {
-                httpRes = unchecked(() -> onError(null, e)).get();
-            }
-
-            return httpRes;
+            Retries retries = Retries.builder()
+                    .action(() -> {
+                        HttpRequest r;
+                        try {
+                            r = onBuildRequest(request);
+                        } catch (Exception e) {
+                            throw new NonRetryableException(e);
+                        }
+                        try {
+                            HttpResponse<InputStream> httpRes = client.send(r);
+                            if (Utils.statusCodeMatches(httpRes.statusCode(), "401", "403", "404", "429", "4XX", "5XX")) {
+                                return onError(httpRes, null);
+                            }
+                            return httpRes;
+                        } catch (Exception e) {
+                            return onError(null, e);
+                        }
+                    })
+                    .retryConfig(retryConfig)
+                    .statusCodes(retryStatusCodes)
+                    .build();
+            return unchecked(() -> onSuccess(retries.run())).get();
         }
 
         @Override
@@ -173,9 +207,15 @@ public class DeleteExhibitorCategoryImage {
             implements AsyncRequestOperation<
                     DeleteExhibitorCategoryImageRequest,
                     com.cvent.models.operations.async.DeleteExhibitorCategoryImageResponse> {
+        private final ScheduledExecutorService retryScheduler;
 
-        public Async(@Nonnull SDKConfiguration sdkConfiguration, Headers _headers) {
-            super(sdkConfiguration, _headers);
+        public Async(
+                @Nonnull SDKConfiguration sdkConfiguration,
+                @Nullable Options options,
+                @Nullable ScheduledExecutorService retryScheduler,
+                Headers _headers) {
+            super(sdkConfiguration, options, _headers);
+            this.retryScheduler = retryScheduler;
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(DeleteExhibitorCategoryImageRequest request)
@@ -194,7 +234,12 @@ public class DeleteExhibitorCategoryImage {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(DeleteExhibitorCategoryImageRequest request) {
-            return unchecked(() -> onBuildRequest(request))
+            AsyncRetries retries = AsyncRetries.builder()
+                    .retryConfig(retryConfig)
+                    .statusCodes(retryStatusCodes)
+                    .scheduler(retryScheduler)
+                    .build();
+            return retries.retry(() -> unchecked(() -> onBuildRequest(request))
                     .get()
                     .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
@@ -206,7 +251,7 @@ public class DeleteExhibitorCategoryImage {
                         }
                         return CompletableFuture.completedFuture(resp);
                     })
-                    .thenCompose(Function.identity())
+                    .thenCompose(Function.identity()))
                     .thenCompose(this::onSuccess);
         }
 

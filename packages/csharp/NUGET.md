@@ -146,6 +146,96 @@ while (res != null)
 ```
 <!-- End Pagination [pagination] -->
 
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply pass a `RetryConfig` to the call:
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Filter = "name eq 'My User Group'",
+};
+
+GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),
+    request: req
+);
+
+while (res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can use the `RetryConfig` optional parameter when intitializing the SDK:
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+
+var sdk = new CventSDK(
+    retryConfig: new RetryConfig(
+        strategy: RetryConfig.RetryStrategy.BACKOFF,
+        backoff: new BackoffStrategy(
+            initialIntervalMs: 1L,
+            maxIntervalMs: 50L,
+            maxElapsedTimeMs: 100L,
+            exponent: 1.1
+        ),
+        retryConnectionErrors: false
+    ),
+    security: new Security() {
+        OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+            ClientID = "<YOUR_CLIENT_ID_HERE>",
+            ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+            TokenURL = "<YOUR_TOKEN_URL_HERE>",
+            Scopes = "<YOUR_SCOPES_HERE>",
+        },
+    }
+);
+
+GetAccountUserGroupsRequest req = new GetAccountUserGroupsRequest() {
+    Token = "1a2b3c4d5e6f7g8h9i10j11k",
+    Filter = "name eq 'My User Group'",
+};
+
+GetAccountUserGroupsResponse? res = await sdk.Users.GetAccountUserGroupsAsync(req);
+
+while (res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+<!-- End Retries [retries] -->
+
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 

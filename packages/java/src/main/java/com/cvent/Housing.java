@@ -88,7 +88,9 @@ import com.cvent.operations.UnlinkReservation;
 import com.cvent.operations.UpdateReservationRequest;
 import com.cvent.operations.UpdateReservationSync;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * RegLink APIs allow you to exchange data with Cvent Passkey events and hotel reservation-booking
@@ -163,8 +165,25 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateConnectionResponse createConnection(@Nonnull CreateConnectionRequest request) {
+        return createConnection(request, null);
+    }
+
+    /**
+     * Create Connection
+     *
+     * <p>Create a connection between an integration partner and an event using an access code provided by the
+     * Passkey event owner. This connection (manually or using this API) is required to authorize ANY other
+     * API calls for the event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateConnectionResponse createConnection(
+            @Nonnull CreateConnectionRequest request, @Nullable Options options) {
         RequestOperation<CreateConnectionRequest, CreateConnectionResponse> operation =
-                new CreateConnection.Sync(sdkConfiguration, _headers);
+                new CreateConnection.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -190,8 +209,23 @@ public class Housing {
      */
     public GetHousingEventsSummariesResponse getHousingEventsSummaries(
             @Nonnull GetHousingEventsSummariesRequest request) {
+        return getHousingEventsSummaries(request, null);
+    }
+
+    /**
+     * Get Housing Events Summaries
+     *
+     * <p>Gets a paginated list of summary information for your individual housing events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventsSummariesResponse getHousingEventsSummaries(
+            @Nonnull GetHousingEventsSummariesRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventsSummariesRequest, GetHousingEventsSummariesResponse> operation =
-                new GetHousingEventsSummaries.Sync(sdkConfiguration, _headers);
+                new GetHousingEventsSummaries.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -216,8 +250,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHousingEventInfoResponse getHousingEventInfo(@Nonnull GetHousingEventInfoRequest request) {
+        return getHousingEventInfo(request, null);
+    }
+
+    /**
+     * Get Housing Event Info
+     *
+     * <p>Retrieves housing event details based on the given housing event ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventInfoResponse getHousingEventInfo(
+            @Nonnull GetHousingEventInfoRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventInfoRequest, GetHousingEventInfoResponse> operation =
-                new GetHousingEventInfo.Sync(sdkConfiguration, _headers);
+                new GetHousingEventInfo.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -242,8 +291,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHousingEventHotelsResponse getHousingEventHotels(@Nonnull GetHousingEventHotelsRequest request) {
+        return getHousingEventHotels(request, null);
+    }
+
+    /**
+     * Get Housing Event Hotels
+     *
+     * <p>Get list of hotels for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventHotelsResponse getHousingEventHotels(
+            @Nonnull GetHousingEventHotelsRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventHotelsRequest, GetHousingEventHotelsResponse> operation =
-                new GetHousingEventHotels.Sync(sdkConfiguration, _headers);
+                new GetHousingEventHotels.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -268,8 +332,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHousingEventHotelResponse getHousingEventHotel(@Nonnull GetHousingEventHotelRequest request) {
+        return getHousingEventHotel(request, null);
+    }
+
+    /**
+     * Get Housing Event Hotel
+     *
+     * <p>Gets a single hotel's details in a housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventHotelResponse getHousingEventHotel(
+            @Nonnull GetHousingEventHotelRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventHotelRequest, GetHousingEventHotelResponse> operation =
-                new GetHousingEventHotel.Sync(sdkConfiguration, _headers);
+                new GetHousingEventHotel.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -295,8 +374,23 @@ public class Housing {
      */
     public GetHousingEventHotelAvailabilityResponse getHousingEventHotelAvailability(
             @Nonnull GetHousingEventHotelAvailabilityRequest request) {
+        return getHousingEventHotelAvailability(request, null);
+    }
+
+    /**
+     * Get Event Hotel Availability
+     *
+     * <p>Get a filterable list of available room nights for a particular hotel and housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventHotelAvailabilityResponse getHousingEventHotelAvailability(
+            @Nonnull GetHousingEventHotelAvailabilityRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventHotelAvailabilityRequest, GetHousingEventHotelAvailabilityResponse> operation =
-                new GetHousingEventHotelAvailability.Sync(sdkConfiguration, _headers);
+                new GetHousingEventHotelAvailability.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -321,8 +415,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHousingEventRoomTypesResponse getHousingEventRoomTypes(@Nonnull GetHousingEventRoomTypesRequest request) {
+        return getHousingEventRoomTypes(request, null);
+    }
+
+    /**
+     * Get Housing Event Room Types
+     *
+     * <p>Get a filterable list of room types for a given hotel in a housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventRoomTypesResponse getHousingEventRoomTypes(
+            @Nonnull GetHousingEventRoomTypesRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventRoomTypesRequest, GetHousingEventRoomTypesResponse> operation =
-                new GetHousingEventRoomTypes.Sync(sdkConfiguration, _headers);
+                new GetHousingEventRoomTypes.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -347,8 +456,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetRoomTypeDetailsResponse getRoomTypeDetails(@Nonnull GetRoomTypeDetailsRequest request) {
+        return getRoomTypeDetails(request, null);
+    }
+
+    /**
+     * Get Room Type Details
+     *
+     * <p>Get a room type's details for the given housing event, hotel and room type.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRoomTypeDetailsResponse getRoomTypeDetails(
+            @Nonnull GetRoomTypeDetailsRequest request, @Nullable Options options) {
         RequestOperation<GetRoomTypeDetailsRequest, GetRoomTypeDetailsResponse> operation =
-                new GetRoomTypeDetails.Sync(sdkConfiguration, _headers);
+                new GetRoomTypeDetails.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -375,8 +499,24 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetRoomTypeInventoryResponse getRoomTypeInventory(@Nonnull GetRoomTypeInventoryRequest request) {
+        return getRoomTypeInventory(request, null);
+    }
+
+    /**
+     * Get Room Type Inventory
+     *
+     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel and room
+     * type.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRoomTypeInventoryResponse getRoomTypeInventory(
+            @Nonnull GetRoomTypeInventoryRequest request, @Nullable Options options) {
         RequestOperation<GetRoomTypeInventoryRequest, GetRoomTypeInventoryResponse> operation =
-                new GetRoomTypeInventory.Sync(sdkConfiguration, _headers);
+                new GetRoomTypeInventory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -401,8 +541,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHousingEventInventoryResponse getHousingEventInventory(@Nonnull GetHousingEventInventoryRequest request) {
+        return getHousingEventInventory(request, null);
+    }
+
+    /**
+     * Get Housing Event Inventory
+     *
+     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventInventoryResponse getHousingEventInventory(
+            @Nonnull GetHousingEventInventoryRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation =
-                new GetHousingEventInventory.Sync(sdkConfiguration, _headers);
+                new GetHousingEventInventory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -428,8 +583,23 @@ public class Housing {
      */
     public GetHousingEventReservationsResponse getHousingEventReservations(
             @Nonnull GetHousingEventReservationsRequest request) {
+        return getHousingEventReservations(request, null);
+    }
+
+    /**
+     * Get Housing Event Reservations
+     *
+     * <p>Get list of reservation details for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingEventReservationsResponse getHousingEventReservations(
+            @Nonnull GetHousingEventReservationsRequest request, @Nullable Options options) {
         RequestOperation<GetHousingEventReservationsRequest, GetHousingEventReservationsResponse> operation =
-                new GetHousingEventReservations.Sync(sdkConfiguration, _headers);
+                new GetHousingEventReservations.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -460,8 +630,26 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateReservationRequestResponse createReservationRequest(@Nonnull ReservationRequestInput request) {
+        return createReservationRequest(request, null);
+    }
+
+    /**
+     * Create Reservation Request
+     *
+     * <p>Creates a reservation request from guest details. A reservation request represents a registration
+     * and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the
+     * response will pre-populate guest data and link the new reservation to the reservation request for
+     * tracking.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateReservationRequestResponse createReservationRequest(
+            @Nonnull ReservationRequestInput request, @Nullable Options options) {
         RequestOperation<ReservationRequestInput, CreateReservationRequestResponse> operation =
-                new CreateReservationRequest.Sync(sdkConfiguration, _headers);
+                new CreateReservationRequest.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -486,8 +674,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetReservationRequestResponse getReservationRequest(@Nonnull GetReservationRequestRequest request) {
+        return getReservationRequest(request, null);
+    }
+
+    /**
+     * Get Reservation Request
+     *
+     * <p>Returns reservation request details for a given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetReservationRequestResponse getReservationRequest(
+            @Nonnull GetReservationRequestRequest request, @Nullable Options options) {
         RequestOperation<GetReservationRequestRequest, GetReservationRequestResponse> operation =
-                new GetReservationRequest.Sync(sdkConfiguration, _headers);
+                new GetReservationRequest.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -514,8 +717,24 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateReservationRequestResponse updateReservationRequest(@Nonnull UpdateReservationRequestRequest request) {
+        return updateReservationRequest(request, null);
+    }
+
+    /**
+     * Update Reservation Request
+     *
+     * <p>Update a reservation request using the given reservation ID. If the reservation has been booked,
+     * changes to the reservation request do not affect the linked reservation.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateReservationRequestResponse updateReservationRequest(
+            @Nonnull UpdateReservationRequestRequest request, @Nullable Options options) {
         RequestOperation<UpdateReservationRequestRequest, UpdateReservationRequestResponse> operation =
-                new UpdateReservationRequest.Sync(sdkConfiguration, _headers);
+                new UpdateReservationRequest.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -542,8 +761,24 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public CancelReservationRequestResponse cancelReservationRequest(@Nonnull CancelReservationRequestRequest request) {
+        return cancelReservationRequest(request, null);
+    }
+
+    /**
+     * Cancel Reservation Request
+     *
+     * <p>Update the status of a reservation request to cancelled. If the reservation has already been booked,
+     * any changes made to the reservation request will not affect the linked reservation.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CancelReservationRequestResponse cancelReservationRequest(
+            @Nonnull CancelReservationRequestRequest request, @Nullable Options options) {
         RequestOperation<CancelReservationRequestRequest, CancelReservationRequestResponse> operation =
-                new CancelReservationRequest.Sync(sdkConfiguration, _headers);
+                new CancelReservationRequest.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -570,8 +805,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public LinkReservationResponse linkReservation(@Nonnull LinkReservationRequest request) {
+        return linkReservation(request, null);
+    }
+
+    /**
+     * Link Reservation
+     *
+     * <p>Link an existing reservation to a reservation request. Commonly used when associating a reservation
+     * created outside the normal booking flow (such as a guest calling the hotel).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public LinkReservationResponse linkReservation(@Nonnull LinkReservationRequest request, @Nullable Options options) {
         RequestOperation<LinkReservationRequest, LinkReservationResponse> operation =
-                new LinkReservation.Sync(sdkConfiguration, _headers);
+                new LinkReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -598,8 +848,24 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public UnlinkReservationResponse unlinkReservation(@Nonnull UnlinkReservationRequest request) {
+        return unlinkReservation(request, null);
+    }
+
+    /**
+     * Unlink Reservation
+     *
+     * <p>Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from
+     * a reservation request so that a new reservation can be linked in its place.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UnlinkReservationResponse unlinkReservation(
+            @Nonnull UnlinkReservationRequest request, @Nullable Options options) {
         RequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation =
-                new UnlinkReservation.Sync(sdkConfiguration, _headers);
+                new UnlinkReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -624,8 +890,22 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateReservationResponse createReservation(@Nonnull NewReservation request) {
+        return createReservation(request, null);
+    }
+
+    /**
+     * Create Reservation
+     *
+     * <p>Create a hotel reservation in a housing event based on the details provided in the request body.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateReservationResponse createReservation(@Nonnull NewReservation request, @Nullable Options options) {
         RequestOperation<NewReservation, CreateReservationResponse> operation =
-                new CreateReservation.Sync(sdkConfiguration, _headers);
+                new CreateReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -652,8 +932,24 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetReservationResponse getReservation(@Nonnull com.cvent.models.operations.GetReservationRequest request) {
+        return getReservation(request, null);
+    }
+
+    /**
+     * Get Reservation
+     *
+     * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
+     * callbacks](/docs/passkey/REST/callbacks).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetReservationResponse getReservation(
+            @Nonnull com.cvent.models.operations.GetReservationRequest request, @Nullable Options options) {
         RequestOperation<com.cvent.models.operations.GetReservationRequest, GetReservationResponse> operation =
-                new GetReservation.Sync(sdkConfiguration, _headers);
+                new GetReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -679,8 +975,23 @@ public class Housing {
      */
     public CancelReservationResponse cancelReservation(
             @Nonnull com.cvent.models.operations.CancelReservationRequest request) {
+        return cancelReservation(request, null);
+    }
+
+    /**
+     * Cancel Reservation
+     *
+     * <p>Cancel reservation for given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CancelReservationResponse cancelReservation(
+            @Nonnull com.cvent.models.operations.CancelReservationRequest request, @Nullable Options options) {
         RequestOperation<com.cvent.models.operations.CancelReservationRequest, CancelReservationResponse> operation =
-                new CancelReservation.Sync(sdkConfiguration, _headers);
+                new CancelReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -705,8 +1016,23 @@ public class Housing {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateReservationSyncResponse updateReservationSync(@Nonnull UpdateReservationSyncRequest request) {
+        return updateReservationSync(request, null);
+    }
+
+    /**
+     * Update Reservation
+     *
+     * <p>Updates an existing reservation for given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateReservationSyncResponse updateReservationSync(
+            @Nonnull UpdateReservationSyncRequest request, @Nullable Options options) {
         RequestOperation<UpdateReservationSyncRequest, UpdateReservationSyncResponse> operation =
-                new UpdateReservationSync.Sync(sdkConfiguration, _headers);
+                new UpdateReservationSync.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

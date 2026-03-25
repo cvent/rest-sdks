@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.PostTransactions;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class PostTransactionsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private PostTransactionsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public PostTransactionsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public PostTransactionsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public PostTransactionsRequestBuilder request(@Nonnull PostTransactionsRequest request) {
@@ -42,8 +52,9 @@ public class PostTransactionsRequestBuilder {
      * @return The response from the server.
      */
     public PostTransactionsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
-                new PostTransactions.Sync(sdkConfiguration, _headers);
+                new PostTransactions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

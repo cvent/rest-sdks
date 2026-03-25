@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.HookInput;
 import com.cvent.operations.CreateContactHook;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class CreateContactHookRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private HookInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateContactHookRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateContactHookRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateContactHookRequestBuilder request(@Nullable HookInput request) {
@@ -43,8 +52,9 @@ public class CreateContactHookRequestBuilder {
      * @return The response from the server.
      */
     public CreateContactHookResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<HookInput, CreateContactHookResponse> operation =
-                new CreateContactHook.Sync(sdkConfiguration, _headers);
+                new CreateContactHook.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

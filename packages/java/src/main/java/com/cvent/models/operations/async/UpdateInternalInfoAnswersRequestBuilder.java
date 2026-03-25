@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateInternalInfoAnswersRequest;
 import com.cvent.operations.UpdateInternalInfoAnswers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateInternalInfoAnswersRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateInternalInfoAnswersRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateInternalInfoAnswersRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateInternalInfoAnswersRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateInternalInfoAnswersRequestBuilder request(@Nonnull UpdateInternalInfoAnswersRequest request) {
@@ -44,8 +54,9 @@ public class UpdateInternalInfoAnswersRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateInternalInfoAnswersResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateInternalInfoAnswersRequest, UpdateInternalInfoAnswersResponse> operation =
-                new UpdateInternalInfoAnswers.Async(sdkConfiguration, _headers);
+                new UpdateInternalInfoAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

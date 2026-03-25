@@ -18,7 +18,9 @@ import com.cvent.operations.CreateBadgePrintJob;
 import com.cvent.operations.GetBadgePrintJob;
 import com.cvent.operations.GetEventBadgePrintJobs;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Badge print jobs can be scheduled to a printer pool, so a printer in the printer pool can consume
@@ -68,8 +70,25 @@ public class BadgePrintJob {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateBadgePrintJobResponse createBadgePrintJob(@Nonnull CreateBadgePrintJobRequest request) {
+        return createBadgePrintJob(request, null);
+    }
+
+    /**
+     * Create Badge Print Job
+     *
+     * <p>Creates a new badge print job
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateBadgePrintJobResponse createBadgePrintJob(
+            @Nonnull CreateBadgePrintJobRequest request, @Nullable Options options) {
         RequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation =
-                new CreateBadgePrintJob.Sync(sdkConfiguration, _headers);
+                new CreateBadgePrintJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -98,8 +117,25 @@ public class BadgePrintJob {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventBadgePrintJobsResponse getEventBadgePrintJobs(@Nonnull GetEventBadgePrintJobsRequest request) {
+        return getEventBadgePrintJobs(request, null);
+    }
+
+    /**
+     * List Badge Print Jobs
+     *
+     * <p>Gets a paginated list of badge print jobs for a given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEventBadgePrintJobsResponse getEventBadgePrintJobs(
+            @Nonnull GetEventBadgePrintJobsRequest request, @Nullable Options options) {
         RequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
-                new GetEventBadgePrintJobs.Sync(sdkConfiguration, _headers);
+                new GetEventBadgePrintJobs.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -128,8 +164,25 @@ public class BadgePrintJob {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrintJobResponse getBadgePrintJob(@Nonnull GetBadgePrintJobRequest request) {
+        return getBadgePrintJob(request, null);
+    }
+
+    /**
+     * Get Badge Print Job
+     *
+     * <p>Gets a badge print job
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBadgePrintJobResponse getBadgePrintJob(
+            @Nonnull GetBadgePrintJobRequest request, @Nullable Options options) {
         RequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation =
-                new GetBadgePrintJob.Sync(sdkConfiguration, _headers);
+                new GetBadgePrintJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

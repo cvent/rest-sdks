@@ -12,10 +12,13 @@ import com.cvent.models.operations.ListAttendeeActivitiesRequest;
 import com.cvent.operations.ListAttendeeActivities;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class ListAttendeeActivitiesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListAttendeeActivitiesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListAttendeeActivitiesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListAttendeeActivitiesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListAttendeeActivitiesRequestBuilder request(@Nonnull ListAttendeeActivitiesRequest request) {
@@ -55,8 +65,9 @@ public class ListAttendeeActivitiesRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ListAttendeeActivitiesResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation =
-                new ListAttendeeActivities.Async(sdkConfiguration, _headers);
+                new ListAttendeeActivities.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class ListAttendeeActivitiesRequestBuilder {
      */
     public Publisher<ListAttendeeActivitiesResponse> callAsPublisher() {
         ListAttendeeActivitiesRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation =
-                new ListAttendeeActivities.Async(sdkConfiguration, _headers);
+                new ListAttendeeActivities.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

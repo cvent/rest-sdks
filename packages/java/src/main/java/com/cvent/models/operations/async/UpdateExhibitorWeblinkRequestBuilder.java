@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateExhibitorWeblinkRequest;
 import com.cvent.operations.UpdateExhibitorWeblink;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateExhibitorWeblinkRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateExhibitorWeblinkRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateExhibitorWeblinkRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateExhibitorWeblinkRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateExhibitorWeblinkRequestBuilder request(@Nonnull UpdateExhibitorWeblinkRequest request) {
@@ -44,8 +54,9 @@ public class UpdateExhibitorWeblinkRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateExhibitorWeblinkResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateExhibitorWeblinkRequest, UpdateExhibitorWeblinkResponse> operation =
-                new UpdateExhibitorWeblink.Async(sdkConfiguration, _headers);
+                new UpdateExhibitorWeblink.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

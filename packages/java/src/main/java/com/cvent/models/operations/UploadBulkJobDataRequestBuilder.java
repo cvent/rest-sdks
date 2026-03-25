@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UploadBulkJobData;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UploadBulkJobDataRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UploadBulkJobDataRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UploadBulkJobDataRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UploadBulkJobDataRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UploadBulkJobDataRequestBuilder request(@Nonnull UploadBulkJobDataRequest request) {
@@ -42,8 +52,9 @@ public class UploadBulkJobDataRequestBuilder {
      * @return The response from the server.
      */
     public UploadBulkJobDataResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
-                new UploadBulkJobData.Sync(sdkConfiguration, _headers);
+                new UploadBulkJobData.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

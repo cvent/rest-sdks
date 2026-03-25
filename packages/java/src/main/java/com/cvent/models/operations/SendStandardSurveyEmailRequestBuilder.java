@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.SendStandardSurveyEmail;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class SendStandardSurveyEmailRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private SendStandardSurveyEmailRequest request;
+    private final Options.Builder optionsBuilder;
 
     public SendStandardSurveyEmailRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public SendStandardSurveyEmailRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public SendStandardSurveyEmailRequestBuilder request(@Nonnull SendStandardSurveyEmailRequest request) {
@@ -42,8 +52,9 @@ public class SendStandardSurveyEmailRequestBuilder {
      * @return The response from the server.
      */
     public SendStandardSurveyEmailResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<SendStandardSurveyEmailRequest, SendStandardSurveyEmailResponse> operation =
-                new SendStandardSurveyEmail.Sync(sdkConfiguration, _headers);
+                new SendStandardSurveyEmail.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

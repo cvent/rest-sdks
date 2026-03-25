@@ -34,6 +34,7 @@ import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.operations.GetAccountUserGroups;
 import com.cvent.operations.UpdateAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -81,8 +82,23 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAccountUserGroupsResponse getAccountUserGroups(@Nonnull GetAccountUserGroupsRequest request) {
+        return getAccountUserGroups(request, null);
+    }
+
+    /**
+     * List Account User Groups
+     *
+     * <p>Gets a list of user groups in your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountUserGroupsResponse getAccountUserGroups(
+            @Nonnull GetAccountUserGroupsRequest request, @Nullable Options options) {
         RequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation =
-                new GetAccountUserGroups.Sync(sdkConfiguration, _headers);
+                new GetAccountUserGroups.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -106,7 +122,7 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAccountUserGroupResponse createAccountUserGroupDirect() {
-        return createAccountUserGroup(null);
+        return createAccountUserGroup(null, null);
     }
 
     /**
@@ -115,12 +131,14 @@ public class Users {
      * <p>Creates a new Account User Group.
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateAccountUserGroupResponse createAccountUserGroup(@Nullable UserGroupJsonInput request) {
+    public CreateAccountUserGroupResponse createAccountUserGroup(
+            @Nullable UserGroupJsonInput request, @Nullable Options options) {
         RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
-                new CreateAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new CreateAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -145,8 +163,23 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAccountUserGroupResponse getAccountUserGroup(@Nonnull GetAccountUserGroupRequest request) {
+        return getAccountUserGroup(request, null);
+    }
+
+    /**
+     * Get Account User Group
+     *
+     * <p>Gets a single account user group by its ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountUserGroupResponse getAccountUserGroup(
+            @Nonnull GetAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
-                new GetAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new GetAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -171,8 +204,23 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAccountUserGroupResponse updateAccountUserGroup(@Nonnull UpdateAccountUserGroupRequest request) {
+        return updateAccountUserGroup(request, null);
+    }
+
+    /**
+     * Update Account User Group
+     *
+     * <p>Update a given account user group using details in the body of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateAccountUserGroupResponse updateAccountUserGroup(
+            @Nonnull UpdateAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<UpdateAccountUserGroupRequest, UpdateAccountUserGroupResponse> operation =
-                new UpdateAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new UpdateAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -197,8 +245,23 @@ public class Users {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteAccountUserGroupResponse deleteAccountUserGroup(@Nonnull DeleteAccountUserGroupRequest request) {
+        return deleteAccountUserGroup(request, null);
+    }
+
+    /**
+     * Delete Account User Group
+     *
+     * <p>Deletes an account user group using its ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteAccountUserGroupResponse deleteAccountUserGroup(
+            @Nonnull DeleteAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation =
-                new DeleteAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new DeleteAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -224,8 +287,23 @@ public class Users {
      */
     public AddUserToAccountUserGroupResponse addUserToAccountUserGroup(
             @Nonnull AddUserToAccountUserGroupRequest request) {
+        return addUserToAccountUserGroup(request, null);
+    }
+
+    /**
+     * Associate User to Group
+     *
+     * <p>Associates a user to an account user group.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddUserToAccountUserGroupResponse addUserToAccountUserGroup(
+            @Nonnull AddUserToAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation =
-                new AddUserToAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new AddUserToAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -251,8 +329,23 @@ public class Users {
      */
     public DeleteUserFromAccountUserGroupResponse deleteUserFromAccountUserGroup(
             @Nonnull DeleteUserFromAccountUserGroupRequest request) {
+        return deleteUserFromAccountUserGroup(request, null);
+    }
+
+    /**
+     * Delete User from Group
+     *
+     * <p>Removes a user from an account user group.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteUserFromAccountUserGroupResponse deleteUserFromAccountUserGroup(
+            @Nonnull DeleteUserFromAccountUserGroupRequest request, @Nullable Options options) {
         RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
-                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

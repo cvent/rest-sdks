@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateQuantityItemRegistrationForAttendee;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateQuantityItemRegistrationForAttendeeRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateQuantityItemRegistrationForAttendeeRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateQuantityItemRegistrationForAttendeeRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateQuantityItemRegistrationForAttendeeRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateQuantityItemRegistrationForAttendeeRequestBuilder request(
@@ -43,10 +53,11 @@ public class UpdateQuantityItemRegistrationForAttendeeRequestBuilder {
      * @return The response from the server.
      */
     public UpdateQuantityItemRegistrationForAttendeeResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<
                         UpdateQuantityItemRegistrationForAttendeeRequest,
                         UpdateQuantityItemRegistrationForAttendeeResponse>
-                operation = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, _headers);
+                operation = new UpdateQuantityItemRegistrationForAttendee.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

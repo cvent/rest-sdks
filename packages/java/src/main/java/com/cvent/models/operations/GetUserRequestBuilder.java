@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetUser;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetUserRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetUserRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetUserRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetUserRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetUserRequestBuilder request(@Nonnull GetUserRequest request) {
@@ -42,7 +52,9 @@ public class GetUserRequestBuilder {
      * @return The response from the server.
      */
     public GetUserResponse call() {
-        RequestOperation<GetUserRequest, GetUserResponse> operation = new GetUser.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<GetUserRequest, GetUserResponse> operation =
+                new GetUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

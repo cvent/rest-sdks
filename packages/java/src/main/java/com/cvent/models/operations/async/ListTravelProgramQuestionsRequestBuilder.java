@@ -12,10 +12,13 @@ import com.cvent.models.operations.ListTravelProgramQuestionsRequest;
 import com.cvent.operations.ListTravelProgramQuestions;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class ListTravelProgramQuestionsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListTravelProgramQuestionsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListTravelProgramQuestionsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListTravelProgramQuestionsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListTravelProgramQuestionsRequestBuilder request(@Nonnull ListTravelProgramQuestionsRequest request) {
@@ -55,8 +65,9 @@ public class ListTravelProgramQuestionsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ListTravelProgramQuestionsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
-                new ListTravelProgramQuestions.Async(sdkConfiguration, _headers);
+                new ListTravelProgramQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class ListTravelProgramQuestionsRequestBuilder {
      */
     public Publisher<ListTravelProgramQuestionsResponse> callAsPublisher() {
         ListTravelProgramQuestionsRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
-                new ListTravelProgramQuestions.Async(sdkConfiguration, _headers);
+                new ListTravelProgramQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

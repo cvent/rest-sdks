@@ -14,7 +14,9 @@ import com.cvent.models.operations.async.ListHubsResponse;
 import com.cvent.operations.GetHubMembers;
 import com.cvent.operations.ListHubs;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -62,8 +64,22 @@ public class AsyncEventsPlusHub {
      * @return {@code CompletableFuture<ListHubsResponse>} - The async response
      */
     public CompletableFuture<ListHubsResponse> listHubs(@Nonnull ListHubsRequest request) {
+        return listHubs(request, null);
+    }
+
+    /**
+     * List Events+ Hubs
+     *
+     * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
+     * contains owner and theme information as well as the current status.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListHubsResponse>} - The async response
+     */
+    public CompletableFuture<ListHubsResponse> listHubs(@Nonnull ListHubsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListHubsRequest, ListHubsResponse> operation =
-                new ListHubs.Async(sdkConfiguration, _headers);
+                new ListHubs.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -87,8 +103,22 @@ public class AsyncEventsPlusHub {
      * @return {@code CompletableFuture<GetHubMembersResponse>} - The async response
      */
     public CompletableFuture<GetHubMembersResponse> getHubMembers(@Nonnull GetHubMembersRequest request) {
+        return getHubMembers(request, null);
+    }
+
+    /**
+     * Get Events+ Hub Members
+     *
+     * <p>Fetches a list of members associated with a particular Events+ hub.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHubMembersResponse>} - The async response
+     */
+    public CompletableFuture<GetHubMembersResponse> getHubMembers(
+            @Nonnull GetHubMembersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
-                new GetHubMembers.Async(sdkConfiguration, _headers);
+                new GetHubMembers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

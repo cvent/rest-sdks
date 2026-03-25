@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.LinkAgendaItemToDiscount;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class LinkAgendaItemToDiscountRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private LinkAgendaItemToDiscountRequest request;
+    private final Options.Builder optionsBuilder;
 
     public LinkAgendaItemToDiscountRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public LinkAgendaItemToDiscountRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public LinkAgendaItemToDiscountRequestBuilder request(@Nonnull LinkAgendaItemToDiscountRequest request) {
@@ -42,8 +52,9 @@ public class LinkAgendaItemToDiscountRequestBuilder {
      * @return The response from the server.
      */
     public LinkAgendaItemToDiscountResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation =
-                new LinkAgendaItemToDiscount.Sync(sdkConfiguration, _headers);
+                new LinkAgendaItemToDiscount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

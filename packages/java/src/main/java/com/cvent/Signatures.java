@@ -10,7 +10,9 @@ import com.cvent.models.operations.GetSignaturesRequestBuilder;
 import com.cvent.models.operations.GetSignaturesResponse;
 import com.cvent.operations.GetSignatures;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Retrieves Check-In &amp; Check-Out Signatures Of Attendees
@@ -59,8 +61,24 @@ public class Signatures {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSignaturesResponse getSignatures(@Nonnull GetSignaturesRequest request) {
+        return getSignatures(request, null);
+    }
+
+    /**
+     * List Signatures
+     *
+     * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSignaturesResponse getSignatures(@Nonnull GetSignaturesRequest request, @Nullable Options options) {
         RequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
-                new GetSignatures.Sync(sdkConfiguration, _headers);
+                new GetSignatures.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

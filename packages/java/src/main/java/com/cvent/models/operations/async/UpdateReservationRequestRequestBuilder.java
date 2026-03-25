@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateReservationRequestRequest;
 import com.cvent.operations.UpdateReservationRequest;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateReservationRequestRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateReservationRequestRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateReservationRequestRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateReservationRequestRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateReservationRequestRequestBuilder request(@Nonnull UpdateReservationRequestRequest request) {
@@ -44,8 +54,9 @@ public class UpdateReservationRequestRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateReservationRequestResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateReservationRequestRequest, UpdateReservationRequestResponse> operation =
-                new UpdateReservationRequest.Async(sdkConfiguration, _headers);
+                new UpdateReservationRequest.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

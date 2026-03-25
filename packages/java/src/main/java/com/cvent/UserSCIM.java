@@ -48,6 +48,7 @@ import com.cvent.operations.GetUserGroups;
 import com.cvent.operations.ListUsers;
 import com.cvent.operations.UpdateUser;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -100,8 +101,24 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUserGroupsResponse getUserGroups(@Nonnull GetUserGroupsRequest request) {
+        return getUserGroups(request, null);
+    }
+
+    /**
+     * Get SCIM Groups
+     *
+     * <p>Gets a paginated list of SCIM groups (representing Cvent user roles) in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetUserGroupsResponse getUserGroups(@Nonnull GetUserGroupsRequest request, @Nullable Options options) {
         RequestOperation<GetUserGroupsRequest, GetUserGroupsResponse> operation =
-                new GetUserGroups.Sync(sdkConfiguration, _headers);
+                new GetUserGroups.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -129,8 +146,23 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetResourceTypesResponse getResourceTypesDirect() {
+        return getResourceTypes(null);
+    }
+
+    /**
+     * List Resource Types
+     *
+     * <p>Gets a list of resource types.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetResourceTypesResponse getResourceTypes(@Nullable Options options) {
         RequestlessOperation<GetResourceTypesResponse> operation =
-                new GetResourceTypes.Sync(sdkConfiguration, _headers);
+                new GetResourceTypes.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 
@@ -159,8 +191,24 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetResourceTypeResponse getResourceType(@Nonnull GetResourceTypeRequest request) {
+        return getResourceType(request, null);
+    }
+
+    /**
+     * Get Resource Type
+     *
+     * <p>Gets the details of a single resource type.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetResourceTypeResponse getResourceType(@Nonnull GetResourceTypeRequest request, @Nullable Options options) {
         RequestOperation<GetResourceTypeRequest, GetResourceTypeResponse> operation =
-                new GetResourceType.Sync(sdkConfiguration, _headers);
+                new GetResourceType.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -190,7 +238,23 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSchemasResponse getSchemasDirect() {
-        RequestlessOperation<GetSchemasResponse> operation = new GetSchemas.Sync(sdkConfiguration, _headers);
+        return getSchemas(null);
+    }
+
+    /**
+     * List Schemas
+     *
+     * <p>Gets the paginated list of user schemas and its extension models representing the user and SCIM
+     * groups (representing Cvent user roles).
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSchemasResponse getSchemas(@Nullable Options options) {
+        RequestlessOperation<GetSchemasResponse> operation = new GetSchemas.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 
@@ -221,8 +285,25 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSchemaResponse getSchema(@Nonnull GetSchemaRequest request) {
+        return getSchema(request, null);
+    }
+
+    /**
+     * Get Schema
+     *
+     * <p>Gets the details of a user schema and its extension models representing the user and SCIM groups
+     * (representing Cvent user roles).
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSchemaResponse getSchema(@Nonnull GetSchemaRequest request, @Nullable Options options) {
         RequestOperation<GetSchemaRequest, GetSchemaResponse> operation =
-                new GetSchema.Sync(sdkConfiguration, _headers);
+                new GetSchema.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -250,8 +331,23 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetServiceProviderConfigResponse getServiceProviderConfigDirect() {
+        return getServiceProviderConfig(null);
+    }
+
+    /**
+     * Get Service Provider Config
+     *
+     * <p>Gets Cvent's configurations of SCIM.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetServiceProviderConfigResponse getServiceProviderConfig(@Nullable Options options) {
         RequestlessOperation<GetServiceProviderConfigResponse> operation =
-                new GetServiceProviderConfig.Sync(sdkConfiguration, _headers);
+                new GetServiceProviderConfig.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 
@@ -281,7 +377,7 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateUserResponse createUserDirect() {
-        return createUser(null);
+        return createUser(null, null);
     }
 
     /**
@@ -293,11 +389,13 @@ public class UserSCIM {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateUserResponse createUser(@Nullable UserInput request) {
-        RequestOperation<UserInput, CreateUserResponse> operation = new CreateUser.Sync(sdkConfiguration, _headers);
+    public CreateUserResponse createUser(@Nullable UserInput request, @Nullable Options options) {
+        RequestOperation<UserInput, CreateUserResponse> operation =
+                new CreateUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -326,8 +424,24 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListUsersResponse listUsers(@Nonnull ListUsersRequest request) {
+        return listUsers(request, null);
+    }
+
+    /**
+     * List Users
+     *
+     * <p>Gets a list of users.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListUsersResponse listUsers(@Nonnull ListUsersRequest request, @Nullable Options options) {
         RequestOperation<ListUsersRequest, ListUsersResponse> operation =
-                new ListUsers.Sync(sdkConfiguration, _headers);
+                new ListUsers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -356,7 +470,24 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUserResponse getUser(@Nonnull GetUserRequest request) {
-        RequestOperation<GetUserRequest, GetUserResponse> operation = new GetUser.Sync(sdkConfiguration, _headers);
+        return getUser(request, null);
+    }
+
+    /**
+     * Get User
+     *
+     * <p>Gets the details of a single user.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetUserResponse getUser(@Nonnull GetUserRequest request, @Nullable Options options) {
+        RequestOperation<GetUserRequest, GetUserResponse> operation =
+                new GetUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -387,8 +518,25 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateUserResponse updateUser(@Nonnull UpdateUserRequest request) {
+        return updateUser(request, null);
+    }
+
+    /**
+     * Update User
+     *
+     * <p>Updates a user. In case of an account user, if the email address field is updated then please verify
+     * the new email address using the link received in the verification email.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateUserResponse updateUser(@Nonnull UpdateUserRequest request, @Nullable Options options) {
         RequestOperation<UpdateUserRequest, UpdateUserResponse> operation =
-                new UpdateUser.Sync(sdkConfiguration, _headers);
+                new UpdateUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -417,8 +565,24 @@ public class UserSCIM {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteUserResponse deleteUser(@Nonnull DeleteUserRequest request) {
+        return deleteUser(request, null);
+    }
+
+    /**
+     * Delete User
+     *
+     * <p>Deletes a user.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteUserResponse deleteUser(@Nonnull DeleteUserRequest request, @Nullable Options options) {
         RequestOperation<DeleteUserRequest, DeleteUserResponse> operation =
-                new DeleteUser.Sync(sdkConfiguration, _headers);
+                new DeleteUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

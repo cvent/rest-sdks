@@ -46,9 +46,11 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         /// <br/>
@@ -60,11 +62,13 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///   * survey.id (1)<br/>
         ///   * question.id (100)<br/>
         ///   * respondent.id (100)<br/>
         /// <br/>
         /// Usage:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         /// <br/>

@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.CardTokenRequest;
 import com.cvent.operations.CreateCardTokens;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 import java.lang.String;
@@ -19,9 +21,16 @@ public class CreateCardTokensRequestBuilder {
     private final Headers _headers = new Headers();
     private CardTokenRequest request;
     private String serverURL;
+    private final Options.Builder optionsBuilder;
 
     public CreateCardTokensRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateCardTokensRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateCardTokensRequestBuilder request(@Nullable CardTokenRequest request) {
@@ -51,8 +60,8 @@ public class CreateCardTokensRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateCardTokensResponse> call() {
-        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
-                new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
+        Options options = optionsBuilder.build();
+        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation = new CreateCardTokens.Async(sdkConfiguration, serverURL, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

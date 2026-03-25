@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetLeadsPostFiltersData;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class GetLeadsPostFiltersDataRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetLeadsPostFiltersDataRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetLeadsPostFiltersDataRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetLeadsPostFiltersDataRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetLeadsPostFiltersDataRequestBuilder request(@Nonnull GetLeadsPostFiltersDataRequest request) {
@@ -53,8 +63,9 @@ public class GetLeadsPostFiltersDataRequestBuilder {
      * @return The response from the server.
      */
     public GetLeadsPostFiltersDataResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
-                new GetLeadsPostFiltersData.Sync(sdkConfiguration, _headers);
+                new GetLeadsPostFiltersData.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -73,8 +84,9 @@ public class GetLeadsPostFiltersDataRequestBuilder {
      */
     public Iterable<GetLeadsPostFiltersDataResponse> callAsIterable() {
         GetLeadsPostFiltersDataRequest request = this.request;
+        Options options = optionsBuilder.build();
         RequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
-                new GetLeadsPostFiltersData.Sync(sdkConfiguration, _headers);
+                new GetLeadsPostFiltersData.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateCurrencyConversionRate;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateCurrencyConversionRateRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateCurrencyConversionRateRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateCurrencyConversionRateRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateCurrencyConversionRateRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateCurrencyConversionRateRequestBuilder request(@Nonnull UpdateCurrencyConversionRateRequest request) {
@@ -42,8 +52,9 @@ public class UpdateCurrencyConversionRateRequestBuilder {
      * @return The response from the server.
      */
     public UpdateCurrencyConversionRateResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateCurrencyConversionRateRequest, UpdateCurrencyConversionRateResponse> operation =
-                new UpdateCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+                new UpdateCurrencyConversionRate.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

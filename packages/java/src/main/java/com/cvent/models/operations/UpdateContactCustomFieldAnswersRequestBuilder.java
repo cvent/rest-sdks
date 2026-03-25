@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateContactCustomFieldAnswers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateContactCustomFieldAnswersRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateContactCustomFieldAnswersRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateContactCustomFieldAnswersRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateContactCustomFieldAnswersRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateContactCustomFieldAnswersRequestBuilder request(
@@ -43,8 +53,9 @@ public class UpdateContactCustomFieldAnswersRequestBuilder {
      * @return The response from the server.
      */
     public UpdateContactCustomFieldAnswersResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateContactCustomFieldAnswersRequest, UpdateContactCustomFieldAnswersResponse> operation =
-                new UpdateContactCustomFieldAnswers.Sync(sdkConfiguration, _headers);
+                new UpdateContactCustomFieldAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

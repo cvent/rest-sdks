@@ -42,7 +42,9 @@ import com.cvent.operations.ListTravelProgramsQuestions;
 import com.cvent.operations.ListTravelProposalBids;
 import com.cvent.operations.ListTravelProposals;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -92,8 +94,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<ListTravelProgramsResponse> listTravelPrograms(
             @Nonnull ListTravelProgramsRequest request) {
+        return listTravelPrograms(request, null);
+    }
+
+    /**
+     * List Travel Programs
+     *
+     * <p>Returns a paginated list of travel programs based on the specified filters.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProgramsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProgramsResponse> listTravelPrograms(
+            @Nonnull ListTravelProgramsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation =
-                new ListTravelPrograms.Async(sdkConfiguration, _headers);
+                new ListTravelPrograms.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -118,8 +134,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<ListTravelProgramsQuestionsResponse> listTravelProgramsQuestions(
             @Nonnull ListTravelProgramsQuestionsRequest request) {
+        return listTravelProgramsQuestions(request, null);
+    }
+
+    /**
+     * List Travel Programs Questions
+     *
+     * <p>Returns a paginated list of travel programs questions.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProgramsQuestionsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProgramsQuestionsResponse> listTravelProgramsQuestions(
+            @Nonnull ListTravelProgramsQuestionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
-                new ListTravelProgramsQuestions.Async(sdkConfiguration, _headers);
+                new ListTravelProgramsQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -143,8 +173,22 @@ public class AsyncTravelRFPs {
      * @return {@code CompletableFuture<GetTravelProgramResponse>} - The async response
      */
     public CompletableFuture<GetTravelProgramResponse> getTravelProgram(@Nonnull GetTravelProgramRequest request) {
+        return getTravelProgram(request, null);
+    }
+
+    /**
+     * Get Travel Program
+     *
+     * <p>Returns the details of a single travel program based on the specified program ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelProgramResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProgramResponse> getTravelProgram(
+            @Nonnull GetTravelProgramRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
-                new GetTravelProgram.Async(sdkConfiguration, _headers);
+                new GetTravelProgram.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -169,8 +213,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<ListTravelProgramQuestionsResponse> listTravelProgramQuestions(
             @Nonnull ListTravelProgramQuestionsRequest request) {
+        return listTravelProgramQuestions(request, null);
+    }
+
+    /**
+     * List Travel Program Questions
+     *
+     * <p>Returns a paginated list of travel program questions.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProgramQuestionsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProgramQuestionsResponse> listTravelProgramQuestions(
+            @Nonnull ListTravelProgramQuestionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
-                new ListTravelProgramQuestions.Async(sdkConfiguration, _headers);
+                new ListTravelProgramQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -195,8 +253,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<GetTravelProgramQuestionResponse> getTravelProgramQuestion(
             @Nonnull GetTravelProgramQuestionRequest request) {
+        return getTravelProgramQuestion(request, null);
+    }
+
+    /**
+     * Get Travel Program Question
+     *
+     * <p>Returns the details of a single question based on the specified program and question ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelProgramQuestionResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProgramQuestionResponse> getTravelProgramQuestion(
+            @Nonnull GetTravelProgramQuestionRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation =
-                new GetTravelProgramQuestion.Async(sdkConfiguration, _headers);
+                new GetTravelProgramQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -221,8 +293,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<ListTravelProposalsResponse> listTravelProposals(
             @Nonnull ListTravelProposalsRequest request) {
+        return listTravelProposals(request, null);
+    }
+
+    /**
+     * List Travel Proposals
+     *
+     * <p>Get a paginated list of travel proposal details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProposalsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProposalsResponse> listTravelProposals(
+            @Nonnull ListTravelProposalsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
-                new ListTravelProposals.Async(sdkConfiguration, _headers);
+                new ListTravelProposals.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -247,8 +333,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<ListTravelProposalBidsResponse> listTravelProposalBids(
             @Nonnull ListTravelProposalBidsRequest request) {
+        return listTravelProposalBids(request, null);
+    }
+
+    /**
+     * List Travel Proposal Bids
+     *
+     * <p>Get a paginated list of travel proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelProposalBidsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelProposalBidsResponse> listTravelProposalBids(
+            @Nonnull ListTravelProposalBidsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation =
-                new ListTravelProposalBids.Async(sdkConfiguration, _headers);
+                new ListTravelProposalBids.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -273,8 +373,22 @@ public class AsyncTravelRFPs {
      */
     public CompletableFuture<GetTravelProposalBidResponse> getTravelProposalBid(
             @Nonnull GetTravelProposalBidRequest request) {
+        return getTravelProposalBid(request, null);
+    }
+
+    /**
+     * Get Travel Proposal Bid
+     *
+     * <p>Gets a travel proposal bid for the given travel proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelProposalBidResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProposalBidResponse> getTravelProposalBid(
+            @Nonnull GetTravelProposalBidRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation =
-                new GetTravelProposalBid.Async(sdkConfiguration, _headers);
+                new GetTravelProposalBid.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -298,8 +412,22 @@ public class AsyncTravelRFPs {
      * @return {@code CompletableFuture<GetTravelProposalResponse>} - The async response
      */
     public CompletableFuture<GetTravelProposalResponse> getTravelProposal(@Nonnull GetTravelProposalRequest request) {
+        return getTravelProposal(request, null);
+    }
+
+    /**
+     * Get Travel Proposal
+     *
+     * <p>Gets a travel proposal for the given travel proposal ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelProposalResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelProposalResponse> getTravelProposal(
+            @Nonnull GetTravelProposalRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
-                new GetTravelProposal.Async(sdkConfiguration, _headers);
+                new GetTravelProposal.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

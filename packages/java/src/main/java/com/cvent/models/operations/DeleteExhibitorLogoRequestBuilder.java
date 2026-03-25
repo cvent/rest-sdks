@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteExhibitorLogo;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteExhibitorLogoRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteExhibitorLogoRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteExhibitorLogoRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteExhibitorLogoRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteExhibitorLogoRequestBuilder request(@Nonnull DeleteExhibitorLogoRequest request) {
@@ -42,8 +52,9 @@ public class DeleteExhibitorLogoRequestBuilder {
      * @return The response from the server.
      */
     public DeleteExhibitorLogoResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteExhibitorLogoRequest, DeleteExhibitorLogoResponse> operation =
-                new DeleteExhibitorLogo.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorLogo.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

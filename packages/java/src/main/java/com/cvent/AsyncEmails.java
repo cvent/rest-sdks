@@ -18,7 +18,9 @@ import com.cvent.operations.GetBounceDetails;
 import com.cvent.operations.GetEmailStatus;
 import com.cvent.operations.GetEmailsHistory;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
 import java.util.concurrent.CompletableFuture;
 
@@ -76,8 +78,27 @@ public class AsyncEmails {
      * @return {@code CompletableFuture<GetBounceDetailsResponse>} - The async response
      */
     public CompletableFuture<GetBounceDetailsResponse> getBounceDetails(@Nonnull GetBounceDetailsRequest request) {
+        return getBounceDetails(request, null);
+    }
+
+    /**
+     * List Email Bounces
+     *
+     * <p>Returns a paginated list of email bounce details in your account.
+     *
+     * <p>Before/after filters can be used to retrieve email bounce data up to six months in the past.
+     * If no date filter is provided, defaults to 1 month back from the current time.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBounceDetailsResponse>} - The async response
+     */
+    public CompletableFuture<GetBounceDetailsResponse> getBounceDetails(
+            @Nonnull GetBounceDetailsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBounceDetailsRequest, GetBounceDetailsResponse> operation =
-                new GetBounceDetails.Async(sdkConfiguration, _headers);
+                new GetBounceDetails.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -107,8 +128,25 @@ public class AsyncEmails {
      * @return {@code CompletableFuture<GetEmailsHistoryResponse>} - The async response
      */
     public CompletableFuture<GetEmailsHistoryResponse> getEmailsHistory(@Nonnull GetEmailsHistoryRequest request) {
+        return getEmailsHistory(request, null);
+    }
+
+    /**
+     * Get Emails History Data
+     *
+     * <p>Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the
+     * account. Maximum 6 months of records can be fetched.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEmailsHistoryResponse>} - The async response
+     */
+    public CompletableFuture<GetEmailsHistoryResponse> getEmailsHistory(
+            @Nonnull GetEmailsHistoryRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation =
-                new GetEmailsHistory.Async(sdkConfiguration, _headers);
+                new GetEmailsHistory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -142,8 +180,27 @@ public class AsyncEmails {
      */
     @Deprecated
     public CompletableFuture<GetEmailStatusResponse> getEmailStatus(@Nonnull GetEmailStatusRequest request) {
+        return getEmailStatus(request, null);
+    }
+
+    /**
+     * List Email Status
+     *
+     * <p>Gets the status of emails using unique email request ID that was generated as a response of [Send
+     * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEmailStatusResponse>} - The async response
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public CompletableFuture<GetEmailStatusResponse> getEmailStatus(
+            @Nonnull GetEmailStatusRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation =
-                new GetEmailStatus.Async(sdkConfiguration, _headers);
+                new GetEmailStatus.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

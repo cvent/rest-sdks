@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.PostRegistrationPackRequest;
 import com.cvent.operations.PostRegistrationPack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class PostRegistrationPackRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private PostRegistrationPackRequest request;
+    private final Options.Builder optionsBuilder;
 
     public PostRegistrationPackRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public PostRegistrationPackRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public PostRegistrationPackRequestBuilder request(@Nonnull PostRegistrationPackRequest request) {
@@ -44,8 +54,9 @@ public class PostRegistrationPackRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<PostRegistrationPackResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<PostRegistrationPackRequest, PostRegistrationPackResponse> operation =
-                new PostRegistrationPack.Async(sdkConfiguration, _headers);
+                new PostRegistrationPack.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

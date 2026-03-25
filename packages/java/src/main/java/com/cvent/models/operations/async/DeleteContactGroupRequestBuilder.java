@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteContactGroupRequest;
 import com.cvent.operations.DeleteContactGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteContactGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteContactGroupRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteContactGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteContactGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteContactGroupRequestBuilder request(@Nonnull DeleteContactGroupRequest request) {
@@ -44,8 +54,9 @@ public class DeleteContactGroupRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteContactGroupResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation =
-                new DeleteContactGroup.Async(sdkConfiguration, _headers);
+                new DeleteContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

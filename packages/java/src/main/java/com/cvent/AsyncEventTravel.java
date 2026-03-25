@@ -26,7 +26,9 @@ import com.cvent.operations.GetAlternateTravelAnswers;
 import com.cvent.operations.GetHotelRequests;
 import com.cvent.operations.GetHousingReservationRequests;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -78,8 +80,22 @@ public class AsyncEventTravel {
      */
     public CompletableFuture<GetAirActualDetailResponse> getAirActualDetail(
             @Nonnull GetAirActualDetailRequest request) {
+        return getAirActualDetail(request, null);
+    }
+
+    /**
+     * Get Air Actual
+     *
+     * <p>Get attendee air actual details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAirActualDetailResponse>} - The async response
+     */
+    public CompletableFuture<GetAirActualDetailResponse> getAirActualDetail(
+            @Nonnull GetAirActualDetailRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAirActualDetailRequest, GetAirActualDetailResponse> operation =
-                new GetAirActualDetail.Async(sdkConfiguration, _headers);
+                new GetAirActualDetail.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -103,8 +119,22 @@ public class AsyncEventTravel {
      * @return {@code CompletableFuture<GetAirRequestsResponse>} - The async response
      */
     public CompletableFuture<GetAirRequestsResponse> getAirRequests(@Nonnull GetAirRequestsRequest request) {
+        return getAirRequests(request, null);
+    }
+
+    /**
+     * Get Air Requests
+     *
+     * <p>Get attendee air request details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAirRequestsResponse>} - The async response
+     */
+    public CompletableFuture<GetAirRequestsResponse> getAirRequests(
+            @Nonnull GetAirRequestsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation =
-                new GetAirRequests.Async(sdkConfiguration, _headers);
+                new GetAirRequests.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -131,8 +161,23 @@ public class AsyncEventTravel {
      */
     public CompletableFuture<GetAlternateTravelAnswersResponse> getAlternateTravelAnswers(
             @Nonnull GetAlternateTravelAnswersRequest request) {
+        return getAlternateTravelAnswers(request, null);
+    }
+
+    /**
+     * Get Alternate Travel Answers
+     *
+     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
+     * event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAlternateTravelAnswersResponse>} - The async response
+     */
+    public CompletableFuture<GetAlternateTravelAnswersResponse> getAlternateTravelAnswers(
+            @Nonnull GetAlternateTravelAnswersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation =
-                new GetAlternateTravelAnswers.Async(sdkConfiguration, _headers);
+                new GetAlternateTravelAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -156,8 +201,22 @@ public class AsyncEventTravel {
      * @return {@code CompletableFuture<GetHotelRequestsResponse>} - The async response
      */
     public CompletableFuture<GetHotelRequestsResponse> getHotelRequests(@Nonnull GetHotelRequestsRequest request) {
+        return getHotelRequests(request, null);
+    }
+
+    /**
+     * Get Hotel Requests
+     *
+     * <p>Get attendee hotel requests for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHotelRequestsResponse>} - The async response
+     */
+    public CompletableFuture<GetHotelRequestsResponse> getHotelRequests(
+            @Nonnull GetHotelRequestsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation =
-                new GetHotelRequests.Async(sdkConfiguration, _headers);
+                new GetHotelRequests.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -182,8 +241,22 @@ public class AsyncEventTravel {
      */
     public CompletableFuture<GetHousingReservationRequestsResponse> getHousingReservationRequests(
             @Nonnull GetHousingReservationRequestsRequest request) {
+        return getHousingReservationRequests(request, null);
+    }
+
+    /**
+     * Get Housing Requests
+     *
+     * <p>Get attendee housing reservation request details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingReservationRequestsResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingReservationRequestsResponse> getHousingReservationRequests(
+            @Nonnull GetHousingReservationRequestsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation =
-                new GetHousingReservationRequests.Async(sdkConfiguration, _headers);
+                new GetHousingReservationRequests.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

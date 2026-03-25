@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.ListAudienceSegments;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class ListAudienceSegmentsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListAudienceSegmentsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListAudienceSegmentsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListAudienceSegmentsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListAudienceSegmentsRequestBuilder request(@Nonnull ListAudienceSegmentsRequest request) {
@@ -53,8 +63,9 @@ public class ListAudienceSegmentsRequestBuilder {
      * @return The response from the server.
      */
     public ListAudienceSegmentsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<ListAudienceSegmentsRequest, ListAudienceSegmentsResponse> operation =
-                new ListAudienceSegments.Sync(sdkConfiguration, _headers);
+                new ListAudienceSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -73,8 +84,9 @@ public class ListAudienceSegmentsRequestBuilder {
      */
     public Iterable<ListAudienceSegmentsResponse> callAsIterable() {
         ListAudienceSegmentsRequest request = this.request;
+        Options options = optionsBuilder.build();
         RequestOperation<ListAudienceSegmentsRequest, ListAudienceSegmentsResponse> operation =
-                new ListAudienceSegments.Sync(sdkConfiguration, _headers);
+                new ListAudienceSegments.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

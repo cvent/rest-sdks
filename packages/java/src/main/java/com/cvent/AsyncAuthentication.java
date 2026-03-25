@@ -19,6 +19,7 @@ import com.cvent.operations.Oauth2Authorize;
 import com.cvent.operations.Oauth2Token;
 import com.cvent.operations.ValidateToken;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -76,8 +77,27 @@ public class AsyncAuthentication {
      * @return {@code CompletableFuture<Oauth2AuthorizeResponse>} - The async response
      */
     public CompletableFuture<Oauth2AuthorizeResponse> oauth2Authorize(@Nonnull Oauth2AuthorizeRequest request) {
+        return oauth2Authorize(request, null);
+    }
+
+    /**
+     * Authorize
+     *
+     * <p>The /oauth2/authorize endpoint only supports HTTPS GET. The client typically makes this request
+     * through a browser.
+     *
+     * <p>The authorization server requires HTTPS instead of HTTP as the protocol when accessing the
+     * authorization endpoint
+     * except for http://localhost for testing purposes only.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<Oauth2AuthorizeResponse>} - The async response
+     */
+    public CompletableFuture<Oauth2AuthorizeResponse> oauth2Authorize(
+            @Nonnull Oauth2AuthorizeRequest request, @Nullable Options options) {
         AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
-                new Oauth2Authorize.Async(sdkConfiguration, _headers);
+                new Oauth2Authorize.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -107,7 +127,7 @@ public class AsyncAuthentication {
      * @return {@code CompletableFuture<Oauth2TokenResponse>} - The async response
      */
     public CompletableFuture<Oauth2TokenResponse> oauth2Token(@Nonnull Oauth2TokenSecurity security) {
-        return oauth2Token(null, security);
+        return oauth2Token(null, security, null);
     }
 
     /**
@@ -120,12 +140,13 @@ public class AsyncAuthentication {
      *
      * @param request The request object containing all the parameters for the API call.
      * @param security The security details to use for authentication.
+     * @param options additional options
      * @return {@code CompletableFuture<Oauth2TokenResponse>} - The async response
      */
     public CompletableFuture<Oauth2TokenResponse> oauth2Token(
-            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security) {
+            @Nullable Oauth2TokenRequest request, @Nonnull Oauth2TokenSecurity security, @Nullable Options options) {
         AsyncRequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> operation =
-                new Oauth2Token.Async(sdkConfiguration, security, _headers);
+                new Oauth2Token.Async(sdkConfiguration, security, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -152,8 +173,22 @@ public class AsyncAuthentication {
      * @return {@code CompletableFuture<ValidateTokenResponse>} - The async response
      */
     public CompletableFuture<ValidateTokenResponse> validateTokenDirect() {
+        return validateToken(null);
+    }
+
+    /**
+     * Validate Token
+     *
+     * <p>Verifies presented authentication token is valid.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return {@code CompletableFuture<ValidateTokenResponse>} - The async response
+     */
+    public CompletableFuture<ValidateTokenResponse> validateToken(@Nullable Options options) {
         AsyncRequestlessOperation<ValidateTokenResponse> operation =
-                new ValidateToken.Async(sdkConfiguration, _headers);
+                new ValidateToken.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

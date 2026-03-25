@@ -10,6 +10,7 @@ import com.cvent.models.operations.async.CreateCardTokensRequestBuilder;
 import com.cvent.models.operations.async.CreateCardTokensResponse;
 import com.cvent.operations.CreateCardTokens;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.util.concurrent.CompletableFuture;
@@ -72,7 +73,7 @@ public class AsyncCardTokens {
      * @return {@code CompletableFuture<CreateCardTokensResponse>} - The async response
      */
     public CompletableFuture<CreateCardTokensResponse> createCardTokensDirect() {
-        return createCardTokens(null, null);
+        return createCardTokens(null, null, null);
     }
 
     /**
@@ -87,12 +88,12 @@ public class AsyncCardTokens {
      *
      * @param request The request object containing all the parameters for the API call.
      * @param serverURL Overrides the server URL.
+     * @param options additional options
      * @return {@code CompletableFuture<CreateCardTokensResponse>} - The async response
      */
     public CompletableFuture<CreateCardTokensResponse> createCardTokens(
-            @Nullable CardTokenRequest request, @Nullable String serverURL) {
-        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
-                new CreateCardTokens.Async(sdkConfiguration, serverURL, _headers);
+            @Nullable CardTokenRequest request, @Nullable String serverURL, @Nullable Options options) {
+        AsyncRequestOperation<CardTokenRequest, CreateCardTokensResponse> operation = new CreateCardTokens.Async(sdkConfiguration, serverURL, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

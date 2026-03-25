@@ -10,7 +10,9 @@ import com.cvent.models.operations.ListEventRoleAssignmentRequestBuilder;
 import com.cvent.models.operations.ListEventRoleAssignmentResponse;
 import com.cvent.operations.ListEventRoleAssignment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Event roles are event specific permission sets for your organization's users. Use these APIs to
@@ -60,8 +62,25 @@ public class EventRole {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventRoleAssignmentResponse listEventRoleAssignment(@Nonnull ListEventRoleAssignmentRequest request) {
+        return listEventRoleAssignment(request, null);
+    }
+
+    /**
+     * List Event Role Assignments
+     *
+     * <p>Gets a paginated list of event role assignments associated with a single event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventRoleAssignmentResponse listEventRoleAssignment(
+            @Nonnull ListEventRoleAssignmentRequest request, @Nullable Options options) {
         RequestOperation<ListEventRoleAssignmentRequest, ListEventRoleAssignmentResponse> operation =
-                new ListEventRoleAssignment.Sync(sdkConfiguration, _headers);
+                new ListEventRoleAssignment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

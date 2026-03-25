@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.CreateContactsRequest;
 import com.cvent.operations.CreateContacts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateContactsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateContactsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateContactsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateContactsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateContactsRequestBuilder request(@Nonnull CreateContactsRequest request) {
@@ -44,8 +54,9 @@ public class CreateContactsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateContactsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<CreateContactsRequest, CreateContactsResponse> operation =
-                new CreateContacts.Async(sdkConfiguration, _headers);
+                new CreateContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

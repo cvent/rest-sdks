@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.CustomField2;
 import com.cvent.operations.CreateCustomField;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateCustomFieldRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CustomField2 request;
+    private final Options.Builder optionsBuilder;
 
     public CreateCustomFieldRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateCustomFieldRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateCustomFieldRequestBuilder request(@Nonnull CustomField2 request) {
@@ -43,8 +53,9 @@ public class CreateCustomFieldRequestBuilder {
      * @return The response from the server.
      */
     public CreateCustomFieldResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CustomField2, CreateCustomFieldResponse> operation =
-                new CreateCustomField.Sync(sdkConfiguration, _headers);
+                new CreateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

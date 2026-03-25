@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetBadge;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class GetBadgeRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetBadgeRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetBadgeRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetBadgeRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetBadgeRequestBuilder request(@Nonnull GetBadgeRequest request) {
@@ -53,7 +63,9 @@ public class GetBadgeRequestBuilder {
      * @return The response from the server.
      */
     public GetBadgeResponse call() {
-        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation = new GetBadge.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation =
+                new GetBadge.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -72,7 +84,9 @@ public class GetBadgeRequestBuilder {
      */
     public Iterable<GetBadgeResponse> callAsIterable() {
         GetBadgeRequest request = this.request;
-        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation = new GetBadge.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<GetBadgeRequest, GetBadgeResponse> operation =
+                new GetBadge.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

@@ -58,10 +58,12 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         /// <br/>
         /// The following fields are filterable:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         /// <br/>

@@ -10,6 +10,7 @@ import com.cvent.models.operations.async.CreateProposalDraftRequestBuilder;
 import com.cvent.models.operations.async.CreateProposalDraftResponse;
 import com.cvent.operations.CreateProposalDraft;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
@@ -55,7 +56,7 @@ public class AsyncProposalDraft {
      * @return {@code CompletableFuture<CreateProposalDraftResponse>} - The async response
      */
     public CompletableFuture<CreateProposalDraftResponse> createProposalDraftDirect() {
-        return createProposalDraft(null);
+        return createProposalDraft(null, null);
     }
 
     /**
@@ -64,11 +65,13 @@ public class AsyncProposalDraft {
      * <p>Creates a new proposal draft.
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return {@code CompletableFuture<CreateProposalDraftResponse>} - The async response
      */
-    public CompletableFuture<CreateProposalDraftResponse> createProposalDraft(@Nullable ProposalRequest request) {
+    public CompletableFuture<CreateProposalDraftResponse> createProposalDraft(
+            @Nullable ProposalRequest request, @Nullable Options options) {
         AsyncRequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
-                new CreateProposalDraft.Async(sdkConfiguration, _headers);
+                new CreateProposalDraft.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

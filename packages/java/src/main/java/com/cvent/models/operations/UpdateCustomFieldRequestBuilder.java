@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateCustomField;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateCustomFieldRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateCustomFieldRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateCustomFieldRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateCustomFieldRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateCustomFieldRequestBuilder request(@Nonnull UpdateCustomFieldRequest request) {
@@ -42,8 +52,9 @@ public class UpdateCustomFieldRequestBuilder {
      * @return The response from the server.
      */
     public UpdateCustomFieldResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation =
-                new UpdateCustomField.Sync(sdkConfiguration, _headers);
+                new UpdateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -14,7 +14,9 @@ import com.cvent.models.operations.GetUsageTierResponse;
 import com.cvent.operations.GetUsage;
 import com.cvent.operations.GetUsageTier;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Use these APIs view your REST API usage and limits metrics. For more details on limits - [Rate
@@ -64,7 +66,24 @@ public class Usage {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUsageResponse getUsage(@Nonnull GetUsageRequest request) {
-        RequestOperation<GetUsageRequest, GetUsageResponse> operation = new GetUsage.Sync(sdkConfiguration, _headers);
+        return getUsage(request, null);
+    }
+
+    /**
+     * Get Current Usage
+     *
+     * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
+     * days) for
+     * the current caller's account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetUsageResponse getUsage(@Nonnull GetUsageRequest request, @Nullable Options options) {
+        RequestOperation<GetUsageRequest, GetUsageResponse> operation =
+                new GetUsage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -92,7 +111,23 @@ public class Usage {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetUsageTierResponse getUsageTierDirect() {
-        RequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Sync(sdkConfiguration, _headers);
+        return getUsageTier(null);
+    }
+
+    /**
+     * Get Current Usage Tier
+     *
+     * <p>Returns the current usage tier of the caller's account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetUsageTierResponse getUsageTier(@Nullable Options options) {
+        RequestlessOperation<GetUsageTierResponse> operation =
+                new GetUsageTier.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

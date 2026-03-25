@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.AssociateDiscountCodeToOrderItemRequest;
 import com.cvent.operations.AssociateDiscountCodeToOrderItem;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class AssociateDiscountCodeToOrderItemRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssociateDiscountCodeToOrderItemRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssociateDiscountCodeToOrderItemRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssociateDiscountCodeToOrderItemRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssociateDiscountCodeToOrderItemRequestBuilder request(
@@ -45,8 +55,10 @@ public class AssociateDiscountCodeToOrderItemRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<AssociateDiscountCodeToOrderItemResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
-                new AssociateDiscountCodeToOrderItem.Async(sdkConfiguration, _headers);
+                new AssociateDiscountCodeToOrderItem.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

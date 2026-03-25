@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateProgramItem;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateProgramItemRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateProgramItemRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateProgramItemRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateProgramItemRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateProgramItemRequestBuilder request(@Nonnull UpdateProgramItemRequest request) {
@@ -42,8 +52,9 @@ public class UpdateProgramItemRequestBuilder {
      * @return The response from the server.
      */
     public UpdateProgramItemResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateProgramItemRequest, UpdateProgramItemResponse> operation =
-                new UpdateProgramItem.Sync(sdkConfiguration, _headers);
+                new UpdateProgramItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

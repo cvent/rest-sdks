@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.CancelBulkJobRequest;
 import com.cvent.operations.CancelBulkJob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CancelBulkJobRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CancelBulkJobRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CancelBulkJobRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CancelBulkJobRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CancelBulkJobRequestBuilder request(@Nonnull CancelBulkJobRequest request) {
@@ -44,8 +54,9 @@ public class CancelBulkJobRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CancelBulkJobResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation =
-                new CancelBulkJob.Async(sdkConfiguration, _headers);
+                new CancelBulkJob.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

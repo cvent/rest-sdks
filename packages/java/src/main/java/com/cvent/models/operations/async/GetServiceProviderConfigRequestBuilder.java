@@ -8,15 +8,25 @@ import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetServiceProviderConfig;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetServiceProviderConfigRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
+    private final Options.Builder optionsBuilder;
 
     public GetServiceProviderConfigRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetServiceProviderConfigRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetServiceProviderConfigRequestBuilder header(String name, String value) {
@@ -32,8 +42,8 @@ public class GetServiceProviderConfigRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetServiceProviderConfigResponse> call() {
-        AsyncRequestlessOperation<GetServiceProviderConfigResponse> operation =
-                new GetServiceProviderConfig.Async(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        AsyncRequestlessOperation<GetServiceProviderConfigResponse> operation = new GetServiceProviderConfig.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

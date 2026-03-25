@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CreateAppointment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateAppointmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateAppointmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateAppointmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateAppointmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateAppointmentRequestBuilder request(@Nonnull CreateAppointmentRequest request) {
@@ -42,8 +52,9 @@ public class CreateAppointmentRequestBuilder {
      * @return The response from the server.
      */
     public CreateAppointmentResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CreateAppointmentRequest, CreateAppointmentResponse> operation =
-                new CreateAppointment.Sync(sdkConfiguration, _headers);
+                new CreateAppointment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

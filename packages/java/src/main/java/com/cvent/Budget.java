@@ -98,7 +98,9 @@ import com.cvent.operations.UpdateCardTransaction;
 import com.cvent.operations.UpdateCurrencyConversionRate;
 import com.cvent.operations.UpdatePayment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Budget is an event feature used to organize spending and track
@@ -153,8 +155,27 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAccountBudgetItemsResponse getAccountBudgetItems(@Nonnull GetAccountBudgetItemsRequest request) {
+        return getAccountBudgetItems(request, null);
+    }
+
+    /**
+     * List Budget Items
+     *
+     * <p>Gets a paginated list of budget items across all events linked to the account associated with the
+     * access token. The data can be filtered by the specified after and before date parameters, based on
+     * the last modified date, for a maximum duration of 1 year per request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountBudgetItemsResponse getAccountBudgetItems(
+            @Nonnull GetAccountBudgetItemsRequest request, @Nullable Options options) {
         RequestOperation<GetAccountBudgetItemsRequest, GetAccountBudgetItemsResponse> operation =
-                new GetAccountBudgetItems.Sync(sdkConfiguration, _headers);
+                new GetAccountBudgetItems.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -183,7 +204,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCardsResponse getCards(@Nonnull GetCardsRequest request) {
-        RequestOperation<GetCardsRequest, GetCardsResponse> operation = new GetCards.Sync(sdkConfiguration, _headers);
+        return getCards(request, null);
+    }
+
+    /**
+     * List Cards
+     *
+     * <p>Gets a paginated list of payment cards associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetCardsResponse getCards(@Nonnull GetCardsRequest request, @Nullable Options options) {
+        RequestOperation<GetCardsRequest, GetCardsResponse> operation =
+                new GetCards.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -212,8 +250,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCardTransactionsResponse getCardTransactions(@Nonnull GetCardTransactionsRequest request) {
+        return getCardTransactions(request, null);
+    }
+
+    /**
+     * List Card Transactions
+     *
+     * <p>Gets a paginated list of card transactions associated with the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetCardTransactionsResponse getCardTransactions(
+            @Nonnull GetCardTransactionsRequest request, @Nullable Options options) {
         RequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation =
-                new GetCardTransactions.Sync(sdkConfiguration, _headers);
+                new GetCardTransactions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -242,8 +297,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateCardTransactionResponse createCardTransaction(@Nonnull CardTransactionCreate request) {
+        return createCardTransaction(request, null);
+    }
+
+    /**
+     * Create Card Transaction
+     *
+     * <p>Creates a single card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateCardTransactionResponse createCardTransaction(
+            @Nonnull CardTransactionCreate request, @Nullable Options options) {
         RequestOperation<CardTransactionCreate, CreateCardTransactionResponse> operation =
-                new CreateCardTransaction.Sync(sdkConfiguration, _headers);
+                new CreateCardTransaction.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -272,8 +344,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteCardTransactionResponse deleteCardTransaction(@Nonnull DeleteCardTransactionRequest request) {
+        return deleteCardTransaction(request, null);
+    }
+
+    /**
+     * Delete Card Transaction
+     *
+     * <p>Deletes a card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteCardTransactionResponse deleteCardTransaction(
+            @Nonnull DeleteCardTransactionRequest request, @Nullable Options options) {
         RequestOperation<DeleteCardTransactionRequest, DeleteCardTransactionResponse> operation =
-                new DeleteCardTransaction.Sync(sdkConfiguration, _headers);
+                new DeleteCardTransaction.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -302,8 +391,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateCardTransactionResponse updateCardTransaction(@Nonnull UpdateCardTransactionRequest request) {
+        return updateCardTransaction(request, null);
+    }
+
+    /**
+     * Update Card Transaction
+     *
+     * <p>Updates a card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateCardTransactionResponse updateCardTransaction(
+            @Nonnull UpdateCardTransactionRequest request, @Nullable Options options) {
         RequestOperation<UpdateCardTransactionRequest, UpdateCardTransactionResponse> operation =
-                new UpdateCardTransaction.Sync(sdkConfiguration, _headers);
+                new UpdateCardTransaction.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -333,8 +439,25 @@ public class Budget {
      */
     public GetCurrencyConversionRateResponse getCurrencyConversionRate(
             @Nonnull GetCurrencyConversionRateRequest request) {
+        return getCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * List Currency Conversion Rates
+     *
+     * <p>Gets a paginated list of conversion rates for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetCurrencyConversionRateResponse getCurrencyConversionRate(
+            @Nonnull GetCurrencyConversionRateRequest request, @Nullable Options options) {
         RequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation =
-                new GetCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+                new GetCurrencyConversionRate.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -364,8 +487,25 @@ public class Budget {
      */
     public CreateCurrencyConversionRateResponse createCurrencyConversionRate(
             @Nonnull CreateCurrencyConversionRateRequest request) {
+        return createCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Create Conversion Rate
+     *
+     * <p>Create conversion rate for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateCurrencyConversionRateResponse createCurrencyConversionRate(
+            @Nonnull CreateCurrencyConversionRateRequest request, @Nullable Options options) {
         RequestOperation<CreateCurrencyConversionRateRequest, CreateCurrencyConversionRateResponse> operation =
-                new CreateCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+                new CreateCurrencyConversionRate.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -395,8 +535,25 @@ public class Budget {
      */
     public UpdateCurrencyConversionRateResponse updateCurrencyConversionRate(
             @Nonnull UpdateCurrencyConversionRateRequest request) {
+        return updateCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Update Conversion Rate
+     *
+     * <p>Updates a conversion rate for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateCurrencyConversionRateResponse updateCurrencyConversionRate(
+            @Nonnull UpdateCurrencyConversionRateRequest request, @Nullable Options options) {
         RequestOperation<UpdateCurrencyConversionRateRequest, UpdateCurrencyConversionRateResponse> operation =
-                new UpdateCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+                new UpdateCurrencyConversionRate.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -426,8 +583,25 @@ public class Budget {
      */
     public DeleteCurrencyConversionRateResponse deleteCurrencyConversionRate(
             @Nonnull DeleteCurrencyConversionRateRequest request) {
+        return deleteCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Delete Conversion Rate
+     *
+     * <p>Deletes conversion rate defined for currency.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteCurrencyConversionRateResponse deleteCurrencyConversionRate(
+            @Nonnull DeleteCurrencyConversionRateRequest request, @Nullable Options options) {
         RequestOperation<DeleteCurrencyConversionRateRequest, DeleteCurrencyConversionRateResponse> operation =
-                new DeleteCurrencyConversionRate.Sync(sdkConfiguration, _headers);
+                new DeleteCurrencyConversionRate.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -456,8 +630,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBudgetItemsResponse getBudgetItems(@Nonnull GetBudgetItemsRequest request) {
+        return getBudgetItems(request, null);
+    }
+
+    /**
+     * List Event Budget Items
+     *
+     * <p>Gets a paginated list of budget items for event associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBudgetItemsResponse getBudgetItems(@Nonnull GetBudgetItemsRequest request, @Nullable Options options) {
         RequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation =
-                new GetBudgetItems.Sync(sdkConfiguration, _headers);
+                new GetBudgetItems.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -486,8 +676,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateBudgetItemResponse createBudgetItem(@Nonnull CreateBudgetItemRequest request) {
+        return createBudgetItem(request, null);
+    }
+
+    /**
+     * Create Budget Item
+     *
+     * <p>Create single Budget Item based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateBudgetItemResponse createBudgetItem(
+            @Nonnull CreateBudgetItemRequest request, @Nullable Options options) {
         RequestOperation<CreateBudgetItemRequest, CreateBudgetItemResponse> operation =
-                new CreateBudgetItem.Sync(sdkConfiguration, _headers);
+                new CreateBudgetItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -512,8 +719,23 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBudgetAllocationsResponse getBudgetAllocations(@Nonnull GetBudgetAllocationsRequest request) {
+        return getBudgetAllocations(request, null);
+    }
+
+    /**
+     * List Budget Allocations
+     *
+     * <p>Gets a paginated list of budget allocations for all budget items within an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBudgetAllocationsResponse getBudgetAllocations(
+            @Nonnull GetBudgetAllocationsRequest request, @Nullable Options options) {
         RequestOperation<GetBudgetAllocationsRequest, GetBudgetAllocationsResponse> operation =
-                new GetBudgetAllocations.Sync(sdkConfiguration, _headers);
+                new GetBudgetAllocations.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -542,8 +764,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateBudgetItemResponse updateBudgetItem(@Nonnull UpdateBudgetItemRequest request) {
+        return updateBudgetItem(request, null);
+    }
+
+    /**
+     * Update Budget Item
+     *
+     * <p>Update single Budget Item based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateBudgetItemResponse updateBudgetItem(
+            @Nonnull UpdateBudgetItemRequest request, @Nullable Options options) {
         RequestOperation<UpdateBudgetItemRequest, UpdateBudgetItemResponse> operation =
-                new UpdateBudgetItem.Sync(sdkConfiguration, _headers);
+                new UpdateBudgetItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -570,8 +809,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateBudgetAllocationsResponse updateBudgetAllocations(@Nonnull UpdateBudgetAllocationsRequest request) {
+        return updateBudgetAllocations(request, null);
+    }
+
+    /**
+     * Update Budget Allocations
+     *
+     * <p>Bulk add or update budget allocations in a budget item. If budget allocations already exist for the
+     * budget item, they will be updated.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateBudgetAllocationsResponse updateBudgetAllocations(
+            @Nonnull UpdateBudgetAllocationsRequest request, @Nullable Options options) {
         RequestOperation<UpdateBudgetAllocationsRequest, UpdateBudgetAllocationsResponse> operation =
-                new UpdateBudgetAllocations.Sync(sdkConfiguration, _headers);
+                new UpdateBudgetAllocations.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -596,8 +851,23 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteBudgetAllocationsResponse deleteBudgetAllocations(@Nonnull DeleteBudgetAllocationsRequest request) {
+        return deleteBudgetAllocations(request, null);
+    }
+
+    /**
+     * Delete  Budget Allocations
+     *
+     * <p>Delete all budget allocations for a given budget item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteBudgetAllocationsResponse deleteBudgetAllocations(
+            @Nonnull DeleteBudgetAllocationsRequest request, @Nullable Options options) {
         RequestOperation<DeleteBudgetAllocationsRequest, DeleteBudgetAllocationsResponse> operation =
-                new DeleteBudgetAllocations.Sync(sdkConfiguration, _headers);
+                new DeleteBudgetAllocations.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -626,8 +896,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreatePaymentResponse createPayment(@Nonnull CreatePaymentRequest request) {
+        return createPayment(request, null);
+    }
+
+    /**
+     * Create Budget Payment
+     *
+     * <p>Create single payment for the budget item given in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreatePaymentResponse createPayment(@Nonnull CreatePaymentRequest request, @Nullable Options options) {
         RequestOperation<CreatePaymentRequest, CreatePaymentResponse> operation =
-                new CreatePayment.Sync(sdkConfiguration, _headers);
+                new CreatePayment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -656,8 +942,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdatePaymentResponse updatePayment(@Nonnull UpdatePaymentRequest request) {
+        return updatePayment(request, null);
+    }
+
+    /**
+     * Update Budget Payment
+     *
+     * <p>Updates a payment for a budget item.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdatePaymentResponse updatePayment(@Nonnull UpdatePaymentRequest request, @Nullable Options options) {
         RequestOperation<UpdatePaymentRequest, UpdatePaymentResponse> operation =
-                new UpdatePayment.Sync(sdkConfiguration, _headers);
+                new UpdatePayment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -686,8 +988,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeletePaymentResponse deletePayment(@Nonnull DeletePaymentRequest request) {
+        return deletePayment(request, null);
+    }
+
+    /**
+     * Delete Budget Payment
+     *
+     * <p>Deletes a budget item payment.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeletePaymentResponse deletePayment(@Nonnull DeletePaymentRequest request, @Nullable Options options) {
         RequestOperation<DeletePaymentRequest, DeletePaymentResponse> operation =
-                new DeletePayment.Sync(sdkConfiguration, _headers);
+                new DeletePayment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -766,8 +1084,50 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public AnswerBudgetCustomFieldResponse answerBudgetCustomField(@Nonnull AnswerBudgetCustomFieldRequest request) {
+        return answerBudgetCustomField(request, null);
+    }
+
+    /**
+     * Update Budget Cstm Fld Answers
+     *
+     * <p>Updates answers to a budget custom field using the details you provided in the body of the request.
+     * Answers must be formatted correctly according to the specific type of custom field. The available
+     * fields and their formats are listed below:
+     * * **Open Ended Text - Date/Time**. This field type has several possible user-selected answer
+     * formats:
+     * - Date/Time (2022-01-01T12:00:00.000Z). Denoted by *DateTime* in the response payload.
+     * - Date (2022-01-01). Denoted by *Date* in the response payload.
+     * * **Open Ended Text - One Line**. This field type has several possible user-selected answer formats:
+     * - General (Text). Denoted by *General* in the response payload.
+     * - Number (Whole numbers, 10, -10). Denoted by *Number* in the response payload.
+     * - Currency (Positive decimal value, 10.5). Denoted by *Currency* in the response payload.
+     * - Decimal (-20.5). Denoted by *Decimal* in the response payload.
+     * - US Phone Number (123-456-7890). Denoted by *USPhoneNumber* in the response payload.
+     * - Email Address (h.potterfield@test.com). Denoted by *Email* in the response payload.
+     * * **Open Ended Text - Comment Box**. Answer format is free-text (any value). Denoted by *FreeText*
+     * in the
+     * response payload.
+     * * **Choice - Single Answer (Drop-Down, Vertical, Horizontal).** Answer format is exactly one
+     * response to a
+     * list of user-defined choices. Denoted by *SingleSelect* in the response payload.
+     * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
+     * more
+     * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
+     *
+     * <p>To delete a custom field answer, either omit the `value` parameter or provide an empty list of
+     * answers for the specified custom field ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AnswerBudgetCustomFieldResponse answerBudgetCustomField(
+            @Nonnull AnswerBudgetCustomFieldRequest request, @Nullable Options options) {
         RequestOperation<AnswerBudgetCustomFieldRequest, AnswerBudgetCustomFieldResponse> operation =
-                new AnswerBudgetCustomField.Sync(sdkConfiguration, _headers);
+                new AnswerBudgetCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -796,8 +1156,24 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetPaymentsResponse getPayments(@Nonnull GetPaymentsRequest request) {
+        return getPayments(request, null);
+    }
+
+    /**
+     * List Budget Payments
+     *
+     * <p>Gets a paginated list of payments for budget items in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetPaymentsResponse getPayments(@Nonnull GetPaymentsRequest request, @Nullable Options options) {
         RequestOperation<GetPaymentsRequest, GetPaymentsResponse> operation =
-                new GetPayments.Sync(sdkConfiguration, _headers);
+                new GetPayments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -828,8 +1204,26 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public AttachInvoiceToPaymentResponse attachInvoiceToPayment(@Nonnull AttachInvoiceToPaymentRequest request) {
+        return attachInvoiceToPayment(request, null);
+    }
+
+    /**
+     * Assign Invoice To Payment
+     *
+     * <p>Assign a single invoice to a payment using the ID of file. Upload files via the <a
+     * href="#operation/uploadFile">file upload</a> endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AttachInvoiceToPaymentResponse attachInvoiceToPayment(
+            @Nonnull AttachInvoiceToPaymentRequest request, @Nullable Options options) {
         RequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation =
-                new AttachInvoiceToPayment.Sync(sdkConfiguration, _headers);
+                new AttachInvoiceToPayment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -858,8 +1252,25 @@ public class Budget {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventBudgetTotalsResponse getEventBudgetTotals(@Nonnull GetEventBudgetTotalsRequest request) {
+        return getEventBudgetTotals(request, null);
+    }
+
+    /**
+     * List Budget Totals
+     *
+     * <p>Gets a paginated list of budget totals for event associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEventBudgetTotalsResponse getEventBudgetTotals(
+            @Nonnull GetEventBudgetTotalsRequest request, @Nullable Options options) {
         RequestOperation<GetEventBudgetTotalsRequest, GetEventBudgetTotalsResponse> operation =
-                new GetEventBudgetTotals.Sync(sdkConfiguration, _headers);
+                new GetEventBudgetTotals.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

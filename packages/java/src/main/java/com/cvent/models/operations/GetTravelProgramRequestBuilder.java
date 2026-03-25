@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetTravelProgram;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetTravelProgramRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetTravelProgramRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetTravelProgramRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetTravelProgramRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetTravelProgramRequestBuilder request(@Nonnull GetTravelProgramRequest request) {
@@ -42,8 +52,9 @@ public class GetTravelProgramRequestBuilder {
      * @return The response from the server.
      */
     public GetTravelProgramResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
-                new GetTravelProgram.Sync(sdkConfiguration, _headers);
+                new GetTravelProgram.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

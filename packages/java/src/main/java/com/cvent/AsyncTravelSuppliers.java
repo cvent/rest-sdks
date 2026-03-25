@@ -38,7 +38,9 @@ import com.cvent.operations.PropertyApiListBrands;
 import com.cvent.operations.PropertyApiListChains;
 import com.cvent.operations.PropertyApiListProperties;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -85,8 +87,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiListBrandsResponse> propertyApiListBrands(
             @Nonnull PropertyApiListBrandsRequest request) {
+        return propertyApiListBrands(request, null);
+    }
+
+    /**
+     * List Supplier Brands
+     *
+     * <p>Gets a paginated list of supplier brands.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiListBrandsResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiListBrandsResponse> propertyApiListBrands(
+            @Nonnull PropertyApiListBrandsRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiListBrandsRequest, PropertyApiListBrandsResponse> operation =
-                new PropertyApiListBrands.Async(sdkConfiguration, _headers);
+                new PropertyApiListBrands.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -111,8 +127,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiGetBrandResponse> propertyApiGetBrand(
             @Nonnull PropertyApiGetBrandRequest request) {
+        return propertyApiGetBrand(request, null);
+    }
+
+    /**
+     * Get Supplier Brand
+     *
+     * <p>Get a supplier brand by brand code.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiGetBrandResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiGetBrandResponse> propertyApiGetBrand(
+            @Nonnull PropertyApiGetBrandRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiGetBrandRequest, PropertyApiGetBrandResponse> operation =
-                new PropertyApiGetBrand.Async(sdkConfiguration, _headers);
+                new PropertyApiGetBrand.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -137,8 +167,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiListChainsResponse> propertyApiListChains(
             @Nonnull PropertyApiListChainsRequest request) {
+        return propertyApiListChains(request, null);
+    }
+
+    /**
+     * List Supplier Chains
+     *
+     * <p>Gets a paginated list of supplier chains.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiListChainsResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiListChainsResponse> propertyApiListChains(
+            @Nonnull PropertyApiListChainsRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiListChainsRequest, PropertyApiListChainsResponse> operation =
-                new PropertyApiListChains.Async(sdkConfiguration, _headers);
+                new PropertyApiListChains.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -163,8 +207,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiGetChainResponse> propertyApiGetChain(
             @Nonnull PropertyApiGetChainRequest request) {
+        return propertyApiGetChain(request, null);
+    }
+
+    /**
+     * Get Supplier Chain
+     *
+     * <p>Get a supplier chain by chain ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiGetChainResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiGetChainResponse> propertyApiGetChain(
+            @Nonnull PropertyApiGetChainRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiGetChainRequest, PropertyApiGetChainResponse> operation =
-                new PropertyApiGetChain.Async(sdkConfiguration, _headers);
+                new PropertyApiGetChain.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -189,8 +247,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiListPropertiesResponse> propertyApiListProperties(
             @Nonnull PropertyApiListPropertiesRequest request) {
+        return propertyApiListProperties(request, null);
+    }
+
+    /**
+     * List Supplier Properties
+     *
+     * <p>Gets a paginated list of supplier properties.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiListPropertiesResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiListPropertiesResponse> propertyApiListProperties(
+            @Nonnull PropertyApiListPropertiesRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiListPropertiesRequest, PropertyApiListPropertiesResponse> operation =
-                new PropertyApiListProperties.Async(sdkConfiguration, _headers);
+                new PropertyApiListProperties.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -215,8 +287,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiGetPropertyResponse> propertyApiGetProperty(
             @Nonnull PropertyApiGetPropertyRequest request) {
+        return propertyApiGetProperty(request, null);
+    }
+
+    /**
+     * Get Supplier Property
+     *
+     * <p>Get a supplier property by ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiGetPropertyResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiGetPropertyResponse> propertyApiGetProperty(
+            @Nonnull PropertyApiGetPropertyRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiGetPropertyRequest, PropertyApiGetPropertyResponse> operation =
-                new PropertyApiGetProperty.Async(sdkConfiguration, _headers);
+                new PropertyApiGetProperty.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -241,8 +327,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<BtApiGetPropertyRoomsResponse> btApiGetPropertyRooms(
             @Nonnull BtApiGetPropertyRoomsRequest request) {
+        return btApiGetPropertyRooms(request, null);
+    }
+
+    /**
+     * List Supplier Property Rooms
+     *
+     * <p>Gets a paginated list of supplier property rooms.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<BtApiGetPropertyRoomsResponse>} - The async response
+     */
+    public CompletableFuture<BtApiGetPropertyRoomsResponse> btApiGetPropertyRooms(
+            @Nonnull BtApiGetPropertyRoomsRequest request, @Nullable Options options) {
         AsyncRequestOperation<BtApiGetPropertyRoomsRequest, BtApiGetPropertyRoomsResponse> operation =
-                new BtApiGetPropertyRooms.Async(sdkConfiguration, _headers);
+                new BtApiGetPropertyRooms.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -267,8 +367,22 @@ public class AsyncTravelSuppliers {
      */
     public CompletableFuture<PropertyApiGetPropertyRoomResponse> propertyApiGetPropertyRoom(
             @Nonnull PropertyApiGetPropertyRoomRequest request) {
+        return propertyApiGetPropertyRoom(request, null);
+    }
+
+    /**
+     * Get Supplier Property Room
+     *
+     * <p>Read supplier property room data by room ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PropertyApiGetPropertyRoomResponse>} - The async response
+     */
+    public CompletableFuture<PropertyApiGetPropertyRoomResponse> propertyApiGetPropertyRoom(
+            @Nonnull PropertyApiGetPropertyRoomRequest request, @Nullable Options options) {
         AsyncRequestOperation<PropertyApiGetPropertyRoomRequest, PropertyApiGetPropertyRoomResponse> operation =
-                new PropertyApiGetPropertyRoom.Async(sdkConfiguration, _headers);
+                new PropertyApiGetPropertyRoom.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

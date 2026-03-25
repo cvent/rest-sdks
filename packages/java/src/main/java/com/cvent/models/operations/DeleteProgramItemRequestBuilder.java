@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteProgramItem;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteProgramItemRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteProgramItemRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteProgramItemRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteProgramItemRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteProgramItemRequestBuilder request(@Nonnull DeleteProgramItemRequest request) {
@@ -42,8 +52,9 @@ public class DeleteProgramItemRequestBuilder {
      * @return The response from the server.
      */
     public DeleteProgramItemResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation =
-                new DeleteProgramItem.Sync(sdkConfiguration, _headers);
+                new DeleteProgramItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

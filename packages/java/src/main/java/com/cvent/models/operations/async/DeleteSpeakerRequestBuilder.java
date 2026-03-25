@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteSpeakerRequest;
 import com.cvent.operations.DeleteSpeaker;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteSpeakerRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteSpeakerRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteSpeakerRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteSpeakerRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteSpeakerRequestBuilder request(@Nonnull DeleteSpeakerRequest request) {
@@ -44,8 +54,9 @@ public class DeleteSpeakerRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteSpeakerResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteSpeakerRequest, DeleteSpeakerResponse> operation =
-                new DeleteSpeaker.Async(sdkConfiguration, _headers);
+                new DeleteSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

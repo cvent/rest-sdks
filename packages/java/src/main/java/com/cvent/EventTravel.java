@@ -26,7 +26,9 @@ import com.cvent.operations.GetAlternateTravelAnswers;
 import com.cvent.operations.GetHotelRequests;
 import com.cvent.operations.GetHousingReservationRequests;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Event travel lets planners capture air &amp; hotel requests from attendees and track air actuals,
@@ -77,8 +79,23 @@ public class EventTravel {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAirActualDetailResponse getAirActualDetail(@Nonnull GetAirActualDetailRequest request) {
+        return getAirActualDetail(request, null);
+    }
+
+    /**
+     * Get Air Actual
+     *
+     * <p>Get attendee air actual details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAirActualDetailResponse getAirActualDetail(
+            @Nonnull GetAirActualDetailRequest request, @Nullable Options options) {
         RequestOperation<GetAirActualDetailRequest, GetAirActualDetailResponse> operation =
-                new GetAirActualDetail.Sync(sdkConfiguration, _headers);
+                new GetAirActualDetail.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -103,8 +120,22 @@ public class EventTravel {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAirRequestsResponse getAirRequests(@Nonnull GetAirRequestsRequest request) {
+        return getAirRequests(request, null);
+    }
+
+    /**
+     * Get Air Requests
+     *
+     * <p>Get attendee air request details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAirRequestsResponse getAirRequests(@Nonnull GetAirRequestsRequest request, @Nullable Options options) {
         RequestOperation<GetAirRequestsRequest, GetAirRequestsResponse> operation =
-                new GetAirRequests.Sync(sdkConfiguration, _headers);
+                new GetAirRequests.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -132,8 +163,24 @@ public class EventTravel {
      */
     public GetAlternateTravelAnswersResponse getAlternateTravelAnswers(
             @Nonnull GetAlternateTravelAnswersRequest request) {
+        return getAlternateTravelAnswers(request, null);
+    }
+
+    /**
+     * Get Alternate Travel Answers
+     *
+     * <p>Get alternate travel answers submitted by attendees who opt out of air or hotel bookings for an
+     * event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAlternateTravelAnswersResponse getAlternateTravelAnswers(
+            @Nonnull GetAlternateTravelAnswersRequest request, @Nullable Options options) {
         RequestOperation<GetAlternateTravelAnswersRequest, GetAlternateTravelAnswersResponse> operation =
-                new GetAlternateTravelAnswers.Sync(sdkConfiguration, _headers);
+                new GetAlternateTravelAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -158,8 +205,23 @@ public class EventTravel {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHotelRequestsResponse getHotelRequests(@Nonnull GetHotelRequestsRequest request) {
+        return getHotelRequests(request, null);
+    }
+
+    /**
+     * Get Hotel Requests
+     *
+     * <p>Get attendee hotel requests for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHotelRequestsResponse getHotelRequests(
+            @Nonnull GetHotelRequestsRequest request, @Nullable Options options) {
         RequestOperation<GetHotelRequestsRequest, GetHotelRequestsResponse> operation =
-                new GetHotelRequests.Sync(sdkConfiguration, _headers);
+                new GetHotelRequests.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -185,8 +247,23 @@ public class EventTravel {
      */
     public GetHousingReservationRequestsResponse getHousingReservationRequests(
             @Nonnull GetHousingReservationRequestsRequest request) {
+        return getHousingReservationRequests(request, null);
+    }
+
+    /**
+     * Get Housing Requests
+     *
+     * <p>Get attendee housing reservation request details for an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHousingReservationRequestsResponse getHousingReservationRequests(
+            @Nonnull GetHousingReservationRequestsRequest request, @Nullable Options options) {
         RequestOperation<GetHousingReservationRequestsRequest, GetHousingReservationRequestsResponse> operation =
-                new GetHousingReservationRequests.Sync(sdkConfiguration, _headers);
+                new GetHousingReservationRequests.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

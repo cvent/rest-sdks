@@ -14,7 +14,9 @@ import com.cvent.models.operations.GetBadgePrinterPoolsResponse;
 import com.cvent.operations.GetBadgePrinterPool;
 import com.cvent.operations.GetBadgePrinterPools;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Badge printer pools are set up from Cvent UI. You can use this API to retrieve badge printer pools.
@@ -63,8 +65,25 @@ public class BadgePrinterPools {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrinterPoolsResponse getBadgePrinterPools(@Nonnull GetBadgePrinterPoolsRequest request) {
+        return getBadgePrinterPools(request, null);
+    }
+
+    /**
+     * List Badge Printer Pools
+     *
+     * <p>Gets a paginated list of badge printer pools
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBadgePrinterPoolsResponse getBadgePrinterPools(
+            @Nonnull GetBadgePrinterPoolsRequest request, @Nullable Options options) {
         RequestOperation<GetBadgePrinterPoolsRequest, GetBadgePrinterPoolsResponse> operation =
-                new GetBadgePrinterPools.Sync(sdkConfiguration, _headers);
+                new GetBadgePrinterPools.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -93,8 +112,25 @@ public class BadgePrinterPools {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBadgePrinterPoolResponse getBadgePrinterPool(@Nonnull GetBadgePrinterPoolRequest request) {
+        return getBadgePrinterPool(request, null);
+    }
+
+    /**
+     * Get Badge Printer Pool
+     *
+     * <p>Gets a single badge printer pool by its ID
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBadgePrinterPoolResponse getBadgePrinterPool(
+            @Nonnull GetBadgePrinterPoolRequest request, @Nullable Options options) {
         RequestOperation<GetBadgePrinterPoolRequest, GetBadgePrinterPoolResponse> operation =
-                new GetBadgePrinterPool.Sync(sdkConfiguration, _headers);
+                new GetBadgePrinterPool.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

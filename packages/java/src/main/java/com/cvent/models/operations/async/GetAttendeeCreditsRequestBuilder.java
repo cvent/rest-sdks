@@ -12,10 +12,13 @@ import com.cvent.models.operations.GetAttendeeCreditsRequest;
 import com.cvent.operations.GetAttendeeCredits;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class GetAttendeeCreditsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAttendeeCreditsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAttendeeCreditsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAttendeeCreditsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAttendeeCreditsRequestBuilder request(@Nonnull GetAttendeeCreditsRequest request) {
@@ -55,8 +65,9 @@ public class GetAttendeeCreditsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetAttendeeCreditsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation =
-                new GetAttendeeCredits.Async(sdkConfiguration, _headers);
+                new GetAttendeeCredits.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class GetAttendeeCreditsRequestBuilder {
      */
     public Publisher<GetAttendeeCreditsResponse> callAsPublisher() {
         GetAttendeeCreditsRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation =
-                new GetAttendeeCredits.Async(sdkConfiguration, _headers);
+                new GetAttendeeCredits.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

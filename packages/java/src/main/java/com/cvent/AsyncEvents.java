@@ -194,6 +194,7 @@ import com.cvent.operations.UpdateQuantityItemRegistrationForAttendee;
 import com.cvent.operations.UpdateRegistrationType;
 import com.cvent.operations.UpdateSessionCheckIn;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -247,8 +248,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListAdmissionItemsResponse> listAdmissionItems(
             @Nonnull ListAdmissionItemsRequest request) {
+        return listAdmissionItems(request, null);
+    }
+
+    /**
+     * List Admission Items
+     *
+     * <p>Gets a paginated list of admission items.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAdmissionItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListAdmissionItemsResponse> listAdmissionItems(
+            @Nonnull ListAdmissionItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListAdmissionItemsRequest, ListAdmissionItemsResponse> operation =
-                new ListAdmissionItems.Async(sdkConfiguration, _headers);
+                new ListAdmissionItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -281,8 +298,26 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListAdmissionItemsPostFiltersResponse> listAdmissionItemsPostFilters(
             @Nonnull ListAdmissionItemsPostFiltersRequest request) {
+        return listAdmissionItemsPostFilters(request, null);
+    }
+
+    /**
+     * List Admission Items
+     *
+     * <p>Gets a paginated list of admission items by sending a filter in the body of the request. This method
+     * will return the same data as [GET List Admission Items](#operation/listAdmissionItems) but allows
+     * for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAdmissionItemsPostFiltersResponse>} - The async response
+     */
+    public CompletableFuture<ListAdmissionItemsPostFiltersResponse> listAdmissionItemsPostFilters(
+            @Nonnull ListAdmissionItemsPostFiltersRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListAdmissionItemsPostFiltersRequest, ListAdmissionItemsPostFiltersResponse> operation =
-                new ListAdmissionItemsPostFilters.Async(sdkConfiguration, _headers);
+                new ListAdmissionItemsPostFilters.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -310,8 +345,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetEventQuestionsResponse>} - The async response
      */
     public CompletableFuture<GetEventQuestionsResponse> getEventQuestions(@Nonnull GetEventQuestionsRequest request) {
+        return getEventQuestions(request, null);
+    }
+
+    /**
+     * List Event Questions
+     *
+     * <p>Gets a paginated list of event questions.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventQuestionsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventQuestionsResponse> getEventQuestions(
+            @Nonnull GetEventQuestionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventQuestionsRequest, GetEventQuestionsResponse> operation =
-                new GetEventQuestions.Async(sdkConfiguration, _headers);
+                new GetEventQuestions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -340,8 +391,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetChoicesForQuestionResponse> getChoicesForQuestion(
             @Nonnull GetChoicesForQuestionRequest request) {
+        return getChoicesForQuestion(request, null);
+    }
+
+    /**
+     * Get Question Choices
+     *
+     * <p>Gets all the choices for a given event question.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetChoicesForQuestionResponse>} - The async response
+     */
+    public CompletableFuture<GetChoicesForQuestionResponse> getChoicesForQuestion(
+            @Nonnull GetChoicesForQuestionRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetChoicesForQuestionRequest, GetChoicesForQuestionResponse> operation =
-                new GetChoicesForQuestion.Async(sdkConfiguration, _headers);
+                new GetChoicesForQuestion.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -369,8 +436,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetEventsResponse>} - The async response
      */
     public CompletableFuture<GetEventsResponse> getEvents(@Nonnull GetEventsRequest request) {
+        return getEvents(request, null);
+    }
+
+    /**
+     * List Events
+     *
+     * <p>Gets a paginated list of events.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventsResponse> getEvents(
+            @Nonnull GetEventsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventsRequest, GetEventsResponse> operation =
-                new GetEvents.Async(sdkConfiguration, _headers);
+                new GetEvents.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -402,8 +485,26 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
      */
     public CompletableFuture<CreateEventAsyncResponse> createEventAsync(@Nonnull EventInput request) {
+        return createEventAsync(request, null);
+    }
+
+    /**
+     * Create Event Async
+     *
+     * <p>Creates an event using the details supplied in the request body. Check the
+     * [Get Event Async Status](#operation/getEventAsyncStatus) to determine when the
+     * event is ready.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateEventAsyncResponse>} - The async response
+     */
+    public CompletableFuture<CreateEventAsyncResponse> createEventAsync(
+            @Nonnull EventInput request, @Nullable Options options) {
         AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
-                new CreateEventAsync.Async(sdkConfiguration, _headers);
+                new CreateEventAsync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -432,8 +533,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetEventAsyncStatusResponse> getEventAsyncStatus(
             @Nonnull GetEventAsyncStatusRequest request) {
+        return getEventAsyncStatus(request, null);
+    }
+
+    /**
+     * Get Event Async Status
+     *
+     * <p>Gets the event creation status of the given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventAsyncStatusResponse>} - The async response
+     */
+    public CompletableFuture<GetEventAsyncStatusResponse> getEventAsyncStatus(
+            @Nonnull GetEventAsyncStatusRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventAsyncStatusRequest, GetEventAsyncStatusResponse> operation =
-                new GetEventAsyncStatus.Async(sdkConfiguration, _headers);
+                new GetEventAsyncStatus.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -462,8 +579,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetEventCopyStatusResponse> getEventCopyStatus(
             @Nonnull GetEventCopyStatusRequest request) {
+        return getEventCopyStatus(request, null);
+    }
+
+    /**
+     * Get Event Copy Status
+     *
+     * <p>Gets the event copy status of the given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventCopyStatusResponse>} - The async response
+     */
+    public CompletableFuture<GetEventCopyStatusResponse> getEventCopyStatus(
+            @Nonnull GetEventCopyStatusRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation =
-                new GetEventCopyStatus.Async(sdkConfiguration, _headers);
+                new GetEventCopyStatus.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -490,7 +623,7 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<SendEventEmailsResponse>} - The async response
      */
     public CompletableFuture<SendEventEmailsResponse> sendEventEmailsDirect() {
-        return sendEventEmails(null);
+        return sendEventEmails(null, null);
     }
 
     /**
@@ -501,11 +634,13 @@ public class AsyncEvents {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return {@code CompletableFuture<SendEventEmailsResponse>} - The async response
      */
-    public CompletableFuture<SendEventEmailsResponse> sendEventEmails(@Nullable SendEmailEventRequest request) {
+    public CompletableFuture<SendEventEmailsResponse> sendEventEmails(
+            @Nullable SendEmailEventRequest request, @Nullable Options options) {
         AsyncRequestOperation<SendEmailEventRequest, SendEventEmailsResponse> operation =
-                new SendEventEmails.Async(sdkConfiguration, _headers);
+                new SendEventEmails.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -536,8 +671,25 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetEventEmailStatusResponse> getEventEmailStatus(
             @Nonnull GetEventEmailStatusRequest request) {
+        return getEventEmailStatus(request, null);
+    }
+
+    /**
+     * List Event Email Status
+     *
+     * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
+     * Email To Attendees](#tag/Events/operation/sendEventEmails) request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventEmailStatusResponse>} - The async response
+     */
+    public CompletableFuture<GetEventEmailStatusResponse> getEventEmailStatus(
+            @Nonnull GetEventEmailStatusRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventEmailStatusRequest, GetEventEmailStatusResponse> operation =
-                new GetEventEmailStatus.Async(sdkConfiguration, _headers);
+                new GetEventEmailStatus.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -568,8 +720,25 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetEventsPostFiltersResponse> getEventsPostFilters(
             @Nonnull GetEventsPostFiltersRequest request) {
+        return getEventsPostFilters(request, null);
+    }
+
+    /**
+     * List Events
+     *
+     * <p>Gets a paginated list of events by sending a filter in the body of the request. This method will
+     * return the same data as [GET List Events](#operation/getEvents) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventsPostFiltersResponse>} - The async response
+     */
+    public CompletableFuture<GetEventsPostFiltersResponse> getEventsPostFilters(
+            @Nonnull GetEventsPostFiltersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventsPostFiltersRequest, GetEventsPostFiltersResponse> operation =
-                new GetEventsPostFilters.Async(sdkConfiguration, _headers);
+                new GetEventsPostFilters.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -597,8 +766,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetEventByIdResponse>} - The async response
      */
     public CompletableFuture<GetEventByIdResponse> getEventById(@Nonnull GetEventByIdRequest request) {
+        return getEventById(request, null);
+    }
+
+    /**
+     * Get Event
+     *
+     * <p>Gets a single event based on the provided event ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetEventByIdResponse> getEventById(
+            @Nonnull GetEventByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventByIdRequest, GetEventByIdResponse> operation =
-                new GetEventById.Async(sdkConfiguration, _headers);
+                new GetEventById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -626,8 +811,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<UpdateEventResponse>} - The async response
      */
     public CompletableFuture<UpdateEventResponse> updateEvent(@Nonnull UpdateEventRequest request) {
+        return updateEvent(request, null);
+    }
+
+    /**
+     * Update Event
+     *
+     * <p>Updates the information for a single event based on the details provided in the request body.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateEventResponse>} - The async response
+     */
+    public CompletableFuture<UpdateEventResponse> updateEvent(
+            @Nonnull UpdateEventRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateEventRequest, UpdateEventResponse> operation =
-                new UpdateEvent.Async(sdkConfiguration, _headers);
+                new UpdateEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -655,8 +856,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<EventCheckInResponse>} - The async response
      */
     public CompletableFuture<EventCheckInResponse> eventCheckIn(@Nonnull EventCheckInRequest request) {
+        return eventCheckIn(request, null);
+    }
+
+    /**
+     * Event Check-In
+     *
+     * <p>Check-in attendees to an event based on the attendee IDs provided in the body of the request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<EventCheckInResponse>} - The async response
+     */
+    public CompletableFuture<EventCheckInResponse> eventCheckIn(
+            @Nonnull EventCheckInRequest request, @Nullable Options options) {
         AsyncRequestOperation<EventCheckInRequest, EventCheckInResponse> operation =
-                new EventCheckIn.Async(sdkConfiguration, _headers);
+                new EventCheckIn.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -685,8 +902,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<DeleteEventCheckInResponse> deleteEventCheckIn(
             @Nonnull DeleteEventCheckInRequest request) {
+        return deleteEventCheckIn(request, null);
+    }
+
+    /**
+     * Remove Check-In
+     *
+     * <p>Deletes the event check-in of attendee.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteEventCheckInResponse>} - The async response
+     */
+    public CompletableFuture<DeleteEventCheckInResponse> deleteEventCheckIn(
+            @Nonnull DeleteEventCheckInRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteEventCheckInRequest, DeleteEventCheckInResponse> operation =
-                new DeleteEventCheckIn.Async(sdkConfiguration, _headers);
+                new DeleteEventCheckIn.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -718,8 +951,26 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<CopyEventResponse>} - The async response
      */
     public CompletableFuture<CopyEventResponse> copyEvent(@Nonnull CopyEventRequest request) {
+        return copyEvent(request, null);
+    }
+
+    /**
+     * Copy Event
+     *
+     * <p>Copies the event details provided in the request body. Supports either creating a new event using
+     * the
+     * copied data, or inserting the copied data to an existing event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CopyEventResponse>} - The async response
+     */
+    public CompletableFuture<CopyEventResponse> copyEvent(
+            @Nonnull CopyEventRequest request, @Nullable Options options) {
         AsyncRequestOperation<CopyEventRequest, CopyEventResponse> operation =
-                new CopyEvent.Async(sdkConfiguration, _headers);
+                new CopyEvent.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -750,8 +1001,25 @@ public class AsyncEvents {
      */
     public CompletableFuture<AnswerEventCustomFieldResponse> answerEventCustomField(
             @Nonnull AnswerEventCustomFieldRequest request) {
+        return answerEventCustomField(request, null);
+    }
+
+    /**
+     * Event Custom Field Answers
+     *
+     * <p>Answer a single custom field for an event. Event custom fields are used to store extra
+     * information about an event, such as the event type or event region.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AnswerEventCustomFieldResponse>} - The async response
+     */
+    public CompletableFuture<AnswerEventCustomFieldResponse> answerEventCustomField(
+            @Nonnull AnswerEventCustomFieldRequest request, @Nullable Options options) {
         AsyncRequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation =
-                new AnswerEventCustomField.Async(sdkConfiguration, _headers);
+                new AnswerEventCustomField.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -777,8 +1045,23 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<ListDonationItemsResponse>} - The async response
      */
     public CompletableFuture<ListDonationItemsResponse> listDonationItems(@Nonnull ListDonationItemsRequest request) {
+        return listDonationItems(request, null);
+    }
+
+    /**
+     * List Donation Items
+     *
+     * <p>Gets a paginated list of donation items. Donation items are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListDonationItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListDonationItemsResponse> listDonationItems(
+            @Nonnull ListDonationItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListDonationItemsRequest, ListDonationItemsResponse> operation =
-                new ListDonationItems.Async(sdkConfiguration, _headers);
+                new ListDonationItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -807,8 +1090,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListDonationItemsPostFilterResponse> listDonationItemsPostFilter(
             @Nonnull ListDonationItemsPostFilterRequest request) {
+        return listDonationItemsPostFilter(request, null);
+    }
+
+    /**
+     * List Donation Items
+     *
+     * <p>Gets a paginated list of donation items by sending a filter in the body of the request. Donation
+     * items are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListDonationItemsPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListDonationItemsPostFilterResponse> listDonationItemsPostFilter(
+            @Nonnull ListDonationItemsPostFilterRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListDonationItemsPostFilterRequest, ListDonationItemsPostFilterResponse> operation =
-                new ListDonationItemsPostFilter.Async(sdkConfiguration, _headers);
+                new ListDonationItemsPostFilter.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -836,8 +1135,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<ListEventEmailsResponse>} - The async response
      */
     public CompletableFuture<ListEventEmailsResponse> listEventEmails(@Nonnull ListEventEmailsRequest request) {
+        return listEventEmails(request, null);
+    }
+
+    /**
+     * List Event Emails
+     *
+     * <p>Gets a paginated list of emails for a given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventEmailsResponse>} - The async response
+     */
+    public CompletableFuture<ListEventEmailsResponse> listEventEmails(
+            @Nonnull ListEventEmailsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListEventEmailsRequest, ListEventEmailsResponse> operation =
-                new ListEventEmails.Async(sdkConfiguration, _headers);
+                new ListEventEmails.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -861,8 +1176,22 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<ListFeeItemsResponse>} - The async response
      */
     public CompletableFuture<ListFeeItemsResponse> listFeeItems(@Nonnull ListFeeItemsRequest request) {
+        return listFeeItems(request, null);
+    }
+
+    /**
+     * List Fee Items
+     *
+     * <p>Gets a paginated list of fee items associated with the event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListFeeItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListFeeItemsResponse> listFeeItems(
+            @Nonnull ListFeeItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListFeeItemsRequest, ListFeeItemsResponse> operation =
-                new ListFeeItems.Async(sdkConfiguration, _headers);
+                new ListFeeItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -890,8 +1219,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetInvitationListResponse>} - The async response
      */
     public CompletableFuture<GetInvitationListResponse> getInvitationList(@Nonnull GetInvitationListRequest request) {
+        return getInvitationList(request, null);
+    }
+
+    /**
+     * List Invitation Lists
+     *
+     * <p>Gets a paginated list of invitation lists for a given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetInvitationListResponse>} - The async response
+     */
+    public CompletableFuture<GetInvitationListResponse> getInvitationList(
+            @Nonnull GetInvitationListRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetInvitationListRequest, GetInvitationListResponse> operation =
-                new GetInvitationList.Async(sdkConfiguration, _headers);
+                new GetInvitationList.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -922,8 +1267,25 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListMembershipItemsResponse> listMembershipItems(
             @Nonnull ListMembershipItemsRequest request) {
+        return listMembershipItems(request, null);
+    }
+
+    /**
+     * List Membership Items
+     *
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListMembershipItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListMembershipItemsResponse> listMembershipItems(
+            @Nonnull ListMembershipItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation =
-                new ListMembershipItems.Async(sdkConfiguration, _headers);
+                new ListMembershipItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -951,8 +1313,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetOrdersResponse>} - The async response
      */
     public CompletableFuture<GetOrdersResponse> getOrders(@Nonnull GetOrdersRequest request) {
+        return getOrders(request, null);
+    }
+
+    /**
+     * List Orders
+     *
+     * <p>Gets a paginated list of Orders in event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetOrdersResponse>} - The async response
+     */
+    public CompletableFuture<GetOrdersResponse> getOrders(
+            @Nonnull GetOrdersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetOrdersRequest, GetOrdersResponse> operation =
-                new GetOrders.Async(sdkConfiguration, _headers);
+                new GetOrders.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -980,8 +1358,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetOrderItemsResponse>} - The async response
      */
     public CompletableFuture<GetOrderItemsResponse> getOrderItems(@Nonnull GetOrderItemsRequest request) {
+        return getOrderItems(request, null);
+    }
+
+    /**
+     * List Order Items
+     *
+     * <p>Gets a paginated list of Order items in event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetOrderItemsResponse>} - The async response
+     */
+    public CompletableFuture<GetOrderItemsResponse> getOrderItems(
+            @Nonnull GetOrderItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetOrderItemsRequest, GetOrderItemsResponse> operation =
-                new GetOrderItems.Async(sdkConfiguration, _headers);
+                new GetOrderItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1006,8 +1400,23 @@ public class AsyncEvents {
      */
     public CompletableFuture<AssociateDiscountCodeToOrderItemResponse> associateDiscountCodeToOrderItem(
             @Nonnull AssociateDiscountCodeToOrderItemRequest request) {
+        return associateDiscountCodeToOrderItem(request, null);
+    }
+
+    /**
+     * Assign Discount to Order Item
+     *
+     * <p>Assigns a discount code to an order item based on the given IDs.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssociateDiscountCodeToOrderItemResponse>} - The async response
+     */
+    public CompletableFuture<AssociateDiscountCodeToOrderItemResponse> associateDiscountCodeToOrderItem(
+            @Nonnull AssociateDiscountCodeToOrderItemRequest request, @Nullable Options options) {
         AsyncRequestOperation<AssociateDiscountCodeToOrderItemRequest, AssociateDiscountCodeToOrderItemResponse> operation =
-                new AssociateDiscountCodeToOrderItem.Async(sdkConfiguration, _headers);
+                new AssociateDiscountCodeToOrderItem.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1036,8 +1445,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetEventPlanningDocumentsResponse> getEventPlanningDocuments(
             @Nonnull GetEventPlanningDocumentsRequest request) {
+        return getEventPlanningDocuments(request, null);
+    }
+
+    /**
+     * List Event Planning Documents
+     *
+     * <p>Gets a paginated list of event planning documents.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventPlanningDocumentsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventPlanningDocumentsResponse> getEventPlanningDocuments(
+            @Nonnull GetEventPlanningDocumentsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventPlanningDocumentsRequest, GetEventPlanningDocumentsResponse> operation =
-                new GetEventPlanningDocuments.Async(sdkConfiguration, _headers);
+                new GetEventPlanningDocuments.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1063,8 +1488,23 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<ListQuantityItemsResponse>} - The async response
      */
     public CompletableFuture<ListQuantityItemsResponse> listQuantityItems(@Nonnull ListQuantityItemsRequest request) {
+        return listQuantityItems(request, null);
+    }
+
+    /**
+     * List Quantity Items
+     *
+     * <p>Gets a paginated list of quantity items. Quantity items are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListQuantityItemsResponse>} - The async response
+     */
+    public CompletableFuture<ListQuantityItemsResponse> listQuantityItems(
+            @Nonnull ListQuantityItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListQuantityItemsRequest, ListQuantityItemsResponse> operation =
-                new ListQuantityItems.Async(sdkConfiguration, _headers);
+                new ListQuantityItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1093,8 +1533,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListQuantityItemsPostFilterResponse> listQuantityItemsPostFilter(
             @Nonnull ListQuantityItemsPostFilterRequest request) {
+        return listQuantityItemsPostFilter(request, null);
+    }
+
+    /**
+     * List Quantity Items
+     *
+     * <p>Gets a paginated list of quantity items by sending a filter in the body of the request. Quantity
+     * items are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListQuantityItemsPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListQuantityItemsPostFilterResponse> listQuantityItemsPostFilter(
+            @Nonnull ListQuantityItemsPostFilterRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListQuantityItemsPostFilterRequest, ListQuantityItemsPostFilterResponse> operation =
-                new ListQuantityItemsPostFilter.Async(sdkConfiguration, _headers);
+                new ListQuantityItemsPostFilter.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1123,8 +1579,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListRegistrationPathsResponse> listRegistrationPaths(
             @Nonnull ListRegistrationPathsRequest request) {
+        return listRegistrationPaths(request, null);
+    }
+
+    /**
+     * List Registration Paths
+     *
+     * <p>Gets a paginated list of registration paths.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListRegistrationPathsResponse>} - The async response
+     */
+    public CompletableFuture<ListRegistrationPathsResponse> listRegistrationPaths(
+            @Nonnull ListRegistrationPathsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRegistrationPathsRequest, ListRegistrationPathsResponse> operation =
-                new ListRegistrationPaths.Async(sdkConfiguration, _headers);
+                new ListRegistrationPaths.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1153,8 +1625,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListRegistrationTypesResponse> listRegistrationTypes(
             @Nonnull ListRegistrationTypesRequest request) {
+        return listRegistrationTypes(request, null);
+    }
+
+    /**
+     * List Registration Types
+     *
+     * <p>Gets a paginated list of registration types.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListRegistrationTypesResponse>} - The async response
+     */
+    public CompletableFuture<ListRegistrationTypesResponse> listRegistrationTypes(
+            @Nonnull ListRegistrationTypesRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListRegistrationTypesRequest, ListRegistrationTypesResponse> operation =
-                new ListRegistrationTypes.Async(sdkConfiguration, _headers);
+                new ListRegistrationTypes.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1183,8 +1671,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<UpdateRegistrationTypeResponse> updateRegistrationType(
             @Nonnull UpdateRegistrationTypeRequest request) {
+        return updateRegistrationType(request, null);
+    }
+
+    /**
+     * Update Event Registration Type
+     *
+     * <p>Updates an attendee's registration type in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateRegistrationTypeResponse>} - The async response
+     */
+    public CompletableFuture<UpdateRegistrationTypeResponse> updateRegistrationType(
+            @Nonnull UpdateRegistrationTypeRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
-                new UpdateRegistrationType.Async(sdkConfiguration, _headers);
+                new UpdateRegistrationType.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1212,8 +1716,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<GetTransactionsResponse>} - The async response
      */
     public CompletableFuture<GetTransactionsResponse> getTransactions(@Nonnull GetTransactionsRequest request) {
+        return getTransactions(request, null);
+    }
+
+    /**
+     * List Transactions
+     *
+     * <p>Gets a paginated list of Transactions in event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTransactionsResponse>} - The async response
+     */
+    public CompletableFuture<GetTransactionsResponse> getTransactions(
+            @Nonnull GetTransactionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTransactionsRequest, GetTransactionsResponse> operation =
-                new GetTransactions.Async(sdkConfiguration, _headers);
+                new GetTransactions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1245,8 +1765,26 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<PostTransactionsResponse>} - The async response
      */
     public CompletableFuture<PostTransactionsResponse> postTransactions(@Nonnull PostTransactionsRequest request) {
+        return postTransactions(request, null);
+    }
+
+    /**
+     * Create Transactions
+     *
+     * <p>Create offline transactions for an order in your event. Offline transactions can be any digital or
+     * physical transactions performed outside Cvent. Valid transaction types for this method include
+     * Offline Charge and Offline Refund.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PostTransactionsResponse>} - The async response
+     */
+    public CompletableFuture<PostTransactionsResponse> postTransactions(
+            @Nonnull PostTransactionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
-                new PostTransactions.Async(sdkConfiguration, _headers);
+                new PostTransactions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1275,8 +1813,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<GetTransactionItemsResponse> getTransactionItems(
             @Nonnull GetTransactionItemsRequest request) {
+        return getTransactionItems(request, null);
+    }
+
+    /**
+     * List Transaction Items
+     *
+     * <p>Gets a paginated list of Transaction items in event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTransactionItemsResponse>} - The async response
+     */
+    public CompletableFuture<GetTransactionItemsResponse> getTransactionItems(
+            @Nonnull GetTransactionItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTransactionItemsRequest, GetTransactionItemsResponse> operation =
-                new GetTransactionItems.Async(sdkConfiguration, _headers);
+                new GetTransactionItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1305,8 +1859,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListEventUserGroupsResponse> listEventUserGroups(
             @Nonnull ListEventUserGroupsRequest request) {
+        return listEventUserGroups(request, null);
+    }
+
+    /**
+     * List Event User Groups
+     *
+     * <p>Gets a paginated list of user groups associated with an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventUserGroupsResponse>} - The async response
+     */
+    public CompletableFuture<ListEventUserGroupsResponse> listEventUserGroups(
+            @Nonnull ListEventUserGroupsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListEventUserGroupsRequest, ListEventUserGroupsResponse> operation =
-                new ListEventUserGroups.Async(sdkConfiguration, _headers);
+                new ListEventUserGroups.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1335,8 +1905,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<AssociateEventUserGroupResponse> associateEventUserGroup(
             @Nonnull AssociateEventUserGroupRequest request) {
+        return associateEventUserGroup(request, null);
+    }
+
+    /**
+     * Associate User Group to Event
+     *
+     * <p>Associates (adds) a user group to an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssociateEventUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<AssociateEventUserGroupResponse> associateEventUserGroup(
+            @Nonnull AssociateEventUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<AssociateEventUserGroupRequest, AssociateEventUserGroupResponse> operation =
-                new AssociateEventUserGroup.Async(sdkConfiguration, _headers);
+                new AssociateEventUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1365,8 +1951,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<DisassociateEventUserGroupResponse> disassociateEventUserGroup(
             @Nonnull DisassociateEventUserGroupRequest request) {
+        return disassociateEventUserGroup(request, null);
+    }
+
+    /**
+     * Disassociate Group from Event
+     *
+     * <p>Disassociates (removes) a single user group from an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DisassociateEventUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<DisassociateEventUserGroupResponse> disassociateEventUserGroup(
+            @Nonnull DisassociateEventUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation =
-                new DisassociateEventUserGroup.Async(sdkConfiguration, _headers);
+                new DisassociateEventUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1395,10 +1997,27 @@ public class AsyncEvents {
      */
     public CompletableFuture<UpdateQuantityItemRegistrationForAttendeeResponse>
             updateQuantityItemRegistrationForAttendee(@Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request) {
+        return updateQuantityItemRegistrationForAttendee(request, null);
+    }
+
+    /**
+     * Update Quantity Item
+     *
+     * <p>Update a specific [quantity
+     * item](https://support.cvent.com/s/communityarticle/Creating-Quantity-Items) for an attendee's
+     * registration based on the details supplied in the body of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateQuantityItemRegistrationForAttendeeResponse>} - The async response
+     */
+    public CompletableFuture<UpdateQuantityItemRegistrationForAttendeeResponse> updateQuantityItemRegistrationForAttendee(
+            @Nonnull UpdateQuantityItemRegistrationForAttendeeRequest request, @Nullable Options options) {
         AsyncRequestOperation<
                         UpdateQuantityItemRegistrationForAttendeeRequest,
                         UpdateQuantityItemRegistrationForAttendeeResponse>
-                operation = new UpdateQuantityItemRegistrationForAttendee.Async(sdkConfiguration, _headers);
+                operation = new UpdateQuantityItemRegistrationForAttendee.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1427,8 +2046,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListSessionsAttendanceResponse> listSessionsAttendance(
             @Nonnull ListSessionsAttendanceRequest request) {
+        return listSessionsAttendance(request, null);
+    }
+
+    /**
+     * Session Attendance
+     *
+     * <p>Get a paginated list of session attendance.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSessionsAttendanceResponse>} - The async response
+     */
+    public CompletableFuture<ListSessionsAttendanceResponse> listSessionsAttendance(
+            @Nonnull ListSessionsAttendanceRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSessionsAttendanceRequest, ListSessionsAttendanceResponse> operation =
-                new ListSessionsAttendance.Async(sdkConfiguration, _headers);
+                new ListSessionsAttendance.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1463,8 +2098,27 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListSessionsEnrollmentResponse> listSessionsEnrollment(
             @Nonnull ListSessionsEnrollmentRequest request) {
+        return listSessionsEnrollment(request, null);
+    }
+
+    /**
+     * List Session Registrants
+     *
+     * <p>Gets registrant data for sessions. The returned data depends on the individual session type.
+     * - **Optional Sessions:** Provides a paginated list of attendees registered for the session.
+     * - **Included Session:** Provides a paginated list of attendees who have participated or marked as
+     * no-shows. It does not list all registered attendees.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSessionsEnrollmentResponse>} - The async response
+     */
+    public CompletableFuture<ListSessionsEnrollmentResponse> listSessionsEnrollment(
+            @Nonnull ListSessionsEnrollmentRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSessionsEnrollmentRequest, ListSessionsEnrollmentResponse> operation =
-                new ListSessionsEnrollment.Async(sdkConfiguration, _headers);
+                new ListSessionsEnrollment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1507,8 +2161,32 @@ public class AsyncEvents {
      */
     public CompletableFuture<ListSessionsEnrollmentPostFilterResponse> listSessionsEnrollmentPostFilter(
             @Nonnull ListSessionsEnrollmentPostFilterRequest request) {
+        return listSessionsEnrollmentPostFilter(request, null);
+    }
+
+    /**
+     * List Session Registrants
+     *
+     * <p>Gets registrant data for sessions. The returned data depends on the individual session type. -
+     * **Optional Sessions:** Provides a paginated list of attendees registered for the session.
+     *
+     * <p>- **Included Session:** Provides a paginated list of attendees who have participated or been
+     * marked as no-shows. It does not list all registered attendees.
+     *
+     * <p>This method will return the same data as [GET List Session
+     * Registrants](#operation/listSessionsEnrollment)  but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSessionsEnrollmentPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListSessionsEnrollmentPostFilterResponse> listSessionsEnrollmentPostFilter(
+            @Nonnull ListSessionsEnrollmentPostFilterRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSessionsEnrollmentPostFilterRequest, ListSessionsEnrollmentPostFilterResponse> operation =
-                new ListSessionsEnrollmentPostFilter.Async(sdkConfiguration, _headers);
+                new ListSessionsEnrollmentPostFilter.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1537,8 +2215,24 @@ public class AsyncEvents {
      */
     public CompletableFuture<DeleteSessionAttendanceResponse> deleteSessionAttendance(
             @Nonnull DeleteSessionAttendanceRequest request) {
+        return deleteSessionAttendance(request, null);
+    }
+
+    /**
+     * Del Session Check-in
+     *
+     * <p>Deletes the attendance of an attendee in a session.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSessionAttendanceResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSessionAttendanceResponse> deleteSessionAttendance(
+            @Nonnull DeleteSessionAttendanceRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSessionAttendanceRequest, DeleteSessionAttendanceResponse> operation =
-                new DeleteSessionAttendance.Async(sdkConfiguration, _headers);
+                new DeleteSessionAttendance.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1566,8 +2260,24 @@ public class AsyncEvents {
      * @return {@code CompletableFuture<SessionCheckInResponse>} - The async response
      */
     public CompletableFuture<SessionCheckInResponse> sessionCheckIn(@Nonnull SessionCheckInRequest request) {
+        return sessionCheckIn(request, null);
+    }
+
+    /**
+     * Session Check-In
+     *
+     * <p>Check-in attendees to a session based on the attendee IDs provided in the body of the request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<SessionCheckInResponse>} - The async response
+     */
+    public CompletableFuture<SessionCheckInResponse> sessionCheckIn(
+            @Nonnull SessionCheckInRequest request, @Nullable Options options) {
         AsyncRequestOperation<SessionCheckInRequest, SessionCheckInResponse> operation =
-                new SessionCheckIn.Async(sdkConfiguration, _headers);
+                new SessionCheckIn.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1598,8 +2308,25 @@ public class AsyncEvents {
      */
     public CompletableFuture<UpdateSessionCheckInResponse> updateSessionCheckIn(
             @Nonnull UpdateSessionCheckInRequest request) {
+        return updateSessionCheckIn(request, null);
+    }
+
+    /**
+     * Update Session Check-In
+     *
+     * <p>Update check-in details of attendees in a session based on the attendee IDs provided in the body of
+     * the request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateSessionCheckInResponse>} - The async response
+     */
+    public CompletableFuture<UpdateSessionCheckInResponse> updateSessionCheckIn(
+            @Nonnull UpdateSessionCheckInRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateSessionCheckInRequest, UpdateSessionCheckInResponse> operation =
-                new UpdateSessionCheckIn.Async(sdkConfiguration, _headers);
+                new UpdateSessionCheckIn.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1634,8 +2361,27 @@ public class AsyncEvents {
      */
     public CompletableFuture<CreateSessionEnrollmentResponse> createSessionEnrollment(
             @Nonnull CreateSessionEnrollmentRequest request) {
+        return createSessionEnrollment(request, null);
+    }
+
+    /**
+     * Create Session Registration
+     *
+     * <p>Register an attendee in the given session. Requires the modify registration widget to be
+     * present on the event's registration path. See the following
+     * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown) for
+     * more information.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateSessionEnrollmentResponse>} - The async response
+     */
+    public CompletableFuture<CreateSessionEnrollmentResponse> createSessionEnrollment(
+            @Nonnull CreateSessionEnrollmentRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateSessionEnrollmentRequest, CreateSessionEnrollmentResponse> operation =
-                new CreateSessionEnrollment.Async(sdkConfiguration, _headers);
+                new CreateSessionEnrollment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1670,8 +2416,27 @@ public class AsyncEvents {
      */
     public CompletableFuture<DeleteSessionEnrollmentResponse> deleteSessionEnrollment(
             @Nonnull DeleteSessionEnrollmentRequest request) {
+        return deleteSessionEnrollment(request, null);
+    }
+
+    /**
+     * Delete Session Registration
+     *
+     * <p>Unregister an attendee from a session. Requires the modify registration widget
+     * to be present on the event's registration path. See the following
+     * [article](https://support.cvent.com/s/communityarticle/Modifying-Registrations#modifyown)
+     * for more information.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSessionEnrollmentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSessionEnrollmentResponse> deleteSessionEnrollment(
+            @Nonnull DeleteSessionEnrollmentRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSessionEnrollmentRequest, DeleteSessionEnrollmentResponse> operation =
-                new DeleteSessionEnrollment.Async(sdkConfiguration, _headers);
+                new DeleteSessionEnrollment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

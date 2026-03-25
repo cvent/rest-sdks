@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.UserGroupJsonInput;
 import com.cvent.operations.CreateAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class CreateAccountUserGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UserGroupJsonInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateAccountUserGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateAccountUserGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateAccountUserGroupRequestBuilder request(@Nullable UserGroupJsonInput request) {
@@ -43,8 +52,9 @@ public class CreateAccountUserGroupRequestBuilder {
      * @return The response from the server.
      */
     public CreateAccountUserGroupResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
-                new CreateAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new CreateAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

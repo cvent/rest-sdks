@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateCardTransaction;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateCardTransactionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateCardTransactionRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateCardTransactionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateCardTransactionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateCardTransactionRequestBuilder request(@Nonnull UpdateCardTransactionRequest request) {
@@ -42,8 +52,9 @@ public class UpdateCardTransactionRequestBuilder {
      * @return The response from the server.
      */
     public UpdateCardTransactionResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateCardTransactionRequest, UpdateCardTransactionResponse> operation =
-                new UpdateCardTransaction.Sync(sdkConfiguration, _headers);
+                new UpdateCardTransaction.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

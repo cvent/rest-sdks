@@ -51,6 +51,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
         ///   * greater than: gt<br/>
@@ -62,6 +63,7 @@ namespace Cvent.SDK.Models.Requests
         /// <br/>
         /// <br/>
         /// <br/>
+        /// <br/>
         ///    * budgetVersion.id (eq)<br/>
         ///    * budgetItem.id (eq)<br/>
         ///    * category.id (eq|ne)<br/>
@@ -70,6 +72,7 @@ namespace Cvent.SDK.Models.Requests
         ///    * value (lt|le|gt|ge|eq)<br/>
         /// <br/>
         /// The following operators are available:<br/>
+        /// <br/>
         /// <br/>
         /// <br/>
         /// <br/>

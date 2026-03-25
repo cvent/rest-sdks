@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.FileUpload;
 import com.cvent.operations.UploadFile;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class UploadFileRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private FileUpload request;
+    private final Options.Builder optionsBuilder;
 
     public UploadFileRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UploadFileRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UploadFileRequestBuilder request(@Nullable FileUpload request) {
@@ -43,7 +52,9 @@ public class UploadFileRequestBuilder {
      * @return The response from the server.
      */
     public UploadFileResponse call() {
-        RequestOperation<FileUpload, UploadFileResponse> operation = new UploadFile.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<FileUpload, UploadFileResponse> operation =
+                new UploadFile.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

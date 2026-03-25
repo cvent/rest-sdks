@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DisassociateAttendeeFromAudienceSegmentRequest;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DisassociateAttendeeFromAudienceSegmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DisassociateAttendeeFromAudienceSegmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DisassociateAttendeeFromAudienceSegmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DisassociateAttendeeFromAudienceSegmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DisassociateAttendeeFromAudienceSegmentRequestBuilder request(
@@ -45,9 +55,11 @@ public class DisassociateAttendeeFromAudienceSegmentRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DisassociateAttendeeFromAudienceSegmentResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<
                         DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse>
-                operation = new DisassociateAttendeeFromAudienceSegment.Async(sdkConfiguration, _headers);
+                operation = new DisassociateAttendeeFromAudienceSegment.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

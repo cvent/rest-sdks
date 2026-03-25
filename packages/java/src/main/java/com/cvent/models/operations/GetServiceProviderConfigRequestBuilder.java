@@ -8,14 +8,24 @@ import static com.cvent.operations.Operations.RequestlessOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetServiceProviderConfig;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
+import jakarta.annotation.Nullable;
 
 public class GetServiceProviderConfigRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
+    private final Options.Builder optionsBuilder;
 
     public GetServiceProviderConfigRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetServiceProviderConfigRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetServiceProviderConfigRequestBuilder header(String name, String value) {
@@ -31,8 +41,9 @@ public class GetServiceProviderConfigRequestBuilder {
      * @return The response from the server.
      */
     public GetServiceProviderConfigResponse call() {
+        Options options = optionsBuilder.build();
         RequestlessOperation<GetServiceProviderConfigResponse> operation =
-                new GetServiceProviderConfig.Sync(sdkConfiguration, _headers);
+                new GetServiceProviderConfig.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

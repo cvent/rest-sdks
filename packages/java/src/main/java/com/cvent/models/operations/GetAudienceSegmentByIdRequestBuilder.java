@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetAudienceSegmentById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetAudienceSegmentByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAudienceSegmentByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAudienceSegmentByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAudienceSegmentByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAudienceSegmentByIdRequestBuilder request(@Nonnull GetAudienceSegmentByIdRequest request) {
@@ -42,8 +52,9 @@ public class GetAudienceSegmentByIdRequestBuilder {
      * @return The response from the server.
      */
     public GetAudienceSegmentByIdResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation =
-                new GetAudienceSegmentById.Sync(sdkConfiguration, _headers);
+                new GetAudienceSegmentById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

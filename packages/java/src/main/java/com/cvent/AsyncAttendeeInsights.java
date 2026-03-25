@@ -22,7 +22,9 @@ import com.cvent.operations.GetScores;
 import com.cvent.operations.GetStats;
 import com.cvent.operations.ListAttendeeInsights;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -84,8 +86,25 @@ public class AsyncAttendeeInsights {
      */
     public CompletableFuture<ListAttendeeInsightsResponse> listAttendeeInsights(
             @Nonnull ListAttendeeInsightsRequest request) {
+        return listAttendeeInsights(request, null);
+    }
+
+    /**
+     * List Engagement Scores
+     *
+     * <p>Gets a paginated list of engagement scores (attendee insights) and their associated events.
+     * Use the returned IDs to retrieve further details using other attendee insight endpoints.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAttendeeInsightsResponse>} - The async response
+     */
+    public CompletableFuture<ListAttendeeInsightsResponse> listAttendeeInsights(
+            @Nonnull ListAttendeeInsightsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListAttendeeInsightsRequest, ListAttendeeInsightsResponse> operation =
-                new ListAttendeeInsights.Async(sdkConfiguration, _headers);
+                new ListAttendeeInsights.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -114,8 +133,24 @@ public class AsyncAttendeeInsights {
      */
     public CompletableFuture<GetAttendeeInsightsByIdResponse> getAttendeeInsightsById(
             @Nonnull GetAttendeeInsightsByIdRequest request) {
+        return getAttendeeInsightsById(request, null);
+    }
+
+    /**
+     * Get Engagement Score
+     *
+     * <p>Retrieve the details of a specific engagement score (attendee insight) using its ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAttendeeInsightsByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetAttendeeInsightsByIdResponse> getAttendeeInsightsById(
+            @Nonnull GetAttendeeInsightsByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAttendeeInsightsByIdRequest, GetAttendeeInsightsByIdResponse> operation =
-                new GetAttendeeInsightsById.Async(sdkConfiguration, _headers);
+                new GetAttendeeInsightsById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -145,8 +180,25 @@ public class AsyncAttendeeInsights {
      * @return {@code CompletableFuture<GetScoresResponse>} - The async response
      */
     public CompletableFuture<GetScoresResponse> getScores(@Nonnull GetScoresRequest request) {
+        return getScores(request, null);
+    }
+
+    /**
+     * Get Scores
+     *
+     * <p>Retrieves a paginated list of attendees and their scores for the given engagement score (attendee
+     * insight).
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetScoresResponse>} - The async response
+     */
+    public CompletableFuture<GetScoresResponse> getScores(
+            @Nonnull GetScoresRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetScoresRequest, GetScoresResponse> operation =
-                new GetScores.Async(sdkConfiguration, _headers);
+                new GetScores.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -174,8 +226,23 @@ public class AsyncAttendeeInsights {
      * @return {@code CompletableFuture<GetStatsResponse>} - The async response
      */
     public CompletableFuture<GetStatsResponse> getStats(@Nonnull GetStatsRequest request) {
+        return getStats(request, null);
+    }
+
+    /**
+     * Get Stats
+     *
+     * <p>Retrieves a summary of scores for the given engagement score (attendee insight).
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetStatsResponse>} - The async response
+     */
+    public CompletableFuture<GetStatsResponse> getStats(@Nonnull GetStatsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetStatsRequest, GetStatsResponse> operation =
-                new GetStats.Async(sdkConfiguration, _headers);
+                new GetStats.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

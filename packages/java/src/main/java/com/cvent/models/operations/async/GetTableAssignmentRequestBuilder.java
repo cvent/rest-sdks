@@ -12,10 +12,13 @@ import com.cvent.models.operations.GetTableAssignmentRequest;
 import com.cvent.operations.GetTableAssignment;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class GetTableAssignmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetTableAssignmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetTableAssignmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetTableAssignmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetTableAssignmentRequestBuilder request(@Nonnull GetTableAssignmentRequest request) {
@@ -55,8 +65,9 @@ public class GetTableAssignmentRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetTableAssignmentResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
-                new GetTableAssignment.Async(sdkConfiguration, _headers);
+                new GetTableAssignment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class GetTableAssignmentRequestBuilder {
      */
     public Publisher<GetTableAssignmentResponse> callAsPublisher() {
         GetTableAssignmentRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
-                new GetTableAssignment.Async(sdkConfiguration, _headers);
+                new GetTableAssignment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

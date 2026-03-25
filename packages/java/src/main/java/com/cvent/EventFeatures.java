@@ -22,7 +22,9 @@ import com.cvent.operations.LaunchEventFeatures;
 import com.cvent.operations.ListEventWeblinks;
 import com.cvent.operations.UpdateEventFeatures;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * EventFeatures related APIs
@@ -71,8 +73,25 @@ public class EventFeatures {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventFeaturesResponse getEventFeatures(@Nonnull GetEventFeaturesRequest request) {
+        return getEventFeatures(request, null);
+    }
+
+    /**
+     * List Event Features
+     *
+     * <p>A resource responsible for providing the set of event features that are available for an event
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEventFeaturesResponse getEventFeatures(
+            @Nonnull GetEventFeaturesRequest request, @Nullable Options options) {
         RequestOperation<GetEventFeaturesRequest, GetEventFeaturesResponse> operation =
-                new GetEventFeatures.Sync(sdkConfiguration, _headers);
+                new GetEventFeatures.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -101,8 +120,25 @@ public class EventFeatures {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateEventFeaturesResponse updateEventFeatures(@Nonnull UpdateEventFeaturesRequest request) {
+        return updateEventFeatures(request, null);
+    }
+
+    /**
+     * Update Event Feature
+     *
+     * <p>A resource responsible to enable / disable an event feature
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateEventFeaturesResponse updateEventFeatures(
+            @Nonnull UpdateEventFeaturesRequest request, @Nullable Options options) {
         RequestOperation<UpdateEventFeaturesRequest, UpdateEventFeaturesResponse> operation =
-                new UpdateEventFeatures.Sync(sdkConfiguration, _headers);
+                new UpdateEventFeatures.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -131,8 +167,25 @@ public class EventFeatures {
      * @throws RuntimeException subclass if the API call fails
      */
     public LaunchEventFeaturesResponse launchEventFeatures(@Nonnull LaunchEventFeaturesRequest request) {
+        return launchEventFeatures(request, null);
+    }
+
+    /**
+     * Launch Event Feature
+     *
+     * <p>Launch event features to make them available to an audience.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public LaunchEventFeaturesResponse launchEventFeatures(
+            @Nonnull LaunchEventFeaturesRequest request, @Nullable Options options) {
         RequestOperation<LaunchEventFeaturesRequest, LaunchEventFeaturesResponse> operation =
-                new LaunchEventFeatures.Sync(sdkConfiguration, _headers);
+                new LaunchEventFeatures.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -161,8 +214,25 @@ public class EventFeatures {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListEventWeblinksResponse listEventWeblinks(@Nonnull ListEventWeblinksRequest request) {
+        return listEventWeblinks(request, null);
+    }
+
+    /**
+     * List Event Weblinks
+     *
+     * <p>Gets a paginated list of weblinks for the given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventWeblinksResponse listEventWeblinks(
+            @Nonnull ListEventWeblinksRequest request, @Nullable Options options) {
         RequestOperation<ListEventWeblinksRequest, ListEventWeblinksResponse> operation =
-                new ListEventWeblinks.Sync(sdkConfiguration, _headers);
+                new ListEventWeblinks.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

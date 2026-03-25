@@ -22,7 +22,9 @@ import com.cvent.operations.GetLeadQualificationAnswers;
 import com.cvent.operations.GetLeads;
 import com.cvent.operations.GetLeadsPostFiltersData;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -78,8 +80,24 @@ public class AsyncLeads {
      */
     public CompletableFuture<GetEliteratureRequestsResponse> getEliteratureRequests(
             @Nonnull GetEliteratureRequestsRequest request) {
+        return getEliteratureRequests(request, null);
+    }
+
+    /**
+     * List E-literature Requests
+     *
+     * <p>Gets a paginated list of eliterature requests data
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEliteratureRequestsResponse>} - The async response
+     */
+    public CompletableFuture<GetEliteratureRequestsResponse> getEliteratureRequests(
+            @Nonnull GetEliteratureRequestsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEliteratureRequestsRequest, GetEliteratureRequestsResponse> operation =
-                new GetEliteratureRequests.Async(sdkConfiguration, _headers);
+                new GetEliteratureRequests.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -108,8 +126,24 @@ public class AsyncLeads {
      */
     public CompletableFuture<GetLeadQualificationAnswersResponse> getLeadQualificationAnswers(
             @Nonnull GetLeadQualificationAnswersRequest request) {
+        return getLeadQualificationAnswers(request, null);
+    }
+
+    /**
+     * List Qualification Answers
+     *
+     * <p>Gets a list of answers to lead qualification questions for a given lead id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetLeadQualificationAnswersResponse>} - The async response
+     */
+    public CompletableFuture<GetLeadQualificationAnswersResponse> getLeadQualificationAnswers(
+            @Nonnull GetLeadQualificationAnswersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetLeadQualificationAnswersRequest, GetLeadQualificationAnswersResponse> operation =
-                new GetLeadQualificationAnswers.Async(sdkConfiguration, _headers);
+                new GetLeadQualificationAnswers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -137,8 +171,23 @@ public class AsyncLeads {
      * @return {@code CompletableFuture<GetLeadsResponse>} - The async response
      */
     public CompletableFuture<GetLeadsResponse> getLeads(@Nonnull GetLeadsRequest request) {
+        return getLeads(request, null);
+    }
+
+    /**
+     * List Leads
+     *
+     * <p>Gets a paginated list of leads
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetLeadsResponse>} - The async response
+     */
+    public CompletableFuture<GetLeadsResponse> getLeads(@Nonnull GetLeadsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetLeadsRequest, GetLeadsResponse> operation =
-                new GetLeads.Async(sdkConfiguration, _headers);
+                new GetLeads.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -167,8 +216,24 @@ public class AsyncLeads {
      */
     public CompletableFuture<GetLeadsPostFiltersDataResponse> getLeadsPostFiltersData(
             @Nonnull GetLeadsPostFiltersDataRequest request) {
+        return getLeadsPostFiltersData(request, null);
+    }
+
+    /**
+     * List Leads
+     *
+     * <p>Gets a paginated list of leads
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetLeadsPostFiltersDataResponse>} - The async response
+     */
+    public CompletableFuture<GetLeadsPostFiltersDataResponse> getLeadsPostFiltersData(
+            @Nonnull GetLeadsPostFiltersDataRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetLeadsPostFiltersDataRequest, GetLeadsPostFiltersDataResponse> operation =
-                new GetLeadsPostFiltersData.Async(sdkConfiguration, _headers);
+                new GetLeadsPostFiltersData.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

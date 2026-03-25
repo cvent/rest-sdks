@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateAttendeeLinksRequest;
 import com.cvent.operations.UpdateAttendeeLinks;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateAttendeeLinksRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateAttendeeLinksRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateAttendeeLinksRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateAttendeeLinksRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateAttendeeLinksRequestBuilder request(@Nonnull UpdateAttendeeLinksRequest request) {
@@ -44,8 +54,9 @@ public class UpdateAttendeeLinksRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateAttendeeLinksResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateAttendeeLinksRequest, UpdateAttendeeLinksResponse> operation =
-                new UpdateAttendeeLinks.Async(sdkConfiguration, _headers);
+                new UpdateAttendeeLinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

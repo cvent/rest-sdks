@@ -12,10 +12,13 @@ import com.cvent.models.operations.ListSegmentAssociatedAttendeesRequest;
 import com.cvent.operations.ListSegmentAssociatedAttendees;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class ListSegmentAssociatedAttendeesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListSegmentAssociatedAttendeesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListSegmentAssociatedAttendeesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListSegmentAssociatedAttendeesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListSegmentAssociatedAttendeesRequestBuilder request(
@@ -56,8 +66,10 @@ public class ListSegmentAssociatedAttendeesRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ListSegmentAssociatedAttendeesResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListSegmentAssociatedAttendeesRequest, ListSegmentAssociatedAttendeesResponse> operation =
-                new ListSegmentAssociatedAttendees.Async(sdkConfiguration, _headers);
+                new ListSegmentAssociatedAttendees.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -77,8 +89,10 @@ public class ListSegmentAssociatedAttendeesRequestBuilder {
      */
     public Publisher<ListSegmentAssociatedAttendeesResponse> callAsPublisher() {
         ListSegmentAssociatedAttendeesRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListSegmentAssociatedAttendeesRequest, ListSegmentAssociatedAttendeesResponse> operation =
-                new ListSegmentAssociatedAttendees.Async(sdkConfiguration, _headers);
+                new ListSegmentAssociatedAttendees.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

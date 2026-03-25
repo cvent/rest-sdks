@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetAvailabilityById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetAvailabilityByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAvailabilityByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAvailabilityByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAvailabilityByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAvailabilityByIdRequestBuilder request(@Nonnull GetAvailabilityByIdRequest request) {
@@ -42,8 +52,9 @@ public class GetAvailabilityByIdRequestBuilder {
      * @return The response from the server.
      */
     public GetAvailabilityByIdResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetAvailabilityByIdRequest, GetAvailabilityByIdResponse> operation =
-                new GetAvailabilityById.Sync(sdkConfiguration, _headers);
+                new GetAvailabilityById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

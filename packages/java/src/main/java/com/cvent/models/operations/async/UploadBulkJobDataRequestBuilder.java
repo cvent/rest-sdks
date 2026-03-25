@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UploadBulkJobDataRequest;
 import com.cvent.operations.UploadBulkJobData;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UploadBulkJobDataRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UploadBulkJobDataRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UploadBulkJobDataRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UploadBulkJobDataRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UploadBulkJobDataRequestBuilder request(@Nonnull UploadBulkJobDataRequest request) {
@@ -44,8 +54,9 @@ public class UploadBulkJobDataRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UploadBulkJobDataResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
-                new UploadBulkJobData.Async(sdkConfiguration, _headers);
+                new UploadBulkJobData.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -15,6 +15,8 @@ import com.cvent.models.operations.Oauth2TokenRequest;
 import com.cvent.models.operations.Oauth2TokenResponse;
 import com.cvent.models.operations.Oauth2TokenResponseBody;
 import com.cvent.models.operations.Oauth2TokenSecurity;
+import com.cvent.utils.AsyncRetries;
+import com.cvent.utils.BackoffStrategy;
 import com.cvent.utils.Blob;
 import com.cvent.utils.HTTPClient;
 import com.cvent.utils.HTTPRequest;
@@ -22,11 +24,16 @@ import com.cvent.utils.Headers;
 import com.cvent.utils.Hook.AfterErrorContextImpl;
 import com.cvent.utils.Hook.AfterSuccessContextImpl;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
+import com.cvent.utils.NonRetryableException;
+import com.cvent.utils.Options;
+import com.cvent.utils.Retries;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.SerializedBody;
 import com.cvent.utils.Utils;
 import com.cvent.utils.Utils.JsonShape;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Exception;
 import java.lang.Object;
@@ -34,8 +41,11 @@ import java.lang.String;
 import java.lang.Throwable;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 public class Oauth2Token {
@@ -45,17 +55,36 @@ public class Oauth2Token {
         final String baseUrl;
         final Oauth2TokenSecurity security;
         final SecuritySource securitySource;
+        final List<String> retryStatusCodes;
+        final RetryConfig retryConfig;
         final HTTPClient client;
         final Headers _headers;
 
         public Base(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
+                @Nonnull SDKConfiguration sdkConfiguration,
+                @Nonnull Oauth2TokenSecurity security,
+                @Nullable Options options,
+                Headers _headers) {
             this.sdkConfiguration = sdkConfiguration;
             this._headers = _headers;
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.security = security;
             // hooks will be passed method level security only
             this.securitySource = SecuritySource.of(security);
+            Optional.ofNullable(options).ifPresent(o -> o.validate(List.of(Options.Option.RETRY_CONFIG)));
+            this.retryStatusCodes = List.of("429");
+            this.retryConfig = Optional.ofNullable(options)
+                    .flatMap(Options::retryConfig)
+                    .or(sdkConfiguration::retryConfig)
+                    .orElse(RetryConfig.builder()
+                            .backoff(BackoffStrategy.builder()
+                                    .initialInterval(1000, TimeUnit.MILLISECONDS)
+                                    .maxInterval(60000, TimeUnit.MILLISECONDS)
+                                    .baseFactor((double) (1.5))
+                                    .maxElapsedTime(3600000, TimeUnit.MILLISECONDS)
+                                    .retryConnectError(true)
+                                    .build())
+                            .build());
             this.client = this.sdkConfiguration.client();
         }
 
@@ -94,8 +123,11 @@ public class Oauth2Token {
 
     public static class Sync extends Base implements RequestOperation<Oauth2TokenRequest, Oauth2TokenResponse> {
         public Sync(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
-            super(sdkConfiguration, security, _headers);
+                @Nonnull SDKConfiguration sdkConfiguration,
+                @Nonnull Oauth2TokenSecurity security,
+                @Nullable Options options,
+                Headers _headers) {
+            super(sdkConfiguration, security, options, _headers);
         }
 
         private HttpRequest onBuildRequest(Oauth2TokenRequest request) throws Exception {
@@ -116,20 +148,28 @@ public class Oauth2Token {
 
         @Override
         public HttpResponse<InputStream> doRequest(Oauth2TokenRequest request) {
-            HttpRequest r = unchecked(() -> onBuildRequest(request)).get();
-            HttpResponse<InputStream> httpRes;
-            try {
-                httpRes = client.send(r);
-                if (Utils.statusCodeMatches(httpRes.statusCode(), "400", "4XX", "5XX")) {
-                    httpRes = onError(httpRes, null);
-                } else {
-                    httpRes = onSuccess(httpRes);
-                }
-            } catch (Exception e) {
-                httpRes = unchecked(() -> onError(null, e)).get();
-            }
-
-            return httpRes;
+            Retries retries = Retries.builder()
+                    .action(() -> {
+                        HttpRequest r;
+                        try {
+                            r = onBuildRequest(request);
+                        } catch (Exception e) {
+                            throw new NonRetryableException(e);
+                        }
+                        try {
+                            HttpResponse<InputStream> httpRes = client.send(r);
+                            if (Utils.statusCodeMatches(httpRes.statusCode(), "400", "4XX", "5XX")) {
+                                return onError(httpRes, null);
+                            }
+                            return httpRes;
+                        } catch (Exception e) {
+                            return onError(null, e);
+                        }
+                    })
+                    .retryConfig(retryConfig)
+                    .statusCodes(retryStatusCodes)
+                    .build();
+            return unchecked(() -> onSuccess(retries.run())).get();
         }
 
         @Override
@@ -171,10 +211,16 @@ public class Oauth2Token {
     public static class Async extends Base
             implements AsyncRequestOperation<
                     Oauth2TokenRequest, com.cvent.models.operations.async.Oauth2TokenResponse> {
+        private final ScheduledExecutorService retryScheduler;
 
         public Async(
-                @Nonnull SDKConfiguration sdkConfiguration, @Nonnull Oauth2TokenSecurity security, Headers _headers) {
-            super(sdkConfiguration, security, _headers);
+                @Nonnull SDKConfiguration sdkConfiguration,
+                @Nonnull Oauth2TokenSecurity security,
+                @Nullable Options options,
+                @Nullable ScheduledExecutorService retryScheduler,
+                Headers _headers) {
+            super(sdkConfiguration, security, options, _headers);
+            this.retryScheduler = retryScheduler;
         }
 
         private CompletableFuture<HttpRequest> onBuildRequest(Oauth2TokenRequest request) throws Exception {
@@ -192,7 +238,12 @@ public class Oauth2Token {
 
         @Override
         public CompletableFuture<HttpResponse<Blob>> doRequest(Oauth2TokenRequest request) {
-            return unchecked(() -> onBuildRequest(request))
+            AsyncRetries retries = AsyncRetries.builder()
+                    .retryConfig(retryConfig)
+                    .statusCodes(retryStatusCodes)
+                    .scheduler(retryScheduler)
+                    .build();
+            return retries.retry(() -> unchecked(() -> onBuildRequest(request))
                     .get()
                     .thenCompose(client::sendAsync)
                     .handle((resp, err) -> {
@@ -204,7 +255,7 @@ public class Oauth2Token {
                         }
                         return CompletableFuture.completedFuture(resp);
                     })
-                    .thenCompose(Function.identity())
+                    .thenCompose(Function.identity()))
                     .thenCompose(this::onSuccess);
         }
 
