@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateSessionCustomFieldAnswersRequest;
 import com.cvent.operations.UpdateSessionCustomFieldAnswers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateSessionCustomFieldAnswersRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateSessionCustomFieldAnswersRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateSessionCustomFieldAnswersRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateSessionCustomFieldAnswersRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateSessionCustomFieldAnswersRequestBuilder request(
@@ -45,8 +55,10 @@ public class UpdateSessionCustomFieldAnswersRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateSessionCustomFieldAnswersResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateSessionCustomFieldAnswersRequest, UpdateSessionCustomFieldAnswersResponse> operation =
-                new UpdateSessionCustomFieldAnswers.Async(sdkConfiguration, _headers);
+                new UpdateSessionCustomFieldAnswers.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

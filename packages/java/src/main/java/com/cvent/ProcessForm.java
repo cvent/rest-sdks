@@ -10,7 +10,9 @@ import com.cvent.models.operations.ListProcessFormSubmissionRequestBuilder;
 import com.cvent.models.operations.ListProcessFormSubmissionResponse;
 import com.cvent.operations.ListProcessFormSubmission;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Process forms automate data collection and notifications related to planning and executing events.
@@ -62,8 +64,25 @@ public class ProcessForm {
      */
     public ListProcessFormSubmissionResponse listProcessFormSubmission(
             @Nonnull ListProcessFormSubmissionRequest request) {
+        return listProcessFormSubmission(request, null);
+    }
+
+    /**
+     * List Process Form Submissions
+     *
+     * <p>Gets a paginated list of process form submissions.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListProcessFormSubmissionResponse listProcessFormSubmission(
+            @Nonnull ListProcessFormSubmissionRequest request, @Nullable Options options) {
         RequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation =
-                new ListProcessFormSubmission.Sync(sdkConfiguration, _headers);
+                new ListProcessFormSubmission.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.AnswerEventCustomFieldRequest;
 import com.cvent.operations.AnswerEventCustomField;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class AnswerEventCustomFieldRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AnswerEventCustomFieldRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AnswerEventCustomFieldRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AnswerEventCustomFieldRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AnswerEventCustomFieldRequestBuilder request(@Nonnull AnswerEventCustomFieldRequest request) {
@@ -44,8 +54,9 @@ public class AnswerEventCustomFieldRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<AnswerEventCustomFieldResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<AnswerEventCustomFieldRequest, AnswerEventCustomFieldResponse> operation =
-                new AnswerEventCustomField.Async(sdkConfiguration, _headers);
+                new AnswerEventCustomField.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

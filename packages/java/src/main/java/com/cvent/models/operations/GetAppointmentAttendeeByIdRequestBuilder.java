@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetAppointmentAttendeeById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetAppointmentAttendeeByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAppointmentAttendeeByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAppointmentAttendeeByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAppointmentAttendeeByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAppointmentAttendeeByIdRequestBuilder request(@Nonnull GetAppointmentAttendeeByIdRequest request) {
@@ -42,8 +52,9 @@ public class GetAppointmentAttendeeByIdRequestBuilder {
      * @return The response from the server.
      */
     public GetAppointmentAttendeeByIdResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetAppointmentAttendeeByIdRequest, GetAppointmentAttendeeByIdResponse> operation =
-                new GetAppointmentAttendeeById.Sync(sdkConfiguration, _headers);
+                new GetAppointmentAttendeeById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

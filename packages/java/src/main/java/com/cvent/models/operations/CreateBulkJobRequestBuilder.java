@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.BulkJobWithDataInput;
 import com.cvent.operations.CreateBulkJob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateBulkJobRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private BulkJobWithDataInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateBulkJobRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateBulkJobRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateBulkJobRequestBuilder request(@Nonnull BulkJobWithDataInput request) {
@@ -43,8 +53,9 @@ public class CreateBulkJobRequestBuilder {
      * @return The response from the server.
      */
     public CreateBulkJobResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
-                new CreateBulkJob.Sync(sdkConfiguration, _headers);
+                new CreateBulkJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

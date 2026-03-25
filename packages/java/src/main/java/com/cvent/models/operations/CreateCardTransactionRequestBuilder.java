@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.CardTransactionCreate;
 import com.cvent.operations.CreateCardTransaction;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateCardTransactionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CardTransactionCreate request;
+    private final Options.Builder optionsBuilder;
 
     public CreateCardTransactionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateCardTransactionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateCardTransactionRequestBuilder request(@Nonnull CardTransactionCreate request) {
@@ -43,8 +53,9 @@ public class CreateCardTransactionRequestBuilder {
      * @return The response from the server.
      */
     public CreateCardTransactionResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CardTransactionCreate, CreateCardTransactionResponse> operation =
-                new CreateCardTransaction.Sync(sdkConfiguration, _headers);
+                new CreateCardTransaction.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteSessionRequest;
 import com.cvent.operations.DeleteSession;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteSessionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteSessionRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteSessionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteSessionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteSessionRequestBuilder request(@Nonnull DeleteSessionRequest request) {
@@ -44,8 +54,9 @@ public class DeleteSessionRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteSessionResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteSessionRequest, DeleteSessionResponse> operation =
-                new DeleteSession.Async(sdkConfiguration, _headers);
+                new DeleteSession.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

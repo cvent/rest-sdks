@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateContactByIdRequest;
 import com.cvent.operations.UpdateContactById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateContactByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateContactByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateContactByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateContactByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateContactByIdRequestBuilder request(@Nonnull UpdateContactByIdRequest request) {
@@ -44,8 +54,9 @@ public class UpdateContactByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateContactByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateContactByIdRequest, UpdateContactByIdResponse> operation =
-                new UpdateContactById.Async(sdkConfiguration, _headers);
+                new UpdateContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

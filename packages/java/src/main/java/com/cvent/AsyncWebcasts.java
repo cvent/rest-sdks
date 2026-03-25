@@ -50,7 +50,9 @@ import com.cvent.operations.ListWebcasts;
 import com.cvent.operations.UpdateAttendeeLinks;
 import com.cvent.operations.UpdateWebcast;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
 import java.util.concurrent.CompletableFuture;
 
@@ -102,8 +104,23 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<CreateWebcastResponse>} - The async response
      */
     public CompletableFuture<CreateWebcastResponse> createWebcast(@Nonnull Webcast request) {
+        return createWebcast(request, null);
+    }
+
+    /**
+     * Create Webcast
+     *
+     * <p>Used to create a new webcast for a specific event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateWebcastResponse>} - The async response
+     */
+    public CompletableFuture<CreateWebcastResponse> createWebcast(@Nonnull Webcast request, @Nullable Options options) {
         AsyncRequestOperation<Webcast, CreateWebcastResponse> operation =
-                new CreateWebcast.Async(sdkConfiguration, _headers);
+                new CreateWebcast.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -131,8 +148,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<ListWebcastsResponse>} - The async response
      */
     public CompletableFuture<ListWebcastsResponse> listWebcasts(@Nonnull ListWebcastsRequest request) {
+        return listWebcasts(request, null);
+    }
+
+    /**
+     * List Webcasts
+     *
+     * <p>Gets a paginated list of webcasts associated with your event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListWebcastsResponse>} - The async response
+     */
+    public CompletableFuture<ListWebcastsResponse> listWebcasts(
+            @Nonnull ListWebcastsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListWebcastsRequest, ListWebcastsResponse> operation =
-                new ListWebcasts.Async(sdkConfiguration, _headers);
+                new ListWebcasts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -160,8 +193,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<ListAttendeeLinksResponse>} - The async response
      */
     public CompletableFuture<ListAttendeeLinksResponse> listAttendeeLinks(@Nonnull ListAttendeeLinksRequest request) {
+        return listAttendeeLinks(request, null);
+    }
+
+    /**
+     * List Attendee Links
+     *
+     * <p>Gets a paginated list of attendee links.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAttendeeLinksResponse>} - The async response
+     */
+    public CompletableFuture<ListAttendeeLinksResponse> listAttendeeLinks(
+            @Nonnull ListAttendeeLinksRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListAttendeeLinksRequest, ListAttendeeLinksResponse> operation =
-                new ListAttendeeLinks.Async(sdkConfiguration, _headers);
+                new ListAttendeeLinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -189,8 +238,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<ListPlayersResponse>} - The async response
      */
     public CompletableFuture<ListPlayersResponse> listPlayers(@Nonnull ListPlayersRequest request) {
+        return listPlayers(request, null);
+    }
+
+    /**
+     * List Players
+     *
+     * <p>Gets a paginated list of player details associated with webcast.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListPlayersResponse>} - The async response
+     */
+    public CompletableFuture<ListPlayersResponse> listPlayers(
+            @Nonnull ListPlayersRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListPlayersRequest, ListPlayersResponse> operation =
-                new ListPlayers.Async(sdkConfiguration, _headers);
+                new ListPlayers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -218,8 +283,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<GetWebcastByIdResponse>} - The async response
      */
     public CompletableFuture<GetWebcastByIdResponse> getWebcastById(@Nonnull GetWebcastByIdRequest request) {
+        return getWebcastById(request, null);
+    }
+
+    /**
+     * Get Webcast
+     *
+     * <p>Retrieve a single webcast details by ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetWebcastByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetWebcastByIdResponse> getWebcastById(
+            @Nonnull GetWebcastByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetWebcastByIdRequest, GetWebcastByIdResponse> operation =
-                new GetWebcastById.Async(sdkConfiguration, _headers);
+                new GetWebcastById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -247,8 +328,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<DeleteWebcastResponse>} - The async response
      */
     public CompletableFuture<DeleteWebcastResponse> deleteWebcast(@Nonnull DeleteWebcastRequest request) {
+        return deleteWebcast(request, null);
+    }
+
+    /**
+     * Delete Webcast
+     *
+     * <p>Delete an existing webcast by ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteWebcastResponse>} - The async response
+     */
+    public CompletableFuture<DeleteWebcastResponse> deleteWebcast(
+            @Nonnull DeleteWebcastRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteWebcastRequest, DeleteWebcastResponse> operation =
-                new DeleteWebcast.Async(sdkConfiguration, _headers);
+                new DeleteWebcast.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -276,8 +373,24 @@ public class AsyncWebcasts {
      * @return {@code CompletableFuture<UpdateWebcastResponse>} - The async response
      */
     public CompletableFuture<UpdateWebcastResponse> updateWebcast(@Nonnull UpdateWebcastRequest request) {
+        return updateWebcast(request, null);
+    }
+
+    /**
+     * Update Webcast
+     *
+     * <p>Update info for an existing webcast within a Cvent event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateWebcastResponse>} - The async response
+     */
+    public CompletableFuture<UpdateWebcastResponse> updateWebcast(
+            @Nonnull UpdateWebcastRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation =
-                new UpdateWebcast.Async(sdkConfiguration, _headers);
+                new UpdateWebcast.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -306,8 +419,24 @@ public class AsyncWebcasts {
      */
     public CompletableFuture<CreateAttendeeLinksResponse> createAttendeeLinks(
             @Nonnull CreateAttendeeLinksRequest request) {
+        return createAttendeeLinks(request, null);
+    }
+
+    /**
+     * Create Attendee Link
+     *
+     * <p>Create attendee links in bulk for a given webcast.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateAttendeeLinksResponse>} - The async response
+     */
+    public CompletableFuture<CreateAttendeeLinksResponse> createAttendeeLinks(
+            @Nonnull CreateAttendeeLinksRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateAttendeeLinksRequest, CreateAttendeeLinksResponse> operation =
-                new CreateAttendeeLinks.Async(sdkConfiguration, _headers);
+                new CreateAttendeeLinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -336,8 +465,24 @@ public class AsyncWebcasts {
      */
     public CompletableFuture<UpdateAttendeeLinksResponse> updateAttendeeLinks(
             @Nonnull UpdateAttendeeLinksRequest request) {
+        return updateAttendeeLinks(request, null);
+    }
+
+    /**
+     * Update Attendee Link
+     *
+     * <p>Update data for existing attendee links in bulk for a given webcast.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateAttendeeLinksResponse>} - The async response
+     */
+    public CompletableFuture<UpdateAttendeeLinksResponse> updateAttendeeLinks(
+            @Nonnull UpdateAttendeeLinksRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateAttendeeLinksRequest, UpdateAttendeeLinksResponse> operation =
-                new UpdateAttendeeLinks.Async(sdkConfiguration, _headers);
+                new UpdateAttendeeLinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -370,8 +515,26 @@ public class AsyncWebcasts {
     @Deprecated
     public CompletableFuture<ListWebcastAttendeeLinksResponse> listWebcastAttendeeLinks(
             @Nonnull ListWebcastAttendeeLinksRequest request) {
+        return listWebcastAttendeeLinks(request, null);
+    }
+
+    /**
+     * List Attendee Links
+     *
+     * <p>Gets a paginated list of attendee links in a webcast.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListWebcastAttendeeLinksResponse>} - The async response
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public CompletableFuture<ListWebcastAttendeeLinksResponse> listWebcastAttendeeLinks(
+            @Nonnull ListWebcastAttendeeLinksRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListWebcastAttendeeLinksRequest, ListWebcastAttendeeLinksResponse> operation =
-                new ListWebcastAttendeeLinks.Async(sdkConfiguration, _headers);
+                new ListWebcastAttendeeLinks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -400,8 +563,24 @@ public class AsyncWebcasts {
      */
     public CompletableFuture<DeleteAttendeeLinkResponse> deleteAttendeeLink(
             @Nonnull DeleteAttendeeLinkRequest request) {
+        return deleteAttendeeLink(request, null);
+    }
+
+    /**
+     * Delete Attendee Link
+     *
+     * <p>Delete attendee links for webcast.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteAttendeeLinkResponse>} - The async response
+     */
+    public CompletableFuture<DeleteAttendeeLinkResponse> deleteAttendeeLink(
+            @Nonnull DeleteAttendeeLinkRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteAttendeeLinkRequest, DeleteAttendeeLinkResponse> operation =
-                new DeleteAttendeeLink.Async(sdkConfiguration, _headers);
+                new DeleteAttendeeLink.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

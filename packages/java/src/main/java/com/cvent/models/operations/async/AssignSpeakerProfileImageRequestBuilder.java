@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.AssignSpeakerProfileImageRequest;
 import com.cvent.operations.AssignSpeakerProfileImage;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class AssignSpeakerProfileImageRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssignSpeakerProfileImageRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssignSpeakerProfileImageRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssignSpeakerProfileImageRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssignSpeakerProfileImageRequestBuilder request(@Nonnull AssignSpeakerProfileImageRequest request) {
@@ -44,8 +54,9 @@ public class AssignSpeakerProfileImageRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<AssignSpeakerProfileImageResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<AssignSpeakerProfileImageRequest, AssignSpeakerProfileImageResponse> operation =
-                new AssignSpeakerProfileImage.Async(sdkConfiguration, _headers);
+                new AssignSpeakerProfileImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

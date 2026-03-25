@@ -10,7 +10,9 @@ import com.cvent.models.operations.async.UpdateHotelRoomRatesRequestBuilder;
 import com.cvent.models.operations.async.UpdateHotelRoomRatesResponse;
 import com.cvent.operations.UpdateHotelRoomRates;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -56,8 +58,22 @@ public class AsyncHousingHotels {
      */
     public CompletableFuture<UpdateHotelRoomRatesResponse> updateHotelRoomRates(
             @Nonnull UpdateHotelRoomRatesRequest request) {
+        return updateHotelRoomRates(request, null);
+    }
+
+    /**
+     * Update Hotel Room Rates
+     *
+     * <p>Updates the given hotel's room rate details based on data in the request body.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateHotelRoomRatesResponse>} - The async response
+     */
+    public CompletableFuture<UpdateHotelRoomRatesResponse> updateHotelRoomRates(
+            @Nonnull UpdateHotelRoomRatesRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateHotelRoomRatesRequest, UpdateHotelRoomRatesResponse> operation =
-                new UpdateHotelRoomRates.Async(sdkConfiguration, _headers);
+                new UpdateHotelRoomRates.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

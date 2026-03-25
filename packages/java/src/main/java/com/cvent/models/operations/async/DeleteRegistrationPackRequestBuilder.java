@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteRegistrationPackRequest;
 import com.cvent.operations.DeleteRegistrationPack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteRegistrationPackRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteRegistrationPackRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteRegistrationPackRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteRegistrationPackRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteRegistrationPackRequestBuilder request(@Nonnull DeleteRegistrationPackRequest request) {
@@ -44,8 +54,9 @@ public class DeleteRegistrationPackRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteRegistrationPackResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteRegistrationPackRequest, DeleteRegistrationPackResponse> operation =
-                new DeleteRegistrationPack.Async(sdkConfiguration, _headers);
+                new DeleteRegistrationPack.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

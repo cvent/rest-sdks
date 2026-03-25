@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeletePayment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeletePaymentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeletePaymentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeletePaymentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeletePaymentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeletePaymentRequestBuilder request(@Nonnull DeletePaymentRequest request) {
@@ -42,8 +52,9 @@ public class DeletePaymentRequestBuilder {
      * @return The response from the server.
      */
     public DeletePaymentResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeletePaymentRequest, DeletePaymentResponse> operation =
-                new DeletePayment.Sync(sdkConfiguration, _headers);
+                new DeletePayment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -10,7 +10,9 @@ import com.cvent.models.operations.async.GetSignaturesRequestBuilder;
 import com.cvent.models.operations.async.GetSignaturesResponse;
 import com.cvent.operations.GetSignatures;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -59,8 +61,24 @@ public class AsyncSignatures {
      * @return {@code CompletableFuture<GetSignaturesResponse>} - The async response
      */
     public CompletableFuture<GetSignaturesResponse> getSignatures(@Nonnull GetSignaturesRequest request) {
+        return getSignatures(request, null);
+    }
+
+    /**
+     * List Signatures
+     *
+     * <p>Retrieves a paginated list of check-in &amp; check-out signatures associated with the account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetSignaturesResponse>} - The async response
+     */
+    public CompletableFuture<GetSignaturesResponse> getSignatures(
+            @Nonnull GetSignaturesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetSignaturesRequest, GetSignaturesResponse> operation =
-                new GetSignatures.Async(sdkConfiguration, _headers);
+                new GetSignatures.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

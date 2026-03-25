@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetMRFByIdRequest;
 import com.cvent.operations.GetMRFById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetMRFByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetMRFByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetMRFByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetMRFByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetMRFByIdRequestBuilder request(@Nonnull GetMRFByIdRequest request) {
@@ -44,8 +54,9 @@ public class GetMRFByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetMRFByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation =
-                new GetMRFById.Async(sdkConfiguration, _headers);
+                new GetMRFById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

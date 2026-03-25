@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetAccountUserGroupRequest;
 import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetAccountUserGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAccountUserGroupRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAccountUserGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAccountUserGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAccountUserGroupRequestBuilder request(@Nonnull GetAccountUserGroupRequest request) {
@@ -44,8 +54,9 @@ public class GetAccountUserGroupRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetAccountUserGroupResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
-                new GetAccountUserGroup.Async(sdkConfiguration, _headers);
+                new GetAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

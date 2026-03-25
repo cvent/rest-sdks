@@ -14,6 +14,7 @@ import com.cvent.models.operations.async.UploadFileResponse;
 import com.cvent.operations.GetFile;
 import com.cvent.operations.UploadFile;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -77,7 +78,7 @@ public class AsyncFile {
      * @return {@code CompletableFuture<UploadFileResponse>} - The async response
      */
     public CompletableFuture<UploadFileResponse> uploadFileDirect() {
-        return uploadFile(null);
+        return uploadFile(null, null);
     }
 
     /**
@@ -91,11 +92,12 @@ public class AsyncFile {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return {@code CompletableFuture<UploadFileResponse>} - The async response
      */
-    public CompletableFuture<UploadFileResponse> uploadFile(@Nullable FileUpload request) {
+    public CompletableFuture<UploadFileResponse> uploadFile(@Nullable FileUpload request, @Nullable Options options) {
         AsyncRequestOperation<FileUpload, UploadFileResponse> operation =
-                new UploadFile.Async(sdkConfiguration, _headers);
+                new UploadFile.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -123,8 +125,23 @@ public class AsyncFile {
      * @return {@code CompletableFuture<GetFileResponse>} - The async response
      */
     public CompletableFuture<GetFileResponse> getFile(@Nonnull GetFileRequest request) {
+        return getFile(request, null);
+    }
+
+    /**
+     * Get File Location
+     *
+     * <p>Returns the file upload location for the specified file ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetFileResponse>} - The async response
+     */
+    public CompletableFuture<GetFileResponse> getFile(@Nonnull GetFileRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetFileRequest, GetFileResponse> operation =
-                new GetFile.Async(sdkConfiguration, _headers);
+                new GetFile.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

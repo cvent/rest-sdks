@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetUsageRequest;
 import com.cvent.operations.GetUsage;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetUsageRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetUsageRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetUsageRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetUsageRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetUsageRequestBuilder request(@Nonnull GetUsageRequest request) {
@@ -44,8 +54,9 @@ public class GetUsageRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetUsageResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetUsageRequest, GetUsageResponse> operation =
-                new GetUsage.Async(sdkConfiguration, _headers);
+                new GetUsage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

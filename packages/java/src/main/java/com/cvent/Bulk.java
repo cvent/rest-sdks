@@ -30,7 +30,9 @@ import com.cvent.operations.ListBulkJobResult;
 import com.cvent.operations.RunBulkJob;
 import com.cvent.operations.UploadBulkJobData;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The Bulk API provides a simple interface to upload large amounts of data into Cvent. The API
@@ -113,8 +115,32 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateBulkJobResponse createBulkJob(@Nonnull BulkJobWithDataInput request) {
+        return createBulkJob(request, null);
+    }
+
+    /**
+     * Create Bulk Job
+     *
+     * <p>Creates a bulk job.
+     *
+     * <p>**Note:** When creating a bulk job you can optionally include the data in the create request.
+     * If data is supplied the job will be started and there is no need to call the [run bulk
+     * job](#operation/runBulkJob) endpoint.
+     * If data is NOT supplied then the [upload bulk job data](#operation/uploadBulkJobData) endpoint can
+     * be called
+     * to upload data and then using [run bulk job](#operation/runBulkJob).
+     * In addition, if data is supplied and your account has reached its limit for concurrently running
+     * bulk jobs,
+     * the job will not be created.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateBulkJobResponse createBulkJob(@Nonnull BulkJobWithDataInput request, @Nullable Options options) {
         RequestOperation<BulkJobWithDataInput, CreateBulkJobResponse> operation =
-                new CreateBulkJob.Sync(sdkConfiguration, _headers);
+                new CreateBulkJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -139,8 +165,22 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBulkJobByIdResponse getBulkJobById(@Nonnull GetBulkJobByIdRequest request) {
+        return getBulkJobById(request, null);
+    }
+
+    /**
+     * Get Bulk Job
+     *
+     * <p>Gets a bulk job by its identifier.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBulkJobByIdResponse getBulkJobById(@Nonnull GetBulkJobByIdRequest request, @Nullable Options options) {
         RequestOperation<GetBulkJobByIdRequest, GetBulkJobByIdResponse> operation =
-                new GetBulkJobById.Sync(sdkConfiguration, _headers);
+                new GetBulkJobById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -167,8 +207,23 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public CancelBulkJobResponse cancelBulkJob(@Nonnull CancelBulkJobRequest request) {
+        return cancelBulkJob(request, null);
+    }
+
+    /**
+     * Cancel Bulk Job
+     *
+     * <p>Cancels the bulk job. The job will stop processing after it finishes processing its current batch,
+     * if any.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CancelBulkJobResponse cancelBulkJob(@Nonnull CancelBulkJobRequest request, @Nullable Options options) {
         RequestOperation<CancelBulkJobRequest, CancelBulkJobResponse> operation =
-                new CancelBulkJob.Sync(sdkConfiguration, _headers);
+                new CancelBulkJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -205,8 +260,29 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public UploadBulkJobDataResponse uploadBulkJobData(@Nonnull UploadBulkJobDataRequest request) {
+        return uploadBulkJobData(request, null);
+    }
+
+    /**
+     * Upload Bulk Job Data
+     *
+     * <p>This will upload data to be processed by a bulk job. There is a limit on the number of records that
+     * can be uploaded per call and this endpoint can be called multiple times before starting a job run.
+     *
+     * <p>Note: there is a maximum _total_ number of 50,000 records that can be uploaded for a job.
+     * If you have a need for a greater limit, this can be increased for your account (up to a hard limit
+     * of 150,000)
+     * by contacting Cvent support.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UploadBulkJobDataResponse uploadBulkJobData(
+            @Nonnull UploadBulkJobDataRequest request, @Nullable Options options) {
         RequestOperation<UploadBulkJobDataRequest, UploadBulkJobDataResponse> operation =
-                new UploadBulkJobData.Sync(sdkConfiguration, _headers);
+                new UploadBulkJobData.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -231,8 +307,23 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListBulkJobResultResponse listBulkJobResult(@Nonnull ListBulkJobResultRequest request) {
+        return listBulkJobResult(request, null);
+    }
+
+    /**
+     * List Bulk Job Result
+     *
+     * <p>Used to list the results of a bulk Job.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListBulkJobResultResponse listBulkJobResult(
+            @Nonnull ListBulkJobResultRequest request, @Nullable Options options) {
         RequestOperation<ListBulkJobResultRequest, ListBulkJobResultResponse> operation =
-                new ListBulkJobResult.Sync(sdkConfiguration, _headers);
+                new ListBulkJobResult.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -261,8 +352,24 @@ public class Bulk {
      * @throws RuntimeException subclass if the API call fails
      */
     public RunBulkJobResponse runBulkJob(@Nonnull RunBulkJobRequest request) {
+        return runBulkJob(request, null);
+    }
+
+    /**
+     * Run Bulk Job
+     *
+     * <p>Begins the processing of data uploaded in a bulk job.
+     *
+     * <p>**Note**: You can have a maximum of two bulk jobs running concurrently.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public RunBulkJobResponse runBulkJob(@Nonnull RunBulkJobRequest request, @Nullable Options options) {
         RequestOperation<RunBulkJobRequest, RunBulkJobResponse> operation =
-                new RunBulkJob.Sync(sdkConfiguration, _headers);
+                new RunBulkJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

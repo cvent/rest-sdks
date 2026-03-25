@@ -8,15 +8,25 @@ import static com.cvent.operations.Operations.AsyncRequestlessOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.ValidateToken;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class ValidateTokenRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
+    private final Options.Builder optionsBuilder;
 
     public ValidateTokenRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ValidateTokenRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ValidateTokenRequestBuilder header(String name, String value) {
@@ -32,8 +42,9 @@ public class ValidateTokenRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ValidateTokenResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestlessOperation<ValidateTokenResponse> operation =
-                new ValidateToken.Async(sdkConfiguration, _headers);
+                new ValidateToken.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

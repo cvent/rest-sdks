@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetMRFById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetMRFByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetMRFByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetMRFByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetMRFByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetMRFByIdRequestBuilder request(@Nonnull GetMRFByIdRequest request) {
@@ -42,8 +52,9 @@ public class GetMRFByIdRequestBuilder {
      * @return The response from the server.
      */
     public GetMRFByIdResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetMRFByIdRequest, GetMRFByIdResponse> operation =
-                new GetMRFById.Sync(sdkConfiguration, _headers);
+                new GetMRFById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

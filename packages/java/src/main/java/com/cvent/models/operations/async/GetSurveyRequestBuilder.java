@@ -12,10 +12,13 @@ import com.cvent.models.operations.GetSurveyRequest;
 import com.cvent.operations.GetSurvey;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.AsyncPaginator;
 import com.cvent.utils.pagination.CursorTracker;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.String;
 import java.net.http.HttpResponse;
 import java.util.concurrent.CompletableFuture;
@@ -28,9 +31,16 @@ public class GetSurveyRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetSurveyRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetSurveyRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetSurveyRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetSurveyRequestBuilder request(@Nonnull GetSurveyRequest request) {
@@ -55,8 +65,9 @@ public class GetSurveyRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetSurveyResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
-                new GetSurvey.Async(sdkConfiguration, _headers);
+                new GetSurvey.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 
@@ -76,8 +87,9 @@ public class GetSurveyRequestBuilder {
      */
     public Publisher<GetSurveyResponse> callAsPublisher() {
         GetSurveyRequest request = this.request;
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
-                new GetSurvey.Async(sdkConfiguration, _headers);
+                new GetSurvey.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
 
         Flow.Publisher<HttpResponse<Blob>> asyncPaginator = new AsyncPaginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

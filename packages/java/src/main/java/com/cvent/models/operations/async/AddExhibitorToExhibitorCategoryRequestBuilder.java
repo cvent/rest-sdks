@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.AddExhibitorToExhibitorCategoryRequest;
 import com.cvent.operations.AddExhibitorToExhibitorCategory;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class AddExhibitorToExhibitorCategoryRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AddExhibitorToExhibitorCategoryRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AddExhibitorToExhibitorCategoryRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AddExhibitorToExhibitorCategoryRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AddExhibitorToExhibitorCategoryRequestBuilder request(
@@ -45,8 +55,10 @@ public class AddExhibitorToExhibitorCategoryRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<AddExhibitorToExhibitorCategoryResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation =
-                new AddExhibitorToExhibitorCategory.Async(sdkConfiguration, _headers);
+                new AddExhibitorToExhibitorCategory.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -22,7 +22,9 @@ import com.cvent.operations.GetTravelAccount;
 import com.cvent.operations.ListSupplierAccounts;
 import com.cvent.operations.ListTravelAccounts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The travel account, or corporation that represents the demand-side of travel RFPs.
@@ -67,8 +69,23 @@ public class TravelAccounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelAccountsResponse listTravelAccounts(@Nonnull ListTravelAccountsRequest request) {
+        return listTravelAccounts(request, null);
+    }
+
+    /**
+     * List Travel Accounts
+     *
+     * <p>Gets a paginated list of travel accounts.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelAccountsResponse listTravelAccounts(
+            @Nonnull ListTravelAccountsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
-                new ListTravelAccounts.Sync(sdkConfiguration, _headers);
+                new ListTravelAccounts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -93,8 +110,23 @@ public class TravelAccounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSupplierAccountsResponse listSupplierAccounts(@Nonnull ListSupplierAccountsRequest request) {
+        return listSupplierAccounts(request, null);
+    }
+
+    /**
+     * List Supplier Accounts
+     *
+     * <p>Gets a paginated list of supplier travel accounts.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSupplierAccountsResponse listSupplierAccounts(
+            @Nonnull ListSupplierAccountsRequest request, @Nullable Options options) {
         RequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
-                new ListSupplierAccounts.Sync(sdkConfiguration, _headers);
+                new ListSupplierAccounts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -119,8 +151,23 @@ public class TravelAccounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelAccountResponse getTravelAccount(@Nonnull GetTravelAccountRequest request) {
+        return getTravelAccount(request, null);
+    }
+
+    /**
+     * Get Travel Account
+     *
+     * <p>Returns the details of a single travel account based on the specified travel account ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelAccountResponse getTravelAccount(
+            @Nonnull GetTravelAccountRequest request, @Nullable Options options) {
         RequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation =
-                new GetTravelAccount.Sync(sdkConfiguration, _headers);
+                new GetTravelAccount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -145,8 +192,23 @@ public class TravelAccounts {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSupplierAccountResponse getSupplierAccount(@Nonnull GetSupplierAccountRequest request) {
+        return getSupplierAccount(request, null);
+    }
+
+    /**
+     * Get Supplier Account
+     *
+     * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSupplierAccountResponse getSupplierAccount(
+            @Nonnull GetSupplierAccountRequest request, @Nullable Options options) {
         RequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation =
-                new GetSupplierAccount.Sync(sdkConfiguration, _headers);
+                new GetSupplierAccount.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -82,7 +82,9 @@ import com.cvent.operations.ListSpeakersCategories;
 import com.cvent.operations.ListSpeakersPostFilter;
 import com.cvent.operations.UpdateSpeaker;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Speakers are individuals presenting at your event's session(s). Use Speaker APIs to read existing
@@ -129,8 +131,23 @@ public class Speakers {
      */
     public GetSessionProgramSpeakersResponse getSessionProgramSpeakers(
             @Nonnull GetSessionProgramSpeakersRequest request) {
+        return getSessionProgramSpeakers(request, null);
+    }
+
+    /**
+     * Get Session Program Speakers
+     *
+     * <p>Returns a paginated list of session program item and speaker associations.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionProgramSpeakersResponse getSessionProgramSpeakers(
+            @Nonnull GetSessionProgramSpeakersRequest request, @Nullable Options options) {
         RequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation =
-                new GetSessionProgramSpeakers.Sync(sdkConfiguration, _headers);
+                new GetSessionProgramSpeakers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -160,8 +177,25 @@ public class Speakers {
      */
     public ListSessionProgramSpeakersPostFiltersResponse listSessionProgramSpeakersPostFilters(
             @Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
+        return listSessionProgramSpeakersPostFilters(request, null);
+    }
+
+    /**
+     * List Session Program Speakers
+     *
+     * <p>Gets a paginated list of session program speaker by providing filters in the body of the request.
+     * This method returns the same data as <a href="#operation/getSessionProgramSpeakers">GET Session
+     * Program Speakers</a> but allows for longer filters.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionProgramSpeakersPostFiltersResponse listSessionProgramSpeakersPostFilters(
+            @Nonnull ListSessionProgramSpeakersPostFiltersRequest request, @Nullable Options options) {
         RequestOperation<ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse> operation =
-                new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, _headers);
+                new ListSessionProgramSpeakersPostFilters.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -189,8 +223,24 @@ public class Speakers {
      */
     public CreateSessionProgramSpeakerResponse createSessionProgramSpeaker(
             @Nonnull CreateSessionProgramSpeakerRequest request) {
+        return createSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Add Session Program Speaker
+     *
+     * <p>Creates a relationship between a session program item and a speaker. Limit 10 speakers per session
+     * program item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateSessionProgramSpeakerResponse createSessionProgramSpeaker(
+            @Nonnull CreateSessionProgramSpeakerRequest request, @Nullable Options options) {
         RequestOperation<CreateSessionProgramSpeakerRequest, CreateSessionProgramSpeakerResponse> operation =
-                new CreateSessionProgramSpeaker.Sync(sdkConfiguration, _headers);
+                new CreateSessionProgramSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -215,8 +265,23 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSessionProgramSpeakerResponse getSessionProgramSpeaker(@Nonnull GetSessionProgramSpeakerRequest request) {
+        return getSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Get Session Program Speaker
+     *
+     * <p>Returns a session program speaker relationship.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionProgramSpeakerResponse getSessionProgramSpeaker(
+            @Nonnull GetSessionProgramSpeakerRequest request, @Nullable Options options) {
         RequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation =
-                new GetSessionProgramSpeaker.Sync(sdkConfiguration, _headers);
+                new GetSessionProgramSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -242,8 +307,23 @@ public class Speakers {
      */
     public DeleteSessionProgramSpeakerResponse deleteSessionProgramSpeaker(
             @Nonnull DeleteSessionProgramSpeakerRequest request) {
+        return deleteSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Delete Session Program Speaker
+     *
+     * <p>Deletes session program item to speaker relationship.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSessionProgramSpeakerResponse deleteSessionProgramSpeaker(
+            @Nonnull DeleteSessionProgramSpeakerRequest request, @Nullable Options options) {
         RequestOperation<DeleteSessionProgramSpeakerRequest, DeleteSessionProgramSpeakerResponse> operation =
-                new DeleteSessionProgramSpeaker.Sync(sdkConfiguration, _headers);
+                new DeleteSessionProgramSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -272,8 +352,25 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSpeakersCategoriesResponse listSpeakersCategories(@Nonnull ListSpeakersCategoriesRequest request) {
+        return listSpeakersCategories(request, null);
+    }
+
+    /**
+     * List Speakers Categories
+     *
+     * <p>Gets a paginated list of speakers categories.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSpeakersCategoriesResponse listSpeakersCategories(
+            @Nonnull ListSpeakersCategoriesRequest request, @Nullable Options options) {
         RequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation =
-                new ListSpeakersCategories.Sync(sdkConfiguration, _headers);
+                new ListSpeakersCategories.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -302,8 +399,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory request) {
+        return addSpeakerCategory(request, null);
+    }
+
+    /**
+     * Create Speaker Category
+     *
+     * <p>Create a new speaker category
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory request, @Nullable Options options) {
         RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
-                new AddSpeakerCategory.Sync(sdkConfiguration, _headers);
+                new AddSpeakerCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -332,8 +445,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSpeakersResponse listSpeakers(@Nonnull ListSpeakersRequest request) {
+        return listSpeakers(request, null);
+    }
+
+    /**
+     * List Speakers
+     *
+     * <p>Gets a paginated list of speakers.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSpeakersResponse listSpeakers(@Nonnull ListSpeakersRequest request, @Nullable Options options) {
         RequestOperation<ListSpeakersRequest, ListSpeakersResponse> operation =
-                new ListSpeakers.Sync(sdkConfiguration, _headers);
+                new ListSpeakers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -362,7 +491,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateSpeakerResponse createSpeaker(@Nonnull Speaker request) {
-        RequestOperation<Speaker, CreateSpeakerResponse> operation = new CreateSpeaker.Sync(sdkConfiguration, _headers);
+        return createSpeaker(request, null);
+    }
+
+    /**
+     * Create Speaker
+     *
+     * <p>Create a single speaker based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateSpeakerResponse createSpeaker(@Nonnull Speaker request, @Nullable Options options) {
+        RequestOperation<Speaker, CreateSpeakerResponse> operation =
+                new CreateSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -393,8 +539,26 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSpeakersPostFilterResponse listSpeakersPostFilter(@Nonnull ListSpeakersPostFilterRequest request) {
+        return listSpeakersPostFilter(request, null);
+    }
+
+    /**
+     * List Speakers
+     *
+     * <p>Get a paginated list of speakers by sending a filter in the body of the request. This method will
+     * return the same data as GET List Speakers but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSpeakersPostFilterResponse listSpeakersPostFilter(
+            @Nonnull ListSpeakersPostFilterRequest request, @Nullable Options options) {
         RequestOperation<ListSpeakersPostFilterRequest, ListSpeakersPostFilterResponse> operation =
-                new ListSpeakersPostFilter.Sync(sdkConfiguration, _headers);
+                new ListSpeakersPostFilter.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -423,8 +587,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateSpeakerResponse updateSpeaker(@Nonnull UpdateSpeakerRequest request) {
+        return updateSpeaker(request, null);
+    }
+
+    /**
+     * Update Speaker
+     *
+     * <p>Updates a particular speaker based on the given speaker ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateSpeakerResponse updateSpeaker(@Nonnull UpdateSpeakerRequest request, @Nullable Options options) {
         RequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation =
-                new UpdateSpeaker.Sync(sdkConfiguration, _headers);
+                new UpdateSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -453,8 +633,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSpeakerResponse deleteSpeaker(@Nonnull DeleteSpeakerRequest request) {
+        return deleteSpeaker(request, null);
+    }
+
+    /**
+     * Delete Speaker
+     *
+     * <p>Deletes a particular speaker based on the given speaker ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSpeakerResponse deleteSpeaker(@Nonnull DeleteSpeakerRequest request, @Nullable Options options) {
         RequestOperation<DeleteSpeakerRequest, DeleteSpeakerResponse> operation =
-                new DeleteSpeaker.Sync(sdkConfiguration, _headers);
+                new DeleteSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -483,8 +679,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSpeakerDocsResponse listSpeakerDocs(@Nonnull ListSpeakerDocsRequest request) {
+        return listSpeakerDocs(request, null);
+    }
+
+    /**
+     * List Speaker's Documents
+     *
+     * <p>Gets a paginated list of document URLs for a single speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSpeakerDocsResponse listSpeakerDocs(@Nonnull ListSpeakerDocsRequest request, @Nullable Options options) {
         RequestOperation<ListSpeakerDocsRequest, ListSpeakerDocsResponse> operation =
-                new ListSpeakerDocs.Sync(sdkConfiguration, _headers);
+                new ListSpeakerDocs.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -513,8 +725,24 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSpeakerDocResponse getSpeakerDoc(@Nonnull GetSpeakerDocRequest request) {
+        return getSpeakerDoc(request, null);
+    }
+
+    /**
+     * Get a document for a speaker
+     *
+     * <p>Get a specific document that is assigned to a specific speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSpeakerDocResponse getSpeakerDoc(@Nonnull GetSpeakerDocRequest request, @Nullable Options options) {
         RequestOperation<GetSpeakerDocRequest, GetSpeakerDocResponse> operation =
-                new GetSpeakerDoc.Sync(sdkConfiguration, _headers);
+                new GetSpeakerDoc.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -545,8 +773,25 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddSpeakerDocResponse addSpeakerDoc(@Nonnull AddSpeakerDocRequest request) {
+        return addSpeakerDoc(request, null);
+    }
+
+    /**
+     * Add Document To Speaker
+     *
+     * <p>Add a single document to a speaker with a UUID provided by <a href="#operation/uploadFile">file
+     * upload</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddSpeakerDocResponse addSpeakerDoc(@Nonnull AddSpeakerDocRequest request, @Nullable Options options) {
         RequestOperation<AddSpeakerDocRequest, AddSpeakerDocResponse> operation =
-                new AddSpeakerDoc.Sync(sdkConfiguration, _headers);
+                new AddSpeakerDoc.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -577,8 +822,26 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSpeakerDocumentResponse deleteSpeakerDocument(@Nonnull DeleteSpeakerDocumentRequest request) {
+        return deleteSpeakerDocument(request, null);
+    }
+
+    /**
+     * Delete Document From Speaker
+     *
+     * <p>Use to delete a document from a speaker with a UUID provided by <a href="#operation/uploadFile">file
+     * upload</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSpeakerDocumentResponse deleteSpeakerDocument(
+            @Nonnull DeleteSpeakerDocumentRequest request, @Nullable Options options) {
         RequestOperation<DeleteSpeakerDocumentRequest, DeleteSpeakerDocumentResponse> operation =
-                new DeleteSpeakerDocument.Sync(sdkConfiguration, _headers);
+                new DeleteSpeakerDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -608,8 +871,25 @@ public class Speakers {
      */
     public DeleteSpeakerProfileImageResponse deleteSpeakerProfileImage(
             @Nonnull DeleteSpeakerProfileImageRequest request) {
+        return deleteSpeakerProfileImage(request, null);
+    }
+
+    /**
+     * Delete Speaker Profile Picture
+     *
+     * <p>Deletes the profile picture of the given speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSpeakerProfileImageResponse deleteSpeakerProfileImage(
+            @Nonnull DeleteSpeakerProfileImageRequest request, @Nullable Options options) {
         RequestOperation<DeleteSpeakerProfileImageRequest, DeleteSpeakerProfileImageResponse> operation =
-                new DeleteSpeakerProfileImage.Sync(sdkConfiguration, _headers);
+                new DeleteSpeakerProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -641,8 +921,26 @@ public class Speakers {
      */
     public AssignSpeakerProfileImageResponse assignSpeakerProfileImage(
             @Nonnull AssignSpeakerProfileImageRequest request) {
+        return assignSpeakerProfileImage(request, null);
+    }
+
+    /**
+     * Assign Speaker Profile Picture
+     *
+     * <p>Assign a profile picture to a speaker with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssignSpeakerProfileImageResponse assignSpeakerProfileImage(
+            @Nonnull AssignSpeakerProfileImageRequest request, @Nullable Options options) {
         RequestOperation<AssignSpeakerProfileImageRequest, AssignSpeakerProfileImageResponse> operation =
-                new AssignSpeakerProfileImage.Sync(sdkConfiguration, _headers);
+                new AssignSpeakerProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -671,8 +969,25 @@ public class Speakers {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSpeakerSessionsResponse listSpeakerSessions(@Nonnull ListSpeakerSessionsRequest request) {
+        return listSpeakerSessions(request, null);
+    }
+
+    /**
+     * List Speaker's Sessions
+     *
+     * <p>Gets a paginated list of sessions assigned to a speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSpeakerSessionsResponse listSpeakerSessions(
+            @Nonnull ListSpeakerSessionsRequest request, @Nullable Options options) {
         RequestOperation<ListSpeakerSessionsRequest, ListSpeakerSessionsResponse> operation =
-                new ListSpeakerSessions.Sync(sdkConfiguration, _headers);
+                new ListSpeakerSessions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

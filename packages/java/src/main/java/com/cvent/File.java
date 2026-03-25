@@ -14,6 +14,7 @@ import com.cvent.models.operations.UploadFileResponse;
 import com.cvent.operations.GetFile;
 import com.cvent.operations.UploadFile;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -77,7 +78,7 @@ public class File {
      * @throws RuntimeException subclass if the API call fails
      */
     public UploadFileResponse uploadFileDirect() {
-        return uploadFile(null);
+        return uploadFile(null, null);
     }
 
     /**
@@ -91,11 +92,13 @@ public class File {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public UploadFileResponse uploadFile(@Nullable FileUpload request) {
-        RequestOperation<FileUpload, UploadFileResponse> operation = new UploadFile.Sync(sdkConfiguration, _headers);
+    public UploadFileResponse uploadFile(@Nullable FileUpload request, @Nullable Options options) {
+        RequestOperation<FileUpload, UploadFileResponse> operation =
+                new UploadFile.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -124,7 +127,24 @@ public class File {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetFileResponse getFile(@Nonnull GetFileRequest request) {
-        RequestOperation<GetFileRequest, GetFileResponse> operation = new GetFile.Sync(sdkConfiguration, _headers);
+        return getFile(request, null);
+    }
+
+    /**
+     * Get File Location
+     *
+     * <p>Returns the file upload location for the specified file ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetFileResponse getFile(@Nonnull GetFileRequest request, @Nullable Options options) {
+        RequestOperation<GetFileRequest, GetFileResponse> operation =
+                new GetFile.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

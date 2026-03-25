@@ -39,13 +39,17 @@ namespace Cvent.SDK
         /// Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorAdminsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListExhibitorAdminsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListExhibitorAdminsResponse> ListExhibitorAdminsAsync(ListExhibitorAdminsRequest request);
+        public Task<ListExhibitorAdminsResponse> ListExhibitorAdminsAsync(
+            ListExhibitorAdminsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Create Exhibitor Admin<br/>
@@ -55,13 +59,17 @@ namespace Cvent.SDK
         /// Creates an exhibitor admin for the given exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="PostExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<PostExhibitorAdminResponse> PostExhibitorAdminAsync(PostExhibitorAdminRequest request);
+        public Task<PostExhibitorAdminResponse> PostExhibitorAdminAsync(
+            PostExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get Exhibitor Admin<br/>
@@ -71,13 +79,17 @@ namespace Cvent.SDK
         /// Gets the details of a single exhibitor admin, such as name or contact email.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetExhibitorAdminResponse> GetExhibitorAdminAsync(GetExhibitorAdminRequest request);
+        public Task<GetExhibitorAdminResponse> GetExhibitorAdminAsync(
+            GetExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Update Exhibitor Admin<br/>
@@ -87,13 +99,17 @@ namespace Cvent.SDK
         /// Updates a single exhibitor admin.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<UpdateExhibitorAdminResponse> UpdateExhibitorAdminAsync(UpdateExhibitorAdminRequest request);
+        public Task<UpdateExhibitorAdminResponse> UpdateExhibitorAdminAsync(
+            UpdateExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Booth Staff<br/>
@@ -103,13 +119,17 @@ namespace Cvent.SDK
         /// Gets a list of booth staff members for a given event and exhibitor id.
         /// </remarks>
         /// <param name="request">A <see cref="ListBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListBoothStaffResponse> ListBoothStaffAsync(ListBoothStaffRequest request);
+        public Task<ListBoothStaffResponse> ListBoothStaffAsync(
+            ListBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Create Booth Staff<br/>
@@ -119,13 +139,17 @@ namespace Cvent.SDK
         /// Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AssociateBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<AssociateBoothStaffResponse> AssociateBoothStaffAsync(AssociateBoothStaffRequest request);
+        public Task<AssociateBoothStaffResponse> AssociateBoothStaffAsync(
+            AssociateBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get Booth Staff member<br/>
@@ -135,13 +159,17 @@ namespace Cvent.SDK
         /// Retrieves the attendee id associated with an exhibitor booth staff member.
         /// </remarks>
         /// <param name="request">A <see cref="GetBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetBoothStaffResponse> GetBoothStaffAsync(GetBoothStaffRequest request);
+        public Task<GetBoothStaffResponse> GetBoothStaffAsync(
+            GetBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Delete Booth Staff member<br/>
@@ -151,13 +179,17 @@ namespace Cvent.SDK
         /// Disassociate a single booth staff member from a single exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<DeleteBoothStaffResponse> DeleteBoothStaffAsync(DeleteBoothStaffRequest request);
+        public Task<DeleteBoothStaffResponse> DeleteBoothStaffAsync(
+            DeleteBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -186,13 +218,17 @@ namespace Cvent.SDK
         /// Retrieves a paginated list of exhibitor admins for an exhibitor within an event.
         /// </remarks>
         /// <param name="request">A <see cref="ListExhibitorAdminsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListExhibitorAdminsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListExhibitorAdminsResponse> ListExhibitorAdminsAsync(ListExhibitorAdminsRequest request)
+        public async Task<ListExhibitorAdminsResponse> ListExhibitorAdminsAsync(
+            ListExhibitorAdminsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -215,11 +251,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listExhibitorAdmins", new List<string> { "exhibitor/exhibitor-admins:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -270,7 +338,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListExhibitorAdminsAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -344,13 +413,17 @@ namespace Cvent.SDK
         /// Creates an exhibitor admin for the given exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="PostExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="PostExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<PostExhibitorAdminResponse> PostExhibitorAdminAsync(PostExhibitorAdminRequest request)
+        public async Task<PostExhibitorAdminResponse> PostExhibitorAdminAsync(
+            PostExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -379,11 +452,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "postExhibitorAdmin", new List<string> { "exhibitor/exhibitor-admins:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -479,13 +584,17 @@ namespace Cvent.SDK
         /// Gets the details of a single exhibitor admin, such as name or contact email.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetExhibitorAdminResponse> GetExhibitorAdminAsync(GetExhibitorAdminRequest request)
+        public async Task<GetExhibitorAdminResponse> GetExhibitorAdminAsync(
+            GetExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -508,11 +617,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getExhibitorAdmin", new List<string> { "exhibitor/exhibitor-admins:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -608,13 +749,17 @@ namespace Cvent.SDK
         /// Updates a single exhibitor admin.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateExhibitorAdminRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateExhibitorAdminResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<UpdateExhibitorAdminResponse> UpdateExhibitorAdminAsync(UpdateExhibitorAdminRequest request)
+        public async Task<UpdateExhibitorAdminResponse> UpdateExhibitorAdminAsync(
+            UpdateExhibitorAdminRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -643,11 +788,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateExhibitorAdmin", new List<string> { "exhibitor/exhibitor-admins:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -743,13 +920,17 @@ namespace Cvent.SDK
         /// Gets a list of booth staff members for a given event and exhibitor id.
         /// </remarks>
         /// <param name="request">A <see cref="ListBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListBoothStaffResponse> ListBoothStaffAsync(ListBoothStaffRequest request)
+        public async Task<ListBoothStaffResponse> ListBoothStaffAsync(
+            ListBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -772,11 +953,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listBoothStaff", new List<string> { "exhibitor/booth-staff:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -827,7 +1040,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListBoothStaffAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -901,13 +1115,17 @@ namespace Cvent.SDK
         /// Associates a registered attendee as a booth staff to a specific exhibitor id within an event.
         /// </remarks>
         /// <param name="request">A <see cref="AssociateBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AssociateBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<AssociateBoothStaffResponse> AssociateBoothStaffAsync(AssociateBoothStaffRequest request)
+        public async Task<AssociateBoothStaffResponse> AssociateBoothStaffAsync(
+            AssociateBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -936,11 +1154,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "associateBoothStaff", new List<string> { "exhibitor/booth-staff:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1036,13 +1286,17 @@ namespace Cvent.SDK
         /// Retrieves the attendee id associated with an exhibitor booth staff member.
         /// </remarks>
         /// <param name="request">A <see cref="GetBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetBoothStaffResponse> GetBoothStaffAsync(GetBoothStaffRequest request)
+        public async Task<GetBoothStaffResponse> GetBoothStaffAsync(
+            GetBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1065,11 +1319,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getBoothStaff", new List<string> { "exhibitor/booth-staff:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1165,13 +1451,17 @@ namespace Cvent.SDK
         /// Disassociate a single booth staff member from a single exhibitor.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteBoothStaffRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteBoothStaffResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<DeleteBoothStaffResponse> DeleteBoothStaffAsync(DeleteBoothStaffRequest request)
+        public async Task<DeleteBoothStaffResponse> DeleteBoothStaffAsync(
+            DeleteBoothStaffRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1194,11 +1484,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteBoothStaff", new List<string> { "exhibitor/booth-staff:delete" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.LinkAgendaItemToDiscountRequest;
 import com.cvent.operations.LinkAgendaItemToDiscount;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class LinkAgendaItemToDiscountRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private LinkAgendaItemToDiscountRequest request;
+    private final Options.Builder optionsBuilder;
 
     public LinkAgendaItemToDiscountRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public LinkAgendaItemToDiscountRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public LinkAgendaItemToDiscountRequestBuilder request(@Nonnull LinkAgendaItemToDiscountRequest request) {
@@ -44,8 +54,9 @@ public class LinkAgendaItemToDiscountRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<LinkAgendaItemToDiscountResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<LinkAgendaItemToDiscountRequest, LinkAgendaItemToDiscountResponse> operation =
-                new LinkAgendaItemToDiscount.Async(sdkConfiguration, _headers);
+                new LinkAgendaItemToDiscount.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

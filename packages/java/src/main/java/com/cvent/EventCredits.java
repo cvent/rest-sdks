@@ -10,7 +10,9 @@ import com.cvent.models.operations.GetAttendeeCreditsRequestBuilder;
 import com.cvent.models.operations.GetAttendeeCreditsResponse;
 import com.cvent.operations.GetAttendeeCredits;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Event Credits reward attendees for participating in your events. Planners can award credits for the
@@ -63,8 +65,25 @@ public class EventCredits {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAttendeeCreditsResponse getAttendeeCredits(@Nonnull GetAttendeeCreditsRequest request) {
+        return getAttendeeCredits(request, null);
+    }
+
+    /**
+     * List Attendee Event Credits
+     *
+     * <p>Gets a paginated list of attendee event credits in your account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAttendeeCreditsResponse getAttendeeCredits(
+            @Nonnull GetAttendeeCreditsRequest request, @Nullable Options options) {
         RequestOperation<GetAttendeeCreditsRequest, GetAttendeeCreditsResponse> operation =
-                new GetAttendeeCredits.Sync(sdkConfiguration, _headers);
+                new GetAttendeeCredits.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

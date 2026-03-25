@@ -22,7 +22,9 @@ import com.cvent.operations.GetCommunicationLogMessages;
 import com.cvent.operations.GetConfiguration;
 import com.cvent.operations.UpdateConfiguration;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -77,8 +79,23 @@ public class AsyncCompliance {
      * @return {@code CompletableFuture<GetConfigurationResponse>} - The async response
      */
     public CompletableFuture<GetConfigurationResponse> getConfigurationDirect() {
+        return getConfiguration(null);
+    }
+
+    /**
+     * Get Communication Config
+     *
+     * <p>Gets communication compliance configuration for an account. For example, gets the communication
+     * types enabled for an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return {@code CompletableFuture<GetConfigurationResponse>} - The async response
+     */
+    public CompletableFuture<GetConfigurationResponse> getConfiguration(@Nullable Options options) {
         AsyncRequestlessOperation<GetConfigurationResponse> operation =
-                new GetConfiguration.Async(sdkConfiguration, _headers);
+                new GetConfiguration.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest().thenCompose(operation::handleResponse);
     }
 
@@ -109,8 +126,25 @@ public class AsyncCompliance {
      */
     public CompletableFuture<UpdateConfigurationResponse> updateConfiguration(
             @Nonnull CommunicationConfiguration request) {
+        return updateConfiguration(request, null);
+    }
+
+    /**
+     * Update Communication Config
+     *
+     * <p>Update the communication compliance configuration for an account. For example, configure which
+     * communication types will be recorded in the communication log.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateConfigurationResponse>} - The async response
+     */
+    public CompletableFuture<UpdateConfigurationResponse> updateConfiguration(
+            @Nonnull CommunicationConfiguration request, @Nullable Options options) {
         AsyncRequestOperation<CommunicationConfiguration, UpdateConfigurationResponse> operation =
-                new UpdateConfiguration.Async(sdkConfiguration, _headers);
+                new UpdateConfiguration.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -157,8 +191,33 @@ public class AsyncCompliance {
      */
     public CompletableFuture<GetCommunicationLogMessagesResponse> getCommunicationLogMessages(
             @Nonnull GetCommunicationLogMessagesRequest request) {
+        return getCommunicationLogMessages(request, null);
+    }
+
+    /**
+     * List Communication
+     *
+     * <p>Gets a paginated list of communication log messages from your account. The filter is not required.
+     * If no filter
+     * is provided then the API will return communication log messages of all types between the specified
+     * dates.
+     *
+     * <p>Supported types are:
+     *
+     * <p>* email
+     * * chat
+     * * session_qa
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetCommunicationLogMessagesResponse>} - The async response
+     */
+    public CompletableFuture<GetCommunicationLogMessagesResponse> getCommunicationLogMessages(
+            @Nonnull GetCommunicationLogMessagesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetCommunicationLogMessagesRequest, GetCommunicationLogMessagesResponse> operation =
-                new GetCommunicationLogMessages.Async(sdkConfiguration, _headers);
+                new GetCommunicationLogMessages.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -205,8 +264,34 @@ public class AsyncCompliance {
      */
     public CompletableFuture<FilterCommunicationLogMessagesResponse> filterCommunicationLogMessages(
             @Nonnull FilterCommunicationLogMessagesRequest request) {
+        return filterCommunicationLogMessages(request, null);
+    }
+
+    /**
+     * List Communication
+     *
+     * <p>Gets a paginated list of communication log messages from your account. The filter in the request
+     * body is not required. If no filter
+     * is provided then the API will return communication log messages of all types between the specified
+     * dates.
+     *
+     * <p>Supported types are:
+     *
+     * <p>* email
+     * * chat
+     * * session_qa
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<FilterCommunicationLogMessagesResponse>} - The async response
+     */
+    public CompletableFuture<FilterCommunicationLogMessagesResponse> filterCommunicationLogMessages(
+            @Nonnull FilterCommunicationLogMessagesRequest request, @Nullable Options options) {
         AsyncRequestOperation<FilterCommunicationLogMessagesRequest, FilterCommunicationLogMessagesResponse> operation =
-                new FilterCommunicationLogMessages.Async(sdkConfiguration, _headers);
+                new FilterCommunicationLogMessages.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteCurrencyConversionRateRequest;
 import com.cvent.operations.DeleteCurrencyConversionRate;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteCurrencyConversionRateRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteCurrencyConversionRateRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteCurrencyConversionRateRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteCurrencyConversionRateRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteCurrencyConversionRateRequestBuilder request(@Nonnull DeleteCurrencyConversionRateRequest request) {
@@ -44,8 +54,9 @@ public class DeleteCurrencyConversionRateRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteCurrencyConversionRateResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteCurrencyConversionRateRequest, DeleteCurrencyConversionRateResponse> operation =
-                new DeleteCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new DeleteCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

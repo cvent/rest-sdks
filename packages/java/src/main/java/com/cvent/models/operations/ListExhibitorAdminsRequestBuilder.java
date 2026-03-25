@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.ListExhibitorAdmins;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class ListExhibitorAdminsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListExhibitorAdminsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListExhibitorAdminsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListExhibitorAdminsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListExhibitorAdminsRequestBuilder request(@Nonnull ListExhibitorAdminsRequest request) {
@@ -53,8 +63,9 @@ public class ListExhibitorAdminsRequestBuilder {
      * @return The response from the server.
      */
     public ListExhibitorAdminsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation =
-                new ListExhibitorAdmins.Sync(sdkConfiguration, _headers);
+                new ListExhibitorAdmins.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -73,8 +84,9 @@ public class ListExhibitorAdminsRequestBuilder {
      */
     public Iterable<ListExhibitorAdminsResponse> callAsIterable() {
         ListExhibitorAdminsRequest request = this.request;
+        Options options = optionsBuilder.build();
         RequestOperation<ListExhibitorAdminsRequest, ListExhibitorAdminsResponse> operation =
-                new ListExhibitorAdmins.Sync(sdkConfiguration, _headers);
+                new ListExhibitorAdmins.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

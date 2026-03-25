@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CancelAppointment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CancelAppointmentRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CancelAppointmentRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CancelAppointmentRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CancelAppointmentRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CancelAppointmentRequestBuilder request(@Nonnull CancelAppointmentRequest request) {
@@ -42,8 +52,9 @@ public class CancelAppointmentRequestBuilder {
      * @return The response from the server.
      */
     public CancelAppointmentResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CancelAppointmentRequest, CancelAppointmentResponse> operation =
-                new CancelAppointment.Sync(sdkConfiguration, _headers);
+                new CancelAppointment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

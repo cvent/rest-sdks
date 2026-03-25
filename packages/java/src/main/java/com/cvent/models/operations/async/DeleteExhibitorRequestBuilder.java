@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteExhibitorRequest;
 import com.cvent.operations.DeleteExhibitor;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteExhibitorRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteExhibitorRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteExhibitorRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteExhibitorRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteExhibitorRequestBuilder request(@Nonnull DeleteExhibitorRequest request) {
@@ -44,8 +54,9 @@ public class DeleteExhibitorRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteExhibitorResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteExhibitorRequest, DeleteExhibitorResponse> operation =
-                new DeleteExhibitor.Async(sdkConfiguration, _headers);
+                new DeleteExhibitor.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

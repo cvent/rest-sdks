@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateBudgetAllocationsRequest;
 import com.cvent.operations.UpdateBudgetAllocations;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateBudgetAllocationsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateBudgetAllocationsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateBudgetAllocationsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateBudgetAllocationsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateBudgetAllocationsRequestBuilder request(@Nonnull UpdateBudgetAllocationsRequest request) {
@@ -44,8 +54,9 @@ public class UpdateBudgetAllocationsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateBudgetAllocationsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateBudgetAllocationsRequest, UpdateBudgetAllocationsResponse> operation =
-                new UpdateBudgetAllocations.Async(sdkConfiguration, _headers);
+                new UpdateBudgetAllocations.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

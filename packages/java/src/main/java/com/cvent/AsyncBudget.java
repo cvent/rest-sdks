@@ -98,7 +98,9 @@ import com.cvent.operations.UpdateCardTransaction;
 import com.cvent.operations.UpdateCurrencyConversionRate;
 import com.cvent.operations.UpdatePayment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -154,8 +156,26 @@ public class AsyncBudget {
      */
     public CompletableFuture<GetAccountBudgetItemsResponse> getAccountBudgetItems(
             @Nonnull GetAccountBudgetItemsRequest request) {
+        return getAccountBudgetItems(request, null);
+    }
+
+    /**
+     * List Budget Items
+     *
+     * <p>Gets a paginated list of budget items across all events linked to the account associated with the
+     * access token. The data can be filtered by the specified after and before date parameters, based on
+     * the last modified date, for a maximum duration of 1 year per request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAccountBudgetItemsResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountBudgetItemsResponse> getAccountBudgetItems(
+            @Nonnull GetAccountBudgetItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAccountBudgetItemsRequest, GetAccountBudgetItemsResponse> operation =
-                new GetAccountBudgetItems.Async(sdkConfiguration, _headers);
+                new GetAccountBudgetItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -183,8 +203,23 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<GetCardsResponse>} - The async response
      */
     public CompletableFuture<GetCardsResponse> getCards(@Nonnull GetCardsRequest request) {
+        return getCards(request, null);
+    }
+
+    /**
+     * List Cards
+     *
+     * <p>Gets a paginated list of payment cards associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetCardsResponse>} - The async response
+     */
+    public CompletableFuture<GetCardsResponse> getCards(@Nonnull GetCardsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetCardsRequest, GetCardsResponse> operation =
-                new GetCards.Async(sdkConfiguration, _headers);
+                new GetCards.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -213,8 +248,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<GetCardTransactionsResponse> getCardTransactions(
             @Nonnull GetCardTransactionsRequest request) {
+        return getCardTransactions(request, null);
+    }
+
+    /**
+     * List Card Transactions
+     *
+     * <p>Gets a paginated list of card transactions associated with the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetCardTransactionsResponse>} - The async response
+     */
+    public CompletableFuture<GetCardTransactionsResponse> getCardTransactions(
+            @Nonnull GetCardTransactionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetCardTransactionsRequest, GetCardTransactionsResponse> operation =
-                new GetCardTransactions.Async(sdkConfiguration, _headers);
+                new GetCardTransactions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -243,8 +294,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<CreateCardTransactionResponse> createCardTransaction(
             @Nonnull CardTransactionCreate request) {
+        return createCardTransaction(request, null);
+    }
+
+    /**
+     * Create Card Transaction
+     *
+     * <p>Creates a single card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateCardTransactionResponse>} - The async response
+     */
+    public CompletableFuture<CreateCardTransactionResponse> createCardTransaction(
+            @Nonnull CardTransactionCreate request, @Nullable Options options) {
         AsyncRequestOperation<CardTransactionCreate, CreateCardTransactionResponse> operation =
-                new CreateCardTransaction.Async(sdkConfiguration, _headers);
+                new CreateCardTransaction.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -273,8 +340,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<DeleteCardTransactionResponse> deleteCardTransaction(
             @Nonnull DeleteCardTransactionRequest request) {
+        return deleteCardTransaction(request, null);
+    }
+
+    /**
+     * Delete Card Transaction
+     *
+     * <p>Deletes a card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteCardTransactionResponse>} - The async response
+     */
+    public CompletableFuture<DeleteCardTransactionResponse> deleteCardTransaction(
+            @Nonnull DeleteCardTransactionRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteCardTransactionRequest, DeleteCardTransactionResponse> operation =
-                new DeleteCardTransaction.Async(sdkConfiguration, _headers);
+                new DeleteCardTransaction.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -303,8 +386,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<UpdateCardTransactionResponse> updateCardTransaction(
             @Nonnull UpdateCardTransactionRequest request) {
+        return updateCardTransaction(request, null);
+    }
+
+    /**
+     * Update Card Transaction
+     *
+     * <p>Updates a card transaction record.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateCardTransactionResponse>} - The async response
+     */
+    public CompletableFuture<UpdateCardTransactionResponse> updateCardTransaction(
+            @Nonnull UpdateCardTransactionRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateCardTransactionRequest, UpdateCardTransactionResponse> operation =
-                new UpdateCardTransaction.Async(sdkConfiguration, _headers);
+                new UpdateCardTransaction.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -333,8 +432,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<GetCurrencyConversionRateResponse> getCurrencyConversionRate(
             @Nonnull GetCurrencyConversionRateRequest request) {
+        return getCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * List Currency Conversion Rates
+     *
+     * <p>Gets a paginated list of conversion rates for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetCurrencyConversionRateResponse>} - The async response
+     */
+    public CompletableFuture<GetCurrencyConversionRateResponse> getCurrencyConversionRate(
+            @Nonnull GetCurrencyConversionRateRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetCurrencyConversionRateRequest, GetCurrencyConversionRateResponse> operation =
-                new GetCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new GetCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -363,8 +478,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<CreateCurrencyConversionRateResponse> createCurrencyConversionRate(
             @Nonnull CreateCurrencyConversionRateRequest request) {
+        return createCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Create Conversion Rate
+     *
+     * <p>Create conversion rate for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateCurrencyConversionRateResponse>} - The async response
+     */
+    public CompletableFuture<CreateCurrencyConversionRateResponse> createCurrencyConversionRate(
+            @Nonnull CreateCurrencyConversionRateRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateCurrencyConversionRateRequest, CreateCurrencyConversionRateResponse> operation =
-                new CreateCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new CreateCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -393,8 +524,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<UpdateCurrencyConversionRateResponse> updateCurrencyConversionRate(
             @Nonnull UpdateCurrencyConversionRateRequest request) {
+        return updateCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Update Conversion Rate
+     *
+     * <p>Updates a conversion rate for a currency in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateCurrencyConversionRateResponse>} - The async response
+     */
+    public CompletableFuture<UpdateCurrencyConversionRateResponse> updateCurrencyConversionRate(
+            @Nonnull UpdateCurrencyConversionRateRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateCurrencyConversionRateRequest, UpdateCurrencyConversionRateResponse> operation =
-                new UpdateCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new UpdateCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -423,8 +570,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<DeleteCurrencyConversionRateResponse> deleteCurrencyConversionRate(
             @Nonnull DeleteCurrencyConversionRateRequest request) {
+        return deleteCurrencyConversionRate(request, null);
+    }
+
+    /**
+     * Delete Conversion Rate
+     *
+     * <p>Deletes conversion rate defined for currency.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteCurrencyConversionRateResponse>} - The async response
+     */
+    public CompletableFuture<DeleteCurrencyConversionRateResponse> deleteCurrencyConversionRate(
+            @Nonnull DeleteCurrencyConversionRateRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteCurrencyConversionRateRequest, DeleteCurrencyConversionRateResponse> operation =
-                new DeleteCurrencyConversionRate.Async(sdkConfiguration, _headers);
+                new DeleteCurrencyConversionRate.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -452,8 +615,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<GetBudgetItemsResponse>} - The async response
      */
     public CompletableFuture<GetBudgetItemsResponse> getBudgetItems(@Nonnull GetBudgetItemsRequest request) {
+        return getBudgetItems(request, null);
+    }
+
+    /**
+     * List Event Budget Items
+     *
+     * <p>Gets a paginated list of budget items for event associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBudgetItemsResponse>} - The async response
+     */
+    public CompletableFuture<GetBudgetItemsResponse> getBudgetItems(
+            @Nonnull GetBudgetItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBudgetItemsRequest, GetBudgetItemsResponse> operation =
-                new GetBudgetItems.Async(sdkConfiguration, _headers);
+                new GetBudgetItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -481,8 +660,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<CreateBudgetItemResponse>} - The async response
      */
     public CompletableFuture<CreateBudgetItemResponse> createBudgetItem(@Nonnull CreateBudgetItemRequest request) {
+        return createBudgetItem(request, null);
+    }
+
+    /**
+     * Create Budget Item
+     *
+     * <p>Create single Budget Item based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateBudgetItemResponse>} - The async response
+     */
+    public CompletableFuture<CreateBudgetItemResponse> createBudgetItem(
+            @Nonnull CreateBudgetItemRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateBudgetItemRequest, CreateBudgetItemResponse> operation =
-                new CreateBudgetItem.Async(sdkConfiguration, _headers);
+                new CreateBudgetItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -507,8 +702,22 @@ public class AsyncBudget {
      */
     public CompletableFuture<GetBudgetAllocationsResponse> getBudgetAllocations(
             @Nonnull GetBudgetAllocationsRequest request) {
+        return getBudgetAllocations(request, null);
+    }
+
+    /**
+     * List Budget Allocations
+     *
+     * <p>Gets a paginated list of budget allocations for all budget items within an event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBudgetAllocationsResponse>} - The async response
+     */
+    public CompletableFuture<GetBudgetAllocationsResponse> getBudgetAllocations(
+            @Nonnull GetBudgetAllocationsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBudgetAllocationsRequest, GetBudgetAllocationsResponse> operation =
-                new GetBudgetAllocations.Async(sdkConfiguration, _headers);
+                new GetBudgetAllocations.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -536,8 +745,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<UpdateBudgetItemResponse>} - The async response
      */
     public CompletableFuture<UpdateBudgetItemResponse> updateBudgetItem(@Nonnull UpdateBudgetItemRequest request) {
+        return updateBudgetItem(request, null);
+    }
+
+    /**
+     * Update Budget Item
+     *
+     * <p>Update single Budget Item based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateBudgetItemResponse>} - The async response
+     */
+    public CompletableFuture<UpdateBudgetItemResponse> updateBudgetItem(
+            @Nonnull UpdateBudgetItemRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateBudgetItemRequest, UpdateBudgetItemResponse> operation =
-                new UpdateBudgetItem.Async(sdkConfiguration, _headers);
+                new UpdateBudgetItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -564,8 +789,23 @@ public class AsyncBudget {
      */
     public CompletableFuture<UpdateBudgetAllocationsResponse> updateBudgetAllocations(
             @Nonnull UpdateBudgetAllocationsRequest request) {
+        return updateBudgetAllocations(request, null);
+    }
+
+    /**
+     * Update Budget Allocations
+     *
+     * <p>Bulk add or update budget allocations in a budget item. If budget allocations already exist for the
+     * budget item, they will be updated.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateBudgetAllocationsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateBudgetAllocationsResponse> updateBudgetAllocations(
+            @Nonnull UpdateBudgetAllocationsRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateBudgetAllocationsRequest, UpdateBudgetAllocationsResponse> operation =
-                new UpdateBudgetAllocations.Async(sdkConfiguration, _headers);
+                new UpdateBudgetAllocations.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -590,8 +830,22 @@ public class AsyncBudget {
      */
     public CompletableFuture<DeleteBudgetAllocationsResponse> deleteBudgetAllocations(
             @Nonnull DeleteBudgetAllocationsRequest request) {
+        return deleteBudgetAllocations(request, null);
+    }
+
+    /**
+     * Delete  Budget Allocations
+     *
+     * <p>Delete all budget allocations for a given budget item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteBudgetAllocationsResponse>} - The async response
+     */
+    public CompletableFuture<DeleteBudgetAllocationsResponse> deleteBudgetAllocations(
+            @Nonnull DeleteBudgetAllocationsRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteBudgetAllocationsRequest, DeleteBudgetAllocationsResponse> operation =
-                new DeleteBudgetAllocations.Async(sdkConfiguration, _headers);
+                new DeleteBudgetAllocations.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -619,8 +873,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<CreatePaymentResponse>} - The async response
      */
     public CompletableFuture<CreatePaymentResponse> createPayment(@Nonnull CreatePaymentRequest request) {
+        return createPayment(request, null);
+    }
+
+    /**
+     * Create Budget Payment
+     *
+     * <p>Create single payment for the budget item given in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreatePaymentResponse>} - The async response
+     */
+    public CompletableFuture<CreatePaymentResponse> createPayment(
+            @Nonnull CreatePaymentRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreatePaymentRequest, CreatePaymentResponse> operation =
-                new CreatePayment.Async(sdkConfiguration, _headers);
+                new CreatePayment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -648,8 +918,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<UpdatePaymentResponse>} - The async response
      */
     public CompletableFuture<UpdatePaymentResponse> updatePayment(@Nonnull UpdatePaymentRequest request) {
+        return updatePayment(request, null);
+    }
+
+    /**
+     * Update Budget Payment
+     *
+     * <p>Updates a payment for a budget item.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdatePaymentResponse>} - The async response
+     */
+    public CompletableFuture<UpdatePaymentResponse> updatePayment(
+            @Nonnull UpdatePaymentRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdatePaymentRequest, UpdatePaymentResponse> operation =
-                new UpdatePayment.Async(sdkConfiguration, _headers);
+                new UpdatePayment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -677,8 +963,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<DeletePaymentResponse>} - The async response
      */
     public CompletableFuture<DeletePaymentResponse> deletePayment(@Nonnull DeletePaymentRequest request) {
+        return deletePayment(request, null);
+    }
+
+    /**
+     * Delete Budget Payment
+     *
+     * <p>Deletes a budget item payment.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeletePaymentResponse>} - The async response
+     */
+    public CompletableFuture<DeletePaymentResponse> deletePayment(
+            @Nonnull DeletePaymentRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeletePaymentRequest, DeletePaymentResponse> operation =
-                new DeletePayment.Async(sdkConfiguration, _headers);
+                new DeletePayment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -757,8 +1059,49 @@ public class AsyncBudget {
      */
     public CompletableFuture<AnswerBudgetCustomFieldResponse> answerBudgetCustomField(
             @Nonnull AnswerBudgetCustomFieldRequest request) {
+        return answerBudgetCustomField(request, null);
+    }
+
+    /**
+     * Update Budget Cstm Fld Answers
+     *
+     * <p>Updates answers to a budget custom field using the details you provided in the body of the request.
+     * Answers must be formatted correctly according to the specific type of custom field. The available
+     * fields and their formats are listed below:
+     * * **Open Ended Text - Date/Time**. This field type has several possible user-selected answer
+     * formats:
+     * - Date/Time (2022-01-01T12:00:00.000Z). Denoted by *DateTime* in the response payload.
+     * - Date (2022-01-01). Denoted by *Date* in the response payload.
+     * * **Open Ended Text - One Line**. This field type has several possible user-selected answer formats:
+     * - General (Text). Denoted by *General* in the response payload.
+     * - Number (Whole numbers, 10, -10). Denoted by *Number* in the response payload.
+     * - Currency (Positive decimal value, 10.5). Denoted by *Currency* in the response payload.
+     * - Decimal (-20.5). Denoted by *Decimal* in the response payload.
+     * - US Phone Number (123-456-7890). Denoted by *USPhoneNumber* in the response payload.
+     * - Email Address (h.potterfield@test.com). Denoted by *Email* in the response payload.
+     * * **Open Ended Text - Comment Box**. Answer format is free-text (any value). Denoted by *FreeText*
+     * in the
+     * response payload.
+     * * **Choice - Single Answer (Drop-Down, Vertical, Horizontal).** Answer format is exactly one
+     * response to a
+     * list of user-defined choices. Denoted by *SingleSelect* in the response payload.
+     * * **Choice - Multiple Answers (Multi-Select Box, Vertical, Horizontal).** Answer format is one or
+     * more
+     * responses from a list of user-defined choices. Denoted by *MultiSelect* in the response payload.
+     *
+     * <p>To delete a custom field answer, either omit the `value` parameter or provide an empty list of
+     * answers for the specified custom field ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AnswerBudgetCustomFieldResponse>} - The async response
+     */
+    public CompletableFuture<AnswerBudgetCustomFieldResponse> answerBudgetCustomField(
+            @Nonnull AnswerBudgetCustomFieldRequest request, @Nullable Options options) {
         AsyncRequestOperation<AnswerBudgetCustomFieldRequest, AnswerBudgetCustomFieldResponse> operation =
-                new AnswerBudgetCustomField.Async(sdkConfiguration, _headers);
+                new AnswerBudgetCustomField.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -786,8 +1129,24 @@ public class AsyncBudget {
      * @return {@code CompletableFuture<GetPaymentsResponse>} - The async response
      */
     public CompletableFuture<GetPaymentsResponse> getPayments(@Nonnull GetPaymentsRequest request) {
+        return getPayments(request, null);
+    }
+
+    /**
+     * List Budget Payments
+     *
+     * <p>Gets a paginated list of payments for budget items in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetPaymentsResponse>} - The async response
+     */
+    public CompletableFuture<GetPaymentsResponse> getPayments(
+            @Nonnull GetPaymentsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetPaymentsRequest, GetPaymentsResponse> operation =
-                new GetPayments.Async(sdkConfiguration, _headers);
+                new GetPayments.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -818,8 +1177,25 @@ public class AsyncBudget {
      */
     public CompletableFuture<AttachInvoiceToPaymentResponse> attachInvoiceToPayment(
             @Nonnull AttachInvoiceToPaymentRequest request) {
+        return attachInvoiceToPayment(request, null);
+    }
+
+    /**
+     * Assign Invoice To Payment
+     *
+     * <p>Assign a single invoice to a payment using the ID of file. Upload files via the <a
+     * href="#operation/uploadFile">file upload</a> endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AttachInvoiceToPaymentResponse>} - The async response
+     */
+    public CompletableFuture<AttachInvoiceToPaymentResponse> attachInvoiceToPayment(
+            @Nonnull AttachInvoiceToPaymentRequest request, @Nullable Options options) {
         AsyncRequestOperation<AttachInvoiceToPaymentRequest, AttachInvoiceToPaymentResponse> operation =
-                new AttachInvoiceToPayment.Async(sdkConfiguration, _headers);
+                new AttachInvoiceToPayment.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -848,8 +1224,24 @@ public class AsyncBudget {
      */
     public CompletableFuture<GetEventBudgetTotalsResponse> getEventBudgetTotals(
             @Nonnull GetEventBudgetTotalsRequest request) {
+        return getEventBudgetTotals(request, null);
+    }
+
+    /**
+     * List Budget Totals
+     *
+     * <p>Gets a paginated list of budget totals for event associated to the account of the access token.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventBudgetTotalsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventBudgetTotalsResponse> getEventBudgetTotals(
+            @Nonnull GetEventBudgetTotalsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventBudgetTotalsRequest, GetEventBudgetTotalsResponse> operation =
-                new GetEventBudgetTotals.Async(sdkConfiguration, _headers);
+                new GetEventBudgetTotals.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

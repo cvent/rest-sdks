@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CreateExhibitorWeblink;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateExhibitorWeblinkRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateExhibitorWeblinkRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateExhibitorWeblinkRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateExhibitorWeblinkRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateExhibitorWeblinkRequestBuilder request(@Nonnull CreateExhibitorWeblinkRequest request) {
@@ -42,8 +52,9 @@ public class CreateExhibitorWeblinkRequestBuilder {
      * @return The response from the server.
      */
     public CreateExhibitorWeblinkResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CreateExhibitorWeblinkRequest, CreateExhibitorWeblinkResponse> operation =
-                new CreateExhibitorWeblink.Sync(sdkConfiguration, _headers);
+                new CreateExhibitorWeblink.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

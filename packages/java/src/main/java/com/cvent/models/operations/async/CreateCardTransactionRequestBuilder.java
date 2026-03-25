@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.CardTransactionCreate;
 import com.cvent.operations.CreateCardTransaction;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateCardTransactionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CardTransactionCreate request;
+    private final Options.Builder optionsBuilder;
 
     public CreateCardTransactionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateCardTransactionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateCardTransactionRequestBuilder request(@Nonnull CardTransactionCreate request) {
@@ -44,8 +54,9 @@ public class CreateCardTransactionRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateCardTransactionResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<CardTransactionCreate, CreateCardTransactionResponse> operation =
-                new CreateCardTransaction.Async(sdkConfiguration, _headers);
+                new CreateCardTransaction.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -10,7 +10,9 @@ import com.cvent.models.operations.async.GetAttendeeMessagesMembersRequestBuilde
 import com.cvent.models.operations.async.GetAttendeeMessagesMembersResponse;
 import com.cvent.operations.GetAttendeeMessagesMembers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -70,8 +72,28 @@ public class AsyncAttendeeMessages {
      */
     public CompletableFuture<GetAttendeeMessagesMembersResponse> getAttendeeMessagesMembers(
             @Nonnull GetAttendeeMessagesMembersRequest request) {
+        return getAttendeeMessagesMembers(request, null);
+    }
+
+    /**
+     * Get Messaging Members
+     *
+     * <p>When attendee initiates a chat with other attendee(s), a channel is created for attendees to
+     * communicate over.
+     * This endpoint is used to retrieve the members of these channels using channel ids to filter the
+     * results.
+     * The results will include all the channel members; even the ones that left the channel at some point.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAttendeeMessagesMembersResponse>} - The async response
+     */
+    public CompletableFuture<GetAttendeeMessagesMembersResponse> getAttendeeMessagesMembers(
+            @Nonnull GetAttendeeMessagesMembersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAttendeeMessagesMembersRequest, GetAttendeeMessagesMembersResponse> operation =
-                new GetAttendeeMessagesMembers.Async(sdkConfiguration, _headers);
+                new GetAttendeeMessagesMembers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

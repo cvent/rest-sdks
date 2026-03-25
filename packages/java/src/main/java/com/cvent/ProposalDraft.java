@@ -10,6 +10,7 @@ import com.cvent.models.operations.CreateProposalDraftRequestBuilder;
 import com.cvent.models.operations.CreateProposalDraftResponse;
 import com.cvent.operations.CreateProposalDraft;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nullable;
 
 /**
@@ -55,7 +56,7 @@ public class ProposalDraft {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateProposalDraftResponse createProposalDraftDirect() {
-        return createProposalDraft(null);
+        return createProposalDraft(null, null);
     }
 
     /**
@@ -64,12 +65,14 @@ public class ProposalDraft {
      * <p>Creates a new proposal draft.
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateProposalDraftResponse createProposalDraft(@Nullable ProposalRequest request) {
+    public CreateProposalDraftResponse createProposalDraft(
+            @Nullable ProposalRequest request, @Nullable Options options) {
         RequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
-                new CreateProposalDraft.Sync(sdkConfiguration, _headers);
+                new CreateProposalDraft.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

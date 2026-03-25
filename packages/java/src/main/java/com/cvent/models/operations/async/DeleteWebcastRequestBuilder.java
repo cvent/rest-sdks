@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteWebcastRequest;
 import com.cvent.operations.DeleteWebcast;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteWebcastRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteWebcastRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteWebcastRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteWebcastRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteWebcastRequestBuilder request(@Nonnull DeleteWebcastRequest request) {
@@ -44,8 +54,9 @@ public class DeleteWebcastRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteWebcastResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteWebcastRequest, DeleteWebcastResponse> operation =
-                new DeleteWebcast.Async(sdkConfiguration, _headers);
+                new DeleteWebcast.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

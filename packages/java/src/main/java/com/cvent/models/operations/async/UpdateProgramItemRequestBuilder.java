@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateProgramItemRequest;
 import com.cvent.operations.UpdateProgramItem;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateProgramItemRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateProgramItemRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateProgramItemRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateProgramItemRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateProgramItemRequestBuilder request(@Nonnull UpdateProgramItemRequest request) {
@@ -44,8 +54,9 @@ public class UpdateProgramItemRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateProgramItemResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateProgramItemRequest, UpdateProgramItemResponse> operation =
-                new UpdateProgramItem.Async(sdkConfiguration, _headers);
+                new UpdateProgramItem.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

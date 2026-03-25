@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateSessionRequest;
 import com.cvent.operations.UpdateSession;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateSessionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateSessionRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateSessionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateSessionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateSessionRequestBuilder request(@Nonnull UpdateSessionRequest request) {
@@ -44,8 +54,9 @@ public class UpdateSessionRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateSessionResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateSessionRequest, UpdateSessionResponse> operation =
-                new UpdateSession.Async(sdkConfiguration, _headers);
+                new UpdateSession.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

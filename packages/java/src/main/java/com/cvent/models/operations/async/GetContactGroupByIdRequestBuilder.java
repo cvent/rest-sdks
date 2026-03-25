@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetContactGroupByIdRequest;
 import com.cvent.operations.GetContactGroupById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetContactGroupByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetContactGroupByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetContactGroupByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetContactGroupByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetContactGroupByIdRequestBuilder request(@Nonnull GetContactGroupByIdRequest request) {
@@ -44,8 +54,9 @@ public class GetContactGroupByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetContactGroupByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetContactGroupByIdRequest, GetContactGroupByIdResponse> operation =
-                new GetContactGroupById.Async(sdkConfiguration, _headers);
+                new GetContactGroupById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

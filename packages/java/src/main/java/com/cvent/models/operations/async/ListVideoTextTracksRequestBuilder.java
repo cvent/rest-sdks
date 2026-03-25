@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.ListVideoTextTracksRequest;
 import com.cvent.operations.ListVideoTextTracks;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class ListVideoTextTracksRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ListVideoTextTracksRequest request;
+    private final Options.Builder optionsBuilder;
 
     public ListVideoTextTracksRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public ListVideoTextTracksRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public ListVideoTextTracksRequestBuilder request(@Nonnull ListVideoTextTracksRequest request) {
@@ -44,8 +54,9 @@ public class ListVideoTextTracksRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<ListVideoTextTracksResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation =
-                new ListVideoTextTracks.Async(sdkConfiguration, _headers);
+                new ListVideoTextTracks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

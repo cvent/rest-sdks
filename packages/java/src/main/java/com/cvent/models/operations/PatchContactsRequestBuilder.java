@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.ContactPatch;
 import com.cvent.operations.PatchContacts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.List;
 
 public class PatchContactsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private List<ContactPatch> request;
+    private final Options.Builder optionsBuilder;
 
     public PatchContactsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public PatchContactsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public PatchContactsRequestBuilder request(@Nonnull List<ContactPatch> request) {
@@ -44,8 +54,9 @@ public class PatchContactsRequestBuilder {
      * @return The response from the server.
      */
     public PatchContactsResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<List<ContactPatch>, PatchContactsResponse> operation =
-                new PatchContacts.Sync(sdkConfiguration, _headers);
+                new PatchContacts.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -37,13 +37,14 @@ namespace Cvent.SDK
         /// Used to create a new webcast for a specific event.
         /// </remarks>
         /// <param name="request">A <see cref="Webcast"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request);
+        public Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// List Webcasts<br/>
@@ -53,12 +54,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of webcasts associated with your event.
         /// </remarks>
         /// <param name="request">A <see cref="ListWebcastsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListWebcastsResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null);
+        public Task<ListWebcastsResponse> ListWebcastsAsync(
+            ListWebcastsRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Attendee Links<br/>
@@ -68,12 +73,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of attendee links.
         /// </remarks>
         /// <param name="request">A <see cref="ListAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null);
+        public Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(
+            ListAttendeeLinksRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Players<br/>
@@ -83,12 +92,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of player details associated with webcast.
         /// </remarks>
         /// <param name="request">A <see cref="ListPlayersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListPlayersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null);
+        public Task<ListPlayersResponse> ListPlayersAsync(
+            ListPlayersRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get Webcast<br/>
@@ -98,13 +111,17 @@ namespace Cvent.SDK
         /// Retrieve a single webcast details by ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetWebcastByIdRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetWebcastByIdResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request);
+        public Task<GetWebcastByIdResponse> GetWebcastByIdAsync(
+            GetWebcastByIdRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Delete Webcast<br/>
@@ -114,13 +131,17 @@ namespace Cvent.SDK
         /// Delete an existing webcast by ID.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteWebcastRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request);
+        public Task<DeleteWebcastResponse> DeleteWebcastAsync(
+            DeleteWebcastRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Update Webcast<br/>
@@ -130,13 +151,17 @@ namespace Cvent.SDK
         /// Update info for an existing webcast within a Cvent event.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateWebcastRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request);
+        public Task<UpdateWebcastResponse> UpdateWebcastAsync(
+            UpdateWebcastRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Create Attendee Link<br/>
@@ -146,13 +171,17 @@ namespace Cvent.SDK
         /// Create attendee links in bulk for a given webcast.
         /// </remarks>
         /// <param name="request">A <see cref="CreateAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request);
+        public Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(
+            CreateAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Update Attendee Link<br/>
@@ -162,13 +191,17 @@ namespace Cvent.SDK
         /// Update data for existing attendee links in bulk for a given webcast.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request);
+        public Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(
+            UpdateAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Attendee Links<br/>
@@ -178,6 +211,7 @@ namespace Cvent.SDK
         /// Gets a paginated list of attendee links in a webcast.
         /// </remarks>
         /// <param name="request">A <see cref="ListWebcastAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListWebcastAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -186,7 +220,8 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(
-            ListWebcastAttendeeLinksRequest request
+            ListWebcastAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -197,13 +232,17 @@ namespace Cvent.SDK
         /// Delete attendee links for webcast.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteAttendeeLinkRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteAttendeeLinkResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request);
+        public Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(
+            DeleteAttendeeLinkRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -230,13 +269,14 @@ namespace Cvent.SDK
         /// Used to create a new webcast for a specific event.
         /// </remarks>
         /// <param name="request">A <see cref="Webcast"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request)
+        public async Task<CreateWebcastResponse> CreateWebcastAsync(Webcast request, RetryConfig? retryConfig = null)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -265,11 +305,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createWebcast", new List<string> { "event/webcasts:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -365,12 +437,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of webcasts associated with your event.
         /// </remarks>
         /// <param name="request">A <see cref="ListWebcastsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListWebcastsResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListWebcastsResponse> ListWebcastsAsync(ListWebcastsRequest? request = null)
+        public async Task<ListWebcastsResponse> ListWebcastsAsync(
+            ListWebcastsRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts", request, null);
@@ -391,11 +467,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listWebcasts", new List<string> { "event/webcasts:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -447,7 +555,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListWebcastsAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -521,12 +630,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of attendee links.
         /// </remarks>
         /// <param name="request">A <see cref="ListAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(ListAttendeeLinksRequest? request = null)
+        public async Task<ListAttendeeLinksResponse> ListAttendeeLinksAsync(
+            ListAttendeeLinksRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/attendee-links", request, null);
@@ -547,11 +660,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listAttendeeLinks", new List<string> { "event/attendee-links:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -603,7 +748,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListAttendeeLinksAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -677,12 +823,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of player details associated with webcast.
         /// </remarks>
         /// <param name="request">A <see cref="ListPlayersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListPlayersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListPlayersResponse> ListPlayersAsync(ListPlayersRequest? request = null)
+        public async Task<ListPlayersResponse> ListPlayersAsync(
+            ListPlayersRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/webcasts/players", request, null);
@@ -703,11 +853,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listPlayers", new List<string> { "event/players:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -759,7 +941,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListPlayersAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -833,13 +1016,17 @@ namespace Cvent.SDK
         /// Retrieve a single webcast details by ID.
         /// </remarks>
         /// <param name="request">A <see cref="GetWebcastByIdRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetWebcastByIdResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetWebcastByIdResponse> GetWebcastByIdAsync(GetWebcastByIdRequest request)
+        public async Task<GetWebcastByIdResponse> GetWebcastByIdAsync(
+            GetWebcastByIdRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -862,11 +1049,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getWebcastById", new List<string> { "event/webcasts:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -962,13 +1181,17 @@ namespace Cvent.SDK
         /// Delete an existing webcast by ID.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteWebcastRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<DeleteWebcastResponse> DeleteWebcastAsync(DeleteWebcastRequest request)
+        public async Task<DeleteWebcastResponse> DeleteWebcastAsync(
+            DeleteWebcastRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -991,11 +1214,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteWebcast", new List<string> { "event/webcasts:delete" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1073,13 +1328,17 @@ namespace Cvent.SDK
         /// Update info for an existing webcast within a Cvent event.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateWebcastRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateWebcastResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<UpdateWebcastResponse> UpdateWebcastAsync(UpdateWebcastRequest request)
+        public async Task<UpdateWebcastResponse> UpdateWebcastAsync(
+            UpdateWebcastRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1108,11 +1367,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateWebcast", new List<string> { "event/webcasts:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1208,13 +1499,17 @@ namespace Cvent.SDK
         /// Create attendee links in bulk for a given webcast.
         /// </remarks>
         /// <param name="request">A <see cref="CreateAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(CreateAttendeeLinksRequest request)
+        public async Task<CreateAttendeeLinksResponse> CreateAttendeeLinksAsync(
+            CreateAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1243,11 +1538,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createAttendeeLinks", new List<string> { "event/attendee-links:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1343,13 +1670,17 @@ namespace Cvent.SDK
         /// Update data for existing attendee links in bulk for a given webcast.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(UpdateAttendeeLinksRequest request)
+        public async Task<UpdateAttendeeLinksResponse> UpdateAttendeeLinksAsync(
+            UpdateAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1378,11 +1709,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateAttendeeLinks", new List<string> { "event/attendee-links:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1478,6 +1841,7 @@ namespace Cvent.SDK
         /// Gets a paginated list of attendee links in a webcast.
         /// </remarks>
         /// <param name="request">A <see cref="ListWebcastAttendeeLinksRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListWebcastAttendeeLinksResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -1486,7 +1850,8 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
         public async Task<ListWebcastAttendeeLinksResponse> ListWebcastAttendeeLinksAsync(
-            ListWebcastAttendeeLinksRequest request
+            ListWebcastAttendeeLinksRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -1510,11 +1875,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listWebcastAttendeeLinks", new List<string> { "event/attendee-links:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1567,7 +1964,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListWebcastAttendeeLinksAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -1641,13 +2039,17 @@ namespace Cvent.SDK
         /// Delete attendee links for webcast.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteAttendeeLinkRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteAttendeeLinkResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(DeleteAttendeeLinkRequest request)
+        public async Task<DeleteAttendeeLinkResponse> DeleteAttendeeLinkAsync(
+            DeleteAttendeeLinkRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1670,11 +2072,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteAttendeeLink", new List<string> { "event/attendee-links:delete" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)

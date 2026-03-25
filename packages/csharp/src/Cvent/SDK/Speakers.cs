@@ -36,13 +36,15 @@ namespace Cvent.SDK
         /// Returns a paginated list of session program item and speaker associations.
         /// </remarks>
         /// <param name="request">A <see cref="GetSessionProgramSpeakersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSessionProgramSpeakersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetSessionProgramSpeakersResponse> GetSessionProgramSpeakersAsync(
-            GetSessionProgramSpeakersRequest? request = null
+            GetSessionProgramSpeakersRequest? request = null,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -52,13 +54,15 @@ namespace Cvent.SDK
         /// Gets a paginated list of session program speaker by providing filters in the body of the request. This method returns the same data as <a href="#operation/getSessionProgramSpeakers">GET Session Program Speakers</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSessionProgramSpeakersPostFiltersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSessionProgramSpeakersPostFiltersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListSessionProgramSpeakersPostFiltersResponse> ListSessionProgramSpeakersPostFiltersAsync(
-            ListSessionProgramSpeakersPostFiltersRequest? request = null
+            ListSessionProgramSpeakersPostFiltersRequest? request = null,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -68,6 +72,7 @@ namespace Cvent.SDK
         /// Creates a relationship between a session program item and a speaker. Limit 10 speakers per session program item.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -75,7 +80,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<CreateSessionProgramSpeakerResponse> CreateSessionProgramSpeakerAsync(
-            CreateSessionProgramSpeakerRequest request
+            CreateSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -85,6 +91,7 @@ namespace Cvent.SDK
         /// Returns a session program speaker relationship.
         /// </remarks>
         /// <param name="request">A <see cref="GetSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -92,7 +99,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetSessionProgramSpeakerResponse> GetSessionProgramSpeakerAsync(
-            GetSessionProgramSpeakerRequest request
+            GetSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -102,6 +110,7 @@ namespace Cvent.SDK
         /// Deletes session program item to speaker relationship.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -109,7 +118,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteSessionProgramSpeakerResponse> DeleteSessionProgramSpeakerAsync(
-            DeleteSessionProgramSpeakerRequest request
+            DeleteSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -120,13 +130,15 @@ namespace Cvent.SDK
         /// Gets a paginated list of speakers categories.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersCategoriesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersCategoriesResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListSpeakersCategoriesResponse> ListSpeakersCategoriesAsync(
-            ListSpeakersCategoriesRequest? request = null
+            ListSpeakersCategoriesRequest? request = null,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -137,13 +149,17 @@ namespace Cvent.SDK
         /// Create a new speaker category.
         /// </remarks>
         /// <param name="request">Create a speaker category.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AddSpeakerCategoryResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<AddSpeakerCategoryResponse> AddSpeakerCategoryAsync(SpeakerCategory request);
+        public Task<AddSpeakerCategoryResponse> AddSpeakerCategoryAsync(
+            SpeakerCategory request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Speakers<br/>
@@ -153,12 +169,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of speakers.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListSpeakersResponse> ListSpeakersAsync(ListSpeakersRequest? request = null);
+        public Task<ListSpeakersResponse> ListSpeakersAsync(
+            ListSpeakersRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Create Speaker<br/>
@@ -168,13 +188,14 @@ namespace Cvent.SDK
         /// Create a single speaker based on the values provided.
         /// </remarks>
         /// <param name="request">Speaker to be created.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<CreateSpeakerResponse> CreateSpeakerAsync(Speaker request);
+        public Task<CreateSpeakerResponse> CreateSpeakerAsync(Speaker request, RetryConfig? retryConfig = null);
 
         /// <summary>
         /// List Speakers<br/>
@@ -184,13 +205,15 @@ namespace Cvent.SDK
         /// Get a paginated list of speakers by sending a filter in the body of the request. This method will return the same data as GET List Speakers but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersPostFilterRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersPostFilterResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListSpeakersPostFilterResponse> ListSpeakersPostFilterAsync(
-            ListSpeakersPostFilterRequest? request = null
+            ListSpeakersPostFilterRequest? request = null,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -201,13 +224,17 @@ namespace Cvent.SDK
         /// Updates a particular speaker based on the given speaker ID.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<UpdateSpeakerResponse> UpdateSpeakerAsync(UpdateSpeakerRequest request);
+        public Task<UpdateSpeakerResponse> UpdateSpeakerAsync(
+            UpdateSpeakerRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Delete Speaker<br/>
@@ -217,13 +244,17 @@ namespace Cvent.SDK
         /// Deletes a particular speaker based on the given speaker ID.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<DeleteSpeakerResponse> DeleteSpeakerAsync(DeleteSpeakerRequest request);
+        public Task<DeleteSpeakerResponse> DeleteSpeakerAsync(
+            DeleteSpeakerRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Speaker's Documents<br/>
@@ -233,13 +264,17 @@ namespace Cvent.SDK
         /// Gets a paginated list of document URLs for a single speaker.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakerDocsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakerDocsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListSpeakerDocsResponse> ListSpeakerDocsAsync(ListSpeakerDocsRequest request);
+        public Task<ListSpeakerDocsResponse> ListSpeakerDocsAsync(
+            ListSpeakerDocsRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get a document for a speaker<br/>
@@ -249,13 +284,17 @@ namespace Cvent.SDK
         /// Get a specific document that is assigned to a specific speaker.
         /// </remarks>
         /// <param name="request">A <see cref="GetSpeakerDocRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSpeakerDocResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetSpeakerDocResponse> GetSpeakerDocAsync(GetSpeakerDocRequest request);
+        public Task<GetSpeakerDocResponse> GetSpeakerDocAsync(
+            GetSpeakerDocRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Add Document To Speaker<br/>
@@ -265,13 +304,17 @@ namespace Cvent.SDK
         /// Add a single document to a speaker with a UUID provided by <a href="#operation/uploadFile">file upload</a>.
         /// </remarks>
         /// <param name="request">A <see cref="AddSpeakerDocRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AddSpeakerDocResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<AddSpeakerDocResponse> AddSpeakerDocAsync(AddSpeakerDocRequest request);
+        public Task<AddSpeakerDocResponse> AddSpeakerDocAsync(
+            AddSpeakerDocRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Delete Document From Speaker<br/>
@@ -281,13 +324,17 @@ namespace Cvent.SDK
         /// Use to delete a document from a speaker with a UUID provided by <a href="#operation/uploadFile">file upload</a>.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerDocumentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerDocumentResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<DeleteSpeakerDocumentResponse> DeleteSpeakerDocumentAsync(DeleteSpeakerDocumentRequest request);
+        public Task<DeleteSpeakerDocumentResponse> DeleteSpeakerDocumentAsync(
+            DeleteSpeakerDocumentRequest request,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Delete Speaker Profile Picture<br/>
@@ -297,6 +344,7 @@ namespace Cvent.SDK
         /// Deletes the profile picture of the given speaker.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerProfileImageRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerProfileImageResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -304,7 +352,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteSpeakerProfileImageResponse> DeleteSpeakerProfileImageAsync(
-            DeleteSpeakerProfileImageRequest request
+            DeleteSpeakerProfileImageRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -315,6 +364,7 @@ namespace Cvent.SDK
         /// Assign a profile picture to a speaker with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current profile picture if one is assigned.
         /// </remarks>
         /// <param name="request">A <see cref="AssignSpeakerProfileImageRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AssignSpeakerProfileImageResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -322,7 +372,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<AssignSpeakerProfileImageResponse> AssignSpeakerProfileImageAsync(
-            AssignSpeakerProfileImageRequest request
+            AssignSpeakerProfileImageRequest request,
+            RetryConfig? retryConfig = null
         );
 
         /// <summary>
@@ -333,13 +384,17 @@ namespace Cvent.SDK
         /// Gets a paginated list of sessions assigned to a speaker.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakerSessionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakerSessionsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<ListSpeakerSessionsResponse> ListSpeakerSessionsAsync(ListSpeakerSessionsRequest request);
+        public Task<ListSpeakerSessionsResponse> ListSpeakerSessionsAsync(
+            ListSpeakerSessionsRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -365,13 +420,15 @@ namespace Cvent.SDK
         /// Returns a paginated list of session program item and speaker associations.
         /// </remarks>
         /// <param name="request">A <see cref="GetSessionProgramSpeakersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSessionProgramSpeakersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetSessionProgramSpeakersResponse> GetSessionProgramSpeakersAsync(
-            GetSessionProgramSpeakersRequest? request = null
+            GetSessionProgramSpeakersRequest? request = null,
+            RetryConfig? retryConfig = null
         )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
@@ -393,11 +450,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getSessionProgramSpeakers", new List<string> { "event/program-items:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -447,7 +536,8 @@ namespace Cvent.SDK
                 };
 
                 return await GetSessionProgramSpeakersAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -520,13 +610,15 @@ namespace Cvent.SDK
         /// Gets a paginated list of session program speaker by providing filters in the body of the request. This method returns the same data as <a href="#operation/getSessionProgramSpeakers">GET Session Program Speakers</a> but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSessionProgramSpeakersPostFiltersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSessionProgramSpeakersPostFiltersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<ListSessionProgramSpeakersPostFiltersResponse> ListSessionProgramSpeakersPostFiltersAsync(
-            ListSessionProgramSpeakersPostFiltersRequest? request = null
+            ListSessionProgramSpeakersPostFiltersRequest? request = null,
+            RetryConfig? retryConfig = null
         )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
@@ -554,11 +646,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSessionProgramSpeakersPostFilters", new List<string> { "event/program-items:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -613,7 +737,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSessionProgramSpeakersPostFiltersAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -686,6 +811,7 @@ namespace Cvent.SDK
         /// Creates a relationship between a session program item and a speaker. Limit 10 speakers per session program item.
         /// </remarks>
         /// <param name="request">A <see cref="CreateSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -693,7 +819,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateSessionProgramSpeakerResponse> CreateSessionProgramSpeakerAsync(
-            CreateSessionProgramSpeakerRequest request
+            CreateSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -717,11 +844,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createSessionProgramSpeaker", new List<string> { "event/program-items:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -816,6 +975,7 @@ namespace Cvent.SDK
         /// Returns a session program speaker relationship.
         /// </remarks>
         /// <param name="request">A <see cref="GetSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -823,7 +983,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetSessionProgramSpeakerResponse> GetSessionProgramSpeakerAsync(
-            GetSessionProgramSpeakerRequest request
+            GetSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -847,11 +1008,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getSessionProgramSpeaker", new List<string> { "event/program-items:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -946,6 +1139,7 @@ namespace Cvent.SDK
         /// Deletes session program item to speaker relationship.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSessionProgramSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSessionProgramSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -953,7 +1147,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteSessionProgramSpeakerResponse> DeleteSessionProgramSpeakerAsync(
-            DeleteSessionProgramSpeakerRequest request
+            DeleteSessionProgramSpeakerRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -977,11 +1172,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteSessionProgramSpeaker", new List<string> { "event/program-items:delete" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1059,13 +1286,15 @@ namespace Cvent.SDK
         /// Gets a paginated list of speakers categories.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersCategoriesRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersCategoriesResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<ListSpeakersCategoriesResponse> ListSpeakersCategoriesAsync(
-            ListSpeakersCategoriesRequest? request = null
+            ListSpeakersCategoriesRequest? request = null,
+            RetryConfig? retryConfig = null
         )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
@@ -1087,11 +1316,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSpeakersCategories", new List<string> { "event/speaker-categories:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1141,7 +1402,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSpeakersCategoriesAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -1215,13 +1477,17 @@ namespace Cvent.SDK
         /// Create a new speaker category.
         /// </remarks>
         /// <param name="request">Create a speaker category.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AddSpeakerCategoryResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<AddSpeakerCategoryResponse> AddSpeakerCategoryAsync(SpeakerCategory request)
+        public async Task<AddSpeakerCategoryResponse> AddSpeakerCategoryAsync(
+            SpeakerCategory request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1250,11 +1516,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "addSpeakerCategory", new List<string> { "event/speaker-categories:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1350,12 +1648,16 @@ namespace Cvent.SDK
         /// Gets a paginated list of speakers.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListSpeakersResponse> ListSpeakersAsync(ListSpeakersRequest? request = null)
+        public async Task<ListSpeakersResponse> ListSpeakersAsync(
+            ListSpeakersRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/speakers", request, null);
@@ -1376,11 +1678,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSpeakers", new List<string> { "event/speakers:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1432,7 +1766,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSpeakersAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -1506,13 +1841,14 @@ namespace Cvent.SDK
         /// Create a single speaker based on the values provided.
         /// </remarks>
         /// <param name="request">Speaker to be created.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<CreateSpeakerResponse> CreateSpeakerAsync(Speaker request)
+        public async Task<CreateSpeakerResponse> CreateSpeakerAsync(Speaker request, RetryConfig? retryConfig = null)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1541,11 +1877,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createSpeaker", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1641,13 +2009,15 @@ namespace Cvent.SDK
         /// Get a paginated list of speakers by sending a filter in the body of the request. This method will return the same data as GET List Speakers but allows for longer filters.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakersPostFilterRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakersPostFilterResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<ListSpeakersPostFilterResponse> ListSpeakersPostFilterAsync(
-            ListSpeakersPostFilterRequest? request = null
+            ListSpeakersPostFilterRequest? request = null,
+            RetryConfig? retryConfig = null
         )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
@@ -1675,11 +2045,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSpeakersPostFilter", new List<string> { "event/speakers:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1733,7 +2135,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSpeakersPostFilterAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -1807,13 +2210,17 @@ namespace Cvent.SDK
         /// Updates a particular speaker based on the given speaker ID.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="UpdateSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<UpdateSpeakerResponse> UpdateSpeakerAsync(UpdateSpeakerRequest request)
+        public async Task<UpdateSpeakerResponse> UpdateSpeakerAsync(
+            UpdateSpeakerRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1842,11 +2249,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "updateSpeaker", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -1942,13 +2381,17 @@ namespace Cvent.SDK
         /// Deletes a particular speaker based on the given speaker ID.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<DeleteSpeakerResponse> DeleteSpeakerAsync(DeleteSpeakerRequest request)
+        public async Task<DeleteSpeakerResponse> DeleteSpeakerAsync(
+            DeleteSpeakerRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -1971,11 +2414,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteSpeaker", new List<string> { "event/speakers:delete" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2053,13 +2528,17 @@ namespace Cvent.SDK
         /// Gets a paginated list of document URLs for a single speaker.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakerDocsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakerDocsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListSpeakerDocsResponse> ListSpeakerDocsAsync(ListSpeakerDocsRequest request)
+        public async Task<ListSpeakerDocsResponse> ListSpeakerDocsAsync(
+            ListSpeakerDocsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2082,11 +2561,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSpeakerDocs", new List<string> { "event/speakers:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2137,7 +2648,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSpeakerDocsAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -2211,13 +2723,17 @@ namespace Cvent.SDK
         /// Get a specific document that is assigned to a specific speaker.
         /// </remarks>
         /// <param name="request">A <see cref="GetSpeakerDocRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetSpeakerDocResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetSpeakerDocResponse> GetSpeakerDocAsync(GetSpeakerDocRequest request)
+        public async Task<GetSpeakerDocResponse> GetSpeakerDocAsync(
+            GetSpeakerDocRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2240,11 +2756,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getSpeakerDoc", new List<string> { "event/speakers:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2340,13 +2888,17 @@ namespace Cvent.SDK
         /// Add a single document to a speaker with a UUID provided by <a href="#operation/uploadFile">file upload</a>.
         /// </remarks>
         /// <param name="request">A <see cref="AddSpeakerDocRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AddSpeakerDocResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<AddSpeakerDocResponse> AddSpeakerDocAsync(AddSpeakerDocRequest request)
+        public async Task<AddSpeakerDocResponse> AddSpeakerDocAsync(
+            AddSpeakerDocRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2369,11 +2921,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "addSpeakerDoc", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2469,6 +3053,7 @@ namespace Cvent.SDK
         /// Use to delete a document from a speaker with a UUID provided by <a href="#operation/uploadFile">file upload</a>.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerDocumentRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerDocumentResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -2476,7 +3061,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteSpeakerDocumentResponse> DeleteSpeakerDocumentAsync(
-            DeleteSpeakerDocumentRequest request
+            DeleteSpeakerDocumentRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -2500,11 +3086,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteSpeakerDocument", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2582,6 +3200,7 @@ namespace Cvent.SDK
         /// Deletes the profile picture of the given speaker.
         /// </remarks>
         /// <param name="request">A <see cref="DeleteSpeakerProfileImageRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="DeleteSpeakerProfileImageResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -2589,7 +3208,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteSpeakerProfileImageResponse> DeleteSpeakerProfileImageAsync(
-            DeleteSpeakerProfileImageRequest request
+            DeleteSpeakerProfileImageRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -2613,11 +3233,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "deleteSpeakerProfileImage", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2695,6 +3347,7 @@ namespace Cvent.SDK
         /// Assign a profile picture to a speaker with a file UUID from <a href="#operation/uploadFile">file upload</a> endpoint. This will replace the current profile picture if one is assigned.
         /// </remarks>
         /// <param name="request">A <see cref="AssignSpeakerProfileImageRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="AssignSpeakerProfileImageResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -2702,7 +3355,8 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<AssignSpeakerProfileImageResponse> AssignSpeakerProfileImageAsync(
-            AssignSpeakerProfileImageRequest request
+            AssignSpeakerProfileImageRequest request,
+            RetryConfig? retryConfig = null
         )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
@@ -2732,11 +3386,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "assignSpeakerProfileImage", new List<string> { "event/speakers:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2832,13 +3518,17 @@ namespace Cvent.SDK
         /// Gets a paginated list of sessions assigned to a speaker.
         /// </remarks>
         /// <param name="request">A <see cref="ListSpeakerSessionsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="ListSpeakerSessionsResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<ListSpeakerSessionsResponse> ListSpeakerSessionsAsync(ListSpeakerSessionsRequest request)
+        public async Task<ListSpeakerSessionsResponse> ListSpeakerSessionsAsync(
+            ListSpeakerSessionsRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -2861,11 +3551,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "listSpeakerSessions", new List<string> { "event/sessions:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -2915,7 +3637,8 @@ namespace Cvent.SDK
                 };
 
                 return await ListSpeakerSessionsAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 

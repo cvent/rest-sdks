@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetReservation;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetReservationRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetReservationRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetReservationRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetReservationRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetReservationRequestBuilder request(@Nonnull GetReservationRequest request) {
@@ -42,8 +52,9 @@ public class GetReservationRequestBuilder {
      * @return The response from the server.
      */
     public GetReservationResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetReservationRequest, GetReservationResponse> operation =
-                new GetReservation.Sync(sdkConfiguration, _headers);
+                new GetReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

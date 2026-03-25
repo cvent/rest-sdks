@@ -40,12 +40,16 @@ namespace Cvent.SDK
         /// If no date filter is provided, defaults to 1 month back from the current time.
         /// </remarks>
         /// <param name="request">A <see cref="GetBounceDetailsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetBounceDetailsResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetBounceDetailsResponse> GetBounceDetailsAsync(GetBounceDetailsRequest? request = null);
+        public Task<GetBounceDetailsResponse> GetBounceDetailsAsync(
+            GetBounceDetailsRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// Get Emails History Data<br/>
@@ -55,12 +59,16 @@ namespace Cvent.SDK
         /// Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the account. Maximum 6 months of records can be fetched.
         /// </remarks>
         /// <param name="request">A <see cref="GetEmailsHistoryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetEmailsHistoryResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public Task<GetEmailsHistoryResponse> GetEmailsHistoryAsync(GetEmailsHistoryRequest? request = null);
+        public Task<GetEmailsHistoryResponse> GetEmailsHistoryAsync(
+            GetEmailsHistoryRequest? request = null,
+            RetryConfig? retryConfig = null
+        );
 
         /// <summary>
         /// List Email Status<br/>
@@ -70,6 +78,7 @@ namespace Cvent.SDK
         /// Gets the status of emails using unique email request ID that was generated as a response of <a href="#tag/Campaigns/operation/sendEMarketingEmails">Send Email To Recipients</a> request.
         /// </remarks>
         /// <param name="request">A <see cref="GetEmailStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetEmailStatusResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -77,7 +86,10 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public Task<GetEmailStatusResponse> GetEmailStatusAsync(GetEmailStatusRequest request);
+        public Task<GetEmailStatusResponse> GetEmailStatusAsync(
+            GetEmailStatusRequest request,
+            RetryConfig? retryConfig = null
+        );
     }
 
     /// <summary>
@@ -107,12 +119,16 @@ namespace Cvent.SDK
         /// If no date filter is provided, defaults to 1 month back from the current time.
         /// </remarks>
         /// <param name="request">A <see cref="GetBounceDetailsRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetBounceDetailsResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetBounceDetailsResponse> GetBounceDetailsAsync(GetBounceDetailsRequest? request = null)
+        public async Task<GetBounceDetailsResponse> GetBounceDetailsAsync(
+            GetBounceDetailsRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/bounces", request, null);
@@ -133,11 +149,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getBounceDetails", new List<string> { "email/bounces:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -189,7 +237,8 @@ namespace Cvent.SDK
                 };
 
                 return await GetBounceDetailsAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -263,12 +312,16 @@ namespace Cvent.SDK
         /// Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the account. Maximum 6 months of records can be fetched.
         /// </remarks>
         /// <param name="request">A <see cref="GetEmailsHistoryRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetEmailsHistoryResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
-        public async Task<GetEmailsHistoryResponse> GetEmailsHistoryAsync(GetEmailsHistoryRequest? request = null)
+        public async Task<GetEmailsHistoryResponse> GetEmailsHistoryAsync(
+            GetEmailsHistoryRequest? request = null,
+            RetryConfig? retryConfig = null
+        )
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerUrl();
             var urlString = URLBuilder.Build(baseUrl, "/emails", request, null);
@@ -289,11 +342,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getEmailsHistory", new List<string> { "email/emails:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
@@ -345,7 +430,8 @@ namespace Cvent.SDK
                 };
 
                 return await GetEmailsHistoryAsync(
-                    request: newRequest
+                    request: newRequest,
+                    retryConfig: retryConfig
                 );
             };
 
@@ -419,6 +505,7 @@ namespace Cvent.SDK
         /// Gets the status of emails using unique email request ID that was generated as a response of <a href="#tag/Campaigns/operation/sendEMarketingEmails">Send Email To Recipients</a> request.
         /// </remarks>
         /// <param name="request">A <see cref="GetEmailStatusRequest"/> parameter.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="GetEmailStatusResponse"/> response envelope when completed.</returns>
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
@@ -426,7 +513,10 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         [Obsolete("This method will be removed in a future release, please migrate away from it as soon as possible")]
-        public async Task<GetEmailStatusResponse> GetEmailStatusAsync(GetEmailStatusRequest request)
+        public async Task<GetEmailStatusResponse> GetEmailStatusAsync(
+            GetEmailStatusRequest request,
+            RetryConfig? retryConfig = null
+        )
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -449,11 +539,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "getEmailStatus", new List<string> { "email/email-status:read" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)

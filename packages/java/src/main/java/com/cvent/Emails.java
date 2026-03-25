@@ -18,7 +18,9 @@ import com.cvent.operations.GetBounceDetails;
 import com.cvent.operations.GetEmailStatus;
 import com.cvent.operations.GetEmailsHistory;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
 
 /**
@@ -76,8 +78,28 @@ public class Emails {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetBounceDetailsResponse getBounceDetails(@Nonnull GetBounceDetailsRequest request) {
+        return getBounceDetails(request, null);
+    }
+
+    /**
+     * List Email Bounces
+     *
+     * <p>Returns a paginated list of email bounce details in your account.
+     *
+     * <p>Before/after filters can be used to retrieve email bounce data up to six months in the past.
+     * If no date filter is provided, defaults to 1 month back from the current time.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetBounceDetailsResponse getBounceDetails(
+            @Nonnull GetBounceDetailsRequest request, @Nullable Options options) {
         RequestOperation<GetBounceDetailsRequest, GetBounceDetailsResponse> operation =
-                new GetBounceDetails.Sync(sdkConfiguration, _headers);
+                new GetBounceDetails.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -108,8 +130,26 @@ public class Emails {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEmailsHistoryResponse getEmailsHistory(@Nonnull GetEmailsHistoryRequest request) {
+        return getEmailsHistory(request, null);
+    }
+
+    /**
+     * Get Emails History Data
+     *
+     * <p>Returns the paginated list of sent emails. Default behaviour is to retrieve all emails for the
+     * account. Maximum 6 months of records can be fetched.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEmailsHistoryResponse getEmailsHistory(
+            @Nonnull GetEmailsHistoryRequest request, @Nullable Options options) {
         RequestOperation<GetEmailsHistoryRequest, GetEmailsHistoryResponse> operation =
-                new GetEmailsHistory.Sync(sdkConfiguration, _headers);
+                new GetEmailsHistory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -144,8 +184,27 @@ public class Emails {
      */
     @Deprecated
     public GetEmailStatusResponse getEmailStatus(@Nonnull GetEmailStatusRequest request) {
+        return getEmailStatus(request, null);
+    }
+
+    /**
+     * List Email Status
+     *
+     * <p>Gets the status of emails using unique email request ID that was generated as a response of [Send
+     * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public GetEmailStatusResponse getEmailStatus(@Nonnull GetEmailStatusRequest request, @Nullable Options options) {
         RequestOperation<GetEmailStatusRequest, GetEmailStatusResponse> operation =
-                new GetEmailStatus.Sync(sdkConfiguration, _headers);
+                new GetEmailStatus.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

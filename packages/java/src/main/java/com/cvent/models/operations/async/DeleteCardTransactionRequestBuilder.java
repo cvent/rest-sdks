@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteCardTransactionRequest;
 import com.cvent.operations.DeleteCardTransaction;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteCardTransactionRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteCardTransactionRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteCardTransactionRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteCardTransactionRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteCardTransactionRequestBuilder request(@Nonnull DeleteCardTransactionRequest request) {
@@ -44,8 +54,9 @@ public class DeleteCardTransactionRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteCardTransactionResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteCardTransactionRequest, DeleteCardTransactionResponse> operation =
-                new DeleteCardTransaction.Async(sdkConfiguration, _headers);
+                new DeleteCardTransaction.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

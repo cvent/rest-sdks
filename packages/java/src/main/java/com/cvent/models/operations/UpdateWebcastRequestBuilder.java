@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateWebcast;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateWebcastRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateWebcastRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateWebcastRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateWebcastRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateWebcastRequestBuilder request(@Nonnull UpdateWebcastRequest request) {
@@ -42,8 +52,9 @@ public class UpdateWebcastRequestBuilder {
      * @return The response from the server.
      */
     public UpdateWebcastResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateWebcastRequest, UpdateWebcastResponse> operation =
-                new UpdateWebcast.Sync(sdkConfiguration, _headers);
+                new UpdateWebcast.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -34,6 +34,7 @@ import com.cvent.operations.GetAccountUserGroup;
 import com.cvent.operations.GetAccountUserGroups;
 import com.cvent.operations.UpdateAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -82,8 +83,22 @@ public class AsyncUsers {
      */
     public CompletableFuture<GetAccountUserGroupsResponse> getAccountUserGroups(
             @Nonnull GetAccountUserGroupsRequest request) {
+        return getAccountUserGroups(request, null);
+    }
+
+    /**
+     * List Account User Groups
+     *
+     * <p>Gets a list of user groups in your account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAccountUserGroupsResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountUserGroupsResponse> getAccountUserGroups(
+            @Nonnull GetAccountUserGroupsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAccountUserGroupsRequest, GetAccountUserGroupsResponse> operation =
-                new GetAccountUserGroups.Async(sdkConfiguration, _headers);
+                new GetAccountUserGroups.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -106,7 +121,7 @@ public class AsyncUsers {
      * @return {@code CompletableFuture<CreateAccountUserGroupResponse>} - The async response
      */
     public CompletableFuture<CreateAccountUserGroupResponse> createAccountUserGroupDirect() {
-        return createAccountUserGroup(null);
+        return createAccountUserGroup(null, null);
     }
 
     /**
@@ -115,12 +130,13 @@ public class AsyncUsers {
      * <p>Creates a new Account User Group.
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return {@code CompletableFuture<CreateAccountUserGroupResponse>} - The async response
      */
     public CompletableFuture<CreateAccountUserGroupResponse> createAccountUserGroup(
-            @Nullable UserGroupJsonInput request) {
+            @Nullable UserGroupJsonInput request, @Nullable Options options) {
         AsyncRequestOperation<UserGroupJsonInput, CreateAccountUserGroupResponse> operation =
-                new CreateAccountUserGroup.Async(sdkConfiguration, _headers);
+                new CreateAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -145,8 +161,22 @@ public class AsyncUsers {
      */
     public CompletableFuture<GetAccountUserGroupResponse> getAccountUserGroup(
             @Nonnull GetAccountUserGroupRequest request) {
+        return getAccountUserGroup(request, null);
+    }
+
+    /**
+     * Get Account User Group
+     *
+     * <p>Gets a single account user group by its ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAccountUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountUserGroupResponse> getAccountUserGroup(
+            @Nonnull GetAccountUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAccountUserGroupRequest, GetAccountUserGroupResponse> operation =
-                new GetAccountUserGroup.Async(sdkConfiguration, _headers);
+                new GetAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -171,8 +201,22 @@ public class AsyncUsers {
      */
     public CompletableFuture<UpdateAccountUserGroupResponse> updateAccountUserGroup(
             @Nonnull UpdateAccountUserGroupRequest request) {
+        return updateAccountUserGroup(request, null);
+    }
+
+    /**
+     * Update Account User Group
+     *
+     * <p>Update a given account user group using details in the body of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateAccountUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<UpdateAccountUserGroupResponse> updateAccountUserGroup(
+            @Nonnull UpdateAccountUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateAccountUserGroupRequest, UpdateAccountUserGroupResponse> operation =
-                new UpdateAccountUserGroup.Async(sdkConfiguration, _headers);
+                new UpdateAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -197,8 +241,22 @@ public class AsyncUsers {
      */
     public CompletableFuture<DeleteAccountUserGroupResponse> deleteAccountUserGroup(
             @Nonnull DeleteAccountUserGroupRequest request) {
+        return deleteAccountUserGroup(request, null);
+    }
+
+    /**
+     * Delete Account User Group
+     *
+     * <p>Deletes an account user group using its ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteAccountUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<DeleteAccountUserGroupResponse> deleteAccountUserGroup(
+            @Nonnull DeleteAccountUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteAccountUserGroupRequest, DeleteAccountUserGroupResponse> operation =
-                new DeleteAccountUserGroup.Async(sdkConfiguration, _headers);
+                new DeleteAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -223,8 +281,22 @@ public class AsyncUsers {
      */
     public CompletableFuture<AddUserToAccountUserGroupResponse> addUserToAccountUserGroup(
             @Nonnull AddUserToAccountUserGroupRequest request) {
+        return addUserToAccountUserGroup(request, null);
+    }
+
+    /**
+     * Associate User to Group
+     *
+     * <p>Associates a user to an account user group.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AddUserToAccountUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<AddUserToAccountUserGroupResponse> addUserToAccountUserGroup(
+            @Nonnull AddUserToAccountUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<AddUserToAccountUserGroupRequest, AddUserToAccountUserGroupResponse> operation =
-                new AddUserToAccountUserGroup.Async(sdkConfiguration, _headers);
+                new AddUserToAccountUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -249,8 +321,23 @@ public class AsyncUsers {
      */
     public CompletableFuture<DeleteUserFromAccountUserGroupResponse> deleteUserFromAccountUserGroup(
             @Nonnull DeleteUserFromAccountUserGroupRequest request) {
+        return deleteUserFromAccountUserGroup(request, null);
+    }
+
+    /**
+     * Delete User from Group
+     *
+     * <p>Removes a user from an account user group.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteUserFromAccountUserGroupResponse>} - The async response
+     */
+    public CompletableFuture<DeleteUserFromAccountUserGroupResponse> deleteUserFromAccountUserGroup(
+            @Nonnull DeleteUserFromAccountUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
-                new DeleteUserFromAccountUserGroup.Async(sdkConfiguration, _headers);
+                new DeleteUserFromAccountUserGroup.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

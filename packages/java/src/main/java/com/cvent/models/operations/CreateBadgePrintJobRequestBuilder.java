@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CreateBadgePrintJob;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateBadgePrintJobRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateBadgePrintJobRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateBadgePrintJobRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateBadgePrintJobRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateBadgePrintJobRequestBuilder request(@Nonnull CreateBadgePrintJobRequest request) {
@@ -42,8 +52,9 @@ public class CreateBadgePrintJobRequestBuilder {
      * @return The response from the server.
      */
     public CreateBadgePrintJobResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation =
-                new CreateBadgePrintJob.Sync(sdkConfiguration, _headers);
+                new CreateBadgePrintJob.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

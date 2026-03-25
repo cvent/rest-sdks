@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.Speaker;
 import com.cvent.operations.CreateSpeaker;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateSpeakerRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private Speaker request;
+    private final Options.Builder optionsBuilder;
 
     public CreateSpeakerRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateSpeakerRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateSpeakerRequestBuilder request(@Nonnull Speaker request) {
@@ -43,7 +53,9 @@ public class CreateSpeakerRequestBuilder {
      * @return The response from the server.
      */
     public CreateSpeakerResponse call() {
-        RequestOperation<Speaker, CreateSpeakerResponse> operation = new CreateSpeaker.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<Speaker, CreateSpeakerResponse> operation =
+                new CreateSpeaker.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

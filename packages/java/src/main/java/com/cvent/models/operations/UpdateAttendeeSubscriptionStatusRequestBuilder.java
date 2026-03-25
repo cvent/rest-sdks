@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateAttendeeSubscriptionStatus;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateAttendeeSubscriptionStatusRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateAttendeeSubscriptionStatusRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateAttendeeSubscriptionStatusRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateAttendeeSubscriptionStatusRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateAttendeeSubscriptionStatusRequestBuilder request(
@@ -43,8 +53,9 @@ public class UpdateAttendeeSubscriptionStatusRequestBuilder {
      * @return The response from the server.
      */
     public UpdateAttendeeSubscriptionStatusResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateAttendeeSubscriptionStatusRequest, UpdateAttendeeSubscriptionStatusResponse> operation =
-                new UpdateAttendeeSubscriptionStatus.Sync(sdkConfiguration, _headers);
+                new UpdateAttendeeSubscriptionStatus.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

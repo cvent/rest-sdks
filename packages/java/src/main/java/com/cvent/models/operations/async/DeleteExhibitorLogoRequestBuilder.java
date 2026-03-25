@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteExhibitorLogoRequest;
 import com.cvent.operations.DeleteExhibitorLogo;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteExhibitorLogoRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteExhibitorLogoRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteExhibitorLogoRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteExhibitorLogoRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteExhibitorLogoRequestBuilder request(@Nonnull DeleteExhibitorLogoRequest request) {
@@ -44,8 +54,9 @@ public class DeleteExhibitorLogoRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteExhibitorLogoResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteExhibitorLogoRequest, DeleteExhibitorLogoResponse> operation =
-                new DeleteExhibitorLogo.Async(sdkConfiguration, _headers);
+                new DeleteExhibitorLogo.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

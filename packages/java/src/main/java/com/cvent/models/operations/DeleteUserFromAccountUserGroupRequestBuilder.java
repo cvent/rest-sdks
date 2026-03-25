@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteUserFromAccountUserGroup;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteUserFromAccountUserGroupRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteUserFromAccountUserGroupRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteUserFromAccountUserGroupRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteUserFromAccountUserGroupRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteUserFromAccountUserGroupRequestBuilder request(
@@ -43,8 +53,9 @@ public class DeleteUserFromAccountUserGroupRequestBuilder {
      * @return The response from the server.
      */
     public DeleteUserFromAccountUserGroupResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteUserFromAccountUserGroupRequest, DeleteUserFromAccountUserGroupResponse> operation =
-                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, _headers);
+                new DeleteUserFromAccountUserGroup.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

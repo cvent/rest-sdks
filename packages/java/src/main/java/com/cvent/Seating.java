@@ -38,7 +38,9 @@ import com.cvent.operations.ListSeating;
 import com.cvent.operations.ListSeats;
 import com.cvent.operations.ListTables;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Seating lets you plan seating at your events by configuring tables and assigning seats to your
@@ -93,8 +95,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSeatingResponse listSeating(@Nonnull ListSeatingRequest request) {
+        return listSeating(request, null);
+    }
+
+    /**
+     * List Seating
+     *
+     * <p>Get seating details for the given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSeatingResponse listSeating(@Nonnull ListSeatingRequest request, @Nullable Options options) {
         RequestOperation<ListSeatingRequest, ListSeatingResponse> operation =
-                new ListSeating.Sync(sdkConfiguration, _headers);
+                new ListSeating.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -123,8 +141,25 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEventTableAssignmentsResponse getEventTableAssignments(@Nonnull GetEventTableAssignmentsRequest request) {
+        return getEventTableAssignments(request, null);
+    }
+
+    /**
+     * List All Seating Assignments
+     *
+     * <p>Gets all the table assignments across all the seatings in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEventTableAssignmentsResponse getEventTableAssignments(
+            @Nonnull GetEventTableAssignmentsRequest request, @Nullable Options options) {
         RequestOperation<GetEventTableAssignmentsRequest, GetEventTableAssignmentsResponse> operation =
-                new GetEventTableAssignments.Sync(sdkConfiguration, _headers);
+                new GetEventTableAssignments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -153,8 +188,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSeatingResponse getSeating(@Nonnull GetSeatingRequest request) {
+        return getSeating(request, null);
+    }
+
+    /**
+     * Get Seating
+     *
+     * <p>Get seating details for the given event by seating ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSeatingResponse getSeating(@Nonnull GetSeatingRequest request, @Nullable Options options) {
         RequestOperation<GetSeatingRequest, GetSeatingResponse> operation =
-                new GetSeating.Sync(sdkConfiguration, _headers);
+                new GetSeating.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -183,8 +234,25 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTableAssignmentResponse getTableAssignment(@Nonnull GetTableAssignmentRequest request) {
+        return getTableAssignment(request, null);
+    }
+
+    /**
+     * List Seating Assignments
+     *
+     * <p>Gets the table assignments for a given seating ID in an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTableAssignmentResponse getTableAssignment(
+            @Nonnull GetTableAssignmentRequest request, @Nullable Options options) {
         RequestOperation<GetTableAssignmentRequest, GetTableAssignmentResponse> operation =
-                new GetTableAssignment.Sync(sdkConfiguration, _headers);
+                new GetTableAssignment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -213,8 +281,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTablesResponse listTables(@Nonnull ListTablesRequest request) {
+        return listTables(request, null);
+    }
+
+    /**
+     * List Tables
+     *
+     * <p>Get table details for a given seating.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTablesResponse listTables(@Nonnull ListTablesRequest request, @Nullable Options options) {
         RequestOperation<ListTablesRequest, ListTablesResponse> operation =
-                new ListTables.Sync(sdkConfiguration, _headers);
+                new ListTables.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -243,7 +327,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTableResponse getTable(@Nonnull GetTableRequest request) {
-        RequestOperation<GetTableRequest, GetTableResponse> operation = new GetTable.Sync(sdkConfiguration, _headers);
+        return getTable(request, null);
+    }
+
+    /**
+     * Get Table
+     *
+     * <p>Get table info for given event by seating ID and table ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTableResponse getTable(@Nonnull GetTableRequest request, @Nullable Options options) {
+        RequestOperation<GetTableRequest, GetTableResponse> operation =
+                new GetTable.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -272,8 +373,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSeatsResponse listSeats(@Nonnull ListSeatsRequest request) {
+        return listSeats(request, null);
+    }
+
+    /**
+     * List Seats
+     *
+     * <p>Get seat details for given table ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSeatsResponse listSeats(@Nonnull ListSeatsRequest request, @Nullable Options options) {
         RequestOperation<ListSeatsRequest, ListSeatsResponse> operation =
-                new ListSeats.Sync(sdkConfiguration, _headers);
+                new ListSeats.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -302,7 +419,24 @@ public class Seating {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSeatResponse getSeat(@Nonnull GetSeatRequest request) {
-        RequestOperation<GetSeatRequest, GetSeatResponse> operation = new GetSeat.Sync(sdkConfiguration, _headers);
+        return getSeat(request, null);
+    }
+
+    /**
+     * Get Seat
+     *
+     * <p>Get seat info for given event by seating ID, table ID, and seat ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSeatResponse getSeat(@Nonnull GetSeatRequest request, @Nullable Options options) {
+        RequestOperation<GetSeatRequest, GetSeatResponse> operation =
+                new GetSeat.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

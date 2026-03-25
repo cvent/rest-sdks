@@ -8,14 +8,24 @@ import static com.cvent.operations.Operations.RequestlessOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetResourceTypes;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
+import jakarta.annotation.Nullable;
 
 public class GetResourceTypesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
+    private final Options.Builder optionsBuilder;
 
     public GetResourceTypesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetResourceTypesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetResourceTypesRequestBuilder header(String name, String value) {
@@ -31,8 +41,9 @@ public class GetResourceTypesRequestBuilder {
      * @return The response from the server.
      */
     public GetResourceTypesResponse call() {
+        Options options = optionsBuilder.build();
         RequestlessOperation<GetResourceTypesResponse> operation =
-                new GetResourceTypes.Sync(sdkConfiguration, _headers);
+                new GetResourceTypes.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest());
     }
 }

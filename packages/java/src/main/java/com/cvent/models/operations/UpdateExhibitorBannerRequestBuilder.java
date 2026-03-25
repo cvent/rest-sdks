@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UpdateExhibitorBanner;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UpdateExhibitorBannerRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateExhibitorBannerRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateExhibitorBannerRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateExhibitorBannerRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateExhibitorBannerRequestBuilder request(@Nonnull UpdateExhibitorBannerRequest request) {
@@ -42,8 +52,9 @@ public class UpdateExhibitorBannerRequestBuilder {
      * @return The response from the server.
      */
     public UpdateExhibitorBannerResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UpdateExhibitorBannerRequest, UpdateExhibitorBannerResponse> operation =
-                new UpdateExhibitorBanner.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorBanner.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

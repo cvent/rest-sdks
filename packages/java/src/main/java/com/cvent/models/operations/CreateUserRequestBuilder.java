@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.UserInput;
 import com.cvent.operations.CreateUser;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class CreateUserRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UserInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateUserRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateUserRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateUserRequestBuilder request(@Nullable UserInput request) {
@@ -43,7 +52,9 @@ public class CreateUserRequestBuilder {
      * @return The response from the server.
      */
     public CreateUserResponse call() {
-        RequestOperation<UserInput, CreateUserResponse> operation = new CreateUser.Sync(sdkConfiguration, _headers);
+        Options options = optionsBuilder.build();
+        RequestOperation<UserInput, CreateUserResponse> operation =
+                new CreateUser.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

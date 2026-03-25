@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.CreateMeetingRequest;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateMeetingRequestRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateMeetingRequestRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateMeetingRequestRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateMeetingRequestRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateMeetingRequestRequestBuilder request(@Nonnull CreateMeetingRequestRequest request) {
@@ -42,8 +52,9 @@ public class CreateMeetingRequestRequestBuilder {
      * @return The response from the server.
      */
     public CreateMeetingRequestResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<CreateMeetingRequestRequest, CreateMeetingRequestResponse> operation =
-                new CreateMeetingRequest.Sync(sdkConfiguration, _headers);
+                new CreateMeetingRequest.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.PostTransactionsRequest;
 import com.cvent.operations.PostTransactions;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class PostTransactionsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private PostTransactionsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public PostTransactionsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public PostTransactionsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public PostTransactionsRequestBuilder request(@Nonnull PostTransactionsRequest request) {
@@ -44,8 +54,9 @@ public class PostTransactionsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<PostTransactionsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<PostTransactionsRequest, PostTransactionsResponse> operation =
-                new PostTransactions.Async(sdkConfiguration, _headers);
+                new PostTransactions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

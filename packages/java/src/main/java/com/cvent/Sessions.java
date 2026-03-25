@@ -122,7 +122,9 @@ import com.cvent.operations.UpdateProgramItem;
 import com.cvent.operations.UpdateSession;
 import com.cvent.operations.UpdateSessionCustomFieldAnswers;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Deprecated;
 
 /**
@@ -173,8 +175,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSessionLocationResponse getSessionLocation(@Nonnull GetSessionLocationRequest request) {
+        return getSessionLocation(request, null);
+    }
+
+    /**
+     * List Session Locations
+     *
+     * <p>Gets a paginated list of session locations.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionLocationResponse getSessionLocation(
+            @Nonnull GetSessionLocationRequest request, @Nullable Options options) {
         RequestOperation<GetSessionLocationRequest, GetSessionLocationResponse> operation =
-                new GetSessionLocation.Sync(sdkConfiguration, _headers);
+                new GetSessionLocation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -203,8 +222,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddSessionLocationResponse addSessionLocation(@Nonnull AddSessionLocationRequest request) {
+        return addSessionLocation(request, null);
+    }
+
+    /**
+     * Add Session Location
+     *
+     * <p>Add a session location to the specified event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddSessionLocationResponse addSessionLocation(
+            @Nonnull AddSessionLocationRequest request, @Nullable Options options) {
         RequestOperation<AddSessionLocationRequest, AddSessionLocationResponse> operation =
-                new AddSessionLocation.Sync(sdkConfiguration, _headers);
+                new AddSessionLocation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -233,8 +269,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateProgramItemResponse createProgramItem(@Nonnull ProgramItemInput request) {
+        return createProgramItem(request, null);
+    }
+
+    /**
+     * Create Program Item
+     *
+     * <p>Create a session program item based on the details provided in the body of the request. A session
+     * program item is a specific part of a session's schedule, like a talk, workshop, or panel discussion.
+     * Max 25 program items per session.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateProgramItemResponse createProgramItem(@Nonnull ProgramItemInput request, @Nullable Options options) {
         RequestOperation<ProgramItemInput, CreateProgramItemResponse> operation =
-                new CreateProgramItem.Sync(sdkConfiguration, _headers);
+                new CreateProgramItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -259,8 +311,23 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListProgramItemsResponse listProgramItems(@Nonnull ListProgramItemsRequest request) {
+        return listProgramItems(request, null);
+    }
+
+    /**
+     * List Program Items
+     *
+     * <p>Gets a paginated list of session program items.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListProgramItemsResponse listProgramItems(
+            @Nonnull ListProgramItemsRequest request, @Nullable Options options) {
         RequestOperation<ListProgramItemsRequest, ListProgramItemsResponse> operation =
-                new ListProgramItems.Sync(sdkConfiguration, _headers);
+                new ListProgramItems.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -286,8 +353,23 @@ public class Sessions {
      */
     public FilterProgramItemDocumentsResponse filterProgramItemDocuments(
             @Nonnull FilterProgramItemDocumentsRequest request) {
+        return filterProgramItemDocuments(request, null);
+    }
+
+    /**
+     * Filter Program Item Documents
+     *
+     * <p>Gets a paginated list of session program item documents using a filter in the body of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public FilterProgramItemDocumentsResponse filterProgramItemDocuments(
+            @Nonnull FilterProgramItemDocumentsRequest request, @Nullable Options options) {
         RequestOperation<FilterProgramItemDocumentsRequest, FilterProgramItemDocumentsResponse> operation =
-                new FilterProgramItemDocuments.Sync(sdkConfiguration, _headers);
+                new FilterProgramItemDocuments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -317,8 +399,25 @@ public class Sessions {
      */
     public ListProgramItemsPostFiltersResponse listProgramItemsPostFilters(
             @Nonnull ListProgramItemsPostFiltersRequest request) {
+        return listProgramItemsPostFilters(request, null);
+    }
+
+    /**
+     * List Program Items
+     *
+     * <p>Gets a paginated list of session program items by sending a filter in the body of the request. This
+     * method will return the same data as <a href="#operation/listProgramItems">GET List Program Items</a>
+     * but allows for longer filters.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListProgramItemsPostFiltersResponse listProgramItemsPostFilters(
+            @Nonnull ListProgramItemsPostFiltersRequest request, @Nullable Options options) {
         RequestOperation<ListProgramItemsPostFiltersRequest, ListProgramItemsPostFiltersResponse> operation =
-                new ListProgramItemsPostFilters.Sync(sdkConfiguration, _headers);
+                new ListProgramItemsPostFilters.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -343,8 +442,23 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateProgramItemResponse updateProgramItem(@Nonnull UpdateProgramItemRequest request) {
+        return updateProgramItem(request, null);
+    }
+
+    /**
+     * Update Program Item
+     *
+     * <p>Updates the given session program item based on the details provided in the body of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateProgramItemResponse updateProgramItem(
+            @Nonnull UpdateProgramItemRequest request, @Nullable Options options) {
         RequestOperation<UpdateProgramItemRequest, UpdateProgramItemResponse> operation =
-                new UpdateProgramItem.Sync(sdkConfiguration, _headers);
+                new UpdateProgramItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -369,8 +483,23 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteProgramItemResponse deleteProgramItem(@Nonnull DeleteProgramItemRequest request) {
+        return deleteProgramItem(request, null);
+    }
+
+    /**
+     * Delete Session Program Item
+     *
+     * <p>Delete the given session program item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteProgramItemResponse deleteProgramItem(
+            @Nonnull DeleteProgramItemRequest request, @Nullable Options options) {
         RequestOperation<DeleteProgramItemRequest, DeleteProgramItemResponse> operation =
-                new DeleteProgramItem.Sync(sdkConfiguration, _headers);
+                new DeleteProgramItem.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -403,8 +532,27 @@ public class Sessions {
      */
     @Deprecated
     public GetProgramItemDocumentsResponse getProgramItemDocuments(@Nonnull GetProgramItemDocumentsRequest request) {
+        return getProgramItemDocuments(request, null);
+    }
+
+    /**
+     * Get Program Item Documents
+     *
+     * <p>Returns a list of session documents for the specified program item ID.
+     * **Note:** This endpoint is deprecated. use <a href="#operation/filterProgramItemDocuments">Filter
+     * Program Item Documents</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public GetProgramItemDocumentsResponse getProgramItemDocuments(
+            @Nonnull GetProgramItemDocumentsRequest request, @Nullable Options options) {
         RequestOperation<GetProgramItemDocumentsRequest, GetProgramItemDocumentsResponse> operation =
-                new GetProgramItemDocuments.Sync(sdkConfiguration, _headers);
+                new GetProgramItemDocuments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -432,8 +580,24 @@ public class Sessions {
      */
     public RelateProgramItemToSessionDocumentResponse relateProgramItemToSessionDocument(
             @Nonnull RelateProgramItemToSessionDocumentRequest request) {
+        return relateProgramItemToSessionDocument(request, null);
+    }
+
+    /**
+     * Add Program Item Document
+     *
+     * <p>Creates a relationship between a session program item and a session document. Limit 10 session
+     * documents per session program item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public RelateProgramItemToSessionDocumentResponse relateProgramItemToSessionDocument(
+            @Nonnull RelateProgramItemToSessionDocumentRequest request, @Nullable Options options) {
         RequestOperation<RelateProgramItemToSessionDocumentRequest, RelateProgramItemToSessionDocumentResponse> operation =
-                new RelateProgramItemToSessionDocument.Sync(sdkConfiguration, _headers);
+                new RelateProgramItemToSessionDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -459,8 +623,23 @@ public class Sessions {
      */
     public GetProgramItemSessionDocumentResponse getProgramItemSessionDocument(
             @Nonnull GetProgramItemSessionDocumentRequest request) {
+        return getProgramItemSessionDocument(request, null);
+    }
+
+    /**
+     * Get Program Item Document
+     *
+     * <p>Returns a single program item to session document relationship for the provided IDs.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetProgramItemSessionDocumentResponse getProgramItemSessionDocument(
+            @Nonnull GetProgramItemSessionDocumentRequest request, @Nullable Options options) {
         RequestOperation<GetProgramItemSessionDocumentRequest, GetProgramItemSessionDocumentResponse> operation =
-                new GetProgramItemSessionDocument.Sync(sdkConfiguration, _headers);
+                new GetProgramItemSessionDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -486,8 +665,23 @@ public class Sessions {
      */
     public DeleteProgramItemSessionDocumentResponse deleteProgramItemSessionDocument(
             @Nonnull DeleteProgramItemSessionDocumentRequest request) {
+        return deleteProgramItemSessionDocument(request, null);
+    }
+
+    /**
+     * Delete Program Item Document
+     *
+     * <p>Deletes session program item to session document relationship based on the provided IDs.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteProgramItemSessionDocumentResponse deleteProgramItemSessionDocument(
+            @Nonnull DeleteProgramItemSessionDocumentRequest request, @Nullable Options options) {
         RequestOperation<DeleteProgramItemSessionDocumentRequest, DeleteProgramItemSessionDocumentResponse> operation =
-                new DeleteProgramItemSessionDocument.Sync(sdkConfiguration, _headers);
+                new DeleteProgramItemSessionDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -516,8 +710,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionsCategoriesResponse listSessionsCategories(@Nonnull ListSessionsCategoriesRequest request) {
+        return listSessionsCategories(request, null);
+    }
+
+    /**
+     * List Session Categories
+     *
+     * <p>Gets a paginated list of session categories.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionsCategoriesResponse listSessionsCategories(
+            @Nonnull ListSessionsCategoriesRequest request, @Nullable Options options) {
         RequestOperation<ListSessionsCategoriesRequest, ListSessionsCategoriesResponse> operation =
-                new ListSessionsCategories.Sync(sdkConfiguration, _headers);
+                new ListSessionsCategories.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -546,8 +757,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateSessionCategoryResponse createSessionCategory(@Nonnull SessionCategoryInput request) {
+        return createSessionCategory(request, null);
+    }
+
+    /**
+     * Create Session Categories
+     *
+     * <p>Create a session category.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateSessionCategoryResponse createSessionCategory(
+            @Nonnull SessionCategoryInput request, @Nullable Options options) {
         RequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation =
-                new CreateSessionCategory.Sync(sdkConfiguration, _headers);
+                new CreateSessionCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -576,8 +804,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSessionSegmentsResponse getSessionSegments(@Nonnull GetSessionSegmentsRequest request) {
+        return getSessionSegments(request, null);
+    }
+
+    /**
+     * Get Session Segments
+     *
+     * <p>Return a list of session and audience segment associations.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionSegmentsResponse getSessionSegments(
+            @Nonnull GetSessionSegmentsRequest request, @Nullable Options options) {
         RequestOperation<GetSessionSegmentsRequest, GetSessionSegmentsResponse> operation =
-                new GetSessionSegments.Sync(sdkConfiguration, _headers);
+                new GetSessionSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -606,8 +851,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionsResponse listSessions(@Nonnull ListSessionsRequest request) {
+        return listSessions(request, null);
+    }
+
+    /**
+     * List Sessions
+     *
+     * <p>Gets a paginated list of sessions.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionsResponse listSessions(@Nonnull ListSessionsRequest request, @Nullable Options options) {
         RequestOperation<ListSessionsRequest, ListSessionsResponse> operation =
-                new ListSessions.Sync(sdkConfiguration, _headers);
+                new ListSessions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -636,8 +897,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateSessionResponse createSession(@Nonnull SessionInput request) {
+        return createSession(request, null);
+    }
+
+    /**
+     * Create Session
+     *
+     * <p>Creates a single session based on the values provided in the request body.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateSessionResponse createSession(@Nonnull SessionInput request, @Nullable Options options) {
         RequestOperation<SessionInput, CreateSessionResponse> operation =
-                new CreateSession.Sync(sdkConfiguration, _headers);
+                new CreateSession.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -668,8 +945,26 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionsPostFiltersResponse listSessionsPostFilters(@Nonnull ListSessionsPostFiltersRequest request) {
+        return listSessionsPostFilters(request, null);
+    }
+
+    /**
+     * List Sessions
+     *
+     * <p>Gets a paginated list of sessions by sending a filter in the request's body. This method returns the
+     * same data as <a href="#operation/listSessions">GET List Sessions</a> but allows longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionsPostFiltersResponse listSessionsPostFilters(
+            @Nonnull ListSessionsPostFiltersRequest request, @Nullable Options options) {
         RequestOperation<ListSessionsPostFiltersRequest, ListSessionsPostFiltersResponse> operation =
-                new ListSessionsPostFilters.Sync(sdkConfiguration, _headers);
+                new ListSessionsPostFilters.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -698,8 +993,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSessionByIdResponse getSessionById(@Nonnull GetSessionByIdRequest request) {
+        return getSessionById(request, null);
+    }
+
+    /**
+     * Get Session
+     *
+     * <p>Gets a single session based on the provided session ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionByIdResponse getSessionById(@Nonnull GetSessionByIdRequest request, @Nullable Options options) {
         RequestOperation<GetSessionByIdRequest, GetSessionByIdResponse> operation =
-                new GetSessionById.Sync(sdkConfiguration, _headers);
+                new GetSessionById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -728,8 +1039,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateSessionResponse updateSession(@Nonnull UpdateSessionRequest request) {
+        return updateSession(request, null);
+    }
+
+    /**
+     * Update Session
+     *
+     * <p>Updates the given session with the values provided in the request body.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateSessionResponse updateSession(@Nonnull UpdateSessionRequest request, @Nullable Options options) {
         RequestOperation<UpdateSessionRequest, UpdateSessionResponse> operation =
-                new UpdateSession.Sync(sdkConfiguration, _headers);
+                new UpdateSession.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -758,8 +1085,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSessionResponse deleteSession(@Nonnull DeleteSessionRequest request) {
+        return deleteSession(request, null);
+    }
+
+    /**
+     * Delete Session
+     *
+     * <p>Deletes a session based on the given session ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSessionResponse deleteSession(@Nonnull DeleteSessionRequest request, @Nullable Options options) {
         RequestOperation<DeleteSessionRequest, DeleteSessionResponse> operation =
-                new DeleteSession.Sync(sdkConfiguration, _headers);
+                new DeleteSession.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -789,8 +1132,25 @@ public class Sessions {
      */
     public UpdateSessionCustomFieldAnswersResponse updateSessionCustomFieldAnswers(
             @Nonnull UpdateSessionCustomFieldAnswersRequest request) {
+        return updateSessionCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Updates custom field answers for a single custom field and single session.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateSessionCustomFieldAnswersResponse updateSessionCustomFieldAnswers(
+            @Nonnull UpdateSessionCustomFieldAnswersRequest request, @Nullable Options options) {
         RequestOperation<UpdateSessionCustomFieldAnswersRequest, UpdateSessionCustomFieldAnswersResponse> operation =
-                new UpdateSessionCustomFieldAnswers.Sync(sdkConfiguration, _headers);
+                new UpdateSessionCustomFieldAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -819,8 +1179,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionDocsResponse listSessionDocs(@Nonnull ListSessionDocsRequest request) {
+        return listSessionDocs(request, null);
+    }
+
+    /**
+     * List Session Documents
+     *
+     * <p>Gets a paginated list of document URLs for a single session.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionDocsResponse listSessionDocs(@Nonnull ListSessionDocsRequest request, @Nullable Options options) {
         RequestOperation<ListSessionDocsRequest, ListSessionDocsResponse> operation =
-                new ListSessionDocs.Sync(sdkConfiguration, _headers);
+                new ListSessionDocs.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -849,8 +1225,24 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSessionDocResponse getSessionDoc(@Nonnull GetSessionDocRequest request) {
+        return getSessionDoc(request, null);
+    }
+
+    /**
+     * Get Session Document
+     *
+     * <p>Get a specific document that is assigned to a specific session.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSessionDocResponse getSessionDoc(@Nonnull GetSessionDocRequest request, @Nullable Options options) {
         RequestOperation<GetSessionDocRequest, GetSessionDocResponse> operation =
-                new GetSessionDoc.Sync(sdkConfiguration, _headers);
+                new GetSessionDoc.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -883,8 +1275,26 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddSessionDocResponse addSessionDoc(@Nonnull AddSessionDocRequest request) {
+        return addSessionDoc(request, null);
+    }
+
+    /**
+     * Add Document To Session
+     *
+     * <p>Associates a given document to a session. Documents must be
+     * <a href="#operation/uploadFile">uploaded</a> before you can associate
+     * them.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddSessionDocResponse addSessionDoc(@Nonnull AddSessionDocRequest request, @Nullable Options options) {
         RequestOperation<AddSessionDocRequest, AddSessionDocResponse> operation =
-                new AddSessionDoc.Sync(sdkConfiguration, _headers);
+                new AddSessionDoc.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -915,8 +1325,26 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteSessionDocumentResponse deleteSessionDocument(@Nonnull DeleteSessionDocumentRequest request) {
+        return deleteSessionDocument(request, null);
+    }
+
+    /**
+     * Delete Document from Session
+     *
+     * <p>Disassociates a given document from a session. Document IDs are provided after <a
+     * href="#operation/uploadFile">file upload</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteSessionDocumentResponse deleteSessionDocument(
+            @Nonnull DeleteSessionDocumentRequest request, @Nullable Options options) {
         RequestOperation<DeleteSessionDocumentRequest, DeleteSessionDocumentResponse> operation =
-                new DeleteSessionDocument.Sync(sdkConfiguration, _headers);
+                new DeleteSessionDocument.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -945,8 +1373,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListSessionSpeakersResponse listSessionSpeakers(@Nonnull ListSessionSpeakersRequest request) {
+        return listSessionSpeakers(request, null);
+    }
+
+    /**
+     * List Session's Speakers
+     *
+     * <p>Get a paginated list of speakers and categories assigned to the provided session ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSessionSpeakersResponse listSessionSpeakers(
+            @Nonnull ListSessionSpeakersRequest request, @Nullable Options options) {
         RequestOperation<ListSessionSpeakersRequest, ListSessionSpeakersResponse> operation =
-                new ListSessionSpeakers.Sync(sdkConfiguration, _headers);
+                new ListSessionSpeakers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -975,8 +1420,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public AddSpeakerToSessionResponse addSpeakerToSession(@Nonnull AddSpeakerToSessionRequest request) {
+        return addSpeakerToSession(request, null);
+    }
+
+    /**
+     * Assign Speaker to Session
+     *
+     * <p>Assign a given speaker to a given session based on their IDs.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddSpeakerToSessionResponse addSpeakerToSession(
+            @Nonnull AddSpeakerToSessionRequest request, @Nullable Options options) {
         RequestOperation<AddSpeakerToSessionRequest, AddSpeakerToSessionResponse> operation =
-                new AddSpeakerToSession.Sync(sdkConfiguration, _headers);
+                new AddSpeakerToSession.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1005,8 +1467,25 @@ public class Sessions {
      * @throws RuntimeException subclass if the API call fails
      */
     public RemoveSpeakerFromSessionResponse removeSpeakerFromSession(@Nonnull RemoveSpeakerFromSessionRequest request) {
+        return removeSpeakerFromSession(request, null);
+    }
+
+    /**
+     * Delete Speaker From Session
+     *
+     * <p>Deletes a speaker from a session.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public RemoveSpeakerFromSessionResponse removeSpeakerFromSession(
+            @Nonnull RemoveSpeakerFromSessionRequest request, @Nullable Options options) {
         RequestOperation<RemoveSpeakerFromSessionRequest, RemoveSpeakerFromSessionResponse> operation =
-                new RemoveSpeakerFromSession.Sync(sdkConfiguration, _headers);
+                new RemoveSpeakerFromSession.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

@@ -18,7 +18,9 @@ import com.cvent.operations.CreateBadgePrintJob;
 import com.cvent.operations.GetBadgePrintJob;
 import com.cvent.operations.GetEventBadgePrintJobs;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -69,8 +71,24 @@ public class AsyncBadgePrintJob {
      */
     public CompletableFuture<CreateBadgePrintJobResponse> createBadgePrintJob(
             @Nonnull CreateBadgePrintJobRequest request) {
+        return createBadgePrintJob(request, null);
+    }
+
+    /**
+     * Create Badge Print Job
+     *
+     * <p>Creates a new badge print job
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateBadgePrintJobResponse>} - The async response
+     */
+    public CompletableFuture<CreateBadgePrintJobResponse> createBadgePrintJob(
+            @Nonnull CreateBadgePrintJobRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateBadgePrintJobRequest, CreateBadgePrintJobResponse> operation =
-                new CreateBadgePrintJob.Async(sdkConfiguration, _headers);
+                new CreateBadgePrintJob.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -99,8 +117,24 @@ public class AsyncBadgePrintJob {
      */
     public CompletableFuture<GetEventBadgePrintJobsResponse> getEventBadgePrintJobs(
             @Nonnull GetEventBadgePrintJobsRequest request) {
+        return getEventBadgePrintJobs(request, null);
+    }
+
+    /**
+     * List Badge Print Jobs
+     *
+     * <p>Gets a paginated list of badge print jobs for a given event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetEventBadgePrintJobsResponse>} - The async response
+     */
+    public CompletableFuture<GetEventBadgePrintJobsResponse> getEventBadgePrintJobs(
+            @Nonnull GetEventBadgePrintJobsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetEventBadgePrintJobsRequest, GetEventBadgePrintJobsResponse> operation =
-                new GetEventBadgePrintJobs.Async(sdkConfiguration, _headers);
+                new GetEventBadgePrintJobs.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -128,8 +162,24 @@ public class AsyncBadgePrintJob {
      * @return {@code CompletableFuture<GetBadgePrintJobResponse>} - The async response
      */
     public CompletableFuture<GetBadgePrintJobResponse> getBadgePrintJob(@Nonnull GetBadgePrintJobRequest request) {
+        return getBadgePrintJob(request, null);
+    }
+
+    /**
+     * Get Badge Print Job
+     *
+     * <p>Gets a badge print job
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetBadgePrintJobResponse>} - The async response
+     */
+    public CompletableFuture<GetBadgePrintJobResponse> getBadgePrintJob(
+            @Nonnull GetBadgePrintJobRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetBadgePrintJobRequest, GetBadgePrintJobResponse> operation =
-                new GetBadgePrintJob.Async(sdkConfiguration, _headers);
+                new GetBadgePrintJob.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

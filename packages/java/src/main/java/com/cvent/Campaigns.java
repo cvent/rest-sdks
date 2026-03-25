@@ -22,6 +22,7 @@ import com.cvent.operations.GetEmailTemplates;
 import com.cvent.operations.GetEmarketingEmailStatus;
 import com.cvent.operations.SendEMarketingEmails;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 
@@ -74,8 +75,24 @@ public class Campaigns {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCampaignsResponse getCampaigns(@Nonnull GetCampaignsRequest request) {
+        return getCampaigns(request, null);
+    }
+
+    /**
+     * List eMarketing Campaigns
+     *
+     * <p>Gets a list of eMarketing campaigns.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetCampaignsResponse getCampaigns(@Nonnull GetCampaignsRequest request, @Nullable Options options) {
         RequestOperation<GetCampaignsRequest, GetCampaignsResponse> operation =
-                new GetCampaigns.Sync(sdkConfiguration, _headers);
+                new GetCampaigns.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -104,8 +121,25 @@ public class Campaigns {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEmailTemplatesResponse getEmailTemplates(@Nonnull GetEmailTemplatesRequest request) {
+        return getEmailTemplates(request, null);
+    }
+
+    /**
+     * List Email Templates
+     *
+     * <p>Gets a list of eMarketing email templates.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEmailTemplatesResponse getEmailTemplates(
+            @Nonnull GetEmailTemplatesRequest request, @Nullable Options options) {
         RequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
-                new GetEmailTemplates.Sync(sdkConfiguration, _headers);
+                new GetEmailTemplates.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -133,7 +167,7 @@ public class Campaigns {
      * @throws RuntimeException subclass if the API call fails
      */
     public SendEMarketingEmailsResponse sendEMarketingEmailsDirect() {
-        return sendEMarketingEmails(null);
+        return sendEMarketingEmails(null, null);
     }
 
     /**
@@ -144,12 +178,14 @@ public class Campaigns {
      * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
      *
      * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public SendEMarketingEmailsResponse sendEMarketingEmails(@Nullable SendEmailRequest request) {
+    public SendEMarketingEmailsResponse sendEMarketingEmails(
+            @Nullable SendEmailRequest request, @Nullable Options options) {
         RequestOperation<SendEmailRequest, SendEMarketingEmailsResponse> operation =
-                new SendEMarketingEmails.Sync(sdkConfiguration, _headers);
+                new SendEMarketingEmails.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -180,8 +216,26 @@ public class Campaigns {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetEmarketingEmailStatusResponse getEmarketingEmailStatus(@Nonnull GetEmarketingEmailStatusRequest request) {
+        return getEmarketingEmailStatus(request, null);
+    }
+
+    /**
+     * List Emarketing Email Status
+     *
+     * <p>Gets the status of email using unique email request ID that was generated as a response of [Send
+     * Email To Recipients](#tag/Campaigns/operation/sendEMarketingEmails) request.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetEmarketingEmailStatusResponse getEmarketingEmailStatus(
+            @Nonnull GetEmarketingEmailStatusRequest request, @Nullable Options options) {
         RequestOperation<GetEmarketingEmailStatusRequest, GetEmarketingEmailStatusResponse> operation =
-                new GetEmarketingEmailStatus.Sync(sdkConfiguration, _headers);
+                new GetEmarketingEmailStatus.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

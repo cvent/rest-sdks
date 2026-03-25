@@ -88,7 +88,9 @@ import com.cvent.operations.UnlinkReservation;
 import com.cvent.operations.UpdateReservationRequest;
 import com.cvent.operations.UpdateReservationSync;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -163,8 +165,24 @@ public class AsyncHousing {
      * @return {@code CompletableFuture<CreateConnectionResponse>} - The async response
      */
     public CompletableFuture<CreateConnectionResponse> createConnection(@Nonnull CreateConnectionRequest request) {
+        return createConnection(request, null);
+    }
+
+    /**
+     * Create Connection
+     *
+     * <p>Create a connection between an integration partner and an event using an access code provided by the
+     * Passkey event owner. This connection (manually or using this API) is required to authorize ANY other
+     * API calls for the event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateConnectionResponse>} - The async response
+     */
+    public CompletableFuture<CreateConnectionResponse> createConnection(
+            @Nonnull CreateConnectionRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateConnectionRequest, CreateConnectionResponse> operation =
-                new CreateConnection.Async(sdkConfiguration, _headers);
+                new CreateConnection.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -189,8 +207,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventsSummariesResponse> getHousingEventsSummaries(
             @Nonnull GetHousingEventsSummariesRequest request) {
+        return getHousingEventsSummaries(request, null);
+    }
+
+    /**
+     * Get Housing Events Summaries
+     *
+     * <p>Gets a paginated list of summary information for your individual housing events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventsSummariesResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventsSummariesResponse> getHousingEventsSummaries(
+            @Nonnull GetHousingEventsSummariesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventsSummariesRequest, GetHousingEventsSummariesResponse> operation =
-                new GetHousingEventsSummaries.Async(sdkConfiguration, _headers);
+                new GetHousingEventsSummaries.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -215,8 +247,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventInfoResponse> getHousingEventInfo(
             @Nonnull GetHousingEventInfoRequest request) {
+        return getHousingEventInfo(request, null);
+    }
+
+    /**
+     * Get Housing Event Info
+     *
+     * <p>Retrieves housing event details based on the given housing event ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventInfoResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventInfoResponse> getHousingEventInfo(
+            @Nonnull GetHousingEventInfoRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventInfoRequest, GetHousingEventInfoResponse> operation =
-                new GetHousingEventInfo.Async(sdkConfiguration, _headers);
+                new GetHousingEventInfo.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -241,8 +287,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventHotelsResponse> getHousingEventHotels(
             @Nonnull GetHousingEventHotelsRequest request) {
+        return getHousingEventHotels(request, null);
+    }
+
+    /**
+     * Get Housing Event Hotels
+     *
+     * <p>Get list of hotels for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventHotelsResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventHotelsResponse> getHousingEventHotels(
+            @Nonnull GetHousingEventHotelsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventHotelsRequest, GetHousingEventHotelsResponse> operation =
-                new GetHousingEventHotels.Async(sdkConfiguration, _headers);
+                new GetHousingEventHotels.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -267,8 +327,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventHotelResponse> getHousingEventHotel(
             @Nonnull GetHousingEventHotelRequest request) {
+        return getHousingEventHotel(request, null);
+    }
+
+    /**
+     * Get Housing Event Hotel
+     *
+     * <p>Gets a single hotel's details in a housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventHotelResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventHotelResponse> getHousingEventHotel(
+            @Nonnull GetHousingEventHotelRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventHotelRequest, GetHousingEventHotelResponse> operation =
-                new GetHousingEventHotel.Async(sdkConfiguration, _headers);
+                new GetHousingEventHotel.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -293,8 +367,23 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventHotelAvailabilityResponse> getHousingEventHotelAvailability(
             @Nonnull GetHousingEventHotelAvailabilityRequest request) {
+        return getHousingEventHotelAvailability(request, null);
+    }
+
+    /**
+     * Get Event Hotel Availability
+     *
+     * <p>Get a filterable list of available room nights for a particular hotel and housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventHotelAvailabilityResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventHotelAvailabilityResponse> getHousingEventHotelAvailability(
+            @Nonnull GetHousingEventHotelAvailabilityRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventHotelAvailabilityRequest, GetHousingEventHotelAvailabilityResponse> operation =
-                new GetHousingEventHotelAvailability.Async(sdkConfiguration, _headers);
+                new GetHousingEventHotelAvailability.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -319,8 +408,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventRoomTypesResponse> getHousingEventRoomTypes(
             @Nonnull GetHousingEventRoomTypesRequest request) {
+        return getHousingEventRoomTypes(request, null);
+    }
+
+    /**
+     * Get Housing Event Room Types
+     *
+     * <p>Get a filterable list of room types for a given hotel in a housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventRoomTypesResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventRoomTypesResponse> getHousingEventRoomTypes(
+            @Nonnull GetHousingEventRoomTypesRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventRoomTypesRequest, GetHousingEventRoomTypesResponse> operation =
-                new GetHousingEventRoomTypes.Async(sdkConfiguration, _headers);
+                new GetHousingEventRoomTypes.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -345,8 +448,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetRoomTypeDetailsResponse> getRoomTypeDetails(
             @Nonnull GetRoomTypeDetailsRequest request) {
+        return getRoomTypeDetails(request, null);
+    }
+
+    /**
+     * Get Room Type Details
+     *
+     * <p>Get a room type's details for the given housing event, hotel and room type.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRoomTypeDetailsResponse>} - The async response
+     */
+    public CompletableFuture<GetRoomTypeDetailsResponse> getRoomTypeDetails(
+            @Nonnull GetRoomTypeDetailsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetRoomTypeDetailsRequest, GetRoomTypeDetailsResponse> operation =
-                new GetRoomTypeDetails.Async(sdkConfiguration, _headers);
+                new GetRoomTypeDetails.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -373,8 +490,23 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetRoomTypeInventoryResponse> getRoomTypeInventory(
             @Nonnull GetRoomTypeInventoryRequest request) {
+        return getRoomTypeInventory(request, null);
+    }
+
+    /**
+     * Get Room Type Inventory
+     *
+     * <p>Gets a list of room type inventory details (by date) for the given housing event, hotel and room
+     * type.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetRoomTypeInventoryResponse>} - The async response
+     */
+    public CompletableFuture<GetRoomTypeInventoryResponse> getRoomTypeInventory(
+            @Nonnull GetRoomTypeInventoryRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetRoomTypeInventoryRequest, GetRoomTypeInventoryResponse> operation =
-                new GetRoomTypeInventory.Async(sdkConfiguration, _headers);
+                new GetRoomTypeInventory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -399,8 +531,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventInventoryResponse> getHousingEventInventory(
             @Nonnull GetHousingEventInventoryRequest request) {
+        return getHousingEventInventory(request, null);
+    }
+
+    /**
+     * Get Housing Event Inventory
+     *
+     * <p>Gets a list (sorted by date) of housing event inventory details for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventInventoryResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventInventoryResponse> getHousingEventInventory(
+            @Nonnull GetHousingEventInventoryRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventInventoryRequest, GetHousingEventInventoryResponse> operation =
-                new GetHousingEventInventory.Async(sdkConfiguration, _headers);
+                new GetHousingEventInventory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -425,8 +571,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetHousingEventReservationsResponse> getHousingEventReservations(
             @Nonnull GetHousingEventReservationsRequest request) {
+        return getHousingEventReservations(request, null);
+    }
+
+    /**
+     * Get Housing Event Reservations
+     *
+     * <p>Get list of reservation details for the given housing event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetHousingEventReservationsResponse>} - The async response
+     */
+    public CompletableFuture<GetHousingEventReservationsResponse> getHousingEventReservations(
+            @Nonnull GetHousingEventReservationsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetHousingEventReservationsRequest, GetHousingEventReservationsResponse> operation =
-                new GetHousingEventReservations.Async(sdkConfiguration, _headers);
+                new GetHousingEventReservations.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -457,8 +617,25 @@ public class AsyncHousing {
      */
     public CompletableFuture<CreateReservationRequestResponse> createReservationRequest(
             @Nonnull ReservationRequestInput request) {
+        return createReservationRequest(request, null);
+    }
+
+    /**
+     * Create Reservation Request
+     *
+     * <p>Creates a reservation request from guest details. A reservation request represents a registration
+     * and stores guest details. Reservations booked with the guest-specific “bookingSite” URL in the
+     * response will pre-populate guest data and link the new reservation to the reservation request for
+     * tracking.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateReservationRequestResponse>} - The async response
+     */
+    public CompletableFuture<CreateReservationRequestResponse> createReservationRequest(
+            @Nonnull ReservationRequestInput request, @Nullable Options options) {
         AsyncRequestOperation<ReservationRequestInput, CreateReservationRequestResponse> operation =
-                new CreateReservationRequest.Async(sdkConfiguration, _headers);
+                new CreateReservationRequest.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -483,8 +660,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetReservationRequestResponse> getReservationRequest(
             @Nonnull GetReservationRequestRequest request) {
+        return getReservationRequest(request, null);
+    }
+
+    /**
+     * Get Reservation Request
+     *
+     * <p>Returns reservation request details for a given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetReservationRequestResponse>} - The async response
+     */
+    public CompletableFuture<GetReservationRequestResponse> getReservationRequest(
+            @Nonnull GetReservationRequestRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetReservationRequestRequest, GetReservationRequestResponse> operation =
-                new GetReservationRequest.Async(sdkConfiguration, _headers);
+                new GetReservationRequest.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -511,8 +702,23 @@ public class AsyncHousing {
      */
     public CompletableFuture<UpdateReservationRequestResponse> updateReservationRequest(
             @Nonnull UpdateReservationRequestRequest request) {
+        return updateReservationRequest(request, null);
+    }
+
+    /**
+     * Update Reservation Request
+     *
+     * <p>Update a reservation request using the given reservation ID. If the reservation has been booked,
+     * changes to the reservation request do not affect the linked reservation.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateReservationRequestResponse>} - The async response
+     */
+    public CompletableFuture<UpdateReservationRequestResponse> updateReservationRequest(
+            @Nonnull UpdateReservationRequestRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateReservationRequestRequest, UpdateReservationRequestResponse> operation =
-                new UpdateReservationRequest.Async(sdkConfiguration, _headers);
+                new UpdateReservationRequest.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -539,8 +745,23 @@ public class AsyncHousing {
      */
     public CompletableFuture<CancelReservationRequestResponse> cancelReservationRequest(
             @Nonnull CancelReservationRequestRequest request) {
+        return cancelReservationRequest(request, null);
+    }
+
+    /**
+     * Cancel Reservation Request
+     *
+     * <p>Update the status of a reservation request to cancelled. If the reservation has already been booked,
+     * any changes made to the reservation request will not affect the linked reservation.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CancelReservationRequestResponse>} - The async response
+     */
+    public CompletableFuture<CancelReservationRequestResponse> cancelReservationRequest(
+            @Nonnull CancelReservationRequestRequest request, @Nullable Options options) {
         AsyncRequestOperation<CancelReservationRequestRequest, CancelReservationRequestResponse> operation =
-                new CancelReservationRequest.Async(sdkConfiguration, _headers);
+                new CancelReservationRequest.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -566,8 +787,23 @@ public class AsyncHousing {
      * @return {@code CompletableFuture<LinkReservationResponse>} - The async response
      */
     public CompletableFuture<LinkReservationResponse> linkReservation(@Nonnull LinkReservationRequest request) {
+        return linkReservation(request, null);
+    }
+
+    /**
+     * Link Reservation
+     *
+     * <p>Link an existing reservation to a reservation request. Commonly used when associating a reservation
+     * created outside the normal booking flow (such as a guest calling the hotel).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<LinkReservationResponse>} - The async response
+     */
+    public CompletableFuture<LinkReservationResponse> linkReservation(
+            @Nonnull LinkReservationRequest request, @Nullable Options options) {
         AsyncRequestOperation<LinkReservationRequest, LinkReservationResponse> operation =
-                new LinkReservation.Async(sdkConfiguration, _headers);
+                new LinkReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -593,8 +829,23 @@ public class AsyncHousing {
      * @return {@code CompletableFuture<UnlinkReservationResponse>} - The async response
      */
     public CompletableFuture<UnlinkReservationResponse> unlinkReservation(@Nonnull UnlinkReservationRequest request) {
+        return unlinkReservation(request, null);
+    }
+
+    /**
+     * Unlink Reservation
+     *
+     * <p>Unlink reservation from reservation request. Commonly used for removing a cancelled reservation from
+     * a reservation request so that a new reservation can be linked in its place.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UnlinkReservationResponse>} - The async response
+     */
+    public CompletableFuture<UnlinkReservationResponse> unlinkReservation(
+            @Nonnull UnlinkReservationRequest request, @Nullable Options options) {
         AsyncRequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation =
-                new UnlinkReservation.Async(sdkConfiguration, _headers);
+                new UnlinkReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -618,8 +869,22 @@ public class AsyncHousing {
      * @return {@code CompletableFuture<CreateReservationResponse>} - The async response
      */
     public CompletableFuture<CreateReservationResponse> createReservation(@Nonnull NewReservation request) {
+        return createReservation(request, null);
+    }
+
+    /**
+     * Create Reservation
+     *
+     * <p>Create a hotel reservation in a housing event based on the details provided in the request body.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateReservationResponse>} - The async response
+     */
+    public CompletableFuture<CreateReservationResponse> createReservation(
+            @Nonnull NewReservation request, @Nullable Options options) {
         AsyncRequestOperation<NewReservation, CreateReservationResponse> operation =
-                new CreateReservation.Async(sdkConfiguration, _headers);
+                new CreateReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -646,8 +911,23 @@ public class AsyncHousing {
      */
     public CompletableFuture<GetReservationResponse> getReservation(
             @Nonnull com.cvent.models.operations.GetReservationRequest request) {
+        return getReservation(request, null);
+    }
+
+    /**
+     * Get Reservation
+     *
+     * <p>Get reservation details for the given reservation ID. Commonly used in response to [passkey
+     * callbacks](/docs/passkey/REST/callbacks).
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetReservationResponse>} - The async response
+     */
+    public CompletableFuture<GetReservationResponse> getReservation(
+            @Nonnull com.cvent.models.operations.GetReservationRequest request, @Nullable Options options) {
         AsyncRequestOperation<com.cvent.models.operations.GetReservationRequest, GetReservationResponse> operation =
-                new GetReservation.Async(sdkConfiguration, _headers);
+                new GetReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -672,8 +952,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<CancelReservationResponse> cancelReservation(
             @Nonnull com.cvent.models.operations.CancelReservationRequest request) {
+        return cancelReservation(request, null);
+    }
+
+    /**
+     * Cancel Reservation
+     *
+     * <p>Cancel reservation for given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CancelReservationResponse>} - The async response
+     */
+    public CompletableFuture<CancelReservationResponse> cancelReservation(
+            @Nonnull com.cvent.models.operations.CancelReservationRequest request, @Nullable Options options) {
         AsyncRequestOperation<com.cvent.models.operations.CancelReservationRequest, CancelReservationResponse> operation =
-                new CancelReservation.Async(sdkConfiguration, _headers);
+                new CancelReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -698,8 +992,22 @@ public class AsyncHousing {
      */
     public CompletableFuture<UpdateReservationSyncResponse> updateReservationSync(
             @Nonnull UpdateReservationSyncRequest request) {
+        return updateReservationSync(request, null);
+    }
+
+    /**
+     * Update Reservation
+     *
+     * <p>Updates an existing reservation for given reservation ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateReservationSyncResponse>} - The async response
+     */
+    public CompletableFuture<UpdateReservationSyncResponse> updateReservationSync(
+            @Nonnull UpdateReservationSyncRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateReservationSyncRequest, UpdateReservationSyncResponse> operation =
-                new UpdateReservationSync.Async(sdkConfiguration, _headers);
+                new UpdateReservationSync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

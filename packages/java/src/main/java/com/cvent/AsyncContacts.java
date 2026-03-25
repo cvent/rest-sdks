@@ -118,7 +118,9 @@ import com.cvent.operations.UpdateContactCustomFieldAnswers;
 import com.cvent.operations.UpdateContactGroup;
 import com.cvent.operations.UpdateContacts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -171,8 +173,24 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<CreateContactGroupResponse>} - The async response
      */
     public CompletableFuture<CreateContactGroupResponse> createContactGroup(@Nonnull ContactGroupInput request) {
+        return createContactGroup(request, null);
+    }
+
+    /**
+     * Create Contact Group
+     *
+     * <p>Create a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<CreateContactGroupResponse> createContactGroup(
+            @Nonnull ContactGroupInput request, @Nullable Options options) {
         AsyncRequestOperation<ContactGroupInput, CreateContactGroupResponse> operation =
-                new CreateContactGroup.Async(sdkConfiguration, _headers);
+                new CreateContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -200,8 +218,24 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<ListContactGroupsResponse>} - The async response
      */
     public CompletableFuture<ListContactGroupsResponse> listContactGroups(@Nonnull ListContactGroupsRequest request) {
+        return listContactGroups(request, null);
+    }
+
+    /**
+     * List Contact Groups
+     *
+     * <p>Gets a paginated list of contact groups
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListContactGroupsResponse>} - The async response
+     */
+    public CompletableFuture<ListContactGroupsResponse> listContactGroups(
+            @Nonnull ListContactGroupsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListContactGroupsRequest, ListContactGroupsResponse> operation =
-                new ListContactGroups.Async(sdkConfiguration, _headers);
+                new ListContactGroups.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -230,8 +264,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<GetContactGroupByIdResponse> getContactGroupById(
             @Nonnull GetContactGroupByIdRequest request) {
+        return getContactGroupById(request, null);
+    }
+
+    /**
+     * Get Contact Group
+     *
+     * <p>Get a single contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetContactGroupByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetContactGroupByIdResponse> getContactGroupById(
+            @Nonnull GetContactGroupByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetContactGroupByIdRequest, GetContactGroupByIdResponse> operation =
-                new GetContactGroupById.Async(sdkConfiguration, _headers);
+                new GetContactGroupById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -260,8 +310,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<UpdateContactGroupResponse> updateContactGroup(
             @Nonnull UpdateContactGroupRequest request) {
+        return updateContactGroup(request, null);
+    }
+
+    /**
+     * Update Contact Group
+     *
+     * <p>Update a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<UpdateContactGroupResponse> updateContactGroup(
+            @Nonnull UpdateContactGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateContactGroupRequest, UpdateContactGroupResponse> operation =
-                new UpdateContactGroup.Async(sdkConfiguration, _headers);
+                new UpdateContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -290,8 +356,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<DeleteContactGroupResponse> deleteContactGroup(
             @Nonnull DeleteContactGroupRequest request) {
+        return deleteContactGroup(request, null);
+    }
+
+    /**
+     * Delete Contact Group
+     *
+     * <p>Delete a contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<DeleteContactGroupResponse> deleteContactGroup(
+            @Nonnull DeleteContactGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteContactGroupRequest, DeleteContactGroupResponse> operation =
-                new DeleteContactGroup.Async(sdkConfiguration, _headers);
+                new DeleteContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -320,8 +402,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<GetContactIdsByContactGroupResponse> getContactIdsByContactGroup(
             @Nonnull GetContactIdsByContactGroupRequest request) {
+        return getContactIdsByContactGroup(request, null);
+    }
+
+    /**
+     * Get Ids in Contact Group
+     *
+     * <p>Get all contact ids in a single contact group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetContactIdsByContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<GetContactIdsByContactGroupResponse> getContactIdsByContactGroup(
+            @Nonnull GetContactIdsByContactGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetContactIdsByContactGroupRequest, GetContactIdsByContactGroupResponse> operation =
-                new GetContactIdsByContactGroup.Async(sdkConfiguration, _headers);
+                new GetContactIdsByContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -350,8 +448,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<AddContactToContactGroupResponse> addContactToContactGroup(
             @Nonnull AddContactToContactGroupRequest request) {
+        return addContactToContactGroup(request, null);
+    }
+
+    /**
+     * Add Contact To Group
+     *
+     * <p>Adds a single Contact to a single Contact Group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AddContactToContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<AddContactToContactGroupResponse> addContactToContactGroup(
+            @Nonnull AddContactToContactGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<AddContactToContactGroupRequest, AddContactToContactGroupResponse> operation =
-                new AddContactToContactGroup.Async(sdkConfiguration, _headers);
+                new AddContactToContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -380,8 +494,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<RemoveContactFromContactGroupResponse> removeContactFromContactGroup(
             @Nonnull RemoveContactFromContactGroupRequest request) {
+        return removeContactFromContactGroup(request, null);
+    }
+
+    /**
+     * Remove Contact From Group
+     *
+     * <p>Removes a single Contact from a single Contact Group
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<RemoveContactFromContactGroupResponse>} - The async response
+     */
+    public CompletableFuture<RemoveContactFromContactGroupResponse> removeContactFromContactGroup(
+            @Nonnull RemoveContactFromContactGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<RemoveContactFromContactGroupRequest, RemoveContactFromContactGroupResponse> operation =
-                new RemoveContactFromContactGroup.Async(sdkConfiguration, _headers);
+                new RemoveContactFromContactGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -409,8 +539,24 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<ListContactTypesResponse>} - The async response
      */
     public CompletableFuture<ListContactTypesResponse> listContactTypes(@Nonnull ListContactTypesRequest request) {
+        return listContactTypes(request, null);
+    }
+
+    /**
+     * List Contact Types
+     *
+     * <p>Gets a paginated list of contact types.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListContactTypesResponse>} - The async response
+     */
+    public CompletableFuture<ListContactTypesResponse> listContactTypes(
+            @Nonnull ListContactTypesRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListContactTypesRequest, ListContactTypesResponse> operation =
-                new ListContactTypes.Async(sdkConfiguration, _headers);
+                new ListContactTypes.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -444,8 +590,27 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<ListContactsResponse>} - The async response
      */
     public CompletableFuture<ListContactsResponse> listContacts(@Nonnull ListContactsRequest request) {
+        return listContacts(request, null);
+    }
+
+    /**
+     * List Contacts
+     *
+     * <p>Gets a paginated list of Contacts.
+     *
+     * <p>For information on reading secure contact fields, see the description of
+     * <a href="#operation/getContactById">GET Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListContactsResponse>} - The async response
+     */
+    public CompletableFuture<ListContactsResponse> listContacts(
+            @Nonnull ListContactsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListContactsRequest, ListContactsResponse> operation =
-                new ListContacts.Async(sdkConfiguration, _headers);
+                new ListContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -483,8 +648,29 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<UpdateContactsResponse>} - The async response
      */
     public CompletableFuture<UpdateContactsResponse> updateContacts(@Nonnull List<ContactUpdate> request) {
+        return updateContacts(request, null);
+    }
+
+    /**
+     * Update Contacts
+     *
+     * <p>Updates a list of contacts based on the values provided in the request body. If you're changing
+     * [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * For information on updating secure contact fields, see the description of <a
+     * href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateContactsResponse>} - The async response
+     */
+    public CompletableFuture<UpdateContactsResponse> updateContacts(
+            @Nonnull List<ContactUpdate> request, @Nullable Options options) {
         AsyncRequestOperation<List<ContactUpdate>, UpdateContactsResponse> operation =
-                new UpdateContacts.Async(sdkConfiguration, _headers);
+                new UpdateContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -526,8 +712,31 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<PatchContactsResponse>} - The async response
      */
     public CompletableFuture<PatchContactsResponse> patchContacts(@Nonnull List<ContactPatch> request) {
+        return patchContacts(request, null);
+    }
+
+    /**
+     * Patch Contacts
+     *
+     * <p>Updates a list of contacts based on the values provided only, keeping the existing values intact for
+     * every contact.
+     *
+     * <p>For information on PATCH behavior, see the description of
+     * <a href="#operation/patchContactById">PATCH Contact</a>.
+     *
+     * <p>For information on updating secure contact fields, see the description of
+     * <a href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PatchContactsResponse>} - The async response
+     */
+    public CompletableFuture<PatchContactsResponse> patchContacts(
+            @Nonnull List<ContactPatch> request, @Nullable Options options) {
         AsyncRequestOperation<List<ContactPatch>, PatchContactsResponse> operation =
-                new PatchContacts.Async(sdkConfiguration, _headers);
+                new PatchContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -565,8 +774,29 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<CreateContactsResponse>} - The async response
      */
     public CompletableFuture<CreateContactsResponse> createContacts(@Nonnull CreateContactsRequest request) {
+        return createContacts(request, null);
+    }
+
+    /**
+     * Create Contacts
+     *
+     * <p>Creates a list of contacts based on the values provided in the request body. If you're changing
+     * [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * For information on creating contacts with secure contact fields, see the description of <a
+     * href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateContactsResponse>} - The async response
+     */
+    public CompletableFuture<CreateContactsResponse> createContacts(
+            @Nonnull CreateContactsRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateContactsRequest, CreateContactsResponse> operation =
-                new CreateContacts.Async(sdkConfiguration, _headers);
+                new CreateContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -601,8 +831,27 @@ public class AsyncContacts {
      */
     public CompletableFuture<ListContactsPostFiltersResponse> listContactsPostFilters(
             @Nonnull ListContactsPostFiltersRequest request) {
+        return listContactsPostFilters(request, null);
+    }
+
+    /**
+     * List Contacts
+     *
+     * <p>Gets a paginated list of Contacts by sending a filter in the body of the request. This method will
+     * return the same data as the GET List Contacts but allows for longer filters.
+     * For information on reading secure contact fields, see the description of  <a
+     * href="#operation/getContactById">GET Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListContactsPostFiltersResponse>} - The async response
+     */
+    public CompletableFuture<ListContactsPostFiltersResponse> listContactsPostFilters(
+            @Nonnull ListContactsPostFiltersRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListContactsPostFiltersRequest, ListContactsPostFiltersResponse> operation =
-                new ListContactsPostFilters.Async(sdkConfiguration, _headers);
+                new ListContactsPostFilters.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -631,8 +880,25 @@ public class AsyncContacts {
      */
     public CompletableFuture<GetContactObfuscationStatusByIdResponse> getContactObfuscationStatusById(
             @Nonnull GetContactObfuscationStatusByIdRequest request) {
+        return getContactObfuscationStatusById(request, null);
+    }
+
+    /**
+     * Get Obfuscation Status
+     *
+     * <p>Get the obfuscation status of a contact by the Obfuscate ID provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetContactObfuscationStatusByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetContactObfuscationStatusByIdResponse> getContactObfuscationStatusById(
+            @Nonnull GetContactObfuscationStatusByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetContactObfuscationStatusByIdRequest, GetContactObfuscationStatusByIdResponse> operation =
-                new GetContactObfuscationStatusById.Async(sdkConfiguration, _headers);
+                new GetContactObfuscationStatusById.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -661,8 +927,25 @@ public class AsyncContacts {
      */
     public CompletableFuture<GetChangeHistoryForASpecificContactResponse> getChangeHistoryForASpecificContact(
             @Nonnull GetChangeHistoryForASpecificContactRequest request) {
+        return getChangeHistoryForASpecificContact(request, null);
+    }
+
+    /**
+     * Get Contact Change History
+     *
+     * <p>Get the change history for a specific contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetChangeHistoryForASpecificContactResponse>} - The async response
+     */
+    public CompletableFuture<GetChangeHistoryForASpecificContactResponse> getChangeHistoryForASpecificContact(
+            @Nonnull GetChangeHistoryForASpecificContactRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetChangeHistoryForASpecificContactRequest, GetChangeHistoryForASpecificContactResponse> operation =
-                new GetChangeHistoryForASpecificContact.Async(sdkConfiguration, _headers);
+                new GetChangeHistoryForASpecificContact.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -704,8 +987,31 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<GetContactByIdResponse>} - The async response
      */
     public CompletableFuture<GetContactByIdResponse> getContactById(@Nonnull GetContactByIdRequest request) {
+        return getContactById(request, null);
+    }
+
+    /**
+     * Get Contact
+     *
+     * <p>Get a single contact.
+     *
+     * <p>When reading a contact, the following secure contact fields are only returned when
+     * also providing the `event/contacts:read-sensitive` scope:
+     * * socialSecurityNumber
+     * * passportNumber
+     * * nationalIdentificationNumber
+     * * dateOfBirth
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetContactByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetContactByIdResponse> getContactById(
+            @Nonnull GetContactByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetContactByIdRequest, GetContactByIdResponse> operation =
-                new GetContactById.Async(sdkConfiguration, _headers);
+                new GetContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -751,8 +1057,33 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<UpdateContactByIdResponse>} - The async response
      */
     public CompletableFuture<UpdateContactByIdResponse> updateContactById(@Nonnull UpdateContactByIdRequest request) {
+        return updateContactById(request, null);
+    }
+
+    /**
+     * Update Contact
+     *
+     * <p>Updates a contact based on contact ID and the values provided in the request body. If you're
+     * changing  [de-duplication
+     * fields](https://support.cvent.com/s/communityarticle/Allowing-Multiple-People-to-Use-the-Same-Email-Address),
+     * the new values must be unique in your account.
+     * When writing a contact, the following secure contact fields are only written when also providing the
+     * `event/contacts:write-sensitive` scope:
+     * * socialSecurityNumber
+     * * passportNumber
+     * * nationalIdentificationNumber
+     * * dateOfBirth
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateContactByIdResponse>} - The async response
+     */
+    public CompletableFuture<UpdateContactByIdResponse> updateContactById(
+            @Nonnull UpdateContactByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateContactByIdRequest, UpdateContactByIdResponse> operation =
-                new UpdateContactById.Async(sdkConfiguration, _headers);
+                new UpdateContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -792,8 +1123,30 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<PatchContactByIdResponse>} - The async response
      */
     public CompletableFuture<PatchContactByIdResponse> patchContactById(@Nonnull PatchContactByIdRequest request) {
+        return patchContactById(request, null);
+    }
+
+    /**
+     * Patch Contact
+     *
+     * <p>Updates a part of a contact based on the given contactId.
+     *
+     * <p>To update a field, pass the value to be updated. To delete a field, set the field to null. Fields
+     * not passed in the request body will remain unchanged.
+     *
+     * <p>For information on updating secure contact fields, see the description of
+     * <a href="#operation/updateContactById">PUT Contact</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<PatchContactByIdResponse>} - The async response
+     */
+    public CompletableFuture<PatchContactByIdResponse> patchContactById(
+            @Nonnull PatchContactByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<PatchContactByIdRequest, PatchContactByIdResponse> operation =
-                new PatchContactById.Async(sdkConfiguration, _headers);
+                new PatchContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -817,8 +1170,22 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<DeleteContactByIdResponse>} - The async response
      */
     public CompletableFuture<DeleteContactByIdResponse> deleteContactById(@Nonnull DeleteContactByIdRequest request) {
+        return deleteContactById(request, null);
+    }
+
+    /**
+     * Delete Contact
+     *
+     * <p>Deletes a contact from the address book but does not remove the contact from events.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteContactByIdResponse>} - The async response
+     */
+    public CompletableFuture<DeleteContactByIdResponse> deleteContactById(
+            @Nonnull DeleteContactByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteContactByIdRequest, DeleteContactByIdResponse> operation =
-                new DeleteContactById.Async(sdkConfiguration, _headers);
+                new DeleteContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -847,8 +1214,25 @@ public class AsyncContacts {
      */
     public CompletableFuture<UpdateContactCustomFieldAnswersResponse> updateContactCustomFieldAnswers(
             @Nonnull UpdateContactCustomFieldAnswersRequest request) {
+        return updateContactCustomFieldAnswers(request, null);
+    }
+
+    /**
+     * Update Custom Field Answers
+     *
+     * <p>Update custom field answers for a single custom field and single contact
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateContactCustomFieldAnswersResponse>} - The async response
+     */
+    public CompletableFuture<UpdateContactCustomFieldAnswersResponse> updateContactCustomFieldAnswers(
+            @Nonnull UpdateContactCustomFieldAnswersRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateContactCustomFieldAnswersRequest, UpdateContactCustomFieldAnswersResponse> operation =
-                new UpdateContactCustomFieldAnswers.Async(sdkConfiguration, _headers);
+                new UpdateContactCustomFieldAnswers.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -876,8 +1260,24 @@ public class AsyncContacts {
      * @return {@code CompletableFuture<MergeContactsResponse>} - The async response
      */
     public CompletableFuture<MergeContactsResponse> mergeContacts(@Nonnull MergeContactsRequest request) {
+        return mergeContacts(request, null);
+    }
+
+    /**
+     * Merge Contacts
+     *
+     * <p>Merges two or three contacts into a single contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<MergeContactsResponse>} - The async response
+     */
+    public CompletableFuture<MergeContactsResponse> mergeContacts(
+            @Nonnull MergeContactsRequest request, @Nullable Options options) {
         AsyncRequestOperation<MergeContactsRequest, MergeContactsResponse> operation =
-                new MergeContacts.Async(sdkConfiguration, _headers);
+                new MergeContacts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -916,8 +1316,29 @@ public class AsyncContacts {
      */
     public CompletableFuture<ObfuscateContactByIdResponse> obfuscateContactById(
             @Nonnull ObfuscateContactByIdRequest request) {
+        return obfuscateContactById(request, null);
+    }
+
+    /**
+     * Obfuscate a Contact
+     *
+     * <p>Initiate obfuscation of a contact based on the given ID. Verify the status of the obfuscation using
+     * [Get Obfuscation Status](#operation/getContactObfuscationStatusById). Once this process succeeds,
+     * all
+     * the data for the contact will be obfuscated and will no longer be retrievable. See the
+     * [Obfuscation User Guide](https://developers.cvent.com/docs/rest-api/guides/obfuscation-guide) for
+     * more details.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ObfuscateContactByIdResponse>} - The async response
+     */
+    public CompletableFuture<ObfuscateContactByIdResponse> obfuscateContactById(
+            @Nonnull ObfuscateContactByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<ObfuscateContactByIdRequest, ObfuscateContactByIdResponse> operation =
-                new ObfuscateContactById.Async(sdkConfiguration, _headers);
+                new ObfuscateContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -946,8 +1367,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<DeleteContactProfileImageResponse> deleteContactProfileImage(
             @Nonnull DeleteContactProfileImageRequest request) {
+        return deleteContactProfileImage(request, null);
+    }
+
+    /**
+     * Delete Contact Profile Picture
+     *
+     * <p>Deletes the profile picture of the given contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteContactProfileImageResponse>} - The async response
+     */
+    public CompletableFuture<DeleteContactProfileImageResponse> deleteContactProfileImage(
+            @Nonnull DeleteContactProfileImageRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteContactProfileImageRequest, DeleteContactProfileImageResponse> operation =
-                new DeleteContactProfileImage.Async(sdkConfiguration, _headers);
+                new DeleteContactProfileImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -978,8 +1415,25 @@ public class AsyncContacts {
      */
     public CompletableFuture<AssignContactProfileImageResponse> assignContactProfileImage(
             @Nonnull AssignContactProfileImageRequest request) {
+        return assignContactProfileImage(request, null);
+    }
+
+    /**
+     * Assign Contact Profile Picture
+     *
+     * <p>Assign a profile picture to a contact with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssignContactProfileImageResponse>} - The async response
+     */
+    public CompletableFuture<AssignContactProfileImageResponse> assignContactProfileImage(
+            @Nonnull AssignContactProfileImageRequest request, @Nullable Options options) {
         AsyncRequestOperation<AssignContactProfileImageRequest, AssignContactProfileImageResponse> operation =
-                new AssignContactProfileImage.Async(sdkConfiguration, _headers);
+                new AssignContactProfileImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1008,8 +1462,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<GetContactRelationshipsByIdResponse> getContactRelationshipsById(
             @Nonnull GetContactRelationshipsByIdRequest request) {
+        return getContactRelationshipsById(request, null);
+    }
+
+    /**
+     * Get Related Contact Ids
+     *
+     * <p>Get all contact Ids related to the provided contact.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetContactRelationshipsByIdResponse>} - The async response
+     */
+    public CompletableFuture<GetContactRelationshipsByIdResponse> getContactRelationshipsById(
+            @Nonnull GetContactRelationshipsByIdRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetContactRelationshipsByIdRequest, GetContactRelationshipsByIdResponse> operation =
-                new GetContactRelationshipsById.Async(sdkConfiguration, _headers);
+                new GetContactRelationshipsById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1038,8 +1508,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<CreateContactRelationshipResponse> createContactRelationship(
             @Nonnull CreateContactRelationshipRequest request) {
+        return createContactRelationship(request, null);
+    }
+
+    /**
+     * Add Contact Relationship
+     *
+     * <p>Adds a single contact relationship between the two contact Ids provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateContactRelationshipResponse>} - The async response
+     */
+    public CompletableFuture<CreateContactRelationshipResponse> createContactRelationship(
+            @Nonnull CreateContactRelationshipRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateContactRelationshipRequest, CreateContactRelationshipResponse> operation =
-                new CreateContactRelationship.Async(sdkConfiguration, _headers);
+                new CreateContactRelationship.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -1068,8 +1554,24 @@ public class AsyncContacts {
      */
     public CompletableFuture<DeleteContactRelationshipResponse> deleteContactRelationship(
             @Nonnull DeleteContactRelationshipRequest request) {
+        return deleteContactRelationship(request, null);
+    }
+
+    /**
+     * Delete Contact Relationship
+     *
+     * <p>Deletes a single contact relationship between the two contact Ids provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteContactRelationshipResponse>} - The async response
+     */
+    public CompletableFuture<DeleteContactRelationshipResponse> deleteContactRelationship(
+            @Nonnull DeleteContactRelationshipRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteContactRelationshipRequest, DeleteContactRelationshipResponse> operation =
-                new DeleteContactRelationship.Async(sdkConfiguration, _headers);
+                new DeleteContactRelationship.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

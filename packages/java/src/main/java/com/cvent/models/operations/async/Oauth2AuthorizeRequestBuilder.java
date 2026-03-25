@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.Oauth2AuthorizeRequest;
 import com.cvent.operations.Oauth2Authorize;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class Oauth2AuthorizeRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private Oauth2AuthorizeRequest request;
+    private final Options.Builder optionsBuilder;
 
     public Oauth2AuthorizeRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public Oauth2AuthorizeRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public Oauth2AuthorizeRequestBuilder request(@Nonnull Oauth2AuthorizeRequest request) {
@@ -44,8 +54,9 @@ public class Oauth2AuthorizeRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<Oauth2AuthorizeResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<Oauth2AuthorizeRequest, Oauth2AuthorizeResponse> operation =
-                new Oauth2Authorize.Async(sdkConfiguration, _headers);
+                new Oauth2Authorize.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

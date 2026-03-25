@@ -42,7 +42,9 @@ import com.cvent.operations.ListTravelProgramsQuestions;
 import com.cvent.operations.ListTravelProposalBids;
 import com.cvent.operations.ListTravelProposals;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The Travel RFP APIs provide access to travel programs and proposals. A travel program
@@ -91,8 +93,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProgramsResponse listTravelPrograms(@Nonnull ListTravelProgramsRequest request) {
+        return listTravelPrograms(request, null);
+    }
+
+    /**
+     * List Travel Programs
+     *
+     * <p>Returns a paginated list of travel programs based on the specified filters.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProgramsResponse listTravelPrograms(
+            @Nonnull ListTravelProgramsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelProgramsRequest, ListTravelProgramsResponse> operation =
-                new ListTravelPrograms.Sync(sdkConfiguration, _headers);
+                new ListTravelPrograms.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -118,8 +135,23 @@ public class TravelRFPs {
      */
     public ListTravelProgramsQuestionsResponse listTravelProgramsQuestions(
             @Nonnull ListTravelProgramsQuestionsRequest request) {
+        return listTravelProgramsQuestions(request, null);
+    }
+
+    /**
+     * List Travel Programs Questions
+     *
+     * <p>Returns a paginated list of travel programs questions.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProgramsQuestionsResponse listTravelProgramsQuestions(
+            @Nonnull ListTravelProgramsQuestionsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelProgramsQuestionsRequest, ListTravelProgramsQuestionsResponse> operation =
-                new ListTravelProgramsQuestions.Sync(sdkConfiguration, _headers);
+                new ListTravelProgramsQuestions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -144,8 +176,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProgramResponse getTravelProgram(@Nonnull GetTravelProgramRequest request) {
+        return getTravelProgram(request, null);
+    }
+
+    /**
+     * Get Travel Program
+     *
+     * <p>Returns the details of a single travel program based on the specified program ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProgramResponse getTravelProgram(
+            @Nonnull GetTravelProgramRequest request, @Nullable Options options) {
         RequestOperation<GetTravelProgramRequest, GetTravelProgramResponse> operation =
-                new GetTravelProgram.Sync(sdkConfiguration, _headers);
+                new GetTravelProgram.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -171,8 +218,23 @@ public class TravelRFPs {
      */
     public ListTravelProgramQuestionsResponse listTravelProgramQuestions(
             @Nonnull ListTravelProgramQuestionsRequest request) {
+        return listTravelProgramQuestions(request, null);
+    }
+
+    /**
+     * List Travel Program Questions
+     *
+     * <p>Returns a paginated list of travel program questions.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProgramQuestionsResponse listTravelProgramQuestions(
+            @Nonnull ListTravelProgramQuestionsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelProgramQuestionsRequest, ListTravelProgramQuestionsResponse> operation =
-                new ListTravelProgramQuestions.Sync(sdkConfiguration, _headers);
+                new ListTravelProgramQuestions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -197,8 +259,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProgramQuestionResponse getTravelProgramQuestion(@Nonnull GetTravelProgramQuestionRequest request) {
+        return getTravelProgramQuestion(request, null);
+    }
+
+    /**
+     * Get Travel Program Question
+     *
+     * <p>Returns the details of a single question based on the specified program and question ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProgramQuestionResponse getTravelProgramQuestion(
+            @Nonnull GetTravelProgramQuestionRequest request, @Nullable Options options) {
         RequestOperation<GetTravelProgramQuestionRequest, GetTravelProgramQuestionResponse> operation =
-                new GetTravelProgramQuestion.Sync(sdkConfiguration, _headers);
+                new GetTravelProgramQuestion.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -223,8 +300,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProposalsResponse listTravelProposals(@Nonnull ListTravelProposalsRequest request) {
+        return listTravelProposals(request, null);
+    }
+
+    /**
+     * List Travel Proposals
+     *
+     * <p>Get a paginated list of travel proposal details.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProposalsResponse listTravelProposals(
+            @Nonnull ListTravelProposalsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelProposalsRequest, ListTravelProposalsResponse> operation =
-                new ListTravelProposals.Sync(sdkConfiguration, _headers);
+                new ListTravelProposals.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -249,8 +341,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListTravelProposalBidsResponse listTravelProposalBids(@Nonnull ListTravelProposalBidsRequest request) {
+        return listTravelProposalBids(request, null);
+    }
+
+    /**
+     * List Travel Proposal Bids
+     *
+     * <p>Get a paginated list of travel proposal bids.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTravelProposalBidsResponse listTravelProposalBids(
+            @Nonnull ListTravelProposalBidsRequest request, @Nullable Options options) {
         RequestOperation<ListTravelProposalBidsRequest, ListTravelProposalBidsResponse> operation =
-                new ListTravelProposalBids.Sync(sdkConfiguration, _headers);
+                new ListTravelProposalBids.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -275,8 +382,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProposalBidResponse getTravelProposalBid(@Nonnull GetTravelProposalBidRequest request) {
+        return getTravelProposalBid(request, null);
+    }
+
+    /**
+     * Get Travel Proposal Bid
+     *
+     * <p>Gets a travel proposal bid for the given travel proposal bid ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProposalBidResponse getTravelProposalBid(
+            @Nonnull GetTravelProposalBidRequest request, @Nullable Options options) {
         RequestOperation<GetTravelProposalBidRequest, GetTravelProposalBidResponse> operation =
-                new GetTravelProposalBid.Sync(sdkConfiguration, _headers);
+                new GetTravelProposalBid.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -301,8 +423,23 @@ public class TravelRFPs {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetTravelProposalResponse getTravelProposal(@Nonnull GetTravelProposalRequest request) {
+        return getTravelProposal(request, null);
+    }
+
+    /**
+     * Get Travel Proposal
+     *
+     * <p>Gets a travel proposal for the given travel proposal ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetTravelProposalResponse getTravelProposal(
+            @Nonnull GetTravelProposalRequest request, @Nullable Options options) {
         RequestOperation<GetTravelProposalRequest, GetTravelProposalResponse> operation =
-                new GetTravelProposal.Sync(sdkConfiguration, _headers);
+                new GetTravelProposal.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

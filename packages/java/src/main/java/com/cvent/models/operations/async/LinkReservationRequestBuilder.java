@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.LinkReservationRequest;
 import com.cvent.operations.LinkReservation;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class LinkReservationRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private LinkReservationRequest request;
+    private final Options.Builder optionsBuilder;
 
     public LinkReservationRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public LinkReservationRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public LinkReservationRequestBuilder request(@Nonnull LinkReservationRequest request) {
@@ -44,8 +54,9 @@ public class LinkReservationRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<LinkReservationResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<LinkReservationRequest, LinkReservationResponse> operation =
-                new LinkReservation.Async(sdkConfiguration, _headers);
+                new LinkReservation.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

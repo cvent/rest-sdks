@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetStatsRequest;
 import com.cvent.operations.GetStats;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetStatsRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetStatsRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetStatsRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetStatsRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetStatsRequestBuilder request(@Nonnull GetStatsRequest request) {
@@ -44,8 +54,9 @@ public class GetStatsRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetStatsResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetStatsRequest, GetStatsResponse> operation =
-                new GetStats.Async(sdkConfiguration, _headers);
+                new GetStats.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -22,7 +22,9 @@ import com.cvent.operations.GetTravelAccount;
 import com.cvent.operations.ListSupplierAccounts;
 import com.cvent.operations.ListTravelAccounts;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -68,8 +70,22 @@ public class AsyncTravelAccounts {
      */
     public CompletableFuture<ListTravelAccountsResponse> listTravelAccounts(
             @Nonnull ListTravelAccountsRequest request) {
+        return listTravelAccounts(request, null);
+    }
+
+    /**
+     * List Travel Accounts
+     *
+     * <p>Gets a paginated list of travel accounts.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTravelAccountsResponse>} - The async response
+     */
+    public CompletableFuture<ListTravelAccountsResponse> listTravelAccounts(
+            @Nonnull ListTravelAccountsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListTravelAccountsRequest, ListTravelAccountsResponse> operation =
-                new ListTravelAccounts.Async(sdkConfiguration, _headers);
+                new ListTravelAccounts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -94,8 +110,22 @@ public class AsyncTravelAccounts {
      */
     public CompletableFuture<ListSupplierAccountsResponse> listSupplierAccounts(
             @Nonnull ListSupplierAccountsRequest request) {
+        return listSupplierAccounts(request, null);
+    }
+
+    /**
+     * List Supplier Accounts
+     *
+     * <p>Gets a paginated list of supplier travel accounts.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSupplierAccountsResponse>} - The async response
+     */
+    public CompletableFuture<ListSupplierAccountsResponse> listSupplierAccounts(
+            @Nonnull ListSupplierAccountsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSupplierAccountsRequest, ListSupplierAccountsResponse> operation =
-                new ListSupplierAccounts.Async(sdkConfiguration, _headers);
+                new ListSupplierAccounts.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -119,8 +149,22 @@ public class AsyncTravelAccounts {
      * @return {@code CompletableFuture<GetTravelAccountResponse>} - The async response
      */
     public CompletableFuture<GetTravelAccountResponse> getTravelAccount(@Nonnull GetTravelAccountRequest request) {
+        return getTravelAccount(request, null);
+    }
+
+    /**
+     * Get Travel Account
+     *
+     * <p>Returns the details of a single travel account based on the specified travel account ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetTravelAccountResponse>} - The async response
+     */
+    public CompletableFuture<GetTravelAccountResponse> getTravelAccount(
+            @Nonnull GetTravelAccountRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetTravelAccountRequest, GetTravelAccountResponse> operation =
-                new GetTravelAccount.Async(sdkConfiguration, _headers);
+                new GetTravelAccount.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -145,8 +189,22 @@ public class AsyncTravelAccounts {
      */
     public CompletableFuture<GetSupplierAccountResponse> getSupplierAccount(
             @Nonnull GetSupplierAccountRequest request) {
+        return getSupplierAccount(request, null);
+    }
+
+    /**
+     * Get Supplier Account
+     *
+     * <p>Returns the details of a single supplied travel account based on the specified travel account ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetSupplierAccountResponse>} - The async response
+     */
+    public CompletableFuture<GetSupplierAccountResponse> getSupplierAccount(
+            @Nonnull GetSupplierAccountRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetSupplierAccountRequest, GetSupplierAccountResponse> operation =
-                new GetSupplierAccount.Async(sdkConfiguration, _headers);
+                new GetSupplierAccount.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

@@ -82,7 +82,9 @@ import com.cvent.operations.ListSpeakersCategories;
 import com.cvent.operations.ListSpeakersPostFilter;
 import com.cvent.operations.UpdateSpeaker;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -129,8 +131,22 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<GetSessionProgramSpeakersResponse> getSessionProgramSpeakers(
             @Nonnull GetSessionProgramSpeakersRequest request) {
+        return getSessionProgramSpeakers(request, null);
+    }
+
+    /**
+     * Get Session Program Speakers
+     *
+     * <p>Returns a paginated list of session program item and speaker associations.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetSessionProgramSpeakersResponse>} - The async response
+     */
+    public CompletableFuture<GetSessionProgramSpeakersResponse> getSessionProgramSpeakers(
+            @Nonnull GetSessionProgramSpeakersRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetSessionProgramSpeakersRequest, GetSessionProgramSpeakersResponse> operation =
-                new GetSessionProgramSpeakers.Async(sdkConfiguration, _headers);
+                new GetSessionProgramSpeakers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -159,9 +175,26 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<ListSessionProgramSpeakersPostFiltersResponse> listSessionProgramSpeakersPostFilters(
             @Nonnull ListSessionProgramSpeakersPostFiltersRequest request) {
+        return listSessionProgramSpeakersPostFilters(request, null);
+    }
+
+    /**
+     * List Session Program Speakers
+     *
+     * <p>Gets a paginated list of session program speaker by providing filters in the body of the request.
+     * This method returns the same data as <a href="#operation/getSessionProgramSpeakers">GET Session
+     * Program Speakers</a> but allows for longer filters.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSessionProgramSpeakersPostFiltersResponse>} - The async response
+     */
+    public CompletableFuture<ListSessionProgramSpeakersPostFiltersResponse> listSessionProgramSpeakersPostFilters(
+            @Nonnull ListSessionProgramSpeakersPostFiltersRequest request, @Nullable Options options) {
         AsyncRequestOperation<
                         ListSessionProgramSpeakersPostFiltersRequest, ListSessionProgramSpeakersPostFiltersResponse>
-                operation = new ListSessionProgramSpeakersPostFilters.Async(sdkConfiguration, _headers);
+                operation = new ListSessionProgramSpeakersPostFilters.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -188,8 +221,23 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<CreateSessionProgramSpeakerResponse> createSessionProgramSpeaker(
             @Nonnull CreateSessionProgramSpeakerRequest request) {
+        return createSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Add Session Program Speaker
+     *
+     * <p>Creates a relationship between a session program item and a speaker. Limit 10 speakers per session
+     * program item.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateSessionProgramSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<CreateSessionProgramSpeakerResponse> createSessionProgramSpeaker(
+            @Nonnull CreateSessionProgramSpeakerRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateSessionProgramSpeakerRequest, CreateSessionProgramSpeakerResponse> operation =
-                new CreateSessionProgramSpeaker.Async(sdkConfiguration, _headers);
+                new CreateSessionProgramSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -214,8 +262,22 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<GetSessionProgramSpeakerResponse> getSessionProgramSpeaker(
             @Nonnull GetSessionProgramSpeakerRequest request) {
+        return getSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Get Session Program Speaker
+     *
+     * <p>Returns a session program speaker relationship.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetSessionProgramSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<GetSessionProgramSpeakerResponse> getSessionProgramSpeaker(
+            @Nonnull GetSessionProgramSpeakerRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetSessionProgramSpeakerRequest, GetSessionProgramSpeakerResponse> operation =
-                new GetSessionProgramSpeaker.Async(sdkConfiguration, _headers);
+                new GetSessionProgramSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -240,8 +302,22 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<DeleteSessionProgramSpeakerResponse> deleteSessionProgramSpeaker(
             @Nonnull DeleteSessionProgramSpeakerRequest request) {
+        return deleteSessionProgramSpeaker(request, null);
+    }
+
+    /**
+     * Delete Session Program Speaker
+     *
+     * <p>Deletes session program item to speaker relationship.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSessionProgramSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSessionProgramSpeakerResponse> deleteSessionProgramSpeaker(
+            @Nonnull DeleteSessionProgramSpeakerRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSessionProgramSpeakerRequest, DeleteSessionProgramSpeakerResponse> operation =
-                new DeleteSessionProgramSpeaker.Async(sdkConfiguration, _headers);
+                new DeleteSessionProgramSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -270,8 +346,24 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<ListSpeakersCategoriesResponse> listSpeakersCategories(
             @Nonnull ListSpeakersCategoriesRequest request) {
+        return listSpeakersCategories(request, null);
+    }
+
+    /**
+     * List Speakers Categories
+     *
+     * <p>Gets a paginated list of speakers categories.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSpeakersCategoriesResponse>} - The async response
+     */
+    public CompletableFuture<ListSpeakersCategoriesResponse> listSpeakersCategories(
+            @Nonnull ListSpeakersCategoriesRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSpeakersCategoriesRequest, ListSpeakersCategoriesResponse> operation =
-                new ListSpeakersCategories.Async(sdkConfiguration, _headers);
+                new ListSpeakersCategories.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -299,8 +391,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<AddSpeakerCategoryResponse>} - The async response
      */
     public CompletableFuture<AddSpeakerCategoryResponse> addSpeakerCategory(@Nonnull SpeakerCategory request) {
+        return addSpeakerCategory(request, null);
+    }
+
+    /**
+     * Create Speaker Category
+     *
+     * <p>Create a new speaker category
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AddSpeakerCategoryResponse>} - The async response
+     */
+    public CompletableFuture<AddSpeakerCategoryResponse> addSpeakerCategory(
+            @Nonnull SpeakerCategory request, @Nullable Options options) {
         AsyncRequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
-                new AddSpeakerCategory.Async(sdkConfiguration, _headers);
+                new AddSpeakerCategory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -328,8 +436,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<ListSpeakersResponse>} - The async response
      */
     public CompletableFuture<ListSpeakersResponse> listSpeakers(@Nonnull ListSpeakersRequest request) {
+        return listSpeakers(request, null);
+    }
+
+    /**
+     * List Speakers
+     *
+     * <p>Gets a paginated list of speakers.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSpeakersResponse>} - The async response
+     */
+    public CompletableFuture<ListSpeakersResponse> listSpeakers(
+            @Nonnull ListSpeakersRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSpeakersRequest, ListSpeakersResponse> operation =
-                new ListSpeakers.Async(sdkConfiguration, _headers);
+                new ListSpeakers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -357,8 +481,23 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<CreateSpeakerResponse>} - The async response
      */
     public CompletableFuture<CreateSpeakerResponse> createSpeaker(@Nonnull Speaker request) {
+        return createSpeaker(request, null);
+    }
+
+    /**
+     * Create Speaker
+     *
+     * <p>Create a single speaker based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<CreateSpeakerResponse> createSpeaker(@Nonnull Speaker request, @Nullable Options options) {
         AsyncRequestOperation<Speaker, CreateSpeakerResponse> operation =
-                new CreateSpeaker.Async(sdkConfiguration, _headers);
+                new CreateSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -389,8 +528,25 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<ListSpeakersPostFilterResponse> listSpeakersPostFilter(
             @Nonnull ListSpeakersPostFilterRequest request) {
+        return listSpeakersPostFilter(request, null);
+    }
+
+    /**
+     * List Speakers
+     *
+     * <p>Get a paginated list of speakers by sending a filter in the body of the request. This method will
+     * return the same data as GET List Speakers but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSpeakersPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListSpeakersPostFilterResponse> listSpeakersPostFilter(
+            @Nonnull ListSpeakersPostFilterRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSpeakersPostFilterRequest, ListSpeakersPostFilterResponse> operation =
-                new ListSpeakersPostFilter.Async(sdkConfiguration, _headers);
+                new ListSpeakersPostFilter.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -418,8 +574,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<UpdateSpeakerResponse>} - The async response
      */
     public CompletableFuture<UpdateSpeakerResponse> updateSpeaker(@Nonnull UpdateSpeakerRequest request) {
+        return updateSpeaker(request, null);
+    }
+
+    /**
+     * Update Speaker
+     *
+     * <p>Updates a particular speaker based on the given speaker ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<UpdateSpeakerResponse> updateSpeaker(
+            @Nonnull UpdateSpeakerRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateSpeakerRequest, UpdateSpeakerResponse> operation =
-                new UpdateSpeaker.Async(sdkConfiguration, _headers);
+                new UpdateSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -447,8 +619,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<DeleteSpeakerResponse>} - The async response
      */
     public CompletableFuture<DeleteSpeakerResponse> deleteSpeaker(@Nonnull DeleteSpeakerRequest request) {
+        return deleteSpeaker(request, null);
+    }
+
+    /**
+     * Delete Speaker
+     *
+     * <p>Deletes a particular speaker based on the given speaker ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSpeakerResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSpeakerResponse> deleteSpeaker(
+            @Nonnull DeleteSpeakerRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSpeakerRequest, DeleteSpeakerResponse> operation =
-                new DeleteSpeaker.Async(sdkConfiguration, _headers);
+                new DeleteSpeaker.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -476,8 +664,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<ListSpeakerDocsResponse>} - The async response
      */
     public CompletableFuture<ListSpeakerDocsResponse> listSpeakerDocs(@Nonnull ListSpeakerDocsRequest request) {
+        return listSpeakerDocs(request, null);
+    }
+
+    /**
+     * List Speaker's Documents
+     *
+     * <p>Gets a paginated list of document URLs for a single speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSpeakerDocsResponse>} - The async response
+     */
+    public CompletableFuture<ListSpeakerDocsResponse> listSpeakerDocs(
+            @Nonnull ListSpeakerDocsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSpeakerDocsRequest, ListSpeakerDocsResponse> operation =
-                new ListSpeakerDocs.Async(sdkConfiguration, _headers);
+                new ListSpeakerDocs.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -505,8 +709,24 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<GetSpeakerDocResponse>} - The async response
      */
     public CompletableFuture<GetSpeakerDocResponse> getSpeakerDoc(@Nonnull GetSpeakerDocRequest request) {
+        return getSpeakerDoc(request, null);
+    }
+
+    /**
+     * Get a document for a speaker
+     *
+     * <p>Get a specific document that is assigned to a specific speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetSpeakerDocResponse>} - The async response
+     */
+    public CompletableFuture<GetSpeakerDocResponse> getSpeakerDoc(
+            @Nonnull GetSpeakerDocRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetSpeakerDocRequest, GetSpeakerDocResponse> operation =
-                new GetSpeakerDoc.Async(sdkConfiguration, _headers);
+                new GetSpeakerDoc.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -536,8 +756,25 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<AddSpeakerDocResponse>} - The async response
      */
     public CompletableFuture<AddSpeakerDocResponse> addSpeakerDoc(@Nonnull AddSpeakerDocRequest request) {
+        return addSpeakerDoc(request, null);
+    }
+
+    /**
+     * Add Document To Speaker
+     *
+     * <p>Add a single document to a speaker with a UUID provided by <a href="#operation/uploadFile">file
+     * upload</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AddSpeakerDocResponse>} - The async response
+     */
+    public CompletableFuture<AddSpeakerDocResponse> addSpeakerDoc(
+            @Nonnull AddSpeakerDocRequest request, @Nullable Options options) {
         AsyncRequestOperation<AddSpeakerDocRequest, AddSpeakerDocResponse> operation =
-                new AddSpeakerDoc.Async(sdkConfiguration, _headers);
+                new AddSpeakerDoc.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -568,8 +805,25 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<DeleteSpeakerDocumentResponse> deleteSpeakerDocument(
             @Nonnull DeleteSpeakerDocumentRequest request) {
+        return deleteSpeakerDocument(request, null);
+    }
+
+    /**
+     * Delete Document From Speaker
+     *
+     * <p>Use to delete a document from a speaker with a UUID provided by <a href="#operation/uploadFile">file
+     * upload</a>.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSpeakerDocumentResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSpeakerDocumentResponse> deleteSpeakerDocument(
+            @Nonnull DeleteSpeakerDocumentRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSpeakerDocumentRequest, DeleteSpeakerDocumentResponse> operation =
-                new DeleteSpeakerDocument.Async(sdkConfiguration, _headers);
+                new DeleteSpeakerDocument.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -598,8 +852,24 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<DeleteSpeakerProfileImageResponse> deleteSpeakerProfileImage(
             @Nonnull DeleteSpeakerProfileImageRequest request) {
+        return deleteSpeakerProfileImage(request, null);
+    }
+
+    /**
+     * Delete Speaker Profile Picture
+     *
+     * <p>Deletes the profile picture of the given speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<DeleteSpeakerProfileImageResponse>} - The async response
+     */
+    public CompletableFuture<DeleteSpeakerProfileImageResponse> deleteSpeakerProfileImage(
+            @Nonnull DeleteSpeakerProfileImageRequest request, @Nullable Options options) {
         AsyncRequestOperation<DeleteSpeakerProfileImageRequest, DeleteSpeakerProfileImageResponse> operation =
-                new DeleteSpeakerProfileImage.Async(sdkConfiguration, _headers);
+                new DeleteSpeakerProfileImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -630,8 +900,25 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<AssignSpeakerProfileImageResponse> assignSpeakerProfileImage(
             @Nonnull AssignSpeakerProfileImageRequest request) {
+        return assignSpeakerProfileImage(request, null);
+    }
+
+    /**
+     * Assign Speaker Profile Picture
+     *
+     * <p>Assign a profile picture to a speaker with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current profile picture if one is assigned.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<AssignSpeakerProfileImageResponse>} - The async response
+     */
+    public CompletableFuture<AssignSpeakerProfileImageResponse> assignSpeakerProfileImage(
+            @Nonnull AssignSpeakerProfileImageRequest request, @Nullable Options options) {
         AsyncRequestOperation<AssignSpeakerProfileImageRequest, AssignSpeakerProfileImageResponse> operation =
-                new AssignSpeakerProfileImage.Async(sdkConfiguration, _headers);
+                new AssignSpeakerProfileImage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -660,8 +947,24 @@ public class AsyncSpeakers {
      */
     public CompletableFuture<ListSpeakerSessionsResponse> listSpeakerSessions(
             @Nonnull ListSpeakerSessionsRequest request) {
+        return listSpeakerSessions(request, null);
+    }
+
+    /**
+     * List Speaker's Sessions
+     *
+     * <p>Gets a paginated list of sessions assigned to a speaker.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListSpeakerSessionsResponse>} - The async response
+     */
+    public CompletableFuture<ListSpeakerSessionsResponse> listSpeakerSessions(
+            @Nonnull ListSpeakerSessionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListSpeakerSessionsRequest, ListSpeakerSessionsResponse> operation =
-                new ListSpeakerSessions.Async(sdkConfiguration, _headers);
+                new ListSpeakerSessions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

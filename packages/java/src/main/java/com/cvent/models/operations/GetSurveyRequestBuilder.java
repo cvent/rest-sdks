@@ -11,10 +11,13 @@ import static com.cvent.utils.Utils.transform;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetSurvey;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import com.cvent.utils.pagination.CursorTracker;
 import com.cvent.utils.pagination.Paginator;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.io.InputStream;
 import java.lang.Iterable;
 import java.lang.String;
@@ -26,9 +29,16 @@ public class GetSurveyRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetSurveyRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetSurveyRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetSurveyRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetSurveyRequestBuilder request(@Nonnull GetSurveyRequest request) {
@@ -53,8 +63,9 @@ public class GetSurveyRequestBuilder {
      * @return The response from the server.
      */
     public GetSurveyResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
-                new GetSurvey.Sync(sdkConfiguration, _headers);
+                new GetSurvey.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 
@@ -73,8 +84,9 @@ public class GetSurveyRequestBuilder {
      */
     public Iterable<GetSurveyResponse> callAsIterable() {
         GetSurveyRequest request = this.request;
+        Options options = optionsBuilder.build();
         RequestOperation<GetSurveyRequest, GetSurveyResponse> operation =
-                new GetSurvey.Sync(sdkConfiguration, _headers);
+                new GetSurvey.Sync(sdkConfiguration, options, _headers);
 
         Iterator<HttpResponse<InputStream>> iterator = new Paginator<>(
                 request, new CursorTracker<>("$.paging.nextToken", String.class), (req, pos) -> {

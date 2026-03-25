@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.EventInput;
 import com.cvent.operations.CreateEventAsync;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateEventAsyncRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private EventInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateEventAsyncRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateEventAsyncRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateEventAsyncRequestBuilder request(@Nonnull EventInput request) {
@@ -43,8 +53,9 @@ public class CreateEventAsyncRequestBuilder {
      * @return The response from the server.
      */
     public CreateEventAsyncResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<EventInput, CreateEventAsyncResponse> operation =
-                new CreateEventAsync.Sync(sdkConfiguration, _headers);
+                new CreateEventAsync.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

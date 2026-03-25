@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetSeating;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetSeatingRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetSeatingRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetSeatingRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetSeatingRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetSeatingRequestBuilder request(@Nonnull GetSeatingRequest request) {
@@ -42,8 +52,9 @@ public class GetSeatingRequestBuilder {
      * @return The response from the server.
      */
     public GetSeatingResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetSeatingRequest, GetSeatingResponse> operation =
-                new GetSeating.Sync(sdkConfiguration, _headers);
+                new GetSeating.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

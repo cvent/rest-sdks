@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetEmailTemplates;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetEmailTemplatesRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetEmailTemplatesRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetEmailTemplatesRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetEmailTemplatesRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetEmailTemplatesRequestBuilder request(@Nonnull GetEmailTemplatesRequest request) {
@@ -42,8 +52,9 @@ public class GetEmailTemplatesRequestBuilder {
      * @return The response from the server.
      */
     public GetEmailTemplatesResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetEmailTemplatesRequest, GetEmailTemplatesResponse> operation =
-                new GetEmailTemplates.Sync(sdkConfiguration, _headers);
+                new GetEmailTemplates.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

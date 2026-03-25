@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteExhibitorWeblink;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteExhibitorWeblinkRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteExhibitorWeblinkRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteExhibitorWeblinkRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteExhibitorWeblinkRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteExhibitorWeblinkRequestBuilder request(@Nonnull DeleteExhibitorWeblinkRequest request) {
@@ -42,8 +52,9 @@ public class DeleteExhibitorWeblinkRequestBuilder {
      * @return The response from the server.
      */
     public DeleteExhibitorWeblinkResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteExhibitorWeblinkRequest, DeleteExhibitorWeblinkResponse> operation =
-                new DeleteExhibitorWeblink.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorWeblink.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

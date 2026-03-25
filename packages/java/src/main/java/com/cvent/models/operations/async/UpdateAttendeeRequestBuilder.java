@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateAttendeeRequest;
 import com.cvent.operations.UpdateAttendee;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateAttendeeRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateAttendeeRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateAttendeeRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateAttendeeRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateAttendeeRequestBuilder request(@Nonnull UpdateAttendeeRequest request) {
@@ -44,8 +54,9 @@ public class UpdateAttendeeRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateAttendeeResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateAttendeeRequest, UpdateAttendeeResponse> operation =
-                new UpdateAttendee.Async(sdkConfiguration, _headers);
+                new UpdateAttendee.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

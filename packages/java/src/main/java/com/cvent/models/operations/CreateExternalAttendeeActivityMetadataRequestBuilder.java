@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.ExternalActivityMetadataInput;
 import com.cvent.operations.CreateExternalAttendeeActivityMetadata;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateExternalAttendeeActivityMetadataRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ExternalActivityMetadataInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateExternalAttendeeActivityMetadataRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateExternalAttendeeActivityMetadataRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateExternalAttendeeActivityMetadataRequestBuilder request(
@@ -44,8 +54,9 @@ public class CreateExternalAttendeeActivityMetadataRequestBuilder {
      * @return The response from the server.
      */
     public CreateExternalAttendeeActivityMetadataResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation =
-                new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+                new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

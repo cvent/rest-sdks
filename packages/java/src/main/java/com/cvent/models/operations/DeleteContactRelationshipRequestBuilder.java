@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.DeleteContactRelationship;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class DeleteContactRelationshipRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteContactRelationshipRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteContactRelationshipRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteContactRelationshipRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteContactRelationshipRequestBuilder request(@Nonnull DeleteContactRelationshipRequest request) {
@@ -42,8 +52,9 @@ public class DeleteContactRelationshipRequestBuilder {
      * @return The response from the server.
      */
     public DeleteContactRelationshipResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<DeleteContactRelationshipRequest, DeleteContactRelationshipResponse> operation =
-                new DeleteContactRelationship.Sync(sdkConfiguration, _headers);
+                new DeleteContactRelationship.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

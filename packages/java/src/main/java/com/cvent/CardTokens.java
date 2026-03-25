@@ -10,6 +10,7 @@ import com.cvent.models.operations.CreateCardTokensRequestBuilder;
 import com.cvent.models.operations.CreateCardTokensResponse;
 import com.cvent.operations.CreateCardTokens;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nullable;
 import java.lang.String;
 
@@ -72,7 +73,7 @@ public class CardTokens {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateCardTokensResponse createCardTokensDirect() {
-        return createCardTokens(null, null);
+        return createCardTokens(null, null, null);
     }
 
     /**
@@ -87,12 +88,14 @@ public class CardTokens {
      *
      * @param request The request object containing all the parameters for the API call.
      * @param serverURL Overrides the server URL.
+     * @param options additional options
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateCardTokensResponse createCardTokens(@Nullable CardTokenRequest request, @Nullable String serverURL) {
+    public CreateCardTokensResponse createCardTokens(
+            @Nullable CardTokenRequest request, @Nullable String serverURL, @Nullable Options options) {
         RequestOperation<CardTokenRequest, CreateCardTokensResponse> operation =
-                new CreateCardTokens.Sync(sdkConfiguration, serverURL, _headers);
+                new CreateCardTokens.Sync(sdkConfiguration, serverURL, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

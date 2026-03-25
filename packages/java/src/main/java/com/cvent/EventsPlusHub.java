@@ -14,7 +14,9 @@ import com.cvent.models.operations.ListHubsResponse;
 import com.cvent.operations.GetHubMembers;
 import com.cvent.operations.ListHubs;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * An Events+ Hub persists basic information needed to assign an owner and optionally customize the
@@ -62,7 +64,23 @@ public class EventsPlusHub {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListHubsResponse listHubs(@Nonnull ListHubsRequest request) {
-        RequestOperation<ListHubsRequest, ListHubsResponse> operation = new ListHubs.Sync(sdkConfiguration, _headers);
+        return listHubs(request, null);
+    }
+
+    /**
+     * List Events+ Hubs
+     *
+     * <p>Get a paginated list of all Events+ hubs associated with your account. Each Events+ hub returned
+     * contains owner and theme information as well as the current status.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListHubsResponse listHubs(@Nonnull ListHubsRequest request, @Nullable Options options) {
+        RequestOperation<ListHubsRequest, ListHubsResponse> operation =
+                new ListHubs.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -87,8 +105,22 @@ public class EventsPlusHub {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetHubMembersResponse getHubMembers(@Nonnull GetHubMembersRequest request) {
+        return getHubMembers(request, null);
+    }
+
+    /**
+     * Get Events+ Hub Members
+     *
+     * <p>Fetches a list of members associated with a particular Events+ hub.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetHubMembersResponse getHubMembers(@Nonnull GetHubMembersRequest request, @Nullable Options options) {
         RequestOperation<GetHubMembersRequest, GetHubMembersResponse> operation =
-                new GetHubMembers.Sync(sdkConfiguration, _headers);
+                new GetHubMembers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

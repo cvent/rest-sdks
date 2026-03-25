@@ -126,7 +126,9 @@ import com.cvent.operations.UpdateExhibitorCategoryBanner;
 import com.cvent.operations.UpdateExhibitorLogo;
 import com.cvent.operations.UpdateRegistrationPack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * * **Exhibitor -** An exhibitor is an organization that is sponsoring or exhibiting at your event.
@@ -190,8 +192,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorCategoriesResponse getExhibitorCategories(@Nonnull GetExhibitorCategoriesRequest request) {
+        return getExhibitorCategories(request, null);
+    }
+
+    /**
+     * List Exhibitor Categories
+     *
+     * <p>Retrieves a paginated list of exhibitor categories associated with a single event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorCategoriesResponse getExhibitorCategories(
+            @Nonnull GetExhibitorCategoriesRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorCategoriesRequest, GetExhibitorCategoriesResponse> operation =
-                new GetExhibitorCategories.Sync(sdkConfiguration, _headers);
+                new GetExhibitorCategories.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -220,8 +239,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateExhibitorCategoryResponse createExhibitorCategory(@Nonnull CreateExhibitorCategoryRequest request) {
+        return createExhibitorCategory(request, null);
+    }
+
+    /**
+     * Create Exhibitor Category
+     *
+     * <p>Creates a single exhibitor category entity for an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateExhibitorCategoryResponse createExhibitorCategory(
+            @Nonnull CreateExhibitorCategoryRequest request, @Nullable Options options) {
         RequestOperation<CreateExhibitorCategoryRequest, CreateExhibitorCategoryResponse> operation =
-                new CreateExhibitorCategory.Sync(sdkConfiguration, _headers);
+                new CreateExhibitorCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -250,8 +286,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorCategoryResponse updateExhibitorCategory(@Nonnull UpdateExhibitorCategoryRequest request) {
+        return updateExhibitorCategory(request, null);
+    }
+
+    /**
+     * Update Exhibitor Category
+     *
+     * <p>Updates data for a single exhibitor category entity.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorCategoryResponse updateExhibitorCategory(
+            @Nonnull UpdateExhibitorCategoryRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorCategoryRequest, UpdateExhibitorCategoryResponse> operation =
-                new UpdateExhibitorCategory.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -280,8 +333,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteExhibitorCategoryResponse deleteExhibitorCategory(@Nonnull DeleteExhibitorCategoryRequest request) {
+        return deleteExhibitorCategory(request, null);
+    }
+
+    /**
+     * Delete Exhibitor Category
+     *
+     * <p>Deletes a single exhibitor Category entity.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExhibitorCategoryResponse deleteExhibitorCategory(
+            @Nonnull DeleteExhibitorCategoryRequest request, @Nullable Options options) {
         RequestOperation<DeleteExhibitorCategoryRequest, DeleteExhibitorCategoryResponse> operation =
-                new DeleteExhibitorCategory.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -321,8 +391,30 @@ public class Exhibitor {
      */
     public UpdateExhibitorCategoryBannerResponse updateExhibitorCategoryBanner(
             @Nonnull UpdateExhibitorCategoryBannerRequest request) {
+        return updateExhibitorCategoryBanner(request, null);
+    }
+
+    /**
+     * Assign Banner to Category
+     *
+     * <p>Assign a banner image to an exhibitor category with a file UUID from <a
+     * href="#operation/uploadFile">file upload</a> endpoint. This will replace the current banner image if
+     * one is assigned.
+     *
+     * <p>**Note:** For category banner images we recommend images that are 900x300 pixels and 5MiB or
+     * smaller. File types supported are : JPEG, JPG, PNG, GIF.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorCategoryBannerResponse updateExhibitorCategoryBanner(
+            @Nonnull UpdateExhibitorCategoryBannerRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorCategoryBannerRequest, UpdateExhibitorCategoryBannerResponse> operation =
-                new UpdateExhibitorCategoryBanner.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorCategoryBanner.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -352,8 +444,25 @@ public class Exhibitor {
      */
     public DeleteExhibitorCategoryImageResponse deleteExhibitorCategoryImage(
             @Nonnull DeleteExhibitorCategoryImageRequest request) {
+        return deleteExhibitorCategoryImage(request, null);
+    }
+
+    /**
+     * Delete Banner from Category
+     *
+     * <p>Deletes an exhibitor Category banner image.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExhibitorCategoryImageResponse deleteExhibitorCategoryImage(
+            @Nonnull DeleteExhibitorCategoryImageRequest request, @Nullable Options options) {
         RequestOperation<DeleteExhibitorCategoryImageRequest, DeleteExhibitorCategoryImageResponse> operation =
-                new DeleteExhibitorCategoryImage.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorCategoryImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -382,8 +491,24 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListExhibitorsResponse listExhibitors(@Nonnull ListExhibitorsRequest request) {
+        return listExhibitors(request, null);
+    }
+
+    /**
+     * List Category's Exhibitors
+     *
+     * <p>Get a paginated list of exhibitors assigned to the provided exhibitor-category Id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListExhibitorsResponse listExhibitors(@Nonnull ListExhibitorsRequest request, @Nullable Options options) {
         RequestOperation<ListExhibitorsRequest, ListExhibitorsResponse> operation =
-                new ListExhibitors.Sync(sdkConfiguration, _headers);
+                new ListExhibitors.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -413,8 +538,25 @@ public class Exhibitor {
      */
     public AddExhibitorToExhibitorCategoryResponse addExhibitorToExhibitorCategory(
             @Nonnull AddExhibitorToExhibitorCategoryRequest request) {
+        return addExhibitorToExhibitorCategory(request, null);
+    }
+
+    /**
+     * Assign Exhibitor to Category
+     *
+     * <p>Assign an exhibitor ID to an exhibitor-category Id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AddExhibitorToExhibitorCategoryResponse addExhibitorToExhibitorCategory(
+            @Nonnull AddExhibitorToExhibitorCategoryRequest request, @Nullable Options options) {
         RequestOperation<AddExhibitorToExhibitorCategoryRequest, AddExhibitorToExhibitorCategoryResponse> operation =
-                new AddExhibitorToExhibitorCategory.Sync(sdkConfiguration, _headers);
+                new AddExhibitorToExhibitorCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -444,8 +586,25 @@ public class Exhibitor {
      */
     public RemoveExhibitorFromExhibitorCategoryResponse removeExhibitorFromExhibitorCategory(
             @Nonnull RemoveExhibitorFromExhibitorCategoryRequest request) {
+        return removeExhibitorFromExhibitorCategory(request, null);
+    }
+
+    /**
+     * Delete Exhibitor from Category
+     *
+     * <p>delete an exhibitor from an exhibitor-category
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public RemoveExhibitorFromExhibitorCategoryResponse removeExhibitorFromExhibitorCategory(
+            @Nonnull RemoveExhibitorFromExhibitorCategoryRequest request, @Nullable Options options) {
         RequestOperation<RemoveExhibitorFromExhibitorCategoryRequest, RemoveExhibitorFromExhibitorCategoryResponse> operation =
-                new RemoveExhibitorFromExhibitorCategory.Sync(sdkConfiguration, _headers);
+                new RemoveExhibitorFromExhibitorCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -474,8 +633,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorQuestionsResponse getExhibitorQuestions(@Nonnull GetExhibitorQuestionsRequest request) {
+        return getExhibitorQuestions(request, null);
+    }
+
+    /**
+     * List Exhibitor Questions
+     *
+     * <p>Gets a list of exhibitor questions for a given event id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorQuestionsResponse getExhibitorQuestions(
+            @Nonnull GetExhibitorQuestionsRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorQuestionsRequest, GetExhibitorQuestionsResponse> operation =
-                new GetExhibitorQuestions.Sync(sdkConfiguration, _headers);
+                new GetExhibitorQuestions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -504,8 +680,24 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorsResponse getExhibitors(@Nonnull GetExhibitorsRequest request) {
+        return getExhibitors(request, null);
+    }
+
+    /**
+     * List Exhibitors
+     *
+     * <p>Retrieves a paginated list of exhibitors associated with a single event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorsResponse getExhibitors(@Nonnull GetExhibitorsRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorsRequest, GetExhibitorsResponse> operation =
-                new GetExhibitors.Sync(sdkConfiguration, _headers);
+                new GetExhibitors.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -534,8 +726,24 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateExhibitorResponse createExhibitor(@Nonnull CreateExhibitorRequest request) {
+        return createExhibitor(request, null);
+    }
+
+    /**
+     * Create Exhibitor
+     *
+     * <p>Creates a single exhibitor entity for an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateExhibitorResponse createExhibitor(@Nonnull CreateExhibitorRequest request, @Nullable Options options) {
         RequestOperation<CreateExhibitorRequest, CreateExhibitorResponse> operation =
-                new CreateExhibitor.Sync(sdkConfiguration, _headers);
+                new CreateExhibitor.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -564,8 +772,24 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorResponse getExhibitor(@Nonnull GetExhibitorRequest request) {
+        return getExhibitor(request, null);
+    }
+
+    /**
+     * Get Exhibitor
+     *
+     * <p>Retrieves a single exhibitor entity for an event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorResponse getExhibitor(@Nonnull GetExhibitorRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorRequest, GetExhibitorResponse> operation =
-                new GetExhibitor.Sync(sdkConfiguration, _headers);
+                new GetExhibitor.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -594,8 +818,24 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorResponse updateExhibitor(@Nonnull UpdateExhibitorRequest request) {
+        return updateExhibitor(request, null);
+    }
+
+    /**
+     * Update Exhibitor
+     *
+     * <p>Updates data for a single exhibitor entity.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorResponse updateExhibitor(@Nonnull UpdateExhibitorRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorRequest, UpdateExhibitorResponse> operation =
-                new UpdateExhibitor.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitor.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -626,8 +866,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteExhibitorResponse deleteExhibitor(@Nonnull DeleteExhibitorRequest request) {
+        return deleteExhibitor(request, null);
+    }
+
+    /**
+     * Delete Exhibitor
+     *
+     * <p>Deletes a single exhibitor entity. To be deleted, exhibitors must have no tasks, registrations, or
+     * LeadCapture licenses assigned and must not be a sponsored or featured exhibitor.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExhibitorResponse deleteExhibitor(@Nonnull DeleteExhibitorRequest request, @Nullable Options options) {
         RequestOperation<DeleteExhibitorRequest, DeleteExhibitorResponse> operation =
-                new DeleteExhibitor.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitor.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -664,8 +921,29 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorBannerResponse updateExhibitorBanner(@Nonnull UpdateExhibitorBannerRequest request) {
+        return updateExhibitorBanner(request, null);
+    }
+
+    /**
+     * Assign Exhibitor Banner Image
+     *
+     * <p>Assign a banner image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current banner image if one is assigned.
+     *
+     * <p>**Note:** For exhibitor profile banner images, we recommend images that are 1872x320 pixels or
+     * smaller images that have an aspect ratio of 5.85:1. File extensions supported: JPEG, JPG, PNG, GIF
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorBannerResponse updateExhibitorBanner(
+            @Nonnull UpdateExhibitorBannerRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorBannerRequest, UpdateExhibitorBannerResponse> operation =
-                new UpdateExhibitorBanner.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorBanner.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -694,8 +972,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteExhibitorBannerResponse deleteExhibitorBanner(@Nonnull DeleteExhibitorBannerRequest request) {
+        return deleteExhibitorBanner(request, null);
+    }
+
+    /**
+     * Delete Exhibitor Banner Image
+     *
+     * <p>Deletes exhibitor banner image data
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExhibitorBannerResponse deleteExhibitorBanner(
+            @Nonnull DeleteExhibitorBannerRequest request, @Nullable Options options) {
         RequestOperation<DeleteExhibitorBannerRequest, DeleteExhibitorBannerResponse> operation =
-                new DeleteExhibitorBanner.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorBanner.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -724,8 +1019,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetExhibitorAnswersResponse getExhibitorAnswers(@Nonnull GetExhibitorAnswersRequest request) {
+        return getExhibitorAnswers(request, null);
+    }
+
+    /**
+     * List Exhibitor Answers
+     *
+     * <p>Gets a list of answers to exhibitor questions for a given exhibitor id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorAnswersResponse getExhibitorAnswers(
+            @Nonnull GetExhibitorAnswersRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorAnswersRequest, GetExhibitorAnswersResponse> operation =
-                new GetExhibitorAnswers.Sync(sdkConfiguration, _headers);
+                new GetExhibitorAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -756,8 +1068,26 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorAnswersResponse updateExhibitorAnswers(@Nonnull UpdateExhibitorAnswersRequest request) {
+        return updateExhibitorAnswers(request, null);
+    }
+
+    /**
+     * Update Exhibitor Answers
+     *
+     * <p>Updates answers to exhibitor questions for a given exhibitor id. The Planner can skip answering the
+     * questions marked as required for exhibitor admins.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorAnswersResponse updateExhibitorAnswers(
+            @Nonnull UpdateExhibitorAnswersRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorAnswersRequest, UpdateExhibitorAnswersResponse> operation =
-                new UpdateExhibitorAnswers.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorAnswers.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -786,8 +1116,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListExhibitorCategoriesResponse listExhibitorCategories(@Nonnull ListExhibitorCategoriesRequest request) {
+        return listExhibitorCategories(request, null);
+    }
+
+    /**
+     * List Exhibitor's Categories
+     *
+     * <p>Get a paginated list of exhibitor-categories assigned to the provided exhibitor Id.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListExhibitorCategoriesResponse listExhibitorCategories(
+            @Nonnull ListExhibitorCategoriesRequest request, @Nullable Options options) {
         RequestOperation<ListExhibitorCategoriesRequest, ListExhibitorCategoriesResponse> operation =
-                new ListExhibitorCategories.Sync(sdkConfiguration, _headers);
+                new ListExhibitorCategories.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -824,8 +1171,29 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateExhibitorLogoResponse updateExhibitorLogo(@Nonnull UpdateExhibitorLogoRequest request) {
+        return updateExhibitorLogo(request, null);
+    }
+
+    /**
+     * Assign Exhibitor Logo Image
+     *
+     * <p>Assign a logo image to an exhibitor with a file UUID from <a href="#operation/uploadFile">file
+     * upload</a> endpoint. This will replace the current logo image if one is assigned.
+     *
+     * <p>**Note:**  For exhibitor profile logo images we recommend square images larger than 300x300 pixels.
+     * The file types supported are : JPEG, JPG, PNG, GIF
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExhibitorLogoResponse updateExhibitorLogo(
+            @Nonnull UpdateExhibitorLogoRequest request, @Nullable Options options) {
         RequestOperation<UpdateExhibitorLogoRequest, UpdateExhibitorLogoResponse> operation =
-                new UpdateExhibitorLogo.Sync(sdkConfiguration, _headers);
+                new UpdateExhibitorLogo.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -854,8 +1222,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteExhibitorLogoResponse deleteExhibitorLogo(@Nonnull DeleteExhibitorLogoRequest request) {
+        return deleteExhibitorLogo(request, null);
+    }
+
+    /**
+     * Delete Exhibitor Logo Image
+     *
+     * <p>Deletes exhibitor logo image data
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExhibitorLogoResponse deleteExhibitorLogo(
+            @Nonnull DeleteExhibitorLogoRequest request, @Nullable Options options) {
         RequestOperation<DeleteExhibitorLogoRequest, DeleteExhibitorLogoResponse> operation =
-                new DeleteExhibitorLogo.Sync(sdkConfiguration, _headers);
+                new DeleteExhibitorLogo.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -887,8 +1272,26 @@ public class Exhibitor {
      */
     public GetLeadQualificationQuestionsResponse getLeadQualificationQuestions(
             @Nonnull GetLeadQualificationQuestionsRequest request) {
+        return getLeadQualificationQuestions(request, null);
+    }
+
+    /**
+     * List Qualification Questions
+     *
+     * <p>Retrieves a list of lead qualification questions associated with a single exhibitor at the given
+     * event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetLeadQualificationQuestionsResponse getLeadQualificationQuestions(
+            @Nonnull GetLeadQualificationQuestionsRequest request, @Nullable Options options) {
         RequestOperation<GetLeadQualificationQuestionsRequest, GetLeadQualificationQuestionsResponse> operation =
-                new GetLeadQualificationQuestions.Sync(sdkConfiguration, _headers);
+                new GetLeadQualificationQuestions.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -917,8 +1320,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public PostRegistrationPackResponse postRegistrationPack(@Nonnull PostRegistrationPackRequest request) {
+        return postRegistrationPack(request, null);
+    }
+
+    /**
+     * Create Registration Pack
+     *
+     * <p>Create registration pack for an exhibitor
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public PostRegistrationPackResponse postRegistrationPack(
+            @Nonnull PostRegistrationPackRequest request, @Nullable Options options) {
         RequestOperation<PostRegistrationPackRequest, PostRegistrationPackResponse> operation =
-                new PostRegistrationPack.Sync(sdkConfiguration, _headers);
+                new PostRegistrationPack.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -948,8 +1368,25 @@ public class Exhibitor {
      */
     public GetExhibitorRegistrationPacksResponse getExhibitorRegistrationPacks(
             @Nonnull GetExhibitorRegistrationPacksRequest request) {
+        return getExhibitorRegistrationPacks(request, null);
+    }
+
+    /**
+     * List Registration Packs
+     *
+     * <p>Retrieves registration packs associated with an exhibitor.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetExhibitorRegistrationPacksResponse getExhibitorRegistrationPacks(
+            @Nonnull GetExhibitorRegistrationPacksRequest request, @Nullable Options options) {
         RequestOperation<GetExhibitorRegistrationPacksRequest, GetExhibitorRegistrationPacksResponse> operation =
-                new GetExhibitorRegistrationPacks.Sync(sdkConfiguration, _headers);
+                new GetExhibitorRegistrationPacks.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -980,8 +1417,26 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetRegistrationPackResponse getRegistrationPack(@Nonnull GetRegistrationPackRequest request) {
+        return getRegistrationPack(request, null);
+    }
+
+    /**
+     * Get Registration Pack
+     *
+     * <p>Retrieves registration types allocated to an exhibitor, along with the count of registrations
+     * utilized.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetRegistrationPackResponse getRegistrationPack(
+            @Nonnull GetRegistrationPackRequest request, @Nullable Options options) {
         RequestOperation<GetRegistrationPackRequest, GetRegistrationPackResponse> operation =
-                new GetRegistrationPack.Sync(sdkConfiguration, _headers);
+                new GetRegistrationPack.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1010,8 +1465,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateRegistrationPackResponse updateRegistrationPack(@Nonnull UpdateRegistrationPackRequest request) {
+        return updateRegistrationPack(request, null);
+    }
+
+    /**
+     * Update Registration Pack
+     *
+     * <p>Update registration pack for an exhibitor
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateRegistrationPackResponse updateRegistrationPack(
+            @Nonnull UpdateRegistrationPackRequest request, @Nullable Options options) {
         RequestOperation<UpdateRegistrationPackRequest, UpdateRegistrationPackResponse> operation =
-                new UpdateRegistrationPack.Sync(sdkConfiguration, _headers);
+                new UpdateRegistrationPack.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1040,8 +1512,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteRegistrationPackResponse deleteRegistrationPack(@Nonnull DeleteRegistrationPackRequest request) {
+        return deleteRegistrationPack(request, null);
+    }
+
+    /**
+     * Delete Registration Pack
+     *
+     * <p>Delete registration pack for an exhibitor
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteRegistrationPackResponse deleteRegistrationPack(
+            @Nonnull DeleteRegistrationPackRequest request, @Nullable Options options) {
         RequestOperation<DeleteRegistrationPackRequest, DeleteRegistrationPackResponse> operation =
-                new DeleteRegistrationPack.Sync(sdkConfiguration, _headers);
+                new DeleteRegistrationPack.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1070,8 +1559,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSponsorshipLevelsResponse getSponsorshipLevels(@Nonnull GetSponsorshipLevelsRequest request) {
+        return getSponsorshipLevels(request, null);
+    }
+
+    /**
+     * List Sponsorship Levels
+     *
+     * <p>Gets a list of associated sponsorship levels for a single event.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSponsorshipLevelsResponse getSponsorshipLevels(
+            @Nonnull GetSponsorshipLevelsRequest request, @Nullable Options options) {
         RequestOperation<GetSponsorshipLevelsRequest, GetSponsorshipLevelsResponse> operation =
-                new GetSponsorshipLevels.Sync(sdkConfiguration, _headers);
+                new GetSponsorshipLevels.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -1100,8 +1606,25 @@ public class Exhibitor {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetSponsorshipLevelResponse getSponsorshipLevel(@Nonnull GetSponsorshipLevelRequest request) {
+        return getSponsorshipLevel(request, null);
+    }
+
+    /**
+     * Get Sponsorship Level
+     *
+     * <p>Retrieves associated sponsorship level data for a single sponsorship level ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetSponsorshipLevelResponse getSponsorshipLevel(
+            @Nonnull GetSponsorshipLevelRequest request, @Nullable Options options) {
         RequestOperation<GetSponsorshipLevelRequest, GetSponsorshipLevelResponse> operation =
-                new GetSponsorshipLevel.Sync(sdkConfiguration, _headers);
+                new GetSponsorshipLevel.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

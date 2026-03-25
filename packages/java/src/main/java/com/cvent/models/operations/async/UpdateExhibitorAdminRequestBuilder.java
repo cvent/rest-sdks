@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.UpdateExhibitorAdminRequest;
 import com.cvent.operations.UpdateExhibitorAdmin;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UpdateExhibitorAdminRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UpdateExhibitorAdminRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UpdateExhibitorAdminRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UpdateExhibitorAdminRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UpdateExhibitorAdminRequestBuilder request(@Nonnull UpdateExhibitorAdminRequest request) {
@@ -44,8 +54,9 @@ public class UpdateExhibitorAdminRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<UpdateExhibitorAdminResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<UpdateExhibitorAdminRequest, UpdateExhibitorAdminResponse> operation =
-                new UpdateExhibitorAdmin.Async(sdkConfiguration, _headers);
+                new UpdateExhibitorAdmin.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

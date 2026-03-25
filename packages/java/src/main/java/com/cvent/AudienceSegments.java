@@ -46,7 +46,9 @@ import com.cvent.operations.ListAudienceSegmentsPostFilter;
 import com.cvent.operations.ListSegmentAssociatedAttendees;
 import com.cvent.operations.UpdateAudienceSegment;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Audience Segments allow planners to segment their attendees into groups and
@@ -100,10 +102,27 @@ public class AudienceSegments {
      */
     public DisassociateAttendeeFromAudienceSegmentsResponse disassociateAttendeeFromAudienceSegments(
             @Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request) {
+        return disassociateAttendeeFromAudienceSegments(request, null);
+    }
+
+    /**
+     * Delete Attendee Associations
+     *
+     * <p>disassociate an attendee from all audience segments
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateAttendeeFromAudienceSegmentsResponse disassociateAttendeeFromAudienceSegments(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentsRequest request, @Nullable Options options) {
         RequestOperation<
                         DisassociateAttendeeFromAudienceSegmentsRequest,
                         DisassociateAttendeeFromAudienceSegmentsResponse>
-                operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, _headers);
+                operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -132,8 +151,25 @@ public class AudienceSegments {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAudienceSegmentResponse createAudienceSegment(@Nonnull AudienceSegmentCreate request) {
+        return createAudienceSegment(request, null);
+    }
+
+    /**
+     * Create Audience Segment
+     *
+     * <p>Creates an audience segment in the given event based on the details supplied in the request body.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateAudienceSegmentResponse createAudienceSegment(
+            @Nonnull AudienceSegmentCreate request, @Nullable Options options) {
         RequestOperation<AudienceSegmentCreate, CreateAudienceSegmentResponse> operation =
-                new CreateAudienceSegment.Sync(sdkConfiguration, _headers);
+                new CreateAudienceSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -166,8 +202,27 @@ public class AudienceSegments {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAudienceSegmentsResponse listAudienceSegments(@Nonnull ListAudienceSegmentsRequest request) {
+        return listAudienceSegments(request, null);
+    }
+
+    /**
+     * List Audience Segments
+     *
+     * <p>Gets a paginated list of audience segments for your account. By default,
+     * the results include all segments present, at the account level, unless you specify
+     * otherwise using the filter query parameter.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAudienceSegmentsResponse listAudienceSegments(
+            @Nonnull ListAudienceSegmentsRequest request, @Nullable Options options) {
         RequestOperation<ListAudienceSegmentsRequest, ListAudienceSegmentsResponse> operation =
-                new ListAudienceSegments.Sync(sdkConfiguration, _headers);
+                new ListAudienceSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -207,8 +262,30 @@ public class AudienceSegments {
      */
     public ListAudienceSegmentsPostFilterResponse listAudienceSegmentsPostFilter(
             @Nonnull ListAudienceSegmentsPostFilterRequest request) {
+        return listAudienceSegmentsPostFilter(request, null);
+    }
+
+    /**
+     * List Audience Segments
+     *
+     * <p>Gets a paginated list of audience segments for an account by sending a filter
+     * in the body of the request. By default, the results include all
+     * audience segments at the account level unless you specify otherwise in the filter. This
+     * method returns the same data as
+     * [GET List Audience Segments](#operation/listAudienceSegments) but
+     * allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAudienceSegmentsPostFilterResponse listAudienceSegmentsPostFilter(
+            @Nonnull ListAudienceSegmentsPostFilterRequest request, @Nullable Options options) {
         RequestOperation<ListAudienceSegmentsPostFilterRequest, ListAudienceSegmentsPostFilterResponse> operation =
-                new ListAudienceSegmentsPostFilter.Sync(sdkConfiguration, _headers);
+                new ListAudienceSegmentsPostFilter.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -237,8 +314,25 @@ public class AudienceSegments {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetAudienceSegmentByIdResponse getAudienceSegmentById(@Nonnull GetAudienceSegmentByIdRequest request) {
+        return getAudienceSegmentById(request, null);
+    }
+
+    /**
+     * Get Audience Segment
+     *
+     * <p>Gets an audience segment based on the given ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAudienceSegmentByIdResponse getAudienceSegmentById(
+            @Nonnull GetAudienceSegmentByIdRequest request, @Nullable Options options) {
         RequestOperation<GetAudienceSegmentByIdRequest, GetAudienceSegmentByIdResponse> operation =
-                new GetAudienceSegmentById.Sync(sdkConfiguration, _headers);
+                new GetAudienceSegmentById.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -267,8 +361,25 @@ public class AudienceSegments {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateAudienceSegmentResponse updateAudienceSegment(@Nonnull UpdateAudienceSegmentRequest request) {
+        return updateAudienceSegment(request, null);
+    }
+
+    /**
+     * Update Audience Segment
+     *
+     * <p>Updates the given audience segment based on the values provided in the request body.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateAudienceSegmentResponse updateAudienceSegment(
+            @Nonnull UpdateAudienceSegmentRequest request, @Nullable Options options) {
         RequestOperation<UpdateAudienceSegmentRequest, UpdateAudienceSegmentResponse> operation =
-                new UpdateAudienceSegment.Sync(sdkConfiguration, _headers);
+                new UpdateAudienceSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -297,8 +408,25 @@ public class AudienceSegments {
      * @throws RuntimeException subclass if the API call fails
      */
     public DeleteAudienceSegmentResponse deleteAudienceSegment(@Nonnull DeleteAudienceSegmentRequest request) {
+        return deleteAudienceSegment(request, null);
+    }
+
+    /**
+     * Delete Audience Segment
+     *
+     * <p>Deletes the given audience segment.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteAudienceSegmentResponse deleteAudienceSegment(
+            @Nonnull DeleteAudienceSegmentRequest request, @Nullable Options options) {
         RequestOperation<DeleteAudienceSegmentRequest, DeleteAudienceSegmentResponse> operation =
-                new DeleteAudienceSegment.Sync(sdkConfiguration, _headers);
+                new DeleteAudienceSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -330,8 +458,26 @@ public class AudienceSegments {
      */
     public ListSegmentAssociatedAttendeesResponse listSegmentAssociatedAttendees(
             @Nonnull ListSegmentAssociatedAttendeesRequest request) {
+        return listSegmentAssociatedAttendees(request, null);
+    }
+
+    /**
+     * List Associated Attendees
+     *
+     * <p>Gets a paginated list of attendees associated or disassociated to/from an audience segment. Use the
+     * `filter` query parameter to return only associated or only disassociated attendees.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListSegmentAssociatedAttendeesResponse listSegmentAssociatedAttendees(
+            @Nonnull ListSegmentAssociatedAttendeesRequest request, @Nullable Options options) {
         RequestOperation<ListSegmentAssociatedAttendeesRequest, ListSegmentAssociatedAttendeesResponse> operation =
-                new ListSegmentAssociatedAttendees.Sync(sdkConfiguration, _headers);
+                new ListSegmentAssociatedAttendees.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -361,8 +507,25 @@ public class AudienceSegments {
      */
     public AssociateAttendeeToSegmentResponse associateAttendeeToSegment(
             @Nonnull AssociateAttendeeToSegmentRequest request) {
+        return associateAttendeeToSegment(request, null);
+    }
+
+    /**
+     * Associate Attendee to Segment
+     *
+     * <p>Associates an attendee to a given audience segment.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public AssociateAttendeeToSegmentResponse associateAttendeeToSegment(
+            @Nonnull AssociateAttendeeToSegmentRequest request, @Nullable Options options) {
         RequestOperation<AssociateAttendeeToSegmentRequest, AssociateAttendeeToSegmentResponse> operation =
-                new AssociateAttendeeToSegment.Sync(sdkConfiguration, _headers);
+                new AssociateAttendeeToSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -392,9 +555,26 @@ public class AudienceSegments {
      */
     public DisassociateAttendeeFromAudienceSegmentResponse disassociateAttendeeFromAudienceSegment(
             @Nonnull DisassociateAttendeeFromAudienceSegmentRequest request) {
+        return disassociateAttendeeFromAudienceSegment(request, null);
+    }
+
+    /**
+     * Disassociate Attendee
+     *
+     * <p>Disassociate an attendee from an audience segment.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DisassociateAttendeeFromAudienceSegmentResponse disassociateAttendeeFromAudienceSegment(
+            @Nonnull DisassociateAttendeeFromAudienceSegmentRequest request, @Nullable Options options) {
         RequestOperation<
                         DisassociateAttendeeFromAudienceSegmentRequest, DisassociateAttendeeFromAudienceSegmentResponse>
-                operation = new DisassociateAttendeeFromAudienceSegment.Sync(sdkConfiguration, _headers);
+                operation = new DisassociateAttendeeFromAudienceSegment.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

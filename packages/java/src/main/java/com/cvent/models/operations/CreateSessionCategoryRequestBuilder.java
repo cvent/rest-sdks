@@ -9,16 +9,26 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.SessionCategoryInput;
 import com.cvent.operations.CreateSessionCategory;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class CreateSessionCategoryRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private SessionCategoryInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateSessionCategoryRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateSessionCategoryRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateSessionCategoryRequestBuilder request(@Nonnull SessionCategoryInput request) {
@@ -43,8 +53,9 @@ public class CreateSessionCategoryRequestBuilder {
      * @return The response from the server.
      */
     public CreateSessionCategoryResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<SessionCategoryInput, CreateSessionCategoryResponse> operation =
-                new CreateSessionCategory.Sync(sdkConfiguration, _headers);
+                new CreateSessionCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -30,7 +30,9 @@ import com.cvent.operations.ListAttendeeActivities;
 import com.cvent.operations.ListExternalAttendeeActivitiesMetadata;
 import com.cvent.operations.UpdateExternalAttendeeActivityMetadata;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * The Attendee Activities API gives valuable insight into your customer's experience at your Cvent
@@ -99,8 +101,25 @@ public class AttendeeActivities {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListAttendeeActivitiesResponse listAttendeeActivities(@Nonnull ListAttendeeActivitiesRequest request) {
+        return listAttendeeActivities(request, null);
+    }
+
+    /**
+     * List Activities
+     *
+     * <p>Gets a paginated list of attendee activities.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAttendeeActivitiesResponse listAttendeeActivities(
+            @Nonnull ListAttendeeActivitiesRequest request, @Nullable Options options) {
         RequestOperation<ListAttendeeActivitiesRequest, ListAttendeeActivitiesResponse> operation =
-                new ListAttendeeActivities.Sync(sdkConfiguration, _headers);
+                new ListAttendeeActivities.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -129,8 +148,25 @@ public class AttendeeActivities {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateAttendeeActivityResponse createAttendeeActivity(@Nonnull ExternalActivityInput request) {
+        return createAttendeeActivity(request, null);
+    }
+
+    /**
+     * Add External Activity
+     *
+     * <p>Create an external attendee activity.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateAttendeeActivityResponse createAttendeeActivity(
+            @Nonnull ExternalActivityInput request, @Nullable Options options) {
         RequestOperation<ExternalActivityInput, CreateAttendeeActivityResponse> operation =
-                new CreateAttendeeActivity.Sync(sdkConfiguration, _headers);
+                new CreateAttendeeActivity.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -160,8 +196,25 @@ public class AttendeeActivities {
      */
     public ListExternalAttendeeActivitiesMetadataResponse listExternalAttendeeActivitiesMetadata(
             @Nonnull ListExternalAttendeeActivitiesMetadataRequest request) {
+        return listExternalAttendeeActivitiesMetadata(request, null);
+    }
+
+    /**
+     * List Ext. Activities Metadata
+     *
+     * <p>Gets a paginated list of external attendee activities metadata.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListExternalAttendeeActivitiesMetadataResponse listExternalAttendeeActivitiesMetadata(
+            @Nonnull ListExternalAttendeeActivitiesMetadataRequest request, @Nullable Options options) {
         RequestOperation<ListExternalAttendeeActivitiesMetadataRequest, ListExternalAttendeeActivitiesMetadataResponse> operation =
-                new ListExternalAttendeeActivitiesMetadata.Sync(sdkConfiguration, _headers);
+                new ListExternalAttendeeActivitiesMetadata.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -191,8 +244,25 @@ public class AttendeeActivities {
      */
     public CreateExternalAttendeeActivityMetadataResponse createExternalAttendeeActivityMetadata(
             @Nonnull ExternalActivityMetadataInput request) {
+        return createExternalAttendeeActivityMetadata(request, null);
+    }
+
+    /**
+     * Add Ext. Activities Metadata
+     *
+     * <p>Creates external attendee activity metadata.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateExternalAttendeeActivityMetadataResponse createExternalAttendeeActivityMetadata(
+            @Nonnull ExternalActivityMetadataInput request, @Nullable Options options) {
         RequestOperation<ExternalActivityMetadataInput, CreateExternalAttendeeActivityMetadataResponse> operation =
-                new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+                new CreateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -222,8 +292,25 @@ public class AttendeeActivities {
      */
     public DeleteExternalAttendeeActivityMetadataResponse deleteExternalAttendeeActivityMetadata(
             @Nonnull DeleteExternalAttendeeActivityMetadataRequest request) {
+        return deleteExternalAttendeeActivityMetadata(request, null);
+    }
+
+    /**
+     * Delete Ext Activities Metadata
+     *
+     * <p>Deletes external attendee activity metadata.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public DeleteExternalAttendeeActivityMetadataResponse deleteExternalAttendeeActivityMetadata(
+            @Nonnull DeleteExternalAttendeeActivityMetadataRequest request, @Nullable Options options) {
         RequestOperation<DeleteExternalAttendeeActivityMetadataRequest, DeleteExternalAttendeeActivityMetadataResponse> operation =
-                new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+                new DeleteExternalAttendeeActivityMetadata.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -253,8 +340,25 @@ public class AttendeeActivities {
      */
     public UpdateExternalAttendeeActivityMetadataResponse updateExternalAttendeeActivityMetadata(
             @Nonnull UpdateExternalAttendeeActivityMetadataRequest request) {
+        return updateExternalAttendeeActivityMetadata(request, null);
+    }
+
+    /**
+     * Update Ext Activities Metadata
+     *
+     * <p>Update external attendee activity metadata.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateExternalAttendeeActivityMetadataResponse updateExternalAttendeeActivityMetadata(
+            @Nonnull UpdateExternalAttendeeActivityMetadataRequest request, @Nullable Options options) {
         RequestOperation<UpdateExternalAttendeeActivityMetadataRequest, UpdateExternalAttendeeActivityMetadataResponse> operation =
-                new UpdateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, _headers);
+                new UpdateExternalAttendeeActivityMetadata.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

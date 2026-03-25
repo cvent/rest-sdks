@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.UnlinkReservation;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class UnlinkReservationRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private UnlinkReservationRequest request;
+    private final Options.Builder optionsBuilder;
 
     public UnlinkReservationRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public UnlinkReservationRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public UnlinkReservationRequestBuilder request(@Nonnull UnlinkReservationRequest request) {
@@ -42,8 +52,9 @@ public class UnlinkReservationRequestBuilder {
      * @return The response from the server.
      */
     public UnlinkReservationResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<UnlinkReservationRequest, UnlinkReservationResponse> operation =
-                new UnlinkReservation.Sync(sdkConfiguration, _headers);
+                new UnlinkReservation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

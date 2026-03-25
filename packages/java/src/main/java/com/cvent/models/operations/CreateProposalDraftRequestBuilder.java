@@ -9,6 +9,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.ProposalRequest;
 import com.cvent.operations.CreateProposalDraft;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nullable;
 
@@ -16,9 +18,16 @@ public class CreateProposalDraftRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private ProposalRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateProposalDraftRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateProposalDraftRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateProposalDraftRequestBuilder request(@Nullable ProposalRequest request) {
@@ -43,8 +52,9 @@ public class CreateProposalDraftRequestBuilder {
      * @return The response from the server.
      */
     public CreateProposalDraftResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<ProposalRequest, CreateProposalDraftResponse> operation =
-                new CreateProposalDraft.Sync(sdkConfiguration, _headers);
+                new CreateProposalDraft.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

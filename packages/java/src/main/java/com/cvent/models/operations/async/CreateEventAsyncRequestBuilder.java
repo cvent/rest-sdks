@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.components.EventInput;
 import com.cvent.operations.CreateEventAsync;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateEventAsyncRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private EventInput request;
+    private final Options.Builder optionsBuilder;
 
     public CreateEventAsyncRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateEventAsyncRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateEventAsyncRequestBuilder request(@Nonnull EventInput request) {
@@ -44,8 +54,9 @@ public class CreateEventAsyncRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateEventAsyncResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<EventInput, CreateEventAsyncResponse> operation =
-                new CreateEventAsync.Async(sdkConfiguration, _headers);
+                new CreateEventAsync.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

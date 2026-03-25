@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.PatchContactByIdRequest;
 import com.cvent.operations.PatchContactById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class PatchContactByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private PatchContactByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public PatchContactByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public PatchContactByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public PatchContactByIdRequestBuilder request(@Nonnull PatchContactByIdRequest request) {
@@ -44,8 +54,9 @@ public class PatchContactByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<PatchContactByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<PatchContactByIdRequest, PatchContactByIdResponse> operation =
-                new PatchContactById.Async(sdkConfiguration, _headers);
+                new PatchContactById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

@@ -14,7 +14,9 @@ import com.cvent.models.operations.async.GetUsageTierResponse;
 import com.cvent.operations.GetUsage;
 import com.cvent.operations.GetUsageTier;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -64,8 +66,23 @@ public class AsyncUsage {
      * @return {@code CompletableFuture<GetUsageResponse>} - The async response
      */
     public CompletableFuture<GetUsageResponse> getUsage(@Nonnull GetUsageRequest request) {
+        return getUsage(request, null);
+    }
+
+    /**
+     * Get Current Usage
+     *
+     * <p>Returns API call usage for the last seven days, or between some date range (up to the past seven
+     * days) for
+     * the current caller's account.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetUsageResponse>} - The async response
+     */
+    public CompletableFuture<GetUsageResponse> getUsage(@Nonnull GetUsageRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetUsageRequest, GetUsageResponse> operation =
-                new GetUsage.Async(sdkConfiguration, _headers);
+                new GetUsage.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -92,7 +109,22 @@ public class AsyncUsage {
      * @return {@code CompletableFuture<GetUsageTierResponse>} - The async response
      */
     public CompletableFuture<GetUsageTierResponse> getUsageTierDirect() {
-        AsyncRequestlessOperation<GetUsageTierResponse> operation = new GetUsageTier.Async(sdkConfiguration, _headers);
+        return getUsageTier(null);
+    }
+
+    /**
+     * Get Current Usage Tier
+     *
+     * <p>Returns the current usage tier of the caller's account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param options additional options
+     * @return {@code CompletableFuture<GetUsageTierResponse>} - The async response
+     */
+    public CompletableFuture<GetUsageTierResponse> getUsageTier(@Nullable Options options) {
+        AsyncRequestlessOperation<GetUsageTierResponse> operation =
+                new GetUsageTier.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest().thenCompose(operation::handleResponse);
     }
 }

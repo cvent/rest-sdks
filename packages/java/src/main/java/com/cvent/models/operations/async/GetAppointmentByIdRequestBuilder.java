@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.GetAppointmentByIdRequest;
 import com.cvent.operations.GetAppointmentById;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class GetAppointmentByIdRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetAppointmentByIdRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetAppointmentByIdRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetAppointmentByIdRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetAppointmentByIdRequestBuilder request(@Nonnull GetAppointmentByIdRequest request) {
@@ -44,8 +54,9 @@ public class GetAppointmentByIdRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<GetAppointmentByIdResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<GetAppointmentByIdRequest, GetAppointmentByIdResponse> operation =
-                new GetAppointmentById.Async(sdkConfiguration, _headers);
+                new GetAppointmentById.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

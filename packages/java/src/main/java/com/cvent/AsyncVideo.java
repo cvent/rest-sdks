@@ -34,7 +34,9 @@ import com.cvent.operations.ListVideoTextTracks;
 import com.cvent.operations.ListVideos;
 import com.cvent.operations.UpdateTextTrack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -84,8 +86,22 @@ public class AsyncVideo {
      * @return {@code CompletableFuture<ListVideosResponse>} - The async response
      */
     public CompletableFuture<ListVideosResponse> listVideos(@Nonnull ListVideosRequest request) {
+        return listVideos(request, null);
+    }
+
+    /**
+     * List Videos
+     *
+     * <p>Gets a paginated list of videos associated with your account or event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListVideosResponse>} - The async response
+     */
+    public CompletableFuture<ListVideosResponse> listVideos(
+            @Nonnull ListVideosRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListVideosRequest, ListVideosResponse> operation =
-                new ListVideos.Async(sdkConfiguration, _headers);
+                new ListVideos.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -113,8 +129,24 @@ public class AsyncVideo {
      * @return {@code CompletableFuture<GetVideoViewsResponse>} - The async response
      */
     public CompletableFuture<GetVideoViewsResponse> getVideoViews(@Nonnull GetVideoViewsRequest request) {
+        return getVideoViews(request, null);
+    }
+
+    /**
+     * List Video Views
+     *
+     * <p>Gets a paginated list of video views
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetVideoViewsResponse>} - The async response
+     */
+    public CompletableFuture<GetVideoViewsResponse> getVideoViews(
+            @Nonnull GetVideoViewsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetVideoViewsRequest, GetVideoViewsResponse> operation =
-                new GetVideoViews.Async(sdkConfiguration, _headers);
+                new GetVideoViews.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -138,8 +170,22 @@ public class AsyncVideo {
      * @return {@code CompletableFuture<ListAudioTracksResponse>} - The async response
      */
     public CompletableFuture<ListAudioTracksResponse> listAudioTracks(@Nonnull ListAudioTracksRequest request) {
+        return listAudioTracks(request, null);
+    }
+
+    /**
+     * List Audio Tracks
+     *
+     * <p>Gets a list of audio tracks for a specific video ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAudioTracksResponse>} - The async response
+     */
+    public CompletableFuture<ListAudioTracksResponse> listAudioTracks(
+            @Nonnull ListAudioTracksRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListAudioTracksRequest, ListAudioTracksResponse> operation =
-                new ListAudioTracks.Async(sdkConfiguration, _headers);
+                new ListAudioTracks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -164,8 +210,22 @@ public class AsyncVideo {
      */
     public CompletableFuture<ListVideoRenditionsResponse> listVideoRenditions(
             @Nonnull ListVideoRenditionsRequest request) {
+        return listVideoRenditions(request, null);
+    }
+
+    /**
+     * List Video Renditions
+     *
+     * <p>Gets a list of video renditions for a specific video ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListVideoRenditionsResponse>} - The async response
+     */
+    public CompletableFuture<ListVideoRenditionsResponse> listVideoRenditions(
+            @Nonnull ListVideoRenditionsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListVideoRenditionsRequest, ListVideoRenditionsResponse> operation =
-                new ListVideoRenditions.Async(sdkConfiguration, _headers);
+                new ListVideoRenditions.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -191,8 +251,23 @@ public class AsyncVideo {
      * @return {@code CompletableFuture<CreateTextTrackResponse>} - The async response
      */
     public CompletableFuture<CreateTextTrackResponse> createTextTrack(@Nonnull CreateTextTrackRequest request) {
+        return createTextTrack(request, null);
+    }
+
+    /**
+     * Create Text Track
+     *
+     * <p>Creates a new text track (VTT) object for a specific video. This endpoint does not directly handle
+     * the upload of VTT files but instead returns a location URL that you use to perform the upload.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<CreateTextTrackResponse>} - The async response
+     */
+    public CompletableFuture<CreateTextTrackResponse> createTextTrack(
+            @Nonnull CreateTextTrackRequest request, @Nullable Options options) {
         AsyncRequestOperation<CreateTextTrackRequest, CreateTextTrackResponse> operation =
-                new CreateTextTrack.Async(sdkConfiguration, _headers);
+                new CreateTextTrack.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -217,8 +292,22 @@ public class AsyncVideo {
      */
     public CompletableFuture<ListVideoTextTracksResponse> listVideoTextTracks(
             @Nonnull ListVideoTextTracksRequest request) {
+        return listVideoTextTracks(request, null);
+    }
+
+    /**
+     * List Text Tracks
+     *
+     * <p>Gets a list of video text tracks for a specific video ID.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListVideoTextTracksResponse>} - The async response
+     */
+    public CompletableFuture<ListVideoTextTracksResponse> listVideoTextTracks(
+            @Nonnull ListVideoTextTracksRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListVideoTextTracksRequest, ListVideoTextTracksResponse> operation =
-                new ListVideoTextTracks.Async(sdkConfiguration, _headers);
+                new ListVideoTextTracks.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
@@ -246,8 +335,24 @@ public class AsyncVideo {
      * @return {@code CompletableFuture<UpdateTextTrackResponse>} - The async response
      */
     public CompletableFuture<UpdateTextTrackResponse> updateTextTrack(@Nonnull UpdateTextTrackRequest request) {
+        return updateTextTrack(request, null);
+    }
+
+    /**
+     * Update Text Track
+     *
+     * <p>Updates a specific video text track by ID. This is done by setting the status to Updating within the
+     * body of this call,
+     * which will prompt the service to return a signed upload link in the returned entity.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<UpdateTextTrackResponse>} - The async response
+     */
+    public CompletableFuture<UpdateTextTrackResponse> updateTextTrack(
+            @Nonnull UpdateTextTrackRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateTextTrackRequest, UpdateTextTrackResponse> operation =
-                new UpdateTextTrack.Async(sdkConfiguration, _headers);
+                new UpdateTextTrack.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.AssignSpeakerProfileImage;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class AssignSpeakerProfileImageRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private AssignSpeakerProfileImageRequest request;
+    private final Options.Builder optionsBuilder;
 
     public AssignSpeakerProfileImageRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public AssignSpeakerProfileImageRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public AssignSpeakerProfileImageRequestBuilder request(@Nonnull AssignSpeakerProfileImageRequest request) {
@@ -42,8 +52,9 @@ public class AssignSpeakerProfileImageRequestBuilder {
      * @return The response from the server.
      */
     public AssignSpeakerProfileImageResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<AssignSpeakerProfileImageRequest, AssignSpeakerProfileImageResponse> operation =
-                new AssignSpeakerProfileImage.Sync(sdkConfiguration, _headers);
+                new AssignSpeakerProfileImage.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.CreateTextTrackRequest;
 import com.cvent.operations.CreateTextTrack;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class CreateTextTrackRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private CreateTextTrackRequest request;
+    private final Options.Builder optionsBuilder;
 
     public CreateTextTrackRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public CreateTextTrackRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public CreateTextTrackRequestBuilder request(@Nonnull CreateTextTrackRequest request) {
@@ -44,8 +54,9 @@ public class CreateTextTrackRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<CreateTextTrackResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<CreateTextTrackRequest, CreateTextTrackResponse> operation =
-                new CreateTextTrack.Async(sdkConfiguration, _headers);
+                new CreateTextTrack.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

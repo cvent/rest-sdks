@@ -10,7 +10,9 @@ import com.cvent.models.operations.async.ListProcessFormSubmissionRequestBuilder
 import com.cvent.models.operations.async.ListProcessFormSubmissionResponse;
 import com.cvent.operations.ListProcessFormSubmission;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
@@ -62,8 +64,24 @@ public class AsyncProcessForm {
      */
     public CompletableFuture<ListProcessFormSubmissionResponse> listProcessFormSubmission(
             @Nonnull ListProcessFormSubmissionRequest request) {
+        return listProcessFormSubmission(request, null);
+    }
+
+    /**
+     * List Process Form Submissions
+     *
+     * <p>Gets a paginated list of process form submissions.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListProcessFormSubmissionResponse>} - The async response
+     */
+    public CompletableFuture<ListProcessFormSubmissionResponse> listProcessFormSubmission(
+            @Nonnull ListProcessFormSubmissionRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListProcessFormSubmissionRequest, ListProcessFormSubmissionResponse> operation =
-                new ListProcessFormSubmission.Async(sdkConfiguration, _headers);
+                new ListProcessFormSubmission.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 }

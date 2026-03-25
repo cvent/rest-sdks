@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.DeleteBoothStaffRequest;
 import com.cvent.operations.DeleteBoothStaff;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class DeleteBoothStaffRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private DeleteBoothStaffRequest request;
+    private final Options.Builder optionsBuilder;
 
     public DeleteBoothStaffRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public DeleteBoothStaffRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public DeleteBoothStaffRequestBuilder request(@Nonnull DeleteBoothStaffRequest request) {
@@ -44,8 +54,9 @@ public class DeleteBoothStaffRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<DeleteBoothStaffResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<DeleteBoothStaffRequest, DeleteBoothStaffResponse> operation =
-                new DeleteBoothStaff.Async(sdkConfiguration, _headers);
+                new DeleteBoothStaff.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

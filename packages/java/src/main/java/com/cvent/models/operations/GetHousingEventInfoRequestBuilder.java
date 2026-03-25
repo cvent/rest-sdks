@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetHousingEventInfo;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetHousingEventInfoRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetHousingEventInfoRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetHousingEventInfoRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetHousingEventInfoRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetHousingEventInfoRequestBuilder request(@Nonnull GetHousingEventInfoRequest request) {
@@ -42,8 +52,9 @@ public class GetHousingEventInfoRequestBuilder {
      * @return The response from the server.
      */
     public GetHousingEventInfoResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetHousingEventInfoRequest, GetHousingEventInfoResponse> operation =
-                new GetHousingEventInfo.Sync(sdkConfiguration, _headers);
+                new GetHousingEventInfo.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }

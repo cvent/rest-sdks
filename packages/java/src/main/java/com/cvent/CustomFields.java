@@ -34,7 +34,9 @@ import com.cvent.operations.UpdateCustomField;
 import com.cvent.operations.UpdateCustomFieldAdvancedLogic;
 import com.cvent.operations.UpdateCustomFieldTranslation;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Custom Fields are created by event planners to track important information about specific objects
@@ -85,8 +87,25 @@ public class CustomFields {
      * @throws RuntimeException subclass if the API call fails
      */
     public ListCustomFieldsResponse listCustomFields(@Nonnull ListCustomFieldsRequest request) {
+        return listCustomFields(request, null);
+    }
+
+    /**
+     * List Custom Fields
+     *
+     * <p>Get a paginated list of custom fields in an account.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListCustomFieldsResponse listCustomFields(
+            @Nonnull ListCustomFieldsRequest request, @Nullable Options options) {
         RequestOperation<ListCustomFieldsRequest, ListCustomFieldsResponse> operation =
-                new ListCustomFields.Sync(sdkConfiguration, _headers);
+                new ListCustomFields.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -115,8 +134,24 @@ public class CustomFields {
      * @throws RuntimeException subclass if the API call fails
      */
     public CreateCustomFieldResponse createCustomField(@Nonnull CustomField2 request) {
+        return createCustomField(request, null);
+    }
+
+    /**
+     * Create Custom Field
+     *
+     * <p>Creates a single custom field based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateCustomFieldResponse createCustomField(@Nonnull CustomField2 request, @Nullable Options options) {
         RequestOperation<CustomField2, CreateCustomFieldResponse> operation =
-                new CreateCustomField.Sync(sdkConfiguration, _headers);
+                new CreateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -145,8 +180,25 @@ public class CustomFields {
      * @throws RuntimeException subclass if the API call fails
      */
     public UpdateCustomFieldResponse updateCustomField(@Nonnull UpdateCustomFieldRequest request) {
+        return updateCustomField(request, null);
+    }
+
+    /**
+     * Update Custom Field
+     *
+     * <p>Updates a custom field based on the given custom field ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateCustomFieldResponse updateCustomField(
+            @Nonnull UpdateCustomFieldRequest request, @Nullable Options options) {
         RequestOperation<UpdateCustomFieldRequest, UpdateCustomFieldResponse> operation =
-                new UpdateCustomField.Sync(sdkConfiguration, _headers);
+                new UpdateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -175,8 +227,24 @@ public class CustomFields {
      * @throws RuntimeException subclass if the API call fails
      */
     public GetCustomFieldResponse getCustomField(@Nonnull GetCustomFieldRequest request) {
+        return getCustomField(request, null);
+    }
+
+    /**
+     * Get Custom Field
+     *
+     * <p>Get a single custom field based on the given custom field ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetCustomFieldResponse getCustomField(@Nonnull GetCustomFieldRequest request, @Nullable Options options) {
         RequestOperation<GetCustomFieldRequest, GetCustomFieldResponse> operation =
-                new GetCustomField.Sync(sdkConfiguration, _headers);
+                new GetCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -214,8 +282,29 @@ public class CustomFields {
      */
     public UpdateCustomFieldAdvancedLogicResponse updateCustomFieldAdvancedLogic(
             @Nonnull UpdateCustomFieldAdvancedLogicRequest request) {
+        return updateCustomFieldAdvancedLogic(request, null);
+    }
+
+    /**
+     * Update Advanced Logic
+     *
+     * <p>Updates the advanced logic for a custom field. Links the field given in the path to a 'source'
+     * custom field. Answers to the source custom field determine the visible choices in the given custom
+     * field.
+     *
+     * <p>If the source field has no answers, only the default choices for the given field are visible.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateCustomFieldAdvancedLogicResponse updateCustomFieldAdvancedLogic(
+            @Nonnull UpdateCustomFieldAdvancedLogicRequest request, @Nullable Options options) {
         RequestOperation<UpdateCustomFieldAdvancedLogicRequest, UpdateCustomFieldAdvancedLogicResponse> operation =
-                new UpdateCustomFieldAdvancedLogic.Sync(sdkConfiguration, _headers);
+                new UpdateCustomFieldAdvancedLogic.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -245,8 +334,25 @@ public class CustomFields {
      */
     public CreateCustomFieldTranslationResponse createCustomFieldTranslation(
             @Nonnull CreateCustomFieldTranslationRequest request) {
+        return createCustomFieldTranslation(request, null);
+    }
+
+    /**
+     * Create Custom Fld. Translation
+     *
+     * <p>Creates translations for a single custom field based on the values provided.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public CreateCustomFieldTranslationResponse createCustomFieldTranslation(
+            @Nonnull CreateCustomFieldTranslationRequest request, @Nullable Options options) {
         RequestOperation<CreateCustomFieldTranslationRequest, CreateCustomFieldTranslationResponse> operation =
-                new CreateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
+                new CreateCustomFieldTranslation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 
@@ -276,8 +382,25 @@ public class CustomFields {
      */
     public UpdateCustomFieldTranslationResponse updateCustomFieldTranslation(
             @Nonnull UpdateCustomFieldTranslationRequest request) {
+        return updateCustomFieldTranslation(request, null);
+    }
+
+    /**
+     * Update Custom Fld. Translation
+     *
+     * <p>Updates translations for a single custom field based on the given custom field ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public UpdateCustomFieldTranslationResponse updateCustomFieldTranslation(
+            @Nonnull UpdateCustomFieldTranslationRequest request, @Nullable Options options) {
         RequestOperation<UpdateCustomFieldTranslationRequest, UpdateCustomFieldTranslationResponse> operation =
-                new UpdateCustomFieldTranslation.Sync(sdkConfiguration, _headers);
+                new UpdateCustomFieldTranslation.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 }

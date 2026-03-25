@@ -9,17 +9,27 @@ import com.cvent.SDKConfiguration;
 import com.cvent.models.operations.SessionCheckInRequest;
 import com.cvent.operations.SessionCheckIn;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class SessionCheckInRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private SessionCheckInRequest request;
+    private final Options.Builder optionsBuilder;
 
     public SessionCheckInRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public SessionCheckInRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public SessionCheckInRequestBuilder request(@Nonnull SessionCheckInRequest request) {
@@ -44,8 +54,9 @@ public class SessionCheckInRequestBuilder {
      * @return The response from the server.
      */
     public CompletableFuture<SessionCheckInResponse> call() {
+        Options options = optionsBuilder.build();
         AsyncRequestOperation<SessionCheckInRequest, SessionCheckInResponse> operation =
-                new SessionCheckIn.Async(sdkConfiguration, _headers);
+                new SessionCheckIn.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }
 }

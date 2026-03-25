@@ -40,6 +40,7 @@ namespace Cvent.SDK
         /// </remarks>
         /// <param name="request">A <see cref="CardTokenRequest"/> parameter.</param>
         /// <param name="serverUrl">The server URL to use for this operation. If not provided, the default server URL will be used.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateCardTokensResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
@@ -47,7 +48,8 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<CreateCardTokensResponse> CreateCardTokensAsync(
             CardTokenRequest? request = null,
-            string? serverUrl = null
+            string? serverUrl = null,
+            RetryConfig? retryConfig = null
         );
     }
 
@@ -88,6 +90,7 @@ namespace Cvent.SDK
         /// </remarks>
         /// <param name="request">A <see cref="CardTokenRequest"/> parameter.</param>
         /// <param name="serverUrl">The server URL to use for this operation. If not provided, the default server URL will be used.</param>
+        /// <param name="retryConfig">The retry configuration to use for this operation.</param>
         /// <returns>An awaitable task that returns a <see cref="CreateCardTokensResponse"/> response envelope when completed.</returns>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
@@ -95,7 +98,8 @@ namespace Cvent.SDK
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateCardTokensResponse> CreateCardTokensAsync(
             CardTokenRequest? request = null,
-            string? serverUrl = null
+            string? serverUrl = null,
+            RetryConfig? retryConfig = null
         )
         {
             string baseUrl = Utilities.TemplateUrl(CreateCardTokensServerList[0], new Dictionary<string, string>() {});
@@ -127,11 +131,43 @@ namespace Cvent.SDK
             var hookCtx = new HookContext(SDKConfiguration, baseUrl, "createCardTokens", new List<string> { "secure-ecommerce/card-tokens:write" }, SDKConfiguration.SecuritySource);
 
             httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            if (retryConfig == null)
+            {
+                if (this.SDKConfiguration.RetryConfig != null)
+                {
+                    retryConfig = this.SDKConfiguration.RetryConfig;
+                }
+                else
+                {
+                    var backoff = new BackoffStrategy(
+                        initialIntervalMs: 1000L,
+                        maxIntervalMs: 60000L,
+                        maxElapsedTimeMs: 3600000L,
+                        exponent: 1.5
+                    );
+                    retryConfig = new RetryConfig(
+                        strategy: RetryConfig.RetryStrategy.BACKOFF,
+                        backoff: backoff,
+                        retryConnectionErrors: true
+                    );
+                }
+            }
+
+            List<string> statusCodes = new List<string> {
+                "429",
+            };
+
+            Func<Task<HttpResponseMessage>> retrySend = async () =>
+            {
+                var _httpRequest = await SDKConfiguration.Client.CloneAsync(httpRequest);
+                return await SDKConfiguration.Client.SendAsync(_httpRequest);
+            };
+            var retries = new Cvent.SDK.Utils.Retries.Retries(retrySend, retryConfig, statusCodes);
 
             HttpResponseMessage httpResponse;
             try
             {
-                httpResponse = await SDKConfiguration.Client.SendAsync(httpRequest);
+                httpResponse = await retries.Run();
                 int _statusCode = (int)httpResponse.StatusCode;
 
                 if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)

@@ -8,16 +8,26 @@ import static com.cvent.operations.Operations.RequestOperation;
 import com.cvent.SDKConfiguration;
 import com.cvent.operations.GetEventCopyStatus;
 import com.cvent.utils.Headers;
+import com.cvent.utils.Options;
+import com.cvent.utils.RetryConfig;
 import com.cvent.utils.Utils;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 public class GetEventCopyStatusRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
     private GetEventCopyStatusRequest request;
+    private final Options.Builder optionsBuilder;
 
     public GetEventCopyStatusRequestBuilder(SDKConfiguration sdkConfiguration) {
         this.sdkConfiguration = sdkConfiguration;
+        this.optionsBuilder = Options.builder();
+    }
+
+    public GetEventCopyStatusRequestBuilder retryConfig(RetryConfig retryConfig) {
+        this.optionsBuilder.retryConfig(retryConfig);
+        return this;
     }
 
     public GetEventCopyStatusRequestBuilder request(@Nonnull GetEventCopyStatusRequest request) {
@@ -42,8 +52,9 @@ public class GetEventCopyStatusRequestBuilder {
      * @return The response from the server.
      */
     public GetEventCopyStatusResponse call() {
+        Options options = optionsBuilder.build();
         RequestOperation<GetEventCopyStatusRequest, GetEventCopyStatusResponse> operation =
-                new GetEventCopyStatus.Sync(sdkConfiguration, _headers);
+                new GetEventCopyStatus.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }
 }
