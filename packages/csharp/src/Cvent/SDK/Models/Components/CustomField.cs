@@ -32,12 +32,6 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// The type of data collected by a custom field.
-        /// </summary>
-        [JsonProperty("type")]
-        public CustomFieldCustomFieldType? Type { get; set; }
-
-        /// <summary>
         /// The set of answers or possible answers to a question.
         /// </summary>
         [JsonProperty("value")]
@@ -48,5 +42,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; }
+
+        /// <summary>
+        /// The type of data collected by a custom field.
+        /// </summary>
+        [JsonProperty("type")]
+        public CustomFieldCustomFieldType? Type { get; set; }
     }
 }

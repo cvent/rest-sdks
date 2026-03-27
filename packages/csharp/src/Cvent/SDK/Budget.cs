@@ -3859,7 +3859,7 @@ namespace Cvent.SDK
                 httpRequest.Headers.Add("Accept", "application/json");
             }
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField", "json", false, false);
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField2", "json", false, false);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -3943,14 +3943,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    CustomField obj;
+                    CustomField2 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField2>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into CustomField.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into CustomField2.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new AnswerBudgetCustomFieldResponse() {
@@ -3959,7 +3959,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.CustomField = obj;
+                    response.CustomField2 = obj;
                     return response;
                 }
 

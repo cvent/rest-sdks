@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Cvent REST APIs
-  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily \ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here \nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of \nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our \n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will \ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client \ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users \ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to \nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   | \n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       | \n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      | \n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                | \n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            | \n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`. \n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table \nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See \n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination  \n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it. \n  \nIf an API uses pagination, you’ll find up to three tokens in the response:  \n- **currentToken**: Describes the token of the current page.  \n- **nextToken**: Provides a token for the next page of records, if one exists.  \n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return \n  this token.  \n  \nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages, \ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the \nrespective page of records. For example, if you made this request:  \n  \n```bash  \ncurl -X GET {hostname}/{version}/contacts?limit=100 \\  \n-H 'Accept: application/json' \\  \n-H 'Authorization: Bearer {accessToken}'  \n```  \n  \nThe response contains a paging array where you'll find the token information.  \n  \n```json  \n{  \n  \"paging\": {  \n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",  \n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",  \n    \"limit\": 100,  \n    \"totalCount\": 102,  \n    \"_links\": {...}  \n  },  \n  \"data\": [...]  \n}  \n```  \n  \nTake the `nextToken` and use it in the `token` parameter on your subsequent call. \n  \n```bash  \ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\  \n-H 'Accept: application/json' \\  \n-H 'Authorization: Bearer {accessToken}'  \n```  \n  \nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might \nencounter an empty page at the end of results. This typically happens when the results were evenly divisible. \nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from \n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />    \n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around \ncountry codes, time formats, and other important details that ensure smooth integration. \nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
+  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
   contact:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
@@ -2082,7 +2082,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/existing-audience-segment'
         '400':
-          $ref: '#/components/schemas/segments-error-response'
+          $ref: '#/components/responses/SegmentsErrorResponse'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -2366,7 +2366,7 @@ paths:
           description: Successfully associated an attendee.
           headers: {}
         '400':
-          $ref: '#/components/schemas/segments-error-response'
+          $ref: '#/components/responses/SegmentsErrorResponse'
         '401':
           $ref: '#/components/responses/Unauthorized1'
         '403':
@@ -3175,18 +3175,18 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-            There are four comparison types that can be used in filter expressions:
-            * equal: eq
-            * not equal: ne
-            * starts with: sw
-            * contains a value: contains
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-            * name (eq|ne|sw|contains)
-            * type (eq) Not supported with before or after parameters
+            Supported fields and operators are listed below:
 
-            The following operators are available:
+            | Field            | Operators                          | Notes |
+            |------------------|-------------------------------------|-------|
+            | name             | `eq`, `ne`, `sw`, `contains`        | |
+            | type             | `eq`                                | Not supported with before or after parameters |
+
+            The following logical operators are supported for combining filters:
             * and
           schema:
             type: string
@@ -3428,17 +3428,18 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-            There are four comparison types that can be used in filter expressions:
-            * equal: eq
-            * not equal: ne
-            * starts with: sw
-            * contains a value: contains
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-            * name (eq|ne|sw|contains)
+            Supported fields and operators are listed below:
 
-            No logical operators are supported on this endpoint, only one filter can be passed in each request.
+            | Field            | Operators                          |
+            |------------------|-------------------------------------|
+            | name             | `eq`, `ne`, `sw`, `contains`        |
+
+            No logical operators are supported on this endpoint, only one filter
+            can be passed in each request.
           schema:
             type: string
             example: name eq 'groupType'
@@ -3485,60 +3486,57 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-            There are eight comparison types that can be used in filter expressions:
-            * equal: eq
-            * not equal: ne
-            * greater than: gt
-            * greater or equal: ge
-            * less than: lt
-            * less than or equal: le
-            * starts with: sw
-            * contains a value: contains
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-            * id (eq|ne)
-            * sourceId (eq|ne)
-            * firstName (eq|ne|contains)
-            * lastName (eq|ne|contains)
-            * email (eq|ne|contains)
-            * ccEmail (eq|ne)
-            * company (eq|ne)
-            * type.id (eq|ne)
-            * nickname (eq|ne)
-            * title (eq|ne)
-            * workPhone (eq|ne)
-            * middleName (eq|ne)
-            * mobilePhone (eq|ne)
-            * homeFax (eq|ne)
-            * designation (eq|ne)
-            * homePhone (eq|ne)
-            * pager (eq|ne)
-            * workFax (eq|ne)
-            * lastModifiedBy (eq|ne)
-            * lastModified (eq|ne|lt|le|gt|ge)
-            * created (eq|ne|lt|le|gt|ge)
-            * createdBy (eq|ne)
-            * workAddress.address1 (eq|ne)
-            * workAddress.address2 (eq|ne)
-            * workAddress.address3 (eq|ne)
-            * workAddress.city (eq|ne)
-            * workAddress.country (eq|ne)
-            * homeAddress.address1 (eq|ne)
-            * homeAddress.address2 (eq|ne)
-            * homeAddress.address3 (eq|ne)
-            * homeAddress.city (eq|ne)
-            * homeAddress.country (eq|ne)
-            * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter.
-            * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-            * optOut.optedOut (eq|ne)
+            Supported fields and operators are listed below:
 
-            The following operators are available:
+            | Field            | Operators                          | Notes |
+            |------------------|-------------------------------------|-------|
+            | id               | `eq`, `ne`                          | |
+            | sourceId         | `eq`, `ne`                          | |
+            | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+            | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+            | email            | `eq`, `ne`, `contains`, `sw`        | |
+            | ccEmail          | `eq`, `ne`                          | |
+            | company          | `eq`, `ne`                          | |
+            | type.id          | `eq`, `ne`                          | |
+            | nickname         | `eq`, `ne`                          | |
+            | title            | `eq`, `ne`                          | |
+            | workPhone        | `eq`, `ne`                          | |
+            | middleName       | `eq`, `ne`                          | |
+            | mobilePhone      | `eq`, `ne`                          | |
+            | homeFax          | `eq`, `ne`                          | |
+            | designation      | `eq`, `ne`                          | |
+            | homePhone        | `eq`, `ne`                          | |
+            | pager            | `eq`, `ne`                          | |
+            | workFax          | `eq`, `ne`                          | |
+            | lastModifiedBy   | `eq`, `ne`                          | |
+            | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+            | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+            | createdBy        | `eq`, `ne`                          | |
+            | workAddress.address1 | `eq`, `ne`                      | |
+            | workAddress.address2 | `eq`, `ne`                      | |
+            | workAddress.address3 | `eq`, `ne`                      | |
+            | workAddress.city | `eq`, `ne`                          | |
+            | workAddress.country | `eq`, `ne`                       | |
+            | homeAddress.address1 | `eq`, `ne`                      | |
+            | homeAddress.address2 | `eq`, `ne`                      | |
+            | homeAddress.address3 | `eq`, `ne`                      | |
+            | homeAddress.city | `eq`, `ne`                          | |
+            | homeAddress.country | `eq`, `ne`                       | |
+            | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter. |
+            | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+            | optOut.optedOut  | `eq`, `ne`                          | |
+
+            The following logical operators are supported for combining filters:
             * and
             * or
           schema:
             type: string
             example: firstName eq 'John' or lastName eq 'Anderson'
+        - $ref: '#/components/parameters/includePurged'
       tags:
         - Contacts
       responses:
@@ -4770,7 +4768,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field2'
+              $ref: '#/components/schemas/custom-field3'
       tags:
         - Custom Fields
       responses:
@@ -6803,7 +6801,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field'
+              $ref: '#/components/schemas/custom-field2'
         required: true
       responses:
         '200':
@@ -6812,7 +6810,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/custom-field'
+                $ref: '#/components/schemas/custom-field2'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -14306,7 +14304,7 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden25'
         '409':
-          $ref: '#/components/responses/Conflict17'
+          $ref: '#/components/responses/Conflict16'
         '429':
           $ref: '#/components/responses/TooManyRequests25'
       externalDocs:
@@ -19252,6 +19250,15 @@ components:
         type: boolean
         default: false
         example: true
+    includePurged:
+      in: query
+      required: false
+      name: includePurged
+      description: |
+        True means purged contacts can be included in the response. Purged contacts contain only limited display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only filter by the `id` field. The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use with this parameter. If false, only contacts that have not been purged will be returned.
+      schema:
+        type: boolean
+        default: false
     inventoryFilter:
       name: filter
       in: query
@@ -20487,7 +20494,7 @@ components:
           example:
             code: 409
             message: Conflict
-    Conflict17:
+    Conflict16:
       description: The request conflicts with current state of the target resource
       content:
         application/json:
@@ -20611,6 +20618,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResourceTypes'
+    SegmentsErrorResponse:
+      description: Segments error response details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/segments-error-response'
     ServiceProviderConfig:
       description: Successfully retrieved Service Provider Config.
       content:
@@ -23552,7 +23565,7 @@ components:
         questions:
           type: array
           items:
-            $ref: '#/components/schemas/custom-field'
+            $ref: '#/components/schemas/custom-field.json1'
           description: Collection of custom questions asked to participants of the appointment.
     asset-location.json:
       title: Asset Location
@@ -26636,7 +26649,7 @@ components:
           description: The type of data collected by a custom field.
           type: string
           allOf:
-            - $ref: '#/components/schemas/custom-field/properties/type/allOf/0'
+            - $ref: '#/components/schemas/custom-field2/properties/type/allOf/0'
             - readOnly: true
               example: MultiSelect
         value:
@@ -29096,6 +29109,11 @@ components:
           description: Description of the contact type.
           maxLength: 2500
           example: Very important attendee.
+        active:
+          type: boolean
+          description: Indicates whether the contact type is active.
+          example: true
+          readOnly: true
     contact-type.json1:
       type: string
       title: ContactType
@@ -30410,20 +30428,41 @@ components:
     custom-field:
       title: CustomField
       description: A Custom Field
-      required:
-        - id
-        - value
       type: object
+      allOf:
+        - title: CustomFieldBase
+          description: Base schema for Custom Field - allows type to be customized by extending schemas
+          required:
+            - id
+            - value
+          type: object
+          properties:
+            id:
+              type: string
+              description: The unique ID representing this custom field.
+              format: uuid
+            name:
+              type: string
+              description: The actual text of the custom field.
+              example: What is your favorite color?
+              readOnly: true
+            value:
+              type: array
+              uniqueItems: true
+              items:
+                type: string
+                description: A question answer value
+                maxLength: 16000
+              description: The set of answers or possible answers to a question.
+              example:
+                - Choice C
+                - Choice A
+            order:
+              type: integer
+              description: The order of this question in the bigger list of questions.
+              example: 1
+              readOnly: true
       properties:
-        id:
-          type: string
-          description: The unique ID representing this custom field.
-          format: uuid
-        name:
-          type: string
-          description: The actual text of the custom field.
-          example: What is a your favorite color?
-          readOnly: true
         type:
           description: The type of data collected by a custom field.
           type: string
@@ -30454,21 +30493,6 @@ components:
               example: General
             - readOnly: true
               example: MultiSelect
-        value:
-          type: array
-          uniqueItems: true
-          items:
-            type: string
-            description: A question answer value
-          description: The set of answers or possible answers to a question.
-          example:
-            - Choice C
-            - Choice A
-        order:
-          type: integer
-          description: The order of this question in the bigger list of questions.
-          example: 1
-          readOnly: true
     custom-field-bulk-item.json:
       title: CustomFieldBulkResponseItem
       description: This entity is used to represent a single item that is returned as part of a Bulk request call.
@@ -30542,6 +30566,68 @@ components:
       type: string
       description: This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
       example: Open Ended Text - One Line
+    custom-field.json1:
+      title: CustomField
+      description: A Custom Field
+      required:
+        - id
+        - value
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID representing this custom field.
+          format: uuid
+        name:
+          type: string
+          description: The actual text of the custom field.
+          example: What is a your favorite color?
+          readOnly: true
+        type:
+          description: The type of data collected by a custom field.
+          type: string
+          allOf:
+            - title: CustomFieldType
+              enum:
+                - AutoIncrement
+                - ConsentQuestion
+                - Currency
+                - Decimal
+                - Date
+                - DateTime
+                - Email
+                - FileUpload
+                - FreeText
+                - General
+                - MultiChoice
+                - MultiSelect
+                - Number
+                - OpenEndedDateTime
+                - OpenEndedText
+                - SingleChoice
+                - SingleSelect
+                - USPhoneNumber
+                - Unknown
+              type: string
+              description: The type of data collected by a custom field.
+              example: General
+            - readOnly: true
+              example: MultiSelect
+        value:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            description: A question answer value
+          description: The set of answers or possible answers to a question.
+          example:
+            - Choice C
+            - Choice A
+        order:
+          type: integer
+          description: The order of this question in the bigger list of questions.
+          example: 1
+          readOnly: true
     custom-field.json2:
       title: CustomField
       description: A Custom Field
@@ -30753,6 +30839,68 @@ components:
             - readOnly: true
               example: MultiSelect
     custom-field2:
+      title: CustomField
+      description: A Custom Field
+      required:
+        - id
+        - value
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique ID representing this custom field.
+          format: uuid
+        name:
+          type: string
+          description: The actual text of the custom field.
+          example: What is a your favorite color?
+          readOnly: true
+        type:
+          description: The type of data collected by a custom field.
+          type: string
+          allOf:
+            - title: CustomFieldType
+              enum:
+                - AutoIncrement
+                - ConsentQuestion
+                - Currency
+                - Decimal
+                - Date
+                - DateTime
+                - Email
+                - FileUpload
+                - FreeText
+                - General
+                - MultiChoice
+                - MultiSelect
+                - Number
+                - OpenEndedDateTime
+                - OpenEndedText
+                - SingleChoice
+                - SingleSelect
+                - USPhoneNumber
+                - Unknown
+              type: string
+              description: The type of data collected by a custom field.
+              example: General
+            - readOnly: true
+              example: MultiSelect
+        value:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            description: A question answer value
+          description: The set of answers or possible answers to a question.
+          example:
+            - Choice C
+            - Choice A
+        order:
+          type: integer
+          description: The order of this question in the bigger list of questions.
+          example: 1
+          readOnly: true
+    custom-field3:
       title: CustomField
       required:
         - category
@@ -34487,7 +34635,7 @@ components:
           description: This is used to denote the custom field data.
           type: object
           allOf:
-            - $ref: '#/components/schemas/custom-field2/allOf/0'
+            - $ref: '#/components/schemas/custom-field3/allOf/0'
           properties:
             category:
               $ref: '#/components/schemas/custom-field-category.json'
@@ -34512,10 +34660,10 @@ components:
               type: object
               description: Type-specific details of the custom-field.
               oneOf:
-                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/0'
-                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/1'
-                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/2'
-                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/3'
+                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/0'
+                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/1'
+                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/2'
+                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/3'
             order:
               type: integer
               description: The order of the custom field on the display page.

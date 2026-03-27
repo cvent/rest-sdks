@@ -65,7 +65,7 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<CreateCustomFieldResponse> CreateCustomFieldAsync(
-            CustomField2 request,
+            CustomField3 request,
             RetryConfig? retryConfig = null
         );
 
@@ -398,7 +398,7 @@ namespace Cvent.SDK
         /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateCustomFieldResponse> CreateCustomFieldAsync(
-            CustomField2 request,
+            CustomField3 request,
             RetryConfig? retryConfig = null
         )
         {

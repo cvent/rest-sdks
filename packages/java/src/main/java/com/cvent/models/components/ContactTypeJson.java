@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -45,20 +46,29 @@ public class ContactTypeJson {
     @JsonProperty("description")
     private String description;
 
+    /**
+     * Indicates whether the contact type is active.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("active")
+    private Boolean active;
+
     @JsonCreator
     public ContactTypeJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("code") @Nonnull String code,
             @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("description") @Nullable String description) {
+            @JsonProperty("description") @Nullable String description,
+            @JsonProperty("active") @Nullable Boolean active) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
+        this.active = active;
     }
 
     public ContactTypeJson(@Nonnull String id, @Nonnull String code, @Nonnull String name) {
-        this(id, code, name, null);
+        this(id, code, name, null, null);
     }
 
     /**
@@ -87,6 +97,13 @@ public class ContactTypeJson {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Indicates whether the contact type is active.
+     */
+    public Optional<Boolean> active() {
+        return Optional.ofNullable(this.active);
     }
 
     public static Builder builder() {
@@ -125,6 +142,14 @@ public class ContactTypeJson {
         return this;
     }
 
+    /**
+     * Indicates whether the contact type is active.
+     */
+    public ContactTypeJson withActive(@Nullable Boolean active) {
+        this.active = active;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -137,17 +162,29 @@ public class ContactTypeJson {
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.description, other.description);
+                && Utils.enhancedDeepEquals(this.description, other.description)
+                && Utils.enhancedDeepEquals(this.active, other.active);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, code, name, description);
+        return Utils.enhancedHash(id, code, name, description, active);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ContactTypeJson.class, "id", id, "code", code, "name", name, "description", description);
+        return Utils.toString(
+                ContactTypeJson.class,
+                "id",
+                id,
+                "code",
+                code,
+                "name",
+                name,
+                "description",
+                description,
+                "active",
+                active);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -160,6 +197,8 @@ public class ContactTypeJson {
         private String name;
 
         private String description;
+
+        private Boolean active;
 
         private Builder() {
             // force use of static builder() method
@@ -197,8 +236,16 @@ public class ContactTypeJson {
             return this;
         }
 
+        /**
+         * Indicates whether the contact type is active.
+         */
+        public Builder active(@Nullable Boolean active) {
+            this.active = active;
+            return this;
+        }
+
         public ContactTypeJson build() {
-            return new ContactTypeJson(id, code, name, description);
+            return new ContactTypeJson(id, code, name, description, active);
         }
     }
 }

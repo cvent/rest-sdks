@@ -52,10 +52,6 @@ export type CustomField = {
    */
   name?: string | undefined;
   /**
-   * The type of data collected by a custom field.
-   */
-  type?: CustomFieldCustomFieldType | undefined;
-  /**
    * The set of answers or possible answers to a question.
    */
   value: Array<string>;
@@ -63,6 +59,10 @@ export type CustomField = {
    * The order of this question in the bigger list of questions.
    */
   order?: number | undefined;
+  /**
+   * The type of data collected by a custom field.
+   */
+  type?: CustomFieldCustomFieldType | undefined;
 };
 
 /**
@@ -74,13 +74,13 @@ export type CustomFieldInput = {
    */
   id: string;
   /**
-   * The type of data collected by a custom field.
-   */
-  type?: CustomFieldCustomFieldType | undefined;
-  /**
    * The set of answers or possible answers to a question.
    */
   value: Array<string>;
+  /**
+   * The type of data collected by a custom field.
+   */
+  type?: CustomFieldCustomFieldType | undefined;
 };
 
 /** @internal */
@@ -100,9 +100,9 @@ export const CustomField$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string().optional(),
-  type: CustomFieldCustomFieldType$inboundSchema.optional(),
   value: z.array(z.string()),
   order: z.number().int().optional(),
+  type: CustomFieldCustomFieldType$inboundSchema.optional(),
 });
 
 export function customFieldFromJSON(
@@ -118,8 +118,8 @@ export function customFieldFromJSON(
 /** @internal */
 export type CustomFieldInput$Outbound = {
   id: string;
-  type?: string | undefined;
   value: Array<string>;
+  type?: string | undefined;
 };
 
 /** @internal */
@@ -129,8 +129,8 @@ export const CustomFieldInput$outboundSchema: z.ZodType<
   CustomFieldInput
 > = z.object({
   id: z.string(),
-  type: CustomFieldCustomFieldType$outboundSchema.optional(),
   value: z.array(z.string()),
+  type: CustomFieldCustomFieldType$outboundSchema.optional(),
 });
 
 export function customFieldInputToJSON(

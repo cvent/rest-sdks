@@ -18,40 +18,40 @@ namespace Cvent.SDK.Models.Components
     using System.Numerics;
     using System.Reflection;
 
-    public class CustomField2DetailsType
+    public class CustomField3DetailsType
     {
-        private CustomField2DetailsType(string value)
+        private CustomField3DetailsType(string value)
         {
             Value = value;
         }
 
         public string Value { get; private set; }
 
-        public static CustomField2DetailsType OpenEndedOneLine
+        public static CustomField3DetailsType OpenEndedOneLine
         {
             get {
-                return new CustomField2DetailsType("OpenEndedOneLine");
+                return new CustomField3DetailsType("OpenEndedOneLine");
             }
         }
 
-        public static CustomField2DetailsType OpenEndedDateTime
+        public static CustomField3DetailsType OpenEndedDateTime
         {
             get {
-                return new CustomField2DetailsType("OpenEndedDateTime");
+                return new CustomField3DetailsType("OpenEndedDateTime");
             }
         }
 
-        public static CustomField2DetailsType OpenEndedCommentBox
+        public static CustomField3DetailsType OpenEndedCommentBox
         {
             get {
-                return new CustomField2DetailsType("OpenEndedCommentBox");
+                return new CustomField3DetailsType("OpenEndedCommentBox");
             }
         }
 
-        public static CustomField2DetailsType Choices
+        public static CustomField3DetailsType Choices
         {
             get {
-                return new CustomField2DetailsType("Choices");
+                return new CustomField3DetailsType("Choices");
             }
         }
 
@@ -59,11 +59,11 @@ namespace Cvent.SDK.Models.Components
         {
             return Value;
         }
-        public static implicit operator String(CustomField2DetailsType v)
+        public static implicit operator String(CustomField3DetailsType v)
         {
             return v.Value;
         }
-        public static CustomField2DetailsType FromString(string v)
+        public static CustomField3DetailsType FromString(string v)
         {
             switch (v)
             {
@@ -76,7 +76,7 @@ namespace Cvent.SDK.Models.Components
                 case "Choices":
                     return Choices;
                 default:
-                    throw new ArgumentException("Invalid value for CustomField2DetailsType");
+                    throw new ArgumentException("Invalid value for CustomField3DetailsType");
             }
         }
         public override bool Equals(object? obj)
@@ -85,7 +85,7 @@ namespace Cvent.SDK.Models.Components
             {
                 return false;
             }
-            return Value.Equals(((CustomField2DetailsType)obj).Value);
+            return Value.Equals(((CustomField3DetailsType)obj).Value);
         }
 
         public override int GetHashCode()
@@ -97,10 +97,10 @@ namespace Cvent.SDK.Models.Components
     /// <summary>
     /// Type-specific details of the custom-field.
     /// </summary>
-    [JsonConverter(typeof(CustomField2Details.CustomField2DetailsConverter))]
-    public class CustomField2Details
+    [JsonConverter(typeof(CustomField3Details.CustomField3DetailsConverter))]
+    public class CustomField3Details
     {
-        public CustomField2Details(CustomField2DetailsType type)
+        public CustomField3Details(CustomField3DetailsType type)
         {
             Type = type;
         }
@@ -117,43 +117,43 @@ namespace Cvent.SDK.Models.Components
         [SpeakeasyMetadata("form:explode=true")]
         public Choices? Choices { get; set; }
 
-        public CustomField2DetailsType Type { get; set; }
-        public static CustomField2Details CreateOpenEndedOneLine(OpenEndedOneLine openEndedOneLine)
+        public CustomField3DetailsType Type { get; set; }
+        public static CustomField3Details CreateOpenEndedOneLine(OpenEndedOneLine openEndedOneLine)
         {
-            CustomField2DetailsType typ = CustomField2DetailsType.OpenEndedOneLine;
+            CustomField3DetailsType typ = CustomField3DetailsType.OpenEndedOneLine;
 
-            CustomField2Details res = new CustomField2Details(typ);
+            CustomField3Details res = new CustomField3Details(typ);
             res.OpenEndedOneLine = openEndedOneLine;
             return res;
         }
-        public static CustomField2Details CreateOpenEndedDateTime(OpenEndedDateTime openEndedDateTime)
+        public static CustomField3Details CreateOpenEndedDateTime(OpenEndedDateTime openEndedDateTime)
         {
-            CustomField2DetailsType typ = CustomField2DetailsType.OpenEndedDateTime;
+            CustomField3DetailsType typ = CustomField3DetailsType.OpenEndedDateTime;
 
-            CustomField2Details res = new CustomField2Details(typ);
+            CustomField3Details res = new CustomField3Details(typ);
             res.OpenEndedDateTime = openEndedDateTime;
             return res;
         }
-        public static CustomField2Details CreateOpenEndedCommentBox(OpenEndedCommentBox openEndedCommentBox)
+        public static CustomField3Details CreateOpenEndedCommentBox(OpenEndedCommentBox openEndedCommentBox)
         {
-            CustomField2DetailsType typ = CustomField2DetailsType.OpenEndedCommentBox;
+            CustomField3DetailsType typ = CustomField3DetailsType.OpenEndedCommentBox;
 
-            CustomField2Details res = new CustomField2Details(typ);
+            CustomField3Details res = new CustomField3Details(typ);
             res.OpenEndedCommentBox = openEndedCommentBox;
             return res;
         }
-        public static CustomField2Details CreateChoices(Choices choices)
+        public static CustomField3Details CreateChoices(Choices choices)
         {
-            CustomField2DetailsType typ = CustomField2DetailsType.Choices;
+            CustomField3DetailsType typ = CustomField3DetailsType.Choices;
 
-            CustomField2Details res = new CustomField2Details(typ);
+            CustomField3Details res = new CustomField3Details(typ);
             res.Choices = choices;
             return res;
         }
 
-        public class CustomField2DetailsConverter : JsonConverter
+        public class CustomField3DetailsConverter : JsonConverter
         {
-            public override bool CanConvert(System.Type objectType) => objectType == typeof(CustomField2Details);
+            public override bool CanConvert(System.Type objectType) => objectType == typeof(CustomField3Details);
 
             public override bool CanRead => true;
 
@@ -169,13 +169,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CustomField2Details(CustomField2DetailsType.OpenEndedCommentBox) {
+                    return new CustomField3Details(CustomField3DetailsType.OpenEndedCommentBox) {
                         OpenEndedCommentBox = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedCommentBox>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(OpenEndedCommentBox), new CustomField2Details(CustomField2DetailsType.OpenEndedCommentBox), "OpenEndedCommentBox"));
+                    fallbackCandidates.Add((typeof(OpenEndedCommentBox), new CustomField3Details(CustomField3DetailsType.OpenEndedCommentBox), "OpenEndedCommentBox"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -188,13 +188,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CustomField2Details(CustomField2DetailsType.Choices) {
+                    return new CustomField3Details(CustomField3DetailsType.Choices) {
                         Choices = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Choices>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Choices), new CustomField2Details(CustomField2DetailsType.Choices), "Choices"));
+                    fallbackCandidates.Add((typeof(Choices), new CustomField3Details(CustomField3DetailsType.Choices), "Choices"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -207,13 +207,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CustomField2Details(CustomField2DetailsType.OpenEndedOneLine) {
+                    return new CustomField3Details(CustomField3DetailsType.OpenEndedOneLine) {
                         OpenEndedOneLine = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedOneLine>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(OpenEndedOneLine), new CustomField2Details(CustomField2DetailsType.OpenEndedOneLine), "OpenEndedOneLine"));
+                    fallbackCandidates.Add((typeof(OpenEndedOneLine), new CustomField3Details(CustomField3DetailsType.OpenEndedOneLine), "OpenEndedOneLine"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -226,13 +226,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new CustomField2Details(CustomField2DetailsType.OpenEndedDateTime) {
+                    return new CustomField3Details(CustomField3DetailsType.OpenEndedDateTime) {
                         OpenEndedDateTime = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OpenEndedDateTime>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(OpenEndedDateTime), new CustomField2Details(CustomField2DetailsType.OpenEndedDateTime), "OpenEndedDateTime"));
+                    fallbackCandidates.Add((typeof(OpenEndedDateTime), new CustomField3Details(CustomField3DetailsType.OpenEndedDateTime), "OpenEndedDateTime"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -273,7 +273,7 @@ namespace Cvent.SDK.Models.Components
                     throw new InvalidOperationException("Unexpected null JSON value.");
                 }
 
-                CustomField2Details res = (CustomField2Details)value;
+                CustomField3Details res = (CustomField3Details)value;
 
                 if (res.OpenEndedOneLine != null)
                 {

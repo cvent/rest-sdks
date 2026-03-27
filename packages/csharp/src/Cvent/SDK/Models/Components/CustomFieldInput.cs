@@ -26,15 +26,15 @@ namespace Cvent.SDK.Models.Components
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The type of data collected by a custom field.
-        /// </summary>
-        [JsonProperty("type")]
-        public CustomFieldCustomFieldType? Type { get; set; }
-
-        /// <summary>
         /// The set of answers or possible answers to a question.
         /// </summary>
         [JsonProperty("value")]
         public List<string> Value { get; set; } = default!;
+
+        /// <summary>
+        /// The type of data collected by a custom field.
+        /// </summary>
+        [JsonProperty("type")]
+        public CustomFieldCustomFieldType? Type { get; set; }
     }
 }

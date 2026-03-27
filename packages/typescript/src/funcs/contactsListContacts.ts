@@ -112,6 +112,7 @@ async function $do(
     "after": payload.after,
     "before": payload.before,
     "filter": payload.filter,
+    "includePurged": payload.includePurged,
     "limit": payload.limit,
     "token": payload.token,
   });

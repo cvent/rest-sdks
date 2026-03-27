@@ -31,6 +31,7 @@ let value: ListContactTypesResponse = {
         code: "VIP",
         name: "VIP Attendee",
         description: "Very important attendee.",
+        active: true,
       },
     ],
   },

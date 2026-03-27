@@ -9,6 +9,7 @@ import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
@@ -43,62 +44,68 @@ public class ListContactsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * sourceId (eq|ne)
-     * * firstName (eq|ne|contains)
-     * * lastName (eq|ne|contains)
-     * * email (eq|ne|contains)
-     * * ccEmail (eq|ne)
-     * * company (eq|ne)
-     * * type.id (eq|ne)
-     * * nickname (eq|ne)
-     * * title (eq|ne)
-     * * workPhone (eq|ne)
-     * * middleName (eq|ne)
-     * * mobilePhone (eq|ne)
-     * * homeFax (eq|ne)
-     * * designation (eq|ne)
-     * * homePhone (eq|ne)
-     * * pager (eq|ne)
-     * * workFax (eq|ne)
-     * * lastModifiedBy (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * createdBy (eq|ne)
-     * * workAddress.address1 (eq|ne)
-     * * workAddress.address2 (eq|ne)
-     * * workAddress.address3 (eq|ne)
-     * * workAddress.city (eq|ne)
-     * * workAddress.country (eq|ne)
-     * * homeAddress.address1 (eq|ne)
-     * * homeAddress.address2 (eq|ne)
-     * * homeAddress.address3 (eq|ne)
-     * * homeAddress.city (eq|ne)
-     * * homeAddress.country (eq|ne)
-     * * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the
-     * `includePurged` parameter.
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-     * * optOut.optedOut (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | id               | `eq`, `ne`                          | |
+     * | sourceId         | `eq`, `ne`                          | |
+     * | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+     * | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+     * | email            | `eq`, `ne`, `contains`, `sw`        | |
+     * | ccEmail          | `eq`, `ne`                          | |
+     * | company          | `eq`, `ne`                          | |
+     * | type.id          | `eq`, `ne`                          | |
+     * | nickname         | `eq`, `ne`                          | |
+     * | title            | `eq`, `ne`                          | |
+     * | workPhone        | `eq`, `ne`                          | |
+     * | middleName       | `eq`, `ne`                          | |
+     * | mobilePhone      | `eq`, `ne`                          | |
+     * | homeFax          | `eq`, `ne`                          | |
+     * | designation      | `eq`, `ne`                          | |
+     * | homePhone        | `eq`, `ne`                          | |
+     * | pager            | `eq`, `ne`                          | |
+     * | workFax          | `eq`, `ne`                          | |
+     * | lastModifiedBy   | `eq`, `ne`                          | |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | createdBy        | `eq`, `ne`                          | |
+     * | workAddress.address1 | `eq`, `ne`                      | |
+     * | workAddress.address2 | `eq`, `ne`                      | |
+     * | workAddress.address3 | `eq`, `ne`                      | |
+     * | workAddress.city | `eq`, `ne`                          | |
+     * | workAddress.country | `eq`, `ne`                       | |
+     * | homeAddress.address1 | `eq`, `ne`                      | |
+     * | homeAddress.address2 | `eq`, `ne`                      | |
+     * | homeAddress.address3 | `eq`, `ne`                      | |
+     * | homeAddress.city | `eq`, `ne`                          | |
+     * | homeAddress.country | `eq`, `ne`                       | |
+     * | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve
+     * purged contacts, see the `includePurged` parameter. |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+     * | optOut.optedOut  | `eq`, `ne`                          | |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
+
+    /**
+     * True means purged contacts can be included in the response. Purged contacts contain only limited
+     * display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only
+     * filter by the `id` field.
+     *
+     * <p>The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use
+     * with this parameter. If false, only contacts that have not been purged will be returned.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=includePurged")
+    private Boolean includePurged;
 
     @JsonCreator
     public ListContactsRequest(
@@ -106,16 +113,18 @@ public class ListContactsRequest {
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
-            @Nullable String filter) {
+            @Nullable String filter,
+            @Nullable Boolean includePurged) {
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.includePurged = Optional.ofNullable(includePurged).orElse(Builder._SINGLETON_VALUE_IncludePurged.value());
     }
 
     public ListContactsRequest() {
-        this(null, null, null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -149,62 +158,69 @@ public class ListContactsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * sourceId (eq|ne)
-     * * firstName (eq|ne|contains)
-     * * lastName (eq|ne|contains)
-     * * email (eq|ne|contains)
-     * * ccEmail (eq|ne)
-     * * company (eq|ne)
-     * * type.id (eq|ne)
-     * * nickname (eq|ne)
-     * * title (eq|ne)
-     * * workPhone (eq|ne)
-     * * middleName (eq|ne)
-     * * mobilePhone (eq|ne)
-     * * homeFax (eq|ne)
-     * * designation (eq|ne)
-     * * homePhone (eq|ne)
-     * * pager (eq|ne)
-     * * workFax (eq|ne)
-     * * lastModifiedBy (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * createdBy (eq|ne)
-     * * workAddress.address1 (eq|ne)
-     * * workAddress.address2 (eq|ne)
-     * * workAddress.address3 (eq|ne)
-     * * workAddress.city (eq|ne)
-     * * workAddress.country (eq|ne)
-     * * homeAddress.address1 (eq|ne)
-     * * homeAddress.address2 (eq|ne)
-     * * homeAddress.address3 (eq|ne)
-     * * homeAddress.city (eq|ne)
-     * * homeAddress.country (eq|ne)
-     * * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the
-     * `includePurged` parameter.
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-     * * optOut.optedOut (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | id               | `eq`, `ne`                          | |
+     * | sourceId         | `eq`, `ne`                          | |
+     * | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+     * | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+     * | email            | `eq`, `ne`, `contains`, `sw`        | |
+     * | ccEmail          | `eq`, `ne`                          | |
+     * | company          | `eq`, `ne`                          | |
+     * | type.id          | `eq`, `ne`                          | |
+     * | nickname         | `eq`, `ne`                          | |
+     * | title            | `eq`, `ne`                          | |
+     * | workPhone        | `eq`, `ne`                          | |
+     * | middleName       | `eq`, `ne`                          | |
+     * | mobilePhone      | `eq`, `ne`                          | |
+     * | homeFax          | `eq`, `ne`                          | |
+     * | designation      | `eq`, `ne`                          | |
+     * | homePhone        | `eq`, `ne`                          | |
+     * | pager            | `eq`, `ne`                          | |
+     * | workFax          | `eq`, `ne`                          | |
+     * | lastModifiedBy   | `eq`, `ne`                          | |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | createdBy        | `eq`, `ne`                          | |
+     * | workAddress.address1 | `eq`, `ne`                      | |
+     * | workAddress.address2 | `eq`, `ne`                      | |
+     * | workAddress.address3 | `eq`, `ne`                      | |
+     * | workAddress.city | `eq`, `ne`                          | |
+     * | workAddress.country | `eq`, `ne`                       | |
+     * | homeAddress.address1 | `eq`, `ne`                      | |
+     * | homeAddress.address2 | `eq`, `ne`                      | |
+     * | homeAddress.address3 | `eq`, `ne`                      | |
+     * | homeAddress.city | `eq`, `ne`                          | |
+     * | homeAddress.country | `eq`, `ne`                       | |
+     * | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve
+     * purged contacts, see the `includePurged` parameter. |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+     * | optOut.optedOut  | `eq`, `ne`                          | |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
+    }
+
+    /**
+     * True means purged contacts can be included in the response. Purged contacts contain only limited
+     * display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only
+     * filter by the `id` field.
+     *
+     * <p>The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use
+     * with this parameter. If false, only contacts that have not been purged will be returned.
+     */
+    public Optional<Boolean> includePurged() {
+        return Optional.ofNullable(this.includePurged);
     }
 
     public static Builder builder() {
@@ -246,62 +262,70 @@ public class ListContactsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * sourceId (eq|ne)
-     * * firstName (eq|ne|contains)
-     * * lastName (eq|ne|contains)
-     * * email (eq|ne|contains)
-     * * ccEmail (eq|ne)
-     * * company (eq|ne)
-     * * type.id (eq|ne)
-     * * nickname (eq|ne)
-     * * title (eq|ne)
-     * * workPhone (eq|ne)
-     * * middleName (eq|ne)
-     * * mobilePhone (eq|ne)
-     * * homeFax (eq|ne)
-     * * designation (eq|ne)
-     * * homePhone (eq|ne)
-     * * pager (eq|ne)
-     * * workFax (eq|ne)
-     * * lastModifiedBy (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * createdBy (eq|ne)
-     * * workAddress.address1 (eq|ne)
-     * * workAddress.address2 (eq|ne)
-     * * workAddress.address3 (eq|ne)
-     * * workAddress.city (eq|ne)
-     * * workAddress.country (eq|ne)
-     * * homeAddress.address1 (eq|ne)
-     * * homeAddress.address2 (eq|ne)
-     * * homeAddress.address3 (eq|ne)
-     * * homeAddress.city (eq|ne)
-     * * homeAddress.country (eq|ne)
-     * * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the
-     * `includePurged` parameter.
-     * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-     * * optOut.optedOut (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | id               | `eq`, `ne`                          | |
+     * | sourceId         | `eq`, `ne`                          | |
+     * | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+     * | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+     * | email            | `eq`, `ne`, `contains`, `sw`        | |
+     * | ccEmail          | `eq`, `ne`                          | |
+     * | company          | `eq`, `ne`                          | |
+     * | type.id          | `eq`, `ne`                          | |
+     * | nickname         | `eq`, `ne`                          | |
+     * | title            | `eq`, `ne`                          | |
+     * | workPhone        | `eq`, `ne`                          | |
+     * | middleName       | `eq`, `ne`                          | |
+     * | mobilePhone      | `eq`, `ne`                          | |
+     * | homeFax          | `eq`, `ne`                          | |
+     * | designation      | `eq`, `ne`                          | |
+     * | homePhone        | `eq`, `ne`                          | |
+     * | pager            | `eq`, `ne`                          | |
+     * | workFax          | `eq`, `ne`                          | |
+     * | lastModifiedBy   | `eq`, `ne`                          | |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+     * | createdBy        | `eq`, `ne`                          | |
+     * | workAddress.address1 | `eq`, `ne`                      | |
+     * | workAddress.address2 | `eq`, `ne`                      | |
+     * | workAddress.address3 | `eq`, `ne`                      | |
+     * | workAddress.city | `eq`, `ne`                          | |
+     * | workAddress.country | `eq`, `ne`                       | |
+     * | homeAddress.address1 | `eq`, `ne`                      | |
+     * | homeAddress.address2 | `eq`, `ne`                      | |
+     * | homeAddress.address3 | `eq`, `ne`                      | |
+     * | homeAddress.city | `eq`, `ne`                          | |
+     * | homeAddress.country | `eq`, `ne`                       | |
+     * | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve
+     * purged contacts, see the `includePurged` parameter. |
+     * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+     * | optOut.optedOut  | `eq`, `ne`                          | |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
     public ListContactsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * True means purged contacts can be included in the response. Purged contacts contain only limited
+     * display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only
+     * filter by the `id` field.
+     *
+     * <p>The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use
+     * with this parameter. If false, only contacts that have not been purged will be returned.
+     */
+    public ListContactsRequest withIncludePurged(@Nullable Boolean includePurged) {
+        this.includePurged = includePurged;
         return this;
     }
 
@@ -318,12 +342,13 @@ public class ListContactsRequest {
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.includePurged, other.includePurged);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(after, before, limit, token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter, includePurged);
     }
 
     @Override
@@ -339,7 +364,9 @@ public class ListContactsRequest {
                 "token",
                 token,
                 "filter",
-                filter);
+                filter,
+                "includePurged",
+                includePurged);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -354,6 +381,8 @@ public class ListContactsRequest {
         private String token;
 
         private String filter;
+
+        private Boolean includePurged;
 
         private Builder() {
             // force use of static builder() method
@@ -394,57 +423,52 @@ public class ListContactsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * There are eight comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
-         * * starts with: sw
-         * * contains a value: contains
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * id (eq|ne)
-         * * sourceId (eq|ne)
-         * * firstName (eq|ne|contains)
-         * * lastName (eq|ne|contains)
-         * * email (eq|ne|contains)
-         * * ccEmail (eq|ne)
-         * * company (eq|ne)
-         * * type.id (eq|ne)
-         * * nickname (eq|ne)
-         * * title (eq|ne)
-         * * workPhone (eq|ne)
-         * * middleName (eq|ne)
-         * * mobilePhone (eq|ne)
-         * * homeFax (eq|ne)
-         * * designation (eq|ne)
-         * * homePhone (eq|ne)
-         * * pager (eq|ne)
-         * * workFax (eq|ne)
-         * * lastModifiedBy (eq|ne)
-         * * lastModified (eq|ne|lt|le|gt|ge)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * createdBy (eq|ne)
-         * * workAddress.address1 (eq|ne)
-         * * workAddress.address2 (eq|ne)
-         * * workAddress.address3 (eq|ne)
-         * * workAddress.city (eq|ne)
-         * * workAddress.country (eq|ne)
-         * * homeAddress.address1 (eq|ne)
-         * * homeAddress.address2 (eq|ne)
-         * * homeAddress.address3 (eq|ne)
-         * * homeAddress.city (eq|ne)
-         * * homeAddress.country (eq|ne)
-         * * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the
-         * `includePurged` parameter.
-         * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-         * * optOut.optedOut (eq|ne)
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following operators are available:
+         * <p>| Field            | Operators                          | Notes |
+         * |------------------|-------------------------------------|-------|
+         * | id               | `eq`, `ne`                          | |
+         * | sourceId         | `eq`, `ne`                          | |
+         * | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+         * | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+         * | email            | `eq`, `ne`, `contains`, `sw`        | |
+         * | ccEmail          | `eq`, `ne`                          | |
+         * | company          | `eq`, `ne`                          | |
+         * | type.id          | `eq`, `ne`                          | |
+         * | nickname         | `eq`, `ne`                          | |
+         * | title            | `eq`, `ne`                          | |
+         * | workPhone        | `eq`, `ne`                          | |
+         * | middleName       | `eq`, `ne`                          | |
+         * | mobilePhone      | `eq`, `ne`                          | |
+         * | homeFax          | `eq`, `ne`                          | |
+         * | designation      | `eq`, `ne`                          | |
+         * | homePhone        | `eq`, `ne`                          | |
+         * | pager            | `eq`, `ne`                          | |
+         * | workFax          | `eq`, `ne`                          | |
+         * | lastModifiedBy   | `eq`, `ne`                          | |
+         * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+         * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+         * | createdBy        | `eq`, `ne`                          | |
+         * | workAddress.address1 | `eq`, `ne`                      | |
+         * | workAddress.address2 | `eq`, `ne`                      | |
+         * | workAddress.address3 | `eq`, `ne`                      | |
+         * | workAddress.city | `eq`, `ne`                          | |
+         * | workAddress.country | `eq`, `ne`                       | |
+         * | homeAddress.address1 | `eq`, `ne`                      | |
+         * | homeAddress.address2 | `eq`, `ne`                      | |
+         * | homeAddress.address3 | `eq`, `ne`                      | |
+         * | homeAddress.city | `eq`, `ne`                          | |
+         * | homeAddress.country | `eq`, `ne`                       | |
+         * | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve
+         * purged contacts, see the `includePurged` parameter. |
+         * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+         * | optOut.optedOut  | `eq`, `ne`                          | |
+         *
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */
@@ -453,11 +477,27 @@ public class ListContactsRequest {
             return this;
         }
 
+        /**
+         * True means purged contacts can be included in the response. Purged contacts contain only limited
+         * display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only
+         * filter by the `id` field.
+         *
+         * <p>The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use
+         * with this parameter. If false, only contacts that have not been purged will be returned.
+         */
+        public Builder includePurged(@Nullable Boolean includePurged) {
+            this.includePurged = includePurged;
+            return this;
+        }
+
         public ListContactsRequest build() {
-            return new ListContactsRequest(after, before, limit, token, filter);
+            return new ListContactsRequest(after, before, limit, token, filter, includePurged);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
                 new LazySingletonValue<>("limit", "100", new TypeReference<Long>() {});
+
+        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludePurged =
+                new LazySingletonValue<>("includePurged", "false", new TypeReference<Boolean>() {});
     }
 }

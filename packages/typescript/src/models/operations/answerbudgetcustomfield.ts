@@ -22,7 +22,7 @@ export type AnswerBudgetCustomFieldRequest = {
   /**
    * Custom field answer to be updated.
    */
-  customField: components.CustomFieldInput;
+  customField2: components.CustomField2Input;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export type AnswerBudgetCustomFieldRequest$Outbound = {
   id: string;
   budgetItemId: string;
   customFieldId: string;
-  "custom-field": components.CustomFieldInput$Outbound;
+  "custom-field2": components.CustomField2Input$Outbound;
 };
 
 /** @internal */
@@ -42,10 +42,10 @@ export const AnswerBudgetCustomFieldRequest$outboundSchema: z.ZodType<
   id: z.string(),
   budgetItemId: z.string(),
   customFieldId: z.string(),
-  customField: components.CustomFieldInput$outboundSchema,
+  customField2: components.CustomField2Input$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
-    customField: "custom-field",
+    customField2: "custom-field2",
   });
 });
 

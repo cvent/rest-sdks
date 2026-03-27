@@ -28,30 +28,30 @@ public class CustomFieldInput {
     private String id;
 
     /**
+     * The set of answers or possible answers to a question.
+     */
+    @JsonProperty("value")
+    private List<String> value;
+
+    /**
      * The type of data collected by a custom field.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private CustomFieldCustomFieldType type;
 
-    /**
-     * The set of answers or possible answers to a question.
-     */
-    @JsonProperty("value")
-    private List<String> value;
-
     @JsonCreator
     public CustomFieldInput(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("type") @Nullable CustomFieldCustomFieldType type,
-            @JsonProperty("value") @Nonnull List<String> value) {
+            @JsonProperty("value") @Nonnull List<String> value,
+            @JsonProperty("type") @Nullable CustomFieldCustomFieldType type) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.type = type;
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.type = type;
     }
 
     public CustomFieldInput(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, value);
+        this(id, value, null);
     }
 
     /**
@@ -62,17 +62,17 @@ public class CustomFieldInput {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public Optional<CustomFieldCustomFieldType> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public List<String> value() {
         return this.value;
+    }
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    public Optional<CustomFieldCustomFieldType> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -88,18 +88,18 @@ public class CustomFieldInput {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public CustomFieldInput withType(@Nullable CustomFieldCustomFieldType type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public CustomFieldInput withValue(@Nonnull List<String> value) {
         this.value = Utils.checkNotNull(value, "value");
+        return this;
+    }
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    public CustomFieldInput withType(@Nullable CustomFieldCustomFieldType type) {
+        this.type = type;
         return this;
     }
 
@@ -113,18 +113,18 @@ public class CustomFieldInput {
         }
         CustomFieldInput other = (CustomFieldInput) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.type, other.type)
-                && Utils.enhancedDeepEquals(this.value, other.value);
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, type, value);
+        return Utils.enhancedHash(id, value, type);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(CustomFieldInput.class, "id", id, "type", type, "value", value);
+        return Utils.toString(CustomFieldInput.class, "id", id, "value", value, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -132,9 +132,9 @@ public class CustomFieldInput {
 
         private String id;
 
-        private CustomFieldCustomFieldType type;
-
         private List<String> value;
+
+        private CustomFieldCustomFieldType type;
 
         private Builder() {
             // force use of static builder() method
@@ -149,14 +149,6 @@ public class CustomFieldInput {
         }
 
         /**
-         * The type of data collected by a custom field.
-         */
-        public Builder type(@Nullable CustomFieldCustomFieldType type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
          * The set of answers or possible answers to a question.
          */
         public Builder value(@Nonnull List<String> value) {
@@ -164,8 +156,16 @@ public class CustomFieldInput {
             return this;
         }
 
+        /**
+         * The type of data collected by a custom field.
+         */
+        public Builder type(@Nullable CustomFieldCustomFieldType type) {
+            this.type = type;
+            return this;
+        }
+
         public CustomFieldInput build() {
-            return new CustomFieldInput(id, type, value);
+            return new CustomFieldInput(id, value, type);
         }
     }
 }

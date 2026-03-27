@@ -96,12 +96,12 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-CustomField2 req = new CustomField2() {
+CustomField3 req = new CustomField3() {
     Category = CustomFieldCategoryJson.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
     Type = CustomFieldTypeJson1.OpenEndedTextOneLine,
-    Details = CustomField2Details.CreateOpenEndedOneLine(
+    Details = CustomField3Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
             Minimum = 2,
@@ -121,7 +121,7 @@ var res = await sdk.CustomFields.CreateCustomFieldAsync(req);
 
 | Parameter                                               | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `request`                                               | [CustomField2](../../Models/Components/CustomField2.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
+| `request`                                               | [CustomField3](../../Models/Components/CustomField3.md) | :heavy_check_mark:                                      | The request object to use for the request.              |
 
 ### Response
 

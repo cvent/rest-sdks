@@ -27,6 +27,10 @@ export type ContactTypeJson = {
    * Description of the contact type.
    */
   description?: string | undefined;
+  /**
+   * Indicates whether the contact type is active.
+   */
+  active?: boolean | undefined;
 };
 
 /** @internal */
@@ -39,6 +43,7 @@ export const ContactTypeJson$inboundSchema: z.ZodType<
   code: z.string(),
   name: z.string(),
   description: z.string().optional(),
+  active: z.boolean().optional(),
 });
 
 export function contactTypeJsonFromJSON(

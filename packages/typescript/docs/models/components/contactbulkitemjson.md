@@ -67,13 +67,13 @@ let value: ContactBulkItemJson = {
     customFields: [
       {
         id: "83a71a44-67ee-4908-8cd1-7dd6c5fdc88f",
-        name: "What is a your favorite color?",
-        type: "MultiSelect",
+        name: "What is your favorite color?",
         value: [
           "Choice C",
           "Choice A",
         ],
         order: 1,
+        type: "MultiSelect",
       },
     ],
     sourceId: "system-a-00000000-0000-0000-0000-000000000000",

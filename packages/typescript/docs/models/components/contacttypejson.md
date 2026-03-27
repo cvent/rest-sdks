@@ -12,6 +12,7 @@ let value: ContactTypeJson = {
   code: "VIP",
   name: "VIP Attendee",
   description: "Very important attendee.",
+  active: true,
 };
 ```
 
@@ -23,3 +24,4 @@ let value: ContactTypeJson = {
 | `code`                                                | *string*                                              | :heavy_check_mark:                                    | The contact type code. Must be unique in the account. | VIP                                                   |
 | `name`                                                | *string*                                              | :heavy_check_mark:                                    | Name of the contact type.                             | VIP Attendee                                          |
 | `description`                                         | *string*                                              | :heavy_minus_sign:                                    | Description of the contact type.                      | Very important attendee.                              |
+| `active`                                              | *boolean*                                             | :heavy_minus_sign:                                    | Indicates whether the contact type is active.         | true                                                  |

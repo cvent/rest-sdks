@@ -36,13 +36,6 @@ public class CustomField {
     private String name;
 
     /**
-     * The type of data collected by a custom field.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("type")
-    private CustomFieldCustomFieldType type;
-
-    /**
      * The set of answers or possible answers to a question.
      */
     @JsonProperty("value")
@@ -55,22 +48,29 @@ public class CustomField {
     @JsonProperty("order")
     private Long order;
 
+    /**
+     * The type of data collected by a custom field.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private CustomFieldCustomFieldType type;
+
     @JsonCreator
     public CustomField(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("type") @Nullable CustomFieldCustomFieldType type,
             @JsonProperty("value") @Nonnull List<String> value,
-            @JsonProperty("order") @Nullable Long order) {
+            @JsonProperty("order") @Nullable Long order,
+            @JsonProperty("type") @Nullable CustomFieldCustomFieldType type) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
-        this.type = type;
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.order = order;
+        this.type = type;
     }
 
     public CustomField(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, null, value, null);
+        this(id, null, value, null, null);
     }
 
     /**
@@ -88,13 +88,6 @@ public class CustomField {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public Optional<CustomFieldCustomFieldType> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public List<String> value() {
@@ -106,6 +99,13 @@ public class CustomField {
      */
     public Optional<Long> order() {
         return Optional.ofNullable(this.order);
+    }
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    public Optional<CustomFieldCustomFieldType> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -129,14 +129,6 @@ public class CustomField {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public CustomField withType(@Nullable CustomFieldCustomFieldType type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public CustomField withValue(@Nonnull List<String> value) {
@@ -152,6 +144,14 @@ public class CustomField {
         return this;
     }
 
+    /**
+     * The type of data collected by a custom field.
+     */
+    public CustomField withType(@Nullable CustomFieldCustomFieldType type) {
+        this.type = type;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -163,19 +163,19 @@ public class CustomField {
         CustomField other = (CustomField) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.type, other.type)
                 && Utils.enhancedDeepEquals(this.value, other.value)
-                && Utils.enhancedDeepEquals(this.order, other.order);
+                && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, type, value, order);
+        return Utils.enhancedHash(id, name, value, order, type);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(CustomField.class, "id", id, "name", name, "type", type, "value", value, "order", order);
+        return Utils.toString(CustomField.class, "id", id, "name", name, "value", value, "order", order, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -185,11 +185,11 @@ public class CustomField {
 
         private String name;
 
-        private CustomFieldCustomFieldType type;
-
         private List<String> value;
 
         private Long order;
+
+        private CustomFieldCustomFieldType type;
 
         private Builder() {
             // force use of static builder() method
@@ -212,14 +212,6 @@ public class CustomField {
         }
 
         /**
-         * The type of data collected by a custom field.
-         */
-        public Builder type(@Nullable CustomFieldCustomFieldType type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
          * The set of answers or possible answers to a question.
          */
         public Builder value(@Nonnull List<String> value) {
@@ -235,8 +227,16 @@ public class CustomField {
             return this;
         }
 
+        /**
+         * The type of data collected by a custom field.
+         */
+        public Builder type(@Nullable CustomFieldCustomFieldType type) {
+            this.type = type;
+            return this;
+        }
+
         public CustomField build() {
-            return new CustomField(id, name, type, value, order);
+            return new CustomField(id, name, value, order, type);
         }
     }
 }

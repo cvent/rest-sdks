@@ -429,7 +429,7 @@ export class Budget extends ClientSDK {
   async answerBudgetCustomField(
     request: operations.AnswerBudgetCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField> {
+  ): Promise<components.CustomField2> {
     return unwrapAsync(budgetAnswerBudgetCustomField(
       this,
       request,

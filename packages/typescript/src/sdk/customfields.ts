@@ -46,7 +46,7 @@ export class CustomFields extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async createCustomField(
-    request: components.CustomField2,
+    request: components.CustomField3,
     options?: RequestOptions,
   ): Promise<components.ExistingCustomField> {
     return unwrapAsync(customFieldsCreateCustomField(
