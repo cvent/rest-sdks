@@ -77,7 +77,7 @@ public class CreateCardTokens {
                     .orElse(Utils.templateUrl(CREATE_CARD_TOKENS_SERVERS[0], Map.of()));
             this.securitySource = this.sdkConfiguration.securitySource();
             Optional.ofNullable(options).ifPresent(o -> o.validate(List.of(Options.Option.RETRY_CONFIG)));
-            this.retryStatusCodes = List.of("429");
+            this.retryStatusCodes = List.of("429", "502", "503", "504");
             this.retryConfig = Optional.ofNullable(options)
                     .flatMap(Options::retryConfig)
                     .or(sdkConfiguration::retryConfig)

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f6b1580-b75b-44d2-a95a-1b74729f1d26
 management:
-  docChecksum: 6afb82264267e91bacb2abf89c19a20a
+  docChecksum: 8c87b5ea5c75838b76094658d012c86b
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.1.1
-  configChecksum: 1226d879e7d1f514fc086a9716aa61b9
+  releaseVersion: 1.1.2
+  configChecksum: fe358710f126c987f19190ee3951ba31
   published: true
 persistentEdits:
   generation_id: c50843e4-e393-4964-8f45-57aa92ab8994
@@ -9195,71 +9195,71 @@ trackedFiles:
     pristine_git_object: ef3195af86a7d6ef1e34296c380fd52d85b696fd
   src/Cvent/SDK/Appointments.cs:
     id: e0ebdc9e2181
-    last_write_checksum: sha1:380237a09d83ffb406b0f31539eb58d574bd4498
+    last_write_checksum: sha1:64a8e8adfe4a41bd4361019e9043618ed3b361da
     pristine_git_object: 6f5dc4d002c9657af0fadfced083a64502087469
   src/Cvent/SDK/AttendeeActivities.cs:
     id: a940f266c449
-    last_write_checksum: sha1:36f7bf386f4bd49c57c31fe5e165833675772f56
+    last_write_checksum: sha1:3d0bf89aa9e816f7a102d86b282e2bf3bdbe6c74
     pristine_git_object: 5c638621daee4958c73811b115bf7b99c9b2a248
   src/Cvent/SDK/AttendeeInsights.cs:
     id: 31c0a5155264
-    last_write_checksum: sha1:2c977895255b44764874210b76abe4300372ca00
+    last_write_checksum: sha1:0d2f62e996e76598865a8f0dcaa0ecfe36eb9595
     pristine_git_object: ddc92fb90f126d249f30e3eb3bdae231a75009c6
   src/Cvent/SDK/AttendeeMessages.cs:
     id: 36f291384c29
-    last_write_checksum: sha1:0a0b6c53e91b786b7494232822571d561cca9593
+    last_write_checksum: sha1:fe0a244ebb1d0b9f5f199020d6dd49d80eb54197
     pristine_git_object: bad6c37a004676ea369dedb8042432f0aeee6a00
   src/Cvent/SDK/Attendees.cs:
     id: 32949bd964be
-    last_write_checksum: sha1:386540e350e5cbdfb2a3443311529abd88ae6d1e
+    last_write_checksum: sha1:17e0498e27ab123ad29e1be32a97ab2fdd9a0b13
     pristine_git_object: a3cd526a9a86ef8600b77fe5700ec9462a16157c
   src/Cvent/SDK/AudienceSegments.cs:
     id: 8ea605bfa719
-    last_write_checksum: sha1:5da46ca40ba070f9bf6d95c3f2738e8c5d46a349
+    last_write_checksum: sha1:d25f9394c136c5ec874294182f29f5f3e9ba745a
     pristine_git_object: cd663f188cf769273acee47bf7512632946b0a54
   src/Cvent/SDK/Authentication.cs:
     id: f90a858273bd
-    last_write_checksum: sha1:70f6bafd9b3aa2bfa84ede5430d8ef0eef3fe30d
+    last_write_checksum: sha1:928bbee947eb8e61fc5432ac060e9716b1018aa9
     pristine_git_object: 89f9c9b867bee5e72d6226bec1134e01912860ab
   src/Cvent/SDK/BadgePrintJob.cs:
     id: 6ad60f07c4b4
-    last_write_checksum: sha1:e622859fa9c931762653d0d1838df722053b31c1
+    last_write_checksum: sha1:7c546506386328ebf65f40e914dc878dc4481d86
     pristine_git_object: e3e55782c0f08f1c3fc62ee3ef982ffcf4c83095
   src/Cvent/SDK/BadgePrinterPools.cs:
     id: "970869586164"
-    last_write_checksum: sha1:65ce4aa7ca55ca02106d0cae4810f686a460b762
+    last_write_checksum: sha1:0e5f55e9f396c0b5584d432d859e15fba8a5e8f2
     pristine_git_object: 992333e4b30b4492ce2d0930a5ff9eb03e1307b7
   src/Cvent/SDK/Budget.cs:
     id: e352b9931ea6
-    last_write_checksum: sha1:9af9b8389598fd58d10d9ef2dd4f331cc6649aa9
+    last_write_checksum: sha1:cf121a17b257f155d078778224461ab08b5c1d2a
     pristine_git_object: f3d3768b336679e9ba7578ed51e14fe50a8365de
   src/Cvent/SDK/Bulk.cs:
     id: ac2ca01debc8
-    last_write_checksum: sha1:b3aa4c3a5d9ad57e9fb65e6d4d2c6583bbe30b34
+    last_write_checksum: sha1:f352824f3c0706f7401479b9dd14c3d69e473482
     pristine_git_object: 91dd13b7d76cfc0f4f7cc59a924879f8f92b1d9b
   src/Cvent/SDK/Campaigns.cs:
     id: f425e065b945
-    last_write_checksum: sha1:d62b27ec50acfea36ea95221a26bc863e0b38b65
+    last_write_checksum: sha1:d5ef2a68c7abbaae551a7da6bdb473889c2a7305
     pristine_git_object: 6881de2f452fcdefee5882388f50646c1799a7ed
   src/Cvent/SDK/CardTokens.cs:
     id: 097f1c541652
-    last_write_checksum: sha1:c6cb20564769c52199fb1fd6101e966e0da38d3a
+    last_write_checksum: sha1:43f9e6529577974e042153609f3d566ca285186c
     pristine_git_object: 07ea717ea050e5cd1a85e38eeda2cc7c8959d26e
   src/Cvent/SDK/Compliance.cs:
     id: cf33f0991db1
-    last_write_checksum: sha1:ad66376e284fdce56248e41d326d8dd2a9889d54
+    last_write_checksum: sha1:6732c9cfdf9b44cc539ca5ef2097da557951a999
     pristine_git_object: 79bd35e8a4f89ac9953881c72db586a129c4fd1e
   src/Cvent/SDK/Contacts.cs:
     id: 1e49de62cc63
-    last_write_checksum: sha1:2b7e3f5e761fff8a6cb7295b4ab865e3ede68384
+    last_write_checksum: sha1:b74a3d8223417d4fa2c9e4b350d83f9ab37dbcc0
     pristine_git_object: 6f1612d7adafe2500131816d2e7a9a8b61b1d7ec
   src/Cvent/SDK/CustomFields.cs:
     id: a3c3662bd8cf
-    last_write_checksum: sha1:8a84c3debfa5a718ed323544d59217eb86c330a7
+    last_write_checksum: sha1:711a0b1a784116c4645aab9961f33845a9f75eb4
     pristine_git_object: 977cd7381c7598682830d6e4a64a85cb14130b98
   src/Cvent/SDK/Cvent.SDK.csproj:
     id: 7a55759bc2f0
-    last_write_checksum: sha1:438aa62f4bfd603bfdbc65c324ee9556d9d6de2c
+    last_write_checksum: sha1:3c509f623bb5e1575df65786491578b39c7aa758
     pristine_git_object: 711013944bc0505858b0b7cf177f166071b47593
   src/Cvent/SDK/CventSDK.cs:
     id: f7e1ad22cd8f
@@ -9267,51 +9267,51 @@ trackedFiles:
     pristine_git_object: 73b691f7e3fc8c29322c3bac6169519066a92685
   src/Cvent/SDK/Discounts.cs:
     id: 65ff3d7f6c89
-    last_write_checksum: sha1:f94208f37ddef7e0cf83474a8890f35a7e186bfc
+    last_write_checksum: sha1:9fdf8936d8f53203f9251c0cca204c008568e08f
     pristine_git_object: 5f454c474269729db7f7709006654793f22f1959
   src/Cvent/SDK/Emails.cs:
     id: 6cd6517051cf
-    last_write_checksum: sha1:df44542025996a3c311b74951abfabb4cdd9e2cc
+    last_write_checksum: sha1:dadba6a259007dbf9dbdc189513fbcf8b62fb126
     pristine_git_object: fb7fe9d98b36e35173b945331e639fd5b3a9386f
   src/Cvent/SDK/EventCredits.cs:
     id: c01f1894e308
-    last_write_checksum: sha1:d6a19b47ba9e52b63c14adfb646009dd6041dff9
+    last_write_checksum: sha1:d637726024bb1cf89dec1cf77013b7ee7f4d7060
     pristine_git_object: f21e3ce49c612dee119cc8ece20e979c15553e26
   src/Cvent/SDK/EventFeatures.cs:
     id: 32572618f16c
-    last_write_checksum: sha1:31fba876066135fabe0a186bd2db349004e7a22b
+    last_write_checksum: sha1:b88201f9ea3737eda591e285cbf6d45e05ad4637
     pristine_git_object: 42ed1825b36d2872fa45c6d12f396c79f720c725
   src/Cvent/SDK/EventRole.cs:
     id: 2517b38f0a52
-    last_write_checksum: sha1:19637427c0972951018876ed8328d14c6455d5b4
+    last_write_checksum: sha1:fa6b0cef538bcef1bd7398d90bdb993eeaf400ff
     pristine_git_object: edfd34d648de349f3958e7fbea9e14f7b99aa8b3
   src/Cvent/SDK/EventTravel.cs:
     id: d5493432a866
-    last_write_checksum: sha1:231d7dc9c6b1c52995e1c0fb5e722baf707266e7
+    last_write_checksum: sha1:6c753270cd546c19e49dbe926530aebfec9994a1
     pristine_git_object: a8b681cf4ef2300fc3896005e04884f778619289
   src/Cvent/SDK/Events.cs:
     id: b96dbb23cc9b
-    last_write_checksum: sha1:acf022144fba582160f39a890f76472005295011
+    last_write_checksum: sha1:5e02f9859827f01ce71ca5b81c3d5bedfb9bd743
     pristine_git_object: ff16db101200573206038eda60add74607295adb
   src/Cvent/SDK/EventsPlusHub.cs:
     id: cc332d7b024a
-    last_write_checksum: sha1:0f5a517c81cae2caf674f94dbdd05de6207f3acb
+    last_write_checksum: sha1:56628a66b2445e7858a3f1e6788946ebb4f7a581
     pristine_git_object: cbbe461eaabc670bdaad49003db0c00f17112f2d
   src/Cvent/SDK/Exhibitor.cs:
     id: 944b91916ecc
-    last_write_checksum: sha1:5ea4e729f6a915f6c09ee40c80cd07ec319ceec8
+    last_write_checksum: sha1:b629ba885ee546e3a960c24ec4ce6b0c5a5179b0
     pristine_git_object: 72e14329eb7c66548f48d2a2b185314a1c17b368
   src/Cvent/SDK/ExhibitorContent.cs:
     id: bbd1732a6848
-    last_write_checksum: sha1:c67fad5b9608491120991696c2489bc4beca9584
+    last_write_checksum: sha1:46d6596cd70102b39fa148795300860d5717c265
     pristine_git_object: 24e681a649a1cff2588a43edda908c0f4e3a27a7
   src/Cvent/SDK/ExhibitorTeam.cs:
     id: 4f989ed020c9
-    last_write_checksum: sha1:f0a7897311bb97165f14f09c696bf75ccabc3aae
+    last_write_checksum: sha1:5309f48cf8359840c8064e2277108bd8f32b7b1e
     pristine_git_object: 847581bb21147dc088c17c750d1dcd0adedea42c
   src/Cvent/SDK/File.cs:
     id: 37dbc4bad5b0
-    last_write_checksum: sha1:887831aed5ab99fadf16eedcd67eb0989c9d2bff
+    last_write_checksum: sha1:c616aa71bc4ca3e69361368ec990aa76f82e8e1e
     pristine_git_object: c0e6502c474fe5b09e0daa58827e12949f6d7959
   src/Cvent/SDK/Hooks/ClientCredentials/ClientCredentials.cs:
     id: 08c5402f2455
@@ -9331,23 +9331,23 @@ trackedFiles:
     pristine_git_object: 5014dd1904f6403613647087da20293066e6c3db
   src/Cvent/SDK/HooksSDK.cs:
     id: e3e05e5a53b7
-    last_write_checksum: sha1:bfdf65db14f2e0fcc429508dc86789db74771372
+    last_write_checksum: sha1:eecf7152239f4c3285e50fd29fe33a4be82fdb16
     pristine_git_object: e3ad1ac7b4dd624040e3f30514dfffb4e2b94155
   src/Cvent/SDK/Housing.cs:
     id: a10cf2ffbc7c
-    last_write_checksum: sha1:2a29a902041dc625f4a2a133fc64e0025e83e5a1
+    last_write_checksum: sha1:c7177e976d8a0bc8d7bfe2e18013aa59061a686b
     pristine_git_object: 26397f09d75ba9d69843a3b969c292ee2407ae6d
   src/Cvent/SDK/HousingHotels.cs:
     id: 9249b2b9a6b5
-    last_write_checksum: sha1:b4af300a7967e11d6f11177b8ee85d86e67165bc
+    last_write_checksum: sha1:617065a9b2bab6cfdec70d556745c1d0ff529613
     pristine_git_object: 2b40cd60b72df69f70800980acdeefa7d5fd555e
   src/Cvent/SDK/Leads.cs:
     id: 8dc610881841
-    last_write_checksum: sha1:5f6c02d4fd209f41f2db8329c929dcf320d36a07
+    last_write_checksum: sha1:9a3c0d8c162bd92227cc46feaeff6376f829dedb
     pristine_git_object: dfcfb0f9b1c88569e9f6110dbee82dc25ff538ee
   src/Cvent/SDK/MeetingRequest.cs:
     id: 5f343c314bf6
-    last_write_checksum: sha1:67a8ba79689621179966ab0b1e7dd38596c23e28
+    last_write_checksum: sha1:d6066b4de08c7ece469725d202a4799ccfaa8964
     pristine_git_object: ab4d871c869ae435b0148438a074c626d5bf7495
   src/Cvent/SDK/Models/Callbacks/CreateContactHookContactTransactionCallbackResponse.cs:
     id: bfa3f73d3233
@@ -18309,59 +18309,59 @@ trackedFiles:
     pristine_git_object: 137bf992372d81fef294536a7c31b3d98a5db11c
   src/Cvent/SDK/ProcessForm.cs:
     id: ef26c398731f
-    last_write_checksum: sha1:dddfff69502c7a6727d2084242d2f2c74e124769
+    last_write_checksum: sha1:3a9da9b163351addfbb44523e9323849798226ae
     pristine_git_object: f06c4d4c3f77694d99c0753d80c8bd795183086b
   src/Cvent/SDK/ProposalDraft.cs:
     id: d4c31840bfdb
-    last_write_checksum: sha1:afc85bccb3f0973369608cdc80f804ec54a401c4
+    last_write_checksum: sha1:744b35a972e7a562f2a6b89596e354893520f270
     pristine_git_object: 58003eaf89fe1986cc662177f443175c4da22c63
   src/Cvent/SDK/SDKConfig.cs:
     id: 7ad7086454a8
-    last_write_checksum: sha1:bac0dde791980cb5637295a50c782f27ab3caa4e
+    last_write_checksum: sha1:72ec6b6aecd87d365517e45fa5f360b0fdcf8273
     pristine_git_object: 796c23cd551fbe87f613d89d60ed25ac5fe0c54b
   src/Cvent/SDK/Seating.cs:
     id: 01c249fc2746
-    last_write_checksum: sha1:735b8d4b2a3064ef83c6322dd35d5375dc7d4b9a
+    last_write_checksum: sha1:d125917913549b7cae86664101758132151aa823
     pristine_git_object: a06ca860a105970d8ade67f4ac21fbe4883567b7
   src/Cvent/SDK/Sessions.cs:
     id: 327b4808d581
-    last_write_checksum: sha1:c3eafe40f7e67b078f76bbfa4475a34a2e2ddc5b
+    last_write_checksum: sha1:1e85b530654ff1f4109544752ea68c20da869e8d
     pristine_git_object: 0f2fec50306482c0afd79e5ba7b08113f788f657
   src/Cvent/SDK/Signatures.cs:
     id: 033fd08fcea8
-    last_write_checksum: sha1:759c477f71a2f9d94d3b9dc38e06e19d02a57e59
+    last_write_checksum: sha1:a70035e8bb70360eabcb5678cd882b51369755c2
     pristine_git_object: d765a9f2c97a11db1bedf9991d4dd185f89164fe
   src/Cvent/SDK/Speakers.cs:
     id: d426d5d9579c
-    last_write_checksum: sha1:9f6db053e8ccab02dfb2851eb55aab4a74d622c1
+    last_write_checksum: sha1:db7df99d6411ec29de07809ba258d6fa863681fc
     pristine_git_object: 62b8ecac78252d0ddbf04e1b73995f1009a50756
   src/Cvent/SDK/Surveys.cs:
     id: 5ac9a3db2276
-    last_write_checksum: sha1:414a597a3e6300a24eb4e1b8614d0f937455d803
+    last_write_checksum: sha1:96d3e2a49907eabaf3ed81fd35e0ea15a6488855
     pristine_git_object: 9d6474ebb10263553e076c5fca597acb9b079883
   src/Cvent/SDK/TravelAccounts.cs:
     id: 61741a8e012d
-    last_write_checksum: sha1:9d6c1c69dabec2eb6c7e89207142c162cc9c4476
+    last_write_checksum: sha1:150a8882aa19a7dfe715ad9bc2ba7fcb90442846
     pristine_git_object: 72a96dbfd10e9549f7ead3bc04e6820a8d40db5d
   src/Cvent/SDK/TravelRFPs.cs:
     id: 997ae89b25f5
-    last_write_checksum: sha1:87a29ccfdc7d5195e73da876c276ac9f0562e702
+    last_write_checksum: sha1:13ac8a90446f0ef6863669a013b3d46d9e43517e
     pristine_git_object: 05d1627ed93fecba64acb478906f82d108f7e85a
   src/Cvent/SDK/TravelSuppliers.cs:
     id: dd9df70f50c4
-    last_write_checksum: sha1:57c11c2dee4b7bada71839f620875c976676f484
+    last_write_checksum: sha1:d02377bc8e2651f93026165b228358428521eb28
     pristine_git_object: 4a2811315032f3f2ef41af4b2d05fbe0d8f55c43
   src/Cvent/SDK/Usage.cs:
     id: 8cc7de54831d
-    last_write_checksum: sha1:ac1e4661169ef1715f525bd07d93865ad5afa3e2
+    last_write_checksum: sha1:c075b5083b527739cb6ba58d3066eaed4bbf363a
     pristine_git_object: 1f0647de7bcf33fcae67414f0bb31c3bbaf91420
   src/Cvent/SDK/UserSCIM.cs:
     id: a3a3ea1a9c7b
-    last_write_checksum: sha1:ba630a9d1def38e90640115c9343e12820995d01
+    last_write_checksum: sha1:cbb1dd3410a7a832df76326be7da19441c48d4c6
     pristine_git_object: 65ecc73aaa7b7e5c08403afc919813034ca19d90
   src/Cvent/SDK/Users.cs:
     id: 9ede83a21d40
-    last_write_checksum: sha1:86ed6675eb0e0444c3a07a6da7e093a530df5b5b
+    last_write_checksum: sha1:b52902b0c5f9c455f454eacaeb5c09c4bd750fcb
     pristine_git_object: e42fc3d5237f4fe4db02a3e0469cfe5e248712d2
   src/Cvent/SDK/Utils/AnyDeserializer.cs:
     id: 1d517da993f5
@@ -18373,7 +18373,7 @@ trackedFiles:
     pristine_git_object: a75f770b33edd25c0fa4d4a77ab523da12d269ba
   src/Cvent/SDK/Utils/Constants.cs:
     id: 231d94d8a5dc
-    last_write_checksum: sha1:9e63e40a54f5cf7cf7f713736bd1d0703b218fa3
+    last_write_checksum: sha1:0110299adf9f7e3e5b9fdd4874f6686468d231c8
     pristine_git_object: 0a54932893793a10e459afbc15920803cff3ed1e
   src/Cvent/SDK/Utils/CventSDKHttpClient.cs:
     id: 374fee4fdbaf
@@ -18441,11 +18441,11 @@ trackedFiles:
     pristine_git_object: a4c7a9bac8aee370790ba0d8c90746ab448ec11e
   src/Cvent/SDK/Video.cs:
     id: e5dec39ceec8
-    last_write_checksum: sha1:d2b1b8a765096c8dbab7b68054650dd2f308a26e
+    last_write_checksum: sha1:16b85d3c82c92008abf903cf4bcd45bbdb6c62c9
     pristine_git_object: 8be9cb2975f5815518c50457a8c7fe18d7f56075
   src/Cvent/SDK/Webcasts.cs:
     id: 5d3c29124d93
-    last_write_checksum: sha1:e64bdd31bfd5f8c21e7e44cb56426dc738c422de
+    last_write_checksum: sha1:68e1640839d087b80248576f70c446c6808ede52
     pristine_git_object: 324fd7d62acb2b96ef22214c3a6faf52cc3563d7
 examples:
   getAccountUserGroups:

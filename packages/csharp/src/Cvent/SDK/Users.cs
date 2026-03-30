@@ -238,6 +238,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -434,6 +437,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -598,6 +604,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -768,6 +777,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -932,6 +944,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -1078,6 +1093,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>
@@ -1224,6 +1242,9 @@ namespace Cvent.SDK
 
             List<string> statusCodes = new List<string> {
                 "429",
+                "502",
+                "503",
+                "504",
             };
 
             Func<Task<HttpResponseMessage>> retrySend = async () =>

@@ -17,4 +17,7 @@ actions:
         exponent: 1.5
       statusCodes:
         - 429
+        - 502
+        - 503
+        - 504
       retryConnectionErrors: true
