@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
-  docChecksum: 81f694b9871079cbebc8c96946ca7966
+  docChecksum: 6afb82264267e91bacb2abf89c19a20a
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.1.4
-  configChecksum: 99858c4504868cb307c446155d611d36
+  releaseVersion: 1.1.5
+  configChecksum: 7192db87908f8f1455883c63dad65671
   repoURL: https://github.com/cvent/rest-sdks
   repoSubDirectory: packages/typescript
   published: true
@@ -520,7 +520,7 @@ trackedFiles:
     last_write_checksum: sha1:a450aeac40a91b1e5e56820729dd3e5ff263da13
     pristine_git_object: 0b5f23387b7d8af7a3aa0c87cb1727882d1d4ecb
   docs/models/components/appointmentwithquestions.md:
-    last_write_checksum: sha1:d0f818e44baa040b853b20342e4bf83b2d95ac57
+    last_write_checksum: sha1:ac8000273833824f20362a54c58352a7ecfdc4cd
   docs/models/components/appointmentwithquestionslocation.md:
     last_write_checksum: sha1:046add2d51b8c791df0fb9ae8f68f302fa4f2580
   docs/models/components/appointmentwithquestionstype.md:
@@ -1535,15 +1535,15 @@ trackedFiles:
     pristine_git_object: 5b022c75d394d04f080061e69756118705206410
   docs/models/components/contact.md:
     id: 135136c1868a
-    last_write_checksum: sha1:02f82f9d3da27d9f8bc2263284051bf951a32830
+    last_write_checksum: sha1:da76ce72d399e5dc25e04b8e575890846a198f63
     pristine_git_object: 595cdb527a4f2538b6bf5d705d56afebb0a18df7
   docs/models/components/contactbulkitemjson.md:
     id: 640c3e7079e9
-    last_write_checksum: sha1:51b23bc496a47b7f402715dfc3df2b2e03009f7f
+    last_write_checksum: sha1:3d8bfe7e5cf196e31e9915a37dccef0de26d3222
     pristine_git_object: 4d2ac8611cfd3464957d448a8d00262f5b2d2285
   docs/models/components/contactbulkitemjsondata.md:
     id: 8c68a62ad902
-    last_write_checksum: sha1:0fada8c613e3df435ada8de50a66f8e23d0c62a7
+    last_write_checksum: sha1:57d6ecfcfd2a36662bf4deae7ea2a8f50d38fef2
     pristine_git_object: f73bed894089adf3ddda7bc081062c2135045bdf
   docs/models/components/contactcommonjson.md:
     id: 3780286b852d
@@ -1663,7 +1663,7 @@ trackedFiles:
     pristine_git_object: 7dd51d1efe91ce5397a892e0aaf7a8b3548d1680
   docs/models/components/contactpaginatedresponse.md:
     id: 28b143759e99
-    last_write_checksum: sha1:65bf56118f71ce402573e581f6780a089612c07d
+    last_write_checksum: sha1:e1c1e193d6bf0e5102d04a53f85c8138eb9df749
     pristine_git_object: a2628a2df0515738f2ef559fa9ef1cb680353f14
   docs/models/components/contactpatch.md:
     id: 709d16747cfb
@@ -1679,7 +1679,7 @@ trackedFiles:
     pristine_git_object: 5751e508b0c7b26e6e54b88e3de415f4e27ec1ab
   docs/models/components/contacttypejson.md:
     id: 591b651e1668
-    last_write_checksum: sha1:5d3317b2d9670694d130bb4d5e3a9c55941f5c12
+    last_write_checksum: sha1:6d8e8c243e497cc9d677b9b986fc9e8fcece5859
     pristine_git_object: a5e833c578f632b73405d55e960e6e4f9d304448
   docs/models/components/contacttypejson1.md:
     id: 23a87d712a49
@@ -1687,7 +1687,7 @@ trackedFiles:
     pristine_git_object: 441358cc24db446e5d8dd9c275ab38837031a605
   docs/models/components/contacttypepaginatedresponse.md:
     id: e4a870ce4b41
-    last_write_checksum: sha1:1b3af11c28c2e3ba852d99e9e2a9d1f7be7a7ea1
+    last_write_checksum: sha1:1257500369fdf3e28cedb9308030b918167a16fa
     pristine_git_object: 12d495657530cd6ac8a9b8494d38111eac620679
   docs/models/components/contactupdate.md:
     id: 6f3bafb2b265
@@ -1777,7 +1777,7 @@ trackedFiles:
     last_write_checksum: sha1:162484b9ff9b787c0cd5a6c8d327671b8d20a20a
   docs/models/components/customfield.md:
     id: 8aae2fb50194
-    last_write_checksum: sha1:007d1fee44ef736a4f8bb32ad6d3a76b29279df3
+    last_write_checksum: sha1:e78ff98cb75d92ca38102b5e3645b5bfbe37d8d5
     pristine_git_object: 3a950d392fd927e7f5be5d0bc36929eb3316b40c
   docs/models/components/customfield1.md:
     id: dfb27dec8027
@@ -1788,9 +1788,15 @@ trackedFiles:
   docs/models/components/customfield1input.md:
     last_write_checksum: sha1:8b4643791596fe51fc7f46788494d01b5edc5de9
   docs/models/components/customfield2.md:
-    last_write_checksum: sha1:8cd5e62a480c4b9ffb684a206c53c9a331256d6a
-  docs/models/components/customfield2details.md:
-    last_write_checksum: sha1:31cb7655647142789fa1f469cee258d7c1643851
+    last_write_checksum: sha1:1a8f031d4e0cb42fd82bdcff69e607b02f62f6b6
+  docs/models/components/customfield2customfieldtype.md:
+    last_write_checksum: sha1:a781cde159b5b7b2614d459a4b53dfb9ebd84aa1
+  docs/models/components/customfield2input.md:
+    last_write_checksum: sha1:fa93b7f387808e9942f03bbe495bc8bec571a7bf
+  docs/models/components/customfield3.md:
+    last_write_checksum: sha1:0755f2e9ae66926058c017e9329f9ea33af9d4a8
+  docs/models/components/customfield3details.md:
+    last_write_checksum: sha1:c6d21bca4b4bcc15c1fbe076cfe96ab21ae0f980
   docs/models/components/customfieldcategoryjson.md:
     id: 23bb98b97c94
     last_write_checksum: sha1:3f233608ff8ff655e44ae7210c08dd0d90b6d5e9
@@ -1801,8 +1807,12 @@ trackedFiles:
     pristine_git_object: 2c3ba099d04b113458d5d502c176d26d1b0c09b4
   docs/models/components/customfieldinput.md:
     id: e2043c9d02d5
-    last_write_checksum: sha1:f661109f0d1549ce5a1799d8ad2ab21ba9d18b25
+    last_write_checksum: sha1:8c7703dd9c31e5ffde80ae6ff8cf801378876072
     pristine_git_object: d6035d46c18f95f47f563cf8a06e18dd1c0f6f6b
+  docs/models/components/customfieldjson1.md:
+    last_write_checksum: sha1:500549d1bd0b7865650ff7334e7e3e1ddd606aa8
+  docs/models/components/customfieldjson1customfieldtype.md:
+    last_write_checksum: sha1:e1cd23444a5c8bfde047f94b1563d60d7724be8d
   docs/models/components/customfieldjson2.md:
     id: 56846fe524a1
     last_write_checksum: sha1:c3e59931812da0db16ca4a7aaffea15582a890b5
@@ -5643,7 +5653,7 @@ trackedFiles:
     pristine_git_object: fd8c702e10151de39635e2ee9b96151998f52619
   docs/models/components/zeroallof7.md:
     id: dd34773bd2f6
-    last_write_checksum: sha1:36409ac4bd262736723c303def12681176ab5779
+    last_write_checksum: sha1:03e849646a64133d5e576fed3bab6ad33b9d26c2
     pristine_git_object: 8f58d15aa53a9189e91490199fbe9e2f3ff323b6
   docs/models/components/zeroallof8.md:
     id: 745f725b6abb
@@ -5717,7 +5727,7 @@ trackedFiles:
     pristine_git_object: f6c1396909eb32fe1f028c255f74b32334a94f8d
   docs/models/operations/answerbudgetcustomfieldrequest.md:
     id: 1518d903c51e
-    last_write_checksum: sha1:34eb4e52ea90d4d23bc6439f0348e390a0a1ee9f
+    last_write_checksum: sha1:aa5517a522a613ed54046ee29f73640dc6df0016
     pristine_git_object: fe3dde252250ef88bd0e9368c28e2078de98277e
   docs/models/operations/answereventcustomfieldrequest.md:
     id: 2177a1b5bab4
@@ -7037,7 +7047,7 @@ trackedFiles:
     pristine_git_object: e826ae4ac9ad5e09a1aeec597f86d019ef77b05c
   docs/models/operations/listcontactgroupsrequest.md:
     id: bccc652a06a6
-    last_write_checksum: sha1:ecb3f67d018351052c5ff8fc10bf886df93a8fab
+    last_write_checksum: sha1:7753b56bdfa5a5a1b4bb4a8fea50727a1c253aed
     pristine_git_object: 89a749d13830e3bcac4d2a9ccfad74461a4c4cdb
   docs/models/operations/listcontactgroupsresponse.md:
     id: 4bbb9aa2695b
@@ -7061,7 +7071,7 @@ trackedFiles:
     pristine_git_object: 77c518bb99d202366b0e6afc2ad23aecaffffca1
   docs/models/operations/listcontactsrequest.md:
     id: a16a4486c215
-    last_write_checksum: sha1:395cc7ce771582e2e48dc772fd934ebbcebd1fc9
+    last_write_checksum: sha1:09c27b8203e285abe9ff620d79662475b640738b
     pristine_git_object: f4cc4b7628b7677e3ce6f018066113bcce05bf94
   docs/models/operations/listcontactsresponse.md:
     id: 33e94a097969
@@ -7069,11 +7079,11 @@ trackedFiles:
     pristine_git_object: a81c300b7e067eaebe013ff96576f68e55aa913a
   docs/models/operations/listcontacttypesrequest.md:
     id: 5c9fc49f967f
-    last_write_checksum: sha1:21f1b9f614a3df18c08e8ea00f5bc8584d2ed964
+    last_write_checksum: sha1:7c15305a20bb9b20d9646f09eac6f69412400969
     pristine_git_object: 8139f37e61ec1abe520e964373c3a10691863df7
   docs/models/operations/listcontacttypesresponse.md:
     id: 091c9623f05a
-    last_write_checksum: sha1:7e0a39e4b9321c3a7056c4b7bd8cb8b0ebf00dac
+    last_write_checksum: sha1:c9a85638af6cb5624a202a32b470fa6ea49be3d1
     pristine_git_object: 8d3b1b9e327ea1a670902a5bcdf767fddac0fe10
   docs/models/operations/listcustomfieldsrequest.md:
     id: 75c39f0e2e7e
@@ -7731,7 +7741,7 @@ trackedFiles:
     pristine_git_object: 9710351acd5dba9f16dde6486ec330ea3597c4cd
   docs/models/operations/updatecontactcustomfieldanswersrequest.md:
     id: 45bc8bc62a5e
-    last_write_checksum: sha1:db4cc720c526e4a443ce099d6fc296c4764859e9
+    last_write_checksum: sha1:6b637132ad88667de2837eeec5edbcde7acd88e0
     pristine_git_object: b5501805a4fe17575b13a5d6f712ef6b43dd5527
   docs/models/operations/updatecontactgrouprequest.md:
     id: 32275e940ebb
@@ -7931,7 +7941,7 @@ trackedFiles:
     pristine_git_object: f2e11667bf0ae570ce4a38d1f6ae79cc2f1d1857
   docs/sdks/budget/README.md:
     id: d80c75fe97ef
-    last_write_checksum: sha1:42e25c8ce3a70665ccdf0e07d7de8f547fcf0e73
+    last_write_checksum: sha1:7a8c40a8f6ee739d508cf37225b352ba8593d1c3
     pristine_git_object: 374958ce28e273758cc5f3cabaf6daeab7bad928
   docs/sdks/bulk/README.md:
     id: fa4bd7a4682a
@@ -7951,11 +7961,11 @@ trackedFiles:
     pristine_git_object: be80f803ff4e0ed9411026e5501886d5ed758f1f
   docs/sdks/contacts/README.md:
     id: 4174fb287a81
-    last_write_checksum: sha1:057cb9777657849fe9e3c85a3b4082f20453cca3
+    last_write_checksum: sha1:600c31e9e9575ee8f72d3dc64aaa25e618115e71
     pristine_git_object: 126c8486e472561b71ebc8730a3c09e496718572
   docs/sdks/customfields/README.md:
     id: a205cef73249
-    last_write_checksum: sha1:2cf8372dceb7b72367fce0f926c33dff21e40d59
+    last_write_checksum: sha1:e8322d87eca4744ac2c4d34cb02b267b08fc0b4b
     pristine_git_object: e6a6283200a32199de9be3898060bcb8ed5b3bc5
   docs/sdks/discounts/README.md:
     id: "000723261694"
@@ -8111,11 +8121,11 @@ trackedFiles:
     pristine_git_object: 80795a72645811f07559dbfd91e59131f127b3d4
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:f2f9d4df55e7a26a6a2a7edaf6816219780985a0
+    last_write_checksum: sha1:a5e5a89d995d4b2923da545416144fe056b9961a
     pristine_git_object: 3f8c18265e80f8c46d349b3a7d92f1a61f1d2dc9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:7eb79d5ff8cd55c946aeb8a7467d42c7b3488620
+    last_write_checksum: sha1:519df700811291c6a2e08509331baa39a0079b74
     pristine_git_object: 3474c00ef1d014883367c7bbeca6cbe6e330ca41
   src/core.ts:
     id: f431fdbcd144
@@ -8349,7 +8359,7 @@ trackedFiles:
     pristine_git_object: 78980671e7026a270e3cafdf142174427882278e
   src/funcs/budgetAnswerBudgetCustomField.ts:
     id: ddb88bbd331a
-    last_write_checksum: sha1:c38cd97f915a09d5f23fca0d7c967b29ed263fc9
+    last_write_checksum: sha1:0cd35c921d58896626b13b55b78b2faf137d3c3d
     pristine_git_object: 7c99daa58f1a9e111c69d60480d560b04d9a74ec
   src/funcs/budgetAttachInvoiceToPayment.ts:
     id: 2ebf5b38d541
@@ -8569,7 +8579,7 @@ trackedFiles:
     pristine_git_object: 481fcb8f512cb69396edbe3255b1989c39b7ac49
   src/funcs/contactsListContacts.ts:
     id: 72b1a075b211
-    last_write_checksum: sha1:94e5e3c6002c6e613ddc347fed86c68f32b19b78
+    last_write_checksum: sha1:c13e5d4fbf12b5604aa7c39a726f56187d144030
     pristine_git_object: 7abb8773d1489f1b97d741f12650a1b26084623e
   src/funcs/contactsListContactsPostFilters.ts:
     id: fd74cc34124e
@@ -8613,7 +8623,7 @@ trackedFiles:
     pristine_git_object: 55e422d598dea192085eafa4ea42a9a644b077bb
   src/funcs/customFieldsCreateCustomField.ts:
     id: 197a7be5ee26
-    last_write_checksum: sha1:2c28d2a61917fa41bfcd0535fac6bb3a0a8c89da
+    last_write_checksum: sha1:9b9ea928848a715df38a48335bff71334ef53fe9
     pristine_git_object: 1039c834152fbec079858d7c54e9dfe9a761713e
   src/funcs/customFieldsCreateCustomFieldTranslation.ts:
     id: d0d4a4b03b0f
@@ -9851,7 +9861,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:2f0c49babc75faf8cebfa857aed05008f3758fe5
+    last_write_checksum: sha1:2da82b9969cfdf052d29464c88170cddde39e217
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a
@@ -10216,7 +10226,7 @@ trackedFiles:
     last_write_checksum: sha1:2faf7b340bf408f71327c62bce608b182aa0eaf7
     pristine_git_object: 9e85da5804e99c34e3a6d396ffca55e95ddb6d90
   src/models/components/appointmentwithquestions.ts:
-    last_write_checksum: sha1:749b5c0f7e073396aec12193e0b964f9bd05b3d9
+    last_write_checksum: sha1:682bfe5c2789a4d58af6baed0aa39f2540e9df2e
   src/models/components/assetlocationjson.ts:
     id: 85c6dd0c2012
     last_write_checksum: sha1:d2e61e9ad26ec25196e3a00f3ffc6a8b5301ea04
@@ -11051,7 +11061,7 @@ trackedFiles:
     pristine_git_object: 362a55f6b06dbdf6e2dce5a2be47053d4d1a8b98
   src/models/components/contacttypejson.ts:
     id: dcebfde75cb2
-    last_write_checksum: sha1:e4ad0c3fbb0de21f921557c226690f3ea07fbc75
+    last_write_checksum: sha1:2f7e569cc979c5349c7d5cdf68fd1f7476651616
     pristine_git_object: 30713e72e5ea1a92e4bd82068f4d4a64b48c9685
   src/models/components/contacttypejson1.ts:
     id: b578d014d0f9
@@ -11139,18 +11149,22 @@ trackedFiles:
     pristine_git_object: 108e84c7d14467beba202f485dffbbf5f4374b44
   src/models/components/customfield.ts:
     id: 4a951fa91e23
-    last_write_checksum: sha1:24f6eef4206988007d41b72c5d1eed98d7980572
+    last_write_checksum: sha1:682ac14df975f88a5013d2f6198efe1f63223120
     pristine_git_object: ae0f618072dda8d7789c631a4fec1496bdfd838d
   src/models/components/customfield1.ts:
     id: 483964e3ec83
     last_write_checksum: sha1:73c9499028a7f4cbff29444c8b5d9355c18d95ab
     pristine_git_object: 6f9359bd6fe1576d59bd9343e9366de5f69e976a
   src/models/components/customfield2.ts:
-    last_write_checksum: sha1:e09d222e35daef92eb62888c4ae3f35d59857a3a
+    last_write_checksum: sha1:48c9c0f8405727f75e996b5c3a59d2ab8f91ced0
+  src/models/components/customfield3.ts:
+    last_write_checksum: sha1:672d57daec2d711cca980ab2a83b77ff3bc89770
   src/models/components/customfieldcategoryjson.ts:
     id: 61892405f7f6
     last_write_checksum: sha1:d264f5e4007c75065223bf50302534817a916d4e
     pristine_git_object: e0fa179aa15a2a0267b8077f55d1db520a19a443
+  src/models/components/customfieldjson1.ts:
+    last_write_checksum: sha1:c090a14ebc14d037b7930a325ffdb027ff64be99
   src/models/components/customfieldjson2.ts:
     id: 755804de3c72
     last_write_checksum: sha1:e165f8d61d519cdf5e35ffa850696e61cb51f847
@@ -12177,7 +12191,7 @@ trackedFiles:
     pristine_git_object: 25b6d73a71db2a2cce7aebf7c477a206af1553d6
   src/models/components/index.ts:
     id: 0aa842dce54d
-    last_write_checksum: sha1:379976a01a8ca097aba6f4b8c701b764e4dd54a0
+    last_write_checksum: sha1:3a18ba80b9545cbf9ede4853b55e4f4b573805df
     pristine_git_object: 1636a9903e66817622b1ea5a59afd4c1913879a5
   src/models/components/inventorydetailslist.ts:
     id: 5db50e9b8622
@@ -14129,7 +14143,7 @@ trackedFiles:
     pristine_git_object: d854020fc924f7a373722cc73356e336818a6b2c
   src/models/operations/answerbudgetcustomfield.ts:
     id: 73639e222060
-    last_write_checksum: sha1:4af53b95c5be725444f8ff8b21469f8b51f95274
+    last_write_checksum: sha1:93ae7e65a8262c082965c6c02a70ba4d9df9a778
     pristine_git_object: 7a37b9b44b5721847dc07f480d3e3d3d3405cde7
   src/models/operations/answereventcustomfield.ts:
     id: d6d9a4741332
@@ -15105,7 +15119,7 @@ trackedFiles:
     pristine_git_object: 61e7cea3717431e8f8c5dbd4c0fcb59999fcbd36
   src/models/operations/listcontactgroups.ts:
     id: 70129fb69838
-    last_write_checksum: sha1:9612bf69ab65d8a88a1eca3bc80ba44d48b4dcef
+    last_write_checksum: sha1:afb0cc0d08483b8c529587b3c5c65b39ea1cc4e1
     pristine_git_object: fcd85fd9b46bace3b603eb9a2fbbc3173350ca07
   src/models/operations/listcontacthooks.ts:
     id: b042d13e14a4
@@ -15113,7 +15127,7 @@ trackedFiles:
     pristine_git_object: 9dea5a0fbeacd87668afd1d5ee597cc5b670c185
   src/models/operations/listcontacts.ts:
     id: f45012ecf03a
-    last_write_checksum: sha1:b9df57a9f4f7e57a8a071a5912256d1b2a6bcf5b
+    last_write_checksum: sha1:7a93ec3169eca0e6bd10d9b380bc08681fed28f7
     pristine_git_object: 0e62afbd6aedaad58d052809274549757f8316da
   src/models/operations/listcontactspostfilters.ts:
     id: 5f8e0c5c3877
@@ -15121,7 +15135,7 @@ trackedFiles:
     pristine_git_object: 366afd9fec6ad7822a6c031ef5ccf18b95fc6267
   src/models/operations/listcontacttypes.ts:
     id: 9fae2fcece63
-    last_write_checksum: sha1:174e32578e1ab7a41b4431a6f44630ead081b4c6
+    last_write_checksum: sha1:7c9f9c10271d3c54ffd513a5f2b3362da09636aa
     pristine_git_object: 64247d87f01f0cea2737d6a17c04f990b110a845
   src/models/operations/listcustomfields.ts:
     id: 3626b5d9763a
@@ -15717,7 +15731,7 @@ trackedFiles:
     pristine_git_object: be3b75cf9837f48c84e19f56e0d0b2e1f8805f7b
   src/sdk/budget.ts:
     id: 38ac6fb4312e
-    last_write_checksum: sha1:699e670515538b4e5be3d505678a1b21a583f148
+    last_write_checksum: sha1:be42925409f62b51cbdd4da413cee7afe592385b
     pristine_git_object: bf999fcd7e55e010a55d794f53214457bfe16a5e
   src/sdk/bulk.ts:
     id: 1a15e92b7620
@@ -15741,7 +15755,7 @@ trackedFiles:
     pristine_git_object: e22f94b0762ab121ff2c0d03a6368dd4a15c6412
   src/sdk/customfields.ts:
     id: d2059c829cc0
-    last_write_checksum: sha1:e8891f143c3c3c68e754bf2dae67cb21b2845ab3
+    last_write_checksum: sha1:bbe6df4aa3f09857d511e1615eb465408b39e5df
     pristine_git_object: f2f9c466e85c7c27bf4b1076ffe5aa6d34f531ad
   src/sdk/discounts.ts:
     id: 413e4d5bc639
@@ -17975,6 +17989,7 @@ examples:
           limit: 100
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
           filter: "firstName eq 'John' or lastName eq 'Anderson'"
+          includePurged: false
       responses:
         "200":
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
@@ -17995,7 +18010,7 @@ examples:
         application/json: [{"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "designation": "CPA", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63"}, "primaryAddressType": "Home", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "prefix": "Mr.", "pager": "555-555-5555", "optOut": {"optedOut": false}, "npi": "5555555555", "passport": {"number": "123456789", "countryCode": "GB"}, "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "id": "6287f5c1-9d7f-4f15-9ffe-ca2cb290964c"}]
       responses:
         "207":
-          application/json: [{"data": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "1b7e1367-89e8-42bf-bb0d-d18fb7bb6dc0", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}, "status": 400, "message": "Example error message.", "request": {"operation": "PUT", "headers": {"header1": "header1Value", "header2": "header2Value"}, "queryParams": {"param1": "param1Value", "param2": "param2Value"}}}]
+          application/json: [{"data": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "1b7e1367-89e8-42bf-bb0d-d18fb7bb6dc0", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}, "status": 400, "message": "Example error message.", "request": {"operation": "PUT", "headers": {"header1": "header1Value", "header2": "header2Value"}, "queryParams": {"param1": "param1Value", "param2": "param2Value"}}}]
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   createContacts:
@@ -18007,7 +18022,7 @@ examples:
         application/json: [{"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "prefix": "Mr.", "pager": "555-555-5555", "optOut": {"optedOut": false}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}]
       responses:
         "207":
-          application/json: [{"data": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "da443a57-211e-4e8f-a3a2-7cbdc3e87a81", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}, "status": 400, "message": "Example error message.", "request": {"operation": "PUT", "headers": {"header1": "header1Value", "header2": "header2Value"}, "queryParams": {"param1": "param1Value", "param2": "param2Value"}}}]
+          application/json: [{"data": {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "da443a57-211e-4e8f-a3a2-7cbdc3e87a81", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}, "status": 400, "message": "Example error message.", "request": {"operation": "PUT", "headers": {"header1": "header1Value", "header2": "header2Value"}, "queryParams": {"param1": "param1Value", "param2": "param2Value"}}}]
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   listContactsPostFilters:
@@ -18022,7 +18037,7 @@ examples:
         application/json: {"filter": "property eq 'value'"}
       responses:
         "200":
-          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "5d6b4f13-a17f-4fc7-876d-3df674a3ee1e", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}]}
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "5d6b4f13-a17f-4fc7-876d-3df674a3ee1e", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}]}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   getContactObfuscationStatusById:
@@ -18057,7 +18072,7 @@ examples:
           id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "8e1ed020-b6a0-4843-b5fd-5133cc181844", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "8e1ed020-b6a0-4843-b5fd-5133cc181844", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   updateContactById:
@@ -18069,7 +18084,7 @@ examples:
         application/json: {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "prefix": "Mr.", "pager": "555-555-5555", "optOut": {"optedOut": false}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "id": "35072f36-7cef-4254-82ae-1b411ba42d5f"}
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "d5dbdd14-6fb6-40a2-8df1-d743585d7cf9", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "d5dbdd14-6fb6-40a2-8df1-d743585d7cf9", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   patchContactById:
@@ -18081,7 +18096,7 @@ examples:
         application/json: {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "designation": "CPA", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63"}, "primaryAddressType": "Home", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "regionCode": "TX"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "prefix": "Mr.", "pager": "555-555-5555", "optOut": {"optedOut": false}, "npi": "5555555555", "passport": {"number": "123456789", "countryCode": "GB"}, "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "id": "07460b8e-b91c-45c8-8cff-780165752daa"}
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "c79e5373-9698-4fc0-9672-f7628bcce122", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "c79e5373-9698-4fc0-9672-f7628bcce122", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   deleteContactById:
@@ -18099,10 +18114,10 @@ examples:
           id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
           customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
       requestBody:
-        application/json: {"id": "2900aa71-b025-4a43-ab99-825a225ac215", "type": "General", "value": ["Choice C", "Choice A"]}
+        application/json: {"id": "2900aa71-b025-4a43-ab99-825a225ac215", "value": ["Choice C", "Choice A"], "type": "General"}
       responses:
         "200":
-          application/json: {"id": "c7e074ec-a51c-4bab-b9bf-98bb75fd203d", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}
+          application/json: {"id": "c7e074ec-a51c-4bab-b9bf-98bb75fd203d", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   mergeContacts:
@@ -18114,7 +18129,7 @@ examples:
         application/json: {"secondaryContacts": ["04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"], "conflictResolution": {"contactFields": [{"fieldName": "firstName", "contactId": "a45a3341-d30f-4bd9-bfd8-fbcdae37f0f2"}]}}
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "5aedaf3c-33cc-4aeb-8f9a-b0c053624673", "name": "What is a your favorite color?", "type": "General", "value": ["Choice C", "Choice A"], "order": 1}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "CPA", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "membership": {"type": "Corporate Sponsor", "plan": "Gold Level", "joined": "2017-02-10", "expiration": "2020-02-09", "lastRenewal": "2019-02-08", "amountDue": 50.5, "listInDirectory": false}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America"}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "customFields": [{"id": "5aedaf3c-33cc-4aeb-8f9a-b0c053624673", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Mr.", "pager": "555-555-5555", "deleted": false, "purged": false, "optOut": {"optedOut": false, "date": "2019-02-12T03:00:00Z", "by": "Account User"}, "npi": "5555555555", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}, "dateOfBirth": "1990-01-01", "passport": {"number": "123456789", "country": "United Kingdom", "countryCode": "GB"}, "socialSecurityNumber": "123-45-6789", "nationalIdentificationNumber": "123456789", "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them"}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   obfuscateContactById:

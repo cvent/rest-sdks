@@ -2437,11 +2437,11 @@ async function run() {
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customField: {
       id: "2900aa71-b025-4a43-ab99-825a225ac215",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
 
@@ -2478,11 +2478,11 @@ async function run() {
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customField: {
       id: "2900aa71-b025-4a43-ab99-825a225ac215",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
   if (res.ok) {

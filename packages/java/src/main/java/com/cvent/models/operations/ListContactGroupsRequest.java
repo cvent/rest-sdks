@@ -43,19 +43,19 @@ public class ListContactGroupsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are four comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * name (eq|ne|sw|contains)
-     * * type (eq) Not supported with before or after parameters
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | name             | `eq`, `ne`, `sw`, `contains`        | |
+     * | type             | `eq`                                | Not supported with before or after
+     * parameters |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -110,19 +110,19 @@ public class ListContactGroupsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are four comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * name (eq|ne|sw|contains)
-     * * type (eq) Not supported with before or after parameters
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | name             | `eq`, `ne`, `sw`, `contains`        | |
+     * | type             | `eq`                                | Not supported with before or after
+     * parameters |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public Optional<String> filter() {
@@ -168,19 +168,19 @@ public class ListContactGroupsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are four comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * starts with: sw
-     * * contains a value: contains
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * name (eq|ne|sw|contains)
-     * * type (eq) Not supported with before or after parameters
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators                          | Notes |
+     * |------------------|-------------------------------------|-------|
+     * | name             | `eq`, `ne`, `sw`, `contains`        | |
+     * | type             | `eq`                                | Not supported with before or after
+     * parameters |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public ListContactGroupsRequest withFilter(@Nullable String filter) {
@@ -277,19 +277,19 @@ public class ListContactGroupsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * There are four comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * starts with: sw
-         * * contains a value: contains
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * name (eq|ne|sw|contains)
-         * * type (eq) Not supported with before or after parameters
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following operators are available:
+         * <p>| Field            | Operators                          | Notes |
+         * |------------------|-------------------------------------|-------|
+         * | name             | `eq`, `ne`, `sw`, `contains`        | |
+         * | type             | `eq`                                | Not supported with before or after
+         * parameters |
+         *
+         * <p>The following logical operators are supported for combining filters:
          * * and
          */
         public Builder filter(@Nullable String filter) {

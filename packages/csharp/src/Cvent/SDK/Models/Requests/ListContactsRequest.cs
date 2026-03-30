@@ -40,59 +40,61 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// There are eight comparison types that can be used in filter expressions:<br/>
-        /// * equal: eq<br/>
-        /// * not equal: ne<br/>
-        /// * greater than: gt<br/>
-        /// * greater or equal: ge<br/>
-        /// * less than: lt<br/>
-        /// * less than or equal: le<br/>
-        /// * starts with: sw<br/>
-        /// * contains a value: contains<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        /// * id (eq|ne)<br/>
-        /// * sourceId (eq|ne)<br/>
-        /// * firstName (eq|ne|contains)<br/>
-        /// * lastName (eq|ne|contains)<br/>
-        /// * email (eq|ne|contains)<br/>
-        /// * ccEmail (eq|ne)<br/>
-        /// * company (eq|ne)<br/>
-        /// * type.id (eq|ne)<br/>
-        /// * nickname (eq|ne)<br/>
-        /// * title (eq|ne)<br/>
-        /// * workPhone (eq|ne)<br/>
-        /// * middleName (eq|ne)<br/>
-        /// * mobilePhone (eq|ne)<br/>
-        /// * homeFax (eq|ne)<br/>
-        /// * designation (eq|ne)<br/>
-        /// * homePhone (eq|ne)<br/>
-        /// * pager (eq|ne)<br/>
-        /// * workFax (eq|ne)<br/>
-        /// * lastModifiedBy (eq|ne)<br/>
-        /// * lastModified (eq|ne|lt|le|gt|ge)<br/>
-        /// * created (eq|ne|lt|le|gt|ge)<br/>
-        /// * createdBy (eq|ne)<br/>
-        /// * workAddress.address1 (eq|ne)<br/>
-        /// * workAddress.address2 (eq|ne)<br/>
-        /// * workAddress.address3 (eq|ne)<br/>
-        /// * workAddress.city (eq|ne)<br/>
-        /// * workAddress.country (eq|ne)<br/>
-        /// * homeAddress.address1 (eq|ne)<br/>
-        /// * homeAddress.address2 (eq|ne)<br/>
-        /// * homeAddress.address3 (eq|ne)<br/>
-        /// * homeAddress.city (eq|ne)<br/>
-        /// * homeAddress.country (eq|ne)<br/>
-        /// * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter.<br/>
-        /// * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)<br/>
-        /// * optOut.optedOut (eq|ne)<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following operators are available:<br/>
+        /// | Field            | Operators                          | Notes |<br/>
+        /// |------------------|-------------------------------------|-------|<br/>
+        /// | id               | `eq`, `ne`                          | |<br/>
+        /// | sourceId         | `eq`, `ne`                          | |<br/>
+        /// | firstName        | `eq`, `ne`, `contains`, `sw`        | |<br/>
+        /// | lastName         | `eq`, `ne`, `contains`, `sw`        | |<br/>
+        /// | email            | `eq`, `ne`, `contains`, `sw`        | |<br/>
+        /// | ccEmail          | `eq`, `ne`                          | |<br/>
+        /// | company          | `eq`, `ne`                          | |<br/>
+        /// | type.id          | `eq`, `ne`                          | |<br/>
+        /// | nickname         | `eq`, `ne`                          | |<br/>
+        /// | title            | `eq`, `ne`                          | |<br/>
+        /// | workPhone        | `eq`, `ne`                          | |<br/>
+        /// | middleName       | `eq`, `ne`                          | |<br/>
+        /// | mobilePhone      | `eq`, `ne`                          | |<br/>
+        /// | homeFax          | `eq`, `ne`                          | |<br/>
+        /// | designation      | `eq`, `ne`                          | |<br/>
+        /// | homePhone        | `eq`, `ne`                          | |<br/>
+        /// | pager            | `eq`, `ne`                          | |<br/>
+        /// | workFax          | `eq`, `ne`                          | |<br/>
+        /// | lastModifiedBy   | `eq`, `ne`                          | |<br/>
+        /// | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |<br/>
+        /// | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |<br/>
+        /// | createdBy        | `eq`, `ne`                          | |<br/>
+        /// | workAddress.address1 | `eq`, `ne`                      | |<br/>
+        /// | workAddress.address2 | `eq`, `ne`                      | |<br/>
+        /// | workAddress.address3 | `eq`, `ne`                      | |<br/>
+        /// | workAddress.city | `eq`, `ne`                          | |<br/>
+        /// | workAddress.country | `eq`, `ne`                       | |<br/>
+        /// | homeAddress.address1 | `eq`, `ne`                      | |<br/>
+        /// | homeAddress.address2 | `eq`, `ne`                      | |<br/>
+        /// | homeAddress.address3 | `eq`, `ne`                      | |<br/>
+        /// | homeAddress.city | `eq`, `ne`                          | |<br/>
+        /// | homeAddress.country | `eq`, `ne`                       | |<br/>
+        /// | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter. |<br/>
+        /// | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |<br/>
+        /// | optOut.optedOut  | `eq`, `ne`                          | |<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
         /// * and<br/>
         /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
+
+        /// <summary>
+        /// True means purged contacts can be included in the response. Purged contacts contain only limited display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only filter by the `id` field. The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use with this parameter. If false, only contacts that have not been purged will be returned.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=includePurged")]
+        public bool? IncludePurged { get; set; } = false;
     }
 }

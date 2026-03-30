@@ -40,5 +40,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("description")]
         public string? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether the contact type is active.
+        /// </summary>
+        [JsonProperty("active")]
+        public bool? Active { get; set; }
     }
 }

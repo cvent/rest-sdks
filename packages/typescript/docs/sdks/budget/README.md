@@ -2202,7 +2202,7 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField: {
+    customField2: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
       type: "General",
       value: [
@@ -2244,7 +2244,7 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField: {
+    customField2: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
       type: "General",
       value: [
@@ -2275,7 +2275,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField](../../models/components/customfield.md)\>**
+**Promise\<[components.CustomField2](../../models/components/customfield2.md)\>**
 
 ### Errors
 

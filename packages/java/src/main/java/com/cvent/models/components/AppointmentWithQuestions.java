@@ -161,7 +161,7 @@ public class AppointmentWithQuestions {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
-    private List<CustomField> questions;
+    private List<CustomFieldJson1> questions;
 
     @JsonCreator
     public AppointmentWithQuestions(
@@ -184,7 +184,7 @@ public class AppointmentWithQuestions {
             @JsonProperty("enforceScheduleRules") @Nullable Boolean enforceScheduleRules,
             @JsonProperty("modified") @Nullable OffsetDateTime modified,
             @JsonProperty("deleted") @Nullable Boolean deleted,
-            @JsonProperty("questions") @Nullable List<CustomField> questions) {
+            @JsonProperty("questions") @Nullable List<CustomFieldJson1> questions) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.code = code;
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
@@ -376,7 +376,7 @@ public class AppointmentWithQuestions {
     /**
      * Collection of custom questions asked to participants of the appointment.
      */
-    public Optional<List<CustomField>> questions() {
+    public Optional<List<CustomFieldJson1>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -543,7 +543,7 @@ public class AppointmentWithQuestions {
     /**
      * Collection of custom questions asked to participants of the appointment.
      */
-    public AppointmentWithQuestions withQuestions(@Nullable List<CustomField> questions) {
+    public AppointmentWithQuestions withQuestions(@Nullable List<CustomFieldJson1> questions) {
         this.questions = questions;
         return this;
     }
@@ -692,7 +692,7 @@ public class AppointmentWithQuestions {
 
         private Boolean deleted;
 
-        private List<CustomField> questions;
+        private List<CustomFieldJson1> questions;
 
         private Builder() {
             // force use of static builder() method
@@ -857,7 +857,7 @@ public class AppointmentWithQuestions {
         /**
          * Collection of custom questions asked to participants of the appointment.
          */
-        public Builder questions(@Nullable List<CustomField> questions) {
+        public Builder questions(@Nullable List<CustomFieldJson1> questions) {
             this.questions = questions;
             return this;
         }

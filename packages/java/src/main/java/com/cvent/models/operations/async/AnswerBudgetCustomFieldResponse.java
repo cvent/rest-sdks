@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.CustomField;
+import com.cvent.models.components.CustomField2;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,20 +35,20 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answer in the budget.
      */
-    private CustomField customField;
+    private CustomField2 customField2;
 
     @JsonCreator
     public AnswerBudgetCustomFieldResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable CustomField customField) {
+            @Nullable CustomField2 customField2) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.customField = customField;
+        this.customField2 = customField2;
     }
 
     public AnswerBudgetCustomFieldResponse(
@@ -80,8 +80,8 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answer in the budget.
      */
-    public Optional<CustomField> customField() {
-        return Optional.ofNullable(this.customField);
+    public Optional<CustomField2> customField2() {
+        return Optional.ofNullable(this.customField2);
     }
 
     public static Builder builder() {
@@ -115,8 +115,8 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answer in the budget.
      */
-    public AnswerBudgetCustomFieldResponse withCustomField(@Nullable CustomField customField) {
-        this.customField = customField;
+    public AnswerBudgetCustomFieldResponse withCustomField2(@Nullable CustomField2 customField2) {
+        this.customField2 = customField2;
         return this;
     }
 
@@ -132,12 +132,12 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.customField, other.customField);
+                && Utils.enhancedDeepEquals(this.customField2, other.customField2);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField2);
     }
 
     @Override
@@ -150,8 +150,8 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "customField",
-                customField);
+                "customField2",
+                customField2);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -163,7 +163,7 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private CustomField customField;
+        private CustomField2 customField2;
 
         private Builder() {
             // force use of static builder() method
@@ -196,13 +196,13 @@ public class AnswerBudgetCustomFieldResponse implements AsyncResponse {
         /**
          * Successfully updated custom field answer in the budget.
          */
-        public Builder customField(@Nullable CustomField customField) {
-            this.customField = customField;
+        public Builder customField2(@Nullable CustomField2 customField2) {
+            this.customField2 = customField2;
             return this;
         }
 
         public AnswerBudgetCustomFieldResponse build() {
-            return new AnswerBudgetCustomFieldResponse(contentType, statusCode, rawResponse, customField);
+            return new AnswerBudgetCustomFieldResponse(contentType, statusCode, rawResponse, customField2);
         }
     }
 }

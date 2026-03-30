@@ -30,61 +30,63 @@ export type ListContactsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * There are eight comparison types that can be used in filter expressions:
-   * * equal: eq
-   * * not equal: ne
-   * * greater than: gt
-   * * greater or equal: ge
-   * * less than: lt
-   * * less than or equal: le
-   * * starts with: sw
-   * * contains a value: contains
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * The following fields are filterable:
-   * * id (eq|ne)
-   * * sourceId (eq|ne)
-   * * firstName (eq|ne|contains)
-   * * lastName (eq|ne|contains)
-   * * email (eq|ne|contains)
-   * * ccEmail (eq|ne)
-   * * company (eq|ne)
-   * * type.id (eq|ne)
-   * * nickname (eq|ne)
-   * * title (eq|ne)
-   * * workPhone (eq|ne)
-   * * middleName (eq|ne)
-   * * mobilePhone (eq|ne)
-   * * homeFax (eq|ne)
-   * * designation (eq|ne)
-   * * homePhone (eq|ne)
-   * * pager (eq|ne)
-   * * workFax (eq|ne)
-   * * lastModifiedBy (eq|ne)
-   * * lastModified (eq|ne|lt|le|gt|ge)
-   * * created (eq|ne|lt|le|gt|ge)
-   * * createdBy (eq|ne)
-   * * workAddress.address1 (eq|ne)
-   * * workAddress.address2 (eq|ne)
-   * * workAddress.address3 (eq|ne)
-   * * workAddress.city (eq|ne)
-   * * workAddress.country (eq|ne)
-   * * homeAddress.address1 (eq|ne)
-   * * homeAddress.address2 (eq|ne)
-   * * homeAddress.address3 (eq|ne)
-   * * homeAddress.city (eq|ne)
-   * * homeAddress.country (eq|ne)
-   * * deleted (eq|ne) - This filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter.
-   * * customField.{uuid of custom field} (eq|ne|lt|le|gt|ge|sw|contains)
-   * * optOut.optedOut (eq|ne)
+   * Supported fields and operators are listed below:
    *
-   * The following operators are available:
+   * | Field            | Operators                          | Notes |
+   * |------------------|-------------------------------------|-------|
+   * | id               | `eq`, `ne`                          | |
+   * | sourceId         | `eq`, `ne`                          | |
+   * | firstName        | `eq`, `ne`, `contains`, `sw`        | |
+   * | lastName         | `eq`, `ne`, `contains`, `sw`        | |
+   * | email            | `eq`, `ne`, `contains`, `sw`        | |
+   * | ccEmail          | `eq`, `ne`                          | |
+   * | company          | `eq`, `ne`                          | |
+   * | type.id          | `eq`, `ne`                          | |
+   * | nickname         | `eq`, `ne`                          | |
+   * | title            | `eq`, `ne`                          | |
+   * | workPhone        | `eq`, `ne`                          | |
+   * | middleName       | `eq`, `ne`                          | |
+   * | mobilePhone      | `eq`, `ne`                          | |
+   * | homeFax          | `eq`, `ne`                          | |
+   * | designation      | `eq`, `ne`                          | |
+   * | homePhone        | `eq`, `ne`                          | |
+   * | pager            | `eq`, `ne`                          | |
+   * | workFax          | `eq`, `ne`                          | |
+   * | lastModifiedBy   | `eq`, `ne`                          | |
+   * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+   * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | |
+   * | createdBy        | `eq`, `ne`                          | |
+   * | workAddress.address1 | `eq`, `ne`                      | |
+   * | workAddress.address2 | `eq`, `ne`                      | |
+   * | workAddress.address3 | `eq`, `ne`                      | |
+   * | workAddress.city | `eq`, `ne`                          | |
+   * | workAddress.country | `eq`, `ne`                       | |
+   * | homeAddress.address1 | `eq`, `ne`                      | |
+   * | homeAddress.address2 | `eq`, `ne`                      | |
+   * | homeAddress.address3 | `eq`, `ne`                      | |
+   * | homeAddress.city | `eq`, `ne`                          | |
+   * | homeAddress.country | `eq`, `ne`                       | |
+   * | deleted          | `eq`, `ne`                          | Filters for deleted contacts. To retrieve purged contacts, see the `includePurged` parameter. |
+   * | customField.{uuid of custom field} | `eq`, `ne`, `lt`, `le`, `gt`, `ge`, `sw`, `contains` | |
+   * | optOut.optedOut  | `eq`, `ne`                          | |
+   *
+   * The following logical operators are supported for combining filters:
    * * and
    * * or
    */
   filter?: string | undefined;
+  /**
+   * True means purged contacts can be included in the response. Purged contacts contain only limited display data (`id`, `lastModified`, and `purged`). When true, the filter query parameter can only filter by the `id` field. The `before`, `after`, `limit`, and `token` query parameters are still valid query parameters to use with this parameter. If false, only contacts that have not been purged will be returned.
+   *
+   * @remarks
+   */
+  includePurged?: boolean | undefined;
 };
 
 export type ListContactsResponse = {
@@ -98,6 +100,7 @@ export type ListContactsRequest$Outbound = {
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
+  includePurged: boolean;
 };
 
 /** @internal */
@@ -111,6 +114,7 @@ export const ListContactsRequest$outboundSchema: z.ZodType<
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
+  includePurged: z.boolean().default(false),
 });
 
 export function listContactsRequestToJSON(

@@ -32,6 +32,7 @@ let value: ContactTypePaginatedResponse = {
       code: "VIP",
       name: "VIP Attendee",
       description: "Very important attendee.",
+      active: true,
     },
   ],
 };

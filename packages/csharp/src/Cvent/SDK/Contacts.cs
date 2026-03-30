@@ -2285,7 +2285,8 @@ namespace Cvent.SDK
                     Before = request?.Before,
                     Limit = request?.Limit,
                     Token = nextCursor,
-                    Filter = request?.Filter
+                    Filter = request?.Filter,
+                    IncludePurged = request?.IncludePurged
                 };
 
                 return await ListContactsAsync(

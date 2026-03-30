@@ -36,6 +36,6 @@ namespace Cvent.SDK.Models.Requests
         /// Custom field answer to be updated.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public CustomFieldInput CustomField { get; set; } = default!;
+        public CustomField2Input CustomField2 { get; set; } = default!;
     }
 }

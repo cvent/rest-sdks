@@ -1566,12 +1566,12 @@ public class Application {
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .budgetItemId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .customField(CustomFieldInput.builder()
+                .customField2(CustomField2Input.builder()
                     .id("a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6")
                     .value(List.of(
                         "Choice C",
                         "Choice A"))
-                    .type(CustomFieldCustomFieldType.GENERAL)
+                    .type(CustomField2CustomFieldType.GENERAL)
                     .build())
                 .build();
 
@@ -1579,8 +1579,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.customField().isPresent()) {
-            System.out.println(res.customField().get());
+        if (res.customField2().isPresent()) {
+            System.out.println(res.customField2().get());
         }
     }
 }

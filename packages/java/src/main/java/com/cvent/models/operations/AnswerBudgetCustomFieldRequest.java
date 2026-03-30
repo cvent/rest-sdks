@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CustomFieldInput;
+import com.cvent.models.components.CustomField2Input;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,21 +35,21 @@ public class AnswerBudgetCustomFieldRequest {
      * Custom field answer to be updated.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private CustomFieldInput customField;
+    private CustomField2Input customField2;
 
     @JsonCreator
     public AnswerBudgetCustomFieldRequest(
             @Nonnull String id,
             @Nonnull String budgetItemId,
             @Nonnull String customFieldId,
-            @Nonnull CustomFieldInput customField) {
+            @Nonnull CustomField2Input customField2) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.budgetItemId = Optional.ofNullable(budgetItemId)
                 .orElseThrow(() -> new IllegalArgumentException("budgetItemId cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
                 .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
-        this.customField = Optional.ofNullable(customField)
-                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
+        this.customField2 = Optional.ofNullable(customField2)
+                .orElseThrow(() -> new IllegalArgumentException("customField2 cannot be null"));
     }
 
     /**
@@ -76,8 +76,8 @@ public class AnswerBudgetCustomFieldRequest {
     /**
      * Custom field answer to be updated.
      */
-    public CustomFieldInput customField() {
-        return this.customField;
+    public CustomField2Input customField2() {
+        return this.customField2;
     }
 
     public static Builder builder() {
@@ -111,8 +111,8 @@ public class AnswerBudgetCustomFieldRequest {
     /**
      * Custom field answer to be updated.
      */
-    public AnswerBudgetCustomFieldRequest withCustomField(@Nonnull CustomFieldInput customField) {
-        this.customField = Utils.checkNotNull(customField, "customField");
+    public AnswerBudgetCustomFieldRequest withCustomField2(@Nonnull CustomField2Input customField2) {
+        this.customField2 = Utils.checkNotNull(customField2, "customField2");
         return this;
     }
 
@@ -128,12 +128,12 @@ public class AnswerBudgetCustomFieldRequest {
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.budgetItemId, other.budgetItemId)
                 && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
-                && Utils.enhancedDeepEquals(this.customField, other.customField);
+                && Utils.enhancedDeepEquals(this.customField2, other.customField2);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, budgetItemId, customFieldId, customField);
+        return Utils.enhancedHash(id, budgetItemId, customFieldId, customField2);
     }
 
     @Override
@@ -146,8 +146,8 @@ public class AnswerBudgetCustomFieldRequest {
                 budgetItemId,
                 "customFieldId",
                 customFieldId,
-                "customField",
-                customField);
+                "customField2",
+                customField2);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -159,7 +159,7 @@ public class AnswerBudgetCustomFieldRequest {
 
         private String customFieldId;
 
-        private CustomFieldInput customField;
+        private CustomField2Input customField2;
 
         private Builder() {
             // force use of static builder() method
@@ -192,13 +192,13 @@ public class AnswerBudgetCustomFieldRequest {
         /**
          * Custom field answer to be updated.
          */
-        public Builder customField(@Nonnull CustomFieldInput customField) {
-            this.customField = Utils.checkNotNull(customField, "customField");
+        public Builder customField2(@Nonnull CustomField2Input customField2) {
+            this.customField2 = Utils.checkNotNull(customField2, "customField2");
             return this;
         }
 
         public AnswerBudgetCustomFieldRequest build() {
-            return new AnswerBudgetCustomFieldRequest(id, budgetItemId, customFieldId, customField);
+            return new AnswerBudgetCustomFieldRequest(id, budgetItemId, customFieldId, customField2);
         }
     }
 }

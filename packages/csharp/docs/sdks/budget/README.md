@@ -1250,9 +1250,9 @@ AnswerBudgetCustomFieldRequest req = new AnswerBudgetCustomFieldRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CustomField = new CustomFieldInput() {
+    CustomField2 = new CustomField2Input() {
         Id = "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
-        Type = CustomFieldCustomFieldType.General,
+        Type = CustomField2CustomFieldType.General,
         Value = new List<string>() {
             "Choice C",
             "Choice A",

@@ -16,38 +16,38 @@ import java.lang.String;
 import java.lang.SuppressWarnings;
 
 /**
- * CustomField2Details
+ * CustomField3Details
  *
  * <p>Type-specific details of the custom-field.
  */
-@JsonDeserialize(using = CustomField2Details._Deserializer.class)
-public class CustomField2Details {
+@JsonDeserialize(using = CustomField3Details._Deserializer.class)
+public class CustomField3Details {
 
     @JsonValue
     private final TypedObject value;
 
-    private CustomField2Details(TypedObject value) {
+    private CustomField3Details(TypedObject value) {
         this.value = value;
     }
 
-    public static CustomField2Details of(OpenEndedOneLine value) {
+    public static CustomField3Details of(OpenEndedOneLine value) {
         Utils.checkNotNull(value, "value");
-        return new CustomField2Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
+        return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static CustomField2Details of(OpenEndedDateTime value) {
+    public static CustomField3Details of(OpenEndedDateTime value) {
         Utils.checkNotNull(value, "value");
-        return new CustomField2Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
+        return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static CustomField2Details of(OpenEndedCommentBox value) {
+    public static CustomField3Details of(OpenEndedCommentBox value) {
         Utils.checkNotNull(value, "value");
-        return new CustomField2Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
+        return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static CustomField2Details of(Choices value) {
+    public static CustomField3Details of(Choices value) {
         Utils.checkNotNull(value, "value");
-        return new CustomField2Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
+        return new CustomField3Details(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
     /**
@@ -82,7 +82,7 @@ public class CustomField2Details {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CustomField2Details other = (CustomField2Details) o;
+        CustomField3Details other = (CustomField3Details) o;
         return Utils.enhancedDeepEquals(this.value.value(), other.value.value());
     }
 
@@ -92,11 +92,11 @@ public class CustomField2Details {
     }
 
     @SuppressWarnings("serial")
-    public static final class _Deserializer extends OneOfDeserializer<CustomField2Details> {
+    public static final class _Deserializer extends OneOfDeserializer<CustomField3Details> {
 
         public _Deserializer() {
             super(
-                    CustomField2Details.class,
+                    CustomField3Details.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<OpenEndedOneLine>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<OpenEndedDateTime>() {}, JsonShape.DEFAULT),
@@ -107,6 +107,6 @@ public class CustomField2Details {
 
     @Override
     public String toString() {
-        return Utils.toString(CustomField2Details.class, "value", value);
+        return Utils.toString(CustomField3Details.class, "value", value);
     }
 }

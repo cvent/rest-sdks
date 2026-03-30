@@ -1380,11 +1380,11 @@ UpdateContactCustomFieldAnswersRequest req = new UpdateContactCustomFieldAnswers
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomField = new CustomFieldInput() {
         Id = "2900aa71-b025-4a43-ab99-825a225ac215",
-        Type = CustomFieldCustomFieldType.General,
         Value = new List<string>() {
             "Choice C",
             "Choice A",
         },
+        Type = CustomFieldCustomFieldType.General,
     },
 };
 
