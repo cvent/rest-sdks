@@ -72,7 +72,7 @@ public class Oauth2Token {
             // hooks will be passed method level security only
             this.securitySource = SecuritySource.of(security);
             Optional.ofNullable(options).ifPresent(o -> o.validate(List.of(Options.Option.RETRY_CONFIG)));
-            this.retryStatusCodes = List.of("429");
+            this.retryStatusCodes = List.of("429", "502", "503", "504");
             this.retryConfig = Optional.ofNullable(options)
                     .flatMap(Options::retryConfig)
                     .or(sdkConfiguration::retryConfig)
