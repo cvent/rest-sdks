@@ -121,6 +121,9 @@ jobs:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Update npm to required version for NPM trusted publishing
+        run: npm install -g npm@11.5.1
+
       - name: Install dependencies
         run: npm install --ignore-scripts
 
