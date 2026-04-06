@@ -27,6 +27,7 @@ namespace Cvent.SDK.Hooks
         public static void InitHooks(IHooks hooks)
         {
             hooks.RegisterSDKInitHook(new CventUserAgentHook());
+            hooks.RegisterAfterErrorHook(new CventRateLimitHook());
 
             // hooks.RegisterSDKInitHook(myHook);
             // hooks.RegisterBeforeRequestHook(myHook);

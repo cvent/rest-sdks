@@ -1,4 +1,5 @@
 import { CventUserAgentHook } from "./cventuseragent.js";
+import { CventRateLimitHook } from "./ratelimit.js";
 import { Hooks } from "./types.js";
 import { RedactingLoggerHook } from "./redactinglogger.js";
 
@@ -14,4 +15,5 @@ export function initHooks(hooks: Hooks) {
   // Hooks are registered per SDK instance, and are valid for the lifetime of the SDK instance
   hooks.registerSDKInitHook(new RedactingLoggerHook());
   hooks.registerSDKInitHook(new CventUserAgentHook());
+  hooks.registerAfterErrorHook(new CventRateLimitHook());
 }

@@ -137,15 +137,15 @@ async function $do(
       || {
         strategy: "backoff",
         backoff: {
-          initialInterval: 1000,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
+          initialInterval: 2000,
+          maxInterval: 16000,
+          exponent: 2,
+          maxElapsedTime: 40000,
         },
         retryConnectionErrors: true,
       }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["429", "502", "503", "504"],
+    retryCodes: options?.retryCodes || ["502", "503", "504"],
   };
 
   const requestRes = client._createRequest(context, {
