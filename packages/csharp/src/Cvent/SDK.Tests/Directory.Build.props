@@ -1,0 +1,12 @@
+<!--
+  Give the test project its own output paths so that test dependencies
+  (e.g. WireMock.Net) don't leak into the SDK build via a shared project.assets.json.
+-->
+<Project>
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)/obj/</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildProjectDirectory)/bin/</BaseOutputPath>
+    <OutputPath>$(BaseOutputPath)</OutputPath>
+  </PropertyGroup>
+</Project>

@@ -7,3 +7,7 @@ debug/
 **/.speakeasy/logs/
 .env
 .env.local
+# Ignore generated test files
+src/Cvent/SDK.Tests/**/*Test.cs
+# Keep custom (non-generated) tests
+!src/Cvent/SDK.Tests/Hooks/**

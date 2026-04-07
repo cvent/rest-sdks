@@ -61,16 +61,16 @@ public class ListWebcasts {
             this.baseUrl = this.sdkConfiguration.serverUrl();
             this.securitySource = this.sdkConfiguration.securitySource();
             Optional.ofNullable(options).ifPresent(o -> o.validate(List.of(Options.Option.RETRY_CONFIG)));
-            this.retryStatusCodes = List.of("429", "502", "503", "504");
+            this.retryStatusCodes = List.of("502", "503", "504");
             this.retryConfig = Optional.ofNullable(options)
                     .flatMap(Options::retryConfig)
                     .or(sdkConfiguration::retryConfig)
                     .orElse(RetryConfig.builder()
                             .backoff(BackoffStrategy.builder()
-                                    .initialInterval(1000, TimeUnit.MILLISECONDS)
-                                    .maxInterval(60000, TimeUnit.MILLISECONDS)
-                                    .baseFactor((double) (1.5))
-                                    .maxElapsedTime(3600000, TimeUnit.MILLISECONDS)
+                                    .initialInterval(2000, TimeUnit.MILLISECONDS)
+                                    .maxInterval(16000, TimeUnit.MILLISECONDS)
+                                    .baseFactor((double) (2))
+                                    .maxElapsedTime(40000, TimeUnit.MILLISECONDS)
                                     .retryConnectError(true)
                                     .build())
                             .build());

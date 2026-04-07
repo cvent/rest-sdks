@@ -19,7 +19,7 @@
 /.eslintcache
 /.tshy
 /.tshy-*
-/__tests__
+/__tests__/*
 .DS_Store
 **/.speakeasy/temp/
 **/.speakeasy/logs/
@@ -28,3 +28,6 @@
 .env
 .env.local
 .env.*.local
+# Custom test files, need to be excluded because generation adds __tests__/ to gitignore if not present
+!__tests__/hooks/
+!__tests__/lib/

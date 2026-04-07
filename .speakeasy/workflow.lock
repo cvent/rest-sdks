@@ -13,22 +13,16 @@ targets:
         sourceNamespace: public
         sourceRevisionDigest: sha256:aad9c5d840d89b57c4b5bd62e5b54aa05841c16586e4808b88330987540a0e1c
         sourceBlobDigest: sha256:e919dbeb72fcf7da1b20509426a1cc3d3c5b117150f5e1d54516c321fb268348
-        codeSamplesNamespace: csharp
-        codeSamplesRevisionDigest: sha256:4a7461b37023a922f5d903238f5e4f66428f3a4bbe828369d53f2cf1dc5bf679
     public-java:
         source: Public
         sourceNamespace: public
         sourceRevisionDigest: sha256:aad9c5d840d89b57c4b5bd62e5b54aa05841c16586e4808b88330987540a0e1c
         sourceBlobDigest: sha256:e919dbeb72fcf7da1b20509426a1cc3d3c5b117150f5e1d54516c321fb268348
-        codeSamplesNamespace: java
-        codeSamplesRevisionDigest: sha256:1cf354f94464bbba6dec6bf1249ee53db2ee7c3dc1d2041dc66b2b28f580489e
     public-typescript:
         source: Public
         sourceNamespace: public
         sourceRevisionDigest: sha256:aad9c5d840d89b57c4b5bd62e5b54aa05841c16586e4808b88330987540a0e1c
         sourceBlobDigest: sha256:e919dbeb72fcf7da1b20509426a1cc3d3c5b117150f5e1d54516c321fb268348
-        codeSamplesNamespace: typescript
-        codeSamplesRevisionDigest: sha256:0efb103f7f9708a03d7076894c8849667da7df2adae52629b6f964a0d6645b10
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.752.0

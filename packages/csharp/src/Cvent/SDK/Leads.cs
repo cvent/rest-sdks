@@ -175,10 +175,10 @@ namespace Cvent.SDK
                 else
                 {
                     var backoff = new BackoffStrategy(
-                        initialIntervalMs: 1000L,
-                        maxIntervalMs: 60000L,
-                        maxElapsedTimeMs: 3600000L,
-                        exponent: 1.5
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
                     );
                     retryConfig = new RetryConfig(
                         strategy: RetryConfig.RetryStrategy.BACKOFF,
@@ -189,7 +189,6 @@ namespace Cvent.SDK
             }
 
             List<string> statusCodes = new List<string> {
-                "429",
                 "502",
                 "503",
                 "504",
@@ -374,10 +373,10 @@ namespace Cvent.SDK
                 else
                 {
                     var backoff = new BackoffStrategy(
-                        initialIntervalMs: 1000L,
-                        maxIntervalMs: 60000L,
-                        maxElapsedTimeMs: 3600000L,
-                        exponent: 1.5
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
                     );
                     retryConfig = new RetryConfig(
                         strategy: RetryConfig.RetryStrategy.BACKOFF,
@@ -388,7 +387,6 @@ namespace Cvent.SDK
             }
 
             List<string> statusCodes = new List<string> {
-                "429",
                 "502",
                 "503",
                 "504",
@@ -539,10 +537,10 @@ namespace Cvent.SDK
                 else
                 {
                     var backoff = new BackoffStrategy(
-                        initialIntervalMs: 1000L,
-                        maxIntervalMs: 60000L,
-                        maxElapsedTimeMs: 3600000L,
-                        exponent: 1.5
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
                     );
                     retryConfig = new RetryConfig(
                         strategy: RetryConfig.RetryStrategy.BACKOFF,
@@ -553,7 +551,6 @@ namespace Cvent.SDK
             }
 
             List<string> statusCodes = new List<string> {
-                "429",
                 "502",
                 "503",
                 "504",
@@ -741,10 +738,10 @@ namespace Cvent.SDK
                 else
                 {
                     var backoff = new BackoffStrategy(
-                        initialIntervalMs: 1000L,
-                        maxIntervalMs: 60000L,
-                        maxElapsedTimeMs: 3600000L,
-                        exponent: 1.5
+                        initialIntervalMs: 2000L,
+                        maxIntervalMs: 16000L,
+                        maxElapsedTimeMs: 40000L,
+                        exponent: 2
                     );
                     retryConfig = new RetryConfig(
                         strategy: RetryConfig.RetryStrategy.BACKOFF,
@@ -755,7 +752,6 @@ namespace Cvent.SDK
             }
 
             List<string> statusCodes = new List<string> {
-                "429",
                 "502",
                 "503",
                 "504",
