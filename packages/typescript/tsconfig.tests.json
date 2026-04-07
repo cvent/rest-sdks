@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": [
+      "ES2020"
+    ],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "types": [
+      "jest",
+      "node"
+    ],
+    "paths": {
+      "@cvent/sdk": [
+        "./src/index.ts"
+      ],
+      "@cvent/sdk/types": [
+        "./src/types/index.ts"
+      ],
+      "@cvent/sdk/models/errors": [
+        "./src/models/errors/index.ts"
+      ],
+      "@cvent/sdk/models/components": [
+        "./src/models/components/index.ts"
+      ],
+      "@cvent/sdk/models/operations": [
+        "./src/models/operations/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "./__tests__/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
