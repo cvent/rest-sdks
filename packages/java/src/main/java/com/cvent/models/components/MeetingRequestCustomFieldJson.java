@@ -38,13 +38,6 @@ public class MeetingRequestCustomFieldJson {
     private String name;
 
     /**
-     * The type of data collected by a custom field.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("type")
-    private MeetingRequestCustomFieldJsonCustomFieldType type;
-
-    /**
      * The set of answers or possible answers to a question.
      */
     @JsonProperty("value")
@@ -56,6 +49,13 @@ public class MeetingRequestCustomFieldJson {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("order")
     private Long order;
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("type")
+    private MeetingRequestCustomFieldJsonCustomFieldType type;
 
     /**
      * The actual text of the custom field.
@@ -121,13 +121,21 @@ public class MeetingRequestCustomFieldJson {
     @JsonProperty("maxDate")
     private String maxDate;
 
+    /**
+     * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
+     * omitted when no non-default answer type is defined for the question.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("answerTypes")
+    private List<AnswerTypeJson1> answerTypes;
+
     @JsonCreator
     public MeetingRequestCustomFieldJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("type") @Nullable MeetingRequestCustomFieldJsonCustomFieldType type,
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("order") @Nullable Long order,
+            @JsonProperty("type") @Nullable MeetingRequestCustomFieldJsonCustomFieldType type,
             @JsonProperty("field") @Nullable Boolean field,
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("required") @Nullable Boolean required,
@@ -136,12 +144,13 @@ public class MeetingRequestCustomFieldJson {
             @JsonProperty("minChoice") @Nullable Double minChoice,
             @JsonProperty("maxChoice") @Nullable Double maxChoice,
             @JsonProperty("minDate") @Nullable String minDate,
-            @JsonProperty("maxDate") @Nullable String maxDate) {
+            @JsonProperty("maxDate") @Nullable String maxDate,
+            @JsonProperty("answerTypes") @Nullable List<AnswerTypeJson1> answerTypes) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
-        this.type = type;
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
         this.order = order;
+        this.type = type;
         this.field = field;
         this.hidden = hidden;
         this.required = required;
@@ -151,10 +160,11 @@ public class MeetingRequestCustomFieldJson {
         this.maxChoice = maxChoice;
         this.minDate = minDate;
         this.maxDate = maxDate;
+        this.answerTypes = answerTypes;
     }
 
     public MeetingRequestCustomFieldJson(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, null, value, null, null, null, null, null, null, null, null, null, null);
+        this(id, null, value, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -172,13 +182,6 @@ public class MeetingRequestCustomFieldJson {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public Optional<MeetingRequestCustomFieldJsonCustomFieldType> type() {
-        return Optional.ofNullable(this.type);
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public List<String> value() {
@@ -190,6 +193,13 @@ public class MeetingRequestCustomFieldJson {
      */
     public Optional<Long> order() {
         return Optional.ofNullable(this.order);
+    }
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    public Optional<MeetingRequestCustomFieldJsonCustomFieldType> type() {
+        return Optional.ofNullable(this.type);
     }
 
     /**
@@ -256,6 +266,14 @@ public class MeetingRequestCustomFieldJson {
         return Optional.ofNullable(this.maxDate);
     }
 
+    /**
+     * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
+     * omitted when no non-default answer type is defined for the question.
+     */
+    public Optional<List<AnswerTypeJson1>> answerTypes() {
+        return Optional.ofNullable(this.answerTypes);
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -277,14 +295,6 @@ public class MeetingRequestCustomFieldJson {
     }
 
     /**
-     * The type of data collected by a custom field.
-     */
-    public MeetingRequestCustomFieldJson withType(@Nullable MeetingRequestCustomFieldJsonCustomFieldType type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
      * The set of answers or possible answers to a question.
      */
     public MeetingRequestCustomFieldJson withValue(@Nonnull List<String> value) {
@@ -297,6 +307,14 @@ public class MeetingRequestCustomFieldJson {
      */
     public MeetingRequestCustomFieldJson withOrder(@Nullable Long order) {
         this.order = order;
+        return this;
+    }
+
+    /**
+     * The type of data collected by a custom field.
+     */
+    public MeetingRequestCustomFieldJson withType(@Nullable MeetingRequestCustomFieldJsonCustomFieldType type) {
+        this.type = type;
         return this;
     }
 
@@ -373,6 +391,15 @@ public class MeetingRequestCustomFieldJson {
         return this;
     }
 
+    /**
+     * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
+     * omitted when no non-default answer type is defined for the question.
+     */
+    public MeetingRequestCustomFieldJson withAnswerTypes(@Nullable List<AnswerTypeJson1> answerTypes) {
+        this.answerTypes = answerTypes;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -384,9 +411,9 @@ public class MeetingRequestCustomFieldJson {
         MeetingRequestCustomFieldJson other = (MeetingRequestCustomFieldJson) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.type, other.type)
                 && Utils.enhancedDeepEquals(this.value, other.value)
                 && Utils.enhancedDeepEquals(this.order, other.order)
+                && Utils.enhancedDeepEquals(this.type, other.type)
                 && Utils.enhancedDeepEquals(this.field, other.field)
                 && Utils.enhancedDeepEquals(this.hidden, other.hidden)
                 && Utils.enhancedDeepEquals(this.required, other.required)
@@ -395,7 +422,8 @@ public class MeetingRequestCustomFieldJson {
                 && Utils.enhancedDeepEquals(this.minChoice, other.minChoice)
                 && Utils.enhancedDeepEquals(this.maxChoice, other.maxChoice)
                 && Utils.enhancedDeepEquals(this.minDate, other.minDate)
-                && Utils.enhancedDeepEquals(this.maxDate, other.maxDate);
+                && Utils.enhancedDeepEquals(this.maxDate, other.maxDate)
+                && Utils.enhancedDeepEquals(this.answerTypes, other.answerTypes);
     }
 
     @Override
@@ -403,9 +431,9 @@ public class MeetingRequestCustomFieldJson {
         return Utils.enhancedHash(
                 id,
                 name,
-                type,
                 value,
                 order,
+                type,
                 field,
                 hidden,
                 required,
@@ -414,7 +442,8 @@ public class MeetingRequestCustomFieldJson {
                 minChoice,
                 maxChoice,
                 minDate,
-                maxDate);
+                maxDate,
+                answerTypes);
     }
 
     @Override
@@ -425,12 +454,12 @@ public class MeetingRequestCustomFieldJson {
                 id,
                 "name",
                 name,
-                "type",
-                type,
                 "value",
                 value,
                 "order",
                 order,
+                "type",
+                type,
                 "field",
                 field,
                 "hidden",
@@ -448,7 +477,9 @@ public class MeetingRequestCustomFieldJson {
                 "minDate",
                 minDate,
                 "maxDate",
-                maxDate);
+                maxDate,
+                "answerTypes",
+                answerTypes);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -458,11 +489,11 @@ public class MeetingRequestCustomFieldJson {
 
         private String name;
 
-        private MeetingRequestCustomFieldJsonCustomFieldType type;
-
         private List<String> value;
 
         private Long order;
+
+        private MeetingRequestCustomFieldJsonCustomFieldType type;
 
         private Boolean field;
 
@@ -481,6 +512,8 @@ public class MeetingRequestCustomFieldJson {
         private String minDate;
 
         private String maxDate;
+
+        private List<AnswerTypeJson1> answerTypes;
 
         private Builder() {
             // force use of static builder() method
@@ -503,14 +536,6 @@ public class MeetingRequestCustomFieldJson {
         }
 
         /**
-         * The type of data collected by a custom field.
-         */
-        public Builder type(@Nullable MeetingRequestCustomFieldJsonCustomFieldType type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
          * The set of answers or possible answers to a question.
          */
         public Builder value(@Nonnull List<String> value) {
@@ -523,6 +548,14 @@ public class MeetingRequestCustomFieldJson {
          */
         public Builder order(@Nullable Long order) {
             this.order = order;
+            return this;
+        }
+
+        /**
+         * The type of data collected by a custom field.
+         */
+        public Builder type(@Nullable MeetingRequestCustomFieldJsonCustomFieldType type) {
+            this.type = type;
             return this;
         }
 
@@ -599,13 +632,22 @@ public class MeetingRequestCustomFieldJson {
             return this;
         }
 
+        /**
+         * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
+         * omitted when no non-default answer type is defined for the question.
+         */
+        public Builder answerTypes(@Nullable List<AnswerTypeJson1> answerTypes) {
+            this.answerTypes = answerTypes;
+            return this;
+        }
+
         public MeetingRequestCustomFieldJson build() {
             return new MeetingRequestCustomFieldJson(
                     id,
                     name,
-                    type,
                     value,
                     order,
+                    type,
                     field,
                     hidden,
                     required,
@@ -614,7 +656,8 @@ public class MeetingRequestCustomFieldJson {
                     minChoice,
                     maxChoice,
                     minDate,
-                    maxDate);
+                    maxDate,
+                    answerTypes);
         }
     }
 }

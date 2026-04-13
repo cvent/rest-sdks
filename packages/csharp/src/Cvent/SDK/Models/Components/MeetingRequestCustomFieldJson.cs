@@ -32,12 +32,6 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// The type of data collected by a custom field.
-        /// </summary>
-        [JsonProperty("type")]
-        public MeetingRequestCustomFieldJsonCustomFieldType? Type { get; set; }
-
-        /// <summary>
         /// The set of answers or possible answers to a question.
         /// </summary>
         [JsonProperty("value")]
@@ -48,6 +42,12 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("order")]
         public long? Order { get; set; }
+
+        /// <summary>
+        /// The type of data collected by a custom field.
+        /// </summary>
+        [JsonProperty("type")]
+        public MeetingRequestCustomFieldJsonCustomFieldType? Type { get; set; }
 
         /// <summary>
         /// The actual text of the custom field.
@@ -102,5 +102,11 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("maxDate")]
         public string? MaxDate { get; set; }
+
+        /// <summary>
+        /// List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is omitted when no non-default answer type is defined for the question.
+        /// </summary>
+        [JsonProperty("answerTypes")]
+        public List<AnswerTypeJson1>? AnswerTypes { get; set; }
     }
 }

@@ -15,18 +15,24 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A question for a meeting request.
+    /// A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine the format of the `value` array.
     /// </summary>
     public class MeetingRequestQuestionJson
     {
         /// <summary>
-        /// The unique ID representing this question.
+        /// The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:<br/>
+        /// * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`<br/>
+        /// * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`<br/>
+        /// * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`<br/>
+        /// * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`<br/>
+        /// * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`<br/>
+        /// * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
 
         /// <summary>
-        /// The actual text of the question.
+        /// The display text of the question.
         /// </summary>
         [JsonProperty("name")]
         public string? Name { get; set; }
@@ -38,26 +44,39 @@ namespace Cvent.SDK.Models.Components
         public QuestionTypeJson1? Type { get; set; }
 
         /// <summary>
-        /// An array of non-null answers to the question.<br/>
+        /// An array of non-null answers to the question. The format of each item depends on the question `type`.<br/>
         /// <br/>
-        /// For standard questions, this array contains string values.<br/>
+        /// **Standard questions:** Each item is a plain string (for example, `"Green"`).<br/>
         /// <br/>
-        /// For the following questions:<br/>
-        /// * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)<br/>
-        /// * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)<br/>
-        /// * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)<br/>
+        /// **Country/Region questions (`type: Country`):** Each item is either a country name (for example, `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or country codes, but not both formats in the same request. See the Country Codes reference for the list of supported country codes and corresponding country names.<br/>
         /// <br/>
-        /// the answer is the country name (for example, "Canada").<br/>
-        /// <br/>
-        /// For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, this array contains JSON strings that match the format defined in `compositeValue`.<br/>
-        /// <br/>
-        /// For more details, see <a href="#tag/Meeting-Request/operation/getMeetingRequestById">Get Meeting Request</a>.
+        /// **Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data in parsed form.
         /// </summary>
         [JsonProperty("value")]
         public List<string> Value { get; set; } = default!;
 
         /// <summary>
-        /// A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
+        /// Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are interpreted.<br/>
+        /// <br/>
+        /// Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the answer in the **"secondaryValue"** field is a free-text response to that option.<br/>
+        /// <br/>
+        /// Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type answer; in this case, `value` is omitted.<br/>
+        /// <br/>
+        /// In all other cases, `answerType` is not expected to be set.
+        /// </summary>
+        [JsonProperty("answerType")]
+        public AnswerTypeJson1? AnswerType { get; set; }
+
+        /// <summary>
+        /// The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
+        /// </summary>
+        [JsonProperty("secondaryValue")]
+        public string? SecondaryValue { get; set; }
+
+        /// <summary>
+        /// The structured representation of a complex question answer. Contains the same data as `value`, parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write complex question answers, use `value` instead.<br/>
+        /// <br/>
+        /// The structure of the array depends on the question `type`.
         /// </summary>
         [JsonProperty("compositeValue", NullValueHandling = NullValueHandling.Include)]
         public CompositeValueJson? CompositeValue { get; set; }

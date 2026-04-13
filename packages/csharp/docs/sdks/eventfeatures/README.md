@@ -36,10 +36,10 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventFeaturesRequest req = new GetEventFeaturesRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Locale = "en-US",
     Filter = "enabled eq 'true'",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetEventFeaturesResponse? res = await sdk.EventFeatures.GetEventFeaturesAsync(req);
@@ -218,9 +218,9 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 ListEventWeblinksRequest req = new ListEventWeblinksRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Locale = "en-US",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 ListEventWeblinksResponse? res = await sdk.EventFeatures.ListEventWeblinksAsync(req);

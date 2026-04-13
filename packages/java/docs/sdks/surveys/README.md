@@ -508,7 +508,7 @@ public class Application {
                         .build())
                     .answers(List.of(
                         AnswerJson1.builder()
-                            .type(AnswerTypeJson1.CHOICE_TEXT)
+                            .type(AnswerTypeJson2.CHOICE_TEXT)
                             .value("1")
                             .choice(UuidJson.builder()
                                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
@@ -1608,7 +1608,7 @@ public class Application {
                         .build())
                     .answers(List.of(
                         AnswerJson1.builder()
-                            .type(AnswerTypeJson1.CHOICE_TEXT)
+                            .type(AnswerTypeJson2.CHOICE_TEXT)
                             .value("1")
                             .choice(UuidJson.builder()
                                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")

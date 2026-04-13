@@ -29,6 +29,8 @@ let value: MeetingRequestBulkResponseItemJson = {
         value: [
           "Green",
         ],
+        answerType: "Other",
+        secondaryValue: "The other answer for the question.",
         compositeValue: [],
       },
     ],

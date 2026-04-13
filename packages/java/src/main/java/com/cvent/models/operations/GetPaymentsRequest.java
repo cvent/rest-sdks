@@ -50,22 +50,26 @@ public class GetPaymentsRequest {
     private OffsetDateTime before;
 
     /**
-     * A filter string passed in the body of the request, narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType
-     * 'value'.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * budgetItem.id (eq)
-     * * id (eq)
-     * * budgetVersion.id (eq)
-     * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
-     * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
-     * within the specified date range.
+     * <p>| Field            | Operators              | Notes
+     * |
+     * |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     * | budgetItem.id    | `eq`                   |
+     * |
+     * | id               | `eq`                   |
+     * |
+     * | budgetVersion.id | `eq`                   |
+     * |
+     * | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated
+     * budget item was last modified. Filtering by `lastModified` returns payments linked to budget items
+     * modified within the specified date range. |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -130,22 +134,26 @@ public class GetPaymentsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType
-     * 'value'.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * budgetItem.id (eq)
-     * * id (eq)
-     * * budgetVersion.id (eq)
-     * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
-     * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
-     * within the specified date range.
+     * <p>| Field            | Operators              | Notes
+     * |
+     * |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     * | budgetItem.id    | `eq`                   |
+     * |
+     * | id               | `eq`                   |
+     * |
+     * | budgetVersion.id | `eq`                   |
+     * |
+     * | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated
+     * budget item was last modified. Filtering by `lastModified` returns payments linked to budget items
+     * modified within the specified date range. |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -200,22 +208,26 @@ public class GetPaymentsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search
-     * results and supports the combination of logical and comparison
-     * operators.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The filter adheres to the pattern filter='field' comparisonType
-     * 'value'.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * budgetItem.id (eq)
-     * * id (eq)
-     * * budgetVersion.id (eq)
-     * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
-     * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
-     * within the specified date range.
+     * <p>| Field            | Operators              | Notes
+     * |
+     * |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     * | budgetItem.id    | `eq`                   |
+     * |
+     * | id               | `eq`                   |
+     * |
+     * | budgetVersion.id | `eq`                   |
+     * |
+     * | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated
+     * budget item was last modified. Filtering by `lastModified` returns payments linked to budget items
+     * modified within the specified date range. |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -326,22 +338,26 @@ public class GetPaymentsRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search
-         * results and supports the combination of logical and comparison
-         * operators.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The filter adheres to the pattern filter='field' comparisonType
-         * 'value'.
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * budgetItem.id (eq)
-         * * id (eq)
-         * * budgetVersion.id (eq)
-         * * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item
-         * was last modified. Filtering by `lastModified` returns payments linked to budget items modified
-         * within the specified date range.
+         * <p>| Field            | Operators              | Notes
+         * |
+         * |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+         * | budgetItem.id    | `eq`                   |
+         * |
+         * | id               | `eq`                   |
+         * |
+         * | budgetVersion.id | `eq`                   |
+         * |
+         * | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated
+         * budget item was last modified. Filtering by `lastModified` returns payments linked to budget items
+         * modified within the specified date range. |
          *
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

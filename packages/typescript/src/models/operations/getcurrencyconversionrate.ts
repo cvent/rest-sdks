@@ -34,19 +34,23 @@ export type GetCurrencyConversionRateRequest = {
    */
   before?: Date | undefined;
   /**
-   * A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * The following fields are filterable:
-   *    * id (eq)
-   *    * startDate (gt|ge|lt|le|eq)
-   *    * endDate (gt|ge|lt|le|eq)
+   * Supported fields and operators are listed below:
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * | Field     | Operators                    |
+   * |:----------|:-----------------------------|
+   * | id        | `eq`                         |
+   * | startDate | `gt`, `ge`, `lt`, `le`, `eq` |
+   * | endDate   | `gt`, `ge`, `lt`, `le`, `eq` |
+   *
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

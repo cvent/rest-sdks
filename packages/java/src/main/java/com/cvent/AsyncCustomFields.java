@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
-import com.cvent.models.components.CustomField3;
+import com.cvent.models.components.CustomField2;
 import com.cvent.models.operations.CreateCustomFieldTranslationRequest;
 import com.cvent.models.operations.GetCustomFieldRequest;
 import com.cvent.models.operations.ListCustomFieldsRequest;
@@ -131,7 +131,7 @@ public class AsyncCustomFields {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateCustomFieldResponse>} - The async response
      */
-    public CompletableFuture<CreateCustomFieldResponse> createCustomField(@Nonnull CustomField3 request) {
+    public CompletableFuture<CreateCustomFieldResponse> createCustomField(@Nonnull CustomField2 request) {
         return createCustomField(request, null);
     }
 
@@ -147,8 +147,8 @@ public class AsyncCustomFields {
      * @return {@code CompletableFuture<CreateCustomFieldResponse>} - The async response
      */
     public CompletableFuture<CreateCustomFieldResponse> createCustomField(
-            @Nonnull CustomField3 request, @Nullable Options options) {
-        AsyncRequestOperation<CustomField3, CreateCustomFieldResponse> operation =
+            @Nonnull CustomField2 request, @Nullable Options options) {
+        AsyncRequestOperation<CustomField2, CreateCustomFieldResponse> operation =
                 new CreateCustomField.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

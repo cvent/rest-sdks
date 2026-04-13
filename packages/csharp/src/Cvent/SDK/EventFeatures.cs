@@ -249,11 +249,11 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetEventFeaturesRequest {
-                    Id = request.Id,
                     Limit = request.Limit,
                     Token = nextCursor,
                     Locale = request.Locale,
-                    Filter = request.Filter
+                    Filter = request.Filter,
+                    Id = request.Id
                 };
 
                 return await GetEventFeaturesAsync(
@@ -775,10 +775,10 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new ListEventWeblinksRequest {
-                    Id = request.Id,
                     Token = nextCursor,
                     Locale = request.Locale,
-                    Limit = request.Limit
+                    Limit = request.Limit,
+                    Id = request.Id
                 };
 
                 return await ListEventWeblinksAsync(

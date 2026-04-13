@@ -43,26 +43,23 @@ public class ListExternalAttendeeActivitiesMetadataRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * name (eq|ne)
-     * * type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | name         | `eq`, `ne`                         |
+     * | type         | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -116,26 +113,23 @@ public class ListExternalAttendeeActivitiesMetadataRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * name (eq|ne)
-     * * type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | name         | `eq`, `ne`                         |
+     * | type         | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -180,26 +174,23 @@ public class ListExternalAttendeeActivitiesMetadataRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * name (eq|ne)
-     * * type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | name         | `eq`, `ne`                         |
+     * | type         | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
+     * * and
+     * * or
      */
     public ListExternalAttendeeActivitiesMetadataRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -295,26 +286,23 @@ public class ListExternalAttendeeActivitiesMetadataRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There are eight comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
-         * * is empty: is empty
-         * * is not empty: is not empty
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * id (eq|ne)
-         * * name (eq|ne)
-         * * type (eq|ne)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * lastModified (eq|ne|lt|le|gt|ge)
+         * <p>| Field        | Operators                          |
+         * |--------------|------------------------------------|
+         * | id           | `eq`, `ne`                         |
+         * | name         | `eq`, `ne`                         |
+         * | type         | `eq`, `ne`                         |
+         * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         *
+         * <p>The following logical operators are supported for combining filters:
+         * * and
+         * * or
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

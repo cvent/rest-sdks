@@ -28,6 +28,8 @@ let value: MeetingRequest = {
       value: [
         "Green",
       ],
+      answerType: "Other",
+      secondaryValue: "The other answer for the question.",
       compositeValue: [],
     },
   ],

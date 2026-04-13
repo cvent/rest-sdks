@@ -30,27 +30,28 @@ export type GetAccountBudgetItemsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter string passed as a query parameter, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
-   * There are six comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * The following fields are filterable:
-   *    * event.id (eq|ne)
-   *    * rfp.id (eq|ne)
-   *    * budgetVersion.id (eq|ne)
-   *    * id (eq|ne)
-   *    * category.id (eq|ne)
-   *    * category.name (eq|ne)
-   *    * subCategory.id (eq|ne)
-   *    * subCategory.name (eq|ne)
+   * Supported fields and operators are listed below:
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * | Field            | Operators  |
+   * |:-----------------|:-----------|
+   * | event.id         | `eq`, `ne` |
+   * | rfp.id           | `eq`, `ne` |
+   * | budgetVersion.id | `eq`, `ne` |
+   * | id               | `eq`, `ne` |
+   * | category.id      | `eq`, `ne` |
+   * | category.name    | `eq`, `ne` |
+   * | subCategory.id   | `eq`, `ne` |
+   * | subCategory.name | `eq`, `ne` |
+   *
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

@@ -1363,11 +1363,11 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.budget.getBudgetAllocations({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -1401,11 +1401,11 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await budgetGetBudgetAllocations(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -2202,13 +2202,13 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField2: {
+    customField1: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
 
@@ -2244,13 +2244,13 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField2: {
+    customField1: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
-      type: "General",
       value: [
         "Choice C",
         "Choice A",
       ],
+      type: "General",
     },
   });
   if (res.ok) {
@@ -2275,7 +2275,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField2](../../models/components/customfield2.md)\>**
+**Promise\<[components.CustomField1](../../models/components/customfield1.md)\>**
 
 ### Errors
 

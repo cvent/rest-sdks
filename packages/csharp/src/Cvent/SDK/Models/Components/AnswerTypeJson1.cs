@@ -14,17 +14,18 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Type of answer.
+    /// Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are interpreted.<br/>
+    /// <br/>
+    /// Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the answer in the **"secondaryValue"** field is a free-text response to that option.<br/>
+    /// <br/>
+    /// Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type answer; in this case, `value` is omitted.<br/>
+    /// <br/>
+    /// In all other cases, `answerType` is not expected to be set.
     /// </summary>
     public enum AnswerTypeJson1
     {
-        [JsonProperty("Choice")] Choice,
-        [JsonProperty("Text")] Text,
-        [JsonProperty("ChoiceText")] ChoiceText,
-        [JsonProperty("Comment")] Comment,
         [JsonProperty("Other")] Other,
         [JsonProperty("NA")] Na,
-        [JsonProperty("File")] File,
     }
 
     public static class AnswerTypeJson1Extension

@@ -40,25 +40,23 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// There are eight comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        ///   * greater than: gt<br/>
-        ///   * greater or equal: ge<br/>
-        ///   * less than: lt<br/>
-        ///   * less than or equal: le<br/>
-        ///   * is empty: is empty<br/>
-        ///   * is not empty: is not empty<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * id (eq|ne)<br/>
-        ///   * name (eq|ne)<br/>
-        ///   * type (eq|ne)<br/>
-        ///   * created (eq|ne|lt|le|gt|ge)<br/>
-        ///   * lastModified (eq|ne|lt|le|gt|ge).
+        /// | Field        | Operators                          |<br/>
+        /// |--------------|------------------------------------|<br/>
+        /// | id           | `eq`, `ne`                         |<br/>
+        /// | name         | `eq`, `ne`                         |<br/>
+        /// | type         | `eq`, `ne`                         |<br/>
+        /// | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |<br/>
+        /// | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

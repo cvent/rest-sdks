@@ -20,7 +20,25 @@ namespace Cvent.SDK.Models.Components
     public class EventFeatureJson
     {
         /// <summary>
-        /// These are the types of features used in the event container events.
+        /// The type of feature available for a container event.<br/>
+        /// <br/>
+        /// | Value | Description |<br/>
+        /// |-------|-------------|<br/>
+        /// | `Website` | Allows you to promote your event with a customizable series of pages. |<br/>
+        /// | `Registration` | Allows attendees to sign up for your event ahead of time. Once done, they can modify their details or cancel altogether if you allow it. |<br/>
+        /// | `OnArrival` | Adds several options designed to make supporting your live event as smooth as possible. |<br/>
+        /// | `AttendeeHub` | Delivers the attendee-facing website and mobile app with agenda/content, engagement tools (live Q&amp;A, polls, gamification), and networking—launchable independently of registration. |<br/>
+        /// | `Appointments` | Enables attendees, exhibitors, and staff to schedule and manage 1:1 meetings within Attendee Hub. |<br/>
+        /// | `Planning` | Adds new ways to stay organized behind the scenes throughout the entire event process. |<br/>
+        /// | `Agenda` | Allows you to manage the breakouts, presentations, or activities (known in Cvent as sessions) that make up your event. |<br/>
+        /// | `Travel` | Allows you to easily collect and manage invitees' hotel and flight preferences. |<br/>
+        /// | `Marketing` | Allows planners to create, personalize, and automate branded event emails (invites, reminders, confirmations) and track performance to drive registrations and engagement. |<br/>
+        /// | `Surveys` | Adds a customizable questionnaire you can use to gather feedback. |<br/>
+        /// | `Speakers` | Allows you to showcase and manage all the headliners, keynoters, presenters, and moderators contributing to your event. |<br/>
+        /// | `Exhibitors` | Centralizes exhibitor setup—profiles, tasks, content/categories—and booth staff and LeadCapture management, with exhibitor listings and engagement surfaced in Attendee Hub. |<br/>
+        /// | `Vendors` | Allows planners to source and manage event services directly from the container event. |<br/>
+        /// | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the event app. |<br/>
+        /// | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. |
         /// </summary>
         [JsonProperty("type")]
         public FeatureTypeJson Type { get; set; } = default!;

@@ -17,6 +17,8 @@ let value: UpdateMeetingRequestRequest = {
           value: [
             "Green",
           ],
+          answerType: "Other",
+          secondaryValue: "The other answer for the question.",
         },
       ],
       status: "Submitted to Accounting",

@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Type of answer.
         /// </summary>
         [JsonProperty("type")]
-        public AnswerTypeJson1 Type { get; set; } = default!;
+        public AnswerTypeJson2 Type { get; set; } = default!;
 
         /// <summary>
         /// Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.

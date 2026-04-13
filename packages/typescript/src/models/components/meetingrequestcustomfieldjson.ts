@@ -7,6 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AnswerTypeJson1,
+  AnswerTypeJson1$inboundSchema,
+} from "./answertypejson1.js";
 
 /**
  * The type of data collected by a custom field.
@@ -52,10 +56,6 @@ export type MeetingRequestCustomFieldJson = {
    */
   name?: string | undefined;
   /**
-   * The type of data collected by a custom field.
-   */
-  type?: MeetingRequestCustomFieldJsonCustomFieldType | undefined;
-  /**
    * The set of answers or possible answers to a question.
    */
   value: Array<string>;
@@ -63,6 +63,10 @@ export type MeetingRequestCustomFieldJson = {
    * The order of this question in the bigger list of questions.
    */
   order?: number | undefined;
+  /**
+   * The type of data collected by a custom field.
+   */
+  type?: MeetingRequestCustomFieldJsonCustomFieldType | undefined;
   /**
    * The actual text of the custom field.
    */
@@ -99,6 +103,10 @@ export type MeetingRequestCustomFieldJson = {
    * The ISO 8601 maximum date value for a date field.
    */
   maxDate?: string | undefined;
+  /**
+   * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is omitted when no non-default answer type is defined for the question.
+   */
+  answerTypes?: Array<AnswerTypeJson1> | undefined;
 };
 
 /** @internal */
@@ -114,9 +122,9 @@ export const MeetingRequestCustomFieldJson$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string().optional(),
-  type: MeetingRequestCustomFieldJsonCustomFieldType$inboundSchema.optional(),
   value: z.array(z.string()),
   order: z.number().int().optional(),
+  type: MeetingRequestCustomFieldJsonCustomFieldType$inboundSchema.optional(),
   field: z.boolean().optional(),
   hidden: z.boolean().optional(),
   required: z.boolean().optional(),
@@ -126,6 +134,7 @@ export const MeetingRequestCustomFieldJson$inboundSchema: z.ZodType<
   maxChoice: z.number().optional(),
   minDate: z.string().optional(),
   maxDate: z.string().optional(),
+  answerTypes: z.array(AnswerTypeJson1$inboundSchema).optional(),
 });
 
 export function meetingRequestCustomFieldJsonFromJSON(

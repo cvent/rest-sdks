@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.CustomField2;
+import com.cvent.models.components.CustomField1;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.AnswerBudgetCustomFieldRequest;
@@ -122,7 +122,7 @@ public class AnswerBudgetCustomField {
             HTTPRequest req = new HTTPRequest(url, "PUT");
             Object convertedRequest = Utils.convertToShape(request, JsonShape.DEFAULT, typeReference);
             SerializedBody serializedRequestBody =
-                    Utils.serializeRequestBody(convertedRequest, "customField2", "json", false);
+                    Utils.serializeRequestBody(convertedRequest, "customField1", "json", false);
             if (serializedRequestBody == null) {
                 throw new IllegalArgumentException("Request body is required");
             }
@@ -199,7 +199,7 @@ public class AnswerBudgetCustomField {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withCustomField2(Utils.unmarshal(response, new TypeReference<CustomField2>() {}));
+                    return res.withCustomField1(Utils.unmarshal(response, new TypeReference<CustomField1>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -290,8 +290,8 @@ public class AnswerBudgetCustomField {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<CustomField2>() {})
-                            .thenApply(res::withCustomField2);
+                    return Utils.unmarshalAsync(response, new TypeReference<CustomField1>() {})
+                            .thenApply(res::withCustomField1);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

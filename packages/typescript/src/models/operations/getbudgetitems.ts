@@ -34,37 +34,32 @@ export type GetBudgetItemsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * There are six comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *    * id (eq)
-   *    * costType (eq|ne)
-   *    * category.id (eq|ne)
-   *    * category.name (eq|ne)
-   *    * subCategory.id (eq|ne)
-   *    * subCategory.name (eq|ne)
-   *    * status (eq|ne)
-   *    * vendor.id (eq|ne)
-   *    * vendor.name (eq|ne)
-   *    * date (gt|ge|lt|le)
-   *    * customFields.{uuid} (eq|ne|lt|le|gt|ge)
-   *    * deleted (eq|ne) **Note:** Budget items that are deleted are available for 3 months after deletion.
-   *      After this, they are removed and no longer appear in search results.
+   * | Field               | Operators                          | Notes                                                                                                                                         |
+   * |:--------------------|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+   * | id                  | `eq`                               |                                                                                                                                               |
+   * | costType            | `eq`, `ne`                         |                                                                                                                                               |
+   * | category.id         | `eq`, `ne`                         |                                                                                                                                               |
+   * | category.name       | `eq`, `ne`                         |                                                                                                                                               |
+   * | subCategory.id      | `eq`, `ne`                         |                                                                                                                                               |
+   * | subCategory.name    | `eq`, `ne`                         |                                                                                                                                               |
+   * | status              | `eq`, `ne`                         |                                                                                                                                               |
+   * | vendor.id           | `eq`, `ne`                         |                                                                                                                                               |
+   * | vendor.name         | `eq`, `ne`                         |                                                                                                                                               |
+   * | date                | `gt`, `ge`, `lt`, `le`             |                                                                                                                                               |
+   * | customFields.{uuid} | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |                                                                                                                                               |
+   * | deleted             | `eq`, `ne`                         | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

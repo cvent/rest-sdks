@@ -37,10 +37,10 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.eventFeatures.getEventFeatures({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     locale: "en-US",
     filter: "enabled eq 'true'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -74,10 +74,10 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await eventFeaturesGetEventFeatures(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     locale: "en-US",
     filter: "enabled eq 'true'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -362,9 +362,9 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.eventFeatures.listEventWeblinks({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     locale: "en-US",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -398,9 +398,9 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await eventFeaturesListEventWeblinks(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     locale: "en-US",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;

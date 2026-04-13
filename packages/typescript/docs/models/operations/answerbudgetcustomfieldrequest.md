@@ -9,13 +9,13 @@ let value: AnswerBudgetCustomFieldRequest = {
   id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-  customField2: {
-    id: "585e5c41-ee97-4ef4-9915-aa47a6ca9361",
-    type: "MultiSelect",
+  customField1: {
+    id: "1b66c479-861d-4de7-9666-fd5487bee091",
     value: [
       "Choice C",
       "Choice A",
     ],
+    type: "MultiSelect",
   },
 };
 ```
@@ -27,4 +27,4 @@ let value: AnswerBudgetCustomFieldRequest = {
 | `id`                                                                         | *string*                                                                     | :heavy_check_mark:                                                           | Unique ID of an event.                                                       | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                         |
 | `budgetItemId`                                                               | *string*                                                                     | :heavy_check_mark:                                                           | Unique ID of a budget item.                                                  | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                         |
 | `customFieldId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | Unique ID of the custom field.                                               | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                         |
-| `customField2`                                                               | [components.CustomField2Input](../../models/components/customfield2input.md) | :heavy_check_mark:                                                           | Custom field answer to be updated.                                           |                                                                              |
+| `customField1`                                                               | [components.CustomField1Input](../../models/components/customfield1input.md) | :heavy_check_mark:                                                           | Custom field answer to be updated.                                           |                                                                              |

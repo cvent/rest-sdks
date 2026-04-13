@@ -40,25 +40,26 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter string passed as a query parameter, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// There are six comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///    * event.id (eq|ne)<br/>
-        ///    * rfp.id (eq|ne)<br/>
-        ///    * budgetVersion.id (eq|ne)<br/>
-        ///    * id (eq|ne)<br/>
-        ///    * category.id (eq|ne)<br/>
-        ///    * category.name (eq|ne)<br/>
-        ///    * subCategory.id (eq|ne)<br/>
-        ///    * subCategory.name (eq|ne)<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or.
+        /// | Field            | Operators  |<br/>
+        /// |:-----------------|:-----------|<br/>
+        /// | event.id         | `eq`, `ne` |<br/>
+        /// | rfp.id           | `eq`, `ne` |<br/>
+        /// | budgetVersion.id | `eq`, `ne` |<br/>
+        /// | id               | `eq`, `ne` |<br/>
+        /// | category.id      | `eq`, `ne` |<br/>
+        /// | category.name    | `eq`, `ne` |<br/>
+        /// | subCategory.id   | `eq`, `ne` |<br/>
+        /// | subCategory.name | `eq`, `ne` |<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

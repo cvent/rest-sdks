@@ -18,17 +18,25 @@ import java.util.Optional;
 /**
  * MeetingRequestQuestionJson
  *
- * <p>A question for a meeting request.
+ * <p>A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are
+ * the same across all accounts. Use the `type` field or the question `id` to determine the format of
+ * the `value` array.
  */
 public class MeetingRequestQuestionJson {
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * The actual text of the question.
+     * The display text of the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
@@ -42,32 +50,53 @@ public class MeetingRequestQuestionJson {
     private QuestionTypeJson1 type;
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this array contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"`).
      *
-     * <p>For the following questions:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Each item is either a country name (for example,
+     * `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or
+     * country codes, but not both formats in the same request. See the Country Codes reference for the
+     * list of supported country codes and corresponding country names.
      *
-     * <p>the answer is the country name (for example, "Canada").
-     *
-     * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data
+     * in parsed form.
      */
     @JsonProperty("value")
     private List<String> value;
 
     /**
-     * A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
-     * requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID
-     * determines the type of requirement: Meeting Room requirement for
-     * **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for
-     * **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for
-     * **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("answerType")
+    private AnswerTypeJson1 answerType;
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("secondaryValue")
+    private String secondaryValue;
+
+    /**
+     * The structured representation of a complex question answer. Contains the same data as `value`,
+     * parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write
+     * complex question answers, use `value` instead.
+     *
+     * <p>The structure of the array depends on the question `type`.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("compositeValue")
@@ -79,27 +108,37 @@ public class MeetingRequestQuestionJson {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable QuestionTypeJson1 type,
             @JsonProperty("value") @Nonnull List<String> value,
+            @JsonProperty("answerType") @Nullable AnswerTypeJson1 answerType,
+            @JsonProperty("secondaryValue") @Nullable String secondaryValue,
             @JsonProperty("compositeValue") @Nullable CompositeValueJson compositeValue) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.type = type;
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.answerType = answerType;
+        this.secondaryValue = secondaryValue;
         this.compositeValue = compositeValue;
     }
 
     public MeetingRequestQuestionJson(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, null, value, null);
+        this(id, null, null, value, null, null, null);
     }
 
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * The actual text of the question.
+     * The display text of the question.
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -113,33 +152,54 @@ public class MeetingRequestQuestionJson {
     }
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this array contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"`).
      *
-     * <p>For the following questions:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Each item is either a country name (for example,
+     * `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or
+     * country codes, but not both formats in the same request. See the Country Codes reference for the
+     * list of supported country codes and corresponding country names.
      *
-     * <p>the answer is the country name (for example, "Canada").
-     *
-     * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data
+     * in parsed form.
      */
     public List<String> value() {
         return this.value;
     }
 
     /**
-     * A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
-     * requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID
-     * determines the type of requirement: Meeting Room requirement for
-     * **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for
-     * **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for
-     * **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    public Optional<AnswerTypeJson1> answerType() {
+        return Optional.ofNullable(this.answerType);
+    }
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    public Optional<String> secondaryValue() {
+        return Optional.ofNullable(this.secondaryValue);
+    }
+
+    /**
+     * The structured representation of a complex question answer. Contains the same data as `value`,
+     * parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write
+     * complex question answers, use `value` instead.
+     *
+     * <p>The structure of the array depends on the question `type`.
      */
     public Optional<CompositeValueJson> compositeValue() {
         return Optional.ofNullable(this.compositeValue);
@@ -150,7 +210,13 @@ public class MeetingRequestQuestionJson {
     }
 
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     public MeetingRequestQuestionJson withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -158,7 +224,7 @@ public class MeetingRequestQuestionJson {
     }
 
     /**
-     * The actual text of the question.
+     * The display text of the question.
      */
     public MeetingRequestQuestionJson withName(@Nullable String name) {
         this.name = name;
@@ -174,21 +240,19 @@ public class MeetingRequestQuestionJson {
     }
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this array contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"`).
      *
-     * <p>For the following questions:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Each item is either a country name (for example,
+     * `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or
+     * country codes, but not both formats in the same request. See the Country Codes reference for the
+     * list of supported country codes and corresponding country names.
      *
-     * <p>the answer is the country name (for example, "Canada").
-     *
-     * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-     *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data
+     * in parsed form.
      */
     public MeetingRequestQuestionJson withValue(@Nonnull List<String> value) {
         this.value = Utils.checkNotNull(value, "value");
@@ -196,12 +260,37 @@ public class MeetingRequestQuestionJson {
     }
 
     /**
-     * A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
-     * requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID
-     * determines the type of requirement: Meeting Room requirement for
-     * **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for
-     * **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for
-     * **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    public MeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson1 answerType) {
+        this.answerType = answerType;
+        return this;
+    }
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    public MeetingRequestQuestionJson withSecondaryValue(@Nullable String secondaryValue) {
+        this.secondaryValue = secondaryValue;
+        return this;
+    }
+
+    /**
+     * The structured representation of a complex question answer. Contains the same data as `value`,
+     * parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write
+     * complex question answers, use `value` instead.
+     *
+     * <p>The structure of the array depends on the question `type`.
      */
     public MeetingRequestQuestionJson withCompositeValue(@Nullable CompositeValueJson compositeValue) {
         this.compositeValue = compositeValue;
@@ -221,12 +310,14 @@ public class MeetingRequestQuestionJson {
                 && Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.type, other.type)
                 && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.answerType, other.answerType)
+                && Utils.enhancedDeepEquals(this.secondaryValue, other.secondaryValue)
                 && Utils.enhancedDeepEquals(this.compositeValue, other.compositeValue);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, type, value, compositeValue);
+        return Utils.enhancedHash(id, name, type, value, answerType, secondaryValue, compositeValue);
     }
 
     @Override
@@ -241,6 +332,10 @@ public class MeetingRequestQuestionJson {
                 type,
                 "value",
                 value,
+                "answerType",
+                answerType,
+                "secondaryValue",
+                secondaryValue,
                 "compositeValue",
                 compositeValue);
     }
@@ -256,6 +351,10 @@ public class MeetingRequestQuestionJson {
 
         private List<String> value;
 
+        private AnswerTypeJson1 answerType;
+
+        private String secondaryValue;
+
         private CompositeValueJson compositeValue;
 
         private Builder() {
@@ -263,7 +362,13 @@ public class MeetingRequestQuestionJson {
         }
 
         /**
-         * The unique ID representing this question.
+         * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+         * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+         * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+         * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+         * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+         * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+         * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -271,7 +376,7 @@ public class MeetingRequestQuestionJson {
         }
 
         /**
-         * The actual text of the question.
+         * The display text of the question.
          */
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -287,21 +392,19 @@ public class MeetingRequestQuestionJson {
         }
 
         /**
-         * An array of non-null answers to the question.
+         * An array of non-null answers to the question. The format of each item depends on the question
+         * `type`.
          *
-         * <p>For standard questions, this array contains string values.
+         * <p>**Standard questions:** Each item is a plain string (for example, `"Green"`).
          *
-         * <p>For the following questions:
-         * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-         * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-         * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+         * <p>**Country/Region questions (`type: Country`):** Each item is either a country name (for example,
+         * `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or
+         * country codes, but not both formats in the same request. See the Country Codes reference for the
+         * list of supported country codes and corresponding country names.
          *
-         * <p>the answer is the country name (for example, "Canada").
-         *
-         * <p>For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-         * Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-         *
-         * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+         * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+         * `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data
+         * in parsed form.
          */
         public Builder value(@Nonnull List<String> value) {
             this.value = Utils.checkNotNull(value, "value");
@@ -309,12 +412,37 @@ public class MeetingRequestQuestionJson {
         }
 
         /**
-         * A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room
-         * requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID
-         * determines the type of requirement: Meeting Room requirement for
-         * **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for
-         * **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for
-         * **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.
+         * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+         * interpreted.
+         *
+         * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+         * answer in the **"secondaryValue"** field is a free-text response to that option.
+         *
+         * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+         * answer; in this case, `value` is omitted.
+         *
+         * <p>In all other cases, `answerType` is not expected to be set.
+         */
+        public Builder answerType(@Nullable AnswerTypeJson1 answerType) {
+            this.answerType = answerType;
+            return this;
+        }
+
+        /**
+         * The secondary value of the question. This can be the other answer of choice questions which have
+         * `Other` as an answer type.
+         */
+        public Builder secondaryValue(@Nullable String secondaryValue) {
+            this.secondaryValue = secondaryValue;
+            return this;
+        }
+
+        /**
+         * The structured representation of a complex question answer. Contains the same data as `value`,
+         * parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write
+         * complex question answers, use `value` instead.
+         *
+         * <p>The structure of the array depends on the question `type`.
          */
         public Builder compositeValue(@Nullable CompositeValueJson compositeValue) {
             this.compositeValue = compositeValue;
@@ -322,7 +450,7 @@ public class MeetingRequestQuestionJson {
         }
 
         public MeetingRequestQuestionJson build() {
-            return new MeetingRequestQuestionJson(id, name, type, value, compositeValue);
+            return new MeetingRequestQuestionJson(id, name, type, value, answerType, secondaryValue, compositeValue);
         }
     }
 }

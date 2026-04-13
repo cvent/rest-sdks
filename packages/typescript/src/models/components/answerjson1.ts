@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AnswerTypeJson1,
-  AnswerTypeJson1$inboundSchema,
-  AnswerTypeJson1$outboundSchema,
-} from "./answertypejson1.js";
+  AnswerTypeJson2,
+  AnswerTypeJson2$inboundSchema,
+  AnswerTypeJson2$outboundSchema,
+} from "./answertypejson2.js";
 import {
   UuidJson,
   UuidJson$inboundSchema,
@@ -25,7 +25,7 @@ export type AnswerJson1 = {
   /**
    * Type of answer
    */
-  type: AnswerTypeJson1;
+  type: AnswerTypeJson2;
   /**
    * Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.
    */
@@ -54,7 +54,7 @@ export const AnswerJson1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: AnswerTypeJson1$inboundSchema,
+  type: AnswerTypeJson2$inboundSchema,
   value: z.string().optional(),
   choice: UuidJson$inboundSchema.optional(),
   category: UuidJson$inboundSchema.optional(),
@@ -77,7 +77,7 @@ export const AnswerJson1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AnswerJson1
 > = z.object({
-  type: AnswerTypeJson1$outboundSchema,
+  type: AnswerTypeJson2$outboundSchema,
   value: z.string().optional(),
   choice: UuidJson$outboundSchema.optional(),
   category: UuidJson$outboundSchema.optional(),

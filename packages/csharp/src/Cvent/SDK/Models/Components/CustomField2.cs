@@ -12,41 +12,88 @@ namespace Cvent.SDK.Models.Components
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// A Custom Field.
+    /// This is used to denote the custom field data.
     /// </summary>
     public class CustomField2
     {
         /// <summary>
-        /// The unique ID representing this custom field.
+        /// This is used to denote the category of a custom field.
         /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("category")]
+        public CustomFieldCategoryJson Category { get; set; } = default!;
 
         /// <summary>
         /// The actual text of the custom field.
         /// </summary>
         [JsonProperty("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; } = default!;
 
         /// <summary>
-        /// The type of data collected by a custom field.
+        /// Code to uniquely identify custom field.
+        /// </summary>
+        [JsonProperty("code")]
+        public string Code { get; set; } = default!;
+
+        /// <summary>
+        /// Whether answer to custom field is mandatory or not.
+        /// </summary>
+        [JsonProperty("required")]
+        public bool? Required { get; set; } = true;
+
+        /// <summary>
+        /// This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
         /// </summary>
         [JsonProperty("type")]
-        public CustomField2CustomFieldType? Type { get; set; }
+        public CustomFieldTypeJson1 Type { get; set; } = default!;
 
         /// <summary>
-        /// The set of answers or possible answers to a question.
+        /// Type-specific details of the custom-field.
         /// </summary>
-        [JsonProperty("value")]
-        public List<string> Value { get; set; } = default!;
+        [JsonProperty("details", NullValueHandling = NullValueHandling.Include)]
+        public CustomField2Details? Details { get; set; }
 
         /// <summary>
-        /// The order of this question in the bigger list of questions.
+        /// The help text of the custom field.
         /// </summary>
-        [JsonProperty("order")]
-        public long? Order { get; set; }
+        [JsonProperty("helpText")]
+        public string? HelpText { get; set; }
+
+        /// <summary>
+        /// This option allows you to choose whether to display the custom field in emails. The field name and the value entered by the invitee are used in the My Agenda data tag. You can set the custom field to display always or only when answered. Only applicable to session custom fields.
+        /// </summary>
+        [JsonProperty("displayInDataTag")]
+        public DisplayInDataTagJson? DisplayInDataTag { get; set; } = Cvent.SDK.Models.Components.DisplayInDataTagJson.No;
+
+        /// <summary>
+        /// Default text in emails when a contact does not have a value answered for this custom field. Only applicable to contact custom fields.
+        /// </summary>
+        [JsonProperty("defaultTagText")]
+        public string? DefaultTagText { get; set; }
+
+        /// <summary>
+        /// True means that this is a consent field. Only applicable to contact custom fields.
+        /// </summary>
+        [JsonProperty("consentField")]
+        public bool? ConsentField { get; set; } = false;
+
+        /// <summary>
+        /// True means that this custom field is active. Determines visibility for event custom fields.
+        /// </summary>
+        [JsonProperty("active")]
+        public bool? Active { get; set; } = true;
+
+        /// <summary>
+        /// True means that the field will be displayed in the event creation wizard. Only applicable to event custom fields.
+        /// </summary>
+        [JsonProperty("displayInEventCreationWizard")]
+        public bool? DisplayInEventCreationWizard { get; set; } = false;
+
+        /// <summary>
+        /// Visibility of the custom field on various pages/forms.
+        /// </summary>
+        [JsonProperty("pageVisibility")]
+        public PageVisibilityJson? PageVisibility { get; set; }
     }
 }

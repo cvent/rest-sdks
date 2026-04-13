@@ -11,16 +11,20 @@ import java.util.Optional;
 /**
  * AnswerTypeJson1
  *
- * <p>Type of answer
+ * <p>Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+ * interpreted.
+ *
+ * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+ * answer in the **"secondaryValue"** field is a free-text response to that option.
+ *
+ * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+ * answer; in this case, `value` is omitted.
+ *
+ * <p>In all other cases, `answerType` is not expected to be set.
  */
 public enum AnswerTypeJson1 {
-    CHOICE("Choice"),
-    TEXT("Text"),
-    CHOICE_TEXT("ChoiceText"),
-    COMMENT("Comment"),
     OTHER("Other"),
-    NA("NA"),
-    FILE("File");
+    NA("NA");
 
     @JsonValue
     private final String value;
