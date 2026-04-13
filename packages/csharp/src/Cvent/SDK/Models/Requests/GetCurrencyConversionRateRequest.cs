@@ -46,17 +46,21 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? Before { get; set; }
 
         /// <summary>
-        /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///    * id (eq)<br/>
-        ///    * startDate (gt|ge|lt|le|eq)<br/>
-        ///    * endDate (gt|ge|lt|le|eq)<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or.
+        /// | Field     | Operators                    |<br/>
+        /// |:----------|:-----------------------------|<br/>
+        /// | id        | `eq`                         |<br/>
+        /// | startDate | `gt`, `ge`, `lt`, `le`, `eq` |<br/>
+        /// | endDate   | `gt`, `ge`, `lt`, `le`, `eq` |<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

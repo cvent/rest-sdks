@@ -784,11 +784,11 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetBudgetAllocationsRequest req = new GetBudgetAllocationsRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetBudgetAllocationsResponse? res = await sdk.Budget.GetBudgetAllocationsAsync(req);
@@ -1250,13 +1250,13 @@ AnswerBudgetCustomFieldRequest req = new AnswerBudgetCustomFieldRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CustomField2 = new CustomField2Input() {
+    CustomField1 = new CustomField1Input() {
         Id = "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
-        Type = CustomField2CustomFieldType.General,
         Value = new List<string>() {
             "Choice C",
             "Choice A",
         },
+        Type = CustomField1CustomFieldType.General,
     },
 };
 

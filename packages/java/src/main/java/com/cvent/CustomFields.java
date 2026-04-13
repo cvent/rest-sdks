@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
-import com.cvent.models.components.CustomField3;
+import com.cvent.models.components.CustomField2;
 import com.cvent.models.operations.CreateCustomFieldRequestBuilder;
 import com.cvent.models.operations.CreateCustomFieldResponse;
 import com.cvent.models.operations.CreateCustomFieldTranslationRequest;
@@ -133,7 +133,7 @@ public class CustomFields {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateCustomFieldResponse createCustomField(@Nonnull CustomField3 request) {
+    public CreateCustomFieldResponse createCustomField(@Nonnull CustomField2 request) {
         return createCustomField(request, null);
     }
 
@@ -149,8 +149,8 @@ public class CustomFields {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateCustomFieldResponse createCustomField(@Nonnull CustomField3 request, @Nullable Options options) {
-        RequestOperation<CustomField3, CreateCustomFieldResponse> operation =
+    public CreateCustomFieldResponse createCustomField(@Nonnull CustomField2 request, @Nullable Options options) {
+        RequestOperation<CustomField2, CreateCustomFieldResponse> operation =
                 new CreateCustomField.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }

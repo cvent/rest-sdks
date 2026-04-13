@@ -34,22 +34,23 @@ export type GetEventBudgetTotalsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * There is one comparison type that can be used in filter expressions:
-   *   * equal: eq
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *    * version.id (eq)
-   *    * version.name (eq)
-   *    * version.default (eq|ne)
+   * | Field           | Operators  |
+   * |:----------------|:-----------|
+   * | version.id      | `eq`       |
+   * | version.name    | `eq`       |
+   * | version.default | `eq`, `ne` |
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

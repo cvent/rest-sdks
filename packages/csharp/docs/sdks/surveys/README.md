@@ -405,7 +405,7 @@ CreateEventSurveyResponsesRequest req = new CreateEventSurveyResponsesRequest() 
         },
         Answers = new List<AnswerJson1>() {
             new AnswerJson1() {
-                Type = AnswerTypeJson1.ChoiceText,
+                Type = AnswerTypeJson2.ChoiceText,
                 Value = "1",
                 Choice = new UuidJson() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
@@ -1277,7 +1277,7 @@ UpdateStandardSurveyResponsesRequest req = new UpdateStandardSurveyResponsesRequ
         },
         Answers = new List<AnswerJson1>() {
             new AnswerJson1() {
-                Type = AnswerTypeJson1.ChoiceText,
+                Type = AnswerTypeJson2.ChoiceText,
                 Value = "1",
                 Choice = new UuidJson() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",

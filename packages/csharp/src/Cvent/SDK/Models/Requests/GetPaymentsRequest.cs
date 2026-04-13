@@ -46,23 +46,22 @@ namespace Cvent.SDK.Models.Requests
         public DateTime? Before { get; set; }
 
         /// <summary>
-        /// A filter string passed in the body of the request, narrows search<br/>
-        /// results and supports the combination of logical and comparison<br/>
-        /// operators.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The filter adheres to the pattern filter='field' comparisonType<br/>
-        /// 'value'.<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
+        /// | Field            | Operators              | Notes                                                                                                                                                                                         |<br/>
+        /// |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | budgetItem.id    | `eq`                   |                                                                                                                                                                                               |<br/>
+        /// | id               | `eq`                   |                                                                                                                                                                                               |<br/>
+        /// | budgetVersion.id | `eq`                   |                                                                                                                                                                                               |<br/>
+        /// | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated budget item was last modified. Filtering by `lastModified` returns payments linked to budget items modified within the specified date range. |<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///    * budgetItem.id (eq)<br/>
-        ///    * id (eq)<br/>
-        ///    * budgetVersion.id (eq)<br/>
-        ///    * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item was last modified. Filtering by `lastModified` returns payments linked to budget items modified within the specified date range.<br/>
-        /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

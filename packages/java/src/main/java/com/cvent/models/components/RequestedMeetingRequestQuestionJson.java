@@ -5,8 +5,11 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.List;
@@ -15,78 +18,149 @@ import java.util.Optional;
 /**
  * RequestedMeetingRequestQuestionJson
  *
- * <p>A question for a meeting request.
+ * <p>A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are
+ * the same across all accounts. Use the `type` field or the question `id` to determine how to format
+ * the `value` array.
  */
 public class RequestedMeetingRequestQuestionJson {
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     @JsonProperty("id")
     private String id;
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
      *
-     * <p>If the question is any one of:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Provide either the country name (for example,
+     * `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country
+     * Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
      *
-     * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
-     * "CA"), but not both. The country code specification can be found
-     * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
      *
-     * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+     * <p>*Meeting Room Requirement example (one item in value array):*
+     * `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
      *
-     * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
-     * should not be used for updates.
+     * <p>*Sleeping Room Requirement example:*
+     * `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
      *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>*Budget Estimate example:*
+     * `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
      */
     @JsonProperty("value")
     private List<String> value;
 
+    /**
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("answerType")
+    private AnswerTypeJson1 answerType;
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("secondaryValue")
+    private String secondaryValue;
+
     @JsonCreator
     public RequestedMeetingRequestQuestionJson(
-            @JsonProperty("id") @Nonnull String id, @JsonProperty("value") @Nonnull List<String> value) {
+            @JsonProperty("id") @Nonnull String id,
+            @JsonProperty("value") @Nonnull List<String> value,
+            @JsonProperty("answerType") @Nullable AnswerTypeJson1 answerType,
+            @JsonProperty("secondaryValue") @Nullable String secondaryValue) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
+        this.answerType = answerType;
+        this.secondaryValue = secondaryValue;
+    }
+
+    public RequestedMeetingRequestQuestionJson(@Nonnull String id, @Nonnull List<String> value) {
+        this(id, value, null, null);
     }
 
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     public String id() {
         return this.id;
     }
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
      *
-     * <p>If the question is any one of:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Provide either the country name (for example,
+     * `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country
+     * Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
      *
-     * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
-     * "CA"), but not both. The country code specification can be found
-     * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
      *
-     * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+     * <p>*Meeting Room Requirement example (one item in value array):*
+     * `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
      *
-     * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
-     * should not be used for updates.
+     * <p>*Sleeping Room Requirement example:*
+     * `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
      *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>*Budget Estimate example:*
+     * `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
      */
     public List<String> value() {
         return this.value;
+    }
+
+    /**
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    public Optional<AnswerTypeJson1> answerType() {
+        return Optional.ofNullable(this.answerType);
+    }
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    public Optional<String> secondaryValue() {
+        return Optional.ofNullable(this.secondaryValue);
     }
 
     public static Builder builder() {
@@ -94,7 +168,13 @@ public class RequestedMeetingRequestQuestionJson {
     }
 
     /**
-     * The unique ID representing this question.
+     * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+     * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+     * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+     * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+     * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+     * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+     * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
      */
     public RequestedMeetingRequestQuestionJson withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -102,29 +182,55 @@ public class RequestedMeetingRequestQuestionJson {
     }
 
     /**
-     * An array of non-null answers to the question.
+     * An array of non-null answers to the question. The format of each item depends on the question
+     * `type`.
      *
-     * <p>For standard questions, this contains string values.
+     * <p>**Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
      *
-     * <p>If the question is any one of:
-     * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-     * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-     * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+     * <p>**Country/Region questions (`type: Country`):** Provide either the country name (for example,
+     * `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country
+     * Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
      *
-     * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
-     * "CA"), but not both. The country code specification can be found
-     * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+     * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+     * `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
      *
-     * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-     * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+     * <p>*Meeting Room Requirement example (one item in value array):*
+     * `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
      *
-     * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
-     * should not be used for updates.
+     * <p>*Sleeping Room Requirement example:*
+     * `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
      *
-     * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+     * <p>*Budget Estimate example:*
+     * `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
      */
     public RequestedMeetingRequestQuestionJson withValue(@Nonnull List<String> value) {
         this.value = Utils.checkNotNull(value, "value");
+        return this;
+    }
+
+    /**
+     * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+     * interpreted.
+     *
+     * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+     * answer in the **"secondaryValue"** field is a free-text response to that option.
+     *
+     * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+     * answer; in this case, `value` is omitted.
+     *
+     * <p>In all other cases, `answerType` is not expected to be set.
+     */
+    public RequestedMeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson1 answerType) {
+        this.answerType = answerType;
+        return this;
+    }
+
+    /**
+     * The secondary value of the question. This can be the other answer of choice questions which have
+     * `Other` as an answer type.
+     */
+    public RequestedMeetingRequestQuestionJson withSecondaryValue(@Nullable String secondaryValue) {
+        this.secondaryValue = secondaryValue;
         return this;
     }
 
@@ -137,17 +243,29 @@ public class RequestedMeetingRequestQuestionJson {
             return false;
         }
         RequestedMeetingRequestQuestionJson other = (RequestedMeetingRequestQuestionJson) o;
-        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.value, other.value);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.value, other.value)
+                && Utils.enhancedDeepEquals(this.answerType, other.answerType)
+                && Utils.enhancedDeepEquals(this.secondaryValue, other.secondaryValue);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, value);
+        return Utils.enhancedHash(id, value, answerType, secondaryValue);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(RequestedMeetingRequestQuestionJson.class, "id", id, "value", value);
+        return Utils.toString(
+                RequestedMeetingRequestQuestionJson.class,
+                "id",
+                id,
+                "value",
+                value,
+                "answerType",
+                answerType,
+                "secondaryValue",
+                secondaryValue);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -157,12 +275,22 @@ public class RequestedMeetingRequestQuestionJson {
 
         private List<String> value;
 
+        private AnswerTypeJson1 answerType;
+
+        private String secondaryValue;
+
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique ID representing this question.
+         * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+         * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+         * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+         * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+         * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+         * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+         * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -170,34 +298,60 @@ public class RequestedMeetingRequestQuestionJson {
         }
 
         /**
-         * An array of non-null answers to the question.
+         * An array of non-null answers to the question. The format of each item depends on the question
+         * `type`.
          *
-         * <p>For standard questions, this contains string values.
+         * <p>**Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
          *
-         * <p>If the question is any one of:
-         * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-         * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-         * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+         * <p>**Country/Region questions (`type: Country`):** Provide either the country name (for example,
+         * `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country
+         * Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
          *
-         * <p>the answer can be either the country name (for example, "Canada") or the country code (for example,
-         * "CA"), but not both. The country code specification can be found
-         * [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+         * <p>**Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or
+         * `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
          *
-         * <p>For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget
-         * Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+         * <p>*Meeting Room Requirement example (one item in value array):*
+         * `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
          *
-         * <p>Note: Use this field when updating question answers; the `compositeValue` field is read-only and
-         * should not be used for updates.
+         * <p>*Sleeping Room Requirement example:*
+         * `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
          *
-         * <p>For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+         * <p>*Budget Estimate example:*
+         * `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
          */
         public Builder value(@Nonnull List<String> value) {
             this.value = Utils.checkNotNull(value, "value");
             return this;
         }
 
+        /**
+         * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are
+         * interpreted.
+         *
+         * <p>Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the
+         * answer in the **"secondaryValue"** field is a free-text response to that option.
+         *
+         * <p>Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type
+         * answer; in this case, `value` is omitted.
+         *
+         * <p>In all other cases, `answerType` is not expected to be set.
+         */
+        public Builder answerType(@Nullable AnswerTypeJson1 answerType) {
+            this.answerType = answerType;
+            return this;
+        }
+
+        /**
+         * The secondary value of the question. This can be the other answer of choice questions which have
+         * `Other` as an answer type.
+         */
+        public Builder secondaryValue(@Nullable String secondaryValue) {
+            this.secondaryValue = secondaryValue;
+            return this;
+        }
+
         public RequestedMeetingRequestQuestionJson build() {
-            return new RequestedMeetingRequestQuestionJson(id, value);
+            return new RequestedMeetingRequestQuestionJson(id, value, answerType, secondaryValue);
         }
     }
 }

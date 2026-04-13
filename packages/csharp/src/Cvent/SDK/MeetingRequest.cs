@@ -87,7 +87,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a collection of meeting requests for a given active form.
+        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -107,7 +107,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests.
+        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -727,7 +727,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a collection of meeting requests for a given active form.
+        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -900,7 +900,7 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests.
+        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

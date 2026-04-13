@@ -11,10 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetEventFeaturesRequest = {
   /**
-   * Unique Id of an event
-   */
-  id: string;
-  /**
    * The maximum number of records to return per page.
    */
   limit?: number | undefined;
@@ -30,20 +26,23 @@ export type GetEventFeaturesRequest = {
    */
   locale?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * It has only one comparison types that can be used in filter expressions:
+   * Supported fields and operators are listed below:
    *
-   *   * equal: eq
-   *
-   * The following fields are filterable:
-   *
-   *   * enabled (eq)
+   * | Field   | Operators |
+   * |---------|-----------|
+   * | enabled | `eq`      |
    */
   filter?: string | undefined;
+  /**
+   * Unique Id of an event
+   */
+  id: string;
 };
 
 export type GetEventFeaturesResponse = {
@@ -52,11 +51,11 @@ export type GetEventFeaturesResponse = {
 
 /** @internal */
 export type GetEventFeaturesRequest$Outbound = {
-  id: string;
   limit: number;
   token?: string | undefined;
   locale?: string | undefined;
   filter?: string | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -65,11 +64,11 @@ export const GetEventFeaturesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetEventFeaturesRequest
 > = z.object({
-  id: z.string(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
   locale: z.string().optional(),
   filter: z.string().optional(),
+  id: z.string(),
 });
 
 export function getEventFeaturesRequestToJSON(

@@ -43,34 +43,29 @@ public class ListAttendeeActivitiesRequest {
     private String token;
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are seven comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * event.id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * type (eq|ne)
-     * * exhibitor.id (eq|ne)
-     * * session.id (eq|ne)
-     * * appointment.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * data.id (eq|ne)
-     * * name (eq|ne)
-     * * externalActivityDate (eq|ne|lt|le|gt|ge)
-     * * time (eq|ne|lt|le|gt|ge)
+     * <p>| Field                | Operators                          |
+     * |----------------------|------------------------------------|
+     * | id                   | `eq`, `ne`                         |
+     * | created              | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | event.id             | `eq`, `ne`                         |
+     * | attendee.id          | `eq`, `ne`                         |
+     * | type                 | `eq`, `ne`                         |
+     * | exhibitor.id         | `eq`, `ne`                         |
+     * | session.id           | `eq`, `ne`                         |
+     * | appointment.id       | `eq`, `ne`                         |
+     * | speaker.id           | `eq`, `ne`                         |
+     * | data.id              | `eq`, `ne`                         |
+     * | name                 | `eq`, `ne`                         |
+     * | externalActivityDate | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | time                 | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -126,34 +121,29 @@ public class ListAttendeeActivitiesRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are seven comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * event.id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * type (eq|ne)
-     * * exhibitor.id (eq|ne)
-     * * session.id (eq|ne)
-     * * appointment.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * data.id (eq|ne)
-     * * name (eq|ne)
-     * * externalActivityDate (eq|ne|lt|le|gt|ge)
-     * * time (eq|ne|lt|le|gt|ge)
+     * <p>| Field                | Operators                          |
+     * |----------------------|------------------------------------|
+     * | id                   | `eq`, `ne`                         |
+     * | created              | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | event.id             | `eq`, `ne`                         |
+     * | attendee.id          | `eq`, `ne`                         |
+     * | type                 | `eq`, `ne`                         |
+     * | exhibitor.id         | `eq`, `ne`                         |
+     * | session.id           | `eq`, `ne`                         |
+     * | appointment.id       | `eq`, `ne`                         |
+     * | speaker.id           | `eq`, `ne`                         |
+     * | data.id              | `eq`, `ne`                         |
+     * | name                 | `eq`, `ne`                         |
+     * | externalActivityDate | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | time                 | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -200,34 +190,29 @@ public class ListAttendeeActivitiesRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are seven comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * event.id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * type (eq|ne)
-     * * exhibitor.id (eq|ne)
-     * * session.id (eq|ne)
-     * * appointment.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * data.id (eq|ne)
-     * * name (eq|ne)
-     * * externalActivityDate (eq|ne|lt|le|gt|ge)
-     * * time (eq|ne|lt|le|gt|ge)
+     * <p>| Field                | Operators                          |
+     * |----------------------|------------------------------------|
+     * | id                   | `eq`, `ne`                         |
+     * | created              | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | event.id             | `eq`, `ne`                         |
+     * | attendee.id          | `eq`, `ne`                         |
+     * | type                 | `eq`, `ne`                         |
+     * | exhibitor.id         | `eq`, `ne`                         |
+     * | session.id           | `eq`, `ne`                         |
+     * | appointment.id       | `eq`, `ne`                         |
+     * | speaker.id           | `eq`, `ne`                         |
+     * | data.id              | `eq`, `ne`                         |
+     * | name                 | `eq`, `ne`                         |
+     * | externalActivityDate | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | time                 | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -325,34 +310,29 @@ public class ListAttendeeActivitiesRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search results and supports the
-         * combination of logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There are seven comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * id (eq|ne)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * event.id (eq|ne)
-         * * attendee.id (eq|ne)
-         * * type (eq|ne)
-         * * exhibitor.id (eq|ne)
-         * * session.id (eq|ne)
-         * * appointment.id (eq|ne)
-         * * speaker.id (eq|ne)
-         * * data.id (eq|ne)
-         * * name (eq|ne)
-         * * externalActivityDate (eq|ne|lt|le|gt|ge)
-         * * time (eq|ne|lt|le|gt|ge)
+         * <p>| Field                | Operators                          |
+         * |----------------------|------------------------------------|
+         * | id                   | `eq`, `ne`                         |
+         * | created              | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | event.id             | `eq`, `ne`                         |
+         * | attendee.id          | `eq`, `ne`                         |
+         * | type                 | `eq`, `ne`                         |
+         * | exhibitor.id         | `eq`, `ne`                         |
+         * | session.id           | `eq`, `ne`                         |
+         * | appointment.id       | `eq`, `ne`                         |
+         * | speaker.id           | `eq`, `ne`                         |
+         * | data.id              | `eq`, `ne`                         |
+         * | name                 | `eq`, `ne`                         |
+         * | externalActivityDate | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | time                 | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
          *
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

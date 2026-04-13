@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * Create MR (Bulk)
  *
  * @remarks
- * Creates a collection of meeting requests for a given active form.
+ * Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
  *
  * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
  */

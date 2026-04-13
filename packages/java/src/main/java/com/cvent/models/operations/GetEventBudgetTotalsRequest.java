@@ -50,19 +50,19 @@ public class GetEventBudgetTotalsRequest {
     private String token;
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * version.id (eq)
-     * * version.name (eq)
-     * * version.default (eq|ne)
+     * <p>| Field           | Operators  |
+     * |:----------------|:-----------|
+     * | version.id      | `eq`       |
+     * | version.name    | `eq`       |
+     * | version.default | `eq`, `ne` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -127,19 +127,19 @@ public class GetEventBudgetTotalsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * version.id (eq)
-     * * version.name (eq)
-     * * version.default (eq|ne)
+     * <p>| Field           | Operators  |
+     * |:----------------|:-----------|
+     * | version.id      | `eq`       |
+     * | version.name    | `eq`       |
+     * | version.default | `eq`, `ne` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -194,19 +194,19 @@ public class GetEventBudgetTotalsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * version.id (eq)
-     * * version.name (eq)
-     * * version.default (eq|ne)
+     * <p>| Field           | Operators  |
+     * |:----------------|:-----------|
+     * | version.id      | `eq`       |
+     * | version.name    | `eq`       |
+     * | version.default | `eq`, `ne` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -317,19 +317,19 @@ public class GetEventBudgetTotalsRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search results and supports the
-         * combination of logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There is one comparison type that can be used in filter expressions:
-         * * equal: eq
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * version.id (eq)
-         * * version.name (eq)
-         * * version.default (eq|ne)
+         * <p>| Field           | Operators  |
+         * |:----------------|:-----------|
+         * | version.id      | `eq`       |
+         * | version.name    | `eq`       |
+         * | version.default | `eq`, `ne` |
          *
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

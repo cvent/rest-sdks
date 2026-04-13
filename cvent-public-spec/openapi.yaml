@@ -1550,35 +1550,31 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are seven comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * event.id (eq|ne)
-              * attendee.id (eq|ne)
-              * type (eq|ne)
-              * exhibitor.id (eq|ne)
-              * session.id (eq|ne)
-              * appointment.id (eq|ne)
-              * speaker.id (eq|ne)
-              * data.id (eq|ne)
-              * name (eq|ne)
-              * externalActivityDate (eq|ne|lt|le|gt|ge)
-              * time (eq|ne|lt|le|gt|ge)
+            | Field                | Operators                          |
+            |----------------------|------------------------------------|
+            | id                   | `eq`, `ne`                         |
+            | created              | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | event.id             | `eq`, `ne`                         |
+            | attendee.id          | `eq`, `ne`                         |
+            | type                 | `eq`, `ne`                         |
+            | exhibitor.id         | `eq`, `ne`                         |
+            | session.id           | `eq`, `ne`                         |
+            | appointment.id       | `eq`, `ne`                         |
+            | speaker.id           | `eq`, `ne`                         |
+            | data.id              | `eq`, `ne`                         |
+            | name                 | `eq`, `ne`                         |
+            | externalActivityDate | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | time                 | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
 
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: type eq 'event.registered' or type eq 'session.enrolled' and (attendee.id eq 'uuid1' or attendee.id eq 'uuid2')
@@ -1664,25 +1660,23 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are eight comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
-              * is empty: is empty
-              * is not empty: is not empty
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * name (eq|ne)
-              * type (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * lastModified (eq|ne|lt|le|gt|ge)
+            | Field        | Operators                          |
+            |--------------|------------------------------------|
+            | id           | `eq`, `ne`                         |
+            | name         | `eq`, `ne`                         |
+            | type         | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: id eq 'd94aff58-175d-41a5-9612-64e71202f8c3' and 'type eq 'event.external' and name ne 'social.media' and created ge '2021-03-15T09:33:13.750Z' and lastModified le '2021-03-15T09:33:13.750Z'
@@ -2494,25 +2488,26 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed as a query parameter, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-               * event.id (eq|ne)
-               * rfp.id (eq|ne)
-               * budgetVersion.id (eq|ne)
-               * id (eq|ne)
-               * category.id (eq|ne)
-               * category.name (eq|ne)
-               * subCategory.id (eq|ne)
-               * subCategory.name (eq|ne)
+            Supported fields and operators are listed below:
 
-            The following operators are available:
-              * and
-              * or
+            | Field            | Operators  |
+            |:-----------------|:-----------|
+            | event.id         | `eq`, `ne` |
+            | rfp.id           | `eq`, `ne` |
+            | budgetVersion.id | `eq`, `ne` |
+            | id               | `eq`, `ne` |
+            | category.id      | `eq`, `ne` |
+            | category.name    | `eq`, `ne` |
+            | subCategory.id   | `eq`, `ne` |
+            | subCategory.name | `eq`, `ne` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: event.id eq 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5' and budgetVersion.id ne 'e7120b27-ca4c-46c1-b5de-cbe5ea0e26d5'
@@ -2878,14 +2873,15 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There is one comparison type that can be used in filter expressions:
-               * equal: eq
+            Supported fields and operators are listed below:
 
-            The following field is filterable:
-               * event.id (eq)
+            | Field    | Operators |
+            |:---------|:----------|
+            | event.id | `eq`      |
           schema:
             type: string
             example: event.id eq 'E05029A8-39F5-49DF-8450-2EB41B302421'
@@ -2930,28 +2926,24 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-               * event.id (eq)
-               * type (eq|ne)
-               * status (eq|ne)
-               * fromDate (gt|ge)
-               * toDate (lt|le)
-               * reconciliations.reconciledDate (lt|le|gt|ge)
+            | Field                          | Operators              |
+            |:-------------------------------|:-----------------------|
+            | event.id                       | `eq`                   |
+            | type                           | `eq`, `ne`             |
+            | status                         | `eq`, `ne`             |
+            | fromDate                       | `gt`, `ge`             |
+            | toDate                         | `lt`, `le`             |
+            | reconciliations.reconciledDate | `lt`, `le`, `gt`, `ge` |
 
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: event.id eq 'E05029A8-39F5-49DF-8450-2EB41B302421' and type ne 'Virtual' and status eq 'Active' or status eq 'Inactive'
@@ -4545,17 +4537,21 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-               * id (eq)
-               * startDate (gt|ge|lt|le|eq)
-               * endDate (gt|ge|lt|le|eq)
+            Supported fields and operators are listed below:
 
-            The following operators are available:
-              * and
-              * or
+            | Field     | Operators                    |
+            |:----------|:-----------------------------|
+            | id        | `eq`                         |
+            | startDate | `gt`, `ge`, `lt`, `le`, `eq` |
+            | endDate   | `gt`, `ge`, `lt`, `le`, `eq` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: "startDate eq '2020-02-07' "
@@ -4768,7 +4764,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field3'
+              $ref: '#/components/schemas/custom-field2'
       tags:
         - Custom Fields
       responses:
@@ -4792,7 +4788,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /custom-fields/{customFieldId}:
     parameters:
-      - $ref: '#/components/parameters/customFieldId3'
+      - $ref: '#/components/parameters/customFieldId4'
     put:
       security:
         - OAuth2.clientCredentials:
@@ -4864,7 +4860,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /custom-fields/{customFieldId}/advanced-logic:
     parameters:
-      - $ref: '#/components/parameters/customFieldId3'
+      - $ref: '#/components/parameters/customFieldId4'
     put:
       security:
         - OAuth2.clientCredentials:
@@ -4906,7 +4902,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /custom-fields/{customFieldId}/translations:
     parameters:
-      - $ref: '#/components/parameters/customFieldId3'
+      - $ref: '#/components/parameters/customFieldId4'
     post:
       security:
         - OAuth2.clientCredentials:
@@ -6375,35 +6371,30 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-               * id (eq)
-               * costType (eq|ne)
-               * category.id (eq|ne)
-               * category.name (eq|ne)
-               * subCategory.id (eq|ne)
-               * subCategory.name (eq|ne)
-               * status (eq|ne)
-               * vendor.id (eq|ne)
-               * vendor.name (eq|ne)
-               * date (gt|ge|lt|le)
-               * customFields.{uuid} (eq|ne|lt|le|gt|ge)
-               * deleted (eq|ne) **Note:** Budget items that are deleted are available for 3 months after deletion.
-                 After this, they are removed and no longer appear in search results.
+            | Field               | Operators                          | Notes                                                                                                                                         |
+            |:--------------------|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+            | id                  | `eq`                               |                                                                                                                                               |
+            | costType            | `eq`, `ne`                         |                                                                                                                                               |
+            | category.id         | `eq`, `ne`                         |                                                                                                                                               |
+            | category.name       | `eq`, `ne`                         |                                                                                                                                               |
+            | subCategory.id      | `eq`, `ne`                         |                                                                                                                                               |
+            | subCategory.name    | `eq`, `ne`                         |                                                                                                                                               |
+            | status              | `eq`, `ne`                         |                                                                                                                                               |
+            | vendor.id           | `eq`, `ne`                         |                                                                                                                                               |
+            | vendor.name         | `eq`, `ne`                         |                                                                                                                                               |
+            | date                | `gt`, `ge`, `lt`, `le`             |                                                                                                                                               |
+            | customFields.{uuid} | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |                                                                                                                                               |
+            | deleted             | `eq`, `ne`                         | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |
 
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: category.name eq 'Accommodation' and status ne 'Estimated'
@@ -6473,37 +6464,6 @@ paths:
   /events/{id}/budget-items/allocations:
     parameters:
       - $ref: '#/components/parameters/id4'
-      - $ref: '#/components/parameters/after'
-      - $ref: '#/components/parameters/before'
-      - $ref: '#/components/parameters/limit'
-      - $ref: '#/components/parameters/token'
-      - name: filter
-        in: query
-        required: false
-        description: |
-          A filter query string narrows search results and supports the combination of logical and comparison operators.  The filter adheres to the pattern filter='field' comparisonType 'value'.
-          There are six comparison types that can be used in filter expressions:
-            * equal: eq
-            * not equal: ne
-            * greater than: gt
-            * greater or equal: ge
-            * less than: lt
-            * less than or equal: le
-
-          The following fields are filterable:
-             * budgetVersion.id (eq)
-             * budgetItem.id (eq)
-             * category.id (eq|ne)
-             * subcategory.id (eq|ne)
-             * generalLedger.id (eq|ne)
-             * value (lt|le|gt|ge|eq)
-
-          The following operators are available:
-            * and
-            * or
-        schema:
-          type: string
-          example: category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000
     get:
       security:
         - OAuth2.clientCredentials:
@@ -6534,6 +6494,36 @@ paths:
         '429':
           $ref: '#/components/responses/TooManyRequests1'
       deprecated: false
+      parameters:
+        - $ref: '#/components/parameters/after'
+        - $ref: '#/components/parameters/before'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field            | Operators                    |
+            |:-----------------|:-----------------------------|
+            | budgetVersion.id | `eq`                         |
+            | budgetItem.id    | `eq`                         |
+            | category.id      | `eq`, `ne`                   |
+            | subcategory.id   | `eq`, `ne`                   |
+            | generalLedger.id | `eq`, `ne`                   |
+            | value            | `lt`, `le`, `gt`, `ge`, `eq` |
+
+            The following logical operators are supported for combining filters:
+            * and
+            * or
+          schema:
+            type: string
+            example: category.id eq 'e9ee2669-65db-46f8-872c-dbafbf9b0e92' or value lt 1000
   /events/{id}/budget-items/{budgetItemId}:
     parameters:
       - $ref: '#/components/parameters/id4'
@@ -6765,7 +6755,7 @@ paths:
     parameters:
       - $ref: '#/components/parameters/id4'
       - $ref: '#/components/parameters/budgetItemId'
-      - $ref: '#/components/parameters/customFieldId2'
+      - $ref: '#/components/parameters/customFieldId3'
     put:
       tags:
         - Budget
@@ -6801,7 +6791,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field2'
+              $ref: '#/components/schemas/custom-field1'
         required: true
       responses:
         '200':
@@ -6810,7 +6800,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/custom-field2'
+                $ref: '#/components/schemas/custom-field1'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -6846,23 +6836,22 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search
-            results and supports the combination of logical and comparison
-            operators.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The filter adheres to the pattern filter='field' comparisonType
-            'value'.
+            Supported fields and operators are listed below:
 
+            | Field            | Operators              | Notes                                                                                                                                                                                         |
+            |:-----------------|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | budgetItem.id    | `eq`                   |                                                                                                                                                                                               |
+            | id               | `eq`                   |                                                                                                                                                                                               |
+            | budgetVersion.id | `eq`                   |                                                                                                                                                                                               |
+            | lastModified     | `gt`, `ge`, `lt`, `le` | `lastModified` refers to the date the associated budget item was last modified. Filtering by `lastModified` returns payments linked to budget items modified within the specified date range. |
 
-            The following fields are filterable:
-               * budgetItem.id (eq)
-               * id (eq)
-               * budgetVersion.id (eq)
-               * lastModified (gt|ge|lt|le) **Note:** `lastModified` refers to the date the associated budget item was last modified. Filtering by `lastModified` returns payments linked to budget items modified within the specified date range.
-
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: budgetItem.id eq '2c3a755a-d440-498d-baab-30f45dae3cf5' or id eq '1b3a755a-d440-498d-baab-30f45dae3cf5'
@@ -6946,20 +6935,21 @@ paths:
           in: query
           required: false
           description: |
-            A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There is one comparison type that can be used in filter expressions:
-              * equal: eq
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-               * version.id (eq)
-               * version.name (eq)
-               * version.default (eq|ne)
+            | Field           | Operators  |
+            |:----------------|:-----------|
+            | version.id      | `eq`       |
+            | version.name    | `eq`       |
+            | version.default | `eq`, `ne` |
 
-            The following operators are available:
-              * and
-              * or
+            The following logical operators are supported for combining filters:
+            * and
+            * or
           schema:
             type: string
             example: version.name eq 'Test version' and version.id eq '1b3a755a-d440-498d-baab-30f45dae3cf5'
@@ -7118,7 +7108,7 @@ paths:
   /events/{id}/custom-fields/{customFieldId}/answers:
     parameters:
       - $ref: '#/components/parameters/id4'
-      - $ref: '#/components/parameters/customFieldId2'
+      - $ref: '#/components/parameters/customFieldId3'
     put:
       tags:
         - Events
@@ -9473,24 +9463,6 @@ paths:
   /events/{id}/features:
     parameters:
       - $ref: '#/components/parameters/id10'
-      - $ref: '#/components/parameters/limit'
-      - $ref: '#/components/parameters/token'
-      - $ref: '#/components/parameters/locale1'
-      - name: filter
-        in: query
-        required: false
-        description: |
-          A filter query string narrows search results and supports the combination of logical and comparison operators.
-          The filter adheres to the pattern filter='field' comparisonType 'value'.
-
-          It has only one comparison types that can be used in filter expressions:
-            * equal: eq
-
-          The following fields are filterable:
-            * enabled (eq)
-        schema:
-          type: string
-          example: enabled eq 'true'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -9502,6 +9474,26 @@ paths:
       description: A resource responsible for providing the set of event features that are available for an event
       tags:
         - Event Features
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/locale1'
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field   | Operators |
+            |---------|-----------|
+            | enabled | `eq`      |
+          schema:
+            type: string
+            example: enabled eq 'true'
       responses:
         '200':
           description: Successfully retrieved event features
@@ -11433,9 +11425,6 @@ paths:
   /events/{id}/weblinks:
     parameters:
       - $ref: '#/components/parameters/id10'
-      - $ref: '#/components/parameters/token'
-      - $ref: '#/components/parameters/locale1'
-      - $ref: '#/components/parameters/limit-100'
     get:
       security:
         - OAuth2.clientCredentials:
@@ -11447,6 +11436,10 @@ paths:
       operationId: listEventWeblinks
       tags:
         - Event Features
+      parameters:
+        - $ref: '#/components/parameters/token'
+        - $ref: '#/components/parameters/locale1'
+        - $ref: '#/components/parameters/limit-100'
       responses:
         '200':
           description: Successfully retrieved a paginated list of event weblinks.
@@ -12423,7 +12416,7 @@ paths:
         - OAuth2.authorizationCode:
             - event/meeting-requests:write
       summary: Create MR (Bulk)
-      description: Creates a collection of meeting requests for a given active form.
+      description: Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
       parameters:
         - in: query
           name: skipRequiredQuestionValidation
@@ -12470,7 +12463,7 @@ paths:
         - OAuth2.authorizationCode:
             - event/meeting-requests:write
       summary: Update MR (Bulk)
-      description: Updates a collection of meeting requests for a given form, adding information to the existing meeting requests.
+      description: Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the [Complex Questions Guide](/docs/rest-api/guides/meeting-request-complex-questions) for details.
       parameters:
         - in: query
           name: skipRequiredQuestionValidation
@@ -15174,7 +15167,7 @@ paths:
   /sessions/{id}/custom-fields/{customFieldId}/answers:
     parameters:
       - $ref: '#/components/parameters/sessionId1'
-      - $ref: '#/components/parameters/customFieldId1'
+      - $ref: '#/components/parameters/customFieldId2'
     put:
       summary: Update Custom Field Answers
       description: Updates custom field answers for a single custom field and single session.
@@ -17566,7 +17559,7 @@ paths:
         url: '#oauth2-auth-code-planner-admin'
   /videos/{videoId}/audio-tracks:
     parameters:
-      - $ref: '#/components/parameters/videoId'
+      - $ref: '#/components/parameters/videoId1'
     get:
       tags:
         - Video
@@ -17597,7 +17590,7 @@ paths:
       deprecated: false
   /videos/{videoId}/renditions:
     parameters:
-      - $ref: '#/components/parameters/videoId'
+      - $ref: '#/components/parameters/videoId1'
     get:
       tags:
         - Video
@@ -17630,7 +17623,7 @@ paths:
       deprecated: false
   /videos/{videoId}/text-tracks:
     parameters:
-      - $ref: '#/components/parameters/videoId'
+      - $ref: '#/components/parameters/videoId1'
     post:
       tags:
         - Video
@@ -17697,7 +17690,7 @@ paths:
       deprecated: false
   /videos/{videoId}/text-tracks/{textTrackId}:
     parameters:
-      - $ref: '#/components/parameters/videoId'
+      - $ref: '#/components/parameters/videoId1'
       - $ref: '#/components/parameters/textTrackId'
     put:
       tags:
@@ -18655,21 +18648,21 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    customFieldId1:
+    customFieldId2:
       in: path
       name: customFieldId
       description: Unique Id of a custom field
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    customFieldId2:
+    customFieldId3:
       in: path
       name: customFieldId
       description: Unique ID of the custom field.
       required: true
       schema:
         $ref: '#/components/schemas/uuid-property'
-    customFieldId3:
+    customFieldId4:
       in: path
       name: customFieldId
       description: The unique identifier of a custom field.
@@ -20417,7 +20410,7 @@ components:
       schema:
         type: string
         example: (id eq '76f2b9e2-fcce-4d93-be29-a008b76a050c') OR (id eq '16322408-bae8-4b29-a559-702d2023e13a')
-    videoId:
+    videoId1:
       in: path
       name: videoId
       description: The identifier of a video.
@@ -22944,6 +22937,21 @@ components:
       example: Choice
     answer-type.json1:
       title: AnswerType
+      description: |-
+        Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are interpreted.
+
+        Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the answer in the **"secondaryValue"** field is a free-text response to that option.
+
+        Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type answer; in this case, `value` is omitted.
+
+        In all other cases, `answerType` is not expected to be set.
+      type: string
+      enum:
+        - Other
+        - NA
+      example: Other
+    answer-type.json2:
+      title: AnswerType
       enum:
         - Choice
         - Text
@@ -22999,7 +23007,7 @@ components:
         - type
       properties:
         type:
-          $ref: '#/components/schemas/answer-type.json1'
+          $ref: '#/components/schemas/answer-type.json2'
         value:
           type: string
           description: 'Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.'
@@ -26649,7 +26657,7 @@ components:
           description: The type of data collected by a custom field.
           type: string
           allOf:
-            - $ref: '#/components/schemas/custom-field2/properties/type/allOf/0'
+            - $ref: '#/components/schemas/custom-field1/properties/type/allOf/0'
             - readOnly: true
               example: MultiSelect
         value:
@@ -28309,7 +28317,10 @@ components:
             - NOT_SET
     composite-value.json:
       title: CompositeValue
-      description: 'A set of answers to complex questions, which is READ-ONLY. A complex question can be a Meeting Room requirement, Sleeping Room requirement, or Budget Estimate based on the question ID. The ID determines the type of requirement: Meeting Room requirement for **"9a224e41-58d9-43a2-ae59-6d1aa16442ce"**, Sleeping Room requirement for **"cc63aa7c-0800-4fa5-a04b-073793e197f3"**, or Budget Estimate for **"1479fb2d-e94c-4bfb-a63f-4af808a22160"**.'
+      description: |-
+        The structured representation of a complex question answer. Contains the same data as `value`, parsed into typed objects instead of JSON-serialized strings. This field is **read-only** — to write complex question answers, use `value` instead.
+
+        The structure of the array depends on the question `type`.
       oneOf:
         - type: array
           title: Meeting Room Requirement Set
@@ -30839,68 +30850,6 @@ components:
             - readOnly: true
               example: MultiSelect
     custom-field2:
-      title: CustomField
-      description: A Custom Field
-      required:
-        - id
-        - value
-      type: object
-      properties:
-        id:
-          type: string
-          description: The unique ID representing this custom field.
-          format: uuid
-        name:
-          type: string
-          description: The actual text of the custom field.
-          example: What is a your favorite color?
-          readOnly: true
-        type:
-          description: The type of data collected by a custom field.
-          type: string
-          allOf:
-            - title: CustomFieldType
-              enum:
-                - AutoIncrement
-                - ConsentQuestion
-                - Currency
-                - Decimal
-                - Date
-                - DateTime
-                - Email
-                - FileUpload
-                - FreeText
-                - General
-                - MultiChoice
-                - MultiSelect
-                - Number
-                - OpenEndedDateTime
-                - OpenEndedText
-                - SingleChoice
-                - SingleSelect
-                - USPhoneNumber
-                - Unknown
-              type: string
-              description: The type of data collected by a custom field.
-              example: General
-            - readOnly: true
-              example: MultiSelect
-        value:
-          type: array
-          uniqueItems: true
-          items:
-            type: string
-            description: A question answer value
-          description: The set of answers or possible answers to a question.
-          example:
-            - Choice C
-            - Choice A
-        order:
-          type: integer
-          description: The order of this question in the bigger list of questions.
-          example: 1
-          readOnly: true
-    custom-field3:
       title: CustomField
       required:
         - category
@@ -34635,7 +34584,7 @@ components:
           description: This is used to denote the custom field data.
           type: object
           allOf:
-            - $ref: '#/components/schemas/custom-field3/allOf/0'
+            - $ref: '#/components/schemas/custom-field2/allOf/0'
           properties:
             category:
               $ref: '#/components/schemas/custom-field-category.json'
@@ -34660,10 +34609,10 @@ components:
               type: object
               description: Type-specific details of the custom-field.
               oneOf:
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/0'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/1'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/2'
-                - $ref: '#/components/schemas/custom-field3/properties/details/oneOf/3'
+                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/0'
+                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/1'
+                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/2'
+                - $ref: '#/components/schemas/custom-field2/properties/details/oneOf/3'
             order:
               type: integer
               description: The order of the custom field on the display page.
@@ -36963,7 +36912,26 @@ components:
           example: ''
     feature-type.json:
       title: FeatureType
-      description: These are the types of features used in the event container events.
+      description: |-
+        The type of feature available for a container event.
+
+        | Value | Description |
+        |-------|-------------|
+        | `Website` | Allows you to promote your event with a customizable series of pages. |
+        | `Registration` | Allows attendees to sign up for your event ahead of time. Once done, they can modify their details or cancel altogether if you allow it. |
+        | `OnArrival` | Adds several options designed to make supporting your live event as smooth as possible. |
+        | `AttendeeHub` | Delivers the attendee-facing website and mobile app with agenda/content, engagement tools (live Q&A, polls, gamification), and networking—launchable independently of registration. |
+        | `Appointments` | Enables attendees, exhibitors, and staff to schedule and manage 1:1 meetings within Attendee Hub. |
+        | `Planning` | Adds new ways to stay organized behind the scenes throughout the entire event process. |
+        | `Agenda` | Allows you to manage the breakouts, presentations, or activities (known in Cvent as sessions) that make up your event. |
+        | `Travel` | Allows you to easily collect and manage invitees' hotel and flight preferences. |
+        | `Marketing` | Allows planners to create, personalize, and automate branded event emails (invites, reminders, confirmations) and track performance to drive registrations and engagement. |
+        | `Surveys` | Adds a customizable questionnaire you can use to gather feedback. |
+        | `Speakers` | Allows you to showcase and manage all the headliners, keynoters, presenters, and moderators contributing to your event. |
+        | `Exhibitors` | Centralizes exhibitor setup—profiles, tasks, content/categories—and booth staff and LeadCapture management, with exhibitor listings and engagement surfaced in Attendee Hub. |
+        | `Vendors` | Allows planners to source and manage event services directly from the container event. |
+        | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the event app. |
+        | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. |
       type: string
       enum:
         - Website
@@ -36979,6 +36947,8 @@ components:
         - Speakers
         - Exhibitors
         - Vendors
+        - EventAds
+        - EventCredits
       example: Registration
     feature-update:
       title: FeatureUpdate
@@ -39527,20 +39497,40 @@ components:
       allOf:
         - title: CustomField
           description: A Custom Field
-          required:
-            - id
-            - value
           type: object
+          allOf:
+            - title: CustomFieldBase
+              description: Base schema for Custom Field - allows type to be customized by extending schemas
+              required:
+                - id
+                - value
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: The unique ID representing this custom field.
+                  format: uuid
+                name:
+                  type: string
+                  description: The actual text of the custom field.
+                  example: What is your favorite color?
+                  readOnly: true
+                value:
+                  type: array
+                  uniqueItems: true
+                  items:
+                    type: string
+                    description: A question answer value
+                  description: The set of answers or possible answers to a question.
+                  example:
+                    - Choice C
+                    - Choice A
+                order:
+                  type: integer
+                  description: The order of this question in the bigger list of questions.
+                  example: 1
+                  readOnly: true
           properties:
-            id:
-              type: string
-              description: The unique ID representing this custom field.
-              format: uuid
-            name:
-              type: string
-              description: The actual text of the custom field.
-              example: What is a your favorite color?
-              readOnly: true
             type:
               description: The type of data collected by a custom field.
               type: string
@@ -39571,21 +39561,6 @@ components:
                   example: General
                 - readOnly: true
                   example: MultiSelect
-            value:
-              type: array
-              uniqueItems: true
-              items:
-                type: string
-                description: A question answer value
-              description: The set of answers or possible answers to a question.
-              example:
-                - Choice C
-                - Choice A
-            order:
-              type: integer
-              description: The order of this question in the bigger list of questions.
-              example: 1
-              readOnly: true
       properties:
         field:
           type: boolean
@@ -39622,6 +39597,14 @@ components:
           type: string
           description: The ISO 8601 maximum date value for a date field.
           example: '2100-12-31'
+        answerTypes:
+          description: List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is omitted when no non-default answer type is defined for the question.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/answer-type.json1'
+          secondaryValue:
+            $ref: '#/components/schemas/secondary-value.json'
     meeting-request-document-paginated-response:
       title: MeetingRequestDocumentPaginatedResponse
       description: Paginated collection of meeting request documents.
@@ -39773,19 +39756,26 @@ components:
           description: Collection of meeting request objects.
     meeting-request-question.json:
       title: MeetingRequestQuestion
-      description: A question for a meeting request.
+      description: A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine the format of the `value` array.
       required:
         - id
         - value
       properties:
         id:
           type: string
-          description: The unique ID representing this question.
+          description: |-
+            The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+            * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+            * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+            * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+            * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+            * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+            * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
           format: uuid
           example: f1ea56cd-6860-4f1a-baf7-973118384384
         name:
           type: string
-          description: The actual text of the question.
+          description: The display text of the question.
           example: What is your favorite color?
           readOnly: true
         type:
@@ -39797,20 +39787,17 @@ components:
             type: string
             example: Green
           description: |-
-            An array of non-null answers to the question.
+            An array of non-null answers to the question. The format of each item depends on the question `type`.
 
-            For standard questions, this array contains string values.
+            **Standard questions:** Each item is a plain string (for example, `"Green"`).
 
-            For the following questions:
-            * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-            * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-            * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+            **Country/Region questions (`type: Country`):** Each item is either a country name (for example, `"Canada"`) or a country code (for example, `"CA"`). Clients should provide either country names or country codes, but not both formats in the same request. See the Country Codes reference for the list of supported country codes and corresponding country names.
 
-            the answer is the country name (for example, "Canada").
-
-            For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, this array contains JSON strings that match the format defined in `compositeValue`.
-
-            For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+            **Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or `BudgetEstimates`):** Each item is a JSON-serialized string. See `compositeValue` for the same data in parsed form.
+        answerType:
+          $ref: '#/components/schemas/answer-type.json1'
+        secondaryValue:
+          $ref: '#/components/schemas/secondary-value.json'
         compositeValue:
           $ref: '#/components/schemas/composite-value.json'
     meeting-request-status.json:
@@ -43703,19 +43690,26 @@ components:
           readOnly: true
     requested-meeting-request-question.json:
       title: MeetingRequestQuestion
-      description: A question for a meeting request.
+      description: A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine how to format the `value` array.
       required:
         - id
         - value
       properties:
         id:
           type: string
-          description: The unique ID representing this question.
+          description: |-
+            The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+            * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+            * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+            * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+            * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+            * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+            * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
           format: uuid
           example: f1ea56cd-6860-4f1a-baf7-973118384384
         name:
           type: string
-          description: The actual text of the question.
+          description: The display text of the question.
           example: What is your favorite color?
           readOnly: true
         type:
@@ -43727,24 +43721,28 @@ components:
             type: string
             example: Green
           description: |-
-            An array of non-null answers to the question.
+            An array of non-null answers to the question. The format of each item depends on the question `type`.
 
-            For standard questions, this contains string values.
+            **Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
 
-            If the question is any one of:
-            * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-            * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-            * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+            **Country/Region questions (`type: Country`):** Provide either the country name (for example, `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
 
-            the answer can be either the country name (for example, "Canada") or the country code (for example, "CA"), but not both. The country code specification can be found [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+            **Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
 
-            For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+            *Meeting Room Requirement example (one item in value array):*
+            `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
 
-            Note: Use this field when updating question answers; the `compositeValue` field is read-only and should not be used for updates.
+            *Sleeping Room Requirement example:*
+            `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
 
-            For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+            *Budget Estimate example:*
+            `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
+        answerType:
+          $ref: '#/components/schemas/answer-type.json1'
         compositeValue:
           $ref: '#/components/schemas/composite-value.json'
+        secondaryValue:
+          $ref: '#/components/schemas/secondary-value.json'
     reservation-contact.json:
       title: ReservationContact
       description: Reservation contact details for this event.
@@ -44743,6 +44741,11 @@ components:
           items:
             $ref: '#/components/schemas/existing-seat'
           description: A list of event seats
+    secondary-value.json:
+      title: SecondaryValue
+      description: The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
+      type: string
+      example: The other answer for the question.
     segment-attendee-response.json:
       title: SegmentAttendee
       description: Represents the attendees that are associated/disassociated to/from a segment

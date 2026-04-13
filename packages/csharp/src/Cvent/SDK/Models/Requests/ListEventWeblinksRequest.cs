@@ -14,12 +14,6 @@ namespace Cvent.SDK.Models.Requests
     public class ListEventWeblinksRequest
     {
         /// <summary>
-        /// Unique Id of an event.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
         /// The continuation token returned from a previous class. This must be a valid UUID v4 if provided.<br/>
         /// This will override any other pageable parameters provided.
         /// </summary>
@@ -37,5 +31,11 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")]
         public long? Limit { get; set; } = 100;
+
+        /// <summary>
+        /// Unique Id of an event.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
+        public string Id { get; set; } = default!;
     }
 }

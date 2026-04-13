@@ -11,10 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListEventWeblinksRequest = {
   /**
-   * Unique Id of an event
-   */
-  id: string;
-  /**
    * The continuation token returned from a previous class. This must be a valid UUID v4 if provided.
    *
    * @remarks
@@ -29,6 +25,10 @@ export type ListEventWeblinksRequest = {
    * The maximum number of records to return per page.
    */
   limit?: number | undefined;
+  /**
+   * Unique Id of an event
+   */
+  id: string;
 };
 
 export type ListEventWeblinksResponse = {
@@ -37,10 +37,10 @@ export type ListEventWeblinksResponse = {
 
 /** @internal */
 export type ListEventWeblinksRequest$Outbound = {
-  id: string;
   token?: string | undefined;
   locale?: string | undefined;
   limit: number;
+  id: string;
 };
 
 /** @internal */
@@ -49,10 +49,10 @@ export const ListEventWeblinksRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ListEventWeblinksRequest
 > = z.object({
-  id: z.string(),
   token: z.string().optional(),
   locale: z.string().optional(),
   limit: z.number().int().default(100),
+  id: z.string(),
 });
 
 export function listEventWeblinksRequestToJSON(

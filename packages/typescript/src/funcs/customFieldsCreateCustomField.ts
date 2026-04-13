@@ -35,7 +35,7 @@ import { Result } from "../types/fp.js";
  */
 export function customFieldsCreateCustomField(
   client: CventSDKCore,
-  request: components.CustomField3,
+  request: components.CustomField2,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -60,7 +60,7 @@ export function customFieldsCreateCustomField(
 
 async function $do(
   client: CventSDKCore,
-  request: components.CustomField3,
+  request: components.CustomField2,
   options?: RequestOptions,
 ): Promise<
   [
@@ -81,7 +81,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.CustomField3$outboundSchema.parse(value),
+    (value) => components.CustomField2$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

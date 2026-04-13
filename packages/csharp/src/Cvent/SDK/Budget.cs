@@ -2782,12 +2782,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetBudgetAllocationsRequest {
-                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter
+                    Filter = request.Filter,
+                    Id = request.Id
                 };
 
                 return await GetBudgetAllocationsAsync(
@@ -3897,7 +3897,7 @@ namespace Cvent.SDK
                 httpRequest.Headers.Add("Accept", "application/json");
             }
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField2", "json", false, false);
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField1", "json", false, false);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -3983,14 +3983,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    CustomField2 obj;
+                    CustomField1 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField2>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField1>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into CustomField2.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into CustomField1.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new AnswerBudgetCustomFieldResponse() {
@@ -3999,7 +3999,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.CustomField2 = obj;
+                    response.CustomField1 = obj;
                     return response;
                 }
 

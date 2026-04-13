@@ -17,12 +17,6 @@ import java.util.Optional;
 
 public class GetEventFeaturesRequest {
     /**
-     * Unique Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
      * The maximum number of records to return per page.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")
@@ -42,44 +36,41 @@ public class GetEventFeaturesRequest {
     private String locale;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>It has only one comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* enabled (eq)
+     * <p>| Field   | Operators |
+     * |---------|-----------|
+     * | enabled | `eq`      |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * Unique Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
     @JsonCreator
     public GetEventFeaturesRequest(
-            @Nonnull String id,
             @Nullable Long limit,
             @Nullable String token,
             @Nullable String locale,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nullable String filter,
+            @Nonnull String id) {
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.locale = locale;
         this.filter = filter;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetEventFeaturesRequest(@Nonnull String id) {
-        this(id, null, null, null, null);
-    }
-
-    /**
-     * Unique Id of an event
-     */
-    public String id() {
-        return this.id;
+        this(null, null, null, null, id);
     }
 
     /**
@@ -105,32 +96,29 @@ public class GetEventFeaturesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>It has only one comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* enabled (eq)
+     * <p>| Field   | Operators |
+     * |---------|-----------|
+     * | enabled | `eq`      |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
     /**
      * Unique Id of an event
      */
-    public GetEventFeaturesRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
+    public String id() {
+        return this.id;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     /**
@@ -159,20 +147,26 @@ public class GetEventFeaturesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>It has only one comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* enabled (eq)
+     * <p>| Field   | Operators |
+     * |---------|-----------|
+     * | enabled | `eq`      |
      */
     public GetEventFeaturesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * Unique Id of an event
+     */
+    public GetEventFeaturesRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -185,24 +179,22 @@ public class GetEventFeaturesRequest {
             return false;
         }
         GetEventFeaturesRequest other = (GetEventFeaturesRequest) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.limit, other.limit)
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
                 && Utils.enhancedDeepEquals(this.locale, other.locale)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, limit, token, locale, filter);
+        return Utils.enhancedHash(limit, token, locale, filter, id);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetEventFeaturesRequest.class,
-                "id",
-                id,
                 "limit",
                 limit,
                 "token",
@@ -210,13 +202,13 @@ public class GetEventFeaturesRequest {
                 "locale",
                 locale,
                 "filter",
-                filter);
+                filter,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
-
-        private String id;
 
         private Long limit;
 
@@ -226,16 +218,10 @@ public class GetEventFeaturesRequest {
 
         private String filter;
 
+        private String id;
+
         private Builder() {
             // force use of static builder() method
-        }
-
-        /**
-         * Unique Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
         }
 
         /**
@@ -264,25 +250,31 @@ public class GetEventFeaturesRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>It has only one comparison types that can be used in filter expressions:
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>* equal: eq
-         *
-         * <p>The following fields are filterable:
-         *
-         * <p>* enabled (eq)
+         * <p>| Field   | Operators |
+         * |---------|-----------|
+         * | enabled | `eq`      |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
             return this;
         }
 
+        /**
+         * Unique Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
         public GetEventFeaturesRequest build() {
-            return new GetEventFeaturesRequest(id, limit, token, locale, filter);
+            return new GetEventFeaturesRequest(limit, token, locale, filter, id);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

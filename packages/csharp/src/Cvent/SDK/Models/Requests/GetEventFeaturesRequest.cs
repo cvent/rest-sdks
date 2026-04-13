@@ -14,12 +14,6 @@ namespace Cvent.SDK.Models.Requests
     public class GetEventFeaturesRequest
     {
         /// <summary>
-        /// Unique Id of an event.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")]
@@ -39,24 +33,23 @@ namespace Cvent.SDK.Models.Requests
         public string? Locale { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// It has only one comparison types that can be used in filter expressions:<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * enabled (eq).
+        /// | Field   | Operators |<br/>
+        /// |---------|-----------|<br/>
+        /// | enabled | `eq`      |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
+
+        /// <summary>
+        /// Unique Id of an event.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
+        public string Id { get; set; } = default!;
     }
 }

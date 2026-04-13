@@ -17,13 +17,13 @@ let value: MeetingRequestForm = {
   questions: [
     {
       id: "9fd6648c-76eb-4d3c-b4c8-321205a6437a",
-      name: "What is a your favorite color?",
-      type: "MultiSelect",
+      name: "What is your favorite color?",
       value: [
         "Choice C",
         "Choice A",
       ],
       order: 1,
+      type: "MultiSelect",
       hidden: false,
       required: true,
       minLength: 0,
@@ -32,6 +32,9 @@ let value: MeetingRequestForm = {
       maxChoice: 10,
       minDate: "1970-12-23",
       maxDate: "2100-12-31",
+      answerTypes: [
+        "Other",
+      ],
     },
   ],
 };

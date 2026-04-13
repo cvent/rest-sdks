@@ -11,10 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetBudgetAllocationsRequest = {
   /**
-   * Unique ID of an event.
-   */
-  id: string;
-  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -34,33 +30,32 @@ export type GetBudgetAllocationsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.  The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * There are six comparison types that can be used in filter expressions:
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
+   * | Field            | Operators                    |
+   * |:-----------------|:-----------------------------|
+   * | budgetVersion.id | `eq`                         |
+   * | budgetItem.id    | `eq`                         |
+   * | category.id      | `eq`, `ne`                   |
+   * | subcategory.id   | `eq`, `ne`                   |
+   * | generalLedger.id | `eq`, `ne`                   |
+   * | value            | `lt`, `le`, `gt`, `ge`, `eq` |
    *
-   *    * budgetVersion.id (eq)
-   *    * budgetItem.id (eq)
-   *    * category.id (eq|ne)
-   *    * subcategory.id (eq|ne)
-   *    * generalLedger.id (eq|ne)
-   *    * value (lt|le|gt|ge|eq)
-   *
-   * The following operators are available:
-   *
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
+  /**
+   * Unique ID of an event.
+   */
+  id: string;
 };
 
 export type GetBudgetAllocationsResponse = {
@@ -69,12 +64,12 @@ export type GetBudgetAllocationsResponse = {
 
 /** @internal */
 export type GetBudgetAllocationsRequest$Outbound = {
-  id: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
+  id: string;
 };
 
 /** @internal */
@@ -83,12 +78,12 @@ export const GetBudgetAllocationsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetBudgetAllocationsRequest
 > = z.object({
-  id: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
+  id: z.string(),
 });
 
 export function getBudgetAllocationsRequestToJSON(

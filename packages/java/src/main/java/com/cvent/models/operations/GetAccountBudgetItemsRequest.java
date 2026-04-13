@@ -43,24 +43,24 @@ public class GetAccountBudgetItemsRequest {
     private String token;
 
     /**
-     * A filter string passed as a query parameter, narrows search results and supports the combination of
-     * logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * rfp.id (eq|ne)
-     * * budgetVersion.id (eq|ne)
-     * * id (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne)
-     * * subCategory.id (eq|ne)
-     * * subCategory.name (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators  |
+     * |:-----------------|:-----------|
+     * | event.id         | `eq`, `ne` |
+     * | rfp.id           | `eq`, `ne` |
+     * | budgetVersion.id | `eq`, `ne` |
+     * | id               | `eq`, `ne` |
+     * | category.id      | `eq`, `ne` |
+     * | category.name    | `eq`, `ne` |
+     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.name | `eq`, `ne` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -116,24 +116,24 @@ public class GetAccountBudgetItemsRequest {
     }
 
     /**
-     * A filter string passed as a query parameter, narrows search results and supports the combination of
-     * logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * rfp.id (eq|ne)
-     * * budgetVersion.id (eq|ne)
-     * * id (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne)
-     * * subCategory.id (eq|ne)
-     * * subCategory.name (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators  |
+     * |:-----------------|:-----------|
+     * | event.id         | `eq`, `ne` |
+     * | rfp.id           | `eq`, `ne` |
+     * | budgetVersion.id | `eq`, `ne` |
+     * | id               | `eq`, `ne` |
+     * | category.id      | `eq`, `ne` |
+     * | category.name    | `eq`, `ne` |
+     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.name | `eq`, `ne` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -179,24 +179,24 @@ public class GetAccountBudgetItemsRequest {
     }
 
     /**
-     * A filter string passed as a query parameter, narrows search results and supports the combination of
-     * logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * rfp.id (eq|ne)
-     * * budgetVersion.id (eq|ne)
-     * * id (eq|ne)
-     * * category.id (eq|ne)
-     * * category.name (eq|ne)
-     * * subCategory.id (eq|ne)
-     * * subCategory.name (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field            | Operators  |
+     * |:-----------------|:-----------|
+     * | event.id         | `eq`, `ne` |
+     * | rfp.id           | `eq`, `ne` |
+     * | budgetVersion.id | `eq`, `ne` |
+     * | id               | `eq`, `ne` |
+     * | category.id      | `eq`, `ne` |
+     * | category.name    | `eq`, `ne` |
+     * | subCategory.id   | `eq`, `ne` |
+     * | subCategory.name | `eq`, `ne` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -293,24 +293,24 @@ public class GetAccountBudgetItemsRequest {
         }
 
         /**
-         * A filter string passed as a query parameter, narrows search results and supports the combination of
-         * logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * There are six comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * event.id (eq|ne)
-         * * rfp.id (eq|ne)
-         * * budgetVersion.id (eq|ne)
-         * * id (eq|ne)
-         * * category.id (eq|ne)
-         * * category.name (eq|ne)
-         * * subCategory.id (eq|ne)
-         * * subCategory.name (eq|ne)
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following operators are available:
+         * <p>| Field            | Operators  |
+         * |:-----------------|:-----------|
+         * | event.id         | `eq`, `ne` |
+         * | rfp.id           | `eq`, `ne` |
+         * | budgetVersion.id | `eq`, `ne` |
+         * | id               | `eq`, `ne` |
+         * | category.id      | `eq`, `ne` |
+         * | category.name    | `eq`, `ne` |
+         * | subCategory.id   | `eq`, `ne` |
+         * | subCategory.name | `eq`, `ne` |
+         *
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

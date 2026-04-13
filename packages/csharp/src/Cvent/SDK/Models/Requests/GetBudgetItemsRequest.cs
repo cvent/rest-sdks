@@ -46,35 +46,30 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// There are six comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        ///   * greater than: gt<br/>
-        ///   * greater or equal: ge<br/>
-        ///   * less than: lt<br/>
-        ///   * less than or equal: le<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///    * id (eq)<br/>
-        ///    * costType (eq|ne)<br/>
-        ///    * category.id (eq|ne)<br/>
-        ///    * category.name (eq|ne)<br/>
-        ///    * subCategory.id (eq|ne)<br/>
-        ///    * subCategory.name (eq|ne)<br/>
-        ///    * status (eq|ne)<br/>
-        ///    * vendor.id (eq|ne)<br/>
-        ///    * vendor.name (eq|ne)<br/>
-        ///    * date (gt|ge|lt|le)<br/>
-        ///    * customFields.{uuid} (eq|ne|lt|le|gt|ge)<br/>
-        ///    * deleted (eq|ne) **Note:** Budget items that are deleted are available for 3 months after deletion.<br/>
-        ///      After this, they are removed and no longer appear in search results.<br/>
+        /// | Field               | Operators                          | Notes                                                                                                                                         |<br/>
+        /// |:--------------------|:-----------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | id                  | `eq`                               |                                                                                                                                               |<br/>
+        /// | costType            | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | category.id         | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | category.name       | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | subCategory.id      | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | subCategory.name    | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | status              | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | vendor.id           | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | vendor.name         | `eq`, `ne`                         |                                                                                                                                               |<br/>
+        /// | date                | `gt`, `ge`, `lt`, `le`             |                                                                                                                                               |<br/>
+        /// | customFields.{uuid} | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |                                                                                                                                               |<br/>
+        /// | deleted             | `eq`, `ne`                         | Budget items that are deleted are available for 3 months after deletion. After this, they are removed and no longer appear in search results. |<br/>
         /// <br/>
-        /// The following operators are available:<br/>
-        ///   * and<br/>
-        ///   * or.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

@@ -3,42 +3,72 @@
  */
 
 import * as z from "zod/v3";
+import {
+  AnswerTypeJson1,
+  AnswerTypeJson1$outboundSchema,
+} from "./answertypejson1.js";
 
 /**
- * A question for a meeting request.
+ * A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine how to format the `value` array.
  */
 export type RequestedMeetingRequestQuestionJson = {
   /**
-   * The unique ID representing this question.
+   * The unique ID of the question. Some questions have fixed, well-known IDs shared across all accounts:
+   *
+   * @remarks
+   * * Event Country/Region — `da9a6706-7af3-42fc-b2c1-708050a791c1`
+   * * Requester Country/Region — `d8fa449b-ec97-4e91-8193-b753df11e064`
+   * * Stakeholder Country/Region — `ddd9035a-44a2-49b0-8d31-66cdca0c13c7`
+   * * Meeting Room Requirements — `9a224e41-58d9-43a2-ae59-6d1aa16442ce`
+   * * Sleeping Room Requirements — `cc63aa7c-0800-4fa5-a04b-073793e197f3`
+   * * Budget Estimates — `1479fb2d-e94c-4bfb-a63f-4af808a22160`
    */
   id: string;
   /**
-   * An array of non-null answers to the question.
+   * An array of non-null answers to the question. The format of each item depends on the question `type`.
    *
    * @remarks
    *
-   * For standard questions, this contains string values.
+   * **Standard questions:** Each item is a plain string (for example, `"Green"` or `"2099-12-31"`).
    *
-   * If the question is any one of:
-   * * Event Country/Region (`da9a6706-7af3-42fc-b2c1-708050a791c1`)
-   * * Requester Country/Region (`d8fa449b-ec97-4e91-8193-b753df11e064`)
-   * * Stakeholder Country/Region (`ddd9035a-44a2-49b0-8d31-66cdca0c13c7`)
+   * **Country/Region questions (`type: Country`):** Provide either the country name (for example, `"Canada"`) or the country code (for example, `"CA"`), but not both. See [Country Codes](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
    *
-   * the answer can be either the country name (for example, "Canada") or the country code (for example, "CA"), but not both. The country code specification can be found [here](https://developers.cvent.com/docs/rest-api/reference/api-standards#country-codes).
+   * **Complex questions (`type: MeetingRoomRequirements`, `SleepingRoomRequirements`, or `BudgetEstimates`):** Each item must be a **JSON-serialized string** representing one object.
    *
-   * For complex questions (such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates), this contains JSON strings matching the format defined in `compositeValue`.
+   * *Meeting Room Requirement example (one item in value array):*
+   * `"{\"date\":\"2099-12-11\",\"startTime\":\"09:00:00\",\"endTime\":\"17:00:00\",\"numberOfPeople\":50}"`
    *
-   * Note: Use this field when updating question answers; the `compositeValue` field is read-only and should not be used for updates.
+   * *Sleeping Room Requirement example:*
+   * `"{\"date\":\"2099-12-11\",\"single\":5,\"double\":3}"`
    *
-   * For more details, see [Get Meeting Request](#tag/Meeting-Request/operation/getMeetingRequestById).
+   * *Budget Estimate example:*
+   * `"{\"currency\":\"USD\",\"costType\":\"VARIABLE\",\"costDetail\":[{\"category\":{\"id\":1},\"units\":100,\"cost\":25.50}]}"`
    */
   value: Array<string>;
+  /**
+   * Indicates the type of the answer, which determines how the `value` and `secondaryValue` fields are interpreted.
+   *
+   * @remarks
+   *
+   * Set to **"Other"** when the question has the **"Other"** choice option enabled, indicating the answer in the **"secondaryValue"** field is a free-text response to that option.
+   *
+   * Set to **"NA"** when the question has the **"N/A"** choice option enabled, to indicate an N/A type answer; in this case, `value` is omitted.
+   *
+   * In all other cases, `answerType` is not expected to be set.
+   */
+  answerType?: AnswerTypeJson1 | undefined;
+  /**
+   * The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
+   */
+  secondaryValue?: string | undefined;
 };
 
 /** @internal */
 export type RequestedMeetingRequestQuestionJson$Outbound = {
   id: string;
   value: Array<string>;
+  answerType?: string | undefined;
+  secondaryValue?: string | undefined;
 };
 
 /** @internal */
@@ -49,6 +79,8 @@ export const RequestedMeetingRequestQuestionJson$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   value: z.array(z.string()),
+  answerType: AnswerTypeJson1$outboundSchema.optional(),
+  secondaryValue: z.string().optional(),
 });
 
 export function requestedMeetingRequestQuestionJsonToJSON(

@@ -18,12 +18,6 @@ import java.util.Optional;
 
 public class GetBudgetAllocationsRequest {
     /**
-     * Unique ID of an event.
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -50,59 +44,52 @@ public class GetBudgetAllocationsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field            | Operators                    |
+     * |:-----------------|:-----------------------------|
+     * | budgetVersion.id | `eq`                         |
+     * | budgetItem.id    | `eq`                         |
+     * | category.id      | `eq`, `ne`                   |
+     * | subcategory.id   | `eq`, `ne`                   |
+     * | generalLedger.id | `eq`, `ne`                   |
+     * | value            | `lt`, `le`, `gt`, `ge`, `eq` |
      *
-     * <p>* budgetVersion.id (eq)
-     * * budgetItem.id (eq)
-     * * category.id (eq|ne)
-     * * subcategory.id (eq|ne)
-     * * generalLedger.id (eq|ne)
-     * * value (lt|le|gt|ge|eq)
-     *
-     * <p>The following operators are available:
-     *
-     * <p>* and
+     * <p>The following logical operators are supported for combining filters:
+     * * and
      * * or
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * Unique ID of an event.
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
     @JsonCreator
     public GetBudgetAllocationsRequest(
-            @Nonnull String id,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nullable String filter,
+            @Nonnull String id) {
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetBudgetAllocationsRequest(@Nonnull String id) {
-        this(id, null, null, null, null, null);
-    }
-
-    /**
-     * Unique ID of an event.
-     */
-    public String id() {
-        return this.id;
+        this(null, null, null, null, null, id);
     }
 
     /**
@@ -136,45 +123,38 @@ public class GetBudgetAllocationsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field            | Operators                    |
+     * |:-----------------|:-----------------------------|
+     * | budgetVersion.id | `eq`                         |
+     * | budgetItem.id    | `eq`                         |
+     * | category.id      | `eq`, `ne`                   |
+     * | subcategory.id   | `eq`, `ne`                   |
+     * | generalLedger.id | `eq`, `ne`                   |
+     * | value            | `lt`, `le`, `gt`, `ge`, `eq` |
      *
-     * <p>* budgetVersion.id (eq)
-     * * budgetItem.id (eq)
-     * * category.id (eq|ne)
-     * * subcategory.id (eq|ne)
-     * * generalLedger.id (eq|ne)
-     * * value (lt|le|gt|ge|eq)
-     *
-     * <p>The following operators are available:
-     *
-     * <p>* and
+     * <p>The following logical operators are supported for combining filters:
+     * * and
      * * or
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
     /**
      * Unique ID of an event.
      */
-    public GetBudgetAllocationsRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
+    public String id() {
+        return this.id;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     /**
@@ -212,33 +192,35 @@ public class GetBudgetAllocationsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field            | Operators                    |
+     * |:-----------------|:-----------------------------|
+     * | budgetVersion.id | `eq`                         |
+     * | budgetItem.id    | `eq`                         |
+     * | category.id      | `eq`, `ne`                   |
+     * | subcategory.id   | `eq`, `ne`                   |
+     * | generalLedger.id | `eq`, `ne`                   |
+     * | value            | `lt`, `le`, `gt`, `ge`, `eq` |
      *
-     * <p>* budgetVersion.id (eq)
-     * * budgetItem.id (eq)
-     * * category.id (eq|ne)
-     * * subcategory.id (eq|ne)
-     * * generalLedger.id (eq|ne)
-     * * value (lt|le|gt|ge|eq)
-     *
-     * <p>The following operators are available:
-     *
-     * <p>* and
+     * <p>The following logical operators are supported for combining filters:
+     * * and
      * * or
      */
     public GetBudgetAllocationsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * Unique ID of an event.
+     */
+    public GetBudgetAllocationsRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -251,25 +233,23 @@ public class GetBudgetAllocationsRequest {
             return false;
         }
         GetBudgetAllocationsRequest other = (GetBudgetAllocationsRequest) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, after, before, limit, token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter, id);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetBudgetAllocationsRequest.class,
-                "id",
-                id,
                 "after",
                 after,
                 "before",
@@ -279,13 +259,13 @@ public class GetBudgetAllocationsRequest {
                 "token",
                 token,
                 "filter",
-                filter);
+                filter,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
-
-        private String id;
 
         private OffsetDateTime after;
 
@@ -297,16 +277,10 @@ public class GetBudgetAllocationsRequest {
 
         private String filter;
 
+        private String id;
+
         private Builder() {
             // force use of static builder() method
-        }
-
-        /**
-         * Unique ID of an event.
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
         }
 
         /**
@@ -344,29 +318,23 @@ public class GetBudgetAllocationsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * There are six comparison types that can be used in filter expressions:
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>* equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
+         * <p>| Field            | Operators                    |
+         * |:-----------------|:-----------------------------|
+         * | budgetVersion.id | `eq`                         |
+         * | budgetItem.id    | `eq`                         |
+         * | category.id      | `eq`, `ne`                   |
+         * | subcategory.id   | `eq`, `ne`                   |
+         * | generalLedger.id | `eq`, `ne`                   |
+         * | value            | `lt`, `le`, `gt`, `ge`, `eq` |
          *
-         * <p>* budgetVersion.id (eq)
-         * * budgetItem.id (eq)
-         * * category.id (eq|ne)
-         * * subcategory.id (eq|ne)
-         * * generalLedger.id (eq|ne)
-         * * value (lt|le|gt|ge|eq)
-         *
-         * <p>The following operators are available:
-         *
-         * <p>* and
+         * <p>The following logical operators are supported for combining filters:
+         * * and
          * * or
          */
         public Builder filter(@Nullable String filter) {
@@ -374,8 +342,16 @@ public class GetBudgetAllocationsRequest {
             return this;
         }
 
+        /**
+         * Unique ID of an event.
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
         public GetBudgetAllocationsRequest build() {
-            return new GetBudgetAllocationsRequest(id, after, before, limit, token, filter);
+            return new GetBudgetAllocationsRequest(after, before, limit, token, filter, id);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

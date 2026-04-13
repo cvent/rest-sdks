@@ -15,12 +15,6 @@ namespace Cvent.SDK.Models.Requests
     public class GetBudgetAllocationsRequest
     {
         /// <summary>
-        /// Unique ID of an event.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
@@ -46,40 +40,32 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.  The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// There are six comparison types that can be used in filter expressions:<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
+        /// | Field            | Operators                    |<br/>
+        /// |:-----------------|:-----------------------------|<br/>
+        /// | budgetVersion.id | `eq`                         |<br/>
+        /// | budgetItem.id    | `eq`                         |<br/>
+        /// | category.id      | `eq`, `ne`                   |<br/>
+        /// | subcategory.id   | `eq`, `ne`                   |<br/>
+        /// | generalLedger.id | `eq`, `ne`                   |<br/>
+        /// | value            | `lt`, `le`, `gt`, `ge`, `eq` |<br/>
         /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        ///   * greater than: gt<br/>
-        ///   * greater or equal: ge<br/>
-        ///   * less than: lt<br/>
-        ///   * less than or equal: le<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///    * budgetVersion.id (eq)<br/>
-        ///    * budgetItem.id (eq)<br/>
-        ///    * category.id (eq|ne)<br/>
-        ///    * subcategory.id (eq|ne)<br/>
-        ///    * generalLedger.id (eq|ne)<br/>
-        ///    * value (lt|le|gt|ge|eq)<br/>
-        /// <br/>
-        /// The following operators are available:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * and<br/>
-        ///   * or.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and<br/>
+        /// * or.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
+
+        /// <summary>
+        /// Unique ID of an event.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
+        public string Id { get; set; } = default!;
     }
 }

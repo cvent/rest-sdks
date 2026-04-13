@@ -29,15 +29,15 @@ public class GetCardsRequest {
     private String token;
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following field is filterable:
-     * * event.id (eq)
+     * <p>| Field    | Operators |
+     * |:---------|:----------|
+     * | event.id | `eq`      |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -69,15 +69,15 @@ public class GetCardsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following field is filterable:
-     * * event.id (eq)
+     * <p>| Field    | Operators |
+     * |:---------|:----------|
+     * | event.id | `eq`      |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -105,15 +105,15 @@ public class GetCardsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following field is filterable:
-     * * event.id (eq)
+     * <p>| Field    | Operators |
+     * |:---------|:----------|
+     * | event.id | `eq`      |
      */
     public GetCardsRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -175,15 +175,15 @@ public class GetCardsRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search results and supports the
-         * combination of logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There is one comparison type that can be used in filter expressions:
-         * * equal: eq
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following field is filterable:
-         * * event.id (eq)
+         * <p>| Field    | Operators |
+         * |:---------|:----------|
+         * | event.id | `eq`      |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
