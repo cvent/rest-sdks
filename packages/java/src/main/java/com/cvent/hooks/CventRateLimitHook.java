@@ -1,5 +1,7 @@
 package com.cvent.hooks;
 
+import com.cvent.hooks.exceptions.QuotaExceededException;
+import com.cvent.hooks.exceptions.ThrottlingException;
 import com.cvent.utils.Hook.AfterError;
 import com.cvent.utils.Hook.AfterErrorContext;
 import com.fasterxml.jackson.databind.JsonNode;

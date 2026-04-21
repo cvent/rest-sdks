@@ -1470,7 +1470,7 @@ public class Application {
         // Create a custom HTTP client with hooks
         HTTPClient httpClient = new HTTPClient() {
             private final HTTPClient defaultClient = new SpeakeasyHTTPClient();
-            
+                   
             @Override
             public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
                 // Add custom header and timeout using Utils.copy()
@@ -1478,7 +1478,7 @@ public class Application {
                     .header("x-custom-header", "custom value")
                     .timeout(Duration.ofSeconds(30))
                     .build();
-                    
+
                 try {
                     HttpResponse<InputStream> response = defaultClient.send(modifiedRequest);
                     // Log successful response
@@ -1571,6 +1571,57 @@ public class Application {
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
+## Configuring Timeouts
+
+The SDK applies two timeouts to every request by default:
+
+| Timeout | Default | Description |
+|---|---|---|
+| **Connect** | 10 seconds | Maximum time to establish a TCP connection to the Cvent API |
+| **Call** | 30 seconds | Maximum time for the entire request/response cycle (connect + send + receive) |
+
+Both can be overridden globally by calling `SDKHooks.configure()` **before** constructing the SDK instance:
+
+```java
+import com.cvent.CventSDK;
+import com.cvent.hooks.SDKHooks;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import java.time.Duration;
+import java.util.List;
+
+public class Application {
+    public static void main(String[] args) {
+        // Override timeouts before building the SDK.
+        // Pass null for either value to keep its default.
+        SDKHooks.configure(
+            Duration.ofSeconds(5),    // connect timeout (default: 10s)
+            Duration.ofSeconds(60)    // call timeout    (default: 30s)
+        );
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
+                        .build())
+                .build();
+    }
+}
+```
+
+For services with long-running operations (bulk imports, report generation, etc.), increase the call timeout accordingly:
+
+```java
+// Keep the default connect timeout, extend the call timeout to 5 minutes
+SDKHooks.configure(null, Duration.ofMinutes(5));
+```
+
+> **Note:** `SDKHooks.configure()` sets global JVM-wide state. If your application creates multiple SDK instances with different timeout requirements, call `configure()` again before each `build()` call with the appropriate values.
+
 <!-- Start Debugging [debug] -->
 ## Debugging
 
@@ -1593,7 +1644,7 @@ Received response: (GET http://localhost:35123/bearer#global) 200
 Response headers: {access-control-allow-credentials=[true], access-control-allow-origin=[*], connection=[keep-alive], content-length=[50], content-type=[application/json], date=[Wed, 09 Apr 2025 01:43:29 GMT], server=[gunicorn/19.9.0]}
 Response body:
 {
-  "authenticated": true, 
+  "authenticated": true,
   "token": "global"
 }
 ```

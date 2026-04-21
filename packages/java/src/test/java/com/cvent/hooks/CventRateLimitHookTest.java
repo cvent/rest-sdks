@@ -1,5 +1,7 @@
 package com.cvent.hooks;
 
+import com.cvent.hooks.exceptions.QuotaExceededException;
+import com.cvent.hooks.exceptions.ThrottlingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

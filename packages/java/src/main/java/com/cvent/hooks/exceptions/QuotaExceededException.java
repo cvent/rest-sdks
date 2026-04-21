@@ -1,4 +1,4 @@
-package com.cvent.hooks;
+package com.cvent.hooks.exceptions;
 
 import java.net.http.HttpResponse;
 
