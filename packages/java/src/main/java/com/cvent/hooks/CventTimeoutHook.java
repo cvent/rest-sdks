@@ -9,7 +9,6 @@ import com.cvent.utils.SpeakeasyHTTPClient;
 
 import java.net.http.HttpRequest;
 import java.time.Duration;
-import java.util.Objects;
 
 /**
  * A hook that configures connection and call timeouts for all SDK HTTP requests.
@@ -27,18 +26,9 @@ import java.util.Objects;
  *       and stamped onto every outgoing request in the {@link Hook.BeforeRequest} phase.</li>
  * </ul>
  *
- * <p><b>Note on read timeout:</b> Java's built-in HTTP client does not expose a dedicated
- * <em>read timeout</em> (i.e., maximum time to wait between individual data chunks). The
- * call timeout is the closest equivalent and bounds the total response-receipt time. If
- * per-chunk read-timeout semantics are required, you would need to wrap the response body
- * stream with a custom {@link java.io.InputStream} that enforces a read deadline.
- *
  * <h3>Registration in {@code SDKHooks}</h3>
  * <pre>{@code
- * CventTimeoutHook timeoutHook = CventTimeoutHook.builder()
- *     .connectTimeout(Duration.ofSeconds(10))
- *     .callTimeout(Duration.ofSeconds(60))
- *     .build();
+ * CventTimeoutHook timeoutHook = new CventTimeoutHook(Duration.ofSeconds(10), Duration.ofSeconds(60));
  *
  * hooks.registerSdkInit(timeoutHook);       // applies connect timeout at SDK init
  * hooks.registerBeforeRequest(timeoutHook); // applies call timeout per request
@@ -55,21 +45,21 @@ import java.util.Objects;
  */
 public final class CventTimeoutHook implements Hook.SdkInit, Hook.BeforeRequest {
 
+    /**
+     * Maximum time to wait when establishing a TCP connection. If the connection cannot be established within this
+     * time, the request will fail with a timeout error.
+     */
     private final Duration connectTimeout;
-    private final Duration callTimeout;
-
-    private CventTimeoutHook(Builder builder) {
-        this.connectTimeout = builder.connectTimeout;
-        this.callTimeout = builder.callTimeout;
-    }
 
     /**
-     * Returns a new {@link Builder} for {@link CventTimeoutHook}.
-     *
-     * @return a new builder
+     * Maximum time allowed for the entire request/response cycle. If the request/response cycle cannot complete within
+     * this time, the request will fail with a timeout error.
      */
-    public static Builder builder() {
-        return new Builder();
+    private final Duration callTimeout;
+
+    public CventTimeoutHook(Duration connectTimeout, Duration callTimeout) {
+        this.connectTimeout = connectTimeout;
+        this.callTimeout = callTimeout;
     }
 
     /**
@@ -128,57 +118,4 @@ public final class CventTimeoutHook implements Hook.SdkInit, Hook.BeforeRequest 
         return request;
     }
 
-    /**
-     * Builder for {@link CventTimeoutHook}.
-     */
-    public static final class Builder {
-
-        private Duration connectTimeout;
-        private Duration callTimeout;
-
-        private Builder() {}
-
-        /**
-         * Sets the connect timeout: the maximum time to wait when establishing a TCP connection
-         * to the remote host. Equivalent to Retrofit's {@code connectTimeout}.
-         *
-         * <p>Applied once at SDK initialization via the {@link Hook.SdkInit} phase.
-         *
-         * @param connectTimeout a positive, non-null duration
-         * @return this builder
-         * @throws NullPointerException if {@code connectTimeout} is {@code null}
-         */
-        public Builder connectTimeout(Duration connectTimeout) {
-            this.connectTimeout = Objects.requireNonNull(connectTimeout, "connectTimeout must not be null");
-            return this;
-        }
-
-        /**
-         * Sets the call timeout: the maximum time allowed for the entire request/response cycle.
-         * This covers connecting, sending the request, receiving response headers, and receiving
-         * the response body. Equivalent to Retrofit's {@code callTimeout}.
-         *
-         * <p>Applied per-request via the {@link Hook.BeforeRequest} phase.
-         *
-         * <p><b>Note:</b> Java's HTTP client does not support a dedicated <em>read timeout</em>
-         * separate from the overall call timeout.
-         *
-         * @param callTimeout a positive, non-null duration
-         * @return this builder
-         * @throws NullPointerException if {@code callTimeout} is {@code null}
-         */
-        public Builder callTimeout(Duration callTimeout) {
-            this.callTimeout = Objects.requireNonNull(callTimeout, "callTimeout must not be null");
-            return this;
-        }
-
-        /**
-         * Builds the {@link CventTimeoutHook}.
-         *
-         * @return a new {@link CventTimeoutHook}
-         */
-        public CventTimeoutHook build() {
-            return new CventTimeoutHook(this);
-        }
-    }
 }

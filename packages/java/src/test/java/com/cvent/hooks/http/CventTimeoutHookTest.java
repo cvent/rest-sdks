@@ -8,15 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
-
-import java.net.URI;
-import java.net.http.HttpRequest;
 import java.time.Duration;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,23 +22,21 @@ class CventTimeoutHookTest {
 
     private static final URI TEST_URI = URI.create("https://api.cvent.com/test");
 
-    // ---- Builder ----
+    // ---- Constructor ----
 
     @Test
-    void builder_connectTimeoutNull_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () ->
-                CventTimeoutHook.builder().connectTimeout(null));
+    void constructor_nullConnectTimeout_isAccepted() {
+        assertDoesNotThrow(() -> new CventTimeoutHook(null, Duration.ofSeconds(30)));
     }
 
     @Test
-    void builder_callTimeoutNull_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () ->
-                CventTimeoutHook.builder().callTimeout(null));
+    void constructor_nullCallTimeout_isAccepted() {
+        assertDoesNotThrow(() -> new CventTimeoutHook(Duration.ofSeconds(10), null));
     }
 
     @Test
-    void builder_noTimeoutsSet_buildsSuccessfully() {
-        assertDoesNotThrow(() -> CventTimeoutHook.builder().build());
+    void constructor_bothNull_isAccepted() {
+        assertDoesNotThrow(() -> new CventTimeoutHook(null, null));
     }
 
     // ---- sdkInit: connect timeout ----
@@ -50,9 +46,7 @@ class CventTimeoutHookTest {
         SDKConfiguration config = new SDKConfiguration();
         HTTPClient originalClient = config.client();
 
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .connectTimeout(Duration.ofSeconds(10))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(Duration.ofSeconds(10), null);
 
         SDKConfiguration result = hook.sdkInit(config);
 
@@ -66,9 +60,7 @@ class CventTimeoutHookTest {
         SDKConfiguration config = new SDKConfiguration();
         HTTPClient originalClient = config.client();
 
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .callTimeout(Duration.ofSeconds(30))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(null, Duration.ofSeconds(30));
 
         SDKConfiguration result = hook.sdkInit(config);
 
@@ -80,9 +72,7 @@ class CventTimeoutHookTest {
     @Test
     void sdkInit_returnsTheSameConfigInstance() {
         SDKConfiguration config = new SDKConfiguration();
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .connectTimeout(Duration.ofSeconds(5))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(Duration.ofSeconds(5), null);
 
         SDKConfiguration result = hook.sdkInit(config);
 
@@ -106,9 +96,7 @@ class CventTimeoutHookTest {
         };
         config.setClient(customClient);
 
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .connectTimeout(Duration.ofSeconds(10))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(Duration.ofSeconds(10), null);
 
         SDKConfiguration result = hook.sdkInit(config);
 
@@ -121,9 +109,7 @@ class CventTimeoutHookTest {
     @Test
     void beforeRequest_withCallTimeout_stampsTimeoutOnRequest() throws Exception {
         Duration callTimeout = Duration.ofSeconds(45);
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .callTimeout(callTimeout)
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(null, Duration.ofSeconds(45));
 
         HttpRequest original = HttpRequest.newBuilder(TEST_URI).build();
         HttpRequest result = hook.beforeRequest(mockContext(), original);
@@ -134,9 +120,7 @@ class CventTimeoutHookTest {
 
     @Test
     void beforeRequest_withoutCallTimeout_leavesRequestUnchanged() throws Exception {
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .connectTimeout(Duration.ofSeconds(10))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(Duration.ofSeconds(10), null);
 
         HttpRequest original = HttpRequest.newBuilder(TEST_URI).build();
         HttpRequest result = hook.beforeRequest(mockContext(), original);
@@ -147,9 +131,7 @@ class CventTimeoutHookTest {
 
     @Test
     void beforeRequest_withCallTimeout_honorsPreviousTimeout() throws Exception {
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .callTimeout(Duration.ofSeconds(20))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(null, Duration.ofSeconds(20));
 
         HttpRequest original = HttpRequest.newBuilder(TEST_URI)
                 .timeout(Duration.ofSeconds(99))
@@ -170,10 +152,7 @@ class CventTimeoutHookTest {
         SDKConfiguration config = new SDKConfiguration();
         HTTPClient originalClient = config.client();
 
-        CventTimeoutHook hook = CventTimeoutHook.builder()
-                .connectTimeout(Duration.ofSeconds(10))
-                .callTimeout(Duration.ofSeconds(60))
-                .build();
+        CventTimeoutHook hook = new CventTimeoutHook(Duration.ofSeconds(10), Duration.ofSeconds(60));
 
         hook.sdkInit(config);
         assertNotSame(originalClient, config.client());

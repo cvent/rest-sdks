@@ -58,10 +58,7 @@ public final class SDKHooks {
     }
 
     public static void initialize(com.cvent.utils.Hooks hooks) {
-        CventTimeoutHook timeoutHook = CventTimeoutHook.builder()
-                .connectTimeout(connectTimeout)
-                .callTimeout(callTimeout)
-                .build();
+        CventTimeoutHook timeoutHook = new CventTimeoutHook(connectTimeout, callTimeout);
 
         // register synchronous hooks here
         hooks.registerSdkInit(timeoutHook);
@@ -76,13 +73,11 @@ public final class SDKHooks {
     public static void initialize(com.cvent.utils.AsyncHooks asyncHooks) {
         // connectTimeout is already applied via sdkInit in the synchronous Hooks above,
         // since both sync and async paths share the same SDKConfiguration and HTTPClient.
-        CventTimeoutHook callTimeoutHook = CventTimeoutHook.builder()
-                .callTimeout(callTimeout)
-                .build();
+        CventTimeoutHook asyncTimeoutHook = new CventTimeoutHook(null, callTimeout);
 
         // Adapt synchronous hooks for async usage
         asyncHooks.registerBeforeRequest(com.cvent.utils.HookAdapters.toAsync(new CventUserAgentHook()));
-        asyncHooks.registerBeforeRequest(com.cvent.utils.HookAdapters.toAsync(callTimeoutHook));
+        asyncHooks.registerBeforeRequest(com.cvent.utils.HookAdapters.toAsync(asyncTimeoutHook));
         asyncHooks.registerAfterError(com.cvent.utils.HookAdapters.toAsync(new CventRateLimitHook()));
 
         // for more information see
