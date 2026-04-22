@@ -27,27 +27,12 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
- * An {@link HTTPClient} implementation that routes all requests through an
- * {@link HttpClient} constructed with a specific connect timeout, while providing
- * the same debug-logging capabilities as {@code SpeakeasyHTTPClient}.
+ * A {@link HTTPClient} that mirrors the SDK's default {@code SpeakeasyHTTPClient} — including
+ * its full debug-logging API — with the addition of a configurable connect timeout.
  *
- * <p>When a connect timeout is configured via {@link CventTimeoutHook.Builder#connectTimeout},
- * this client replaces the default {@code SpeakeasyHTTPClient} in the SDK configuration.
- * It replicates all {@code SpeakeasyHTTPClient} debug-logging functionality so that
- * no observability is lost when the client is swapped.
- *
- * <h3>Debug logging</h3>
- * Debug logging is controlled by the same API surface as {@code SpeakeasyHTTPClient}:
- * <ul>
- *   <li>{@link #setDebugLogging(boolean)} / {@link #getDebugLoggingEnabled()} — global flag</li>
- *   <li>{@link #enableDebugLogging(boolean)} / {@link #isDebugLoggingEnabled()} — per-instance flag</li>
- *   <li>{@link #setRedactedHeaders(Collection)} / {@link #addRedactedHeader(String)} — header redaction</li>
- *   <li>{@link #setLogger(Consumer)} — custom log sink</li>
- * </ul>
- *
- * <p><strong>Note:</strong> Because this class has its own static debug state, it is
- * independent of any {@code SpeakeasyHTTPClient} static configuration. If both clients
- * are active in the same JVM (e.g. in tests), configure debug logging on each separately.
+ * <p>When a connect timeout is configured via {@link CventTimeoutHook}, this client replaces
+ * the default {@code SpeakeasyHTTPClient} in the SDK configuration during
+ * {@link CventTimeoutHook#sdkInit}, so that no observability is lost when the client is swapped.
  *
  * @see CventTimeoutHook
  */
