@@ -13,7 +13,7 @@ import java.net.http.HttpResponse;
  * making requests and wait for the quota to reset.
  *
  * @see ThrottlingException
- * @see CventRateLimitHook
+ * @see com.cvent.hooks.CventRateLimitHook
  */
 public class QuotaExceededException extends RuntimeException {
 

@@ -1470,7 +1470,7 @@ public class Application {
         // Create a custom HTTP client with hooks
         HTTPClient httpClient = new HTTPClient() {
             private final HTTPClient defaultClient = new SpeakeasyHTTPClient();
-                   
+
             @Override
             public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
                 // Add custom header and timeout using Utils.copy()
@@ -1585,6 +1585,8 @@ Both can be overridden globally by calling `SDKHooks.configure()` **before** con
 ```java
 import com.cvent.CventSDK;
 import com.cvent.hooks.SDKHooks;
+import com.cvent.hooks.config.HooksConfiguration;
+import com.cvent.hooks.config.TimeoutHookConfiguration;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
 import java.time.Duration;
@@ -1594,10 +1596,12 @@ public class Application {
     public static void main(String[] args) {
         // Override timeouts before building the SDK.
         // Pass null for either value to keep its default.
-        SDKHooks.configure(
-            Duration.ofSeconds(5),    // connect timeout (default: 10s)
-            Duration.ofSeconds(60)    // call timeout    (default: 30s)
-        );
+        SDKHooks.configure(new HooksConfiguration(
+            new TimeoutHookConfiguration(
+                Duration.ofSeconds(5),    // connect timeout (default: 10s)
+                Duration.ofSeconds(60)    // call timeout    (default: 30s)
+            )
+        ));
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1617,7 +1621,9 @@ For services with long-running operations (bulk imports, report generation, etc.
 
 ```java
 // Keep the default connect timeout, extend the call timeout to 5 minutes
-SDKHooks.configure(null, Duration.ofMinutes(5));
+SDKHooks.configure(new HooksConfiguration(
+    new TimeoutHookConfiguration(null, Duration.ofMinutes(5))
+));
 ```
 
 > **Note:** `SDKHooks.configure()` sets global JVM-wide state. If your application creates multiple SDK instances with different timeout requirements, call `configure()` again before each `build()` call with the appropriate values.

@@ -7,6 +7,7 @@ import com.cvent.utils.HTTPClient;
 import com.cvent.utils.Hook;
 import com.cvent.utils.SpeakeasyHTTPClient;
 
+import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.time.Duration;
 
@@ -17,13 +18,15 @@ import java.time.Duration;
  * <ul>
  *   <li><b>Connect timeout</b> ({@link HttpClient}-level): the maximum time to wait when
  *       establishing a TCP connection to the remote host. Set via
- *       {@link Builder#connectTimeout(Duration)} and applied during the
- *       {@link Hook.SdkInit} phase by replacing the SDK's {@link HTTPClient} with one
- *       backed by a newly built {@link HttpClient}.</li>
+ *       {@link java.net.http.HttpClient.Builder#connectTimeout(Duration)}. Passed as the first
+ *       constructor argument and applied during the {@link Hook.SdkInit} phase by replacing the
+ *       SDK's {@link HTTPClient} with one backed by a newly built {@link HttpClient}.</li>
  *   <li><b>Call timeout</b> ({@link HttpRequest}-level): the maximum time allowed for the
  *       entire request/response cycle — connecting, sending the request, receiving response
- *       headers, and receiving the response body. Set via {@link Builder#callTimeout(Duration)}
- *       and stamped onto every outgoing request in the {@link Hook.BeforeRequest} phase.</li>
+ *       headers, and receiving the response body. Set via
+ *       {@link java.net.http.HttpRequest.Builder#timeout(Duration)}. Passed as the second
+ *       constructor argument and stamped onto every outgoing request in the
+ *       {@link Hook.BeforeRequest} phase.</li>
  * </ul>
  *
  * <h3>Registration in {@code SDKHooks}</h3>

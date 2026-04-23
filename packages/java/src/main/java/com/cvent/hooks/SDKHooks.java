@@ -1,5 +1,8 @@
 package com.cvent.hooks;
 
+import com.cvent.hooks.config.HooksConfiguration;
+import com.cvent.hooks.config.TimeoutHookConfiguration;
+
 import java.time.Duration;
 
 //
@@ -27,12 +30,12 @@ public final class SDKHooks {
     }
 
     /**
-     * Overrides the default connect and/or call timeouts applied to all SDK instances.
+     * Overrides the default hook settings applied to all SDK instances.
      *
      * <p>Must be called <em>before</em> constructing any {@link com.cvent.CventSDK} instance,
-     * since timeouts are stamped into the SDK at initialization time.
+     * since settings are stamped into the SDK at initialization time.
      *
-     * <p>Pass {@code null} for either value to leave that timeout at its current setting.
+     * <p>Hook configuration entries left unset keep their existing values.
      *
      * <p>Default values:
      * <ul>
@@ -43,18 +46,31 @@ public final class SDKHooks {
      * <p>For services with long-running operations (bulk imports, report generation, etc.),
      * increase the call timeout accordingly:
      * <pre>{@code
-     * SDKHooks.configure(null, Duration.ofMinutes(5));
+     * SDKHooks.configure(new HooksConfiguration(
+     *     new TimeoutHookConfiguration(null, Duration.ofMinutes(5))
+     * ));
      * CventSDK sdk = CventSDK.builder()...build();
      * }</pre>
      *
-     * @param connectTimeout maximum time to wait when establishing a TCP connection;
-     *                       {@code null} keeps the existing value
-     * @param callTimeout    maximum time allowed for the entire request/response cycle;
-     *                       {@code null} keeps the existing value
+     * @param configuration the hook configuration to apply; must not be {@code null}
      */
-    public static void configure(Duration connectTimeout, Duration callTimeout) {
-        if (connectTimeout != null) SDKHooks.connectTimeout = connectTimeout;
-        if (callTimeout != null) SDKHooks.callTimeout = callTimeout;
+    public static void configure(HooksConfiguration configuration) {
+        if (configuration == null) {
+            throw new IllegalArgumentException("configuration must not be null");
+        }
+        TimeoutHookConfiguration timeoutConfig = configuration.getTimeoutHook();
+        if (timeoutConfig != null) {
+            Duration newConnectTimeout = timeoutConfig.getConnectTimeout();
+            Duration newCallTimeout = timeoutConfig.getCallTimeout();
+            if (newConnectTimeout != null) {
+                validatePositiveDuration("connectTimeout", newConnectTimeout);
+                SDKHooks.connectTimeout = newConnectTimeout;
+            }
+            if (newCallTimeout != null) {
+                validatePositiveDuration("callTimeout", newCallTimeout);
+                SDKHooks.callTimeout = newCallTimeout;
+            }
+        }
     }
 
     public static void initialize(com.cvent.utils.Hooks hooks) {
@@ -82,6 +98,17 @@ public final class SDKHooks {
 
         // for more information see
         // https://www.speakeasy.com/docs/additional-features/sdk-hooks
+    }
+
+    /**
+     * Validates that the provided Duration is positive (greater than zero).
+     * @param name the name of the duration parameter (for error messages)
+     * @param duration the duration to validate
+     */
+    private static void validatePositiveDuration(String name, Duration duration) {
+        if (duration.isZero() || duration.isNegative()) {
+            throw new IllegalArgumentException(name + " must be a positive Duration");
+        }
     }
 
 }

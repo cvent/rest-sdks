@@ -23,6 +23,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -39,15 +40,21 @@ import java.util.stream.Collectors;
 public final class ConnectTimeoutHTTPClient implements HTTPClient {
 
     // global debug flag — mirrors SpeakeasyHTTPClient.debugEnabled
-    private static boolean debugEnabled = false;
+    // volatile: setDebugLogging/getDebugLoggingEnabled may be called from different threads
+    private static volatile boolean debugEnabled = false;
 
     // instance-level debug flag — overrides debugEnabled when set
-    private Boolean localDebugEnabled;
+    // volatile: the same client instance may be shared across threads via SDKConfiguration
+    private volatile Boolean localDebugEnabled;
 
     // header names stored uppercase for case-insensitive comparison
-    private static Set<String> redactedHeaders = Set.of("AUTHORIZATION", "X-API-KEY");
+    // AtomicReference (deviation from SpeakeasyHTTPClient): addRedactedHeader uses updateAndGet
+    // for a thread-safe read-modify-write; the referenced Set is always immutable
+    private static final AtomicReference<Set<String>> redactedHeaders =
+            new AtomicReference<>(Set.of("AUTHORIZATION", "X-API-KEY"));
 
-    private static Consumer<? super String> logSink = System.out::println;
+    // volatile: setLogger may be called from one thread while requests are in-flight on others
+    private static volatile Consumer<? super String> logSink = System.out::println;
 
     private final HttpClient httpClient;
 
@@ -103,9 +110,9 @@ public final class ConnectTimeoutHTTPClient implements HTTPClient {
      * @param headerNames header names to redact (case-insensitive)
      */
     public static void setRedactedHeaders(Collection<String> headerNames) {
-        redactedHeaders = headerNames.stream()
+        redactedHeaders.set(headerNames.stream()
                 .map(name -> name.toUpperCase(Locale.ENGLISH))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toUnmodifiableSet()));
     }
 
     /**
@@ -114,9 +121,15 @@ public final class ConnectTimeoutHTTPClient implements HTTPClient {
      * @param headerName header name to redact (case-insensitive)
      */
     public static void addRedactedHeader(String headerName) {
-        Set<String> updated = new HashSet<>(redactedHeaders);
-        updated.add(headerName.toUpperCase(Locale.ENGLISH));
-        redactedHeaders = Set.copyOf(updated);
+        String upperName = headerName.toUpperCase(Locale.ENGLISH);
+        redactedHeaders.updateAndGet(current -> {
+            if (current.contains(upperName)) {
+                return current;
+            }
+            Set<String> updated = new HashSet<>(current);
+            updated.add(upperName);
+            return Set.copyOf(updated);
+        });
     }
 
     /**
@@ -150,7 +163,8 @@ public final class ConnectTimeoutHTTPClient implements HTTPClient {
             request = logRequest(request, true);
         }
         return httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofPublisher())
-                .thenApply(response -> new ResponseWithBody<>(response, Blob::from));
+                .thenApply(response -> // TODO: log responses when helper for Blob is setup (mirrors SpeakeasyHTTPClient)
+                new ResponseWithBody<>(response, Blob::from));
     }
 
     // ---- Logging helpers (mirrors SpeakeasyHTTPClient logic) ----
@@ -201,7 +215,7 @@ public final class ConnectTimeoutHTTPClient implements HTTPClient {
         return "{"
                 + headers.map().entrySet().stream()
                         .map(entry -> {
-                            String value = redactedHeaders.contains(
+                            String value = redactedHeaders.get().contains(
                                             entry.getKey().toUpperCase(Locale.ENGLISH))
                                     ? "[******]"
                                     : String.valueOf(entry.getValue());

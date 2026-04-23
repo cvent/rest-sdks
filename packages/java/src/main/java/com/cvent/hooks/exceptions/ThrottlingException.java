@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
  * for each retry up to a maximum of 16 seconds. Stop after 5 attempts.
  *
  * @see QuotaExceededException
- * @see CventRateLimitHook
+ * @see com.cvent.hooks.CventRateLimitHook
  */
 public class ThrottlingException extends RuntimeException {
 

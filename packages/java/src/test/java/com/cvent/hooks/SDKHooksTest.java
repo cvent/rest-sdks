@@ -6,6 +6,8 @@ import com.cvent.hooks.http.ConnectTimeoutHTTPClient;
 import com.cvent.utils.Hook;
 import com.cvent.utils.Hook.BeforeRequestContextImpl;
 import com.cvent.utils.Hooks;
+import com.cvent.hooks.config.HooksConfiguration;
+import com.cvent.hooks.config.TimeoutHookConfiguration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,7 +27,8 @@ class SDKHooksTest {
     @BeforeEach
     @AfterEach
     void resetToDefaults() {
-        SDKHooks.configure(Duration.ofSeconds(10), Duration.ofSeconds(30));
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(Duration.ofSeconds(10), Duration.ofSeconds(30))));
     }
 
     // ---- Call timeout ----
@@ -42,7 +45,8 @@ class SDKHooksTest {
 
     @Test
     void configure_customCallTimeout_appliedToRequests() throws Exception {
-        SDKHooks.configure(null, Duration.ofSeconds(120));
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(null, Duration.ofSeconds(120))));
 
         Hooks hooks = new Hooks();
         SDKHooks.initialize(hooks);
@@ -54,8 +58,9 @@ class SDKHooksTest {
 
     @Test
     void configure_nullCallTimeout_keepsExistingValue() throws Exception {
-        SDKHooks.configure(null, Duration.ofSeconds(90));
-        SDKHooks.configure(null, null);
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(null, Duration.ofSeconds(90))));
+        SDKHooks.configure(new HooksConfiguration(null));
 
         Hooks hooks = new Hooks();
         SDKHooks.initialize(hooks);
@@ -67,8 +72,10 @@ class SDKHooksTest {
 
     @Test
     void configure_calledMultipleTimes_lastCallWins() throws Exception {
-        SDKHooks.configure(null, Duration.ofSeconds(60));
-        SDKHooks.configure(null, Duration.ofSeconds(180));
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(null, Duration.ofSeconds(60))));
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(null, Duration.ofSeconds(180))));
 
         Hooks hooks = new Hooks();
         SDKHooks.initialize(hooks);
@@ -80,7 +87,8 @@ class SDKHooksTest {
 
     @Test
     void configure_callTimeout_doesNotOverrideRequestWithExistingTimeout() throws Exception {
-        SDKHooks.configure(null, Duration.ofSeconds(120));
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(null, Duration.ofSeconds(120))));
 
         Hooks hooks = new Hooks();
         SDKHooks.initialize(hooks);
@@ -111,7 +119,8 @@ class SDKHooksTest {
 
     @Test
     void configure_customConnectTimeout_replacesDefaultClient() {
-        SDKHooks.configure(Duration.ofSeconds(5), null);
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(Duration.ofSeconds(5), null)));
 
         SDKConfiguration config = new SDKConfiguration();
         Hooks hooks = new Hooks();
@@ -124,8 +133,9 @@ class SDKHooksTest {
 
     @Test
     void configure_nullConnectTimeout_keepsExistingValue() {
-        SDKHooks.configure(Duration.ofSeconds(7), null);
-        SDKHooks.configure(null, null);
+        SDKHooks.configure(new HooksConfiguration(
+                new TimeoutHookConfiguration(Duration.ofSeconds(7), null)));
+        SDKHooks.configure(new HooksConfiguration(null));
 
         SDKConfiguration config = new SDKConfiguration();
         Hooks hooks = new Hooks();
