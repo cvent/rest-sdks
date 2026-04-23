@@ -18,6 +18,8 @@ targets:
         sourceNamespace: public
         sourceRevisionDigest: sha256:765122bb202784dc618ae38a775407692926450fa2e7b593e79b2e8ee8f7954a
         sourceBlobDigest: sha256:ddf0cc8274a74baa4e9a466166f6ce7d5a9098d82a657292c7e7491105e1e2c1
+        codeSamplesNamespace: java
+        codeSamplesRevisionDigest: sha256:e2c51ac5e03f77e5d416d217dcb03be5f0e4549662e36ad6eb117991b16b6d0d
     public-typescript:
         source: Public
         sourceNamespace: public

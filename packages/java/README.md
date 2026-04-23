@@ -26,6 +26,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
+  * [Configuring Timeouts](#configuring-timeouts)
   * [Debugging](#debugging)
   * [License](#license)
   * [Jackson Configuration](#jackson-configuration)
@@ -43,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.2.1'
+implementation 'com.cvent:sdk:1.2.2'
 ```
 
 Maven:
@@ -51,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 
@@ -1470,7 +1471,7 @@ public class Application {
         // Create a custom HTTP client with hooks
         HTTPClient httpClient = new HTTPClient() {
             private final HTTPClient defaultClient = new SpeakeasyHTTPClient();
-
+            
             @Override
             public HttpResponse<InputStream> send(HttpRequest request) throws IOException, URISyntaxException, InterruptedException {
                 // Add custom header and timeout using Utils.copy()
@@ -1478,7 +1479,7 @@ public class Application {
                     .header("x-custom-header", "custom value")
                     .timeout(Duration.ofSeconds(30))
                     .build();
-
+                    
                 try {
                     HttpResponse<InputStream> response = defaultClient.send(modifiedRequest);
                     // Log successful response
@@ -1650,7 +1651,7 @@ Received response: (GET http://localhost:35123/bearer#global) 200
 Response headers: {access-control-allow-credentials=[true], access-control-allow-origin=[*], connection=[keep-alive], content-length=[50], content-type=[application/json], date=[Wed, 09 Apr 2025 01:43:29 GMT], server=[gunicorn/19.9.0]}
 Response body:
 {
-  "authenticated": true,
+  "authenticated": true, 
   "token": "global"
 }
 ```
