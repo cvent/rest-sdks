@@ -15,7 +15,8 @@ import java.util.Optional;
 /**
  * RegistrationPackRequest
  *
- * <p>A registration pack containing event, exhibitor, and capacities information.
+ * <p>A registration pack defining the registration type capacity allocations for an exhibitor at an
+ * event.
  */
 public class RegistrationPackRequest {
     /**

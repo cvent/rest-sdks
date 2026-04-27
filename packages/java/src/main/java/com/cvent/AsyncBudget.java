@@ -16,6 +16,7 @@ import com.cvent.models.operations.DeleteCardTransactionRequest;
 import com.cvent.models.operations.DeleteCurrencyConversionRateRequest;
 import com.cvent.models.operations.DeletePaymentRequest;
 import com.cvent.models.operations.GetAccountBudgetItemsRequest;
+import com.cvent.models.operations.GetAccountVendorsRequest;
 import com.cvent.models.operations.GetBudgetAllocationsRequest;
 import com.cvent.models.operations.GetBudgetItemsRequest;
 import com.cvent.models.operations.GetCardTransactionsRequest;
@@ -50,6 +51,8 @@ import com.cvent.models.operations.async.DeletePaymentRequestBuilder;
 import com.cvent.models.operations.async.DeletePaymentResponse;
 import com.cvent.models.operations.async.GetAccountBudgetItemsRequestBuilder;
 import com.cvent.models.operations.async.GetAccountBudgetItemsResponse;
+import com.cvent.models.operations.async.GetAccountVendorsRequestBuilder;
+import com.cvent.models.operations.async.GetAccountVendorsResponse;
 import com.cvent.models.operations.async.GetBudgetAllocationsRequestBuilder;
 import com.cvent.models.operations.async.GetBudgetAllocationsResponse;
 import com.cvent.models.operations.async.GetBudgetItemsRequestBuilder;
@@ -85,6 +88,7 @@ import com.cvent.operations.DeleteCardTransaction;
 import com.cvent.operations.DeleteCurrencyConversionRate;
 import com.cvent.operations.DeletePayment;
 import com.cvent.operations.GetAccountBudgetItems;
+import com.cvent.operations.GetAccountVendors;
 import com.cvent.operations.GetBudgetAllocations;
 import com.cvent.operations.GetBudgetItems;
 import com.cvent.operations.GetCardTransactions;
@@ -176,6 +180,54 @@ public class AsyncBudget {
             @Nonnull GetAccountBudgetItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<GetAccountBudgetItemsRequest, GetAccountBudgetItemsResponse> operation =
                 new GetAccountBudgetItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public GetAccountVendorsRequestBuilder getAccountVendors() {
+        return new GetAccountVendorsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<GetAccountVendorsResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountVendorsResponse> getAccountVendors(@Nonnull GetAccountVendorsRequest request) {
+        return getAccountVendors(request, null);
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<GetAccountVendorsResponse>} - The async response
+     */
+    public CompletableFuture<GetAccountVendorsResponse> getAccountVendors(
+            @Nonnull GetAccountVendorsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<GetAccountVendorsRequest, GetAccountVendorsResponse> operation =
+                new GetAccountVendors.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

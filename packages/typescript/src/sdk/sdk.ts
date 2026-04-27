@@ -38,6 +38,10 @@ import { Leads } from "./leads.js";
 import { MeetingRequest } from "./meetingrequest.js";
 import { ProcessForm } from "./processform.js";
 import { ProposalDraft } from "./proposaldraft.js";
+import { RFPAdditionalDetails } from "./rfpadditionaldetails.js";
+import { RFPManagement } from "./rfpmanagement.js";
+import { RFPRequirements } from "./rfprequirements.js";
+import { RFPSuppliers } from "./rfpsuppliers.js";
 import { Seating } from "./seating.js";
 import { Sessions } from "./sessions.js";
 import { Signatures } from "./signatures.js";
@@ -251,6 +255,28 @@ export class CventSDK extends ClientSDK {
   private _proposalDraft?: ProposalDraft;
   get proposalDraft(): ProposalDraft {
     return (this._proposalDraft ??= new ProposalDraft(this._options));
+  }
+
+  private _rfpManagement?: RFPManagement;
+  get rfpManagement(): RFPManagement {
+    return (this._rfpManagement ??= new RFPManagement(this._options));
+  }
+
+  private _rfpRequirements?: RFPRequirements;
+  get rfpRequirements(): RFPRequirements {
+    return (this._rfpRequirements ??= new RFPRequirements(this._options));
+  }
+
+  private _rfpAdditionalDetails?: RFPAdditionalDetails;
+  get rfpAdditionalDetails(): RFPAdditionalDetails {
+    return (this._rfpAdditionalDetails ??= new RFPAdditionalDetails(
+      this._options,
+    ));
+  }
+
+  private _rfpSuppliers?: RFPSuppliers;
+  get rfpSuppliers(): RFPSuppliers {
+    return (this._rfpSuppliers ??= new RFPSuppliers(this._options));
   }
 
   private _userSCIM?: UserSCIM;

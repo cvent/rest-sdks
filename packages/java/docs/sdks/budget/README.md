@@ -7,6 +7,7 @@ Budget is an event feature used to organize spending and track [allocations](htt
 ### Available Operations
 
 * [getAccountBudgetItems](#getaccountbudgetitems) - List Budget Items
+* [getAccountVendors](#getaccountvendors) - List Account Vendors
 * [getCards](#getcards) - List Cards
 * [getCardTransactions](#getcardtransactions) - List Card Transactions
 * [createCardTransaction](#createcardtransaction) - Create Card Transaction
@@ -95,6 +96,79 @@ public class Application {
 ### Response
 
 **[GetAccountBudgetItemsResponse](../../models/operations/GetAccountBudgetItemsResponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
+| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+
+## getAccountVendors
+
+Gets a paginated list of account-level budget vendors configured in Admin > Budget > Vendors for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="getAccountVendors" method="get" path="/budget-vendors" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.operations.GetAccountVendorsRequest;
+import com.cvent.models.operations.GetAccountVendorsResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        GetAccountVendorsRequest req = GetAccountVendorsRequest.builder()
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'")
+                .build();
+
+
+        sdk.budget().getAccountVendors()
+                .callAsStream()
+                .forEach((GetAccountVendorsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [GetAccountVendorsRequest](../../models/operations/GetAccountVendorsRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[GetAccountVendorsResponse](../../models/operations/GetAccountVendorsResponse.md)**
 
 ### Errors
 
@@ -1566,12 +1640,12 @@ public class Application {
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .budgetItemId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .customField1(CustomField1Input.builder()
+                .customField(CustomFieldInput.builder()
                     .id("a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6")
                     .value(List.of(
                         "Choice C",
                         "Choice A"))
-                    .type(CustomField1CustomFieldType.GENERAL)
+                    .type(CustomFieldCustomFieldType.GENERAL)
                     .build())
                 .build();
 
@@ -1579,8 +1653,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.customField1().isPresent()) {
-            System.out.println(res.customField1().get());
+        if (res.customField().isPresent()) {
+            System.out.println(res.customField().get());
         }
     }
 }

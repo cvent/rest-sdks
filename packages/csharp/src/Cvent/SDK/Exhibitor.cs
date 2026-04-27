@@ -526,11 +526,12 @@ namespace Cvent.SDK
         );
 
         /// <summary>
-        /// List Registration Packs<br/>
+        /// List Registration Pack<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves registration packs associated with an exhibitor.
+        /// Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event<br/>
+        /// that consolidates capacities across all registration types.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorRegistrationPacksRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -4718,11 +4719,12 @@ namespace Cvent.SDK
         }
 
         /// <summary>
-        /// List Registration Packs<br/>
+        /// List Registration Pack<br/>
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Retrieves registration packs associated with an exhibitor.
+        /// Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event<br/>
+        /// that consolidates capacities across all registration types.
         /// </remarks>
         /// <param name="request">A <see cref="GetExhibitorRegistrationPacksRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

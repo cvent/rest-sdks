@@ -8,9 +8,9 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson1,
-  AdditionalChoiceJson1$inboundSchema,
-} from "./additionalchoicejson1.js";
+  AdditionalChoiceJson11,
+  AdditionalChoiceJson11$inboundSchema,
+} from "./additionalchoicejson11.js";
 import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
 import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
@@ -80,11 +80,11 @@ export type LeadQualificationQuestionJson = {
   /**
    * Contains text of additional choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson1 | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson11 | undefined;
   /**
    * Contains text of additional choice
    */
-  otherAnswers?: AdditionalChoiceJson1 | undefined;
+  otherAnswers?: AdditionalChoiceJson11 | undefined;
   /**
    * A boolean indicating whether the question is mandatory or not
    */
@@ -119,8 +119,8 @@ export const LeadQualificationQuestionJson$inboundSchema: z.ZodType<
   type: LeadQualificationQuestionJsonType$inboundSchema.optional(),
   code: z.string().optional(),
   choices: z.array(ChoiceJson2$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
-  otherAnswers: AdditionalChoiceJson1$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoiceJson11$inboundSchema.optional(),
+  otherAnswers: AdditionalChoiceJson11$inboundSchema.optional(),
   required: z.boolean().optional(),
   text: z.string().optional(),
 });

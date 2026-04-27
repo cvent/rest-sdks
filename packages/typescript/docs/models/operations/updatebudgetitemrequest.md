@@ -22,7 +22,7 @@ let value: UpdateBudgetItemRequest = {
     vendor: {
       id: "d64380fd-3631-43e9-aac7-bd6bb6eccf6b",
     },
-    date: new Date("2020-02-07T00:00:00.00Z"),
+    date: new Date("2020-02-07T00:00:00.000Z"),
     generalLedger: {
       id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     },

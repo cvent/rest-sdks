@@ -103,14 +103,14 @@ public class ExistingExhibitorQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson1 notApplicableAnswer;
+    private AdditionalChoiceJson11 notApplicableAnswer;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson1 otherAnswer;
+    private AdditionalChoiceJson11 otherAnswer;
 
     /**
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
@@ -163,8 +163,8 @@ public class ExistingExhibitorQuestion {
             @JsonProperty("type") @Nonnull ExhibitorQuestionTypeJson type,
             @JsonProperty("required") boolean required,
             @JsonProperty("choices") @Nullable List<BaseChoiceJson> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson1 notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson1 otherAnswer,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson11 notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson11 otherAnswer,
             @JsonProperty("answerFormat") @Nullable ExhibitorAnswerFormatJson answerFormat,
             @JsonProperty("answerLimits") @Nullable ExhibitorAnswerLimitsJson answerLimits,
             @JsonProperty("defaultToCurrentDate") @Nullable Boolean defaultToCurrentDate,
@@ -277,14 +277,14 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson1> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson11> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson1> otherAnswer() {
+    public Optional<AdditionalChoiceJson11> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -421,7 +421,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -429,7 +429,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
+    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoiceJson11 otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -592,9 +592,9 @@ public class ExistingExhibitorQuestion {
 
         private List<BaseChoiceJson> choices;
 
-        private AdditionalChoiceJson1 notApplicableAnswer;
+        private AdditionalChoiceJson11 notApplicableAnswer;
 
-        private AdditionalChoiceJson1 otherAnswer;
+        private AdditionalChoiceJson11 otherAnswer;
 
         private ExhibitorAnswerFormatJson answerFormat;
 
@@ -699,7 +699,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -707,7 +707,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoiceJson11 otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }

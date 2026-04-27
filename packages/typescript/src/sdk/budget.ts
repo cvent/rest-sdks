@@ -13,6 +13,7 @@ import { budgetDeleteCardTransaction } from "../funcs/budgetDeleteCardTransactio
 import { budgetDeleteCurrencyConversionRate } from "../funcs/budgetDeleteCurrencyConversionRate.js";
 import { budgetDeletePayment } from "../funcs/budgetDeletePayment.js";
 import { budgetGetAccountBudgetItems } from "../funcs/budgetGetAccountBudgetItems.js";
+import { budgetGetAccountVendors } from "../funcs/budgetGetAccountVendors.js";
 import { budgetGetBudgetAllocations } from "../funcs/budgetGetBudgetAllocations.js";
 import { budgetGetBudgetItems } from "../funcs/budgetGetBudgetItems.js";
 import { budgetGetCards } from "../funcs/budgetGetCards.js";
@@ -47,6 +48,27 @@ export class Budget extends ClientSDK {
     PageIterator<operations.GetAccountBudgetItemsResponse, { cursor: string }>
   > {
     return unwrapResultIterator(budgetGetAccountBudgetItems(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Account Vendors
+   *
+   * @remarks
+   * Gets a paginated list of account-level budget vendors configured in Admin > Budget > Vendors for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async getAccountVendors(
+    request: operations.GetAccountVendorsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.GetAccountVendorsResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(budgetGetAccountVendors(
       this,
       request,
       options,
@@ -429,7 +451,7 @@ export class Budget extends ClientSDK {
   async answerBudgetCustomField(
     request: operations.AnswerBudgetCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField1> {
+  ): Promise<components.CustomField> {
     return unwrapAsync(budgetAnswerBudgetCustomField(
       this,
       request,

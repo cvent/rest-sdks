@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson,
-  AdditionalChoiceJson$inboundSchema,
-} from "./additionalchoicejson.js";
+  AdditionalChoiceJson2,
+  AdditionalChoiceJson2$inboundSchema,
+} from "./additionalchoicejson2.js";
 import { CategoryJson2, CategoryJson2$inboundSchema } from "./categoryjson2.js";
 import { ChoiceJson3, ChoiceJson3$inboundSchema } from "./choicejson3.js";
 import { FieldJson5, FieldJson5$inboundSchema } from "./fieldjson5.js";
@@ -82,11 +82,11 @@ export type StandardSurveyQuestionJson = {
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson2 | undefined;
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  otherAnswer?: AdditionalChoiceJson | undefined;
+  otherAnswer?: AdditionalChoiceJson2 | undefined;
   /**
    * Text Value of Comments Input box placeholder
    */
@@ -139,8 +139,8 @@ export const StandardSurveyQuestionJson$inboundSchema: z.ZodType<
   choices: z.array(ChoiceJson3$inboundSchema).optional(),
   categories: z.array(CategoryJson2$inboundSchema).optional(),
   subCategories: z.array(TextFieldJson1$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
+  otherAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
   comments: z.string().optional(),
   required: z.boolean().default(false),
   fields: z.array(FieldJson5$inboundSchema).optional(),

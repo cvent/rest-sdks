@@ -84,13 +84,13 @@ namespace Cvent.SDK.Models.Components
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoiceJson1? NotApplicableAnswer { get; set; }
+        public AdditionalChoiceJson11? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswers")]
-        public AdditionalChoiceJson1? OtherAnswers { get; set; }
+        public AdditionalChoiceJson11? OtherAnswers { get; set; }
 
         /// <summary>
         /// A boolean indicating whether the question is mandatory or not.

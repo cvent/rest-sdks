@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson,
-  AdditionalChoiceJson$inboundSchema,
-} from "./additionalchoicejson.js";
+  AdditionalChoiceJson2,
+  AdditionalChoiceJson2$inboundSchema,
+} from "./additionalchoicejson2.js";
 import { ChoiceJson3, ChoiceJson3$inboundSchema } from "./choicejson3.js";
 import {
   FieldTypeJson2,
@@ -43,11 +43,11 @@ export type FieldJson5 = {
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson2 | undefined;
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  otherAnswer?: AdditionalChoiceJson | undefined;
+  otherAnswer?: AdditionalChoiceJson2 | undefined;
   /**
    * Is this a mandatory field
    */
@@ -65,8 +65,8 @@ export const FieldJson5$inboundSchema: z.ZodType<
   shortText: z.string().optional(),
   type: FieldTypeJson2$inboundSchema.optional(),
   choices: z.array(ChoiceJson3$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
+  otherAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
   required: z.boolean().default(false),
 });
 

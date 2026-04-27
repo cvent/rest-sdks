@@ -107,7 +107,9 @@ export type CardDetailsJson = {
    */
   cardHolderName?: string | undefined;
   /**
-   * Card's last seven digits.
+   * Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex) cards and will not be present for other card types. Use the last 4 digits from the last4 field instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   last7?: string | undefined;
 };

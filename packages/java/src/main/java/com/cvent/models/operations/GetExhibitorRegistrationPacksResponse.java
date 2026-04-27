@@ -32,7 +32,7 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
     private HttpResponse<InputStream> rawResponse;
 
     /**
-     * Successfully retrieved the registration packs.
+     * Successfully retrieved the registration pack.
      */
     private ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse;
 
@@ -77,7 +77,7 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
     }
 
     /**
-     * Successfully retrieved the registration packs.
+     * Successfully retrieved the registration pack.
      */
     public Optional<ExhibitorRegistrationPackListResponse> exhibitorRegistrationPackListResponse() {
         return Optional.ofNullable(this.exhibitorRegistrationPackListResponse);
@@ -112,7 +112,7 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
     }
 
     /**
-     * Successfully retrieved the registration packs.
+     * Successfully retrieved the registration pack.
      */
     public GetExhibitorRegistrationPacksResponse withExhibitorRegistrationPackListResponse(
             @Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {
@@ -195,7 +195,7 @@ public class GetExhibitorRegistrationPacksResponse implements Response {
         }
 
         /**
-         * Successfully retrieved the registration packs.
+         * Successfully retrieved the registration pack.
          */
         public Builder exhibitorRegistrationPackListResponse(
                 @Nullable ExhibitorRegistrationPackListResponse exhibitorRegistrationPackListResponse) {

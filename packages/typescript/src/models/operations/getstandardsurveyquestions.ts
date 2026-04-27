@@ -11,10 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetStandardSurveyQuestionsRequest = {
   /**
-   * Id of a survey or Id of a chapter in event survey
-   */
-  surveyId: string;
-  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -33,6 +29,10 @@ export type GetStandardSurveyQuestionsRequest = {
    * This will override any other pageable parameters provided.
    */
   token?: string | undefined;
+  /**
+   * Id of a survey or Id of a chapter in event survey
+   */
+  surveyId: string;
 };
 
 export type GetStandardSurveyQuestionsResponse = {
@@ -41,11 +41,11 @@ export type GetStandardSurveyQuestionsResponse = {
 
 /** @internal */
 export type GetStandardSurveyQuestionsRequest$Outbound = {
-  surveyId: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
+  surveyId: string;
 };
 
 /** @internal */
@@ -54,11 +54,11 @@ export const GetStandardSurveyQuestionsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetStandardSurveyQuestionsRequest
 > = z.object({
-  surveyId: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
+  surveyId: z.string(),
 });
 
 export function getStandardSurveyQuestionsRequestToJSON(

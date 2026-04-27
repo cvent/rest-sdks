@@ -38,7 +38,7 @@ namespace Cvent.SDK.Models.Components
         public ExhibitorJson Exhibitor { get; set; } = default!;
 
         /// <summary>
-        /// Array of capacities.
+        /// Capacities allocated per registration type for this exhibitor's registration pack.
         /// </summary>
         [JsonProperty("capacities")]
         public List<ExistingCapacityJson> Capacities { get; set; } = default!;

@@ -382,6 +382,26 @@ public class AsyncCventSDK {
      */
     private final AsyncProposalDraft proposalDraft;
     /**
+     * RFP (Request for Proposal) management APIs for core RFP operations including CRUD operations for
+     * base RFPs.
+     */
+    private final AsyncRFPManagement rfpManagement;
+    /**
+     * RFP requirements APIs for managing RFP-specific requirements including guest rooms, meeting rooms,
+     * custom questions, custom fields, and attachments (CRUD operations).
+     */
+    private final AsyncRFPRequirements rfpRequirements;
+    /**
+     * RFP additional details APIs for managing past event references and other miscellaneous RFP
+     * operations.
+     */
+    private final AsyncRFPAdditionalDetails rfpAdditionalDetails;
+    /**
+     * Suppliers are the venues and service providers that receive and respond to RFPs. Use these APIs to
+     * manage supplier associations, view recipient history, and create award details.
+     */
+    private final AsyncRFPSuppliers rfpSuppliers;
+    /**
      * The [SCIM](https://www.simplecloud.info/) standard allows for easier cross-domain identity
      * management. This API allows you to manage your account users and SCIM groups (representing Cvent
      * user roles).
@@ -875,6 +895,34 @@ public class AsyncCventSDK {
         return proposalDraft;
     }
     /**
+     * RFP (Request for Proposal) management APIs for core RFP operations including CRUD operations for
+     * base RFPs.
+     */
+    public AsyncRFPManagement rfpManagement() {
+        return rfpManagement;
+    }
+    /**
+     * RFP requirements APIs for managing RFP-specific requirements including guest rooms, meeting rooms,
+     * custom questions, custom fields, and attachments (CRUD operations).
+     */
+    public AsyncRFPRequirements rfpRequirements() {
+        return rfpRequirements;
+    }
+    /**
+     * RFP additional details APIs for managing past event references and other miscellaneous RFP
+     * operations.
+     */
+    public AsyncRFPAdditionalDetails rfpAdditionalDetails() {
+        return rfpAdditionalDetails;
+    }
+    /**
+     * Suppliers are the venues and service providers that receive and respond to RFPs. Use these APIs to
+     * manage supplier associations, view recipient history, and create award details.
+     */
+    public AsyncRFPSuppliers rfpSuppliers() {
+        return rfpSuppliers;
+    }
+    /**
      * The [SCIM](https://www.simplecloud.info/) standard allows for easier cross-domain identity
      * management. This API allows you to manage your account users and SCIM groups (representing Cvent
      * user roles).
@@ -984,6 +1032,10 @@ public class AsyncCventSDK {
         this.processForm = new AsyncProcessForm(syncSDK.processForm(), sdkConfiguration);
         this.speakers = new AsyncSpeakers(syncSDK.speakers(), sdkConfiguration);
         this.proposalDraft = new AsyncProposalDraft(syncSDK.proposalDraft(), sdkConfiguration);
+        this.rfpManagement = new AsyncRFPManagement(syncSDK.rfpManagement(), sdkConfiguration);
+        this.rfpRequirements = new AsyncRFPRequirements(syncSDK.rfpRequirements(), sdkConfiguration);
+        this.rfpAdditionalDetails = new AsyncRFPAdditionalDetails(syncSDK.rfpAdditionalDetails(), sdkConfiguration);
+        this.rfpSuppliers = new AsyncRFPSuppliers(syncSDK.rfpSuppliers(), sdkConfiguration);
         this.userSCIM = new AsyncUserSCIM(syncSDK.userSCIM(), sdkConfiguration);
         this.signatures = new AsyncSignatures(syncSDK.signatures(), sdkConfiguration);
         this.travelAccounts = new AsyncTravelAccounts(syncSDK.travelAccounts(), sdkConfiguration);

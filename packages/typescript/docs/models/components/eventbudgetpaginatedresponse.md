@@ -36,7 +36,7 @@ let value: EventBudgetPaginatedResponse = {
         name: "Budget Version 2",
         default: true,
       },
-      lastModifiedDate: new Date("2020-02-07T00:00:00.00Z"),
+      lastModifiedDate: new Date("2020-02-07T00:00:00.000Z"),
       currency: "USD",
       totalHighLevelEstimate: {
         amount: 5001.99,

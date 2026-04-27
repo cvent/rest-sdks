@@ -18,12 +18,6 @@ import java.util.Optional;
 
 public class GetEventSurveysRequest {
     /**
-     * Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -50,48 +44,49 @@ public class GetEventSurveysRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple session IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field    | Operators   | Notes                          |
+     * |----------|-------------|--------------------------------|
+     * | id       | `eq`, `ne`  | chapter ID of the event survey |
+     * | type     | `eq`, `ne`  |                                |
+     * | sessions | `eq`, `ne`  |                                |
      *
-     * <p>* id (eq|ne) [chapter id of the event survey]
-     * * type (eq|ne)
-     * * sessions (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
     @JsonCreator
     public GetEventSurveysRequest(
-            @Nonnull String id,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+            @Nullable String filter,
+            @Nonnull String id) {
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     public GetEventSurveysRequest(@Nonnull String id) {
-        this(id, null, null, null, null, null);
-    }
-
-    /**
-     * Id of an event
-     */
-    public String id() {
-        return this.id;
+        this(null, null, null, null, null, id);
     }
 
     /**
@@ -125,34 +120,35 @@ public class GetEventSurveysRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple session IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field    | Operators   | Notes                          |
+     * |----------|-------------|--------------------------------|
+     * | id       | `eq`, `ne`  | chapter ID of the event survey |
+     * | type     | `eq`, `ne`  |                                |
+     * | sessions | `eq`, `ne`  |                                |
      *
-     * <p>* id (eq|ne) [chapter id of the event survey]
-     * * type (eq|ne)
-     * * sessions (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
     /**
      * Id of an event
      */
-    public GetEventSurveysRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
+    public String id() {
+        return this.id;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     /**
@@ -190,22 +186,32 @@ public class GetEventSurveysRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple session IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field    | Operators   | Notes                          |
+     * |----------|-------------|--------------------------------|
+     * | id       | `eq`, `ne`  | chapter ID of the event survey |
+     * | type     | `eq`, `ne`  |                                |
+     * | sessions | `eq`, `ne`  |                                |
      *
-     * <p>* id (eq|ne) [chapter id of the event survey]
-     * * type (eq|ne)
-     * * sessions (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public GetEventSurveysRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * Id of an event
+     */
+    public GetEventSurveysRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -218,25 +224,23 @@ public class GetEventSurveysRequest {
             return false;
         }
         GetEventSurveysRequest other = (GetEventSurveysRequest) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, after, before, limit, token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter, id);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetEventSurveysRequest.class,
-                "id",
-                id,
                 "after",
                 after,
                 "before",
@@ -246,13 +250,13 @@ public class GetEventSurveysRequest {
                 "token",
                 token,
                 "filter",
-                filter);
+                filter,
+                "id",
+                id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
-
-        private String id;
 
         private OffsetDateTime after;
 
@@ -264,16 +268,10 @@ public class GetEventSurveysRequest {
 
         private String filter;
 
+        private String id;
+
         private Builder() {
             // force use of static builder() method
-        }
-
-        /**
-         * Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
         }
 
         /**
@@ -311,27 +309,37 @@ public class GetEventSurveysRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * In case user wants to filter on multiple session IDs, they can use 'or' operator.
-         * Following are the comparison types that can be used in filter expressions:
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>* equal: eq
-         * * not equal: ne
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
+         * <p>| Field    | Operators   | Notes                          |
+         * |----------|-------------|--------------------------------|
+         * | id       | `eq`, `ne`  | chapter ID of the event survey |
+         * | type     | `eq`, `ne`  |                                |
+         * | sessions | `eq`, `ne`  |                                |
          *
-         * <p>* id (eq|ne) [chapter id of the event survey]
-         * * type (eq|ne)
-         * * sessions (eq|ne)
+         * <p>The following logical operators are supported for combining filters:
+         * * `and`
+         * * `or`
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
             return this;
         }
 
+        /**
+         * Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
         public GetEventSurveysRequest build() {
-            return new GetEventSurveysRequest(id, after, before, limit, token, filter);
+            return new GetEventSurveysRequest(after, before, limit, token, filter, id);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

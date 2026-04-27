@@ -136,6 +136,11 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
 
         /// <summary>
+        /// Allows reading of account-level budget vendors.
+        /// </summary>
+        [JsonProperty("budget/budget-vendors:read")] BudgetBudgetVendorsRead,
+
+        /// <summary>
         /// Allows the reading of cards.
         /// </summary>
         [JsonProperty("budget/cards:read")] BudgetCardsRead,
@@ -826,6 +831,61 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
 
         /// <summary>
+        /// Allows the reading of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:read")] RfpRfpAgendaItemsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP attachments.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:read")] RfpRfpAttachmentsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP custom fields.
+        /// </summary>
+        [JsonProperty("rfp/rfp-custom-fields:read")] RfpRfpCustomFieldsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP guest rooms.
+        /// </summary>
+        [JsonProperty("rfp/rfp-guest-rooms:read")] RfpRfpGuestRoomsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP internal documents.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:read")] RfpRfpInternalDocumentsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP lead sources.
+        /// </summary>
+        [JsonProperty("rfp/rfp-lead-sources:read")] RfpRfpLeadSourcesRead,
+
+        /// <summary>
+        /// Allows the reading of past events similar to rfp event.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:read")] RfpRfpPastEventsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:read")] RfpRfpQuestionsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP recipients history.
+        /// </summary>
+        [JsonProperty("rfp/rfp-recipients-history:read")] RfpRfpRecipientsHistoryRead,
+
+        /// <summary>
+        /// Allows the reading of RFP suppliers.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:read")] RfpRfpSuppliersRead,
+
+        /// <summary>
+        /// Allows the reading of basic details of RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfps:read")] RfpRfpsRead,
+
+        /// <summary>
         /// Allows to read attendee seat assignment information.
         /// </summary>
         [JsonProperty("seating/assignments:read")] SeatingAssignmentsRead,
@@ -1086,6 +1146,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the reading of all event budget totals.
         /// </summary>
         [JsonProperty("budget/budget-totals:read")] BudgetBudgetTotalsRead,
+
+        /// <summary>
+        /// Allows reading of account-level budget vendors.
+        /// </summary>
+        [JsonProperty("budget/budget-vendors:read")] BudgetBudgetVendorsRead,
 
         /// <summary>
         /// Allows the reading of cards.
@@ -1916,6 +1981,61 @@ namespace Cvent.SDK.Hooks
         /// Allows reading pools.
         /// </summary>
         [JsonProperty("remote-printing/badge-printer-pools:read")] RemotePrintingBadgePrinterPoolsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP agenda items.
+        /// </summary>
+        [JsonProperty("rfp/rfp-agenda-items:read")] RfpRfpAgendaItemsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP attachments.
+        /// </summary>
+        [JsonProperty("rfp/rfp-attachments:read")] RfpRfpAttachmentsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP custom fields.
+        /// </summary>
+        [JsonProperty("rfp/rfp-custom-fields:read")] RfpRfpCustomFieldsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP guest rooms.
+        /// </summary>
+        [JsonProperty("rfp/rfp-guest-rooms:read")] RfpRfpGuestRoomsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP internal documents.
+        /// </summary>
+        [JsonProperty("rfp/rfp-internal-documents:read")] RfpRfpInternalDocumentsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP lead sources.
+        /// </summary>
+        [JsonProperty("rfp/rfp-lead-sources:read")] RfpRfpLeadSourcesRead,
+
+        /// <summary>
+        /// Allows the reading of past events similar to rfp event.
+        /// </summary>
+        [JsonProperty("rfp/rfp-past-events:read")] RfpRfpPastEventsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP questions.
+        /// </summary>
+        [JsonProperty("rfp/rfp-questions:read")] RfpRfpQuestionsRead,
+
+        /// <summary>
+        /// Allows the reading of RFP recipients history.
+        /// </summary>
+        [JsonProperty("rfp/rfp-recipients-history:read")] RfpRfpRecipientsHistoryRead,
+
+        /// <summary>
+        /// Allows the reading of RFP suppliers.
+        /// </summary>
+        [JsonProperty("rfp/rfp-suppliers:read")] RfpRfpSuppliersRead,
+
+        /// <summary>
+        /// Allows the reading of basic details of RFP.
+        /// </summary>
+        [JsonProperty("rfp/rfps:read")] RfpRfpsRead,
 
         /// <summary>
         /// Allows to read attendee seat assignment information.

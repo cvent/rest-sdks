@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: 207826e5b4516e070fd2787a21c5ce4c
+  docChecksum: 561a41aedbb54ba01909a289f5a18efe
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.2.2
-  configChecksum: 765981f6a1b0f7fb1ccd9033a3d85754
+  releaseVersion: 1.2.3
+  configChecksum: 806e9f0c1af51ec59af694315d02320c
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -209,14 +209,10 @@ trackedFiles:
     id: 07cacd034907
     last_write_checksum: sha1:fbbf20cabfafa6319088c317a8d3dad9fa834ab5
     pristine_git_object: c232eba3e3ae418311f8feadc50fefd9faa360c1
-  docs/models/components/AdditionalChoiceJson.md:
-    id: 008aeeaa15ae
-    last_write_checksum: sha1:3d73067227357b3ce5cc4ef8b012c1eda0241ed5
-    pristine_git_object: d0f4dcd39aaaa2d3748f8769057ed05129bf328a
-  docs/models/components/AdditionalChoiceJson1.md:
-    id: 744607ef00f6
-    last_write_checksum: sha1:ee820d55cdac4813dfa95ba9975c0e4d875f9532
-    pristine_git_object: 645feb26b4e489fd4905138b67941923a0d78018
+  docs/models/components/AdditionalChoiceJson11.md:
+    last_write_checksum: sha1:bc0201911c379c9e120670783af0f031ce0f1c11
+  docs/models/components/AdditionalChoiceJson2.md:
+    last_write_checksum: sha1:5388212edad01111e0b6449b7c8ab5883eb78314
   docs/models/components/AdditionalGuestFeesJson.md:
     id: b06986916918
     last_write_checksum: sha1:c6bec98de43766efe8c7bc46f6353f0cf0cd2b58
@@ -225,6 +221,8 @@ trackedFiles:
     id: 852b3cfbf97e
     last_write_checksum: sha1:5028a27bc58a24bcbeebc513a838dd2440c16fda
     pristine_git_object: 39721498ca4a7658142cbc308a2072d0bbbf42be
+  docs/models/components/AddressJson0.md:
+    last_write_checksum: sha1:34a3ab7e63cba1fe400707b9fbbb23d3881ac53d
   docs/models/components/AddressJson3.md:
     id: 0ac01a60fec1
     last_write_checksum: sha1:82196ccfbad41dabe8968aee2098759c7e9605e6
@@ -277,10 +275,16 @@ trackedFiles:
     id: 6f0a13532586
     last_write_checksum: sha1:f0ab38249a1e521e6364302451ecaea025a3bd59
     pristine_git_object: 8da25c15e1da904a3c247b0b5cb78c8274f7e0a5
+  docs/models/components/AgendaBuilderAttachment.md:
+    last_write_checksum: sha1:dc91c80091e85de66c60abf609c7ef23d646bf94
   docs/models/components/AgendaEventCopyOverride.md:
     id: 0ad5241b9aad
     last_write_checksum: sha1:726abfd185e16a863479db4b87a8a6bf7d6d7294
     pristine_git_object: d35d5898ff8618bdb8b952fcbeca2f29ffd76684
+  docs/models/components/AgendaItemSetupJson.md:
+    last_write_checksum: sha1:1eccae39bc07241999cf967089d17b4fd3e61f7f
+  docs/models/components/AgendaItemTypeJson.md:
+    last_write_checksum: sha1:cab039e9e1f9abd618c08da7ae5c9f062eaf4d29
   docs/models/components/AgendaItemTypeJson2.md:
     id: fe8450257c9b
     last_write_checksum: sha1:3b6f7776a69c429eba7cd7fdc7a9cbbdbaa3b6be
@@ -529,6 +533,8 @@ trackedFiles:
     id: 952a0a6a2b64
     last_write_checksum: sha1:a90f6b6eecddf1f813e8cb99863f049806ae2027
     pristine_git_object: bd15a9f312caf01fed253922c6ef7ccdbda4620f
+  docs/models/components/AttachmentSourceJson.md:
+    last_write_checksum: sha1:3a972b87928b78a456bff775a5258fe14d19003c
   docs/models/components/Attendee.md:
     id: 9ed3d9f25c6d
     last_write_checksum: sha1:e62676d9240672195be6a66b2d9254094454c342
@@ -987,6 +993,8 @@ trackedFiles:
     id: 6bf17a755a2e
     last_write_checksum: sha1:46c61dbf736a62cc416a48a1051ec00b2b7a1d24
     pristine_git_object: 4eecc173fc77dc0ad1ae3573d3871f6b9b2deaf2
+  docs/models/components/BaseAddressJson.md:
+    last_write_checksum: sha1:79950ba597a4bd44b9a489bc08bc149314926a6c
   docs/models/components/BaseAnswerJson.md:
     id: f5417f3accc1
     last_write_checksum: sha1:d7ae1d0ecf0794b916fbf0204d6d8e44338d677b
@@ -1023,6 +1031,8 @@ trackedFiles:
     id: c351848d0afd
     last_write_checksum: sha1:2416862c6297a2462094be08d84a60fa1a8fec07
     pristine_git_object: 7d76bcb2dc4fb40a3d114df36fffc29dd739a402
+  docs/models/components/BillingDetailsJson0.md:
+    last_write_checksum: sha1:516bd5726a6ae72653ae3cb302a7db4963610b92
   docs/models/components/BookingContact.md:
     id: 5f08a2fcc1f8
     last_write_checksum: sha1:9d7b3e18ec6d1fb2edb9b3a66c28aea6df9b9f64
@@ -1049,7 +1059,7 @@ trackedFiles:
     pristine_git_object: 708a708073cbbeefc9ebe6a7764e5b75eeb29281
   docs/models/components/BounceDetailsResponse.md:
     id: 6547fcce7b2d
-    last_write_checksum: sha1:b3c7844106747e00f4496dfd0297e8443a78b034
+    last_write_checksum: sha1:5125d8866ea11de201db9d9e8503716d2a29d7f6
     pristine_git_object: c84359ab683166df5e9b695749da15bec0cfcf1e
   docs/models/components/Brand.md:
     id: f664169dc5c0
@@ -1059,6 +1069,8 @@ trackedFiles:
     id: 58789b2f2ec0
     last_write_checksum: sha1:a1d6d589475b1c596cc7777131632585a1c2eb34
     pristine_git_object: b4021ee0490ea79cb2c44488e0eb04edae4498e5
+  docs/models/components/BrideGroomTypeJson0.md:
+    last_write_checksum: sha1:a59b24d2e2e82920b8d257245f116ed57d70a7bb
   docs/models/components/BudgetAllocatebyJson.md:
     id: 8e48e55ddd8c
     last_write_checksum: sha1:ff5d013476585ca7e9b5fa00f5f2005bd7da024a
@@ -1145,11 +1157,11 @@ trackedFiles:
     pristine_git_object: 302850933da9c5c475efb8266c95d2db5d815d5b
   docs/models/components/BudgetItemInput.md:
     id: cefdb0cd5679
-    last_write_checksum: sha1:7f785473e421c883120ef69b260005527952bde7
+    last_write_checksum: sha1:1c40adf0a74da1d87f6ae5c13509b90fa0a32cce
     pristine_git_object: 5a8b0bb0fa641f334d0fa13d0b031d7144acaf64
   docs/models/components/BudgetItemListResponseJson.md:
     id: f2dfe902fc86
-    last_write_checksum: sha1:3c786c1d3a3d4dafe2042b57c39d8b80448ff678
+    last_write_checksum: sha1:d53a38a008dbc3f8367ff3ddc0f903e2bbbf0476
     pristine_git_object: f30bb76ea6823abfc46673b9d21c599994cca58c
   docs/models/components/BudgetItemListResponseJsonEvent.md:
     id: 158ae2eb37d0
@@ -1157,7 +1169,7 @@ trackedFiles:
     pristine_git_object: 1e74eec711c16a07d41c67f3da51fb88a94cf628
   docs/models/components/BudgetItemResponse.md:
     id: 783a28c3f054
-    last_write_checksum: sha1:21b191cdd1c70cabb7f728579cc6a936cfe29dab
+    last_write_checksum: sha1:db7bbfac84a43f8af8fefaab3db24023a3af1432
     pristine_git_object: b56a4d7047c0e6ac51dff9e5d6a0b1c0c837e10e
   docs/models/components/BudgetItemResponseEvent.md:
     id: 1b205acc9d8b
@@ -1211,6 +1223,10 @@ trackedFiles:
     id: 1775789a789d
     last_write_checksum: sha1:7b225e85dbc7697dd5fcaa05f3256ecb2a7a4e7d
     pristine_git_object: 61f360b22a6b7075efaacffe7794c03ceeea2796
+  docs/models/components/BudgetVendorResponseJson.md:
+    last_write_checksum: sha1:1d0c73c297e242ba4a66d6b25406445b4db104ab
+  docs/models/components/BudgetVendorsPaginatedResponse.md:
+    last_write_checksum: sha1:c948c5c6937e8cc3b7818e92bf97f0f87746f9b0
   docs/models/components/BudgetVersionIdJson.md:
     id: 5e7db34482d0
     last_write_checksum: sha1:3f110c8b29bafd6ed88b34172d00f839ad52bf3d
@@ -1295,10 +1311,14 @@ trackedFiles:
     id: e57c12c5eb18
     last_write_checksum: sha1:8026439e225312f19ee908f8967437982921ae44
     pristine_git_object: 88852ed7997a9c7e3c5e134707edc50007718dec
+  docs/models/components/CancellationDetailsJson.md:
+    last_write_checksum: sha1:93217c02dc24b48df53cb61c23f02cfa2d7f5737
   docs/models/components/CancelledReason.md:
     id: 6118c9005017
     last_write_checksum: sha1:170cb8bd11f974cc01c5230ac0a0f7548fca2d0e
     pristine_git_object: eb196b06066a3c192cb2194600772eadfdb18be8
+  docs/models/components/CancelledReasonJson0.md:
+    last_write_checksum: sha1:84a20789026975fe319aded19e47c43ebb6b02fd
   docs/models/components/CapacityJson.md:
     id: 926d6a3357b4
     last_write_checksum: sha1:411ca166388228fa1338920b7b28c542afc56173
@@ -1321,7 +1341,7 @@ trackedFiles:
     pristine_git_object: 0d74e9c82b410d96d05f23e6a535563a636b552f
   docs/models/components/CardDetailsJson.md:
     id: d82685108ac4
-    last_write_checksum: sha1:70ab7e2fbd46b40d657c8ae07f7a2e2dede1736a
+    last_write_checksum: sha1:a06e32b76094eb0cecb57ebcc2e8721b97086c4a
     pristine_git_object: c74d34d9128e1b3aafc998bfe086ce473f4a65ef
   docs/models/components/CardDetailsJsonEvent.md:
     id: 7193cdf80353
@@ -1345,11 +1365,11 @@ trackedFiles:
     pristine_git_object: 51020545119e8c82a4aa756cbc7863eba8d5b7fb
   docs/models/components/CardTransactionCreate.md:
     id: c542ff26f2c7
-    last_write_checksum: sha1:a07d59b336928404d49aa02bad2591e6cd6e3889
+    last_write_checksum: sha1:721a89ad8dfa028aabd4a67d7eced19b388be575
     pristine_git_object: 4ea277b4c9c97e2cc61cd3d60283994e02f73369
   docs/models/components/CardTransactionCreateResponse.md:
     id: 50f1d661dfa1
-    last_write_checksum: sha1:0e0af2510032fb4eaab3a5312bfb2be5cc96e31b
+    last_write_checksum: sha1:6fa8af59237c35dee53fa49c6f21bad7da6168fb
     pristine_git_object: 3ed6813a75b1c239134b389a4796a6c4270e4911
   docs/models/components/CardTransactionJson1.md:
     id: bc084f772530
@@ -1369,7 +1389,7 @@ trackedFiles:
     pristine_git_object: 1b87add1aa2c5529bd6895d094b2fbba0283d24e
   docs/models/components/CardTransactionUpdate.md:
     id: 06db83556527
-    last_write_checksum: sha1:8cc978ba7a48bb971c69469ce25e4cc01b4f6d6e
+    last_write_checksum: sha1:6857489844e7416238b5dfb896d9b44300218b4b
     pristine_git_object: 19a9bc57ef05c71a89847dc49176a0889b4093b1
   docs/models/components/CardTypeJson1.md:
     id: a7255137a284
@@ -1387,6 +1407,8 @@ trackedFiles:
     id: 70ffe4ff83c2
     last_write_checksum: sha1:fe793c7ef22952d79c2916c4b5e488f912db01d5
     pristine_git_object: 3e86e0380a004d3ce2c285a21fa4e97ab2cde2f5
+  docs/models/components/CategoryJson.md:
+    last_write_checksum: sha1:13405a810b62308fc8db94d71bea30f37caa74b7
   docs/models/components/CategoryJson1.md:
     id: e0fdc92f091b
     last_write_checksum: sha1:4e1cc4cc475272243ddc653bdb5a7e3aaafbb1db
@@ -1447,6 +1469,8 @@ trackedFiles:
     id: c760787de971
     last_write_checksum: sha1:85b3bfe28036777060f26c6a81168469d3eb278c
     pristine_git_object: 0072eeed27fe6c853f841837414c657328eb74dc
+  docs/models/components/ChoiceJson.md:
+    last_write_checksum: sha1:7e881452f1965f31f6f72d43852712edb83e7f57
   docs/models/components/ChoiceJson2.md:
     id: af3540818879
     last_write_checksum: sha1:60cebe80a98bc910728459406de5950c95d00942
@@ -1463,6 +1487,8 @@ trackedFiles:
     id: 3853e963ffd0
     last_write_checksum: sha1:2211fc062a3c9e1ee21f9e9f6eaf5a2bb392f63d
     pristine_git_object: 161d06a5a147a35009648619ee5a75b8064a38db
+  docs/models/components/ChoiceSortOrderJson.md:
+    last_write_checksum: sha1:bc135cf502e1fd923c04f3db985958a733688930
   docs/models/components/ChoiceTranslationJson.md:
     id: b9d0f242e02d
     last_write_checksum: sha1:e166a37b8cde70a9399c04d75450c6bcea95809b
@@ -1609,6 +1635,10 @@ trackedFiles:
     id: f4aac56920d5
     last_write_checksum: sha1:607b287ceea6afcb78d069b9e28ca588870fdf1d
     pristine_git_object: 77e11492994b6b87d55bab217a4d263541e1b5a0
+  docs/models/components/ContactInformationJson.md:
+    last_write_checksum: sha1:ef9ef8008240cd05ed9fdc2ad66ce16bb254cacf
+  docs/models/components/ContactJson0.md:
+    last_write_checksum: sha1:c43de2333358a3cf1bc16352fe8f9e3c679487f3
   docs/models/components/ContactJson1.md:
     id: 5094cce86414
     last_write_checksum: sha1:ee8c84453ca210abbfd46aa5e828714f77589b5d
@@ -1641,6 +1671,8 @@ trackedFiles:
     id: 6d114d263cad
     last_write_checksum: sha1:25d4a8cfe16a45c2958533bd3afe9e4f03d8a605
     pristine_git_object: b9f003267c425325d5b279d2bef24d5c8487e2e7
+  docs/models/components/ContactMethodsJson.md:
+    last_write_checksum: sha1:3ef313204331bd9128d2aad7efdee24becbe62d0
   docs/models/components/ContactObfuscationStatus.md:
     id: 28afd2d20940
     last_write_checksum: sha1:a51bb0cf0f2292608a83aadabf4c991b55ac687a
@@ -1755,7 +1787,7 @@ trackedFiles:
     pristine_git_object: 9db499a2d40677a0409cd00ad8c8b64b42e74b6e
   docs/models/components/CurrencyConversionRateListResponseJson.md:
     id: 716e9916cf0d
-    last_write_checksum: sha1:5a27e210ddb2055354cd06afe5ef4a426c3f43f8
+    last_write_checksum: sha1:c68afe4504a9fbd26e3a4694ef9b3569ce98def6
     pristine_git_object: f6dab8665271e850bdb5b41b3442ada78338fb21
   docs/models/components/CurrencyConversionRatePaginatedResponse.md:
     id: 289cbb273012
@@ -1767,12 +1799,14 @@ trackedFiles:
     pristine_git_object: 3f37d5bb2964486af648f3215b25dc7ad81655ea
   docs/models/components/CurrencyConversionRateResponse.md:
     id: 165a484e592f
-    last_write_checksum: sha1:31197ffea971f2faf250e3b97a638481808d0716
+    last_write_checksum: sha1:4d5cf7cb62ab2db024a12555f820db8fe9d30afb
     pristine_git_object: 9df93eda1bb8ccbffa201291c36060bfb16fc84b
   docs/models/components/CurrencyJson1.md:
     id: c67d48749263
     last_write_checksum: sha1:67889118dc0f4f8d07bba8816d235970ca183025
     pristine_git_object: d7bc9606badec6605975b415ca3c65ae4d766448
+  docs/models/components/CustomAnswerFormat.md:
+    last_write_checksum: sha1:0a53162b925e9cca3c8bf9ab84e03f523b7f1678
   docs/models/components/CustomDuration.md:
     last_write_checksum: sha1:796dde4b7d0c60f771aa73c7cb91faeb685533e2
   docs/models/components/CustomField.md:
@@ -1799,6 +1833,8 @@ trackedFiles:
     id: 4bd147a8c5b8
     last_write_checksum: sha1:e7f611df6d3f05360727674c68d1d0e57ad062e6
     pristine_git_object: 2f200f58891d763c00cdd78649fb6e61aa0c6ab7
+  docs/models/components/CustomFieldExpand.md:
+    last_write_checksum: sha1:d0827942e494fd8b3e0b8e47a4298c3b23f32005
   docs/models/components/CustomFieldInput.md:
     id: f6519029d798
     last_write_checksum: sha1:84a9619e0d2b5fae2b642221ce1ed90436639497
@@ -1847,6 +1883,12 @@ trackedFiles:
     id: 7148bfec8418
     last_write_checksum: sha1:c6725d3712134dde82ec208117a04178749f46f8
     pristine_git_object: f72235b3f9287f2df859dbd027b7a38a8a72ca7c
+  docs/models/components/DateAnswerFormatJson.md:
+    last_write_checksum: sha1:7b3ab8578b29620dd65713cfd0d215be8cbb03ef
+  docs/models/components/DatePatternJson0.md:
+    last_write_checksum: sha1:e9de89b89de716efbe5082d3f15cd85a9af6552b
+  docs/models/components/DateRequirementsJson0.md:
+    last_write_checksum: sha1:764cd3918e2f3b40ac0c833b3658d2429995a88b
   docs/models/components/DateTimeDisplayFormatJson.md:
     id: 44cc55fc8af7
     last_write_checksum: sha1:414d36b39848b98f9063253cc7d412cb030c3a19
@@ -1855,6 +1897,10 @@ trackedFiles:
     id: 0ee95b0785fc
     last_write_checksum: sha1:38556ccb50fdfa2ee32d7d23c5461f6558ed4e50
     pristine_git_object: c7b02efe1663eb0c7d40034f6ee465b06f545e48
+  docs/models/components/DatesJson0.md:
+    last_write_checksum: sha1:ae99dcf9174b4a4f54a4292965a18e1381320ed2
+  docs/models/components/DayOfWeekJson0.md:
+    last_write_checksum: sha1:2df5e930cc61debc99bd163ccb8f5479252f273a
   docs/models/components/DeclinedReason.md:
     id: d93894716633
     last_write_checksum: sha1:a0097ea48de8fae7f83bc0926055fb08d6e85b9c
@@ -1915,6 +1961,8 @@ trackedFiles:
     id: 8bd0c7f700e7
     last_write_checksum: sha1:75d0f87e83fc99adb7db660db2703fa9e25c8688
     pristine_git_object: 137871279c401ca71f23f82f1e07bfce54ac9efd
+  docs/models/components/DisplayTypeJson.md:
+    last_write_checksum: sha1:023d2c6b760f9e1e010e590d0f45db7504f341c3
   docs/models/components/DistanceJson1.md:
     last_write_checksum: sha1:fc55aed123bc97089370964f03b4e9de6ec44e5f
   docs/models/components/DistanceUnit.md:
@@ -1937,6 +1985,8 @@ trackedFiles:
     id: eeae9a2cec4c
     last_write_checksum: sha1:2c5388b376787086a05ecd0d3c4974178f467e8e
     pristine_git_object: bdb907dcccb73947959701fc231fb80bf8762608
+  docs/models/components/DocumentTypeJson0.md:
+    last_write_checksum: sha1:ea9f74883475bb47c2246f8a93d9b5e632727452
   docs/models/components/DonationItemJson1.md:
     id: 292d9e5a99c5
     last_write_checksum: sha1:e040bbcd5f08541540a005221e45bb59b6f4005f
@@ -2141,7 +2191,7 @@ trackedFiles:
     pristine_git_object: 82e7a8f706b795e056993c8e80fd1e35532a211e
   docs/models/components/EventBudgetTotalsJson.md:
     id: cf0de7beecb4
-    last_write_checksum: sha1:21607bec4712ed6d088f5dcd31ed9a86be3ebc6a
+    last_write_checksum: sha1:e2bd54b53a7fb98ad5dda47cdf583dff55108d53
     pristine_git_object: edb532a3e19e079755fa44bd968942318c9d4051
   docs/models/components/EventBudgetTotalsJsonEvent.md:
     id: dc7bd57214eb
@@ -2211,6 +2261,8 @@ trackedFiles:
     id: d9375d6cccae
     last_write_checksum: sha1:0b76efc28ec0e48cd8a1cabb8e29648d6a5fc912
     pristine_git_object: 0e3241727163312f854eae4b378227b66b45bae3
+  docs/models/components/EventFormatTypeJson0.md:
+    last_write_checksum: sha1:bf3ae70afbfcdbfa26593475aaa0142f9b3ab963
   docs/models/components/EventInput.md:
     id: "505336032273"
     last_write_checksum: sha1:370df87d51e6f326c067ea6aba10989a66b59b3e
@@ -2219,6 +2271,8 @@ trackedFiles:
     id: a38919c20040
     last_write_checksum: sha1:c37c48c6ca525975490518cdac0ca684e490e043
     pristine_git_object: f9404bb3581d8b88564de789d29963be9c16dcd5
+  docs/models/components/EventJson0.md:
+    last_write_checksum: sha1:eec6ba8b5594994baaa63d32bedf562dd2379637
   docs/models/components/EventJson11.md:
     last_write_checksum: sha1:cc168d44d52a0390aeb3d1ab5bacafd88d7d5ec6
   docs/models/components/EventJson3.md:
@@ -2343,11 +2397,11 @@ trackedFiles:
     pristine_git_object: fa87e53361eacd797126be9473b7ba41c51819b6
   docs/models/components/EventSurveyJson.md:
     id: 241d90afb89d
-    last_write_checksum: sha1:11864146df674355237fcd6882560f68dad370ce
+    last_write_checksum: sha1:5df4fd0e21f02d36ebbf9da6a22847a971e54522
     pristine_git_object: f18fe8ddc33236d763b4c5db12b706f88398b60d
   docs/models/components/EventSurveyQuestionJson.md:
     id: 533cfc903571
-    last_write_checksum: sha1:23f4c1a168a63e788cd5097b887b56910c9156e9
+    last_write_checksum: sha1:5817d38ebb37b70596c0fdb0f0f834c83cb31d5c
     pristine_git_object: 2e3dd74c979006b84487aec1749652e180fee491
   docs/models/components/EventSurveyQuestionsPaginatedResponse.md:
     id: 6f4572c68e0b
@@ -2405,6 +2459,8 @@ trackedFiles:
     id: 7b5a9b1975a0
     last_write_checksum: sha1:7596df85bf534c9568a090a5f174b1d20f4408ef
     pristine_git_object: 6dddd205237082f2c5a49d593d8610b000d3e0a1
+  docs/models/components/EventTypeJson0.md:
+    last_write_checksum: sha1:ad1d42acb85add86bbfa69eac8fb6fca6219a69a
   docs/models/components/EventTypeJson1.md:
     id: 17ecf6f36bb1
     last_write_checksum: sha1:a99c6f3e5fb427d241c15d06ddd31504e501dd67
@@ -2545,7 +2601,7 @@ trackedFiles:
     pristine_git_object: ff0e9eba5097e87db913ac61601975c366c71a80
   docs/models/components/ExhibitorRegistrationPackListResponse.md:
     id: 2ca537d4965e
-    last_write_checksum: sha1:1035318beba9ec1c22912a8f76da4556dee8f74b
+    last_write_checksum: sha1:b8266c57d4a0f44c8eaf51cbd1b0d56285844fb0
     pristine_git_object: 2d24a72c84f75944a5e14e1a4b57e73313f36ff6
   docs/models/components/ExhibitorRequest.md:
     id: b2968d7c4d8e
@@ -2697,7 +2753,7 @@ trackedFiles:
     pristine_git_object: ce8a8b18102d97a668954aa1bd02da268d7d01bb
   docs/models/components/ExistingExhibitorQuestion.md:
     id: e20537d22cbe
-    last_write_checksum: sha1:02fcbe82e9d24f9257a18a672fdaba0e79bc8a6a
+    last_write_checksum: sha1:0bd64d9375c38a2a91605a1cf277548600b36d8a
     pristine_git_object: 7a67aeb4f9c35189951598a564816835bc93873b
   docs/models/components/ExistingFile.md:
     id: 9a1d8f9782d9
@@ -2729,7 +2785,7 @@ trackedFiles:
     pristine_git_object: 7e27947dd5dfc211e56ddfc5f3ce465d821fcbc1
   docs/models/components/ExistingRegistrationPackJson.md:
     id: ef7ea620d293
-    last_write_checksum: sha1:cfee78247b04273a1b3c3b692efbfc250d9d3e27
+    last_write_checksum: sha1:8ad699fdbf5540d28f278a160a097f7bc6833fb2
     pristine_git_object: 050566798d920dd611e672c150e6b3bdb9ba4e36
   docs/models/components/ExistingRegistrationPathJson.md:
     id: 0d3342d0a131
@@ -2861,6 +2917,8 @@ trackedFiles:
     id: b09c04582743
     last_write_checksum: sha1:ab6ffc1ba03049f7f53e8d8fd7d5ed5d205a3d1c
     pristine_git_object: 11da29a5f2d741d68687345b1240d381406acdb2
+  docs/models/components/ExpandableCustomObject.md:
+    last_write_checksum: sha1:99f41534a2cf223baba733cfe69093a9fe4f3fe5
   docs/models/components/ExpandableSeatJson.md:
     id: c465fa068b1b
     last_write_checksum: sha1:bec4d12bd96cdc701f85f464798399746e38c388
@@ -2933,6 +2991,8 @@ trackedFiles:
     id: 075758481d3a
     last_write_checksum: sha1:597ea5edb8a55a3cd149ff70918cf0500b0975b7
     pristine_git_object: 2807f90c227b4270cb87640c3cc95f06b08fbe9c
+  docs/models/components/ExternalSupplier.md:
+    last_write_checksum: sha1:48d3a4b76ee5702ebbc0e9cab9eaf45ce2491abc
   docs/models/components/FacebookUrl.md:
     id: 8d99a3917521
     last_write_checksum: sha1:3421713dbd5af57059a044c2e3a3db69a7d14cd5
@@ -2969,8 +3029,12 @@ trackedFiles:
     id: ad291cd46757
     last_write_checksum: sha1:aabe5d49c85f87c09251024d86c3ba95269f8cc1
     pristine_git_object: 4e89b27a35ceb9680b1955f7c5a1151a6e4f648f
+  docs/models/components/FieldJson.md:
+    last_write_checksum: sha1:79503a39592605ad2dff3a2de6f6d9959c0ea57b
   docs/models/components/FieldJson5.md:
-    last_write_checksum: sha1:4f62c4f0c336db78f68ffce837d2db920b24b531
+    last_write_checksum: sha1:33583751e5bac3cef45d32b10cb78c3446db3b26
+  docs/models/components/FieldTypeJson.md:
+    last_write_checksum: sha1:7a7e38396a82b5554d2ddcce66c7df519be8598e
   docs/models/components/FieldTypeJson2.md:
     last_write_checksum: sha1:24e43a373bc916a0aa4f8c225da3feec7843e5e7
   docs/models/components/FileInput.md:
@@ -3001,6 +3065,8 @@ trackedFiles:
     id: 07d185f6f346
     last_write_checksum: sha1:ffc2c30b6cd369b2fca1d0cc7612ad5375c2a010
     pristine_git_object: 0a71037d5f2436f8ee71a2567b2cd66a89d14bf6
+  docs/models/components/FirstClickedSupplierAd.md:
+    last_write_checksum: sha1:cc83b37f77f4971113c7ce036b050ee1e98d0b82
   docs/models/components/FlightDetailJson.md:
     id: 1d3508d23c78
     last_write_checksum: sha1:6cc406bd2cdcf31c45b4d1ad02f9055fb8749ae1
@@ -3061,6 +3127,12 @@ trackedFiles:
     id: e4c248e3ab53
     last_write_checksum: sha1:fb3927651a9a41d29ab42982545aba169ef72c02
     pristine_git_object: ab4876fd65ac697a9249369243b6a26b9fc69a42
+  docs/models/components/GuestRoomOccupancyJson.md:
+    last_write_checksum: sha1:0e71822c30935e99bc3a47a0114324617f471701
+  docs/models/components/GuestRoomOccupancyPerRoomTypeJson.md:
+    last_write_checksum: sha1:5b3995d343fcbe5c38a6c2b919b76d31194b6040
+  docs/models/components/GuestRoomTypeJson.md:
+    last_write_checksum: sha1:cda1e4dcc10925b259f98ed14a50eedcb0246367
   docs/models/components/HlsInputWithClipsJson.md:
     id: ad8928b0fe99
     last_write_checksum: sha1:1c9e29c2ebbef24b1ecb9bd5758198f34d63dc4e
@@ -3219,6 +3291,8 @@ trackedFiles:
     id: e1d19f4d334c
     last_write_checksum: sha1:e701ef363fe45d97b16d6aeaaccf7600086a3207
     pristine_git_object: c68f7a6cbfdcde63d9b7b931f4ae60d28deb382a
+  docs/models/components/IndustryJson0.md:
+    last_write_checksum: sha1:6f929621ff814141c7acc175dae351563b7320b2
   docs/models/components/InventoryDetailsList.md:
     id: d36f3113c34d
     last_write_checksum: sha1:62b26436f4a063f74649d3c564ba08278b2e3a0f
@@ -3275,6 +3349,8 @@ trackedFiles:
     id: 8e6968cd9a6f
     last_write_checksum: sha1:e1a9b310b3f834211a92a36941f4feac459d2e3f
     pristine_git_object: 0f701f90a13b934d8eb985d2f5a0b1dad5cf67c7
+  docs/models/components/LastClickedSupplierAd.md:
+    last_write_checksum: sha1:c7b5a87de75c24e75542c98283cf854a02118832
   docs/models/components/LaunchFeatureTypeJson.md:
     id: ca672ac4cb2a
     last_write_checksum: sha1:3b2f584756268291ed8892418e8c34ec3603c2f3
@@ -3325,7 +3401,7 @@ trackedFiles:
     pristine_git_object: 6911694c9d01c3f310f63f3156a9cd52865607d0
   docs/models/components/LeadQualificationQuestionJson.md:
     id: 9ebe380a5df9
-    last_write_checksum: sha1:b16578cdd0893fe7e7306e370cb967218fa0a83d
+    last_write_checksum: sha1:d90634e13b4c46e030959f5da50119217da10b7f
     pristine_git_object: 2d0e0f91f4f10d6f143f32c1b730965876a775f7
   docs/models/components/LeadQualificationQuestionJsonType.md:
     id: 8befe531fcb4
@@ -3351,6 +3427,14 @@ trackedFiles:
     id: 7e31666ffc67
     last_write_checksum: sha1:604489646dd4587238c6f51f7ee6c419b69c78c9
     pristine_git_object: 7230ebaa0b73dbe28e855d2942f9efd9a6632663
+  docs/models/components/LeadSource.md:
+    last_write_checksum: sha1:e3f46399cf9728bcfaedc5e40931e49f7462b720
+  docs/models/components/LeadSourceExpand.md:
+    last_write_checksum: sha1:0285461858c447e0e40039f65c703280e76bfa7c
+  docs/models/components/LeadSourceJson.md:
+    last_write_checksum: sha1:6a65c9083907625d998609ad01412da6018c3190
+  docs/models/components/LeadSourceSectionJson.md:
+    last_write_checksum: sha1:e1a82d55243c8dd4d6d0e4e4d6616e4e6bddaa29
   docs/models/components/LeadsPaginatedResponse.md:
     id: 427a7350ef33
     last_write_checksum: sha1:115e22624abc659214e8001beef7782a5fc41aff
@@ -3417,6 +3501,8 @@ trackedFiles:
     id: 63b33ee45292
     last_write_checksum: sha1:6e0db9e2662c4067ccb99e33b1cba5e2509031bd
     pristine_git_object: 1cdf8e44700f38e4b9b65ea155bfd19695007441
+  docs/models/components/MeasurementUnitJson0.md:
+    last_write_checksum: sha1:12ee4a0ba355db7e63dbe6b0b2dd13780008238c
   docs/models/components/MeetingRequest.md:
     id: ea41d46c5718
     last_write_checksum: sha1:1f69fdad3deb86f3d18ab31c5be9070515ac7a7f
@@ -3557,6 +3643,10 @@ trackedFiles:
     id: 534c513e27bf
     last_write_checksum: sha1:aafe412040a7980d2c14faf7e3a0e122f8cc0273
     pristine_git_object: 960a5c0dcff466c504070bff0fc5de17b3c68f5f
+  docs/models/components/NumericAnswerFormatJson.md:
+    last_write_checksum: sha1:a33a28b70915800fa8a1bc8b248a95eba1dc26d3
+  docs/models/components/OfferingCostTypeJson0.md:
+    last_write_checksum: sha1:dbd59e7d6424421c27a43a41899574e1f2b2292e
   docs/models/components/OneAllOf.md:
     id: 965d3ae1812e
     last_write_checksum: sha1:067a459c886b20fc8717a34d0a362e0ec572e523
@@ -3641,10 +3731,16 @@ trackedFiles:
     id: fe170f2cb483
     last_write_checksum: sha1:e42218da2a198a3d08f2c89f7b9c2756bfd383e7
     pristine_git_object: 05ec2a4b709194f44dea8b03b4a7ada5fc3de376
+  docs/models/components/OrganizationJson.md:
+    last_write_checksum: sha1:7bfb488641b280542254f31bc870cf90f6233061
+  docs/models/components/OrganizationTypeJson0.md:
+    last_write_checksum: sha1:23aa381d978baf69cfc5bed982a5e164dcf6f2bb
   docs/models/components/OtherPaymentJson.md:
     id: 116a4b55ef2c
     last_write_checksum: sha1:106f734c20e6878fcbf723359b82aa53794c4ffa
     pristine_git_object: 6ff9a49745f98d21d0d7121a479f35185e9f03c3
+  docs/models/components/PackagePricingPreferenceJson.md:
+    last_write_checksum: sha1:3916249ae2560944d461babba576e42d43188598
   docs/models/components/PageVisibilityJson.md:
     id: 17df5e2c327b
     last_write_checksum: sha1:93c9cb6564475ab61e394d40d035bdf1a0ca9212
@@ -3653,6 +3749,22 @@ trackedFiles:
     id: 2718e53339bb
     last_write_checksum: sha1:befb72cd17af681b32ce9160c45fc6cf8cffa48b
     pristine_git_object: 7d1e6b8a083023758756e1c062096e9875836114
+  docs/models/components/PaginatedInternalDocuments.md:
+    last_write_checksum: sha1:44bbb8258ef78599018b839c68c9f3fd40cf05a3
+  docs/models/components/PaginatedRfpAgendaItems.md:
+    last_write_checksum: sha1:0270d23b9603eecfb42774eecb64fd0387b47083
+  docs/models/components/PaginatedRfpAgendaItemsSchedule.md:
+    last_write_checksum: sha1:d8a4d2cfa8f58a88b1f4d128c7a39a4b195972be
+  docs/models/components/PaginatedRfpAttachments.md:
+    last_write_checksum: sha1:1d100c6e2b18889d4e08a2a3c310786f410685e5
+  docs/models/components/PaginatedRfpCustomField.md:
+    last_write_checksum: sha1:8e55c5ad1f9a6896c52c4eec0d90b4111eec1958
+  docs/models/components/PaginatedRfpQuestions.md:
+    last_write_checksum: sha1:bd1939e852cb2cb98cc737545fde0868cc02dabf
+  docs/models/components/PaginatedRfpRecipientsHistory.md:
+    last_write_checksum: sha1:f973c0f3c25962049a19ed5bd89975f08b59e178
+  docs/models/components/PaginatedRfpSuppliers.md:
+    last_write_checksum: sha1:c4a038135889c57b06556d8eb464fa7af27e0789
   docs/models/components/PaginationLinksJson.md:
     id: 57cdbf0bebe6
     last_write_checksum: sha1:41277c0f252a5a03b1e66a39bbee5a536a580404
@@ -3665,10 +3777,8 @@ trackedFiles:
     id: f6cdda2dca21
     last_write_checksum: sha1:cc53ae5998d79473c011c8b1f75a1ee74ef23c8b
     pristine_git_object: d9b25b1bc97167a7db311dde01402b1bb3ff79d1
-  docs/models/components/PagingNoTotalCountJson1.md:
-    id: 6bae2bfc8a15
-    last_write_checksum: sha1:34f82f903cdceffc479b1dfd36c582e1cb299cc1
-    pristine_git_object: 7015e3aeafae041a2e1febbb8fc7e1ba0edd5f0b
+  docs/models/components/PagingNoTotalCountJson2.md:
+    last_write_checksum: sha1:bb4c6bfd140301d88642701bbb7762bab5252408
   docs/models/components/ParticipantResponseJson.md:
     id: 384c7e85baa0
     last_write_checksum: sha1:c85a4541498b7dcd995f0151179b6adb21d930a4
@@ -3723,7 +3833,7 @@ trackedFiles:
     pristine_git_object: 32e63638f0dcd559aecae1987760581fc5a0a872
   docs/models/components/PaymentResponse.md:
     id: d2f08b72f0b6
-    last_write_checksum: sha1:2a69fe66936950e6bf251dadd57940ef7e2390c4
+    last_write_checksum: sha1:b5ebffa70e7d806b6648a9ba7949c125a71ec3a3
     pristine_git_object: 0bd38ee12575fda91bb6521f4497e35a02b5fdbb
   docs/models/components/PaymentResponseBudgetItem.md:
     id: 11bcb781c376
@@ -3933,6 +4043,8 @@ trackedFiles:
     id: 1e0c30fab965
     last_write_checksum: sha1:57cce951352989e052e25a65ad43ec68dbf3ee35
     pristine_git_object: 321899eb94913d22edca606a17095196673052f2
+  docs/models/components/Promotion.md:
+    last_write_checksum: sha1:f5187591b485d93c81bcdd1ab39898c9c9c1881a
   docs/models/components/Property.md:
     id: f4843070cdbc
     last_write_checksum: sha1:f3459c80739b5b44577460e664a42a760aea5a7e
@@ -4025,6 +4137,8 @@ trackedFiles:
     id: 0516fcd99369
     last_write_checksum: sha1:6d217d965326e77ca3586ed450556fc988adc865
     pristine_git_object: 8917fb3438ee03ec8bffb9c88d320b7652280979
+  docs/models/components/QuestionClassificationTypeJson.md:
+    last_write_checksum: sha1:6f702925d6bda0dc038d6613858d17e51ec1b761
   docs/models/components/QuestionDetailJson.md:
     id: d79c65642a67
     last_write_checksum: sha1:5af0f0a6ddc693c40d499b19803fef54d7ddba6f
@@ -4039,7 +4153,7 @@ trackedFiles:
     pristine_git_object: 39ff818b5894cc3c5e8ea55495eaf19ee162b5c1
   docs/models/components/QuestionJson2.md:
     id: d566007c1a48
-    last_write_checksum: sha1:65564f0a4329e2cae6760ba6c38175ac20a17340
+    last_write_checksum: sha1:b7457525ecdd8085f84bdc36730eb9c444f1f05c
     pristine_git_object: 5b40fed3acd8d7f6c585a5bb75392fcf628be387
   docs/models/components/QuestionJson3.md:
     id: 68dbcddddcc9
@@ -4069,6 +4183,8 @@ trackedFiles:
     id: 72884c5a692f
     last_write_checksum: sha1:c72faddc930623cc8f03954c1c0a77bddb547568
     pristine_git_object: 6e95ef9d5d4fbc13d60136cce384ad8b64a58493
+  docs/models/components/QuestionTypeJson.md:
+    last_write_checksum: sha1:74e25c310258828a40b1c237e8b06a750b046e44
   docs/models/components/QuestionTypeJson1.md:
     id: b10ac4c21cff
     last_write_checksum: sha1:6c148a2e71f34d3e6f6a21b82447e8c4dcd7e7ce
@@ -4113,10 +4229,16 @@ trackedFiles:
     id: 0889c2270515
     last_write_checksum: sha1:c06295051c467c53b5686da3781d3f9b25867fe7
     pristine_git_object: 2c115d25da17566d6531996f8e12a4c3793fc96d
+  docs/models/components/RebateTypeJson.md:
+    last_write_checksum: sha1:a19716e4ced7a8b7f72800febeef50ad5b0be5c3
+  docs/models/components/RecipientInfoJson0.md:
+    last_write_checksum: sha1:7ba731ee5cfc507f8908282a646416861f192564
   docs/models/components/RecipientJson.md:
     id: f8dd9772fe57
     last_write_checksum: sha1:86ee85117ca6630aa6a6aacee0149265b699e17f
     pristine_git_object: 48fd748c83799d45b0061a2336b636c180b9c954
+  docs/models/components/RecipientTypeJson0.md:
+    last_write_checksum: sha1:b20715b5fa2ac5ecf786f74eaa2bd6c86fa7d684
   docs/models/components/RecipientsDataJson.md:
     id: 1f229c02b288
     last_write_checksum: sha1:c8f0acf0c2ab3a0bdc51cd06b54c51df28bdce76
@@ -4137,6 +4259,10 @@ trackedFiles:
     id: 37b043969481
     last_write_checksum: sha1:d4633d05b64e6c6f69153b461a79e5f1b4f7a927
     pristine_git_object: ec40c82df9d5a938c91119f64629251158ffe62d
+  docs/models/components/ReferenceToRFP.md:
+    last_write_checksum: sha1:edfe98e975c6f655539fa3c2ee9cadd561e42dbd
+  docs/models/components/ReferenceToSupplier.md:
+    last_write_checksum: sha1:61079ae51ffc784e97b1a9390772ef05ea8de4c0
   docs/models/components/RefundPolicyJson.md:
     id: 54a72a0bfb71
     last_write_checksum: sha1:49ca7978ce8687d6fc6f3efb660204ae37a92c82
@@ -4159,11 +4285,11 @@ trackedFiles:
     pristine_git_object: a01eb3cec67e48abec69dd7bff04ea043e6641ee
   docs/models/components/RegistrationPackRequest.md:
     id: 0f3086c91ace
-    last_write_checksum: sha1:b1ffce7093338fc3dc02c9d140a73a25818d7c44
+    last_write_checksum: sha1:7f89c58de3a594377d3f0cb88539e0c0caf8f31c
     pristine_git_object: 2066e94cb7f630f8ace54082bfee803321d8987d
   docs/models/components/RegistrationPackResponse.md:
     id: e87976c8fb63
-    last_write_checksum: sha1:4abcef64d1c819fa8057318c45a263f693821af6
+    last_write_checksum: sha1:53126bc8e71ca2c6b22f3d97d78114315481c0b5
     pristine_git_object: d515c2600289a2674c98e8cb192a1eb061486222
   docs/models/components/RegistrationPath.md:
     id: 0f9f624489f9
@@ -4361,12 +4487,64 @@ trackedFiles:
     id: 45e5708ed8ed
     last_write_checksum: sha1:ecabc2c7393854ddf6fb01069b0f8d4eb222cdb8
     pristine_git_object: 79db88ae51d39c352b49dcd18baa06571a7e3199
+  docs/models/components/Rfp.md:
+    last_write_checksum: sha1:f9673304e5e73d767b020bba20a274beddc60b50
+  docs/models/components/RfpAgendaItemJson.md:
+    last_write_checksum: sha1:d710aba42b7ddfd28ed4b597db7597b3be6dd49f
+  docs/models/components/RfpAgendaItemScheduleJson.md:
+    last_write_checksum: sha1:239444f429dbf22f9033d8eb49a44734de03cf9a
+  docs/models/components/RfpAgendaItemScheduleWithIdJson.md:
+    last_write_checksum: sha1:64f769169008157932c4e07ab19e12a62cb1eaa8
+  docs/models/components/RfpAttachmentJson.md:
+    last_write_checksum: sha1:a2b0a7a0f1e90e47daf7d221bce5f2cd27922d85
+  docs/models/components/RfpAttachmentJsonSupplier.md:
+    last_write_checksum: sha1:43cc24221b4e7aea2e11551f7b1deb86bd567ca5
+  docs/models/components/RfpCustomFieldJson.md:
+    last_write_checksum: sha1:fdc39ae9a2bb987c952e682a392933e4e4a13ba5
+  docs/models/components/RfpDateModeJson0.md:
+    last_write_checksum: sha1:93c8b064c68d7848b80f83eac8bf04988b9d7cd1
+  docs/models/components/RfpEventJson.md:
+    last_write_checksum: sha1:386ef31685782786bb8abc61b5d9e7b2a128bf27
+  docs/models/components/RfpEventOrganizationJson.md:
+    last_write_checksum: sha1:fe7be512889663381c038311ffb9e2fc4f4627d0
+  docs/models/components/RfpGuestRooms.md:
+    last_write_checksum: sha1:2292d08bf8c21462205fd3a8bded9415d492d0eb
   docs/models/components/RfpIdJson1.md:
     last_write_checksum: sha1:9808f97cf1833dfc8253f79a0d1f39d7e8736b6d
+  docs/models/components/RfpInternalDocumentJson0.md:
+    last_write_checksum: sha1:853150bd6e6c9e6eb228883e1dd57865a3517b95
+  docs/models/components/RfpLeadSource.md:
+    last_write_checksum: sha1:c683a7427cb4a098c6da8997a44f54c826655894
+  docs/models/components/RfpLeadSourceSection.md:
+    last_write_checksum: sha1:e8e98e871fb2195d79c15719db8ea3a13af6bd8d
+  docs/models/components/RfpMealJson.md:
+    last_write_checksum: sha1:2c6a92021efe3c32a6b4ccf21859e11cdb6bbaeb
+  docs/models/components/RfpPastEventJson.md:
+    last_write_checksum: sha1:924d395f5f53baad8706b9553dc905e0d5838f3b
+  docs/models/components/RfpPastEvents.md:
+    last_write_checksum: sha1:0ac78f768086e98cf968ffcd3d2c2eb1d9ad03f2
+  docs/models/components/RfpQuestionJson.md:
+    last_write_checksum: sha1:947476c6551680199d9265081f17ad65a443252e
+  docs/models/components/RfpRecipientLogEntryJson.md:
+    last_write_checksum: sha1:25a30477a6d9462e8476573127048d5401c26fbf
+  docs/models/components/RfpRecipientLogEntryJsonMessage.md:
+    last_write_checksum: sha1:82ada4927883b71d1cab795442a26e1b56093591
+  docs/models/components/RfpRecipientLogEntryJsonSupplier.md:
+    last_write_checksum: sha1:a3d3c50df2893ce4abd23bee7467bf46fc49a48a
+  docs/models/components/RfpResponseReasonJson.md:
+    last_write_checksum: sha1:39052e80e0151eb11ae4781463bb26a5e9cfcd1d
+  docs/models/components/RfpStatusJson0.md:
+    last_write_checksum: sha1:e4de0c0af55157591c0075c07c3bf53f7adfcd1e
   docs/models/components/RfpSummaryJson.md:
     id: 622b6aefeea6
     last_write_checksum: sha1:14cb5dd209fcd9b268334f61da955e8b91fd584b
     pristine_git_object: 3b88f2681e0e3897bb215c44fda1fab898768c6a
+  docs/models/components/RfpSupplierJson.md:
+    last_write_checksum: sha1:6b9b5c658df043747d98e3aa5e05663dca696d4f
+  docs/models/components/RfpSupplierStatus.md:
+    last_write_checksum: sha1:0fe1d3eee0400da589f8c6ce6074a98f498841ae
+  docs/models/components/RfpTypeJson0.md:
+    last_write_checksum: sha1:75692583dc598b79ed0f87f4348dfa279aca8ece
   docs/models/components/RoomAttendeeTypeJson.md:
     id: 9a749a9202b3
     last_write_checksum: sha1:c76fbb59dd989993ef4ce65e9e0be541b53e16f0
@@ -4375,6 +4553,10 @@ trackedFiles:
     id: 57bd7587ee2d
     last_write_checksum: sha1:87880fa26c5bc340b3e0c3b2c6a77d9e8a10d6d1
     pristine_git_object: e655d1d684a8ef51c6cb2b567c2356151d9baa06
+  docs/models/components/RoomBlockDetailsJson.md:
+    last_write_checksum: sha1:2d813c25ffc189e848ac871bc008327bfb642ddf
+  docs/models/components/RoomBlockJson.md:
+    last_write_checksum: sha1:220054b99846684836f1bef7fb7e678f809e1d4a
   docs/models/components/RoomIdJson.md:
     id: 4d4b8d5a32f8
     last_write_checksum: sha1:65a3752b983c205b14d0b3abc357f6c2c2aecec2
@@ -4759,6 +4941,8 @@ trackedFiles:
     id: 851a72141717
     last_write_checksum: sha1:963f862de071fed03476b6294f5a3806a9b010e8
     pristine_git_object: 5ded506d77d5c43bae0ebf14c81c6eec91822017
+  docs/models/components/SpaceAreaJson0.md:
+    last_write_checksum: sha1:ddecc11157976ef840cc8d58857683aa1ed83d0a
   docs/models/components/Speaker.md:
     id: f6e52785e520
     last_write_checksum: sha1:523bd30771848a429c2a28df44f19f712cb8629e
@@ -4883,6 +5067,8 @@ trackedFiles:
     id: f055f46a2145
     last_write_checksum: sha1:f6af8d665dc2dc6f48e66d416b75944ddcd9534e
     pristine_git_object: 98551fd60aed61d6292677f84af1b9e9763a64d6
+  docs/models/components/StandardQuestionJson.md:
+    last_write_checksum: sha1:fc3c8d09cfaac36efc9bcec98348e359b11e0030
   docs/models/components/StandardSurveyEmailTemplateJson.md:
     id: 2c3a5b9ba141
     last_write_checksum: sha1:2d798eeba53d29fcb6eb210e1f290788c9e01573
@@ -4893,11 +5079,11 @@ trackedFiles:
     pristine_git_object: cd0b20bc52eaf93effa08f1591bc57e0615dc6ed
   docs/models/components/StandardSurveyJson.md:
     id: 1eab329d20a5
-    last_write_checksum: sha1:e191bce38b49c050b71d5db16f9ac6e9e46388fc
+    last_write_checksum: sha1:2e2048fc238146ef098dcdf33ecd16e1ad628005
     pristine_git_object: fb868e5a5f4d61e4404da9af191987bfa0f4d3ec
   docs/models/components/StandardSurveyQuestionJson.md:
     id: 5bcbaa73a0bd
-    last_write_checksum: sha1:9ca1d7cfaee7dd6ea5afd511f51123e679b2f571
+    last_write_checksum: sha1:017f6f64648105e1b39d032102b5c87d86bbf691
     pristine_git_object: 5db341cc8882df2a90e560021f5585824cd1364f
   docs/models/components/StandardSurveyQuestionsPaginatedResponse.md:
     id: 6f098f7ce6c5
@@ -4963,14 +5149,20 @@ trackedFiles:
     id: 6ada1877b1f3
     last_write_checksum: sha1:50bd2d31e679fcb909c349ece5bd1fb54962cfc6
     pristine_git_object: 85d2fafc2beae14afae795f58d6315c44f4ecd69
+  docs/models/components/SupplierAssociatedAds.md:
+    last_write_checksum: sha1:cb10ffbc5170f6adb2d8c2249bcbbc5b5253db2f
   docs/models/components/SupplierProperty.md:
     id: 08dd3b860b8c
     last_write_checksum: sha1:9d8498074a489cd333b2a422ccbf167cb20d79e1
     pristine_git_object: f447042d0ab3185fb761dc10394f034e72fbcafb
+  docs/models/components/SupplierResponse.md:
+    last_write_checksum: sha1:57becaf1dfffc65092a7125507d3ee53f946b73c
   docs/models/components/SupplierSummaryJson.md:
     id: f6549a643a78
     last_write_checksum: sha1:5996e9ce384cd14fe8133da8dc19e43a6d698c7f
     pristine_git_object: b9564795bfb8c8890e3d4eb38db1545a3b8b55c8
+  docs/models/components/SupplierTypeJson.md:
+    last_write_checksum: sha1:f7b0a74589db2b8c908bb99f916dbbd575538179
   docs/models/components/SupplierTypeJson1.md:
     id: 0a22c699396f
     last_write_checksum: sha1:9d2ad7d605f194c9d1959f9d403a6d33d4c924e9
@@ -4989,7 +5181,7 @@ trackedFiles:
     pristine_git_object: 2dbcd1d58679a6fe3f7f7211d3d89720752f4ce4
   docs/models/components/SurveyJson.md:
     id: 8514d82f79c8
-    last_write_checksum: sha1:731e2b38572fa7c1a7345f411eb6e96e0c56c79f
+    last_write_checksum: sha1:c09606329e9458e74eea06c16be852f85d692568
     pristine_git_object: e36ad155e32a3f1505239de4c38dadf1d2aa14ea
   docs/models/components/SurveyResponseJson.md:
     id: 9f598df6e9dc
@@ -5035,6 +5227,8 @@ trackedFiles:
     id: 00ffd91786a3
     last_write_checksum: sha1:c88cb81d8f501446e36cd8f7f9354a52444d17b2
     pristine_git_object: b90598b81166c701ed8a3ba51d9ad07202d07a8f
+  docs/models/components/TargetTypeJson.md:
+    last_write_checksum: sha1:e5b8a59ff8f02dc0b6aed78abb21e740e65ca478
   docs/models/components/TaxAndFeeJson.md:
     id: f3957cf4a3b4
     last_write_checksum: sha1:99f6060d7ae481a75f0423b334757c7adc65e1d1
@@ -5047,6 +5241,10 @@ trackedFiles:
     id: e7a57870e6aa
     last_write_checksum: sha1:a1d5793e01e8faf5b089a6fd3c5a2dbc68c6a9f7
     pristine_git_object: ab70cc245fe48e3d7cdae0979c4bb59bd7fd153f
+  docs/models/components/TextAnswerFormatJson.md:
+    last_write_checksum: sha1:72380fbd7da09f89956522fc648f0fac712fbad2
+  docs/models/components/TextFieldJson.md:
+    last_write_checksum: sha1:def431d47adfa835a9264b7e14bd5978b36bfed9
   docs/models/components/TextFieldJson1.md:
     id: 7c677c6584cb
     last_write_checksum: sha1:db2c7687cb5081e456fc5ab1bfa4c1dc844921e5
@@ -5367,6 +5565,8 @@ trackedFiles:
     id: 3eef10961376
     last_write_checksum: sha1:75c459f872210b5f1cd485ad3545d9346b0e3d69
     pristine_git_object: 224fcb2ad9fab74260a9733847a8f8230179c635
+  docs/models/components/UnitPositionJson.md:
+    last_write_checksum: sha1:685fd063d9ef847caf64fa3737e4ce971424780e
   docs/models/components/UpdateAppointmentRequest.md:
     id: 0783a799fd01
     last_write_checksum: sha1:a979b7a4f24df9199a472e172f49d9329e21e140
@@ -5625,6 +5825,10 @@ trackedFiles:
     id: bbf7ab710399
     last_write_checksum: sha1:b1de3b8e6a28b7313bd153a86b8903c4ef7b3c89
     pristine_git_object: d1e7aeb6283444088cbfe08f4d428549ca1f5cfa
+  docs/models/components/WeddingDetailsJson0.md:
+    last_write_checksum: sha1:a83e9f2e802c6bd0983e5e6d39c5886c3f1fc919
+  docs/models/components/WeddingPartnerJson.md:
+    last_write_checksum: sha1:ff7a42172896dcd95b8cfe83e3c1a8f3b7db5a18
   docs/models/components/WorkAddressAddressInput.md:
     id: 4c30f8301f8e
     last_write_checksum: sha1:00948363c532196f9c6735b5528d13e5bbdda59e
@@ -5765,11 +5969,11 @@ trackedFiles:
     pristine_git_object: 6724d0499fffa8cfc7aec4605aa8773ddb5880a6
   docs/models/operations/AnswerBudgetCustomFieldRequest.md:
     id: f53031bdc7ab
-    last_write_checksum: sha1:77d1f709d4c7bee6b237512fef2de14fd4e58537
+    last_write_checksum: sha1:31bf346487ec38183310cc1484e4fa85a8977954
     pristine_git_object: 570a4245b12bd7392b6b6dac05212e374f3d2438
   docs/models/operations/AnswerBudgetCustomFieldResponse.md:
     id: 31e2d0f2f210
-    last_write_checksum: sha1:a3ec0d2d5d14f089d0f8f3aba29c45d122f6d302
+    last_write_checksum: sha1:ab66e7374873cbf7c64d43daaec2bee421ba9cde
     pristine_git_object: 9f58dd4eb2a473c1e6cd8dca9bf4eddaebd7918b
   docs/models/operations/AnswerEventCustomFieldRequest.md:
     id: 4e9f18336941
@@ -6503,6 +6707,10 @@ trackedFiles:
     id: 33aefc29c994
     last_write_checksum: sha1:4b29ff1662bc76f73649ead758342a246afd5cd2
     pristine_git_object: 63a06080a790915e7e1500e7903db1bad01ae0b6
+  docs/models/operations/GetAccountVendorsRequest.md:
+    last_write_checksum: sha1:d01d376363a770a46b89430e3f5f4794b98b1f68
+  docs/models/operations/GetAccountVendorsResponse.md:
+    last_write_checksum: sha1:776e428bda02501d9a91a7df68b5906122efc465
   docs/models/operations/GetAirActualDetailRequest.md:
     id: b46d405156ff
     last_write_checksum: sha1:e8d20ff6c1042fc42de5cbfc6c798c170ae2a22b
@@ -6521,7 +6729,7 @@ trackedFiles:
     pristine_git_object: 82c1491d037d39dc95d5bfa4c062f8ef1eefff01
   docs/models/operations/GetAllEventSurveyResponsesRequest.md:
     id: cf17ecf49452
-    last_write_checksum: sha1:fd9be2f2b1681653987363212aa5c17d03b4e3d8
+    last_write_checksum: sha1:565de253c970b510267b12b5ae0c499a393622b7
     pristine_git_object: 5a7debdf040cb9c3109846f57ce567e4778ccd30
   docs/models/operations/GetAllEventSurveyResponsesResponse.md:
     id: d81eaa61239b
@@ -6901,7 +7109,7 @@ trackedFiles:
     pristine_git_object: 5f65cc92203627ce3c0d64dfe5f1e17886a731f2
   docs/models/operations/GetEventSurveyQuestionsRequest.md:
     id: b8d92ad0106b
-    last_write_checksum: sha1:4c60b1af8216a65d3464ce9e05f4420b2634b03b
+    last_write_checksum: sha1:44c984c19d440cdb65f8106e0480171796ecfa40
     pristine_git_object: 083a816d6ed2f068198ebee3499036e87aa72ba5
   docs/models/operations/GetEventSurveyQuestionsResponse.md:
     id: d5912561fe5e
@@ -6909,7 +7117,7 @@ trackedFiles:
     pristine_git_object: 42cdff2768e0b61dc11c367dfd11293bd20040a4
   docs/models/operations/GetEventSurveyRespondentsRequest.md:
     id: 52e37df303d8
-    last_write_checksum: sha1:aa5565ff48bd0ebb377da269ba2a38398e7818a8
+    last_write_checksum: sha1:a0cf87cb1033a571a4725ac6211657dd8f323619
     pristine_git_object: e0777917ef4f9258e7c86feb438bfe4456140def
   docs/models/operations/GetEventSurveyRespondentsResponse.md:
     id: 7f7273b40375
@@ -6917,7 +7125,7 @@ trackedFiles:
     pristine_git_object: 162a189ccfad6b9ddf89787c0a67c1c9046b926e
   docs/models/operations/GetEventSurveyResponsesRequest.md:
     id: 49043bc950cc
-    last_write_checksum: sha1:8b080dcc729438723ab7969ecf55b2a993ca6015
+    last_write_checksum: sha1:18a63c880ebe20c55ec30471108fed147c93dd6f
     pristine_git_object: e933503c91733815fe561924afa1f3e0cd1b1fac
   docs/models/operations/GetEventSurveyResponsesResponse.md:
     id: 53615107892c
@@ -6925,7 +7133,7 @@ trackedFiles:
     pristine_git_object: e919b575034c53298a92d0b48c93ae74260f913c
   docs/models/operations/GetEventSurveysRequest.md:
     id: 22327e8bd6ef
-    last_write_checksum: sha1:b0718b15cbdf61472155af4ac97c3acd7c458262
+    last_write_checksum: sha1:a0d9f0b9847aeca99faeba44942bc61e15cf64b1
     pristine_git_object: 35f95a57523ea36f0383f86a73554ac7916571ec
   docs/models/operations/GetEventSurveysResponse.md:
     id: 99f5e9a0d4d5
@@ -7001,7 +7209,7 @@ trackedFiles:
     pristine_git_object: ed0771a25d78caa83ef02923ea92ab0d30d20579
   docs/models/operations/GetExhibitorRegistrationPacksResponse.md:
     id: a7de9312cfaa
-    last_write_checksum: sha1:7cefe9507764d8dc09285f06c385ffe07097ea4a
+    last_write_checksum: sha1:83b1b13d5f85dba68d95cadc53766160e8051a5b
     pristine_git_object: 975560be4db1b05382753a006486a54bc8e68f38
   docs/models/operations/GetExhibitorRequest.md:
     id: c3ca2043eb3a
@@ -7133,7 +7341,7 @@ trackedFiles:
     pristine_git_object: 817b614e97069bfff0fd91b84677b7c4b2c5860d
   docs/models/operations/GetLargeChoicesRequest.md:
     id: df2abe3dd7a2
-    last_write_checksum: sha1:c371de826f1446a03d3df8f147ed216cf26bbf95
+    last_write_checksum: sha1:f2de9a44de6b45d02a7d0d25db6160e833e86fde
     pristine_git_object: 809ba0b18b4d8928abf1f991505959cd7cc09b82
   docs/models/operations/GetLargeChoicesResponse.md:
     id: 14233ad963ad
@@ -7245,12 +7453,16 @@ trackedFiles:
     pristine_git_object: 5f91814da2aca838b45581e1a2344fa204bc7f1b
   docs/models/operations/GetQuestionsRequest.md:
     id: 483e8bc7618a
-    last_write_checksum: sha1:e4f34f83976823e09d4906d433f07e3ddc52b862
+    last_write_checksum: sha1:5dcceee3600fe0037c0a01e4fdde1f2c057bf97a
     pristine_git_object: b4ec02d4c7160506064ee919358a39d49f3adca3
   docs/models/operations/GetQuestionsResponse.md:
     id: 3b06fefc5fb8
     last_write_checksum: sha1:89b71dc4d6c3605086b5f7c71644654b2af96614
     pristine_git_object: e8813cf02b9196da39c3cb63f6ad3b931c7e9b8a
+  docs/models/operations/GetRFPRequest.md:
+    last_write_checksum: sha1:1db31d037e9a467b33a84573fd80e28db050a6f1
+  docs/models/operations/GetRFPResponse.md:
+    last_write_checksum: sha1:85fc4e1dc096f28ba6bed95d94a7efefcbbe447a
   docs/models/operations/GetRegistrationPackRequest.md:
     id: 591298ccb1f7
     last_write_checksum: sha1:c2e788e7c6a9f2b158555d62f4bf33ed87060016
@@ -7289,7 +7501,7 @@ trackedFiles:
     pristine_git_object: 687f254824c0fbc912a1bd49ec232f1fcad33985
   docs/models/operations/GetRespondentsRequest.md:
     id: 597bf44dc553
-    last_write_checksum: sha1:861b752711620b8b6a77c76867b616b343225ff6
+    last_write_checksum: sha1:0845deabb8afcad9a44247269110f28bbf2560e7
     pristine_git_object: 5d552bb5dab37be79536fef581a9e683a4c23c47
   docs/models/operations/GetRespondentsResponse.md:
     id: d09bcca956df
@@ -7297,12 +7509,28 @@ trackedFiles:
     pristine_git_object: e7f70c61bf1a6e8fd8889317b4506c386497a93c
   docs/models/operations/GetResponsesRequest.md:
     id: 3f115515c1ca
-    last_write_checksum: sha1:796176bc8fc4ea19879de77bfa45e64d5c1f31a3
+    last_write_checksum: sha1:c965a603fde674ed95f9833c0a064a334c4de040
     pristine_git_object: 4ab7f0af10b5603648dac7940e1618e9f5455742
   docs/models/operations/GetResponsesResponse.md:
     id: 55567ca3797a
     last_write_checksum: sha1:d91ea697dddb58236f07365b551b77645c419748
     pristine_git_object: 63465c6d67a722dc2bab9e0874f09faefe8c73e3
+  docs/models/operations/GetRfpGuestRoomsRequest.md:
+    last_write_checksum: sha1:81619387e4c7c3c32622ae86875e7ea4ac255ecb
+  docs/models/operations/GetRfpGuestRoomsResponse.md:
+    last_write_checksum: sha1:77d409186063f0c3eceebecf429849c3227a5bff
+  docs/models/operations/GetRfpLeadSourceRequest.md:
+    last_write_checksum: sha1:70464b16186da59974c26b75df939248f9cce9d8
+  docs/models/operations/GetRfpLeadSourceResponse.md:
+    last_write_checksum: sha1:85e334d43693d96423eb0c33eaf37e6718fac433
+  docs/models/operations/GetRfpLeadSourceSectionRequest.md:
+    last_write_checksum: sha1:241ab6e9c2d46b560e191719445a5febf4789769
+  docs/models/operations/GetRfpLeadSourceSectionResponse.md:
+    last_write_checksum: sha1:6bf27f2697a3d6466b708277e87572971d817081
+  docs/models/operations/GetRfpSuppliersRequest.md:
+    last_write_checksum: sha1:5945e4b850c1e8d04d479203dd43be0748c074ca
+  docs/models/operations/GetRfpSuppliersResponse.md:
+    last_write_checksum: sha1:7dc3b6f24d8f59880c336c085d7d446d53d2d9f8
   docs/models/operations/GetRoomTypeDetailsRequest.md:
     id: 95dfe980c371
     last_write_checksum: sha1:271a2a8d915e94234e18f8289459924357aa2155
@@ -7441,7 +7669,7 @@ trackedFiles:
     pristine_git_object: d0f717a3ac8d833d30e1d4335afb5d83be799cfb
   docs/models/operations/GetStandardSurveyEmailTemplatesRequest.md:
     id: 8f483ef730a6
-    last_write_checksum: sha1:d6af0b62c803be17527d7ff2b398881c9d433a37
+    last_write_checksum: sha1:4a86326adacf23fc1e2adf23cf37ddb5ad97932f
     pristine_git_object: 951046b1e3c22981081be4ad7812006ab7fee23c
   docs/models/operations/GetStandardSurveyEmailTemplatesResponse.md:
     id: 1b43753cacdc
@@ -7449,7 +7677,7 @@ trackedFiles:
     pristine_git_object: de7cf6fee1855a7cd240a98c13afc1ac799a44f6
   docs/models/operations/GetStandardSurveyQuestionsRequest.md:
     id: 9c87ad183bb6
-    last_write_checksum: sha1:d5799e9adcfcccc0f5fa7fd2a0a47fbe916876a9
+    last_write_checksum: sha1:93d76483abcde5cc13b1682a3a9ab3609fef3af9
     pristine_git_object: edeff0ace6780db223c5f6463d4a319a728e6918
   docs/models/operations/GetStandardSurveyQuestionsResponse.md:
     id: 28a836be1cea
@@ -7457,7 +7685,7 @@ trackedFiles:
     pristine_git_object: f2f043b26a1935c5753ea528ef095609a2861be8
   docs/models/operations/GetStandardSurveyRespondentsRequest.md:
     id: 05995d584933
-    last_write_checksum: sha1:0db402fa94bc9dd0d7df209109f7a2e1f928b676
+    last_write_checksum: sha1:02f964a288de85d6041ed8d4b06c46f0dc750739
     pristine_git_object: a96adc7a831000ea0786abaf8b4db650393576ee
   docs/models/operations/GetStandardSurveyRespondentsResponse.md:
     id: 51b3ccb5a116
@@ -7465,7 +7693,7 @@ trackedFiles:
     pristine_git_object: 833a2c5cebc1fe69b5e0dd62f691a3a64e7d101d
   docs/models/operations/GetStandardSurveyResponsesRequest.md:
     id: 48109adaabec
-    last_write_checksum: sha1:ecd1e2aac3d62f9b4959448594de4e8e6c11f470
+    last_write_checksum: sha1:5b6cf32fc28acf2b6cb8cd806ec2f2bf7da4a81a
     pristine_git_object: 0b28c4be80bc91b991d8719e10dcd199ecba7521
   docs/models/operations/GetStandardSurveyResponsesResponse.md:
     id: f1e415c855cd
@@ -7473,7 +7701,7 @@ trackedFiles:
     pristine_git_object: 6bef11196806c07843ffdf182f2c13799a283bf6
   docs/models/operations/GetStandardSurveysRequest.md:
     id: 73854bd9ce22
-    last_write_checksum: sha1:9baa7018f1b1bfca22d4fd72fc96e58a122afa82
+    last_write_checksum: sha1:e1f20f564f0aac559cba758f1f8e5f61063dff01
     pristine_git_object: 6e9fb388b1d8c935a1201d8ec8256af55268e0db
   docs/models/operations/GetStandardSurveysResponse.md:
     id: fec6efe0cd0e
@@ -7497,7 +7725,7 @@ trackedFiles:
     pristine_git_object: 6002714d592e35d9216fca7446453252547e3a8c
   docs/models/operations/GetSurveyRequest.md:
     id: fabc0c4ef4a6
-    last_write_checksum: sha1:2e983a517db67c33af5e7fe9ca4fdc8a7be170fc
+    last_write_checksum: sha1:da08ed79b80f548676a48daa80dd132aec3febe1
     pristine_git_object: 5c34c2f748bdc5d54640cd337425869ed0042d9f
   docs/models/operations/GetSurveyResponse.md:
     id: "886595498348"
@@ -8083,6 +8311,38 @@ trackedFiles:
     id: 92443a3a4663
     last_write_checksum: sha1:e4fc2cb77f50d3ea27de83cb5d45afa45bf14604
     pristine_git_object: 960518fcfff6e74d8d45730a43b7fe34c7f47c1a
+  docs/models/operations/ListRfpAgendaItemSchedulesRequest.md:
+    last_write_checksum: sha1:46fa356ada5d1cae5aa03eeb462c1b6f4a269581
+  docs/models/operations/ListRfpAgendaItemSchedulesResponse.md:
+    last_write_checksum: sha1:bdfcccc80b77e810d282732781d95c1d38f0819a
+  docs/models/operations/ListRfpAgendaItemsRequest.md:
+    last_write_checksum: sha1:7f24bc31582a0318c0409e5f49c8ca8736f015e2
+  docs/models/operations/ListRfpAgendaItemsResponse.md:
+    last_write_checksum: sha1:e0420fac2940db5d81b75a45fb3b7fbb45ba5463
+  docs/models/operations/ListRfpAttachmentsRequest.md:
+    last_write_checksum: sha1:0461a03fb13a474af60e08df7eb7c8274d0d763a
+  docs/models/operations/ListRfpAttachmentsResponse.md:
+    last_write_checksum: sha1:2b36bcdcd751e832f9133ee6c548afbdc5686499
+  docs/models/operations/ListRfpCustomFieldsRequest.md:
+    last_write_checksum: sha1:1c2b79e978cbf82a26cf2d2606d64c752470145b
+  docs/models/operations/ListRfpCustomFieldsResponse.md:
+    last_write_checksum: sha1:519ba305e3c2fbf589282c30a90046f8a0a1af4f
+  docs/models/operations/ListRfpInternalDocumentsRequest.md:
+    last_write_checksum: sha1:4f91c707f4e23f0f3491f954f6f1f1353b726f43
+  docs/models/operations/ListRfpInternalDocumentsResponse.md:
+    last_write_checksum: sha1:42f1278972c26fe0523e86a8f69ab19d87ac2da1
+  docs/models/operations/ListRfpPastEventsRequest.md:
+    last_write_checksum: sha1:be93342d2097a435c99679e374b919cdacb6575f
+  docs/models/operations/ListRfpPastEventsResponse.md:
+    last_write_checksum: sha1:38788e335d8639f7245db2b4e25e63c28f754c40
+  docs/models/operations/ListRfpQuestionsRequest.md:
+    last_write_checksum: sha1:25040d75e5bdc0d97cadd3e3a0d1aac53d197d08
+  docs/models/operations/ListRfpQuestionsResponse.md:
+    last_write_checksum: sha1:abf3edbe6ca63aca49bf0cbea8a7da4538b50128
+  docs/models/operations/ListRfpRecipientsHistoryRequest.md:
+    last_write_checksum: sha1:e0211dec92dfdf07df7db02f2e8ea9c098f74d93
+  docs/models/operations/ListRfpRecipientsHistoryResponse.md:
+    last_write_checksum: sha1:e4ff5ee619b1fec46938480478e90b24a03daa16
   docs/models/operations/ListSeatingRequest.md:
     id: 6d2f1042a4b4
     last_write_checksum: sha1:f74e5c047f0dfbda6c3189cef9403cc78cf5c11a
@@ -9021,7 +9281,7 @@ trackedFiles:
     pristine_git_object: 382778ecf118f44a91b57ed97d14be3bce38eff1
   docs/sdks/budget/README.md:
     id: d80c75fe97ef
-    last_write_checksum: sha1:540f77179cfbdeb039f5d1081171d66dfbcc0783
+    last_write_checksum: sha1:d1f4b2ed2c6513152515a159e38578bc88231551
     pristine_git_object: 8d01dfa38c11983a4f3a9c2f131fb0f8baf3da07
   docs/sdks/bulk/README.md:
     id: fa4bd7a4682a
@@ -9081,7 +9341,7 @@ trackedFiles:
     pristine_git_object: eede402a85e1da20c1034fe85358d6075234a769
   docs/sdks/exhibitor/README.md:
     id: cb0578099210
-    last_write_checksum: sha1:46ee31a281b64758cc5bc960b43e059c03b40210
+    last_write_checksum: sha1:ec0308f39fc518e5d698dc0bd81304a1bd0e549f
     pristine_git_object: 0602007e1d41c51681c190985c6cff8d835cc46e
   docs/sdks/exhibitorcontent/README.md:
     id: 7cecd37f6b66
@@ -9123,6 +9383,14 @@ trackedFiles:
     id: 243fdf3f28f8
     last_write_checksum: sha1:a6f9580fbf97903aeab0120840f9a2b1d219cfea
     pristine_git_object: e4bc50e4601b44abc2f0a6af9d8c924a77474d9f
+  docs/sdks/rfpadditionaldetails/README.md:
+    last_write_checksum: sha1:5ccfbcff37a93f5b8499114024fa34031fd50091
+  docs/sdks/rfpmanagement/README.md:
+    last_write_checksum: sha1:59218080aa14c40232e980e95ae42760388d9ea1
+  docs/sdks/rfprequirements/README.md:
+    last_write_checksum: sha1:836664916cbe846f2955ae9139590f927e086f1e
+  docs/sdks/rfpsuppliers/README.md:
+    last_write_checksum: sha1:75dde1584e7459b67cb733f50f678de2a83692f2
   docs/sdks/seating/README.md:
     id: e294a7fc3627
     last_write_checksum: sha1:b3c7d437ac34e4c79df526fb267e446e56012c31
@@ -9181,7 +9449,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:363f44f15a78e266a558dd10de2b0ea3f1a86f50
+    last_write_checksum: sha1:0a4eb4470a0c711d17fc19884a8e386e3d31dc2e
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -9249,7 +9517,7 @@ trackedFiles:
     pristine_git_object: c5bbd4b2623703f3ea84e4168219b4e6da17ba06
   src/main/java/com/cvent/AsyncBudget.java:
     id: 0b13c546219a
-    last_write_checksum: sha1:c804bc806ec0df17b27cc2b5e955b703040865a6
+    last_write_checksum: sha1:8fdf1c2021a6a50d5d2c4fe196d008fa154abc12
     pristine_git_object: b6138971cb6024619d30854d7f1ab7e65d48065f
   src/main/java/com/cvent/AsyncBulk.java:
     id: eee11b7a19ef
@@ -9277,7 +9545,7 @@ trackedFiles:
     pristine_git_object: d2750f4c1dd063e160ac8b42105e3350a77b9192
   src/main/java/com/cvent/AsyncCventSDK.java:
     id: 3d41ccbb3604
-    last_write_checksum: sha1:1c04dea6e925182efd6558859646e1cb25a40686
+    last_write_checksum: sha1:beda926829e65f5dcca2c7d9bc137d0fedb75d78
     pristine_git_object: 91ab4b576419398d5dfa7189f6dbf60c8f32176b
   src/main/java/com/cvent/AsyncDiscounts.java:
     id: 0e60d514801e
@@ -9313,7 +9581,7 @@ trackedFiles:
     pristine_git_object: fba0465d66382bee3d562141aaf19c4f762e963d
   src/main/java/com/cvent/AsyncExhibitor.java:
     id: 7b52b47d7494
-    last_write_checksum: sha1:924d4563823a638aa3aa7030142cec6a01b8d3b5
+    last_write_checksum: sha1:bfccb1c20693019cb0347018852470c1b60b621c
     pristine_git_object: b5cd3b3037625586617ae444bfd60319bd75d734
   src/main/java/com/cvent/AsyncExhibitorContent.java:
     id: 3afbec6ab303
@@ -9355,6 +9623,14 @@ trackedFiles:
     id: 084ec0f4625d
     last_write_checksum: sha1:cbd3ff28bc7bb07dded4e58f981a477d91e78fb2
     pristine_git_object: 0664fc527465d4767214b695c7ab85549379e4dc
+  src/main/java/com/cvent/AsyncRFPAdditionalDetails.java:
+    last_write_checksum: sha1:df62a3b94dce4ff18b62d1646c6ff1c984a07825
+  src/main/java/com/cvent/AsyncRFPManagement.java:
+    last_write_checksum: sha1:3cf137e568a107eda65fc53b53c76c1ddf832e41
+  src/main/java/com/cvent/AsyncRFPRequirements.java:
+    last_write_checksum: sha1:ad0d9e9f0c416d8a70e806836d5dd9fcb990bc1f
+  src/main/java/com/cvent/AsyncRFPSuppliers.java:
+    last_write_checksum: sha1:e09b67b0c9263049d2252f3e81f13a3591781675
   src/main/java/com/cvent/AsyncSeating.java:
     id: f563718943eb
     last_write_checksum: sha1:3eecc40f13bf8f13f6fcfd0fdbf45d572fb95c55
@@ -9441,7 +9717,7 @@ trackedFiles:
     pristine_git_object: 4f7a29296de32c075a5f668de54bc499b099da14
   src/main/java/com/cvent/Budget.java:
     id: 30e5a8fc2e69
-    last_write_checksum: sha1:8d13784508228f36d83c9aad94ca3c005474299c
+    last_write_checksum: sha1:8ce7ef932af238b4bc0e65adddb59b2598eef9f1
     pristine_git_object: cd2ebb717233e3f41777f6af2992a949ae1565cd
   src/main/java/com/cvent/Bulk.java:
     id: 26ad7bdd7d2b
@@ -9469,7 +9745,7 @@ trackedFiles:
     pristine_git_object: fba7bb77908632105cf2fcbe226b002da7001b0e
   src/main/java/com/cvent/CventSDK.java:
     id: 4a420697fa3d
-    last_write_checksum: sha1:2d9b56a874902af4670a09b0caea03c9018aa5b9
+    last_write_checksum: sha1:7dfc5850e846e78b2cd5d64baac72328a8cfd9c3
     pristine_git_object: 80c41313e2060978bc5d97ac0b629a1ec05252db
   src/main/java/com/cvent/Discounts.java:
     id: b320961e983a
@@ -9505,7 +9781,7 @@ trackedFiles:
     pristine_git_object: dbc22df02106081d5b6215a99f284616072dffa6
   src/main/java/com/cvent/Exhibitor.java:
     id: 5362f74b7f87
-    last_write_checksum: sha1:2fbba8a5d3e759836db505607f1fb751e77ab961
+    last_write_checksum: sha1:ac8d3e1144b13379bbdf6966ab3567628c52361c
     pristine_git_object: 9194989eb066560ce417dee93c5e50382f23a1d0
   src/main/java/com/cvent/ExhibitorContent.java:
     id: 8e5d520a9dbc
@@ -9547,9 +9823,17 @@ trackedFiles:
     id: 168201f35729
     last_write_checksum: sha1:44eac28159d3d7286292867cfdeccf20e5cc15da
     pristine_git_object: bc111c9386302593f4ef2aa373156354a5d2b5e6
+  src/main/java/com/cvent/RFPAdditionalDetails.java:
+    last_write_checksum: sha1:305d0f5df07d758ebdaf469b75fbe8beab165363
+  src/main/java/com/cvent/RFPManagement.java:
+    last_write_checksum: sha1:34a8369bbbe70a4553b8072de340249344b6d5d6
+  src/main/java/com/cvent/RFPRequirements.java:
+    last_write_checksum: sha1:0a2bbcd31905b2ee3bafed4d035a9f7395132b7b
+  src/main/java/com/cvent/RFPSuppliers.java:
+    last_write_checksum: sha1:0396671d6b0de814aaa27700f35eed30523c66ed
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:97307546e8b11eebdbdcb8757cdadf6b59fd27dc
+    last_write_checksum: sha1:f41a84a749a794a32c773cade51df970a34d2e9e
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
@@ -9613,7 +9897,7 @@ trackedFiles:
     pristine_git_object: babc77d8af94b46530cb1522e0d790ed3821cbbf
   src/main/java/com/cvent/hooks/OAuth2Scopes.java:
     id: 796ee1ea9f11
-    last_write_checksum: sha1:966da07663b6a3318ac637da15709a705b946571
+    last_write_checksum: sha1:b7660fc09896d9e66aedc73d70e23ddb50005221
     pristine_git_object: 5e0d00a270318551de3675f94ccb2e418a47126e
   src/main/java/com/cvent/models/callbacks/CreateContactHookContactTransactionCallbackResponse.java:
     id: 36b27dee8ec2
@@ -9783,14 +10067,10 @@ trackedFiles:
     id: 6f017b3b5faf
     last_write_checksum: sha1:202bd4369eb22c2d1d7bd97fc6cb47ed6634d0de
     pristine_git_object: 8037e3de666ab0bcaa7079ee0b6b857839440865
-  src/main/java/com/cvent/models/components/AdditionalChoiceJson.java:
-    id: aaed94de4351
-    last_write_checksum: sha1:53eaeb3d6013b82ebc69eced162a48ae97020b5d
-    pristine_git_object: ce56a79ccc1cb876f6ef31372ddc66e7ff543ddc
-  src/main/java/com/cvent/models/components/AdditionalChoiceJson1.java:
-    id: b4105ebefddd
-    last_write_checksum: sha1:60942b509cd891f425d3055118bfe92a64c35bbb
-    pristine_git_object: fc9551250c20a9c6f2fa2697d9f0d1d1e0fa6a65
+  src/main/java/com/cvent/models/components/AdditionalChoiceJson11.java:
+    last_write_checksum: sha1:739b6c75d2c310b64a853e9724557ad97a5f3166
+  src/main/java/com/cvent/models/components/AdditionalChoiceJson2.java:
+    last_write_checksum: sha1:7838f150b5b7f65e94d6e333624756d308ec9962
   src/main/java/com/cvent/models/components/AdditionalGuestFeesJson.java:
     id: 544f0629bfec
     last_write_checksum: sha1:a3dc5b30510ec20a393cfc7a7ef3fe78fe5152e6
@@ -9799,6 +10079,8 @@ trackedFiles:
     id: 6308f5795b84
     last_write_checksum: sha1:20dfcb4a8ae23fb0491c679d2f30cf1070d1e383
     pristine_git_object: 02d35db07a56c928d13de96bdecd2890c8e13343
+  src/main/java/com/cvent/models/components/AddressJson0.java:
+    last_write_checksum: sha1:7ca3b103f6d6efc0e3b7511460df43625265e700
   src/main/java/com/cvent/models/components/AddressJson3.java:
     id: 55787e23e9f4
     last_write_checksum: sha1:32ce8763e71669a3fc33053772dfc5b53aba131a
@@ -9851,10 +10133,16 @@ trackedFiles:
     id: ac7cb79185b6
     last_write_checksum: sha1:95bbf3a674846d18f6850c4391fcfc70c56c1180
     pristine_git_object: 4c4a5e50fee6f516ce3215ee3f9e3bd760ba9411
+  src/main/java/com/cvent/models/components/AgendaBuilderAttachment.java:
+    last_write_checksum: sha1:4dd4f55ce51c8fd8107d34590da86cedd4c8e023
   src/main/java/com/cvent/models/components/AgendaEventCopyOverride.java:
     id: aae1dd8d6839
     last_write_checksum: sha1:2cd6e4a3e542c662fb12d1c98027dc6befba2d23
     pristine_git_object: f991548faa39cf238dc097ec947d0391a0b88be7
+  src/main/java/com/cvent/models/components/AgendaItemSetupJson.java:
+    last_write_checksum: sha1:cb83473fc6fc928a4bc6bed6ab4a2bbbc99b2344
+  src/main/java/com/cvent/models/components/AgendaItemTypeJson.java:
+    last_write_checksum: sha1:f7742047d13b2c4ad267531be81d883c6c3f60ac
   src/main/java/com/cvent/models/components/AgendaItemTypeJson2.java:
     id: 8fedba2c8867
     last_write_checksum: sha1:6e9ebb865b9158b328883049924bf2727c3b83c4
@@ -10103,6 +10391,8 @@ trackedFiles:
     id: fb9827a39c92
     last_write_checksum: sha1:d487ba90cadf569b37df30cbf408f5cd9b4a0e56
     pristine_git_object: a83027d1c573925c2fb173fb79265e65aa5c13f7
+  src/main/java/com/cvent/models/components/AttachmentSourceJson.java:
+    last_write_checksum: sha1:aaa3d10b9559e8e023cd56bdea60bcdca8836fa6
   src/main/java/com/cvent/models/components/Attendee.java:
     id: 0533904461db
     last_write_checksum: sha1:e6c2d7de43c746ab78ceb5557f0cac3b3947fb01
@@ -10561,6 +10851,8 @@ trackedFiles:
     id: dd6392dd8337
     last_write_checksum: sha1:3c7eb4e213c57519db81b5395732f699ca47372b
     pristine_git_object: e445afafab910ff9b14b22f493e37dd015c1458a
+  src/main/java/com/cvent/models/components/BaseAddressJson.java:
+    last_write_checksum: sha1:51280267b3cba1e78d9fede856be3eba5c3fe771
   src/main/java/com/cvent/models/components/BaseAnswerJson.java:
     id: 11d4dfb5e0a5
     last_write_checksum: sha1:e41de5b89a250df4c4a6585ea4d1acf9a4eeb23f
@@ -10597,6 +10889,8 @@ trackedFiles:
     id: f3ed38888daa
     last_write_checksum: sha1:9a426aa62ae230eea8ed36f894f8bc0d67131b38
     pristine_git_object: 511c3406b8273d086ba01d86b38d4a440a54fa92
+  src/main/java/com/cvent/models/components/BillingDetailsJson0.java:
+    last_write_checksum: sha1:d88bea8f2ed319fd35995f9e8bdac2d1b4e5a535
   src/main/java/com/cvent/models/components/BookingContact.java:
     id: 93f016caf254
     last_write_checksum: sha1:0688a88855d158c1ebb69b847583781c3ef1094c
@@ -10623,7 +10917,7 @@ trackedFiles:
     pristine_git_object: 64e727b0ae53394155c9ef7b8a0572bcfc2fc0c3
   src/main/java/com/cvent/models/components/BounceDetailsResponse.java:
     id: 450089b843c9
-    last_write_checksum: sha1:0b2ce55bcea97dcc47f1a8209b76944a089b5fc7
+    last_write_checksum: sha1:64d0273b2e434391b506cace2b51a4584b33557e
     pristine_git_object: 0b47fb77f9c6759b62b5ff7569982c1742d1c7c8
   src/main/java/com/cvent/models/components/Brand.java:
     id: 7c2dc950e89d
@@ -10633,6 +10927,8 @@ trackedFiles:
     id: 72eb951c3d58
     last_write_checksum: sha1:b80c28de3db46f1491f8530877e1a2ca1d06fd89
     pristine_git_object: d7f8d712cb1e9103faedf911575141ad9f9f65fe
+  src/main/java/com/cvent/models/components/BrideGroomTypeJson0.java:
+    last_write_checksum: sha1:7da6e40ddd0f747f3055710019d88d107db272b0
   src/main/java/com/cvent/models/components/BudgetAllocatebyJson.java:
     id: 698fa497bd66
     last_write_checksum: sha1:c3c6163d4f81d39ec0241b19ac54ff6c98225679
@@ -10785,6 +11081,10 @@ trackedFiles:
     id: 5eeaaef9e8d6
     last_write_checksum: sha1:8781785b237a2209c30e316305bb8a4bb31def40
     pristine_git_object: 95f5035a67196b7e930af422b194f99b7f3787b7
+  src/main/java/com/cvent/models/components/BudgetVendorResponseJson.java:
+    last_write_checksum: sha1:2de19522231349cfa3f42d9c3d1aa34b36d76dfd
+  src/main/java/com/cvent/models/components/BudgetVendorsPaginatedResponse.java:
+    last_write_checksum: sha1:aa0a0bd7e2c3a6708749046b43af8a46ca75d305
   src/main/java/com/cvent/models/components/BudgetVersionIdJson.java:
     id: d6d2749cb4a3
     last_write_checksum: sha1:6c6f1ddc33f4f1ae15421ba71b2998b045dd28eb
@@ -10869,10 +11169,14 @@ trackedFiles:
     id: 80d3add2ed20
     last_write_checksum: sha1:9516f61f1fbdfa2cd86652f368c1337a7e3fe094
     pristine_git_object: 3db3d4eeb418e796a73eb9cda92ce11d99e03031
+  src/main/java/com/cvent/models/components/CancellationDetailsJson.java:
+    last_write_checksum: sha1:b8dd7a4fc3e56a81d0aab937da74db1da71ea818
   src/main/java/com/cvent/models/components/CancelledReason.java:
     id: 8abc381f4606
     last_write_checksum: sha1:1a33eb5c425af3054c4504ac4acbe2e445239456
     pristine_git_object: 8fae8fcb4ae648ae13cceeae97fd54f58e7fc5ee
+  src/main/java/com/cvent/models/components/CancelledReasonJson0.java:
+    last_write_checksum: sha1:3e9d28d93c3fc632d4d2aac95cc747e1458ede9b
   src/main/java/com/cvent/models/components/CapacityJson.java:
     id: 394af7f863af
     last_write_checksum: sha1:4bcd5b0ea2da189a3c59a0e1574a20f39ee84028
@@ -10895,7 +11199,7 @@ trackedFiles:
     pristine_git_object: 78319ed7b04520817aad684db1c09d52b8963dd2
   src/main/java/com/cvent/models/components/CardDetailsJson.java:
     id: 59aee2cd46bf
-    last_write_checksum: sha1:2459513b50a064de7841c55627165e1c6e2e8669
+    last_write_checksum: sha1:a45a86e68e9a67a4815013d24a3637341956948c
     pristine_git_object: 7327a86f387e123b4382f0317157cce96fcd5eff
   src/main/java/com/cvent/models/components/CardDetailsJsonEvent.java:
     id: 10ec30cb98c6
@@ -10961,6 +11265,8 @@ trackedFiles:
     id: 1858c7fdbc7d
     last_write_checksum: sha1:c41df58f873c40944c8a9d40b97d175cf33c87b8
     pristine_git_object: 99b4f5b4abf3127c672357b1ba788e6e740f15e7
+  src/main/java/com/cvent/models/components/CategoryJson.java:
+    last_write_checksum: sha1:58d513c5e7b4158f221a8f16b4793883bf9a8880
   src/main/java/com/cvent/models/components/CategoryJson1.java:
     id: e16fed6f2da2
     last_write_checksum: sha1:94a0cbf6dec5cc6b03305399e30d9d7c84f9d767
@@ -11021,6 +11327,8 @@ trackedFiles:
     id: a5c8e32158be
     last_write_checksum: sha1:401f952a51d8b930e4bdfbee1f2f8ae759d50b6c
     pristine_git_object: 7cc0a376992d57a8b6b705b771d03d0868948d18
+  src/main/java/com/cvent/models/components/ChoiceJson.java:
+    last_write_checksum: sha1:670fbeffe3b6ea20bb247614d6cbcd63d1c70de4
   src/main/java/com/cvent/models/components/ChoiceJson2.java:
     id: c2738f29fa92
     last_write_checksum: sha1:98db4a288205aea5ad9fa0b062c554144cc6b236
@@ -11037,6 +11345,8 @@ trackedFiles:
     id: 7f77e33da7eb
     last_write_checksum: sha1:93d0cc010a7c588b95380c77b732cef97b95da23
     pristine_git_object: 3df55d4afd9a17dda963a9702121412f7c6227b4
+  src/main/java/com/cvent/models/components/ChoiceSortOrderJson.java:
+    last_write_checksum: sha1:3712d65b1cc42b2a80c150a124d8e1848abefff3
   src/main/java/com/cvent/models/components/ChoiceTranslationJson.java:
     id: 0a3cb756509b
     last_write_checksum: sha1:b179465fc9ed7eff5261c4387b477b5273980855
@@ -11183,6 +11493,10 @@ trackedFiles:
     id: c62d3f6d2f10
     last_write_checksum: sha1:f7bebac9b81da92109ab0b0e15ef9a51700c4c22
     pristine_git_object: 86136113e989fd03666833666610e4c94ab20791
+  src/main/java/com/cvent/models/components/ContactInformationJson.java:
+    last_write_checksum: sha1:689979ab632165c640aa522f4057ed55629a65b8
+  src/main/java/com/cvent/models/components/ContactJson0.java:
+    last_write_checksum: sha1:8ae831e786993f07263f6f62af190da1b56a01ec
   src/main/java/com/cvent/models/components/ContactJson1.java:
     id: 561a6604afcf
     last_write_checksum: sha1:4c4c61b0d2cd7d373834d1311523ce85c5e800e8
@@ -11215,6 +11529,8 @@ trackedFiles:
     id: 96dcf425c44c
     last_write_checksum: sha1:7a46f52e82dacd1537ed7fde703f4ef1f417991e
     pristine_git_object: 285096d62465d3c245e5f0eb0d0953d5d72c37a7
+  src/main/java/com/cvent/models/components/ContactMethodsJson.java:
+    last_write_checksum: sha1:f1cc564ba4adbcd8bb70229e750935f55442c4d2
   src/main/java/com/cvent/models/components/ContactObfuscationStatus.java:
     id: e4d4cdbc779d
     last_write_checksum: sha1:8809b1563041f967c0b465870867bdbb9a04c536
@@ -11355,6 +11671,8 @@ trackedFiles:
     id: a9a542733999
     last_write_checksum: sha1:23e1207c3793a644b1e46f8ecb12a0a19c2ce3ef
     pristine_git_object: ddda231ad26285621b753c5ab1acd36f019f00fb
+  src/main/java/com/cvent/models/components/CustomAnswerFormat.java:
+    last_write_checksum: sha1:3553430751e1324149c7ff6223622182a133413b
   src/main/java/com/cvent/models/components/CustomDuration.java:
     last_write_checksum: sha1:7f5ce75c2dd155f8123c16fa7b2234d383ef29d8
   src/main/java/com/cvent/models/components/CustomField.java:
@@ -11381,6 +11699,8 @@ trackedFiles:
     id: e7486260059c
     last_write_checksum: sha1:4088cce54ff9e2308d9d1d49eb9a1431c62990cd
     pristine_git_object: 4e3afd7f91da103af4ae66a9b544e8dbe69d97e3
+  src/main/java/com/cvent/models/components/CustomFieldExpand.java:
+    last_write_checksum: sha1:3a64bcb48ef16c433d6accba7f2c3eceee5bf6e7
   src/main/java/com/cvent/models/components/CustomFieldInput.java:
     id: "800775643227"
     last_write_checksum: sha1:ba2216baadd56aa44890f639aaf1b281416b4d91
@@ -11429,6 +11749,12 @@ trackedFiles:
     id: 9b209f346d5c
     last_write_checksum: sha1:97d5bb58b75b6d0158905c6ef9a237e55d23b431
     pristine_git_object: 1500082ede4f11887a3dcc53db2e470b5e6085ab
+  src/main/java/com/cvent/models/components/DateAnswerFormatJson.java:
+    last_write_checksum: sha1:be05e974fa3c10dfbab2bb2a79c991ea103d8aec
+  src/main/java/com/cvent/models/components/DatePatternJson0.java:
+    last_write_checksum: sha1:d11a63d169711adfb3e4e67d3b3b88a33312e6fb
+  src/main/java/com/cvent/models/components/DateRequirementsJson0.java:
+    last_write_checksum: sha1:7bd7e228462865096d5d76bfc12c1c57840634bb
   src/main/java/com/cvent/models/components/DateTimeDisplayFormatJson.java:
     id: ca941412052f
     last_write_checksum: sha1:9b0ede8a50709e730d29a93322b3b03cbefa9fa4
@@ -11437,6 +11763,10 @@ trackedFiles:
     id: 7f45d8a6a45e
     last_write_checksum: sha1:7b9998c393c04d8d93e64c8777d9b8b5ae49f229
     pristine_git_object: dfac88ead9b83bb63454fcfb3b1edab5fa952849
+  src/main/java/com/cvent/models/components/DatesJson0.java:
+    last_write_checksum: sha1:92ff8bf3c0fca98f96d28b7b299849e6fe27fae8
+  src/main/java/com/cvent/models/components/DayOfWeekJson0.java:
+    last_write_checksum: sha1:20e019dc154704c941367b533b9ec70f7fed9f71
   src/main/java/com/cvent/models/components/DeclinedReason.java:
     id: 3c6b7a704743
     last_write_checksum: sha1:8d44b697af5ac6b9982629efae0c027ee1b63f9c
@@ -11497,6 +11827,8 @@ trackedFiles:
     id: a6f532e0e567
     last_write_checksum: sha1:dd53912127b4009ac609b395b7d5ab6cb6af4b6e
     pristine_git_object: fa2b0b49e0b32c601a6c595488ba1443237ecc72
+  src/main/java/com/cvent/models/components/DisplayTypeJson.java:
+    last_write_checksum: sha1:ad979e8694c1799a145df3fc0cea6962e9149ad4
   src/main/java/com/cvent/models/components/DistanceJson1.java:
     last_write_checksum: sha1:2fd1802d7eb2b87724f166d6b8a80d3a0c63f41b
   src/main/java/com/cvent/models/components/DistanceUnit.java:
@@ -11519,6 +11851,8 @@ trackedFiles:
     id: 6f8a646f1069
     last_write_checksum: sha1:0bfa365202a76498787501c550857d752135e8a3
     pristine_git_object: c097e61d71a59f8440f76699add8767700c455f4
+  src/main/java/com/cvent/models/components/DocumentTypeJson0.java:
+    last_write_checksum: sha1:5a2182687609f222522622072f2283b8366dcfa2
   src/main/java/com/cvent/models/components/DonationItemJson1.java:
     id: faab98ab5cd1
     last_write_checksum: sha1:1f698820b0b9752826204e17c36208e7f940c78d
@@ -11793,6 +12127,8 @@ trackedFiles:
     id: 57288bd482f5
     last_write_checksum: sha1:3fe992168e3332a1ff6bbd02007c6d9ad7e4cd2f
     pristine_git_object: 7d14c6fd03b2e2eba1b97242855b6fe8f2695b3a
+  src/main/java/com/cvent/models/components/EventFormatTypeJson0.java:
+    last_write_checksum: sha1:c0582c33e3be4775670cb8dfe3183535b6570691
   src/main/java/com/cvent/models/components/EventInput.java:
     id: 51798981c8ce
     last_write_checksum: sha1:25988cef5194dfed05b38470cddf5f6bc6ed5a07
@@ -11801,6 +12137,8 @@ trackedFiles:
     id: a9c9f3a22c3d
     last_write_checksum: sha1:70dd070107ac647c8c4b010bb5b4108f85a39597
     pristine_git_object: d376666918445b57a00d687d43f26250bba9ce54
+  src/main/java/com/cvent/models/components/EventJson0.java:
+    last_write_checksum: sha1:bce4a803eef8f00f63f84e7334605d52307c7152
   src/main/java/com/cvent/models/components/EventJson11.java:
     last_write_checksum: sha1:df495407831a45bae1e95ff0625aafac3e29baa8
   src/main/java/com/cvent/models/components/EventJson3.java:
@@ -11929,7 +12267,7 @@ trackedFiles:
     pristine_git_object: 99d315c307df9ae51b164592a47f916f612d22a7
   src/main/java/com/cvent/models/components/EventSurveyQuestionJson.java:
     id: 8013e4822f6a
-    last_write_checksum: sha1:742e56a26bd77098d22c2a638396b58b3dd0c6b4
+    last_write_checksum: sha1:e3cf47bc390cbecbbb9fe84d80198370c0b9e214
     pristine_git_object: 93182f543745dbb8f05696635f7c66ea13459220
   src/main/java/com/cvent/models/components/EventSurveyQuestionsPaginatedResponse.java:
     id: eac089048043
@@ -11987,6 +12325,8 @@ trackedFiles:
     id: 0ceeb3e1d020
     last_write_checksum: sha1:437063c37f48a2944f0beda59933ba7d9eefe78a
     pristine_git_object: 26bed471208ae505f2437761e893a296ef8d1331
+  src/main/java/com/cvent/models/components/EventTypeJson0.java:
+    last_write_checksum: sha1:78a3721b08ec3d7a1cd20d3e656b67411bc9a2bb
   src/main/java/com/cvent/models/components/EventTypeJson1.java:
     id: 3b00479d7ed6
     last_write_checksum: sha1:b7d88bc1285e48139841594dca5e4a790422ba06
@@ -12127,7 +12467,7 @@ trackedFiles:
     pristine_git_object: 49fd2f6f34a117aae2abbd575d6036b9d7a50553
   src/main/java/com/cvent/models/components/ExhibitorRegistrationPackListResponse.java:
     id: e63788d1e63d
-    last_write_checksum: sha1:59157a44818e869db97ac714aa6727674bf4f50b
+    last_write_checksum: sha1:099012b5e03bbe8caddbe12631ab4e1f3f0b656d
     pristine_git_object: 18ba3342f9b8fd609ee8c978a1dfd9953a987be8
   src/main/java/com/cvent/models/components/ExhibitorRequest.java:
     id: b35b33ec27cb
@@ -12283,7 +12623,7 @@ trackedFiles:
     pristine_git_object: 3f5e0909396c79ae12a0671ee15f10269d68c3b9
   src/main/java/com/cvent/models/components/ExistingExhibitorQuestion.java:
     id: 90d58d855cb3
-    last_write_checksum: sha1:63f0fd36463d853aa7cfdc0e0c266b9587b7df23
+    last_write_checksum: sha1:d85eeff1e42a5717fd4a56c64553df6b6f466fc2
     pristine_git_object: 3b4a4b6fd109a5d266b44e6390c0560b0d6182ba
   src/main/java/com/cvent/models/components/ExistingFile.java:
     id: 36bfcded78ea
@@ -12315,7 +12655,7 @@ trackedFiles:
     pristine_git_object: dfbd05c4de4d60d914649125e464e17375061370
   src/main/java/com/cvent/models/components/ExistingRegistrationPackJson.java:
     id: 49efe3539ff8
-    last_write_checksum: sha1:7128fda8095af05b0aa33209c7f5fe2d2b44b636
+    last_write_checksum: sha1:84a4b13022504252ded678a0dc414264195ce8c9
     pristine_git_object: c3f998717c6a8c8567094c381fdd6388e8297a93
   src/main/java/com/cvent/models/components/ExistingRegistrationPathJson.java:
     id: ae741e6edc9e
@@ -12447,6 +12787,8 @@ trackedFiles:
     id: 5e849b03a1a1
     last_write_checksum: sha1:95ab3c86d556c2df1ad98b14fad4517e34095252
     pristine_git_object: 326e6bfac8a923e43c107d2918f822825037448f
+  src/main/java/com/cvent/models/components/ExpandableCustomObject.java:
+    last_write_checksum: sha1:70c6c156833150995f3c7b295e430387a3bfd757
   src/main/java/com/cvent/models/components/ExpandableSeatJson.java:
     id: 22d1ba2a23b7
     last_write_checksum: sha1:463ba14b37c4f90c1931f409565e327ab9bd1f6b
@@ -12519,6 +12861,8 @@ trackedFiles:
     id: 70d40d0ebd56
     last_write_checksum: sha1:abbff05ecef6e37b32ff7d72eef34ec3fef8ebcf
     pristine_git_object: a3a575350e8b9d2eb74e5cdcd3216fcb609fec9b
+  src/main/java/com/cvent/models/components/ExternalSupplier.java:
+    last_write_checksum: sha1:3c27ee38dad9a74a908214676da8e86ae66d2299
   src/main/java/com/cvent/models/components/FacebookUrl.java:
     id: f2a110f90c00
     last_write_checksum: sha1:d37e4453c1040892d6c1e5d3f3a7b844dca66095
@@ -12555,8 +12899,12 @@ trackedFiles:
     id: f8923e7d91aa
     last_write_checksum: sha1:4fe15e44dbc69e1c2ea8314978edd6d5aa8fbdd6
     pristine_git_object: 3d102c6f1c7c81e153f15a0c8c09dc9dcfae03c6
+  src/main/java/com/cvent/models/components/FieldJson.java:
+    last_write_checksum: sha1:d860afbff909920a6ffb08db53d5c78fc9af6cf2
   src/main/java/com/cvent/models/components/FieldJson5.java:
-    last_write_checksum: sha1:be985764af25b429763e689d895a197c278181fe
+    last_write_checksum: sha1:14f53efd2bbd86e396ec448a7e44d75a07a55403
+  src/main/java/com/cvent/models/components/FieldTypeJson.java:
+    last_write_checksum: sha1:e4b35bbfed6a3c9f59327fdf7e33534ff00a0e0f
   src/main/java/com/cvent/models/components/FieldTypeJson2.java:
     last_write_checksum: sha1:6e979a81706d5184a0604d765dd2fc33f349e7dc
   src/main/java/com/cvent/models/components/FileInput.java:
@@ -12587,6 +12935,8 @@ trackedFiles:
     id: b256e474474f
     last_write_checksum: sha1:ca81bccfe644c7e5b718d775d1b1803cfa10bc7d
     pristine_git_object: 640ebb63a390effdaaf6dc29ac0b2cd24c2c6f86
+  src/main/java/com/cvent/models/components/FirstClickedSupplierAd.java:
+    last_write_checksum: sha1:696933f6c4772f070b22c7b840d6fe407142d9cb
   src/main/java/com/cvent/models/components/FlightDetailJson.java:
     id: 9cf730d07e77
     last_write_checksum: sha1:c15f84660450442c27e369fed3d54207895f596c
@@ -12647,6 +12997,12 @@ trackedFiles:
     id: 49a64b4b6395
     last_write_checksum: sha1:70b1050704e269fb9ee4805e993e3c766acf9dbc
     pristine_git_object: e8eb3cd8c2f3dc3a062ba593070686aa0b0f3687
+  src/main/java/com/cvent/models/components/GuestRoomOccupancyJson.java:
+    last_write_checksum: sha1:0a7d8506aec95215ee54879965f92b58a8e3a1cf
+  src/main/java/com/cvent/models/components/GuestRoomOccupancyPerRoomTypeJson.java:
+    last_write_checksum: sha1:a0596596fd9aac5fb0ebaaf5a90270851854493e
+  src/main/java/com/cvent/models/components/GuestRoomTypeJson.java:
+    last_write_checksum: sha1:90a2e836af9c96b09d840d111b037ddfc21fb00d
   src/main/java/com/cvent/models/components/HlsInputWithClipsJson.java:
     id: 47db09f48ae4
     last_write_checksum: sha1:d4f91b04d05bfe6c760fbd14d27183b8a1ef25e7
@@ -12805,6 +13161,8 @@ trackedFiles:
     id: e7fd21611075
     last_write_checksum: sha1:118a072bd65b934ea4faa03b7d86381e69ae8140
     pristine_git_object: 681631830bcaf3f845901d42b4576479706d7af3
+  src/main/java/com/cvent/models/components/IndustryJson0.java:
+    last_write_checksum: sha1:199ba3b953797aefa2baf4d97151b80dd17b079f
   src/main/java/com/cvent/models/components/InventoryDetailsList.java:
     id: a0797af650ae
     last_write_checksum: sha1:44f867ea501e5311d828f2c2b8af3d6cec0a612e
@@ -12861,6 +13219,8 @@ trackedFiles:
     id: 47df97432b7a
     last_write_checksum: sha1:3fbd3353156ce3f6af44fbd70b29f5a5bf51c4c4
     pristine_git_object: 4a0128fb97e6bc50b9cfda6e9d4fe82c9b7c39cd
+  src/main/java/com/cvent/models/components/LastClickedSupplierAd.java:
+    last_write_checksum: sha1:66eb552194a1c6816c0cc458d17ef29d593aca09
   src/main/java/com/cvent/models/components/LaunchFeatureTypeJson.java:
     id: 078c8f8bd9c8
     last_write_checksum: sha1:a2258cac75ff182069a3fbf9e3ca9fbef783439a
@@ -12911,7 +13271,7 @@ trackedFiles:
     pristine_git_object: bfa51c9686d979b19b0cf9d82526c1c9d07f49a1
   src/main/java/com/cvent/models/components/LeadQualificationQuestionJson.java:
     id: 00bc7c407918
-    last_write_checksum: sha1:43f50da5124e7d646062cc9db6955e28867c571a
+    last_write_checksum: sha1:b6821e62313b8dd40c0d632f234c46723ddd0ac4
     pristine_git_object: f9c34ad1f1d5ccd50a9a957d4bef54f1cc496264
   src/main/java/com/cvent/models/components/LeadQualificationQuestionJsonType.java:
     id: 6ee5696af70f
@@ -12937,6 +13297,14 @@ trackedFiles:
     id: 35af737c7cee
     last_write_checksum: sha1:f8dbd3ce6ed5736d3d97a60ef6d62f7d6c8072c7
     pristine_git_object: 7ee0b9a1bb80355595014d774e72d9459e47c1b2
+  src/main/java/com/cvent/models/components/LeadSource.java:
+    last_write_checksum: sha1:979d7b708f83e15bd0b20e51b3488210b4687ccf
+  src/main/java/com/cvent/models/components/LeadSourceExpand.java:
+    last_write_checksum: sha1:178b16403e6637b2865c96efd00e9ce7ad721ef4
+  src/main/java/com/cvent/models/components/LeadSourceJson.java:
+    last_write_checksum: sha1:5a72e0f4fe2083c973faca95f3a7b6aa2d974bcf
+  src/main/java/com/cvent/models/components/LeadSourceSectionJson.java:
+    last_write_checksum: sha1:2552c424bfa15ea72129688b8d59c14e1cbbb435
   src/main/java/com/cvent/models/components/LeadsPaginatedResponse.java:
     id: b74cfbe118b9
     last_write_checksum: sha1:5a27f5d9c5404442e8aae1f30732f0a4e6e38aca
@@ -13003,6 +13371,8 @@ trackedFiles:
     id: 910fdb1fcc9a
     last_write_checksum: sha1:5303074f8ab7110110ee469b9bd0240fc9231c73
     pristine_git_object: e6e9a9dae05831994c6ddf5b4cf2ff0951603f3f
+  src/main/java/com/cvent/models/components/MeasurementUnitJson0.java:
+    last_write_checksum: sha1:a307f86a714dccd94f1dff3ea1d3131c2c8d6a79
   src/main/java/com/cvent/models/components/MeetingRequest.java:
     id: dfcddc033da7
     last_write_checksum: sha1:0505a52d2a3926cd9783af584a8e94ee1a22d187
@@ -13145,6 +13515,10 @@ trackedFiles:
     id: e1fc558b8e36
     last_write_checksum: sha1:e164b48e77bd3cff5718ab12b6a117f283fa0d86
     pristine_git_object: b49dbda37d74fe5a44c7dc9415829114b619217b
+  src/main/java/com/cvent/models/components/NumericAnswerFormatJson.java:
+    last_write_checksum: sha1:9d96f36af60eb4f2da98bc5421952ab57803722c
+  src/main/java/com/cvent/models/components/OfferingCostTypeJson0.java:
+    last_write_checksum: sha1:44ebc7fde3d76ffa64464109c66bad087af9905d
   src/main/java/com/cvent/models/components/OneAllOf.java:
     id: d825cf1ff9e9
     last_write_checksum: sha1:9101b28212bb22050c7eec69e7be2fc9dd65a9f9
@@ -13229,10 +13603,16 @@ trackedFiles:
     id: bb7a12909895
     last_write_checksum: sha1:c2d6d53df3a94f9c693ee1e0ab42d719433139c6
     pristine_git_object: 104df3bc1376d9794e3626662151f08f34aec9e9
+  src/main/java/com/cvent/models/components/OrganizationJson.java:
+    last_write_checksum: sha1:517fa5321393833bdb58688c370afe2ab02155dc
+  src/main/java/com/cvent/models/components/OrganizationTypeJson0.java:
+    last_write_checksum: sha1:d33f602e2af6f16520cfc5daedcdcd899124bd01
   src/main/java/com/cvent/models/components/OtherPaymentJson.java:
     id: 90075a6f1044
     last_write_checksum: sha1:b95c742b4e9cb36e6fbd2d3daa8ae7fbbe888c14
     pristine_git_object: 5fae1ea300e0f12f3dedf6aa71e28bfb7e1cc7b0
+  src/main/java/com/cvent/models/components/PackagePricingPreferenceJson.java:
+    last_write_checksum: sha1:6ff4f4db6dd8927119ebc3cc47b3d5eb0c27f8d9
   src/main/java/com/cvent/models/components/PageVisibilityJson.java:
     id: 888ceb2adea0
     last_write_checksum: sha1:0b0e25de6ce3c26ee1ebc70d7c48d7835e7955cd
@@ -13241,6 +13621,22 @@ trackedFiles:
     id: 53a23450be3f
     last_write_checksum: sha1:ef71239019f4c932bda2aa999ceaa776fc7d6423
     pristine_git_object: f885d9ba13ec5cb8af23dc607659cf0525aca277
+  src/main/java/com/cvent/models/components/PaginatedInternalDocuments.java:
+    last_write_checksum: sha1:b097db49c6725fa977b99c39504df82f396556fb
+  src/main/java/com/cvent/models/components/PaginatedRfpAgendaItems.java:
+    last_write_checksum: sha1:db9f201942b9b7e1c3aebc7ac77faa57823acda8
+  src/main/java/com/cvent/models/components/PaginatedRfpAgendaItemsSchedule.java:
+    last_write_checksum: sha1:b27b894b2d11eaa0044e90338f24ae87c273b867
+  src/main/java/com/cvent/models/components/PaginatedRfpAttachments.java:
+    last_write_checksum: sha1:20014a7c4c04d531f530f6dcab9b6b6ecada4755
+  src/main/java/com/cvent/models/components/PaginatedRfpCustomField.java:
+    last_write_checksum: sha1:f14cb2a7133e7a3083e9be0b1349db13d2b21d45
+  src/main/java/com/cvent/models/components/PaginatedRfpQuestions.java:
+    last_write_checksum: sha1:8a6ba1c50400492bbf3e4089e10a1f01747bd7b5
+  src/main/java/com/cvent/models/components/PaginatedRfpRecipientsHistory.java:
+    last_write_checksum: sha1:ce7aaa92e10189efc5d6881553b6d0a08a30ff49
+  src/main/java/com/cvent/models/components/PaginatedRfpSuppliers.java:
+    last_write_checksum: sha1:341c217375143d3c8357797af082b655d4274be6
   src/main/java/com/cvent/models/components/PaginationLinksJson.java:
     id: 27eb3cdf3167
     last_write_checksum: sha1:8b1228070eb8ff0e1d409d1efc6d4ca45e1c5635
@@ -13253,10 +13649,8 @@ trackedFiles:
     id: c61e0a5ff21c
     last_write_checksum: sha1:11a78f5c811f7ba4cd40ce9350012df2efae2223
     pristine_git_object: 2e37e020682533d042ff6cde8be4a5192f0ca3e5
-  src/main/java/com/cvent/models/components/PagingNoTotalCountJson1.java:
-    id: 423b1b258683
-    last_write_checksum: sha1:5144872422489d5fc91e0c65ea692d21b12baf1e
-    pristine_git_object: dd575446eef858b7e9cdb74640aed6d54b86d1e1
+  src/main/java/com/cvent/models/components/PagingNoTotalCountJson2.java:
+    last_write_checksum: sha1:03e48f599dbe14dbab836df7de03a4fb47f17717
   src/main/java/com/cvent/models/components/ParticipantResponseJson.java:
     id: aafb41f9d567
     last_write_checksum: sha1:6bc0092b2e3edb28156dc0956fc1ca9a42ae5927
@@ -13521,6 +13915,8 @@ trackedFiles:
     id: d146b80d0c68
     last_write_checksum: sha1:e1fbfe4275ec1495abab8778d0a5cccf328bb5fc
     pristine_git_object: 0176bde642f4bf2681c7dca62d6a82002cbdf676
+  src/main/java/com/cvent/models/components/Promotion.java:
+    last_write_checksum: sha1:118b0bc06fb6e58bd48e7e432a979a28c07d9681
   src/main/java/com/cvent/models/components/Property.java:
     id: 567bc7eb2757
     last_write_checksum: sha1:ca96074083cd7f873b59116afd26a2640a3e68fa
@@ -13613,6 +14009,8 @@ trackedFiles:
     id: 189d3e47424f
     last_write_checksum: sha1:b495520dac8a58ee69fd10e04f8112234b893ca6
     pristine_git_object: b57c5597ab2416f24bdbdb2c1eb92a2ef63c2601
+  src/main/java/com/cvent/models/components/QuestionClassificationTypeJson.java:
+    last_write_checksum: sha1:5498254a51db2b89755260f84546cb2672ab6bf3
   src/main/java/com/cvent/models/components/QuestionDetailJson.java:
     id: 9a3b3136ccf4
     last_write_checksum: sha1:5311896b2c13ab6b335ce759cf443c307e202fa4
@@ -13627,7 +14025,7 @@ trackedFiles:
     pristine_git_object: 3c1dbcfabe70167ced16f1d9e8442d2929660d40
   src/main/java/com/cvent/models/components/QuestionJson2.java:
     id: e47ba8500232
-    last_write_checksum: sha1:7d42209cb52bd026e1094574e869529f6c465c78
+    last_write_checksum: sha1:f138906e948bbd137122026d05fdd7b0272ff738
     pristine_git_object: da9fe9b765b446858b2a0015141cd43e87ed8012
   src/main/java/com/cvent/models/components/QuestionJson3.java:
     id: a7228fc19243
@@ -13657,6 +14055,8 @@ trackedFiles:
     id: 775971ac5c22
     last_write_checksum: sha1:5b34278f93d7af1f3ee2df6707cbb650e30cead3
     pristine_git_object: b72b586ea5b5bb43d5a14811d66d6cd5b5c45f75
+  src/main/java/com/cvent/models/components/QuestionTypeJson.java:
+    last_write_checksum: sha1:adef4f907d727deff97fb79fa5f6659b6a10632a
   src/main/java/com/cvent/models/components/QuestionTypeJson1.java:
     id: 63df9174b018
     last_write_checksum: sha1:9c3cc23169591cf502b778feb06979217222aa15
@@ -13701,10 +14101,16 @@ trackedFiles:
     id: 80d64c9a20e7
     last_write_checksum: sha1:741351ec31e763688a7ffafb0597691840737c08
     pristine_git_object: 69d9d877dd342a7eec9e6d680ad2b56f4bc0382a
+  src/main/java/com/cvent/models/components/RebateTypeJson.java:
+    last_write_checksum: sha1:bea3a870222016faef9cd74c7aa2bb85e8d36b9a
+  src/main/java/com/cvent/models/components/RecipientInfoJson0.java:
+    last_write_checksum: sha1:4d990cd4c5b3720bfe56e4c9dcb3d5602fc5b606
   src/main/java/com/cvent/models/components/RecipientJson.java:
     id: e9087ac010ad
     last_write_checksum: sha1:ff9f308eae2a7c10f041ec7528afb353ef3607b7
     pristine_git_object: 0d3d7ecffab8bdfdb1d5f3c697d847529bcf6870
+  src/main/java/com/cvent/models/components/RecipientTypeJson0.java:
+    last_write_checksum: sha1:0595e22cacc20e1a091aaba007bdcffa89ce6522
   src/main/java/com/cvent/models/components/RecipientsDataJson.java:
     id: 76e089f9ce8a
     last_write_checksum: sha1:bc9787b080d4cb98e2277809fc30307a4b423279
@@ -13725,6 +14131,10 @@ trackedFiles:
     id: 669820debaed
     last_write_checksum: sha1:d328a176ff8114f50de488e49639bd6159ca4588
     pristine_git_object: d71a0aa7c42be015cf337fd320c41493737d2d84
+  src/main/java/com/cvent/models/components/ReferenceToRFP.java:
+    last_write_checksum: sha1:edd3c865c7a635057da6b3cbf4f65d21b9a41c07
+  src/main/java/com/cvent/models/components/ReferenceToSupplier.java:
+    last_write_checksum: sha1:a2df1cacbc8309e15569fcc5f0d38e66501217d5
   src/main/java/com/cvent/models/components/RefundPolicyJson.java:
     id: d02244890402
     last_write_checksum: sha1:7d95bd44ecc63b43806ad13d7aacf5263b4e70c5
@@ -13747,11 +14157,11 @@ trackedFiles:
     pristine_git_object: 11381f0ae40aebad166ad29477bbf40ebecf33d9
   src/main/java/com/cvent/models/components/RegistrationPackRequest.java:
     id: c1c50f445453
-    last_write_checksum: sha1:ffa04a2d184f4c0f8ece3b1ef24c0ecfe3cafdd8
+    last_write_checksum: sha1:4802942ec45939af343b541378e59e6dcbf8d6c8
     pristine_git_object: 75348d28b685b41ae983d87f009b8355036a335a
   src/main/java/com/cvent/models/components/RegistrationPackResponse.java:
     id: 40cf5ab5672e
-    last_write_checksum: sha1:f2d3f352e19e0b917cceda4de6233d1d3629780b
+    last_write_checksum: sha1:8d235a5fecc789d031908fc5fc781a6bd67418fe
     pristine_git_object: 29f440c6daa352d0855c19b22af75654f7ae86ab
   src/main/java/com/cvent/models/components/RegistrationPath.java:
     id: a7f5a453dce6
@@ -13949,12 +14359,64 @@ trackedFiles:
     id: 4e1715cb00c0
     last_write_checksum: sha1:ae3347777e37a5f2be390bd312ff0708d566c90a
     pristine_git_object: b7f624eaadb8f2dcf46a7c992688b2f4f947e157
+  src/main/java/com/cvent/models/components/Rfp.java:
+    last_write_checksum: sha1:05a016cc773cf17a1f6208281380fb531ad61b79
+  src/main/java/com/cvent/models/components/RfpAgendaItemJson.java:
+    last_write_checksum: sha1:1e8265cf222c7a661fa968e1cf67e89515091c99
+  src/main/java/com/cvent/models/components/RfpAgendaItemScheduleJson.java:
+    last_write_checksum: sha1:6217fbe5b9937e9a9de000bf13d09754424162d4
+  src/main/java/com/cvent/models/components/RfpAgendaItemScheduleWithIdJson.java:
+    last_write_checksum: sha1:c75ed5531b41aab0d576d5bcb58a4c7345ee2039
+  src/main/java/com/cvent/models/components/RfpAttachmentJson.java:
+    last_write_checksum: sha1:96c8dcc053871aee35a473543e5e2325e59a3c54
+  src/main/java/com/cvent/models/components/RfpAttachmentJsonSupplier.java:
+    last_write_checksum: sha1:49d5f2a28faed3b02dcd2c6f65e01dbc2c364066
+  src/main/java/com/cvent/models/components/RfpCustomFieldJson.java:
+    last_write_checksum: sha1:1d5ecfaf7ccf4e73d4a1f1e82a04a04a18e9046b
+  src/main/java/com/cvent/models/components/RfpDateModeJson0.java:
+    last_write_checksum: sha1:a7a7038f98283b75185c43f5e87ea0dc46408972
+  src/main/java/com/cvent/models/components/RfpEventJson.java:
+    last_write_checksum: sha1:4b53beeeb670aaec4245b7d83cefaf4d8c74febb
+  src/main/java/com/cvent/models/components/RfpEventOrganizationJson.java:
+    last_write_checksum: sha1:dab8d3ca1d51a30ef52cde5e99b6271b3dee7b04
+  src/main/java/com/cvent/models/components/RfpGuestRooms.java:
+    last_write_checksum: sha1:45de988f026603f8bfc41853a591710bde0afb9c
   src/main/java/com/cvent/models/components/RfpIdJson1.java:
     last_write_checksum: sha1:dcc7d56b09ac3f1e9bcaf2aad01b4083dd6f32a9
+  src/main/java/com/cvent/models/components/RfpInternalDocumentJson0.java:
+    last_write_checksum: sha1:dc809f4c7c902dbf8cec3be77b975e38b7d46a94
+  src/main/java/com/cvent/models/components/RfpLeadSource.java:
+    last_write_checksum: sha1:c8bce46b4c1caab399a6cdebc7c75dff7ee7d285
+  src/main/java/com/cvent/models/components/RfpLeadSourceSection.java:
+    last_write_checksum: sha1:276926bdaa817748d253afd5de2ae70ba55741b2
+  src/main/java/com/cvent/models/components/RfpMealJson.java:
+    last_write_checksum: sha1:f87cc95e9a253f6cedba19103de3832cabb560f4
+  src/main/java/com/cvent/models/components/RfpPastEventJson.java:
+    last_write_checksum: sha1:c5aaf80d6feee94c796c86495900f62ffc102b26
+  src/main/java/com/cvent/models/components/RfpPastEvents.java:
+    last_write_checksum: sha1:c6c907ff5070a20b013d9e3935e0d194bba1e1cf
+  src/main/java/com/cvent/models/components/RfpQuestionJson.java:
+    last_write_checksum: sha1:ee87ccb1c95630da759de9842fd8146ccacf8313
+  src/main/java/com/cvent/models/components/RfpRecipientLogEntryJson.java:
+    last_write_checksum: sha1:cd31816370135f3bd2a99dffc42d2d57bb6917b8
+  src/main/java/com/cvent/models/components/RfpRecipientLogEntryJsonMessage.java:
+    last_write_checksum: sha1:4663ec1513748b01cad6b706dbb2ed83d495ed4f
+  src/main/java/com/cvent/models/components/RfpRecipientLogEntryJsonSupplier.java:
+    last_write_checksum: sha1:77c25c95d0b14a6a5fe9eaf60ffc0523626021b0
+  src/main/java/com/cvent/models/components/RfpResponseReasonJson.java:
+    last_write_checksum: sha1:a304a4406766ed626d629dfd7b276f27dfd70862
+  src/main/java/com/cvent/models/components/RfpStatusJson0.java:
+    last_write_checksum: sha1:64bf4f471ca2de71659cef25262dc17180493ed5
   src/main/java/com/cvent/models/components/RfpSummaryJson.java:
     id: b505d79704bb
     last_write_checksum: sha1:92d571416d9ece74f0391e2600c53929a6bbd8fa
     pristine_git_object: 194ebe95f31542b8e079aee99fe2007d5a05e298
+  src/main/java/com/cvent/models/components/RfpSupplierJson.java:
+    last_write_checksum: sha1:dcfd707128be6b393ea26fa06ea2697fbc8c97c1
+  src/main/java/com/cvent/models/components/RfpSupplierStatus.java:
+    last_write_checksum: sha1:e15f8eb0ca88a5fd8112c725089a4bfa5a9fc61c
+  src/main/java/com/cvent/models/components/RfpTypeJson0.java:
+    last_write_checksum: sha1:5dfe185c123ea3c2a5790f847c7a32ddca5f66db
   src/main/java/com/cvent/models/components/RoomAttendeeTypeJson.java:
     id: 49e1aea5edfc
     last_write_checksum: sha1:d5556bd341c070c01d09a043f2bc010f0035aa87
@@ -13963,6 +14425,10 @@ trackedFiles:
     id: 9c6d0c409b6c
     last_write_checksum: sha1:87e3210d77b417462471617c2c7ee327af1eb378
     pristine_git_object: a77b7eb22223e4cd6d090ead430580c1d49bb89c
+  src/main/java/com/cvent/models/components/RoomBlockDetailsJson.java:
+    last_write_checksum: sha1:ebf30d3686c95cb911555abf8daa4686f72fa470
+  src/main/java/com/cvent/models/components/RoomBlockJson.java:
+    last_write_checksum: sha1:d778a1be75d3231aaf4ee39477e8eba9f89cd35a
   src/main/java/com/cvent/models/components/RoomIdJson.java:
     id: 1edd4fa1e27b
     last_write_checksum: sha1:f9c206faef0d989d49072ea4569c0f6c0f7ba0e5
@@ -14347,6 +14813,8 @@ trackedFiles:
     id: 5b2476c98986
     last_write_checksum: sha1:5ae73ec80fafaead829a524c669a3264c9a382b7
     pristine_git_object: 5a08b2a903798a5a2512b5f8131baf33e0e94df1
+  src/main/java/com/cvent/models/components/SpaceAreaJson0.java:
+    last_write_checksum: sha1:96c05c74ebcd2f9322d5eb160037be30f181f432
   src/main/java/com/cvent/models/components/Speaker.java:
     id: 9e644d05f60f
     last_write_checksum: sha1:9d24800b6c72201efb3bec99ad244901103e7aa6
@@ -14471,6 +14939,8 @@ trackedFiles:
     id: 7d602c5b1654
     last_write_checksum: sha1:b718dcce1f484a3c4a5c3bba5131c255e84da135
     pristine_git_object: affbc39c921b18773c911bcfaa7fbed04a9071e1
+  src/main/java/com/cvent/models/components/StandardQuestionJson.java:
+    last_write_checksum: sha1:084f87277fe93163ff9df60bcacfb0f153fb3423
   src/main/java/com/cvent/models/components/StandardSurveyEmailTemplateJson.java:
     id: b890026affd3
     last_write_checksum: sha1:38549ab84c13c81e5533bebadd84b9e704320df5
@@ -14485,7 +14955,7 @@ trackedFiles:
     pristine_git_object: 4016b60b5332d080e28ec309dde987780df7eeee
   src/main/java/com/cvent/models/components/StandardSurveyQuestionJson.java:
     id: 2d5923437545
-    last_write_checksum: sha1:84cb0b1570e3147c7506b4e63b8e94e861dad941
+    last_write_checksum: sha1:952b222059ecc46597fd097c5a70944760917810
     pristine_git_object: e9de3508cae2cd96cb06e4ba413063d32feb65a1
   src/main/java/com/cvent/models/components/StandardSurveyQuestionsPaginatedResponse.java:
     id: 6eb8acfff368
@@ -14551,10 +15021,14 @@ trackedFiles:
     id: b89dd5396f6e
     last_write_checksum: sha1:064b8ec20d473bc846876d57b20f6bb961f8059c
     pristine_git_object: 6f15323eb018672495119aaa4a4315544140f4d1
+  src/main/java/com/cvent/models/components/SupplierAssociatedAds.java:
+    last_write_checksum: sha1:95166b5d6925f2de17a388902c16285d2210e0af
   src/main/java/com/cvent/models/components/SupplierProperty.java:
     id: 388f23f80880
     last_write_checksum: sha1:fb514299923aa2605ae5f3f6b7c76705fa0d944a
     pristine_git_object: 58e747175412d074a3582d925b95b3762cc40369
+  src/main/java/com/cvent/models/components/SupplierResponse.java:
+    last_write_checksum: sha1:51d25a40d08dbdff00650bce39bc6bcf89c8e0f2
   src/main/java/com/cvent/models/components/SupplierSummaryJson.java:
     id: 6dc221e4e039
     last_write_checksum: sha1:4a3b30a2cbd04dc56614300584c6198ffb80881e
@@ -14563,6 +15037,8 @@ trackedFiles:
     id: d5f82cc8f2b9
     last_write_checksum: sha1:94fee5f33810b59245b1aa189f43948260118d52
     pristine_git_object: 099a95ab954764c7b0dc700016392df9972c7cc9
+  src/main/java/com/cvent/models/components/SupplierTypeJson.java:
+    last_write_checksum: sha1:182b5738917ad2f9ca641d966e272fe669a634bd
   src/main/java/com/cvent/models/components/SupplierTypeJson1.java:
     id: cfdc668d0225
     last_write_checksum: sha1:7de7b010a1e5be2d415a9a648089cbb0e6367fb8
@@ -14627,6 +15103,8 @@ trackedFiles:
     id: 3178bf4f8b1e
     last_write_checksum: sha1:276a4884c12db9490d5d45695cd87617030db2ac
     pristine_git_object: 9bfeae55e6e320df1e2cb5d895856be44557728e
+  src/main/java/com/cvent/models/components/TargetTypeJson.java:
+    last_write_checksum: sha1:d9d2513689dafd3ebeff3bab19cad30feae7a6a2
   src/main/java/com/cvent/models/components/TaxAndFeeJson.java:
     id: 767975e26c05
     last_write_checksum: sha1:6f2e8eba9cef06c5bac01ebfd6e951fd8ac20cdd
@@ -14639,6 +15117,10 @@ trackedFiles:
     id: 44628f542f53
     last_write_checksum: sha1:06bc0c7b4c3ac697b9b5be9f9aa8354f8b81820a
     pristine_git_object: a4628eda42696046cf73259e6a3b72b5fd978082
+  src/main/java/com/cvent/models/components/TextAnswerFormatJson.java:
+    last_write_checksum: sha1:9d819f0fef3daaf9e8fbdf73df922d4b8eda5de5
+  src/main/java/com/cvent/models/components/TextFieldJson.java:
+    last_write_checksum: sha1:4408fa5c4e9a9da569834d40091f00af8e5c5c68
   src/main/java/com/cvent/models/components/TextFieldJson1.java:
     id: 5f4ee649eddd
     last_write_checksum: sha1:acfbb350dbe211f1351a1a96eb7b8b23ddd23e1a
@@ -14959,6 +15441,8 @@ trackedFiles:
     id: ea0ac77f2eab
     last_write_checksum: sha1:64e7206c8a623406280b05ae6b922fe329951f5c
     pristine_git_object: e50042b47969291ff70651d49dfb973d31b3f53e
+  src/main/java/com/cvent/models/components/UnitPositionJson.java:
+    last_write_checksum: sha1:b901ce6bc0339c696aa5f7b35000d4d9edd60019
   src/main/java/com/cvent/models/components/UnknownCreateUpdateDiscount.java:
     id: f9b9aa4fc7cf
     last_write_checksum: sha1:e0266b816d0fbdca36e9513a6fe118a8e8c967b3
@@ -15235,6 +15719,10 @@ trackedFiles:
     id: c219485f518d
     last_write_checksum: sha1:9dec03058f2f3ab6ea4926aee470a546448f0bf9
     pristine_git_object: 65d0f93865416be15b8564359fcbb9982d1bf2b1
+  src/main/java/com/cvent/models/components/WeddingDetailsJson0.java:
+    last_write_checksum: sha1:71d0099afaee74ec1d6043070fd9ced5f082c7b0
+  src/main/java/com/cvent/models/components/WeddingPartnerJson.java:
+    last_write_checksum: sha1:9e360eb3477b3651850bb0fedc084a83ee25fd5a
   src/main/java/com/cvent/models/components/WorkAddressAddressInput.java:
     id: 59107d0eaedc
     last_write_checksum: sha1:f3898b1051532c383de975776b1a176cf9384560
@@ -15773,6 +16261,8 @@ trackedFiles:
     id: 34381bc7ce60
     last_write_checksum: sha1:78b58c05f79eb0b0a850002e8ced24447f0625c7
     pristine_git_object: 5b0264f07ebbaf29b3e6187077b5bfb7f9183466
+  src/main/java/com/cvent/models/operations//async/GetAccountVendorsRequestBuilder.java:
+    last_write_checksum: sha1:dc6097b7fd7a674fe1b06f4f1526b16110a8a26c
   src/main/java/com/cvent/models/operations//async/GetAirActualDetailRequestBuilder.java:
     id: 4b1a679e231c
     last_write_checksum: sha1:80aeba9e37d6da2133773b4c35eb9a33219e6f29
@@ -16149,6 +16639,8 @@ trackedFiles:
     id: fd6341aff9dd
     last_write_checksum: sha1:dd9ae6e49cc0a30f97651a237671ebb875334370
     pristine_git_object: 424be5b9e392b4c64d5bbf48b3cde368df39730b
+  src/main/java/com/cvent/models/operations//async/GetRFPRequestBuilder.java:
+    last_write_checksum: sha1:e8f8b2f95e174d5e9d544a9d9bf62be3efb91219
   src/main/java/com/cvent/models/operations//async/GetRegistrationPackRequestBuilder.java:
     id: 5d3660412fa6
     last_write_checksum: sha1:e01a0463713847310561c693079a27109657f93f
@@ -16177,6 +16669,14 @@ trackedFiles:
     id: a8ceb9dcf6fa
     last_write_checksum: sha1:c584840d7f0b019f7d8b2291771dd7a73c419c86
     pristine_git_object: fb7bfb7f86a6767bb54d6976222a8f0501e233aa
+  src/main/java/com/cvent/models/operations//async/GetRfpGuestRoomsRequestBuilder.java:
+    last_write_checksum: sha1:ce61bbe5642887a2d773b148e2a0244c2e0481c5
+  src/main/java/com/cvent/models/operations//async/GetRfpLeadSourceRequestBuilder.java:
+    last_write_checksum: sha1:4839411d1a8b412399cddb09a7b5dbc75013986b
+  src/main/java/com/cvent/models/operations//async/GetRfpLeadSourceSectionRequestBuilder.java:
+    last_write_checksum: sha1:3747c0a346745f42764ebd784120b0b412b68535
+  src/main/java/com/cvent/models/operations//async/GetRfpSuppliersRequestBuilder.java:
+    last_write_checksum: sha1:ea54b5c9f0373229b0cc0dd7b69e01f35b2e662c
   src/main/java/com/cvent/models/operations//async/GetRoomTypeDetailsRequestBuilder.java:
     id: 8faf3873b2e8
     last_write_checksum: sha1:e7a97fad12cbe8f94f71d6c449d17144aaa18b6a
@@ -16571,6 +17071,22 @@ trackedFiles:
     id: 2e8a674ebccd
     last_write_checksum: sha1:6a16fe6d4bab9bbc5641c9747c46e6d9cee2bb6c
     pristine_git_object: 9b8aba5396ecb6262694bfe6c27e8cf35c7f100a
+  src/main/java/com/cvent/models/operations//async/ListRfpAgendaItemSchedulesRequestBuilder.java:
+    last_write_checksum: sha1:1ccbb34234b0a241f9e7337321f18093939438a1
+  src/main/java/com/cvent/models/operations//async/ListRfpAgendaItemsRequestBuilder.java:
+    last_write_checksum: sha1:02c8fd9e10de0170ff3f3662bd7e658ff6325a3e
+  src/main/java/com/cvent/models/operations//async/ListRfpAttachmentsRequestBuilder.java:
+    last_write_checksum: sha1:5583f1a04c6dd304100cba3bebd74215ffcca3ea
+  src/main/java/com/cvent/models/operations//async/ListRfpCustomFieldsRequestBuilder.java:
+    last_write_checksum: sha1:3054bc96d4f55120749afbdc8bad65b15ea500db
+  src/main/java/com/cvent/models/operations//async/ListRfpInternalDocumentsRequestBuilder.java:
+    last_write_checksum: sha1:f661ec2a0784cfb72fe2d3febdbff352ad9fc5e1
+  src/main/java/com/cvent/models/operations//async/ListRfpPastEventsRequestBuilder.java:
+    last_write_checksum: sha1:32cb741cc24472dcd25e4109a18d47786708a7d4
+  src/main/java/com/cvent/models/operations//async/ListRfpQuestionsRequestBuilder.java:
+    last_write_checksum: sha1:09e18b3ae045825292c18a81a77f3836c91620a6
+  src/main/java/com/cvent/models/operations//async/ListRfpRecipientsHistoryRequestBuilder.java:
+    last_write_checksum: sha1:bb5cb82c79ddda9d47aa0528d24bc0741fd42b16
   src/main/java/com/cvent/models/operations//async/ListSeatingRequestBuilder.java:
     id: 8c5f14caa903
     last_write_checksum: sha1:c862aaf0dac984fddbb9c91dd1b4f64128ee3601
@@ -17123,7 +17639,7 @@ trackedFiles:
     pristine_git_object: 96e4afa066447a8e6c0bd3e6b4ac64853eddc59f
   src/main/java/com/cvent/models/operations/AnswerBudgetCustomFieldRequest.java:
     id: 937e5095ae49
-    last_write_checksum: sha1:ab69f20e97c8cb9f011191d711066d3c420bffdc
+    last_write_checksum: sha1:8371b04245f6a12c51ff8e74c843ea0f5a29fd0b
     pristine_git_object: f44c44b67906f15279d154bb3c217158047b557a
   src/main/java/com/cvent/models/operations/AnswerBudgetCustomFieldRequestBuilder.java:
     id: 7895bd2c86d8
@@ -17131,7 +17647,7 @@ trackedFiles:
     pristine_git_object: 061925686d96cd3c34f0ecb7d511a60f7353d72c
   src/main/java/com/cvent/models/operations/AnswerBudgetCustomFieldResponse.java:
     id: e69c6f12931f
-    last_write_checksum: sha1:2d2058da9ae6432be94ef7bff581a81f90d376aa
+    last_write_checksum: sha1:439bc071bbcd6c8f024bb51b7637c45939787c80
     pristine_git_object: 6d4efd84a7ecb74c14ec3fac7eac998c43fa34bc
   src/main/java/com/cvent/models/operations/AnswerEventCustomFieldRequest.java:
     id: d9e15b4e5e55
@@ -18273,6 +18789,12 @@ trackedFiles:
     id: a4fe7d7c04b9
     last_write_checksum: sha1:27dd85a9dac3b3ab7cbb63d435bbd3bcae9a0600
     pristine_git_object: f53ccab1bfbc2add52cdaf8d6fabb717d871e880
+  src/main/java/com/cvent/models/operations/GetAccountVendorsRequest.java:
+    last_write_checksum: sha1:46d68a59b2ed998aa01ae97453e3da6bddb1ca87
+  src/main/java/com/cvent/models/operations/GetAccountVendorsRequestBuilder.java:
+    last_write_checksum: sha1:2024ad865a531912dc835b2defdac79e29abe9fb
+  src/main/java/com/cvent/models/operations/GetAccountVendorsResponse.java:
+    last_write_checksum: sha1:21d3c7fcbcf4259b231df8727d3bb3eac0352fb5
   src/main/java/com/cvent/models/operations/GetAirActualDetailRequest.java:
     id: 2520b84afec6
     last_write_checksum: sha1:5aec1864e080640b36aade8781e5f90704fa201e
@@ -18299,7 +18821,7 @@ trackedFiles:
     pristine_git_object: 28c4b1212114f15d12d95af6d3605f2b4d6598a1
   src/main/java/com/cvent/models/operations/GetAllEventSurveyResponsesRequest.java:
     id: 889c6a210f52
-    last_write_checksum: sha1:b85130f8fc1d106369d61fb35f8d76f57d5d747b
+    last_write_checksum: sha1:7028542de70f696fd12169181da433b9f3fcf2dd
     pristine_git_object: c3b8b7d09b255d5570471f35c15041a7e03522d8
   src/main/java/com/cvent/models/operations/GetAllEventSurveyResponsesRequestBuilder.java:
     id: 7ad01bfe76c2
@@ -18871,7 +19393,7 @@ trackedFiles:
     pristine_git_object: 5517537a2de41710252e719eb6a02948e500e6af
   src/main/java/com/cvent/models/operations/GetEventSurveyQuestionsRequest.java:
     id: a493b0b2e2bc
-    last_write_checksum: sha1:d92bb13dae8d2ecba48a67f8556d9dae73655334
+    last_write_checksum: sha1:ae7dcd4e3e847ccb8c1d31af56ed6ec20a473ca9
     pristine_git_object: d999ee0a4506d82db74cd2e3d5ee9bcb25e04c71
   src/main/java/com/cvent/models/operations/GetEventSurveyQuestionsRequestBuilder.java:
     id: 8b188e39f3ae
@@ -18883,7 +19405,7 @@ trackedFiles:
     pristine_git_object: 17c4a5106472d1b78b6e269da2962a6818d22470
   src/main/java/com/cvent/models/operations/GetEventSurveyRespondentsRequest.java:
     id: 9d1bab4dde61
-    last_write_checksum: sha1:be5fb2f77874d7e6813ef3387f18297910764c8d
+    last_write_checksum: sha1:7d235f25ff4dd0a71646d7d019293dad2801fd7e
     pristine_git_object: 721a91fcc00d934aedcadb0968eed92f73fb9cbf
   src/main/java/com/cvent/models/operations/GetEventSurveyRespondentsRequestBuilder.java:
     id: 7f9a3ce0b7f0
@@ -18895,7 +19417,7 @@ trackedFiles:
     pristine_git_object: fc05157acd5e529d163a5492cb7eb809f0a2f61a
   src/main/java/com/cvent/models/operations/GetEventSurveyResponsesRequest.java:
     id: ab91f4aa3764
-    last_write_checksum: sha1:e60e7a3000d0fc67840fc6e528395642b1140cde
+    last_write_checksum: sha1:59841c2d1c596210d3f41e93f28a1ebc1284f288
     pristine_git_object: 0d02370c31ae5029ecce00c9ec0896778874110f
   src/main/java/com/cvent/models/operations/GetEventSurveyResponsesRequestBuilder.java:
     id: de748f9e73b4
@@ -18907,7 +19429,7 @@ trackedFiles:
     pristine_git_object: c7063fe309d33e66433377ec3c5113a1730ed800
   src/main/java/com/cvent/models/operations/GetEventSurveysRequest.java:
     id: 95de4eda6cf7
-    last_write_checksum: sha1:e9a598d82795f8dcadd84975a7a520a9fbaac955
+    last_write_checksum: sha1:97e2b096eb3d4fcd759ee78f51ba410b537f6072
     pristine_git_object: 0ce5861782439b23d410d57ce07517f42bda76b1
   src/main/java/com/cvent/models/operations/GetEventSurveysRequestBuilder.java:
     id: 8715e8606653
@@ -19023,7 +19545,7 @@ trackedFiles:
     pristine_git_object: 8d19015e5f1d04faad468eab4cc400b121e6a5c8
   src/main/java/com/cvent/models/operations/GetExhibitorRegistrationPacksResponse.java:
     id: b763032f3644
-    last_write_checksum: sha1:d5148f1929792a92fc61b98fa48846df6dcf5135
+    last_write_checksum: sha1:d02a05e35214b0cceafc5979eb65589fc4741645
     pristine_git_object: 481f87c5f958c5e3f0df18841c04b3720d396ab0
   src/main/java/com/cvent/models/operations/GetExhibitorRequest.java:
     id: a5fcd52c0978
@@ -19219,7 +19741,7 @@ trackedFiles:
     pristine_git_object: 5529e48bd7eecc43af96042283837b6f3342fc27
   src/main/java/com/cvent/models/operations/GetLargeChoicesRequest.java:
     id: 345295e081b3
-    last_write_checksum: sha1:c9a9b5c63e1e4c740004a9ae18f0ca0db33fb23e
+    last_write_checksum: sha1:007a2339d025fb044d33602c8ffa56ed5522350a
     pristine_git_object: 781a88f69b76e87768caffac322cb30ebe8ada1d
   src/main/java/com/cvent/models/operations/GetLargeChoicesRequestBuilder.java:
     id: 0e359ea599b3
@@ -19387,7 +19909,7 @@ trackedFiles:
     pristine_git_object: 6b2ae604fe7fedeae7daf69c703a63f37379882e
   src/main/java/com/cvent/models/operations/GetQuestionsRequest.java:
     id: 332511b805c4
-    last_write_checksum: sha1:c77f005bbb2f11f3b8300122a9808eb2b9c64372
+    last_write_checksum: sha1:c59671717443fb61a5c00dfda14112b08f949e46
     pristine_git_object: 9d260ec020a5e67497b9b1b07e558b5b42967d4d
   src/main/java/com/cvent/models/operations/GetQuestionsRequestBuilder.java:
     id: 1113f6360927
@@ -19397,6 +19919,12 @@ trackedFiles:
     id: 6e2ea74e4445
     last_write_checksum: sha1:ed34c4d5ba65aa49aa1f43d8398800f104b72b36
     pristine_git_object: e0edf8dd20aae9d8be972420a5968109893960b8
+  src/main/java/com/cvent/models/operations/GetRFPRequest.java:
+    last_write_checksum: sha1:86e0b5b4459e3dec847bfa0aa7d599d5e89c8218
+  src/main/java/com/cvent/models/operations/GetRFPRequestBuilder.java:
+    last_write_checksum: sha1:abf9ee4fceaeae5e5e550c7949a923d74d309552
+  src/main/java/com/cvent/models/operations/GetRFPResponse.java:
+    last_write_checksum: sha1:33216977d16c7378ff5d21f49019855b27c0f332
   src/main/java/com/cvent/models/operations/GetRegistrationPackRequest.java:
     id: 310bdb875ba9
     last_write_checksum: sha1:e364cbab1ad3d5dccd609e6355eb47d0ec1f0440
@@ -19455,7 +19983,7 @@ trackedFiles:
     pristine_git_object: b07c384b46dacc9a7d814c5f5b5eaeaf02fb2163
   src/main/java/com/cvent/models/operations/GetRespondentsRequest.java:
     id: ff67aa44f446
-    last_write_checksum: sha1:b205c05191de37b209818be0784dbab56c74b442
+    last_write_checksum: sha1:8cb017b2c55e68fa53691b5e585c3f47b9807d5f
     pristine_git_object: b9f4822d7001a8f916de9e0bdca030262853e475
   src/main/java/com/cvent/models/operations/GetRespondentsRequestBuilder.java:
     id: 9efebb83a672
@@ -19467,7 +19995,7 @@ trackedFiles:
     pristine_git_object: 46f80826ceb1492d1a6f2868f49d4585adca76b0
   src/main/java/com/cvent/models/operations/GetResponsesRequest.java:
     id: a814a8ebec03
-    last_write_checksum: sha1:29504406fa04c463139cd7a46046eaae88268107
+    last_write_checksum: sha1:4516a9c21535063dcf8c2fd3ad4b6f6bfb737dda
     pristine_git_object: d820066bd5c0c60afe0a3c5fc0d23af4c8336531
   src/main/java/com/cvent/models/operations/GetResponsesRequestBuilder.java:
     id: c6432065aea0
@@ -19477,6 +20005,30 @@ trackedFiles:
     id: fa1029062dfc
     last_write_checksum: sha1:415185e6d6312aeaaf80f968792c45de254f4698
     pristine_git_object: f754b1076ab2b95524127e89fd4ddee1dc2c4819
+  src/main/java/com/cvent/models/operations/GetRfpGuestRoomsRequest.java:
+    last_write_checksum: sha1:16e2323d9d7808d01cdbb4322f41135ddcf7b9bc
+  src/main/java/com/cvent/models/operations/GetRfpGuestRoomsRequestBuilder.java:
+    last_write_checksum: sha1:0e9c71725d8124220137f7c8eb754170523685fa
+  src/main/java/com/cvent/models/operations/GetRfpGuestRoomsResponse.java:
+    last_write_checksum: sha1:e45732b4d1118ecc78ecd7d629845bcf8642408a
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceRequest.java:
+    last_write_checksum: sha1:d636c8504162ea1abfadb67ad0dc6320e2695360
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceRequestBuilder.java:
+    last_write_checksum: sha1:cd9cd3e0beda241a12f8cf6aaea2fcd663bcd7c5
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceResponse.java:
+    last_write_checksum: sha1:487bd5ba7a8bc2d31de443d6390c335013a67729
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceSectionRequest.java:
+    last_write_checksum: sha1:2a7875432324cd1588a6c93a924f5a29a6e370c8
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceSectionRequestBuilder.java:
+    last_write_checksum: sha1:cd07b3d91afdc54e89ff9f2badf6794018a24d03
+  src/main/java/com/cvent/models/operations/GetRfpLeadSourceSectionResponse.java:
+    last_write_checksum: sha1:b45b9d8c099a7d6b88c3f40fd9ef1136f8d71551
+  src/main/java/com/cvent/models/operations/GetRfpSuppliersRequest.java:
+    last_write_checksum: sha1:cb30929ca111fe49fe89047f622c6cc28f92d63a
+  src/main/java/com/cvent/models/operations/GetRfpSuppliersRequestBuilder.java:
+    last_write_checksum: sha1:0d31a24675a7a278af3a0b85d2f836acfe4b4346
+  src/main/java/com/cvent/models/operations/GetRfpSuppliersResponse.java:
+    last_write_checksum: sha1:4cee733477031b1956b530310733c431a52bbba5
   src/main/java/com/cvent/models/operations/GetRoomTypeDetailsRequest.java:
     id: 6944fe317823
     last_write_checksum: sha1:549c1804e62ca55cb6b57faaf44387ab550c764a
@@ -19687,7 +20239,7 @@ trackedFiles:
     pristine_git_object: 33827eb5a9d4def47fd20f7ce0e593c0e92b53bc
   src/main/java/com/cvent/models/operations/GetStandardSurveyEmailTemplatesRequest.java:
     id: d23b1ce7c971
-    last_write_checksum: sha1:b1f4e2d2142e5c16ca004ce3a3b3bb2a0c1cd074
+    last_write_checksum: sha1:8dcbe7b16142b6394fcc89cb90fa8d1af8a256ce
     pristine_git_object: aebc538abdae119e13e2caae03cfdbe92f0680b5
   src/main/java/com/cvent/models/operations/GetStandardSurveyEmailTemplatesRequestBuilder.java:
     id: 7510e8a20ebd
@@ -19699,7 +20251,7 @@ trackedFiles:
     pristine_git_object: ca5c8c2868aa73f76151e46a98a9c90a10fc3559
   src/main/java/com/cvent/models/operations/GetStandardSurveyQuestionsRequest.java:
     id: efc590916d82
-    last_write_checksum: sha1:450a6003efeeb991d311aae605b829118462b22f
+    last_write_checksum: sha1:6522d116f29da1d4113fb0f07523be62ea53c5d6
     pristine_git_object: 3a828160be6658cc4927faae6ced3624224c9a33
   src/main/java/com/cvent/models/operations/GetStandardSurveyQuestionsRequestBuilder.java:
     id: 7ee0bb14d082
@@ -19711,7 +20263,7 @@ trackedFiles:
     pristine_git_object: b5da70d97b8fcc7f0e91fac60986f43453080b39
   src/main/java/com/cvent/models/operations/GetStandardSurveyRespondentsRequest.java:
     id: 2e7faeadc65f
-    last_write_checksum: sha1:8e1ee12a9cd3d7f4ca6f93f067acd40052303156
+    last_write_checksum: sha1:045698a260247048f047a185959b0b2508b05a38
     pristine_git_object: ba5413fbbb1ce293040c22a3e1b33fe2ac5823c7
   src/main/java/com/cvent/models/operations/GetStandardSurveyRespondentsRequestBuilder.java:
     id: 7e90c4090019
@@ -19723,7 +20275,7 @@ trackedFiles:
     pristine_git_object: a7b32d12b1ba8497250d0dae475db48c7fd28ba9
   src/main/java/com/cvent/models/operations/GetStandardSurveyResponsesRequest.java:
     id: ecfe4070d6b8
-    last_write_checksum: sha1:c024e966999f1964b657390c268ce6aeae2280ec
+    last_write_checksum: sha1:c3f70c69247f6d5ee1be15c8c1f5c314da3ae58e
     pristine_git_object: 48892555e4ad4ee0a4fe934ce80e017acec1160e
   src/main/java/com/cvent/models/operations/GetStandardSurveyResponsesRequestBuilder.java:
     id: 5e66d3fd22b7
@@ -19735,7 +20287,7 @@ trackedFiles:
     pristine_git_object: 8c023babf40d04cade42349b76ce7227097564f7
   src/main/java/com/cvent/models/operations/GetStandardSurveysRequest.java:
     id: 02d3573f6b71
-    last_write_checksum: sha1:d73d67f86b338c74f09b7834e1c9d66dacd724cb
+    last_write_checksum: sha1:dd3eb7e87d233f6f12589e33294c5a0b64b2d8fa
     pristine_git_object: 57f7633ebe80f0292e61dd0da30b134e474f018a
   src/main/java/com/cvent/models/operations/GetStandardSurveysRequestBuilder.java:
     id: 46a9fc0f0ebe
@@ -19771,7 +20323,7 @@ trackedFiles:
     pristine_git_object: 853c5fe1b329a0c41df7e90a73a199b7ac41e0b1
   src/main/java/com/cvent/models/operations/GetSurveyRequest.java:
     id: fda29776ea43
-    last_write_checksum: sha1:23493039629b8a01ee5844055af2fa3a038a94a0
+    last_write_checksum: sha1:5363a795bace495edf3a1599161b678a5df04355
     pristine_git_object: d30a12219ed29d8417a930a7aa89d93cc1d39e81
   src/main/java/com/cvent/models/operations/GetSurveyRequestBuilder.java:
     id: 3807d22a288a
@@ -20651,6 +21203,54 @@ trackedFiles:
     id: d225ffa0ec98
     last_write_checksum: sha1:7752216b61e2d7775d28947d0e86b7ccf9c40c1e
     pristine_git_object: 3a895aeeed43e629a420f03ebc651f88354437dd
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemSchedulesRequest.java:
+    last_write_checksum: sha1:5cea39b022af4c1ba35ed6588d1b1f0ecc97d4f8
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemSchedulesRequestBuilder.java:
+    last_write_checksum: sha1:4892feb4867fe92f21f2a9e8a72b1056a53db59d
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemSchedulesResponse.java:
+    last_write_checksum: sha1:4697d8392c3e99e4f59b4a102087f3b5159ac6d1
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemsRequest.java:
+    last_write_checksum: sha1:7ced3fa6b2632e564c819fd4a72c70a4df325a3c
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemsRequestBuilder.java:
+    last_write_checksum: sha1:0d9b08b8493d5bf18e8f100e6e7d855bad0656c0
+  src/main/java/com/cvent/models/operations/ListRfpAgendaItemsResponse.java:
+    last_write_checksum: sha1:e12edbb5ae09fbfe325064742f23fab015c8b7dd
+  src/main/java/com/cvent/models/operations/ListRfpAttachmentsRequest.java:
+    last_write_checksum: sha1:d7c7c1f47446e0b42a5313dbe7c46ada41f5e6b6
+  src/main/java/com/cvent/models/operations/ListRfpAttachmentsRequestBuilder.java:
+    last_write_checksum: sha1:9b0be285e72b149380678cf69724c3fd8c4b7fd2
+  src/main/java/com/cvent/models/operations/ListRfpAttachmentsResponse.java:
+    last_write_checksum: sha1:2843bc097a69ea134602553ac1b7a0ab6b5b758f
+  src/main/java/com/cvent/models/operations/ListRfpCustomFieldsRequest.java:
+    last_write_checksum: sha1:bd69fd4afd88b88455314f0dce7f41120840986e
+  src/main/java/com/cvent/models/operations/ListRfpCustomFieldsRequestBuilder.java:
+    last_write_checksum: sha1:1544575502d36bfee64a52459d6b91e1c50b8170
+  src/main/java/com/cvent/models/operations/ListRfpCustomFieldsResponse.java:
+    last_write_checksum: sha1:211ef19b31747a2d068665ae9befac35d076931c
+  src/main/java/com/cvent/models/operations/ListRfpInternalDocumentsRequest.java:
+    last_write_checksum: sha1:8cb08b66821ad7b89aefe820fa80aff7f6ca7ec0
+  src/main/java/com/cvent/models/operations/ListRfpInternalDocumentsRequestBuilder.java:
+    last_write_checksum: sha1:eb739ae02a9e81f95d14b1f2756e02ce18a670e3
+  src/main/java/com/cvent/models/operations/ListRfpInternalDocumentsResponse.java:
+    last_write_checksum: sha1:6f9d7669d0f27ddae42d447ca400e6ecc5cebbff
+  src/main/java/com/cvent/models/operations/ListRfpPastEventsRequest.java:
+    last_write_checksum: sha1:992d9a24bd1d76d6d4ffb0c3d5d0408b41257e48
+  src/main/java/com/cvent/models/operations/ListRfpPastEventsRequestBuilder.java:
+    last_write_checksum: sha1:cb6cad19e8dfcff222c50960457492712410ca5b
+  src/main/java/com/cvent/models/operations/ListRfpPastEventsResponse.java:
+    last_write_checksum: sha1:f30a4bb88898f74597d9ec3883f918801612a2e8
+  src/main/java/com/cvent/models/operations/ListRfpQuestionsRequest.java:
+    last_write_checksum: sha1:8336c1a4679756d82445e9607b8e74d2aeb936da
+  src/main/java/com/cvent/models/operations/ListRfpQuestionsRequestBuilder.java:
+    last_write_checksum: sha1:9972dca24f799ce681ec5dbacad847bceeefd806
+  src/main/java/com/cvent/models/operations/ListRfpQuestionsResponse.java:
+    last_write_checksum: sha1:bb46c859136b0ae471375ecf0825a33a9d50fdef
+  src/main/java/com/cvent/models/operations/ListRfpRecipientsHistoryRequest.java:
+    last_write_checksum: sha1:33da0a7242b8745d869b910203bd35e19910c2b0
+  src/main/java/com/cvent/models/operations/ListRfpRecipientsHistoryRequestBuilder.java:
+    last_write_checksum: sha1:4b246325259e9ba4081091c565c0437a88bb549d
+  src/main/java/com/cvent/models/operations/ListRfpRecipientsHistoryResponse.java:
+    last_write_checksum: sha1:4f0f15c17514a42598d4a963c379ef41d142274b
   src/main/java/com/cvent/models/operations/ListSeatingRequest.java:
     id: e6313277e05b
     last_write_checksum: sha1:0c18134f7ab43dd8c1dffa1d69bbdf70dd831b83
@@ -22043,7 +22643,7 @@ trackedFiles:
     pristine_git_object: bcdda61ae446471ca1707909b53bffc92e0b4221
   src/main/java/com/cvent/models/operations/async/AnswerBudgetCustomFieldResponse.java:
     id: eee2b0f989b9
-    last_write_checksum: sha1:093b4311693729394dde6f9eb65cd8e924d62d09
+    last_write_checksum: sha1:20a55cc81082858d9e91c7d9ca314f74edd11891
     pristine_git_object: 7a4bfd0a90358b866195a6c0d358fe4685675906
   src/main/java/com/cvent/models/operations/async/AnswerEventCustomFieldResponse.java:
     id: 68f8a7025ec3
@@ -22453,6 +23053,8 @@ trackedFiles:
     id: 6ca56774b317
     last_write_checksum: sha1:209d47b3df9c886fea94bdad052330894492d406
     pristine_git_object: c1fd4835fcabd606807aba2b9588e0d50ed5941c
+  src/main/java/com/cvent/models/operations/async/GetAccountVendorsResponse.java:
+    last_write_checksum: sha1:22859cb63ab69646393b3f448ee0ccb160714161
   src/main/java/com/cvent/models/operations/async/GetAirActualDetailResponse.java:
     id: bb64ba25c1e9
     last_write_checksum: sha1:b70088f7e1cb63d5ddeefa8e5daf3d1b5c6b9078
@@ -22703,7 +23305,7 @@ trackedFiles:
     pristine_git_object: 4011ef7240622e5cec48aa1644dbf66552f18a58
   src/main/java/com/cvent/models/operations/async/GetExhibitorRegistrationPacksResponse.java:
     id: 47028e74b903
-    last_write_checksum: sha1:10813b4b32f1f72481be24c19b6d77f4a11f55c7
+    last_write_checksum: sha1:3879ab772ceec41efbdc15588c2d24002c3374e9
     pristine_git_object: a5f315b6219853a8ed2989d1577c7389d60ade9c
   src/main/java/com/cvent/models/operations/async/GetExhibitorResponse.java:
     id: 7900619524df
@@ -22829,6 +23431,8 @@ trackedFiles:
     id: 9d82be63c6ec
     last_write_checksum: sha1:ec3e0a29825ad56026550db3521d38513032603c
     pristine_git_object: 556dbab76ab9ee35b7635cb776cbbc26f90df4c2
+  src/main/java/com/cvent/models/operations/async/GetRFPResponse.java:
+    last_write_checksum: sha1:391b65c180a0388b5685b9867ba0974e1f6bf222
   src/main/java/com/cvent/models/operations/async/GetRegistrationPackResponse.java:
     id: 44fad8a70f6e
     last_write_checksum: sha1:0e7f4bafd87b75a9fc359e3ef1d9a60ded1878f9
@@ -22857,6 +23461,14 @@ trackedFiles:
     id: 2ebc01c8566d
     last_write_checksum: sha1:115b678023a9a3d71647fe38550e358b80cf87d5
     pristine_git_object: 645d94667d8d90cb50b3cb64d906b97ea3885ce6
+  src/main/java/com/cvent/models/operations/async/GetRfpGuestRoomsResponse.java:
+    last_write_checksum: sha1:6c325d84b8f448c73d345d8e6d500cd18bdc45b0
+  src/main/java/com/cvent/models/operations/async/GetRfpLeadSourceResponse.java:
+    last_write_checksum: sha1:b8193976850f7dc9435fa52dba8c24265000610e
+  src/main/java/com/cvent/models/operations/async/GetRfpLeadSourceSectionResponse.java:
+    last_write_checksum: sha1:a2d303ffd86061b5c55613a04827d47617cb9b68
+  src/main/java/com/cvent/models/operations/async/GetRfpSuppliersResponse.java:
+    last_write_checksum: sha1:311732faad425ac6ad2be1ee62467ae9733aa8ac
   src/main/java/com/cvent/models/operations/async/GetRoomTypeDetailsResponse.java:
     id: e7950e3b2f34
     last_write_checksum: sha1:08650f5b13828dd1286c9405127e15ee2a5183a7
@@ -23251,6 +23863,22 @@ trackedFiles:
     id: 111e8ad46040
     last_write_checksum: sha1:55f37798c29b2d515507dec2439c5204296893d3
     pristine_git_object: 3035b3644c3950744616e51dc93eec13c6c444fc
+  src/main/java/com/cvent/models/operations/async/ListRfpAgendaItemSchedulesResponse.java:
+    last_write_checksum: sha1:8b21519074d6085b0051924b9372afe8c625a05f
+  src/main/java/com/cvent/models/operations/async/ListRfpAgendaItemsResponse.java:
+    last_write_checksum: sha1:5d54e6dfb9990f6234620cd9083ffc120b3c8cc8
+  src/main/java/com/cvent/models/operations/async/ListRfpAttachmentsResponse.java:
+    last_write_checksum: sha1:651a52cb8d17d2cd5665e9b0b12652897be9bf06
+  src/main/java/com/cvent/models/operations/async/ListRfpCustomFieldsResponse.java:
+    last_write_checksum: sha1:40bac2d8b7d80c0afff71335917ee56bec3e0ef8
+  src/main/java/com/cvent/models/operations/async/ListRfpInternalDocumentsResponse.java:
+    last_write_checksum: sha1:ec6d2f9b4b2b2616441671d1948ec8c9e24d3227
+  src/main/java/com/cvent/models/operations/async/ListRfpPastEventsResponse.java:
+    last_write_checksum: sha1:ec5f78e8fed190b262687da53aab99f009e726e1
+  src/main/java/com/cvent/models/operations/async/ListRfpQuestionsResponse.java:
+    last_write_checksum: sha1:277dba38e2dca7f55f8a3c827f01c686ae8eb45d
+  src/main/java/com/cvent/models/operations/async/ListRfpRecipientsHistoryResponse.java:
+    last_write_checksum: sha1:c7ecb20074664e883debd088307924e2430c55b9
   src/main/java/com/cvent/models/operations/async/ListSeatingResponse.java:
     id: 39bbafd91e70
     last_write_checksum: sha1:573fc3b85315c8c996520af098dce15608bdf440
@@ -23743,7 +24371,7 @@ trackedFiles:
     pristine_git_object: a2235fd9883209c228f23ed683b1a824d0a92cba
   src/main/java/com/cvent/operations/AnswerBudgetCustomField.java:
     id: 929ab7a92295
-    last_write_checksum: sha1:93e365f786454cf325f4534fd02aedd5e8cbe7ad
+    last_write_checksum: sha1:a586ee0f642c16a691cf4cb03903f24a9b5aca4e
     pristine_git_object: 8b36537839a679c6ab62fd5caa39d5c777ac77d7
   src/main/java/com/cvent/operations/AnswerEventCustomField.java:
     id: 7b9170c6dd1a
@@ -24153,6 +24781,8 @@ trackedFiles:
     id: 5200d9859f76
     last_write_checksum: sha1:df59b4f252b787c92d6ab855d75327b836aaf67d
     pristine_git_object: faad862f63cd113a9c928a9d91d1013fa9b606c3
+  src/main/java/com/cvent/operations/GetAccountVendors.java:
+    last_write_checksum: sha1:7d529caca18ee44deb40672e26a7432699abdb94
   src/main/java/com/cvent/operations/GetAirActualDetail.java:
     id: 1968a33dc0f5
     last_write_checksum: sha1:143d31ddc9d1a92089bef8af64e554dc645685a5
@@ -24529,6 +25159,8 @@ trackedFiles:
     id: 8bec8c13ee41
     last_write_checksum: sha1:bc73e150975f002241cb99efdf8c1b7e7e3138a3
     pristine_git_object: eb6a792dd1b97108b4123050efed55f233165b6f
+  src/main/java/com/cvent/operations/GetRFP.java:
+    last_write_checksum: sha1:28220e9cf9773691ef0955274a1a23ee17cd9dad
   src/main/java/com/cvent/operations/GetRegistrationPack.java:
     id: be2eafae0d6a
     last_write_checksum: sha1:3cbe7f925706792bcbaa099a450c2ca741a18280
@@ -24557,6 +25189,14 @@ trackedFiles:
     id: 793d37db2f49
     last_write_checksum: sha1:66514469d507591405ec9d0ef35c71f1ddc38909
     pristine_git_object: 7ce453b4969a63f5d0ba75d643e25e225db282f2
+  src/main/java/com/cvent/operations/GetRfpGuestRooms.java:
+    last_write_checksum: sha1:e7880e37a393a9c2e41d1e172050ed2ef6b1f484
+  src/main/java/com/cvent/operations/GetRfpLeadSource.java:
+    last_write_checksum: sha1:6173dbaae20b72648d65a5e7a55c24c3d9fc924e
+  src/main/java/com/cvent/operations/GetRfpLeadSourceSection.java:
+    last_write_checksum: sha1:9b0646d23b95d32ed7ea40c36e923505b533cd21
+  src/main/java/com/cvent/operations/GetRfpSuppliers.java:
+    last_write_checksum: sha1:2b54d12adc4fa697e5711059b03004538b86103c
   src/main/java/com/cvent/operations/GetRoomTypeDetails.java:
     id: 396ea5ea194d
     last_write_checksum: sha1:15b2b1576d1eaa9a91ec2372135771742921957f
@@ -24951,6 +25591,22 @@ trackedFiles:
     id: 33fcd84f6c6d
     last_write_checksum: sha1:ea9391b84af0c1ff9adc9a6c7b5b1b5787fb4414
     pristine_git_object: 5d4e69d6ee2d048d3bfbc776f8135224cccdd3d8
+  src/main/java/com/cvent/operations/ListRfpAgendaItemSchedules.java:
+    last_write_checksum: sha1:f3fc61f50a740bf961d53429bec3b05876c69486
+  src/main/java/com/cvent/operations/ListRfpAgendaItems.java:
+    last_write_checksum: sha1:c43baae0e508afdd9ab8fc8dcf192073f527357a
+  src/main/java/com/cvent/operations/ListRfpAttachments.java:
+    last_write_checksum: sha1:fcc6f660dd6001dd686f725fa359bcd2099d5c82
+  src/main/java/com/cvent/operations/ListRfpCustomFields.java:
+    last_write_checksum: sha1:bffb02cb8de3a17aab167f67d3614c936e7c5cde
+  src/main/java/com/cvent/operations/ListRfpInternalDocuments.java:
+    last_write_checksum: sha1:e89459103c8804620a478d886186ffb60afbd31a
+  src/main/java/com/cvent/operations/ListRfpPastEvents.java:
+    last_write_checksum: sha1:66919f8ec1cd39b164debb1faaef62920a440f1f
+  src/main/java/com/cvent/operations/ListRfpQuestions.java:
+    last_write_checksum: sha1:3ef0508a045dea4bfd142485b322a5d6e30aa04b
+  src/main/java/com/cvent/operations/ListRfpRecipientsHistory.java:
+    last_write_checksum: sha1:3685ea999a96e3cb920b38d5c9e4996c26115db3
   src/main/java/com/cvent/operations/ListSeating.java:
     id: e2d4058440b2
     last_write_checksum: sha1:918dd9e06b61ce3c783c6bb5a15b6e6acfee07a3
@@ -30885,6 +31541,184 @@ examples:
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "a52f3f33-615c-4b67-b27d-763783a40f14", "name": "Agenda", "size": 204800, "uploaded": "2024-06-15T13:45:30Z", "uploadedBy": "John Doe", "lastModified": "2024-10-12T03:00:00Z", "lastModifiedBy": "John Doe", "event": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "category": "Category 1", "mimeType": "application/pdf", "description": "A detailed description of the document.", "secured": true, "referenceLink": {"url": "https://custom.cvent.com/4B31940730B6475A8D6A7785748A67EE/files/smm/8cfc2168a00342f5ba9e13f7a808df8e/78ce60fbf1da4cf5af139a65f59aed60.pdf", "expiration": "2025-12-31T23:59:59Z"}}]}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getAccountVendors:
+    speakeasy-default-get-account-vendors:
+      parameters:
+        query:
+          after: "2017-01-02T02:00:00Z"
+          before: "2017-01-02T02:00:00Z"
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getRfpLeadSource:
+    speakeasy-default-get-rfp-lead-source:
+      parameters:
+        path:
+          leadSourceId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"id": "f56a51a4-84b0-46c9-a612-716dc95a1c96", "name": "Cvent Supplier Network"}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getRfpLeadSourceSection:
+    speakeasy-default-get-rfp-lead-source-section:
+      parameters:
+        path:
+          leadSourceId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+          leadSourceSectionId: "779934d2-f6eb-4815-bcfa-a2dd8655c164"
+      responses:
+        "200":
+          application/json: {"id": "f56a51a4-84b0-46c9-a612-716dc95a1c96", "name": "Cvent Supplier Network"}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getRFP:
+    speakeasy-default-get-RFP:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          expand: ["leadSource", "leadSource.section"]
+      responses:
+        "200":
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "needsMeetingSpace": true, "needsGuestRooms": true, "description": "Planning to host company's annual event in an outdoor location.", "dateRequirements": {"mode": "DATE_PATTERN", "alternateDates": [{"preferred": true, "id": "50dc08af-24a9-4d01-84be-3d43133dc945", "endDate": "2016-10-13", "startDate": "2016-10-15", "note": "Flexible dates"}], "pattern": {"note": "Flexible dates on weekends.", "endDate": "2016-10-15", "startDate": "2016-10-13", "durationDays": 3, "startDays": [], "generatedDates": [{"preferred": true, "id": "50dc08af-24a9-4d01-84be-3d43133dc945", "endDate": "2016-10-13", "startDate": "2016-10-15", "note": "Flexible dates"}]}, "availabilityRangeRequired": false}, "rfpEvent": {"event": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "name": "friday event", "contractSignatureLocation": "Atlanta", "destinationsUnderConsideration": "New York", "externalMeetingRequest": true, "audioVisualNeeds": "Need a projector in each meeting room.", "peakMeetingRooms": 14, "attendeesPerDay": 500, "referenceNumber": "XVYMP8970S", "meetingRequestId": "50dc08af-24a9-4d01-84be-3d43133dc945", "virtualAttendeesPerDay": 2000, "budget": 10000, "roomRateBudget": 200, "foodBeverageBudget": 1000}, "agendaStartDate": "2025-10-13", "contact": {"firstName": "James", "lastName": "West", "email": "jwest@example.com", "address": {"countryCode": "US", "city": "Austin", "regionCode": "US-AL"}, "commissionRate": 10.75, "phone": "555-555-5555", "organizationName": "Five Star Planners Inc.", "preferredContactMethods": ["CVENT"]}, "rfpEventOrganization": {"organization": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "name": "Cvent Inc.", "type": "OTHER", "address": {"countryCode": "US", "city": "Austin", "regionCode": "US-AL"}, "eventsPerYear": 450}, "decisionFactors": "Price, location, and quality of service.", "responseDueDate": "2016-10-13", "decisionDate": "2016-10-13", "billingDetails": {"additionalInformation": "Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.", "concessionsContractualInfo": "Request use of LOI or Express Agreement.", "acceptingRebatesAndIncentives": true, "rebateValue": 10}, "internalNote": "Don't award this RFP to the same venue as last year.", "currencyCode": "USD", "requiredCostItems": ["BREAK_AM", "BREAK_PM"], "hiddenCostItems": ["BREAK_DRINKS_ONLY", "BREAK_SNACKS_AND_DRINKS"], "cvbForwardLimit": 5, "notificationRecipients": [{"order": 1, "type": "EMAIL", "value": "johnDoe@example.com"}, {"order": 2, "type": "ACCOUNT_USER", "value": "50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order": 3, "type": "ACCOUNT_USER_GROUP", "value": "70de07af-24a9-4d01-84be-3d43133dc932"}], "leadSource": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945", "section": {"id": "40dc08af-24a9-4d01-84be-3d43133dc945"}}, "sourceId": "123456", "weddingDetails": {"firstPartner": {"name": "John Doe"}, "secondPartner": {"name": "John Doe"}}, "needsCatering": false, "packagePricingPreference": "OPTIONAL", "feeTransparencyEnabled": false, "id": "50dc08af-24a9-4d01-84be-3d43133dc945", "code": "JBNJN7BGJ5J", "approvedBy": "approver@example.com", "approvedDateTime": "2021-01-13T14:06:20.080Z", "approved": true, "cancellationDetails": {"dateTime": "2021-01-13T14:06:20.080Z", "comments": "I am cancelling my event, postponing to Q4."}, "lastSentDateTime": "2021-01-13T14:06:20.080Z", "originalSentDateTime": "2021-01-13T14:06:20.080Z", "sentVenueCount": 5, "archived": false, "archivalDate": "2021-01-13T14:06:20.080Z", "awardedExternally": false, "finishedAwarding": false, "aiRfpGenerationSource": "MCP-Visual Studio Code/1.107.1"}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpAgendaItems:
+    speakeasy-default-list-rfp-agenda-items:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "id in ('209a11d-5bf6-47d2-b81f-89360d7229b6')"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "name": "Agenda Item 1", "note": "This is a sample comment for this agenda item.", "startTime": "10:00:00", "endTime": "10:30:00", "roomSize": 1000, "attendeeCount": 10000, "roomInfoRequired": false, "twentyFourHourHold": true, "locatedAtPrimaryEventVenue": false, "number": 5, "schedules": [{"dayNumber": 1, "date": "2021-07-03"}], "id": "f56a51a4-84b0-46c9-a612-716dc95a1c96", "agendaBuilderAttachment": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpAgendaItemSchedules:
+    speakeasy-default-list-rfp-agenda-item-schedules:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"dayNumber": 1, "date": "2021-07-03", "id": "50dc08af-24a9-4d01-84be-3d43133dc945"}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpAttachments:
+    speakeasy-default-list-rfp-attachments:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "supplierSpecific eq 'false' or supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac','f56a51a4-84b0-46c9-a612-716dc95a1c96') AND sendInEmail eq 'false'"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpCustomFields:
+    speakeasy-default-list-rfp-custom-fields:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          expand: ["customField"]
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"customField": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "answers": ["Choice 1"]}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getRfpGuestRooms:
+    speakeasy-default-get-rfp-guest-rooms:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"totalRooms": 24, "peakRooms": 24, "occupancies": [{"occupancy": "SINGLE", "type": "DOUBLE"}], "checkInDate": "2025-10-13", "roomBlocks": [{"id": "1f6193da-e12b-4638-b1e2-13dd60d0adeb", "date": "2025-10-13", "dayNumber": 3, "totalRooms": 24, "details": [{"quantity": 24, "type": "DOUBLE"}]}], "additionalInformation": "2 Executive suites are mandatory."}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpInternalDocuments:
+    speakeasy-default-list-rfp-internal-documents:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "id in ('209a11d-5bf6-47d2-b81f-89360d7229b6')"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"id": "f56a51a4-84b0-46c9-a612-716dc95a1c96", "created": "2021-01-13T14:06:20.080Z", "name": "BudgetCostSavings", "uniqueName": "183f9efaa4c14070985782ee31abbf3c.jpg", "size": 777835, "url": "https://custom.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg", "mimeType": "image/jpeg"}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpQuestions:
+    speakeasy-default-list-rfp-questions:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "htmlText": "Question Html", "code": "4l6x", "type": "SingleChoice", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "categories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "required": true}], "subCategories": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "comments": "Comments Text", "required": true, "fields": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "choices": [{"text": "Are you spending any significant time offsite and need transportation?", "shortText": "Needs offsite transportation?", "label": "Choice A"}], "notApplicableAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "otherAnswer": {"text": "Dietary Restriction - Other", "shortText": "Dietary Preference - Other Allergies"}, "required": true}], "maxScore": 20, "totalSum": 45, "minSelection": 1, "maxSelection": 3, "minDate": "2020-01-01", "maxDate": "2020-12-31", "showDateSelector": true, "showCurrentDate": true, "dateAnswerFormat": "DateTime", "unitLabel": "miles", "minLength": 5, "maxLength": 100, "customAnswerFormat": {"id": 104}, "supplierTypes": ["CVB", "HOTEL"], "order": 1, "standardQuestion": {"id": "50dc08af-24a9-4d01-84be-3d43133dc945"}, "aiQuestionGenerationSource": "MCP-Visual Studio Code/1.107.1"}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpPastEvents:
+    speakeasy-default-list-rfp-past-events:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+      responses:
+        "200":
+          application/json: {"data": [{"venueName": "Delta Inn by Supreme Hotels", "city": "New Delhi", "stateProvince": "US-AL", "date": "First week of January 2024", "attendeeCount": 500, "guestRoomsPickedUp": 500, "guestRoomsBlocked": 500, "foodBeverageSpend": "3,000 dollars", "notes": "This was the 25th event hosted by Alpha Planners.", "id": "f56a51a4-84b0-46c9-a612-716dc95a1c96"}]}
+        "401":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  listRfpRecipientsHistory:
+    speakeasy-default-list-rfp-recipients-history:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac')"
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"supplier": {"id": "d024cc04-adf1-443c-854a-97ab9f5a14b2"}, "recipientIdentifier": "jwest@example.com", "active": true, "addedByNso": false, "targetType": "PUBLIC_NSO", "sendDateTime": "2024-08-20T00:00:01Z", "message": {"id": "a1c776ab-51ee-44a7-8720-b3dfc44d689b"}}]}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
+  getRfpSuppliers:
+    speakeasy-default-get-rfp-suppliers:
+      parameters:
+        path:
+          rfpId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"
+        query:
+          limit: 100
+          token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          filter: "supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac')"
+          expand: ["leadSource", "leadSource.section"]
+      responses:
+        "200":
+          application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
+        "400":
+          application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
 examplesVersion: 1.0.2
 generatedTests:
   getAccountUserGroups: "2025-12-09T16:04:38-06:00"
@@ -31255,3 +32089,17 @@ generatedTests:
   listMembershipItems: "2026-01-16T11:34:06-06:00"
   updateAttendeeSubscriptionStatus: "2026-02-27T14:11:08-04:00"
   getEventPlanningDocuments: "2026-03-13T12:34:21-04:00"
+  getAccountVendors: "2026-04-27T13:27:07-03:00"
+  getRfpLeadSource: "2026-04-27T13:27:07-03:00"
+  getRfpLeadSourceSection: "2026-04-27T13:27:07-03:00"
+  getRFP: "2026-04-27T13:27:07-03:00"
+  listRfpAgendaItems: "2026-04-27T13:27:07-03:00"
+  listRfpAgendaItemSchedules: "2026-04-27T13:27:07-03:00"
+  listRfpAttachments: "2026-04-27T13:27:07-03:00"
+  listRfpCustomFields: "2026-04-27T13:27:07-03:00"
+  getRfpGuestRooms: "2026-04-27T13:27:07-03:00"
+  listRfpInternalDocuments: "2026-04-27T13:27:07-03:00"
+  listRfpQuestions: "2026-04-27T13:27:07-03:00"
+  listRfpPastEvents: "2026-04-27T13:27:07-03:00"
+  listRfpRecipientsHistory: "2026-04-27T13:27:07-03:00"
+  getRfpSuppliers: "2026-04-27T13:27:07-03:00"

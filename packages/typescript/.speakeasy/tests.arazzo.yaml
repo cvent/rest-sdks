@@ -10266,3 +10266,333 @@ workflows:
             type: simple
     x-speakeasy-test-group: Events
     x-speakeasy-test-rebuild: true
+  - workflowId: getAccountVendors
+    steps:
+      - stepId: test
+        operationId: getAccountVendors
+        parameters:
+          - name: after
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: before
+            in: query
+            value: "2017-01-02T02:00:00Z"
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
+            type: simple
+    x-speakeasy-test-group: Budget
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpLeadSource
+    steps:
+      - stepId: test
+        operationId: getRfpLeadSource
+        parameters:
+          - name: leadSourceId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","name":"Cvent Supplier Network"}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpLeadSourceSection
+    steps:
+      - stepId: test
+        operationId: getRfpLeadSourceSection
+        parameters:
+          - name: leadSourceId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: leadSourceSectionId
+            in: path
+            value: 779934d2-f6eb-4815-bcfa-a2dd8655c164
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","name":"Cvent Supplier Network"}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRFP
+    steps:
+      - stepId: test
+        operationId: getRFP
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: expand
+            in: query
+            value:
+              - leadSource
+              - leadSource.section
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","needsMeetingSpace":true,"needsGuestRooms":true,"description":"Planning to host company's annual event in an outdoor location.","dateRequirements":{"mode":"DATE_PATTERN","alternateDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}],"pattern":{"note":"Flexible dates on weekends.","endDate":"2016-10-15","startDate":"2016-10-13","durationDays":3,"startDays":[],"generatedDates":[{"preferred":true,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","endDate":"2016-10-13","startDate":"2016-10-15","note":"Flexible dates"}]},"availabilityRangeRequired":false},"rfpEvent":{"event":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"friday event","contractSignatureLocation":"Atlanta","destinationsUnderConsideration":"New York","externalMeetingRequest":true,"audioVisualNeeds":"Need a projector in each meeting room.","peakMeetingRooms":14,"attendeesPerDay":500,"referenceNumber":"XVYMP8970S","meetingRequestId":"50dc08af-24a9-4d01-84be-3d43133dc945","virtualAttendeesPerDay":2000,"budget":10000,"roomRateBudget":200,"foodBeverageBudget":1000},"agendaStartDate":"2025-10-13","contact":{"firstName":"James","lastName":"West","email":"jwest@example.com","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"commissionRate":10.75,"phone":"555-555-5555","organizationName":"Five Star Planners Inc.","preferredContactMethods":["CVENT"]},"rfpEventOrganization":{"organization":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"name":"Cvent Inc.","type":"OTHER","address":{"countryCode":"US","city":"Austin","regionCode":"US-AL"},"eventsPerYear":450},"decisionFactors":"Price, location, and quality of service.","responseDueDate":"2016-10-13","decisionDate":"2016-10-13","billingDetails":{"additionalInformation":"Guest rooms will be a mix of IPO and RM&TX to master. Will submit rooming list with billing specified. Credit card will be provided as guarantee.","concessionsContractualInfo":"Request use of LOI or Express Agreement.","acceptingRebatesAndIncentives":true,"rebateValue":10},"internalNote":"Don't award this RFP to the same venue as last year.","currencyCode":"USD","requiredCostItems":["BREAK_AM","BREAK_PM"],"hiddenCostItems":["BREAK_DRINKS_ONLY","BREAK_SNACKS_AND_DRINKS"],"cvbForwardLimit":5,"notificationRecipients":[{"order":1,"type":"EMAIL","value":"johnDoe@example.com"}, {"order":2,"type":"ACCOUNT_USER","value":"50dc08af-24a9-4d01-84be-3d43133dc945"}, {"order":3,"type":"ACCOUNT_USER_GROUP","value":"70de07af-24a9-4d01-84be-3d43133dc932"}],"leadSource":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945","section":{"id":"40dc08af-24a9-4d01-84be-3d43133dc945"}},"sourceId":"123456","weddingDetails":{"firstPartner":{"name":"John Doe"},"secondPartner":{"name":"John Doe"}},"needsCatering":false,"packagePricingPreference":"OPTIONAL","feeTransparencyEnabled":false,"id":"50dc08af-24a9-4d01-84be-3d43133dc945","code":"JBNJN7BGJ5J","approvedBy":"approver@example.com","approvedDateTime":"2021-01-13T14:06:20.080Z","approved":true,"cancellationDetails":{"dateTime":"2021-01-13T14:06:20.080Z","comments":"I am cancelling my event, postponing to Q4."},"lastSentDateTime":"2021-01-13T14:06:20.080Z","originalSentDateTime":"2021-01-13T14:06:20.080Z","sentVenueCount":5,"archived":false,"archivalDate":"2021-01-13T14:06:20.080Z","awardedExternally":false,"finishedAwarding":false,"aiRfpGenerationSource":"MCP-Visual Studio Code/1.107.1"}
+            type: simple
+    x-speakeasy-test-group: RFP Management
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpAgendaItems
+    steps:
+      - stepId: test
+        operationId: listRfpAgendaItems
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: id in ('209a11d-5bf6-47d2-b81f-89360d7229b6')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","name":"Agenda Item 1","note":"This is a sample comment for this agenda item.","startTime":"10:00:00","endTime":"10:30:00","roomSize":1000,"attendeeCount":10000,"roomInfoRequired":false,"twentyFourHourHold":true,"locatedAtPrimaryEventVenue":false,"number":5,"schedules":[{"dayNumber":1,"date":"2021-07-03"}],"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","agendaBuilderAttachment":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"}}]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpAgendaItemSchedules
+    steps:
+      - stepId: test
+        operationId: listRfpAgendaItemSchedules
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"dayNumber":1,"date":"2021-07-03","id":"50dc08af-24a9-4d01-84be-3d43133dc945"}]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpAttachments
+    steps:
+      - stepId: test
+        operationId: listRfpAttachments
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: supplierSpecific eq 'false' or supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac','f56a51a4-84b0-46c9-a612-716dc95a1c96') AND sendInEmail eq 'false'
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpCustomFields
+    steps:
+      - stepId: test
+        operationId: listRfpCustomFields
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: expand
+            in: query
+            value:
+              - customField
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"customField":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"answers":["Choice 1"]}]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpGuestRooms
+    steps:
+      - stepId: test
+        operationId: getRfpGuestRooms
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"totalRooms":24,"peakRooms":24,"occupancies":[{"occupancy":"SINGLE","type":"DOUBLE"}],"checkInDate":"2025-10-13","roomBlocks":[{"id":"1f6193da-e12b-4638-b1e2-13dd60d0adeb","date":"2025-10-13","dayNumber":3,"totalRooms":24,"details":[{"quantity":24,"type":"DOUBLE"}]}],"additionalInformation":"2 Executive suites are mandatory."}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpInternalDocuments
+    steps:
+      - stepId: test
+        operationId: listRfpInternalDocuments
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: id in ('209a11d-5bf6-47d2-b81f-89360d7229b6')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"id":"f56a51a4-84b0-46c9-a612-716dc95a1c96","created":"2021-01-13T14:06:20.080Z","name":"BudgetCostSavings","uniqueName":"183f9efaa4c14070985782ee31abbf3c.jpg","size":777835,"url":"https://custom.cvent.com/0B7DEF22676A4434982BDAD2D6EC591F/files/supplier/0713cef78d4e4d818899d4522022d5ad/73ab2e3054fd4321a5e0f846a7adb0d7.jpg","mimeType":"image/jpeg"}]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpQuestions
+    steps:
+      - stepId: test
+        operationId: listRfpQuestions
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"created":"2017-01-02T02:00:00Z","createdBy":"hporter","lastModified":"2019-02-12T03:00:00Z","lastModifiedBy":"hporter","text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","htmlText":"Question Html","code":"4l6x","type":"SingleChoice","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"categories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","required":true}],"subCategories":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"comments":"Comments Text","required":true,"fields":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","choices":[{"text":"Are you spending any significant time offsite and need transportation?","shortText":"Needs offsite transportation?","label":"Choice A"}],"notApplicableAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"otherAnswer":{"text":"Dietary Restriction - Other","shortText":"Dietary Preference - Other Allergies"},"required":true}],"maxScore":20,"totalSum":45,"minSelection":1,"maxSelection":3,"minDate":"2020-01-01","maxDate":"2020-12-31","showDateSelector":true,"showCurrentDate":true,"dateAnswerFormat":"DateTime","unitLabel":"miles","minLength":5,"maxLength":100,"customAnswerFormat":{"id":104},"supplierTypes":["CVB","HOTEL"],"order":1,"standardQuestion":{"id":"50dc08af-24a9-4d01-84be-3d43133dc945"},"aiQuestionGenerationSource":"MCP-Visual Studio Code/1.107.1"}]}
+            type: simple
+    x-speakeasy-test-group: RFP Requirements
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpPastEvents
+    steps:
+      - stepId: test
+        operationId: listRfpPastEvents
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"data":[{"venueName":"Delta Inn by Supreme Hotels","city":"New Delhi","stateProvince":"US-AL","date":"First week of January 2024","attendeeCount":500,"guestRoomsPickedUp":500,"guestRoomsBlocked":500,"foodBeverageSpend":"3,000 dollars","notes":"This was the 25th event hosted by Alpha Planners.","id":"f56a51a4-84b0-46c9-a612-716dc95a1c96"}]}
+            type: simple
+    x-speakeasy-test-group: RFP Additional Details
+    x-speakeasy-test-rebuild: true
+  - workflowId: listRfpRecipientsHistory
+    steps:
+      - stepId: test
+        operationId: listRfpRecipientsHistory
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac')
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[{"supplier":{"id":"d024cc04-adf1-443c-854a-97ab9f5a14b2"},"recipientIdentifier":"jwest@example.com","active":true,"addedByNso":false,"targetType":"PUBLIC_NSO","sendDateTime":"2024-08-20T00:00:01Z","message":{"id":"a1c776ab-51ee-44a7-8720-b3dfc44d689b"}}]}
+            type: simple
+    x-speakeasy-test-group: RFP Suppliers
+    x-speakeasy-test-rebuild: true
+  - workflowId: getRfpSuppliers
+    steps:
+      - stepId: test
+        operationId: getRfpSuppliers
+        parameters:
+          - name: rfpId
+            in: path
+            value: 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3
+          - name: limit
+            in: query
+            value: 100
+          - name: token
+            in: query
+            value: 0e28af57-511f-47ab-ae46-46cd1ca51a1a
+          - name: filter
+            in: query
+            value: supplier.id in ('37f2de41-6f50-484a-a55d-3cf0ede2ebac')
+          - name: expand
+            in: query
+            value:
+              - leadSource
+              - leadSource.section
+        successCriteria:
+          - condition: $statusCode == 200
+          - condition: $response.header.Content-Type == application/json
+          - context: $response.body
+            condition: |
+              {"paging":{"previousToken":"1a2b3c4d5e6f7g8h9i10j11k","nextToken":"1a2b3c4d5e6f7g8h9i10j11k","currentToken":"1a2b3c4d5e6f7g8h9i10j11k","limit":100,"totalCount":2,"_links":{"next":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"self":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"},"prev":{"href":"?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}},"data":[]}
+            type: simple
+    x-speakeasy-test-group: RFP Suppliers
+    x-speakeasy-test-rebuild: true

@@ -40,19 +40,19 @@ actions:
     update: "#/components/schemas/error-response/allOf/0"
   - target: $["components"]["schemas"]["baseErrorResponse"]
     remove: true
-  - target: $["components"]["responses"]["BadRequest33"]["content"]["application/json"]["schema"]["$ref"]
+  - target: $["components"]["responses"]["BadRequest34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
   - target: $["components"]["responses"]["DataLimitExceeded"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
-  - target: $["components"]["responses"]["Forbidden33"]["content"]["application/json"]["schema"]["$ref"]
+  - target: $["components"]["responses"]["Forbidden34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
   - target: $["components"]["responses"]["JobLimitExceeded"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
-  - target: $["components"]["responses"]["NotFound33"]["content"]["application/json"]["schema"]["$ref"]
+  - target: $["components"]["responses"]["NotFound34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
-  - target: $["components"]["responses"]["TooManyRequests33"]["content"]["application/json"]["schema"]["$ref"]
+  - target: $["components"]["responses"]["TooManyRequests34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
-  - target: $["components"]["responses"]["Unauthorized33"]["content"]["application/json"]["schema"]["$ref"]
+  - target: $["components"]["responses"]["Unauthorized34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
   - target: $["components"]["schemas"]["ErrorResponse"]
     remove: true

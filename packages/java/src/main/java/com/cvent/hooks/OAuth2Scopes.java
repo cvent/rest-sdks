@@ -132,6 +132,11 @@ public final class OAuth2Scopes {
         BudgetBudgetTotalsRead("budget/budget-totals:read"),
 
         /**
+         * Allows reading of account-level budget vendors.
+         */
+        BudgetBudgetVendorsRead("budget/budget-vendors:read"),
+
+        /**
          * Allows the reading of cards
          */
         BudgetCardsRead("budget/cards:read"),
@@ -822,6 +827,61 @@ public final class OAuth2Scopes {
         RemotePrintingBadgePrinterPoolsRead("remote-printing/badge-printer-pools:read"),
 
         /**
+         * Allows the reading of RFP agenda items.
+         */
+        RfpRfpAgendaItemsRead("rfp/rfp-agenda-items:read"),
+
+        /**
+         * Allows the reading of RFP attachments.
+         */
+        RfpRfpAttachmentsRead("rfp/rfp-attachments:read"),
+
+        /**
+         * Allows the reading of RFP custom fields.
+         */
+        RfpRfpCustomFieldsRead("rfp/rfp-custom-fields:read"),
+
+        /**
+         * Allows the reading of RFP guest rooms.
+         */
+        RfpRfpGuestRoomsRead("rfp/rfp-guest-rooms:read"),
+
+        /**
+         * Allows the reading of RFP internal documents.
+         */
+        RfpRfpInternalDocumentsRead("rfp/rfp-internal-documents:read"),
+
+        /**
+         * Allows the reading of RFP lead sources.
+         */
+        RfpRfpLeadSourcesRead("rfp/rfp-lead-sources:read"),
+
+        /**
+         * Allows the reading of past events similar to rfp event.
+         */
+        RfpRfpPastEventsRead("rfp/rfp-past-events:read"),
+
+        /**
+         * Allows the reading of RFP questions.
+         */
+        RfpRfpQuestionsRead("rfp/rfp-questions:read"),
+
+        /**
+         * Allows the reading of RFP recipients history.
+         */
+        RfpRfpRecipientsHistoryRead("rfp/rfp-recipients-history:read"),
+
+        /**
+         * Allows the reading of RFP suppliers.
+         */
+        RfpRfpSuppliersRead("rfp/rfp-suppliers:read"),
+
+        /**
+         * Allows the reading of basic details of RFP.
+         */
+        RfpRfpsRead("rfp/rfps:read"),
+
+        /**
          * Allows to read attendee seat assignment information.
          */
         SeatingAssignmentsRead("seating/assignments:read"),
@@ -1067,6 +1127,11 @@ public final class OAuth2Scopes {
          * Allows the reading of all event budget totals
          */
         BudgetBudgetTotalsRead("budget/budget-totals:read"),
+
+        /**
+         * Allows reading of account-level budget vendors.
+         */
+        BudgetBudgetVendorsRead("budget/budget-vendors:read"),
 
         /**
          * Allows the reading of cards
@@ -1897,6 +1962,61 @@ public final class OAuth2Scopes {
          * Allows reading pools.
          */
         RemotePrintingBadgePrinterPoolsRead("remote-printing/badge-printer-pools:read"),
+
+        /**
+         * Allows the reading of RFP agenda items.
+         */
+        RfpRfpAgendaItemsRead("rfp/rfp-agenda-items:read"),
+
+        /**
+         * Allows the reading of RFP attachments.
+         */
+        RfpRfpAttachmentsRead("rfp/rfp-attachments:read"),
+
+        /**
+         * Allows the reading of RFP custom fields.
+         */
+        RfpRfpCustomFieldsRead("rfp/rfp-custom-fields:read"),
+
+        /**
+         * Allows the reading of RFP guest rooms.
+         */
+        RfpRfpGuestRoomsRead("rfp/rfp-guest-rooms:read"),
+
+        /**
+         * Allows the reading of RFP internal documents.
+         */
+        RfpRfpInternalDocumentsRead("rfp/rfp-internal-documents:read"),
+
+        /**
+         * Allows the reading of RFP lead sources.
+         */
+        RfpRfpLeadSourcesRead("rfp/rfp-lead-sources:read"),
+
+        /**
+         * Allows the reading of past events similar to rfp event.
+         */
+        RfpRfpPastEventsRead("rfp/rfp-past-events:read"),
+
+        /**
+         * Allows the reading of RFP questions.
+         */
+        RfpRfpQuestionsRead("rfp/rfp-questions:read"),
+
+        /**
+         * Allows the reading of RFP recipients history.
+         */
+        RfpRfpRecipientsHistoryRead("rfp/rfp-recipients-history:read"),
+
+        /**
+         * Allows the reading of RFP suppliers.
+         */
+        RfpRfpSuppliersRead("rfp/rfp-suppliers:read"),
+
+        /**
+         * Allows the reading of basic details of RFP.
+         */
+        RfpRfpsRead("rfp/rfps:read"),
 
         /**
          * Allows to read attendee seat assignment information.

@@ -41,7 +41,7 @@
 * [DeleteExhibitorLogo](#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [GetLeadQualificationQuestions](#getleadqualificationquestions) - List Qualification Questions
 * [PostRegistrationPack](#postregistrationpack) - Create Registration Pack
-* [GetExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Packs
+* [GetExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Pack
 * [GetRegistrationPack](#getregistrationpack) - Get Registration Pack
 * [UpdateRegistrationPack](#updateregistrationpack) - Update Registration Pack
 * [DeleteRegistrationPack](#deleteregistrationpack) - Delete Registration Pack
@@ -1451,7 +1451,9 @@ var res = await sdk.Exhibitor.PostRegistrationPackAsync(req);
 
 ## GetExhibitorRegistrationPacks
 
-Retrieves registration packs associated with an exhibitor.
+Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event
+that consolidates capacities across all registration types.
+
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

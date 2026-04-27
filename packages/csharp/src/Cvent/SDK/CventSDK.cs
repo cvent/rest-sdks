@@ -327,6 +327,26 @@ namespace Cvent.SDK
         public IProposalDraft ProposalDraft { get; }
 
         /// <summary>
+        /// RFP (Request for Proposal) management APIs for core RFP operations including CRUD operations for base RFPs.
+        /// </summary>
+        public IRFPManagement RFPManagement { get; }
+
+        /// <summary>
+        /// RFP requirements APIs for managing RFP-specific requirements including guest rooms, meeting rooms, custom questions, custom fields, and attachments (CRUD operations).
+        /// </summary>
+        public IRFPRequirements RFPRequirements { get; }
+
+        /// <summary>
+        /// RFP additional details APIs for managing past event references and other miscellaneous RFP operations.
+        /// </summary>
+        public IRFPAdditionalDetails RFPAdditionalDetails { get; }
+
+        /// <summary>
+        /// Suppliers are the venues and service providers that receive and respond to RFPs. Use these APIs to manage supplier associations, view recipient history, and create award details.
+        /// </summary>
+        public IRFPSuppliers RFPSuppliers { get; }
+
+        /// <summary>
         /// The <a href="https://www.simplecloud.info/">SCIM</a> standard allows for easier cross-domain identity management. This API allows you to manage your account users and SCIM groups (representing Cvent user roles).
         /// </summary>
         public IUserSCIM UserSCIM { get; }
@@ -544,6 +564,22 @@ namespace Cvent.SDK
         /// </summary>
         public IProposalDraft ProposalDraft { get; private set; }
         /// <summary>
+        /// The RFPManagement sub-SDK.
+        /// </summary>
+        public IRFPManagement RFPManagement { get; private set; }
+        /// <summary>
+        /// The RFPRequirements sub-SDK.
+        /// </summary>
+        public IRFPRequirements RFPRequirements { get; private set; }
+        /// <summary>
+        /// The RFPAdditionalDetails sub-SDK.
+        /// </summary>
+        public IRFPAdditionalDetails RFPAdditionalDetails { get; private set; }
+        /// <summary>
+        /// The RFPSuppliers sub-SDK.
+        /// </summary>
+        public IRFPSuppliers RFPSuppliers { get; private set; }
+        /// <summary>
         /// The UserSCIM sub-SDK.
         /// </summary>
         public IUserSCIM UserSCIM { get; private set; }
@@ -664,6 +700,14 @@ namespace Cvent.SDK
             Speakers = new Speakers(SDKConfiguration);
 
             ProposalDraft = new ProposalDraft(SDKConfiguration);
+
+            RFPManagement = new RFPManagement(SDKConfiguration);
+
+            RFPRequirements = new RFPRequirements(SDKConfiguration);
+
+            RFPAdditionalDetails = new RFPAdditionalDetails(SDKConfiguration);
+
+            RFPSuppliers = new RFPSuppliers(SDKConfiguration);
 
             UserSCIM = new UserSCIM(SDKConfiguration);
 
@@ -817,6 +861,14 @@ namespace Cvent.SDK
             Speakers = new Speakers(SDKConfiguration);
 
             ProposalDraft = new ProposalDraft(SDKConfiguration);
+
+            RFPManagement = new RFPManagement(SDKConfiguration);
+
+            RFPRequirements = new RFPRequirements(SDKConfiguration);
+
+            RFPAdditionalDetails = new RFPAdditionalDetails(SDKConfiguration);
+
+            RFPSuppliers = new RFPSuppliers(SDKConfiguration);
 
             UserSCIM = new UserSCIM(SDKConfiguration);
 

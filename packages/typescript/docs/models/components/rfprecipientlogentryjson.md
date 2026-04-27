@@ -1,0 +1,35 @@
+# RfpRecipientLogEntryJson
+
+Contains the log entry when the recipient was copied on an RFP.
+
+## Example Usage
+
+```typescript
+import { RfpRecipientLogEntryJson } from "@cvent/sdk/models/components";
+
+let value: RfpRecipientLogEntryJson = {
+  supplier: {
+    id: "d024cc04-adf1-443c-854a-97ab9f5a14b2",
+  },
+  recipientIdentifier: "jwest@example.com",
+  active: true,
+  addedByNso: false,
+  targetType: "PUBLIC_NSO",
+  sendDateTime: new Date("2024-08-20T00:00:01Z"),
+  message: {
+    id: "a1c776ab-51ee-44a7-8720-b3dfc44d689b",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                     | Type                                                                                                                                      | Required                                                                                                                                  | Description                                                                                                                               | Example                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `supplier`                                                                                                                                | [components.RfpRecipientLogEntryJsonSupplier](../../models/components/rfprecipientlogentryjsonsupplier.md)                                | :heavy_minus_sign:                                                                                                                        | The supplier associated with the recipient.                                                                                               |                                                                                                                                           |
+| `recipientIdentifier`                                                                                                                     | *string*                                                                                                                                  | :heavy_minus_sign:                                                                                                                        | This can either be the email address or the code of the recipient. This will not be present if the target type is MEETING_BROKER          | jwest@example.com                                                                                                                         |
+| `active`                                                                                                                                  | *boolean*                                                                                                                                 | :heavy_minus_sign:                                                                                                                        | True indicates that the recipient is active for receiving emails.                                                                         | true                                                                                                                                      |
+| `addedByNso`                                                                                                                              | *boolean*                                                                                                                                 | :heavy_minus_sign:                                                                                                                        | True indicates that the recipient was added by the National Sales Office.                                                                 | false                                                                                                                                     |
+| `targetType`                                                                                                                              | [components.TargetTypeJson](../../models/components/targettypejson.md)                                                                    | :heavy_minus_sign:                                                                                                                        | The target type can either refer to the type of recipient or the type of action that made the recipient a participant in the RFP process. | PUBLIC_NSO                                                                                                                                |
+| `sendDateTime`                                                                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                             | :heavy_minus_sign:                                                                                                                        | The ISO 8601 send date and time in UTC.                                                                                                   | 2024-08-20T00:00:01Z                                                                                                                      |
+| `message`                                                                                                                                 | [components.RfpRecipientLogEntryJsonMessage](../../models/components/rfprecipientlogentryjsonmessage.md)                                  | :heavy_minus_sign:                                                                                                                        | Message for the recipient.                                                                                                                |                                                                                                                                           |

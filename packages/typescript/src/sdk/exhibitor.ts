@@ -510,10 +510,11 @@ export class Exhibitor extends ClientSDK {
   }
 
   /**
-   * List Registration Packs
+   * List Registration Pack
    *
    * @remarks
-   * Retrieves registration packs associated with an exhibitor.
+   * Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event
+   * that consolidates capacities across all registration types.
    *
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */

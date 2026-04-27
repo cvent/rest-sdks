@@ -1,0 +1,9 @@
+# GetRfpLeadSourceSectionRequest
+
+
+## Fields
+
+| Field                                             | Type                                              | Required                                          | Description                                       | Example                                           |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| `LeadSourceId`                                    | *string*                                          | :heavy_check_mark:                                | The unique identifier of the lead source.         | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3              |
+| `LeadSourceSectionId`                             | *string*                                          | :heavy_check_mark:                                | The unique identifier of the lead source section. | 779934d2-f6eb-4815-bcfa-a2dd8655c164              |

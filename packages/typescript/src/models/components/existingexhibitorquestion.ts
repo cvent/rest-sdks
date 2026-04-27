@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson1,
-  AdditionalChoiceJson1$inboundSchema,
-} from "./additionalchoicejson1.js";
+  AdditionalChoiceJson11,
+  AdditionalChoiceJson11$inboundSchema,
+} from "./additionalchoicejson11.js";
 import {
   BaseChoiceJson,
   BaseChoiceJson$inboundSchema,
@@ -75,11 +75,11 @@ export type ExistingExhibitorQuestion = {
   /**
    * Contains text of additional choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson1 | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson11 | undefined;
   /**
    * Contains text of additional choice
    */
-  otherAnswer?: AdditionalChoiceJson1 | undefined;
+  otherAnswer?: AdditionalChoiceJson11 | undefined;
   /**
    * Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
    */
@@ -121,8 +121,8 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
   type: ExhibitorQuestionTypeJson$inboundSchema,
   required: z.boolean(),
   choices: z.array(BaseChoiceJson$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoiceJson11$inboundSchema.optional(),
+  otherAnswer: AdditionalChoiceJson11$inboundSchema.optional(),
   answerFormat: ExhibitorAnswerFormatJson$inboundSchema.optional(),
   answerLimits: ExhibitorAnswerLimitsJson$inboundSchema.optional(),
   defaultToCurrentDate: z.boolean().optional(),

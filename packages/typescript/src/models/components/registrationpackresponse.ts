@@ -30,7 +30,7 @@ export type RegistrationPackResponse = {
    */
   exhibitor: ExhibitorJson;
   /**
-   * Array of capacities
+   * Capacities allocated per registration type for this exhibitor's registration pack.
    */
   capacities: Array<ExistingCapacityJson>;
 };

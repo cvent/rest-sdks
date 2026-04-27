@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// This entity is used to represent registration packs list response.
+    /// The registration pack associated with an exhibitor. Each exhibitor has at most one registration pack per event.
     /// </summary>
     public class ExhibitorRegistrationPackListResponse
     {
         /// <summary>
-        /// List of registration packs for an exhibitor.
+        /// The registration pack for an exhibitor. Contains at most one item.
         /// </summary>
         [JsonProperty("data")]
         public List<ExistingRegistrationPackJson>? Data { get; set; }
