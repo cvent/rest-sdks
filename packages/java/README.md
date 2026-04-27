@@ -26,6 +26,7 @@ For more information about the API: [Cvent Developer Documentation](https://deve
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
+  * [Configuring Timeouts](#configuring-timeouts)
   * [Debugging](#debugging)
   * [License](#license)
   * [Jackson Configuration](#jackson-configuration)
@@ -43,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.2.1'
+implementation 'com.cvent:sdk:1.2.2'
 ```
 
 Maven:
@@ -51,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 </dependency>
 ```
 
@@ -1570,6 +1571,63 @@ public class Application {
 }
 ```
 <!-- End Custom HTTP Client [http-client] -->
+
+## Configuring Timeouts
+
+The SDK applies two timeouts to every request by default:
+
+| Timeout | Default | Description |
+|---|---|---|
+| **Connect** | 10 seconds | Maximum time to establish a TCP connection to the Cvent API |
+| **Call** | 30 seconds | Maximum time for the entire request/response cycle (connect + send + receive) |
+
+Both can be overridden globally by calling `SDKHooks.configure()` **before** constructing the SDK instance:
+
+```java
+import com.cvent.CventSDK;
+import com.cvent.hooks.SDKHooks;
+import com.cvent.hooks.config.HooksConfiguration;
+import com.cvent.hooks.config.TimeoutHookConfiguration;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import java.time.Duration;
+import java.util.List;
+
+public class Application {
+    public static void main(String[] args) {
+        // Override timeouts before building the SDK.
+        // Pass null for either value to keep its default.
+        SDKHooks.configure(new HooksConfiguration(
+            new TimeoutHookConfiguration(
+                Duration.ofSeconds(5),    // connect timeout (default: 10s)
+                Duration.ofSeconds(60)    // call timeout    (default: 30s)
+            )
+        ));
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                        .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                                .clientID("<id>")
+                                .clientSecret("<value>")
+                                .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                                .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                                .build())
+                        .build())
+                .build();
+    }
+}
+```
+
+For services with long-running operations (bulk imports, report generation, etc.), increase the call timeout accordingly:
+
+```java
+// Keep the default connect timeout, extend the call timeout to 5 minutes
+SDKHooks.configure(new HooksConfiguration(
+    new TimeoutHookConfiguration(null, Duration.ofMinutes(5))
+));
+```
+
+> **Note:** `SDKHooks.configure()` sets global JVM-wide state. If your application creates multiple SDK instances with different timeout requirements, call `configure()` again before each `build()` call with the appropriate values.
 
 <!-- Start Debugging [debug] -->
 ## Debugging

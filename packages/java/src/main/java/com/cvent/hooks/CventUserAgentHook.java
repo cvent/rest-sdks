@@ -2,10 +2,7 @@
 package com.cvent.hooks;
 
 import java.net.http.HttpRequest;
-import java.util.Optional;
-
 import com.cvent.SDKConfiguration;
-import com.cvent.utils.Constants;
 import com.cvent.utils.Helpers;
 import com.cvent.utils.Hook.BeforeRequest;
 import com.cvent.utils.Hook.BeforeRequestContext;
