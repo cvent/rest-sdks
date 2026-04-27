@@ -97,14 +97,14 @@ public class LeadQualificationQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson1 notApplicableAnswer;
+    private AdditionalChoiceJson11 notApplicableAnswer;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswers")
-    private AdditionalChoiceJson1 otherAnswers;
+    private AdditionalChoiceJson11 otherAnswers;
 
     /**
      * A boolean indicating whether the question is mandatory or not
@@ -132,8 +132,8 @@ public class LeadQualificationQuestionJson {
             @JsonProperty("type") @Nullable LeadQualificationQuestionJsonType type,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("choices") @Nullable List<ChoiceJson2> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson1 notApplicableAnswer,
-            @JsonProperty("otherAnswers") @Nullable AdditionalChoiceJson1 otherAnswers,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson11 notApplicableAnswer,
+            @JsonProperty("otherAnswers") @Nullable AdditionalChoiceJson11 otherAnswers,
             @JsonProperty("required") @Nullable Boolean required,
             @JsonProperty("text") @Nullable String text) {
         this.created = created;
@@ -229,14 +229,14 @@ public class LeadQualificationQuestionJson {
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson1> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson11> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson1> otherAnswers() {
+    public Optional<AdditionalChoiceJson11> otherAnswers() {
         return Optional.ofNullable(this.otherAnswers);
     }
 
@@ -341,7 +341,7 @@ public class LeadQualificationQuestionJson {
     /**
      * Contains text of additional choice
      */
-    public LeadQualificationQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+    public LeadQualificationQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -349,7 +349,7 @@ public class LeadQualificationQuestionJson {
     /**
      * Contains text of additional choice
      */
-    public LeadQualificationQuestionJson withOtherAnswers(@Nullable AdditionalChoiceJson1 otherAnswers) {
+    public LeadQualificationQuestionJson withOtherAnswers(@Nullable AdditionalChoiceJson11 otherAnswers) {
         this.otherAnswers = otherAnswers;
         return this;
     }
@@ -471,9 +471,9 @@ public class LeadQualificationQuestionJson {
 
         private List<ChoiceJson2> choices;
 
-        private AdditionalChoiceJson1 notApplicableAnswer;
+        private AdditionalChoiceJson11 notApplicableAnswer;
 
-        private AdditionalChoiceJson1 otherAnswers;
+        private AdditionalChoiceJson11 otherAnswers;
 
         private Boolean required;
 
@@ -566,7 +566,7 @@ public class LeadQualificationQuestionJson {
         /**
          * Contains text of additional choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -574,7 +574,7 @@ public class LeadQualificationQuestionJson {
         /**
          * Contains text of additional choice
          */
-        public Builder otherAnswers(@Nullable AdditionalChoiceJson1 otherAnswers) {
+        public Builder otherAnswers(@Nullable AdditionalChoiceJson11 otherAnswers) {
             this.otherAnswers = otherAnswers;
             return this;
         }

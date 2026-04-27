@@ -30,27 +30,24 @@ export type GetRespondentsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * Following are the comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * id (eq|ne)
-   *   * survey.id (eq|ne)
-   *   * event.id (eq|ne)
-   *   * responseCode (eq|ne)
-   *   * score (eq|ne|gt|ge|lt|le)
-   *   * chapters.score (eq|gt|ge|lt|le)
-   *   * chapters.evaluationResult (eq)
-   *   * chapters.status (eq)
+   * | Field                       | Operators                          |
+   * |-----------------------------|------------------------------------|
+   * | id                          | `eq`, `ne`                         |
+   * | survey.id                   | `eq`, `ne`                         |
+   * | event.id                    | `eq`, `ne`                         |
+   * | responseCode                | `eq`, `ne`                         |
+   * | score                       | `eq`, `ne`, `gt`, `ge`, `lt`, `le` |
+   * | chapters.score              | `eq`, `gt`, `ge`, `lt`, `le`       |
+   * | chapters.evaluationResult   | `eq`                               |
+   * | chapters.status             | `eq`                               |
    */
   filter?: string | undefined;
 };

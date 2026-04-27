@@ -247,6 +247,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 ### [Budget](docs/sdks/budget/README.md)
 
 * [GetAccountBudgetItems](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
+* [GetAccountVendors](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
 * [GetCards](docs/sdks/budget/README.md#getcards) - List Cards
 * [GetCardTransactions](docs/sdks/budget/README.md#getcardtransactions) - List Card Transactions
 * [CreateCardTransaction](docs/sdks/budget/README.md#createcardtransaction) - Create Card Transaction
@@ -461,7 +462,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [DeleteExhibitorLogo](docs/sdks/exhibitor/README.md#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [GetLeadQualificationQuestions](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 * [PostRegistrationPack](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
-* [GetExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
+* [GetExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
 * [GetRegistrationPack](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
 * [UpdateRegistrationPack](docs/sdks/exhibitor/README.md#updateregistrationpack) - Update Registration Pack
 * [DeleteRegistrationPack](docs/sdks/exhibitor/README.md#deleteregistrationpack) - Delete Registration Pack
@@ -556,6 +557,31 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 ### [ProposalDraft](docs/sdks/proposaldraft/README.md)
 
 * [CreateProposalDraft](docs/sdks/proposaldraft/README.md#createproposaldraft) - Beta - Create Proposal Draft
+
+### [RFPAdditionalDetails](docs/sdks/rfpadditionaldetails/README.md)
+
+* [ListRfpPastEvents](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+
+### [RFPManagement](docs/sdks/rfpmanagement/README.md)
+
+* [GetRfpLeadSource](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
+* [GetRfpLeadSourceSection](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
+* [GetRFP](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
+
+### [RFPRequirements](docs/sdks/rfprequirements/README.md)
+
+* [ListRfpAgendaItems](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
+* [ListRfpAgendaItemSchedules](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
+* [ListRfpAttachments](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
+* [ListRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+* [GetRfpGuestRooms](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+* [ListRfpInternalDocuments](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
+* [ListRfpQuestions](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+
+### [RFPSuppliers](docs/sdks/rfpsuppliers/README.md)
+
+* [ListRfpRecipientsHistory](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
+* [GetRfpSuppliers](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
 
 ### [Seating](docs/sdks/seating/README.md)
 
@@ -955,9 +981,9 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 427 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 427 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 427 methods.*
+  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 441 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 441 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 441 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

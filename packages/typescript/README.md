@@ -271,6 +271,7 @@ run();
 ### [Budget](docs/sdks/budget/README.md)
 
 * [getAccountBudgetItems](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
+* [getAccountVendors](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
 * [getCards](docs/sdks/budget/README.md#getcards) - List Cards
 * [getCardTransactions](docs/sdks/budget/README.md#getcardtransactions) - List Card Transactions
 * [createCardTransaction](docs/sdks/budget/README.md#createcardtransaction) - Create Card Transaction
@@ -485,7 +486,7 @@ run();
 * [deleteExhibitorLogo](docs/sdks/exhibitor/README.md#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [getLeadQualificationQuestions](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 * [postRegistrationPack](docs/sdks/exhibitor/README.md#postregistrationpack) - Create Registration Pack
-* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
+* [getExhibitorRegistrationPacks](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
 * [getRegistrationPack](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
 * [updateRegistrationPack](docs/sdks/exhibitor/README.md#updateregistrationpack) - Update Registration Pack
 * [deleteRegistrationPack](docs/sdks/exhibitor/README.md#deleteregistrationpack) - Delete Registration Pack
@@ -580,6 +581,31 @@ run();
 ### [ProposalDraft](docs/sdks/proposaldraft/README.md)
 
 * [createProposalDraft](docs/sdks/proposaldraft/README.md#createproposaldraft) - Beta - Create Proposal Draft
+
+### [RFPAdditionalDetails](docs/sdks/rfpadditionaldetails/README.md)
+
+* [listRfpPastEvents](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+
+### [RFPManagement](docs/sdks/rfpmanagement/README.md)
+
+* [getRfpLeadSource](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
+* [getRfpLeadSourceSection](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
+* [getRFP](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
+
+### [RFPRequirements](docs/sdks/rfprequirements/README.md)
+
+* [listRfpAgendaItems](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
+* [listRfpAgendaItemSchedules](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
+* [listRfpAttachments](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
+* [listRfpCustomFields](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+* [getRfpGuestRooms](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+* [listRfpInternalDocuments](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
+* [listRfpQuestions](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+
+### [RFPSuppliers](docs/sdks/rfpsuppliers/README.md)
+
+* [listRfpRecipientsHistory](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
+* [getRfpSuppliers](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
 
 ### [Seating](docs/sdks/seating/README.md)
 
@@ -845,6 +871,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`budgetDeleteCurrencyConversionRate`](docs/sdks/budget/README.md#deletecurrencyconversionrate) - Delete Conversion Rate
 - [`budgetDeletePayment`](docs/sdks/budget/README.md#deletepayment) - Delete Budget Payment
 - [`budgetGetAccountBudgetItems`](docs/sdks/budget/README.md#getaccountbudgetitems) - List Budget Items
+- [`budgetGetAccountVendors`](docs/sdks/budget/README.md#getaccountvendors) - List Account Vendors
 - [`budgetGetBudgetAllocations`](docs/sdks/budget/README.md#getbudgetallocations) - List Budget Allocations
 - [`budgetGetBudgetItems`](docs/sdks/budget/README.md#getbudgetitems) - List Event Budget Items
 - [`budgetGetCards`](docs/sdks/budget/README.md#getcards) - List Cards
@@ -1001,7 +1028,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`exhibitorGetExhibitorAnswers`](docs/sdks/exhibitor/README.md#getexhibitoranswers) - List Exhibitor Answers
 - [`exhibitorGetExhibitorCategories`](docs/sdks/exhibitor/README.md#getexhibitorcategories) - List Exhibitor Categories
 - [`exhibitorGetExhibitorQuestions`](docs/sdks/exhibitor/README.md#getexhibitorquestions) - List Exhibitor Questions
-- [`exhibitorGetExhibitorRegistrationPacks`](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Packs
+- [`exhibitorGetExhibitorRegistrationPacks`](docs/sdks/exhibitor/README.md#getexhibitorregistrationpacks) - List Registration Pack
 - [`exhibitorGetExhibitors`](docs/sdks/exhibitor/README.md#getexhibitors) - List Exhibitors
 - [`exhibitorGetLeadQualificationQuestions`](docs/sdks/exhibitor/README.md#getleadqualificationquestions) - List Qualification Questions
 - [`exhibitorGetRegistrationPack`](docs/sdks/exhibitor/README.md#getregistrationpack) - Get Registration Pack
@@ -1068,6 +1095,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`meetingRequestUpdateMeetingRequest`](docs/sdks/meetingrequest/README.md#updatemeetingrequest) - Update MR (Bulk)
 - [`processFormListProcessFormSubmission`](docs/sdks/processform/README.md#listprocessformsubmission) - List Process Form Submissions
 - [`proposalDraftCreateProposalDraft`](docs/sdks/proposaldraft/README.md#createproposaldraft) - Beta - Create Proposal Draft
+- [`rfpAdditionalDetailsListRFPPastEvents`](docs/sdks/rfpadditionaldetails/README.md#listrfppastevents) - List RFP Past Events
+- [`rfpManagementGetRFP`](docs/sdks/rfpmanagement/README.md#getrfp) - Get RFP
+- [`rfpManagementGetRFPLeadSource`](docs/sdks/rfpmanagement/README.md#getrfpleadsource) - Get RFP Lead Source
+- [`rfpManagementGetRFPLeadSourceSection`](docs/sdks/rfpmanagement/README.md#getrfpleadsourcesection) - Get RFP Lead Source Section
+- [`rfpRequirementsGetRFPGuestRooms`](docs/sdks/rfprequirements/README.md#getrfpguestrooms) - Get RFP Guest Rooms
+- [`rfpRequirementsListRFPAgendaItems`](docs/sdks/rfprequirements/README.md#listrfpagendaitems) - List RFP Agenda Items
+- [`rfpRequirementsListRFPAgendaItemSchedules`](docs/sdks/rfprequirements/README.md#listrfpagendaitemschedules) - List RFP Agenda Item Schedules
+- [`rfpRequirementsListRFPAttachments`](docs/sdks/rfprequirements/README.md#listrfpattachments) - List RFP Attachments
+- [`rfpRequirementsListRFPCustomFields`](docs/sdks/rfprequirements/README.md#listrfpcustomfields) - List RFP Custom Fields Answers
+- [`rfpRequirementsListRFPInternalDocuments`](docs/sdks/rfprequirements/README.md#listrfpinternaldocuments) - List RFP Internal Documents
+- [`rfpRequirementsListRFPQuestions`](docs/sdks/rfprequirements/README.md#listrfpquestions) - List RFP Questions
+- [`rfpSuppliersGetRFPSuppliers`](docs/sdks/rfpsuppliers/README.md#getrfpsuppliers) - List RFP Suppliers
+- [`rfpSuppliersListRFPRecipientsHistory`](docs/sdks/rfpsuppliers/README.md#listrfprecipientshistory) - List RFP Recipients History
 - [`seatingGetEventTableAssignments`](docs/sdks/seating/README.md#geteventtableassignments) - List All Seating Assignments
 - [`seatingGetSeat`](docs/sdks/seating/README.md#getseat) - Get Seat
 - [`seatingGetSeating`](docs/sdks/seating/README.md#getseating) - Get Seating
@@ -1464,9 +1504,9 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 427 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 427 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 427 methods.*
+* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 441 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 441 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 441 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

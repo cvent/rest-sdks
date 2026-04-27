@@ -151,11 +151,11 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.surveys.getEventSurveys({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and type eq 'Session Feedback' and sessions eq  '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or sessions eq '05ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -189,11 +189,11 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await surveysGetEventSurveys(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and type eq 'Session Feedback' and sessions eq  '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or sessions eq '05ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -251,11 +251,11 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.surveys.getEventSurveyQuestions({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -289,11 +289,11 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await surveysGetEventSurveyQuestions(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -827,12 +827,12 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.surveys.getEventSurveyResponses({
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -866,12 +866,12 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await surveysGetEventSurveyResponses(cventSDK, {
-    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1513,8 +1513,8 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.surveys.getStandardSurveyEmailTemplates({
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -1548,8 +1548,8 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await surveysGetStandardSurveyEmailTemplates(cventSDK, {
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -1607,10 +1607,10 @@ const cventSDK = new CventSDK({
 
 async function run() {
   const result = await cventSDK.surveys.getStandardSurveyQuestions({
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
 
   for await (const page of result) {
@@ -1644,10 +1644,10 @@ const cventSDK = new CventSDKCore({
 
 async function run() {
   const res = await surveysGetStandardSurveyQuestions(cventSDK, {
-    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     after: new Date("2017-01-02T02:00:00Z"),
     before: new Date("2017-01-02T02:00:00Z"),
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    surveyId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   });
   if (res.ok) {
     const { value: result } = res;

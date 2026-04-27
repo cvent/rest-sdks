@@ -17,11 +17,12 @@ import java.util.Optional;
 /**
  * ExhibitorRegistrationPackListResponse
  *
- * <p>This entity is used to represent registration packs list response.
+ * <p>The registration pack associated with an exhibitor. Each exhibitor has at most one registration pack
+ * per event.
  */
 public class ExhibitorRegistrationPackListResponse {
     /**
-     * List of registration packs for an exhibitor.
+     * The registration pack for an exhibitor. Contains at most one item.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
@@ -38,7 +39,7 @@ public class ExhibitorRegistrationPackListResponse {
     }
 
     /**
-     * List of registration packs for an exhibitor.
+     * The registration pack for an exhibitor. Contains at most one item.
      */
     public Optional<List<ExistingRegistrationPackJson>> data() {
         return Optional.ofNullable(this.data);
@@ -49,7 +50,7 @@ public class ExhibitorRegistrationPackListResponse {
     }
 
     /**
-     * List of registration packs for an exhibitor.
+     * The registration pack for an exhibitor. Contains at most one item.
      */
     public ExhibitorRegistrationPackListResponse withData(@Nullable List<ExistingRegistrationPackJson> data) {
         this.data = data;
@@ -88,7 +89,7 @@ public class ExhibitorRegistrationPackListResponse {
         }
 
         /**
-         * List of registration packs for an exhibitor.
+         * The registration pack for an exhibitor. Contains at most one item.
          */
         public Builder data(@Nullable List<ExistingRegistrationPackJson> data) {
             this.data = data;

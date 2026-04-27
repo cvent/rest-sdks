@@ -1,6 +1,6 @@
 # RegistrationPackRequest
 
-A registration pack containing event, exhibitor, and capacities information.
+A registration pack defining the registration type capacity allocations for an exhibitor at an event.
 
 ## Example Usage
 

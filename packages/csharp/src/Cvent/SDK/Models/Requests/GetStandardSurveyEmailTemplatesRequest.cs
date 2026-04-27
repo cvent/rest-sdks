@@ -14,12 +14,6 @@ namespace Cvent.SDK.Models.Requests
     public class GetStandardSurveyEmailTemplatesRequest
     {
         /// <summary>
-        /// Id of a survey or Id of a chapter in event survey.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
-        public string SurveyId { get; set; } = default!;
-
-        /// <summary>
         /// The maximum number of records to return per page.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=limit")]
@@ -31,5 +25,11 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
+
+        /// <summary>
+        /// Id of a survey or Id of a chapter in event survey.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
+        public string SurveyId { get; set; } = default!;
     }
 }

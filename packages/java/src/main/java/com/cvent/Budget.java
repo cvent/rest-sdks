@@ -38,6 +38,9 @@ import com.cvent.models.operations.DeletePaymentResponse;
 import com.cvent.models.operations.GetAccountBudgetItemsRequest;
 import com.cvent.models.operations.GetAccountBudgetItemsRequestBuilder;
 import com.cvent.models.operations.GetAccountBudgetItemsResponse;
+import com.cvent.models.operations.GetAccountVendorsRequest;
+import com.cvent.models.operations.GetAccountVendorsRequestBuilder;
+import com.cvent.models.operations.GetAccountVendorsResponse;
 import com.cvent.models.operations.GetBudgetAllocationsRequest;
 import com.cvent.models.operations.GetBudgetAllocationsRequestBuilder;
 import com.cvent.models.operations.GetBudgetAllocationsResponse;
@@ -85,6 +88,7 @@ import com.cvent.operations.DeleteCardTransaction;
 import com.cvent.operations.DeleteCurrencyConversionRate;
 import com.cvent.operations.DeletePayment;
 import com.cvent.operations.GetAccountBudgetItems;
+import com.cvent.operations.GetAccountVendors;
 import com.cvent.operations.GetBudgetAllocations;
 import com.cvent.operations.GetBudgetItems;
 import com.cvent.operations.GetCardTransactions;
@@ -176,6 +180,56 @@ public class Budget {
             @Nonnull GetAccountBudgetItemsRequest request, @Nullable Options options) {
         RequestOperation<GetAccountBudgetItemsRequest, GetAccountBudgetItemsResponse> operation =
                 new GetAccountBudgetItems.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The call builder
+     */
+    public GetAccountVendorsRequestBuilder getAccountVendors() {
+        return new GetAccountVendorsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountVendorsResponse getAccountVendors(@Nonnull GetAccountVendorsRequest request) {
+        return getAccountVendors(request, null);
+    }
+
+    /**
+     * List Account Vendors
+     *
+     * <p>Gets a paginated list of account-level budget vendors configured in Admin &gt; Budget &gt; Vendors
+     * for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public GetAccountVendorsResponse getAccountVendors(
+            @Nonnull GetAccountVendorsRequest request, @Nullable Options options) {
+        RequestOperation<GetAccountVendorsRequest, GetAccountVendorsResponse> operation =
+                new GetAccountVendors.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

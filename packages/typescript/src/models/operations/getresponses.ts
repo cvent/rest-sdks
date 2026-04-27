@@ -30,34 +30,33 @@ export type GetResponsesRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * Following are the comparison types that can be used in filter expressions:
+   * Supported fields and operators are listed below:
    *
-   *   * equal: eq
-   *   * not equal: ne
+   * | Field         | Operators   | Notes                                                                                                                                                                        |
+   * |---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   * | id            | `eq`, `ne`  |                                                                                                                                                                              |
+   * | survey.id     | `eq`        | Use only survey.id to get responses for all questions in the survey.                                                                                                         |
+   * | respondent.id | `eq`, `ne`  | Use only respondent.id to get responses for specific respondents.                                                                                                            |
+   * | event.id      | `eq`        |                                                                                                                                                                              |
+   * | session.id    | `eq`        |                                                                                                                                                                              |
+   * | question.id   | `eq`        | Use only question.id to get responses for specific questions, which may belong to one or more surveys. question.id can be combined with other fields by 'and' operator only. |
+   * | chapter.id    | `eq`        | Use only chapter.id to get responses for all questions in the chapter of a particular survey.                                                                                |
+   * | attempt       | `eq`        |                                                                                                                                                                              |
    *
-   * The following fields are filterable:
+   * The following logical operators are supported for combining filters:
+   * * `and`
+   * * `or`
    *
-   *   * id (eq|ne)
-   *   * survey.id (eq)
-   *   * respondent.id (eq|ne)
-   *   * event.id (eq)
-   *   * session.id (eq)
-   *   * question.id (eq)
-   *   * chapter.id (eq)
-   *   * attempt (eq)
-   *
-   * Usage:
-   * 1. Use only survey.id to get responses for all questions in the survey.
-   * 2. Use only question.id to get responses for specific questions, which may belong to one or more surveys.
-   * 3. Use only chapter.id to get responses for all questions in the chapter of a particular survey.
-   * 4. Use only respondent.id to get responses for specific respondents.
-   * 5. chapter.id and survey.id cannot be used in combination with any other fields.
-   * 6. Multiple chapter.id or survey.id must be separated by 'OR'. For example: filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'
-   * 7. question.id can be used in combination with any other field by 'AND' operator only.
+   * **Usage:**
+   * 1. chapter.id and survey.id cannot be used in combination with any other fields.
+   * 2. Multiple chapter.id or survey.id values must be separated by `or` (not `and`). Example: `filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'`
+   * 3. question.id can be combined with other fields using `and` operator only.
    */
   filter?: string | undefined;
 };

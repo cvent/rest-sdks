@@ -43,18 +43,20 @@ public class GetSurveyRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field | Operators   |
+     * |-------|-------------|
+     * | id    | `eq`, `ne`  |
+     * | type  | `eq`, `ne`  |
      *
-     * <p>* id (eq|ne)
-     * * type (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -108,18 +110,20 @@ public class GetSurveyRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field | Operators   |
+     * |-------|-------------|
+     * | id    | `eq`, `ne`  |
+     * | type  | `eq`, `ne`  |
      *
-     * <p>* id (eq|ne)
-     * * type (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -164,18 +168,20 @@ public class GetSurveyRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
-     * Following are the comparison types that can be used in filter expressions:
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>* equal: eq
-     * * not equal: ne
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
+     * <p>| Field | Operators   |
+     * |-------|-------------|
+     * | id    | `eq`, `ne`  |
+     * | type  | `eq`, `ne`  |
      *
-     * <p>* id (eq|ne)
-     * * type (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public GetSurveyRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -271,18 +277,20 @@ public class GetSurveyRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * In case user wants to filter on multiple survey IDs, they can use 'or' operator.
-         * Following are the comparison types that can be used in filter expressions:
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>* equal: eq
-         * * not equal: ne
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
+         * <p>| Field | Operators   |
+         * |-------|-------------|
+         * | id    | `eq`, `ne`  |
+         * | type  | `eq`, `ne`  |
          *
-         * <p>* id (eq|ne)
-         * * type (eq|ne)
+         * <p>The following logical operators are supported for combining filters:
+         * * `and`
+         * * `or`
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

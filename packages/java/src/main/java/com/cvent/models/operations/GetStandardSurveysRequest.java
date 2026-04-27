@@ -43,24 +43,22 @@ public class GetStandardSurveysRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>| Field   | Operators                          |
+     * |---------|------------------------------------|
+     * | status  | `eq`, `ne`                         |
+     * | created | `eq`, `ne`, `gt`, `ge`, `lt`, `le` |
+     * | title   | `eq`, `ne`                         |
+     * | code    | `eq`, `ne`                         |
      *
-     * <p>The following fields are filterable:
-     *
-     * <p>* status (eq|ne)
-     * * created (eq|ne|gt|ge|lt|le)
-     * * title (eq|ne)
-     * * code (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -114,24 +112,22 @@ public class GetStandardSurveysRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>| Field   | Operators                          |
+     * |---------|------------------------------------|
+     * | status  | `eq`, `ne`                         |
+     * | created | `eq`, `ne`, `gt`, `ge`, `lt`, `le` |
+     * | title   | `eq`, `ne`                         |
+     * | code    | `eq`, `ne`                         |
      *
-     * <p>The following fields are filterable:
-     *
-     * <p>* status (eq|ne)
-     * * created (eq|ne|gt|ge|lt|le)
-     * * title (eq|ne)
-     * * code (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -176,24 +172,22 @@ public class GetStandardSurveysRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>| Field   | Operators                          |
+     * |---------|------------------------------------|
+     * | status  | `eq`, `ne`                         |
+     * | created | `eq`, `ne`, `gt`, `ge`, `lt`, `le` |
+     * | title   | `eq`, `ne`                         |
+     * | code    | `eq`, `ne`                         |
      *
-     * <p>The following fields are filterable:
-     *
-     * <p>* status (eq|ne)
-     * * created (eq|ne|gt|ge|lt|le)
-     * * title (eq|ne)
-     * * code (eq|ne)
+     * <p>The following logical operators are supported for combining filters:
+     * * `and`
+     * * `or`
      */
     public GetStandardSurveysRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -289,24 +283,22 @@ public class GetStandardSurveysRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>Following are the comparison types that can be used in filter expressions:
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>* equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
+         * <p>| Field   | Operators                          |
+         * |---------|------------------------------------|
+         * | status  | `eq`, `ne`                         |
+         * | created | `eq`, `ne`, `gt`, `ge`, `lt`, `le` |
+         * | title   | `eq`, `ne`                         |
+         * | code    | `eq`, `ne`                         |
          *
-         * <p>The following fields are filterable:
-         *
-         * <p>* status (eq|ne)
-         * * created (eq|ne|gt|ge|lt|le)
-         * * title (eq|ne)
-         * * code (eq|ne)
+         * <p>The following logical operators are supported for combining filters:
+         * * `and`
+         * * `or`
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

@@ -40,23 +40,20 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// In case user wants to filter on multiple survey IDs, they can use 'or' operator.<br/>
-        /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
+        /// | Field | Operators   |<br/>
+        /// |-------|-------------|<br/>
+        /// | id    | `eq`, `ne`  |<br/>
+        /// | type  | `eq`, `ne`  |<br/>
         /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * id (eq|ne)<br/>
-        ///   * type (eq|ne).
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * `and`<br/>
+        /// * `or`
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

@@ -30,23 +30,22 @@ export type GetAllEventSurveyResponsesRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * Following are the comparison types that can be used in filter expressions:
+   * Supported fields and operators are listed below:
    *
-   *   * equal: eq
-   *   * not equal: ne
-   *
-   * The following fields are filterable:
-   *
-   *   * id (eq|ne)
-   *   * respondent.id (eq|ne)
-   *   * session.id (eq|ne)
-   *   * speaker.id (eq|ne)
-   *   * question.id (eq|ne)
-   *   * event.id (eq|ne)
+   * | Field         | Operators   |
+   * |---------------|-------------|
+   * | id            | `eq`, `ne`  |
+   * | respondent.id | `eq`, `ne`  |
+   * | session.id    | `eq`, `ne`  |
+   * | speaker.id    | `eq`, `ne`  |
+   * | question.id   | `eq`, `ne`  |
+   * | event.id      | `eq`, `ne`  |
    */
   filter?: string | undefined;
 };

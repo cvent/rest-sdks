@@ -37,7 +37,7 @@ public class ExistingRegistrationPackJson {
     private ExhibitorJson exhibitor;
 
     /**
-     * Array of capacities
+     * Capacities allocated per registration type for this exhibitor's registration pack.
      */
     @JsonProperty("capacities")
     private List<ExistingCapacityJson> capacities;
@@ -78,7 +78,7 @@ public class ExistingRegistrationPackJson {
     }
 
     /**
-     * Array of capacities
+     * Capacities allocated per registration type for this exhibitor's registration pack.
      */
     public List<ExistingCapacityJson> capacities() {
         return this.capacities;
@@ -113,7 +113,7 @@ public class ExistingRegistrationPackJson {
     }
 
     /**
-     * Array of capacities
+     * Capacities allocated per registration type for this exhibitor's registration pack.
      */
     public ExistingRegistrationPackJson withCapacities(@Nonnull List<ExistingCapacityJson> capacities) {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
@@ -194,7 +194,7 @@ public class ExistingRegistrationPackJson {
         }
 
         /**
-         * Array of capacities
+         * Capacities allocated per registration type for this exhibitor's registration pack.
          */
         public Builder capacities(@Nonnull List<ExistingCapacityJson> capacities) {
             this.capacities = Utils.checkNotNull(capacities, "capacities");

@@ -40,27 +40,20 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * id (eq|ne)<br/>
-        ///   * respondent.id (eq|ne)<br/>
-        ///   * session.id (eq|ne)<br/>
-        ///   * speaker.id (eq|ne)<br/>
-        ///   * question.id (eq|ne)<br/>
-        ///   * event.id (eq|ne).
+        /// | Field         | Operators   |<br/>
+        /// |---------------|-------------|<br/>
+        /// | id            | `eq`, `ne`  |<br/>
+        /// | respondent.id | `eq`, `ne`  |<br/>
+        /// | session.id    | `eq`, `ne`  |<br/>
+        /// | speaker.id    | `eq`, `ne`  |<br/>
+        /// | question.id   | `eq`, `ne`  |<br/>
+        /// | event.id      | `eq`, `ne`  |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

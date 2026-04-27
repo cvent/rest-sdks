@@ -40,38 +40,31 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
+        /// | Field         | Operators   | Notes                                                                                                                                                                        |<br/>
+        /// |---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | id            | `eq`, `ne`  |                                                                                                                                                                              |<br/>
+        /// | survey.id     | `eq`        | Use only survey.id to get responses for all questions in the survey.                                                                                                         |<br/>
+        /// | respondent.id | `eq`, `ne`  | Use only respondent.id to get responses for specific respondents.                                                                                                            |<br/>
+        /// | event.id      | `eq`        |                                                                                                                                                                              |<br/>
+        /// | session.id    | `eq`        |                                                                                                                                                                              |<br/>
+        /// | question.id   | `eq`        | Use only question.id to get responses for specific questions, which may belong to one or more surveys. question.id can be combined with other fields by 'and' operator only. |<br/>
+        /// | chapter.id    | `eq`        | Use only chapter.id to get responses for all questions in the chapter of a particular survey.                                                                                |<br/>
+        /// | attempt       | `eq`        |                                                                                                                                                                              |<br/>
         /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * `and`<br/>
+        /// * `or`<br/>
         /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * id (eq|ne)<br/>
-        ///   * survey.id (eq)<br/>
-        ///   * respondent.id (eq|ne)<br/>
-        ///   * event.id (eq)<br/>
-        ///   * session.id (eq)<br/>
-        ///   * question.id (eq)<br/>
-        ///   * chapter.id (eq)<br/>
-        ///   * attempt (eq)<br/>
-        /// <br/>
-        /// Usage:<br/>
-        /// 1. Use only survey.id to get responses for all questions in the survey.<br/>
-        /// 2. Use only question.id to get responses for specific questions, which may belong to one or more surveys.<br/>
-        /// 3. Use only chapter.id to get responses for all questions in the chapter of a particular survey.<br/>
-        /// 4. Use only respondent.id to get responses for specific respondents.<br/>
-        /// 5. chapter.id and survey.id cannot be used in combination with any other fields.<br/>
-        /// 6. Multiple chapter.id or survey.id must be separated by 'OR'. For example: filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'<br/>
-        /// 7. question.id can be used in combination with any other field by 'AND' operator only.
+        /// **Usage:**<br/>
+        /// 1. chapter.id and survey.id cannot be used in combination with any other fields.<br/>
+        /// 2. Multiple chapter.id or survey.id values must be separated by `or` (not `and`). Example: `filter=chapter.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or chapter.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'`<br/>
+        /// 3. question.id can be combined with other fields using `and` operator only.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

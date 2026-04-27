@@ -40,44 +40,25 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
+        /// | Field         | Operators | Max # Fields You Can Pass In Filter | Usage                                                                                                               |<br/>
+        /// |---------------|-----------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------|<br/>
+        /// | survey.id     | `eq`      | 1                                   | Use only survey.id to get responses for all questions in the survey.                                                |<br/>
+        /// | question.id   | `eq`      | 100                                 | Use only question.id to get responses for specific questions, which may belong to different surveys or same survey. |<br/>
+        /// | respondent.id | `eq`      | 100                                 | Use only respondent.id to get responses for specific respondents.                                                   |<br/>
         /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * `and`<br/>
+        /// * `or`<br/>
         /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * survey.id (eq)<br/>
-        ///   * question.id (eq)<br/>
-        ///   * respondent.id (eq)<br/>
-        /// <br/>
-        /// Following are the limits for the number of fields that can be passed in filter:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * survey.id (1)<br/>
-        ///   * question.id (100)<br/>
-        ///   * respondent.id (100)<br/>
-        /// <br/>
-        /// Usage:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * Use only survey.id to get responses for all questions in the survey.<br/>
-        ///   * Use only question.id to get responses for specific questions, which may belong to different surveys or same survey.<br/>
-        ///   * Use only respondent.id to get responses for specific respondents.<br/>
-        ///   * Multiple question.id/respondent.id must be separated by 'or'. Eg, filter=question.id eq<br/>
-        ///     '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or question.id eq '1983f506-a4a5-4a05-b3f6-ff7f7afc58f1'<br/>
-        ///   * question.id can be used in combination with respondent.id by 'AND' operator only.
+        /// **Usage:**<br/>
+        /// * question.id can be combined with respondent.id using `and` operator only.<br/>
+        /// * Multiple question.id/respondent.id values must be separated by `or`.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

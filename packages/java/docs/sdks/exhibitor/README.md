@@ -41,7 +41,7 @@
 * [deleteExhibitorLogo](#deleteexhibitorlogo) - Delete Exhibitor Logo Image
 * [getLeadQualificationQuestions](#getleadqualificationquestions) - List Qualification Questions
 * [postRegistrationPack](#postregistrationpack) - Create Registration Pack
-* [getExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Packs
+* [getExhibitorRegistrationPacks](#getexhibitorregistrationpacks) - List Registration Pack
 * [getRegistrationPack](#getregistrationpack) - Get Registration Pack
 * [updateRegistrationPack](#updateregistrationpack) - Update Registration Pack
 * [deleteRegistrationPack](#deleteregistrationpack) - Delete Registration Pack
@@ -1862,7 +1862,9 @@ public class Application {
 
 ## getExhibitorRegistrationPacks
 
-Retrieves registration packs associated with an exhibitor.
+Retrieves the registration pack associated with an exhibitor. Each exhibitor has one registration pack per event
+that consolidates capacities across all registration types.
+
 
 More about OAuth2 authorization code support for administrators
 <#oauth2-auth-code-planner-admin>

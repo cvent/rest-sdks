@@ -12,7 +12,7 @@ let value: UpdateCardTransactionRequest = {
     eventId: "9463c74e-18c6-401a-a710-ae0f485bf959",
     cardDescription: "API Card Transaction",
     transactionAmount: 1000.87,
-    transactionDate: new Date("2020-02-07T00:00:00.00Z"),
+    transactionDate: new Date("2020-02-07T00:00:00.000Z"),
     transactionCurrency: "USD",
     transactionMerchant: "API Merchant",
   },

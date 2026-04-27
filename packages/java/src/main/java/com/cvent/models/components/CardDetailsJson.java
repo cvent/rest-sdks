@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Deprecated;
 import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
@@ -156,10 +157,15 @@ public class CardDetailsJson {
     private String cardHolderName;
 
     /**
-     * Card's last seven digits.
+     * Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex)
+     * cards and will not be present for other card types. Use the last 4 digits from the last4 field
+     * instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("last7")
+    @Deprecated
     private String last7;
 
     @JsonCreator
@@ -364,8 +370,13 @@ public class CardDetailsJson {
     }
 
     /**
-     * Card's last seven digits.
+     * Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex)
+     * cards and will not be present for other card types. Use the last 4 digits from the last4 field
+     * instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public Optional<String> last7() {
         return Optional.ofNullable(this.last7);
     }
@@ -527,8 +538,13 @@ public class CardDetailsJson {
     }
 
     /**
-     * Card's last seven digits.
+     * Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex)
+     * cards and will not be present for other card types. Use the last 4 digits from the last4 field
+     * instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public CardDetailsJson withLast7(@Nullable String last7) {
         this.last7 = last7;
         return this;
@@ -677,6 +693,7 @@ public class CardDetailsJson {
 
         private String cardHolderName;
 
+        @Deprecated
         private String last7;
 
         private Builder() {
@@ -836,8 +853,13 @@ public class CardDetailsJson {
         }
 
         /**
-         * Card's last seven digits.
+         * Card's last seven digits. DEPRECATED: This field will return '0000000' for American Express (Amex)
+         * cards and will not be present for other card types. Use the last 4 digits from the last4 field
+         * instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
+        @Deprecated
         public Builder last7(@Nullable String last7) {
             this.last7 = last7;
             return this;

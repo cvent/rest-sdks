@@ -34,7 +34,7 @@ let value: GetCurrencyConversionRateResponse = {
         id: "9463c74e-18c6-401a-a710-ae0f485bf959",
         baseCurrency: "USD",
         currency: "EUR",
-        lastModified: new Date("2020-02-07T00:00:00.00Z"),
+        lastModified: new Date("2020-02-07T00:00:00.000Z"),
         currentConversionRate: true,
       },
     ],

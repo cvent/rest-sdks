@@ -11,14 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetEventSurveyQuestionsRequest = {
   /**
-   * Id of an event
-   */
-  id: string;
-  /**
-   * Id of a survey or Id of a chapter in event survey
-   */
-  surveyId: string;
-  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -37,6 +29,14 @@ export type GetEventSurveyQuestionsRequest = {
    * This will override any other pageable parameters provided.
    */
   token?: string | undefined;
+  /**
+   * Id of an event
+   */
+  id: string;
+  /**
+   * Id of a survey or Id of a chapter in event survey
+   */
+  surveyId: string;
 };
 
 export type GetEventSurveyQuestionsResponse = {
@@ -45,12 +45,12 @@ export type GetEventSurveyQuestionsResponse = {
 
 /** @internal */
 export type GetEventSurveyQuestionsRequest$Outbound = {
-  id: string;
-  surveyId: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
+  id: string;
+  surveyId: string;
 };
 
 /** @internal */
@@ -59,12 +59,12 @@ export const GetEventSurveyQuestionsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetEventSurveyQuestionsRequest
 > = z.object({
-  id: z.string(),
-  surveyId: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
+  id: z.string(),
+  surveyId: z.string(),
 });
 
 export function getEventSurveyQuestionsRequestToJSON(

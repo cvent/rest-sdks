@@ -102,6 +102,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "budget/budget-totals:read"
   /**
+   * Allows reading of account-level budget vendors.
+   */
+  | "budget/budget-vendors:read"
+  /**
    * Allows the reading of cards
    */
   | "budget/cards:read"
@@ -654,6 +658,50 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "remote-printing/badge-printer-pools:read"
   /**
+   * Allows the reading of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:read"
+  /**
+   * Allows the reading of RFP attachments.
+   */
+  | "rfp/rfp-attachments:read"
+  /**
+   * Allows the reading of RFP custom fields.
+   */
+  | "rfp/rfp-custom-fields:read"
+  /**
+   * Allows the reading of RFP guest rooms.
+   */
+  | "rfp/rfp-guest-rooms:read"
+  /**
+   * Allows the reading of RFP internal documents.
+   */
+  | "rfp/rfp-internal-documents:read"
+  /**
+   * Allows the reading of RFP lead sources.
+   */
+  | "rfp/rfp-lead-sources:read"
+  /**
+   * Allows the reading of past events similar to rfp event.
+   */
+  | "rfp/rfp-past-events:read"
+  /**
+   * Allows the reading of RFP questions.
+   */
+  | "rfp/rfp-questions:read"
+  /**
+   * Allows the reading of RFP recipients history.
+   */
+  | "rfp/rfp-recipients-history:read"
+  /**
+   * Allows the reading of RFP suppliers.
+   */
+  | "rfp/rfp-suppliers:read"
+  /**
+   * Allows the reading of basic details of RFP.
+   */
+  | "rfp/rfps:read"
+  /**
    * Allows to read attendee seat assignment information.
    */
   | "seating/assignments:read"
@@ -837,6 +885,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the reading of all event budget totals
    */
   | "budget/budget-totals:read"
+  /**
+   * Allows reading of account-level budget vendors.
+   */
+  | "budget/budget-vendors:read"
   /**
    * Allows the reading of cards
    */
@@ -1501,6 +1553,50 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows reading pools.
    */
   | "remote-printing/badge-printer-pools:read"
+  /**
+   * Allows the reading of RFP agenda items.
+   */
+  | "rfp/rfp-agenda-items:read"
+  /**
+   * Allows the reading of RFP attachments.
+   */
+  | "rfp/rfp-attachments:read"
+  /**
+   * Allows the reading of RFP custom fields.
+   */
+  | "rfp/rfp-custom-fields:read"
+  /**
+   * Allows the reading of RFP guest rooms.
+   */
+  | "rfp/rfp-guest-rooms:read"
+  /**
+   * Allows the reading of RFP internal documents.
+   */
+  | "rfp/rfp-internal-documents:read"
+  /**
+   * Allows the reading of RFP lead sources.
+   */
+  | "rfp/rfp-lead-sources:read"
+  /**
+   * Allows the reading of past events similar to rfp event.
+   */
+  | "rfp/rfp-past-events:read"
+  /**
+   * Allows the reading of RFP questions.
+   */
+  | "rfp/rfp-questions:read"
+  /**
+   * Allows the reading of RFP recipients history.
+   */
+  | "rfp/rfp-recipients-history:read"
+  /**
+   * Allows the reading of RFP suppliers.
+   */
+  | "rfp/rfp-suppliers:read"
+  /**
+   * Allows the reading of basic details of RFP.
+   */
+  | "rfp/rfps:read"
   /**
    * Allows to read attendee seat assignment information.
    */

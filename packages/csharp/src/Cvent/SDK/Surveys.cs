@@ -788,12 +788,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetEventSurveysRequest {
-                    Id = request.Id,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter
+                    Filter = request.Filter,
+                    Id = request.Id
                 };
 
                 return await GetEventSurveysAsync(
@@ -986,12 +986,12 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetEventSurveyQuestionsRequest {
-                    Id = request.Id,
-                    SurveyId = request.SurveyId,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
-                    Token = nextCursor
+                    Token = nextCursor,
+                    Id = request.Id,
+                    SurveyId = request.SurveyId
                 };
 
                 return await GetEventSurveyQuestionsAsync(
@@ -1899,13 +1899,13 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetEventSurveyResponsesRequest {
-                    Id = request.Id,
-                    SurveyId = request.SurveyId,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
                     Token = nextCursor,
-                    Filter = request.Filter
+                    Filter = request.Filter,
+                    Id = request.Id,
+                    SurveyId = request.SurveyId
                 };
 
                 return await GetEventSurveyResponsesAsync(
@@ -3260,9 +3260,9 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetStandardSurveyEmailTemplatesRequest {
-                    SurveyId = request.SurveyId,
                     Limit = request.Limit,
-                    Token = nextCursor
+                    Token = nextCursor,
+                    SurveyId = request.SurveyId
                 };
 
                 return await GetStandardSurveyEmailTemplatesAsync(
@@ -3455,11 +3455,11 @@ namespace Cvent.SDK
                 }
 
                 var newRequest = new GetStandardSurveyQuestionsRequest {
-                    SurveyId = request.SurveyId,
                     After = request.After,
                     Before = request.Before,
                     Limit = request.Limit,
-                    Token = nextCursor
+                    Token = nextCursor,
+                    SurveyId = request.SurveyId
                 };
 
                 return await GetStandardSurveyQuestionsAsync(

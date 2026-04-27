@@ -18,18 +18,6 @@ import java.util.Optional;
 
 public class GetEventSurveyResponsesRequest {
     /**
-     * Id of an event
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
-    private String id;
-
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
-    private String surveyId;
-
-    /**
      * Used to query records that have been added or updated after this time point. Default to the
      * beginning of time of the data store.
      */
@@ -56,60 +44,56 @@ public class GetEventSurveyResponsesRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* id (eq|ne)
-     * * respondent.id (eq|ne)
-     * * session.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * question.id (eq|ne)
+     * <p>| Field         | Operators   |
+     * |---------------|-------------|
+     * | id            | `eq`, `ne`  |
+     * | respondent.id | `eq`, `ne`  |
+     * | session.id    | `eq`, `ne`  |
+     * | speaker.id    | `eq`, `ne`  |
+     * | question.id   | `eq`, `ne`  |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * Id of an event
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")
+    private String id;
+
+    /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")
+    private String surveyId;
+
     @JsonCreator
     public GetEventSurveyResponsesRequest(
-            @Nonnull String id,
-            @Nonnull String surveyId,
             @Nullable OffsetDateTime after,
             @Nullable OffsetDateTime before,
             @Nullable Long limit,
             @Nullable String token,
-            @Nullable String filter) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.surveyId = Optional.ofNullable(surveyId)
-                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
+            @Nullable String filter,
+            @Nonnull String id,
+            @Nonnull String surveyId) {
         this.after = after;
         this.before = before;
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.surveyId = Optional.ofNullable(surveyId)
+                .orElseThrow(() -> new IllegalArgumentException("surveyId cannot be null"));
     }
 
     public GetEventSurveyResponsesRequest(@Nonnull String id, @Nonnull String surveyId) {
-        this(id, surveyId, null, null, null, null, null);
-    }
-
-    /**
-     * Id of an event
-     */
-    public String id() {
-        return this.id;
-    }
-
-    /**
-     * Id of a survey or Id of a chapter in event survey
-     */
-    public String surveyId() {
-        return this.surveyId;
+        this(null, null, null, null, null, id, surveyId);
     }
 
     /**
@@ -143,44 +127,40 @@ public class GetEventSurveyResponsesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* id (eq|ne)
-     * * respondent.id (eq|ne)
-     * * session.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * question.id (eq|ne)
+     * <p>| Field         | Operators   |
+     * |---------------|-------------|
+     * | id            | `eq`, `ne`  |
+     * | respondent.id | `eq`, `ne`  |
+     * | session.id    | `eq`, `ne`  |
+     * | speaker.id    | `eq`, `ne`  |
+     * | question.id   | `eq`, `ne`  |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
-
     /**
      * Id of an event
      */
-    public GetEventSurveyResponsesRequest withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
+    public String id() {
+        return this.id;
     }
 
     /**
      * Id of a survey or Id of a chapter in event survey
      */
-    public GetEventSurveyResponsesRequest withSurveyId(@Nonnull String surveyId) {
-        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-        return this;
+    public String surveyId() {
+        return this.surveyId;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     /**
@@ -218,24 +198,38 @@ public class GetEventSurveyResponsesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Following are the comparison types that can be used in filter expressions:
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>* equal: eq
-     * * not equal: ne
-     *
-     * <p>The following fields are filterable:
-     *
-     * <p>* id (eq|ne)
-     * * respondent.id (eq|ne)
-     * * session.id (eq|ne)
-     * * speaker.id (eq|ne)
-     * * question.id (eq|ne)
+     * <p>| Field         | Operators   |
+     * |---------------|-------------|
+     * | id            | `eq`, `ne`  |
+     * | respondent.id | `eq`, `ne`  |
+     * | session.id    | `eq`, `ne`  |
+     * | speaker.id    | `eq`, `ne`  |
+     * | question.id   | `eq`, `ne`  |
      */
     public GetEventSurveyResponsesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * Id of an event
+     */
+    public GetEventSurveyResponsesRequest withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
+        return this;
+    }
+
+    /**
+     * Id of a survey or Id of a chapter in event survey
+     */
+    public GetEventSurveyResponsesRequest withSurveyId(@Nonnull String surveyId) {
+        this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
         return this;
     }
 
@@ -248,28 +242,24 @@ public class GetEventSurveyResponsesRequest {
             return false;
         }
         GetEventSurveyResponsesRequest other = (GetEventSurveyResponsesRequest) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId)
-                && Utils.enhancedDeepEquals(this.after, other.after)
+        return Utils.enhancedDeepEquals(this.after, other.after)
                 && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.surveyId, other.surveyId);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, surveyId, after, before, limit, token, filter);
+        return Utils.enhancedHash(after, before, limit, token, filter, id, surveyId);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
                 GetEventSurveyResponsesRequest.class,
-                "id",
-                id,
-                "surveyId",
-                surveyId,
                 "after",
                 after,
                 "before",
@@ -279,15 +269,15 @@ public class GetEventSurveyResponsesRequest {
                 "token",
                 token,
                 "filter",
-                filter);
+                filter,
+                "id",
+                id,
+                "surveyId",
+                surveyId);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
-
-        private String id;
-
-        private String surveyId;
 
         private OffsetDateTime after;
 
@@ -299,24 +289,12 @@ public class GetEventSurveyResponsesRequest {
 
         private String filter;
 
+        private String id;
+
+        private String surveyId;
+
         private Builder() {
             // force use of static builder() method
-        }
-
-        /**
-         * Id of an event
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
-        /**
-         * Id of a survey or Id of a chapter in event survey
-         */
-        public Builder surveyId(@Nonnull String surveyId) {
-            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
-            return this;
         }
 
         /**
@@ -354,29 +332,43 @@ public class GetEventSurveyResponsesRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>Following are the comparison types that can be used in filter expressions:
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>* equal: eq
-         * * not equal: ne
-         *
-         * <p>The following fields are filterable:
-         *
-         * <p>* id (eq|ne)
-         * * respondent.id (eq|ne)
-         * * session.id (eq|ne)
-         * * speaker.id (eq|ne)
-         * * question.id (eq|ne)
+         * <p>| Field         | Operators   |
+         * |---------------|-------------|
+         * | id            | `eq`, `ne`  |
+         * | respondent.id | `eq`, `ne`  |
+         * | session.id    | `eq`, `ne`  |
+         * | speaker.id    | `eq`, `ne`  |
+         * | question.id   | `eq`, `ne`  |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
             return this;
         }
 
+        /**
+         * Id of an event
+         */
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
+            return this;
+        }
+
+        /**
+         * Id of a survey or Id of a chapter in event survey
+         */
+        public Builder surveyId(@Nonnull String surveyId) {
+            this.surveyId = Utils.checkNotNull(surveyId, "surveyId");
+            return this;
+        }
+
         public GetEventSurveyResponsesRequest build() {
-            return new GetEventSurveyResponsesRequest(id, surveyId, after, before, limit, token, filter);
+            return new GetEventSurveyResponsesRequest(after, before, limit, token, filter, id, surveyId);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

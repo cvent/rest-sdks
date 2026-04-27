@@ -15,18 +15,6 @@ namespace Cvent.SDK.Models.Requests
     public class GetEventSurveyResponsesRequest
     {
         /// <summary>
-        /// Id of an event.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
-        public string Id { get; set; } = default!;
-
-        /// <summary>
-        /// Id of a survey or Id of a chapter in event survey.
-        /// </summary>
-        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
-        public string SurveyId { get; set; } = default!;
-
-        /// <summary>
         /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
@@ -52,28 +40,33 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// Following are the comparison types that can be used in filter expressions:<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        /// <br/>
-        /// The following fields are filterable:<br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        /// <br/>
-        ///   * id (eq|ne)<br/>
-        ///   * respondent.id (eq|ne)<br/>
-        ///   * session.id (eq|ne)<br/>
-        ///   * speaker.id (eq|ne)<br/>
-        ///   * question.id (eq|ne).
+        /// | Field         | Operators   |<br/>
+        /// |---------------|-------------|<br/>
+        /// | id            | `eq`, `ne`  |<br/>
+        /// | respondent.id | `eq`, `ne`  |<br/>
+        /// | session.id    | `eq`, `ne`  |<br/>
+        /// | speaker.id    | `eq`, `ne`  |<br/>
+        /// | question.id   | `eq`, `ne`  |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
+
+        /// <summary>
+        /// Id of an event.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=id")]
+        public string Id { get; set; } = default!;
+
+        /// <summary>
+        /// Id of a survey or Id of a chapter in event survey.
+        /// </summary>
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=surveyId")]
+        public string SurveyId { get; set; } = default!;
     }
 }

@@ -11,14 +11,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetEventSurveyResponsesRequest = {
   /**
-   * Id of an event
-   */
-  id: string;
-  /**
-   * Id of a survey or Id of a chapter in event survey
-   */
-  surveyId: string;
-  /**
    * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
    */
   after?: Date | undefined;
@@ -38,24 +30,31 @@ export type GetEventSurveyResponsesRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * Following are the comparison types that can be used in filter expressions:
+   * Supported fields and operators are listed below:
    *
-   *   * equal: eq
-   *   * not equal: ne
-   *
-   * The following fields are filterable:
-   *
-   *   * id (eq|ne)
-   *   * respondent.id (eq|ne)
-   *   * session.id (eq|ne)
-   *   * speaker.id (eq|ne)
-   *   * question.id (eq|ne)
+   * | Field         | Operators   |
+   * |---------------|-------------|
+   * | id            | `eq`, `ne`  |
+   * | respondent.id | `eq`, `ne`  |
+   * | session.id    | `eq`, `ne`  |
+   * | speaker.id    | `eq`, `ne`  |
+   * | question.id   | `eq`, `ne`  |
    */
   filter?: string | undefined;
+  /**
+   * Id of an event
+   */
+  id: string;
+  /**
+   * Id of a survey or Id of a chapter in event survey
+   */
+  surveyId: string;
 };
 
 export type GetEventSurveyResponsesResponse = {
@@ -64,13 +63,13 @@ export type GetEventSurveyResponsesResponse = {
 
 /** @internal */
 export type GetEventSurveyResponsesRequest$Outbound = {
-  id: string;
-  surveyId: string;
   after?: string | undefined;
   before?: string | undefined;
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
+  id: string;
+  surveyId: string;
 };
 
 /** @internal */
@@ -79,13 +78,13 @@ export const GetEventSurveyResponsesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetEventSurveyResponsesRequest
 > = z.object({
-  id: z.string(),
-  surveyId: z.string(),
   after: z.date().transform(v => v.toISOString()).optional(),
   before: z.date().transform(v => v.toISOString()).optional(),
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
+  id: z.string(),
+  surveyId: z.string(),
 });
 
 export function getEventSurveyResponsesRequestToJSON(

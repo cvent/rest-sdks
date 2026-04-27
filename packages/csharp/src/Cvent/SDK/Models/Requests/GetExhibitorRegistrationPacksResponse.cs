@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Requests
         public HTTPMetadata HttpMeta { get; set; } = default!;
 
         /// <summary>
-        /// Successfully retrieved the registration packs.
+        /// Successfully retrieved the registration pack.
         /// </summary>
         public ExhibitorRegistrationPackListResponse? ExhibitorRegistrationPackListResponse { get; set; }
     }

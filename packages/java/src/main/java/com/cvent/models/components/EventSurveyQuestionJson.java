@@ -122,14 +122,14 @@ public class EventSurveyQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson notApplicableAnswer;
+    private AdditionalChoiceJson2 notApplicableAnswer;
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson otherAnswer;
+    private AdditionalChoiceJson2 otherAnswer;
 
     /**
      * Text Value of Comments Input box placeholder
@@ -195,8 +195,8 @@ public class EventSurveyQuestionJson {
             @JsonProperty("choices") @Nullable List<ChoiceJson3> choices,
             @JsonProperty("categories") @Nullable List<CategoryJson2> categories,
             @JsonProperty("subCategories") @Nullable List<TextFieldJson1> subCategories,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson2 notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson2 otherAnswer,
             @JsonProperty("comments") @Nullable String comments,
             @JsonProperty("required") @Nullable Boolean required,
             @JsonProperty("fields") @Nullable List<FieldJson5> fields,
@@ -348,14 +348,14 @@ public class EventSurveyQuestionJson {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson2> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson> otherAnswer() {
+    public Optional<AdditionalChoiceJson2> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -519,7 +519,7 @@ public class EventSurveyQuestionJson {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public EventSurveyQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
+    public EventSurveyQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -527,7 +527,7 @@ public class EventSurveyQuestionJson {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public EventSurveyQuestionJson withOtherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
+    public EventSurveyQuestionJson withOtherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -727,9 +727,9 @@ public class EventSurveyQuestionJson {
 
         private List<TextFieldJson1> subCategories;
 
-        private AdditionalChoiceJson notApplicableAnswer;
+        private AdditionalChoiceJson2 notApplicableAnswer;
 
-        private AdditionalChoiceJson otherAnswer;
+        private AdditionalChoiceJson2 otherAnswer;
 
         private String comments;
 
@@ -856,7 +856,7 @@ public class EventSurveyQuestionJson {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -864,7 +864,7 @@ public class EventSurveyQuestionJson {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }

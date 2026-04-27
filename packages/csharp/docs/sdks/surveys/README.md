@@ -109,11 +109,11 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventSurveysRequest req = new GetEventSurveysRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and type eq 'Session Feedback' and sessions eq  '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or sessions eq '05ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetEventSurveysResponse? res = await sdk.Surveys.GetEventSurveysAsync(req);
@@ -166,11 +166,11 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventSurveyQuestionsRequest req = new GetEventSurveyQuestionsRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetEventSurveyQuestionsResponse? res = await sdk.Surveys.GetEventSurveyQuestionsAsync(req);
@@ -478,12 +478,12 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetEventSurveyResponsesRequest req = new GetEventSurveyResponsesRequest() {
-    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+    Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetEventSurveyResponsesResponse? res = await sdk.Surveys.GetEventSurveyResponsesAsync(req);
@@ -868,8 +868,8 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetStandardSurveyEmailTemplatesRequest req = new GetStandardSurveyEmailTemplatesRequest() {
-    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetStandardSurveyEmailTemplatesResponse? res = await sdk.Surveys.GetStandardSurveyEmailTemplatesAsync(req);
@@ -922,10 +922,10 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 GetStandardSurveyQuestionsRequest req = new GetStandardSurveyQuestionsRequest() {
-    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    SurveyId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
 };
 
 GetStandardSurveyQuestionsResponse? res = await sdk.Surveys.GetStandardSurveyQuestionsAsync(req);

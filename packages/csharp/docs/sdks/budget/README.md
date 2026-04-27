@@ -7,6 +7,7 @@ Budget is an event feature used to organize spending and track [allocations](htt
 ### Available Operations
 
 * [GetAccountBudgetItems](#getaccountbudgetitems) - List Budget Items
+* [GetAccountVendors](#getaccountvendors) - List Account Vendors
 * [GetCards](#getcards) - List Cards
 * [GetCardTransactions](#getcardtransactions) - List Card Transactions
 * [CreateCardTransaction](#createcardtransaction) - Create Card Transaction
@@ -81,6 +82,65 @@ while(res != null)
 ### Response
 
 **[GetAccountBudgetItemsResponse](../../Models/Requests/GetAccountBudgetItemsResponse.md)**
+
+### Errors
+
+| Error Type                            | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
+| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+
+## GetAccountVendors
+
+Gets a paginated list of account-level budget vendors configured in Admin > Budget > Vendors for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="csharp" operationID="getAccountVendors" method="get" path="/budget-vendors" -->
+```csharp
+using Cvent.SDK;
+using Cvent.SDK.Models.Components;
+using Cvent.SDK.Models.Requests;
+using System;
+
+var sdk = new CventSDK(security: new Security() {
+    OAuth2ClientCredentials = new SchemeOAuth2ClientCredentials() {
+        ClientID = "<YOUR_CLIENT_ID_HERE>",
+        ClientSecret = "<YOUR_CLIENT_SECRET_HERE>",
+        TokenURL = "<YOUR_TOKEN_URL_HERE>",
+        Scopes = "<YOUR_SCOPES_HERE>",
+    },
+});
+
+GetAccountVendorsRequest req = new GetAccountVendorsRequest() {
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Filter = "active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'",
+};
+
+GetAccountVendorsResponse? res = await sdk.Budget.GetAccountVendorsAsync(req);
+
+while(res != null)
+{
+    // handle items
+
+    res = await res.Next!();
+}
+```
+
+### Parameters
+
+| Parameter                                                                     | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `request`                                                                     | [GetAccountVendorsRequest](../../Models/Requests/GetAccountVendorsRequest.md) | :heavy_check_mark:                                                            | The request object to use for the request.                                    |
+
+### Response
+
+**[GetAccountVendorsResponse](../../Models/Requests/GetAccountVendorsResponse.md)**
 
 ### Errors
 
@@ -1250,13 +1310,13 @@ AnswerBudgetCustomFieldRequest req = new AnswerBudgetCustomFieldRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     BudgetItemId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CustomField1 = new CustomField1Input() {
+    CustomField = new CustomFieldInput() {
         Id = "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
         Value = new List<string>() {
             "Choice C",
             "Choice A",
         },
-        Type = CustomField1CustomFieldType.General,
+        Type = CustomFieldCustomFieldType.General,
     },
 };
 

@@ -1,6 +1,6 @@
 # ExhibitorRegistrationPackListResponse
 
-This entity is used to represent registration packs list response.
+The registration pack associated with an exhibitor. Each exhibitor has at most one registration pack per event.
 
 ## Example Usage
 
@@ -27,4 +27,4 @@ let value: ExhibitorRegistrationPackListResponse = {
 
 | Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `data`                                                                                               | [components.ExistingRegistrationPackJson](../../models/components/existingregistrationpackjson.md)[] | :heavy_minus_sign:                                                                                   | List of registration packs for an exhibitor.                                                         |
+| `data`                                                                                               | [components.ExistingRegistrationPackJson](../../models/components/existingregistrationpackjson.md)[] | :heavy_minus_sign:                                                                                   | The registration pack for an exhibitor. Contains at most one item.                                   |

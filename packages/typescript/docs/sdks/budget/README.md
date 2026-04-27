@@ -7,6 +7,7 @@ Budget is an event feature used to organize spending and track [allocations](htt
 ### Available Operations
 
 * [getAccountBudgetItems](#getaccountbudgetitems) - List Budget Items
+* [getAccountVendors](#getaccountvendors) - List Account Vendors
 * [getCards](#getcards) - List Cards
 * [getCardTransactions](#getcardtransactions) - List Card Transactions
 * [createCardTransaction](#createcardtransaction) - Create Card Transaction
@@ -123,6 +124,107 @@ run();
 ### Response
 
 **Promise\<[operations.GetAccountBudgetItemsResponse](../../models/operations/getaccountbudgetitemsresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## getAccountVendors
+
+Gets a paginated list of account-level budget vendors configured in Admin > Budget > Vendors for your account. Event-scoped vendors and CSN-only vendors are not included in this endpoint.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getAccountVendors" method="get" path="/budget-vendors" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.budget.getAccountVendors({
+    after: new Date("2017-01-02T02:00:00Z"),
+    before: new Date("2017-01-02T02:00:00Z"),
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { budgetGetAccountVendors } from "@cvent/sdk/funcs/budgetGetAccountVendors.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await budgetGetAccountVendors(cventSDK, {
+    after: new Date("2017-01-02T02:00:00Z"),
+    before: new Date("2017-01-02T02:00:00Z"),
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "active eq true and id eq '5b5a6e5c-1234-4af5-9d1f-9bcb9e7c1234' and lastModified ge '2025-01-01T00:00:00Z'",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("budgetGetAccountVendors failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetAccountVendorsRequest](../../models/operations/getaccountvendorsrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetAccountVendorsResponse](../../models/operations/getaccountvendorsresponse.md)\>**
 
 ### Errors
 
@@ -2202,7 +2304,7 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
       value: [
         "Choice C",
@@ -2244,7 +2346,7 @@ async function run() {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     budgetItemId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField: {
       id: "a8f94915-b3db-4fb7-8ac8-2da89a9ce3f6",
       value: [
         "Choice C",
@@ -2275,7 +2377,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField1](../../models/components/customfield1.md)\>**
+**Promise\<[components.CustomField](../../models/components/customfield.md)\>**
 
 ### Errors
 
