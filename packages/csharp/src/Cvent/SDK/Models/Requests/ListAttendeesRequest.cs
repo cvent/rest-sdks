@@ -81,71 +81,59 @@ namespace Cvent.SDK.Models.Requests
         public string? Sort { get; set; }
 
         /// <summary>
-        /// This allows users to include deleted guests in the response.
+        /// True indicates the request should include deleted guests in the response. By default, deleted guests are excluded.<br/>
+        /// The `deletedGuest` filter has no effect unless this parameter is `true`.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=includeDeletedGuests")]
         public bool? IncludeDeletedGuests { get; set; } = false;
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        ///   * equal: eq<br/>
-        ///   * not equal: ne<br/>
-        ///   * greater than: gt<br/>
-        ///   * greater or equal: ge<br/>
-        ///   * less than: lt<br/>
-        ///   * less than or equal: le<br/>
-        ///   * starts with: sw<br/>
-        ///   * is null: is null<br/>
-        ///   * is not null: is not null<br/>
-        ///   * is empty: is empty<br/>
-        ///   * is not empty: is not empty<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * event.id (eq|ne)<br/>
-        ///   * id (eq|ne)<br/>
-        ///   * confirmationNumber (eq|ne)<br/>
-        ///   * checkedIn (eq|ne)<br/>
-        ///   * checkIn (eq|ne|lt|le|gt|ge)<br/>
-        ///   * checkOut (eq|ne|lt|le|gt|ge)<br/>
-        ///   * registrationPath.id (eq|ne)<br/>
-        ///   * invitationList.id (eq|ne)<br/>
-        ///   * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)<br/>
-        ///   * referenceId (eq|ne)<br/>
-        ///   * externalReference.type (eq)<br/>
-        ///   * externalReference.id (eq)<br/>
-        ///   * externalReference.referenceId (eq)<br/>
-        ///   * note (eq|ne)<br/>
-        ///   * guest (eq|ne)<br/>
-        ///   * group.leader (eq|ne)<br/>
-        ///   * group.id(eq|ne)<br/>
-        ///   * unsubscribed (eq|ne)<br/>
-        ///   * registeredAt (eq|ne|lt|le|gt|ge)<br/>
-        ///   * registrationLastModified (eq|ne|lt|le|gt|ge)<br/>
-        ///   * invitedBy (eq|ne)<br/>
-        ///   * responseMethod (eq|ne)<br/>
-        ///   * status (eq|ne)<br/>
-        ///   * lastModified (eq|ne|lt|le|gt|ge)<br/>
-        ///   * created (eq|ne|lt|le|gt|ge)<br/>
-        ///   * contact.id (eq|ne)<br/>
-        ///   * visibility (eq|ne)<br/>
-        ///   * contact.title (eq|ne|sw)<br/>
-        ///   * contact.company (eq|ne|sw)<br/>
-        ///   * contact.firstName (eq|ne|sw)<br/>
-        ///   * contact.lastName (eq|ne|sw)<br/>
-        ///   * answers.question.{question id} (eq|ne)<br/>
-        ///   * contact.email (eq|ne|sw)<br/>
-        ///   * attendeeLastModified (eq|ne|lt|le|gt|ge)<br/>
-        ///   * appointmentGroup.id (eq|ne)<br/>
-        ///   * contact.deleted (eq|ne)<br/>
-        ///   * primaryId (eq|ne)<br/>
-        ///   * deletedGuest (eq|ne)<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// Note:<br/>
-        ///   * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and 'after' filters.<br/>
-        ///   * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not used by the 'before' and 'after' filters.<br/>
-        ///   * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests in the response.
+        /// | Field            | Operators                          | Notes                                    |<br/>
+        /// |------------------|-------------------------------------|------------------------------------------|<br/>
+        /// | event.id         | `eq`, `ne`                          |                                          |<br/>
+        /// | id               | `eq`, `ne`                          |                                          |<br/>
+        /// | confirmationNumber | `eq`, `ne`                          |                                          |<br/>
+        /// | checkedIn        | `eq`, `ne`                          |                                          |<br/>
+        /// | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
+        /// | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
+        /// | registrationPath.id | `eq`, `ne`                          |                                          |<br/>
+        /// | invitationList.id | `eq`, `ne`                          |                                          |<br/>
+        /// | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |                                          |<br/>
+        /// | referenceId      | `eq`, `ne`                          |                                          |<br/>
+        /// | externalReference.type | `eq`                                |                                          |<br/>
+        /// | externalReference.id | `eq`                                |                                          |<br/>
+        /// | externalReference.referenceId | `eq`                                |                                          |<br/>
+        /// | note             | `eq`, `ne`                          |                                          |<br/>
+        /// | guest            | `eq`, `ne`                          |                                          |<br/>
+        /// | group.leader     | `eq`, `ne`                          |                                          |<br/>
+        /// | group.id         | `eq`, `ne`                          |                                          |<br/>
+        /// | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT /attendees/{id}/email-subscriptions instead |<br/>
+        /// | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
+        /// | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
+        /// | invitedBy        | `eq`, `ne`                          |                                          |<br/>
+        /// | responseMethod   | `eq`, `ne`                          |                                          |<br/>
+        /// | status           | `eq`, `ne`                          |                                          |<br/>
+        /// | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the response has changed. Used by the 'before' and 'after' filters. |<br/>
+        /// | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |<br/>
+        /// | contact.id       | `eq`, `ne`                          |                                          |<br/>
+        /// | visibility       | `eq`, `ne`                          |                                          |<br/>
+        /// | contact.title    | `eq`, `ne`, `sw`                    |                                          |<br/>
+        /// | contact.company  | `eq`, `ne`, `sw`                    |                                          |<br/>
+        /// | contact.firstName | `eq`, `ne`, `sw`                    |                                          |<br/>
+        /// | contact.lastName | `eq`, `ne`, `sw`                    |                                          |<br/>
+        /// | answers.question.{question id} | `eq`, `ne`                          |                                          |<br/>
+        /// | contact.email    | `eq`, `ne`, `sw`                    |                                          |<br/>
+        /// | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field other than contact.* has changed. Not used by the 'before' and 'after' filters. |<br/>
+        /// | appointmentGroup.id | `eq`, `ne`                          |                                          |<br/>
+        /// | contact.deleted  | `eq`, `ne`                          |                                          |<br/>
+        /// | primaryId        | `eq`, `ne`                          |                                          |<br/>
+        /// | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted. This filter works only when the query parameter `includeDeletedGuests` is `true`. |
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

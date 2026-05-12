@@ -88,76 +88,98 @@ public class ListAttendeesRequest {
     private String sort;
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=includeDeletedGuests")
     private Boolean includeDeletedGuests;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * is null: is null
-     * * is not null: is not null
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * id (eq|ne)
-     * * confirmationNumber (eq|ne)
-     * * checkedIn (eq|ne)
-     * * checkIn (eq|ne|lt|le|gt|ge)
-     * * checkOut (eq|ne|lt|le|gt|ge)
-     * * registrationPath.id (eq|ne)
-     * * invitationList.id (eq|ne)
-     * * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)
-     * * referenceId (eq|ne)
-     * * externalReference.type (eq)
-     * * externalReference.id (eq)
-     * * externalReference.referenceId (eq)
-     * * note (eq|ne)
-     * * guest (eq|ne)
-     * * group.leader (eq|ne)
-     * * group.id(eq|ne)
-     * * unsubscribed (eq|ne)
-     * * registeredAt (eq|ne|lt|le|gt|ge)
-     * * registrationLastModified (eq|ne|lt|le|gt|ge)
-     * * invitedBy (eq|ne)
-     * * responseMethod (eq|ne)
-     * * status (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * contact.id (eq|ne)
-     * * visibility (eq|ne)
-     * * contact.title (eq|ne|sw)
-     * * contact.company (eq|ne|sw)
-     * * contact.firstName (eq|ne|sw)
-     * * contact.lastName (eq|ne|sw)
-     * * answers.question.{question id} (eq|ne)
-     * * contact.email (eq|ne|sw)
-     * * attendeeLastModified (eq|ne|lt|le|gt|ge)
-     * * appointmentGroup.id (eq|ne)
-     * * contact.deleted (eq|ne)
-     * * primaryId (eq|ne)
-     * * deletedGuest (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>Note:
-     * * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and
-     * 'after' filters.
-     * * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not
-     * used by the 'before' and 'after' filters.
-     * * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query
-     * parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests
-     * in the response.
+     * <p>| Field            | Operators                          | Notes                                    |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | event.id         | `eq`, `ne`                          |
+     * |
+     * | id               | `eq`, `ne`                          |
+     * |
+     * | confirmationNumber | `eq`, `ne`                          |
+     * |
+     * | checkedIn        | `eq`, `ne`                          |
+     * |
+     * | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationPath.id | `eq`, `ne`                          |
+     * |
+     * | invitationList.id | `eq`, `ne`                          |
+     * |
+     * | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |
+     * |
+     * | referenceId      | `eq`, `ne`                          |
+     * |
+     * | externalReference.type | `eq`                                |
+     * |
+     * | externalReference.id | `eq`                                |
+     * |
+     * | externalReference.referenceId | `eq`                                |
+     * |
+     * | note             | `eq`, `ne`                          |
+     * |
+     * | guest            | `eq`, `ne`                          |
+     * |
+     * | group.leader     | `eq`, `ne`                          |
+     * |
+     * | group.id         | `eq`, `ne`                          |
+     * |
+     * | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT
+     * /attendees/{id}/email-subscriptions instead |
+     * | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | invitedBy        | `eq`, `ne`                          |
+     * |
+     * | responseMethod   | `eq`, `ne`                          |
+     * |
+     * | status           | `eq`, `ne`                          |
+     * |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the
+     * response has changed. Used by the 'before' and 'after' filters. |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | contact.id       | `eq`, `ne`                          |
+     * |
+     * | visibility       | `eq`, `ne`                          |
+     * |
+     * | contact.title    | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.company  | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.firstName | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.lastName | `eq`, `ne`, `sw`                    |
+     * |
+     * | answers.question.{question id} | `eq`, `ne`                          |
+     * |
+     * | contact.email    | `eq`, `ne`, `sw`                    |
+     * |
+     * | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field
+     * other than contact.* has changed. Not used by the 'before' and 'after' filters. |
+     * | appointmentGroup.id | `eq`, `ne`                          |
+     * |
+     * | contact.deleted  | `eq`, `ne`                          |
+     * |
+     * | primaryId        | `eq`, `ne`                          |
+     * |
+     * | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted.
+     * This filter works only when the query parameter `includeDeletedGuests` is `true`. |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -262,77 +284,99 @@ public class ListAttendeesRequest {
     }
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     public Optional<Boolean> includeDeletedGuests() {
         return Optional.ofNullable(this.includeDeletedGuests);
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * is null: is null
-     * * is not null: is not null
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * id (eq|ne)
-     * * confirmationNumber (eq|ne)
-     * * checkedIn (eq|ne)
-     * * checkIn (eq|ne|lt|le|gt|ge)
-     * * checkOut (eq|ne|lt|le|gt|ge)
-     * * registrationPath.id (eq|ne)
-     * * invitationList.id (eq|ne)
-     * * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)
-     * * referenceId (eq|ne)
-     * * externalReference.type (eq)
-     * * externalReference.id (eq)
-     * * externalReference.referenceId (eq)
-     * * note (eq|ne)
-     * * guest (eq|ne)
-     * * group.leader (eq|ne)
-     * * group.id(eq|ne)
-     * * unsubscribed (eq|ne)
-     * * registeredAt (eq|ne|lt|le|gt|ge)
-     * * registrationLastModified (eq|ne|lt|le|gt|ge)
-     * * invitedBy (eq|ne)
-     * * responseMethod (eq|ne)
-     * * status (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * contact.id (eq|ne)
-     * * visibility (eq|ne)
-     * * contact.title (eq|ne|sw)
-     * * contact.company (eq|ne|sw)
-     * * contact.firstName (eq|ne|sw)
-     * * contact.lastName (eq|ne|sw)
-     * * answers.question.{question id} (eq|ne)
-     * * contact.email (eq|ne|sw)
-     * * attendeeLastModified (eq|ne|lt|le|gt|ge)
-     * * appointmentGroup.id (eq|ne)
-     * * contact.deleted (eq|ne)
-     * * primaryId (eq|ne)
-     * * deletedGuest (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>Note:
-     * * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and
-     * 'after' filters.
-     * * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not
-     * used by the 'before' and 'after' filters.
-     * * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query
-     * parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests
-     * in the response.
+     * <p>| Field            | Operators                          | Notes                                    |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | event.id         | `eq`, `ne`                          |
+     * |
+     * | id               | `eq`, `ne`                          |
+     * |
+     * | confirmationNumber | `eq`, `ne`                          |
+     * |
+     * | checkedIn        | `eq`, `ne`                          |
+     * |
+     * | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationPath.id | `eq`, `ne`                          |
+     * |
+     * | invitationList.id | `eq`, `ne`                          |
+     * |
+     * | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |
+     * |
+     * | referenceId      | `eq`, `ne`                          |
+     * |
+     * | externalReference.type | `eq`                                |
+     * |
+     * | externalReference.id | `eq`                                |
+     * |
+     * | externalReference.referenceId | `eq`                                |
+     * |
+     * | note             | `eq`, `ne`                          |
+     * |
+     * | guest            | `eq`, `ne`                          |
+     * |
+     * | group.leader     | `eq`, `ne`                          |
+     * |
+     * | group.id         | `eq`, `ne`                          |
+     * |
+     * | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT
+     * /attendees/{id}/email-subscriptions instead |
+     * | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | invitedBy        | `eq`, `ne`                          |
+     * |
+     * | responseMethod   | `eq`, `ne`                          |
+     * |
+     * | status           | `eq`, `ne`                          |
+     * |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the
+     * response has changed. Used by the 'before' and 'after' filters. |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | contact.id       | `eq`, `ne`                          |
+     * |
+     * | visibility       | `eq`, `ne`                          |
+     * |
+     * | contact.title    | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.company  | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.firstName | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.lastName | `eq`, `ne`, `sw`                    |
+     * |
+     * | answers.question.{question id} | `eq`, `ne`                          |
+     * |
+     * | contact.email    | `eq`, `ne`, `sw`                    |
+     * |
+     * | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field
+     * other than contact.* has changed. Not used by the 'before' and 'after' filters. |
+     * | appointmentGroup.id | `eq`, `ne`                          |
+     * |
+     * | contact.deleted  | `eq`, `ne`                          |
+     * |
+     * | primaryId        | `eq`, `ne`                          |
+     * |
+     * | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted.
+     * This filter works only when the query parameter `includeDeletedGuests` is `true`. |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -423,7 +467,9 @@ public class ListAttendeesRequest {
     }
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     public ListAttendeesRequest withIncludeDeletedGuests(@Nullable Boolean includeDeletedGuests) {
         this.includeDeletedGuests = includeDeletedGuests;
@@ -431,70 +477,90 @@ public class ListAttendeesRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * These are the comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * is null: is null
-     * * is not null: is not null
-     * * is empty: is empty
-     * * is not empty: is not empty
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * event.id (eq|ne)
-     * * id (eq|ne)
-     * * confirmationNumber (eq|ne)
-     * * checkedIn (eq|ne)
-     * * checkIn (eq|ne|lt|le|gt|ge)
-     * * checkOut (eq|ne|lt|le|gt|ge)
-     * * registrationPath.id (eq|ne)
-     * * invitationList.id (eq|ne)
-     * * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)
-     * * referenceId (eq|ne)
-     * * externalReference.type (eq)
-     * * externalReference.id (eq)
-     * * externalReference.referenceId (eq)
-     * * note (eq|ne)
-     * * guest (eq|ne)
-     * * group.leader (eq|ne)
-     * * group.id(eq|ne)
-     * * unsubscribed (eq|ne)
-     * * registeredAt (eq|ne|lt|le|gt|ge)
-     * * registrationLastModified (eq|ne|lt|le|gt|ge)
-     * * invitedBy (eq|ne)
-     * * responseMethod (eq|ne)
-     * * status (eq|ne)
-     * * lastModified (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * contact.id (eq|ne)
-     * * visibility (eq|ne)
-     * * contact.title (eq|ne|sw)
-     * * contact.company (eq|ne|sw)
-     * * contact.firstName (eq|ne|sw)
-     * * contact.lastName (eq|ne|sw)
-     * * answers.question.{question id} (eq|ne)
-     * * contact.email (eq|ne|sw)
-     * * attendeeLastModified (eq|ne|lt|le|gt|ge)
-     * * appointmentGroup.id (eq|ne)
-     * * contact.deleted (eq|ne)
-     * * primaryId (eq|ne)
-     * * deletedGuest (eq|ne)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>Note:
-     * * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and
-     * 'after' filters.
-     * * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not
-     * used by the 'before' and 'after' filters.
-     * * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query
-     * parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests
-     * in the response.
+     * <p>| Field            | Operators                          | Notes                                    |
+     * |------------------|-------------------------------------|------------------------------------------|
+     * | event.id         | `eq`, `ne`                          |
+     * |
+     * | id               | `eq`, `ne`                          |
+     * |
+     * | confirmationNumber | `eq`, `ne`                          |
+     * |
+     * | checkedIn        | `eq`, `ne`                          |
+     * |
+     * | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationPath.id | `eq`, `ne`                          |
+     * |
+     * | invitationList.id | `eq`, `ne`                          |
+     * |
+     * | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |
+     * |
+     * | referenceId      | `eq`, `ne`                          |
+     * |
+     * | externalReference.type | `eq`                                |
+     * |
+     * | externalReference.id | `eq`                                |
+     * |
+     * | externalReference.referenceId | `eq`                                |
+     * |
+     * | note             | `eq`, `ne`                          |
+     * |
+     * | guest            | `eq`, `ne`                          |
+     * |
+     * | group.leader     | `eq`, `ne`                          |
+     * |
+     * | group.id         | `eq`, `ne`                          |
+     * |
+     * | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT
+     * /attendees/{id}/email-subscriptions instead |
+     * | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | invitedBy        | `eq`, `ne`                          |
+     * |
+     * | responseMethod   | `eq`, `ne`                          |
+     * |
+     * | status           | `eq`, `ne`                          |
+     * |
+     * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the
+     * response has changed. Used by the 'before' and 'after' filters. |
+     * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+     * |
+     * | contact.id       | `eq`, `ne`                          |
+     * |
+     * | visibility       | `eq`, `ne`                          |
+     * |
+     * | contact.title    | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.company  | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.firstName | `eq`, `ne`, `sw`                    |
+     * |
+     * | contact.lastName | `eq`, `ne`, `sw`                    |
+     * |
+     * | answers.question.{question id} | `eq`, `ne`                          |
+     * |
+     * | contact.email    | `eq`, `ne`, `sw`                    |
+     * |
+     * | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field
+     * other than contact.* has changed. Not used by the 'before' and 'after' filters. |
+     * | appointmentGroup.id | `eq`, `ne`                          |
+     * |
+     * | contact.deleted  | `eq`, `ne`                          |
+     * |
+     * | primaryId        | `eq`, `ne`                          |
+     * |
+     * | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted.
+     * This filter works only when the query parameter `includeDeletedGuests` is `true`. |
      */
     public ListAttendeesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -651,7 +717,9 @@ public class ListAttendeesRequest {
         }
 
         /**
-         * This allows users to include deleted guests in the response.
+         * True indicates the request should include deleted guests in the response. By default, deleted guests
+         * are excluded.
+         * The `deletedGuest` filter has no effect unless this parameter is `true`.
          */
         public Builder includeDeletedGuests(@Nullable Boolean includeDeletedGuests) {
             this.includeDeletedGuests = includeDeletedGuests;
@@ -659,70 +727,90 @@ public class ListAttendeesRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * These are the comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
-         * * starts with: sw
-         * * is null: is null
-         * * is not null: is not null
-         * * is empty: is empty
-         * * is not empty: is not empty
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * event.id (eq|ne)
-         * * id (eq|ne)
-         * * confirmationNumber (eq|ne)
-         * * checkedIn (eq|ne)
-         * * checkIn (eq|ne|lt|le|gt|ge)
-         * * checkOut (eq|ne|lt|le|gt|ge)
-         * * registrationPath.id (eq|ne)
-         * * invitationList.id (eq|ne)
-         * * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)
-         * * referenceId (eq|ne)
-         * * externalReference.type (eq)
-         * * externalReference.id (eq)
-         * * externalReference.referenceId (eq)
-         * * note (eq|ne)
-         * * guest (eq|ne)
-         * * group.leader (eq|ne)
-         * * group.id(eq|ne)
-         * * unsubscribed (eq|ne)
-         * * registeredAt (eq|ne|lt|le|gt|ge)
-         * * registrationLastModified (eq|ne|lt|le|gt|ge)
-         * * invitedBy (eq|ne)
-         * * responseMethod (eq|ne)
-         * * status (eq|ne)
-         * * lastModified (eq|ne|lt|le|gt|ge)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * contact.id (eq|ne)
-         * * visibility (eq|ne)
-         * * contact.title (eq|ne|sw)
-         * * contact.company (eq|ne|sw)
-         * * contact.firstName (eq|ne|sw)
-         * * contact.lastName (eq|ne|sw)
-         * * answers.question.{question id} (eq|ne)
-         * * contact.email (eq|ne|sw)
-         * * attendeeLastModified (eq|ne|lt|le|gt|ge)
-         * * appointmentGroup.id (eq|ne)
-         * * contact.deleted (eq|ne)
-         * * primaryId (eq|ne)
-         * * deletedGuest (eq|ne)
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>Note:
-         * * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and
-         * 'after' filters.
-         * * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not
-         * used by the 'before' and 'after' filters.
-         * * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query
-         * parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests
-         * in the response.
+         * <p>| Field            | Operators                          | Notes                                    |
+         * |------------------|-------------------------------------|------------------------------------------|
+         * | event.id         | `eq`, `ne`                          |
+         * |
+         * | id               | `eq`, `ne`                          |
+         * |
+         * | confirmationNumber | `eq`, `ne`                          |
+         * |
+         * | checkedIn        | `eq`, `ne`                          |
+         * |
+         * | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+         * |
+         * | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+         * |
+         * | registrationPath.id | `eq`, `ne`                          |
+         * |
+         * | invitationList.id | `eq`, `ne`                          |
+         * |
+         * | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |
+         * |
+         * | referenceId      | `eq`, `ne`                          |
+         * |
+         * | externalReference.type | `eq`                                |
+         * |
+         * | externalReference.id | `eq`                                |
+         * |
+         * | externalReference.referenceId | `eq`                                |
+         * |
+         * | note             | `eq`, `ne`                          |
+         * |
+         * | guest            | `eq`, `ne`                          |
+         * |
+         * | group.leader     | `eq`, `ne`                          |
+         * |
+         * | group.id         | `eq`, `ne`                          |
+         * |
+         * | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT
+         * /attendees/{id}/email-subscriptions instead |
+         * | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+         * |
+         * | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+         * |
+         * | invitedBy        | `eq`, `ne`                          |
+         * |
+         * | responseMethod   | `eq`, `ne`                          |
+         * |
+         * | status           | `eq`, `ne`                          |
+         * |
+         * | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the
+         * response has changed. Used by the 'before' and 'after' filters. |
+         * | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |
+         * |
+         * | contact.id       | `eq`, `ne`                          |
+         * |
+         * | visibility       | `eq`, `ne`                          |
+         * |
+         * | contact.title    | `eq`, `ne`, `sw`                    |
+         * |
+         * | contact.company  | `eq`, `ne`, `sw`                    |
+         * |
+         * | contact.firstName | `eq`, `ne`, `sw`                    |
+         * |
+         * | contact.lastName | `eq`, `ne`, `sw`                    |
+         * |
+         * | answers.question.{question id} | `eq`, `ne`                          |
+         * |
+         * | contact.email    | `eq`, `ne`, `sw`                    |
+         * |
+         * | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field
+         * other than contact.* has changed. Not used by the 'before' and 'after' filters. |
+         * | appointmentGroup.id | `eq`, `ne`                          |
+         * |
+         * | contact.deleted  | `eq`, `ne`                          |
+         * |
+         * | primaryId        | `eq`, `ne`                          |
+         * |
+         * | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted.
+         * This filter works only when the query parameter `includeDeletedGuests` is `true`. |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

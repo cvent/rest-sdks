@@ -910,6 +910,8 @@ public class Application {
 
         ListSessionsCategoriesRequest req = ListSessionsCategoriesRequest.builder()
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .sort("name:ASC")
+                .filter("name contains 'general'")
                 .build();
 
 
@@ -1630,12 +1632,12 @@ public class Application {
         UpdateSessionCustomFieldAnswersRequest req = UpdateSessionCustomFieldAnswersRequest.builder()
                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .customFieldId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
-                .customField1(CustomField1Input.builder()
+                .customField(CustomFieldInput.builder()
                     .id("5bcc98a1-7899-448a-a52d-4fcaf9af774f")
                     .value(List.of(
                         "Choice C",
                         "Choice A"))
-                    .type(CustomField1CustomFieldType.GENERAL)
+                    .type(CustomFieldCustomFieldType.GENERAL)
                     .build())
                 .build();
 
@@ -1643,8 +1645,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.customField1().isPresent()) {
-            System.out.println(res.customField1().get());
+        if (res.customField().isPresent()) {
+            System.out.println(res.customField().get());
         }
     }
 }

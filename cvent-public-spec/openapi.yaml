@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Cvent REST APIs
-  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the API you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your application                      | Your application's client id.                                                                                |\n| {client_secret}   | Retrieved from your application                      | Your application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
+  description: "# Introduction\nThe Cvent API Platform is built around REST. We aim to provide intuitive endpoints that can be easily\ndiscovered to help leverage the Cvent platform for your event needs. The RESTful APIs outlined here\nuse JSON-encoded request and response format, along with HTTP codes, to convey processing status of\nrequests received. The Cvent resources are protected using OAuth2.\n\n# Getting Started\n\nIf you're new to the Cvent API Platform, start by reading our\n[Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) guide. This will\ngive you an overview of how to authenticate and make requests using our APIs.\n\n## Authentication\n\nThe Cvent REST API uses [OAuth2](https://oauth.net/2/) to authorize requests to the platform. The client\ncredentials authorization flow is supported.\n\n<a name=\"oauth2-auth-code-planner-admin\"></a>\n\nAuthorization code flow is only supported for planner users with the administrator role in Cvent. Developer users\ncannot use authorization code flow.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nHere's an example of using client credential flow to authorize. You'll supply your application's id and secret to\nmake a [Token](#operation/oauth2Token) request.\n\n```bash\ncurl --location --request POST '{hostName}/{version}/oauth2/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--header 'Authorization: Basic {api_credentials}' \\\n--data-urlencode 'grant_type=client_credentials' \\\n--data-urlencode 'client_id={client_id}'\n```\n\n| Key               | Description                                          | Value                                                                                                        |\n| :---------------- | :--------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |\n| {hostName}        | https://api-platform.cvent.com                       | Location if you're account is in the North American datacenter                                               |\n|                   | https://api-platform-eur.cvent.com                   | Location if you're account is in the European data center.                                                   |\n| {version}         | ea                                                   | The version of the\_API\_you're using. Only `ea` is currently supported.                                       |\n| {api_credentials} | {client_id}:{client_secret} in base64 encoded format | Supply your client id & client credentials in a\_base 64 encoded format.                                      |\n| {client_id}       | Retrieved from your\_application                      | Your\_application's client id.                                                                                |\n| {client_secret}   | Retrieved from your\_application                      | Your\_application's client secret.                                                                            |\n\nOn a successful call, you'll receive the following response:\n\n```json\n{\n  \"access_token\": \"{accessToken}\",\n  \"expires_in\": 3600,\n  \"token_type\": \"Bearer\"\n}\n```\n\nThis bearer token is valid for 3600 seconds (60 minutes) and must be used in subsequent calls.\n\n## Endpoints\n\nEndpoints start with `hostName` and `version`.\n\nThe `hostname` will depend on the region that your Cvent account is hosted in. Please see the table\nbelow to identify which hostname you should be using.\n\n| Region        |\tHostname                           |\n|:--------------|:-----------------------------------|\n| North America\t| https://api-platform.cvent.com     |\n| Europe        | https://api-platform-eur.cvent.com |\n\nThe current `version` of the Cvent API is `ea`.\n\n## Rate Limits\n\nCvent APIs enforce rate limits to ensure platform stability. Your limits depend on your tier: Free,\nStandard, or Premium.\n\n<br />\n\n### Usage Tiers\n\n| Tier     | Daily Calls | Calls per Second | Max Burst |\n| -------- | ----------- | ---------------- | --------- |\n| Free     | 1,000       | 2                | 1         |\n| Standard | 15,000      | 10               | 10        |\n| Premium  | 500,000     | 25               | 25        |\n\n- **Daily calls** define how many requests you can make in a 24-hour period. Quota\n  resets at 12 midnight (+0 GMT).\n- **Calls per second** define how many requests you can make in a 1-second window.\n- **Max Burst** defines how many requests you can make at once.\n\nIf you are unsure what usage tier applies to your account, you can check via\n[Get Current Usage Tier](#operation/getUsageTier).\n\nPlease note that these limits may change as the Cvent API Platform evolves.\n\n<br />\n\n### Handling Rate Limits\n\nSometimes, you may exceed your rate limits. When this happens, the API will return a `429 Too Many Requests`. See\n[handling rate limits](/docs/rest-api/guides/handling-rate-limits) for best practices on how to handle this.\n\n## Pagination\n\nSome APIs use pagination to manage records. Each page of records has a token associated to identify it.\n\nIf an API uses pagination, you’ll find up to three tokens in the response:\n- **currentToken**: Describes the token of the current page.\n- **nextToken**: Provides a token for the next page of records, if one exists.\n- **previousToken**: Provides a token for the previous page of records, if one exists. Not all APIs will return\n  this token.\n\nYou specify which page of records to view via the `token` parameter in your API call. To navigate through pages,\ntake the `nextToken` or `previousToken` value and pass it to your next call’s `token` parameter to get the\nrespective page of records. For example, if you made this request:\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nThe response contains a paging array where you'll find the token information.\n\n```json\n{\n  \"paging\": {\n    \"currentToken\": \"90c5f062-76ad-4ea4-aa53-00eb698d9262\",\n    \"nextToken\": \"3b2359a7-4583-40ed-8afd-67e5f15373d3\",\n    \"limit\": 100,\n    \"totalCount\": 102,\n    \"_links\": {...}\n  },\n  \"data\": [...]\n}\n```\n\nTake the `nextToken` and use it in the `token` parameter on your subsequent call.\n\n```bash\ncurl -X GET {hostname}/{version}/contacts?limit=100&token=3b2359a7-4583-40ed-8afd-67e5f15373d3 \\\n-H 'Accept: application/json' \\\n-H 'Authorization: Bearer {accessToken}'\n```\n\nWhen the response doesn’t contain a `nextToken` field, you’ve reached the last page. Occasionally, you might\nencounter an empty page at the end of results. This typically happens when the results were evenly divisible.\nEnsure your client code handles the possibility of receiving an empty data array when using the `nextToken`.\n\n## Filtering\n\nUse filters to narrow down results. The filter follows the pattern\n`filter='field' comparisonType 'value'`. The value can be enclosed with single\nquotes (') or double quotes (\").\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq 'Smith'\n````\n\nTo correctly pass a single quote in the filter's value, use double quotes around\nthe string.\n\n```bash\nGET {hostName}/{version}/contacts?filter=lastName eq \"O'Keenan\"\n```\n\nTo correctly pass a double quote in the filter's value, use double quotes around\nthe string and add an escape character `\\` to each quote that is part of the\nstring.\n\n```bash\nGET {hostName}/{version}/events?filter=eventName eq \"\\\"Yearly\\\" Conference\"\n```\n\n## Versioning\n\nChange is inevitable in API development. Planning for it is crucial. We track\nboth backward-compatible and backward-incompatible changes.\n\n<br />\n\n### Backward Compatible Changes\n\nBackward compatible changes will be made often and are intended to avoid\nany adverse impact on our customers. It is highly advisable that when reading\nJSON payloads from Cvent, you are able to handle \"unknown\" attributes that\ncan be added over time. We consider the following changes backward-compatible:\n\n- Adding new resources\n- Adding new optional request parameters to existing operations\n- Adding new attributes to requests or responses\n- Changing the length or format (not type) of resource identifiers. For example, an ID can change from\n  \"1234/1234\" to \"1234::1234\".\n- Increasing the length of string fields\n\n<br />\n\n### Backward Incompatible Changes\n\nBackward-incompatible changes are made infrequently, however, they can be\ndisruptive to consumers. Due to this, our APIs are versioned to avoid\ndisruptions to customers. We leverage a URI-based versioning scheme,\nwhich means that a version value is included in the Cvent API URL.\nWhen breaking changes occur, a new version of the API is made available\nwhile the existing version is deprecated but remains available for a\nlimited period of time. We consider the following backward-incompatible changes:\n\n- Adding a new required parameter (query string param or payload attribute)\n- Deleting API resources\n- Deleting any attribute from API responses\n- Changing the data type on any parameter or attribute\n\n## Standards\nAs you begin working with our APIs, it's essential to be aware of standards around\ncountry codes, time formats, and other important details that ensure smooth integration.\nLearn more about our [API Standards](/docs/rest-api/reference/api-standards)\n"
   contact:
     name: Cvent Development Platform
     url: https://developers.cvent.com/
@@ -1446,66 +1446,53 @@ paths:
         - name: filter
           in: query
           required: false
-          description: |-
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
-            These are the comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
-              * starts with: sw
-              * is null: is null
-              * is not null: is not null
-              * is empty: is empty
-              * is not empty: is not empty
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            The following fields are filterable:
-              * event.id (eq|ne)
-              * id (eq|ne)
-              * confirmationNumber (eq|ne)
-              * checkedIn (eq|ne)
-              * checkIn (eq|ne|lt|le|gt|ge)
-              * checkOut (eq|ne|lt|le|gt|ge)
-              * registrationPath.id (eq|ne)
-              * invitationList.id (eq|ne)
-              * registrationType.id (eq|ne|is null|is not null|is empty|is not empty)
-              * referenceId (eq|ne)
-              * externalReference.type (eq)
-              * externalReference.id (eq)
-              * externalReference.referenceId (eq)
-              * note (eq|ne)
-              * guest (eq|ne)
-              * group.leader (eq|ne)
-              * group.id(eq|ne)
-              * unsubscribed (eq|ne)
-              * registeredAt (eq|ne|lt|le|gt|ge)
-              * registrationLastModified (eq|ne|lt|le|gt|ge)
-              * invitedBy (eq|ne)
-              * responseMethod (eq|ne)
-              * status (eq|ne)
-              * lastModified (eq|ne|lt|le|gt|ge)
-              * created (eq|ne|lt|le|gt|ge)
-              * contact.id (eq|ne)
-              * visibility (eq|ne)
-              * contact.title (eq|ne|sw)
-              * contact.company (eq|ne|sw)
-              * contact.firstName (eq|ne|sw)
-              * contact.lastName (eq|ne|sw)
-              * answers.question.{question id} (eq|ne)
-              * contact.email (eq|ne|sw)
-              * attendeeLastModified (eq|ne|lt|le|gt|ge)
-              * appointmentGroup.id (eq|ne)
-              * contact.deleted (eq|ne)
-              * primaryId (eq|ne)
-              * deletedGuest (eq|ne)
+            Supported fields and operators are listed below:
 
-            Note:
-              * lastModified: Will be updated when any field in the response has changed. Used by the 'before' and 'after' filters.
-              * attendeeLastModified: Will be updated only when some field other than contact.* has changed. Not used by the 'before' and 'after' filters.
-              * deletedGuest: Filter returns guests marked as deleted. This filter works only when the query parameter `includeDeletedGuests` is true. True indicates the request should include deleted guests in the response.
+            | Field            | Operators                          | Notes                                    |
+            |------------------|-------------------------------------|------------------------------------------|
+            | event.id         | `eq`, `ne`                          |                                          |
+            | id               | `eq`, `ne`                          |                                          |
+            | confirmationNumber | `eq`, `ne`                          |                                          |
+            | checkedIn        | `eq`, `ne`                          |                                          |
+            | checkIn          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
+            | checkOut         | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
+            | registrationPath.id | `eq`, `ne`                          |                                          |
+            | invitationList.id | `eq`, `ne`                          |                                          |
+            | registrationType.id | `eq`, `ne`, `is null`, `is not null`, `is empty`, `is not empty` |                                          |
+            | referenceId      | `eq`, `ne`                          |                                          |
+            | externalReference.type | `eq`                                |                                          |
+            | externalReference.id | `eq`                                |                                          |
+            | externalReference.referenceId | `eq`                                |                                          |
+            | note             | `eq`, `ne`                          |                                          |
+            | guest            | `eq`, `ne`                          |                                          |
+            | group.leader     | `eq`, `ne`                          |                                          |
+            | group.id         | `eq`, `ne`                          |                                          |
+            | unsubscribed     | `eq`, `ne`                          | **DEPRECATED**: Please use PUT /attendees/{id}/email-subscriptions instead |
+            | registeredAt     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
+            | registrationLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
+            | invitedBy        | `eq`, `ne`                          |                                          |
+            | responseMethod   | `eq`, `ne`                          |                                          |
+            | status           | `eq`, `ne`                          |                                          |
+            | lastModified     | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated when any field in the response has changed. Used by the 'before' and 'after' filters. |
+            | created          | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  |                                          |
+            | contact.id       | `eq`, `ne`                          |                                          |
+            | visibility       | `eq`, `ne`                          |                                          |
+            | contact.title    | `eq`, `ne`, `sw`                    |                                          |
+            | contact.company  | `eq`, `ne`, `sw`                    |                                          |
+            | contact.firstName | `eq`, `ne`, `sw`                    |                                          |
+            | contact.lastName | `eq`, `ne`, `sw`                    |                                          |
+            | answers.question.{question id} | `eq`, `ne`                          |                                          |
+            | contact.email    | `eq`, `ne`, `sw`                    |                                          |
+            | attendeeLastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge`  | Will be updated only when some field other than contact.* has changed. Not used by the 'before' and 'after' filters. |
+            | appointmentGroup.id | `eq`, `ne`                          |                                          |
+            | contact.deleted  | `eq`, `ne`                          |                                          |
+            | primaryId        | `eq`, `ne`                          |                                          |
+            | deletedGuest     | `eq`, `ne`                          | Filter returns guests marked as deleted. This filter works only when the query parameter `includeDeletedGuests` is `true`. |
           schema:
             type: string
             example: contact.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' or checkedIn eq 'true'
@@ -15035,6 +15022,45 @@ paths:
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/token'
+        - name: sort
+          in: query
+          required: false
+          style: form
+          explode: false
+          description: |
+            The sort order passed as a parameter, used to control the order of the
+            search results as a priority ordered list of sorts
+
+            There are two orders:
+              * ascending: ASC
+              * descending: DESC
+
+            The following fields are sortable:
+              * name
+          schema:
+            type: string
+            example: name:ASC
+        - name: filter
+          in: query
+          required: false
+          description: |
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
+
+            Supported fields and operators are listed below:
+
+            | Field            | Operators                           |
+            |------------------|-------------------------------------|
+            | id               | `eq`, `ne`, `in`                    |
+            | name             | `eq`, `ne`, `contains`              |
+
+            The following operators are available:
+              * and
+              * or
+          schema:
+            type: string
+            example: name contains 'general'
       tags:
         - Sessions
       responses:
@@ -15742,7 +15768,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/custom-field1'
+              $ref: '#/components/schemas/custom-field'
       responses:
         '200':
           description: Successfully updated custom field answers for a session.
@@ -15750,7 +15776,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/custom-field1'
+                $ref: '#/components/schemas/custom-field'
         '400':
           $ref: '#/components/responses/BadRequest1'
         '401':
@@ -16181,12 +16207,30 @@ paths:
             The following can be used in filter expressions:
               * equal: eq
               * not equal: ne
+              * contains a value: contains
 
-            The following field is filterable:
+            The following fields are filterable:
               * active (eq|ne)
+              * id (eq|ne)
+              * name (eq|ne|contains)
           schema:
             type: string
             example: active eq 'true'
+        - name: sort
+          in: query
+          required: false
+          description: |
+            Sorts the returned speaker categories in ascending or descending order by its name.
+
+            There are two orders:
+              * ascending: ASC
+              * descending: DESC
+
+            The following fields are sortable:
+              * name
+          schema:
+            type: string
+            example: name:DESC
       tags:
         - Speakers
       responses:
@@ -18355,34 +18399,28 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are eight comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
-              * is empty: is empty
-              * is not empty: is not empty
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * event.id (eq|ne)
-              * session.id (eq|ne|is empty|is not empty)
-              * appointment.id (eq|ne|is empty|is not empty)
-              * exhibitor.id (eq|ne|is empty|is not empty)
-              * sourceId (eq|ne|is empty|is not empty)
-              * solutionType (eq|ne)
-              * provider (eq|ne)
-              * type (eq|ne)
-              * status (eq|ne)
-              * meetingId (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * lastModified (eq|ne|lt|le|gt|ge)
-              * playerType (eq|ne)
+            | Field          | Operators                                |
+            |----------------|------------------------------------------|
+            | id             | `eq`, `ne`                               |
+            | event.id       | `eq`, `ne`                               |
+            | session.id     | `eq`, `ne`, `is empty`, `is not empty`   |
+            | appointment.id | `eq`, `ne`, `is empty`, `is not empty`   |
+            | exhibitor.id   | `eq`, `ne`, `is empty`, `is not empty`   |
+            | sourceId       | `eq`, `ne`, `is empty`, `is not empty`   |
+            | solutionType   | `eq`, `ne`                               |
+            | provider       | `eq`, `ne`                               |
+            | type           | `eq`, `ne`                               |
+            | status         | `eq`, `ne`                               |
+            | meetingId      | `eq`, `ne`                               |
+            | created        | `eq`, `ne`, `lt`, `le`, `gt`, `ge`       |
+            | lastModified   | `eq`, `ne`, `lt`, `le`, `gt`, `ge`       |
+            | playerType     | `eq`, `ne`                               |
           schema:
             type: string
             example: event.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and sourceId ne 'sampleWebcastSystemId'
@@ -18427,24 +18465,20 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * sourceId (eq|ne)
-              * attendee.id (eq|ne)
-              * webcast.id (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * lastModified (eq|ne|lt|le|gt|ge)
+            | Field        | Operators                          |
+            |--------------| -----------------------------------|
+            | id           | `eq`, `ne`                         |
+            | sourceId     | `eq`, `ne`                         |
+            | attendee.id  | `eq`, `ne`                         |
+            | webcast.id   | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
           schema:
             type: string
             example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and event.id eq '55ca6645-0dc3-487b-953e-86d6abbdf7d3'
@@ -18489,22 +18523,18 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * webcast.id (eq|ne)
-              * id (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * lastModified (eq|ne|lt|le|gt|ge)
+            | Field        | Operators                          |
+            |--------------| -----------------------------------|
+            | webcast.id   | `eq`, `ne`                         |
+            | id           | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
           schema:
             type: string
             example: webcast.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
@@ -18735,23 +18765,19 @@ paths:
           in: query
           required: false
           description: |
-            A filter query string narrows search results and supports the combination of logical and comparison operators.
-            The filter adheres to the pattern filter='field' comparisonType 'value'.
+            Use filter query parameters to limit results
+            to data that matches your criteria. See
+            [Filters](/docs/rest-api/reference/filters) for details.
 
-            There are six comparison types that can be used in filter expressions:
-              * equal: eq
-              * not equal: ne
-              * greater than: gt
-              * greater or equal: ge
-              * less than: lt
-              * less than or equal: le
+            Supported fields and operators are listed below:
 
-            The following fields are filterable:
-              * id (eq|ne)
-              * sourceId (eq|ne)
-              * attendee.id (eq|ne)
-              * created (eq|ne|lt|le|gt|ge)
-              * lastModified (eq|ne|lt|le|gt|ge)
+            | Field        | Operators                          |
+            |--------------| -----------------------------------|
+            | id           | `eq`, `ne`                         |
+            | sourceId     | `eq`, `ne`                         |
+            | attendee.id  | `eq`, `ne`                         |
+            | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+            | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
           schema:
             type: string
             example: id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'
@@ -19823,7 +19849,9 @@ components:
       in: query
       name: includeDeletedGuests
       required: false
-      description: This allows users to include deleted guests in the response.
+      description: |
+        True indicates the request should include deleted guests in the response. By default, deleted guests are excluded.
+        The `deletedGuest` filter has no effect unless this parameter is `true`.
       schema:
         type: boolean
         default: false
@@ -24466,8 +24494,9 @@ components:
           $ref: '#/components/schemas/uuid.json'
         unsubscribed:
           type: boolean
-          description: True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails triggered by their own actions (like registration modification).
+          description: "DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead."
           example: false
+          deprecated: true
         status:
           $ref: '#/components/schemas/attendee-status.json'
         registeredAt:
@@ -24493,7 +24522,7 @@ components:
           type: array
           deprecated: true
           items:
-            $ref: '#/components/schemas/custom-field.json3'
+            $ref: '#/components/schemas/custom-field'
           description: "A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead."
         answers:
           type: array
@@ -25055,7 +25084,7 @@ components:
             customFields:
               type: array
               items:
-                $ref: '#/components/schemas/custom-field.json3'
+                $ref: '#/components/schemas/custom-field'
               description: Collection of custom fields.
               readOnly: true
             sourceId:
@@ -25809,9 +25838,10 @@ components:
               description: The ID of the administrator contact whom registered this attendee.
             unsubscribed:
               type: boolean
-              description: True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails triggered by their own actions (like registration modification).
+              description: "DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead."
               example: false
               readOnly: true
+              deprecated: true
             admissionItem:
               type: object
               properties:
@@ -31725,88 +31755,7 @@ components:
           description: The order of this question in the bigger list of questions.
           example: 1
           readOnly: true
-    custom-field.json2:
-      title: CustomField
-      description: A Custom Field
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/custom-field1/allOf/0'
-      properties:
-        type:
-          description: The type of data collected by a custom field.
-          type: string
-          allOf:
-            - $ref: '#/components/schemas/custom-field1/properties/type/allOf/0'
-            - readOnly: true
-              example: MultiSelect
     custom-field.json3:
-      title: CustomField
-      description: A Custom Field
-      type: object
-      allOf:
-        - title: CustomFieldBase
-          description: Base schema for Custom Field - allows type to be customized by extending schemas
-          required:
-            - id
-            - value
-          type: object
-          properties:
-            id:
-              type: string
-              description: The unique ID representing this custom field.
-              format: uuid
-            name:
-              type: string
-              description: The actual text of the custom field.
-              example: What is your favorite color?
-              readOnly: true
-            value:
-              type: array
-              uniqueItems: true
-              items:
-                type: string
-                description: A question answer value
-              description: The set of answers or possible answers to a question.
-              example:
-                - Choice C
-                - Choice A
-            order:
-              type: integer
-              description: The order of this question in the bigger list of questions.
-              example: 1
-              readOnly: true
-      properties:
-        type:
-          description: The type of data collected by a custom field.
-          type: string
-          allOf:
-            - title: CustomFieldType
-              enum:
-                - AutoIncrement
-                - ConsentQuestion
-                - Currency
-                - Decimal
-                - Date
-                - DateTime
-                - Email
-                - FileUpload
-                - FreeText
-                - General
-                - MultiChoice
-                - MultiSelect
-                - Number
-                - OpenEndedDateTime
-                - OpenEndedText
-                - SingleChoice
-                - SingleSelect
-                - USPhoneNumber
-                - Unknown
-              type: string
-              description: The type of data collected by a custom field.
-              example: General
-            - readOnly: true
-              example: MultiSelect
-    custom-field.json4:
       title: CustomField
       description: A survey custom field.
       required:
@@ -31854,7 +31803,7 @@ components:
           example:
             - Green
             - Blue
-    custom-field.json5:
+    custom-field.json4:
       title: CustomField
       description: A Custom Field
       type: object
@@ -33666,7 +33615,7 @@ components:
           type: array
           readOnly: true
           items:
-            $ref: '#/components/schemas/custom-field.json5'
+            $ref: '#/components/schemas/custom-field.json4'
           description: Collection of custom fields.
         category:
           type: object
@@ -43285,7 +43234,7 @@ components:
           type: array
           deprecated: true
           items:
-            $ref: '#/components/schemas/custom-field.json5'
+            $ref: '#/components/schemas/custom-field.json4'
           description: Collection of custom fields.
           readOnly: true
         sourceId:
@@ -47314,21 +47263,18 @@ components:
               description: List of choices for the question.
               items:
                 $ref: '#/components/schemas/choice.json'
-              minItems: 1
               maxItems: 100
             categories:
               type: array
               description: List of categories for the question.
               items:
                 $ref: '#/components/schemas/category.json'
-              minItems: 1
               maxItems: 100
             subCategories:
               type: array
               description: List of sub categories for matrix side-by-side questions.
               items:
                 $ref: '#/components/schemas/text-field.json'
-              minItems: 1
               maxItems: 100
             notApplicableAnswer:
               $ref: '#/components/schemas/additional-choice.json'
@@ -47349,7 +47295,6 @@ components:
               description: List of fields for form/matrix questions.
               items:
                 $ref: '#/components/schemas/field.json'
-              minItems: 1
               maxItems: 100
             maxScore:
               type: number
@@ -48236,7 +48181,7 @@ components:
         - $ref: '#/components/schemas/attendee-segment/allOf/0'
       properties:
         segment:
-          $ref: '#/components/schemas/segment.json-0'
+          $ref: '#/components/schemas/segment.json'
         id:
           type: string
           format: uuid
@@ -48277,7 +48222,7 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/segment-id.json'
-    segment.json-0:
+    segment.json:
       title: Segment
       required:
         - id
@@ -48803,7 +48748,7 @@ components:
             customFields:
               type: array
               items:
-                $ref: '#/components/schemas/custom-field.json2'
+                $ref: '#/components/schemas/custom-field'
               description: Collection of custom fields.
               readOnly: true
             segments:
@@ -49331,7 +49276,7 @@ components:
         customFields:
           type: array
           items:
-            $ref: '#/components/schemas/custom-field.json5'
+            $ref: '#/components/schemas/custom-field.json4'
           description: Collection of custom fields.
     sessions-attendance-response.json:
       title: SessionsAttendance
@@ -50199,7 +50144,7 @@ components:
           type: array
           deprecated: true
           items:
-            $ref: '#/components/schemas/custom-field.json5'
+            $ref: '#/components/schemas/custom-field.json4'
           description: Collection of custom fields.
           readOnly: true
         sourceId:
@@ -50490,7 +50435,7 @@ components:
         customFields:
           type: array
           items:
-            $ref: '#/components/schemas/custom-field.json4'
+            $ref: '#/components/schemas/custom-field.json3'
           description: Collection of survey custom fields.
     standard-surveys-paginated-response:
       title: StandardSurveysPaginatedResponse
@@ -55054,23 +54999,24 @@ components:
     webcast-provider.json:
       title: WebcastProvider
       enum:
-        - None
-        - Zoom
-        - ON24
-        - Intrado
         - Adobe Connect
+        - Amazon Chime
+        - BlueJeans
+        - Brightcove
+        - Cisco Webex
+        - Facebook Live
+        - GlobalMeet
         - GoToMeeting
         - GoToWebinar
-        - GlobalMeet
-        - Amazon Chime
-        - Cisco Webex
-        - BlueJeans
+        - Goldcast
+        - Intrado
         - Microsoft Teams
+        - None
+        - ON24
+        - Other
         - Vimeo
         - YouTube Live
-        - Facebook Live
-        - Brightcove
-        - Other
+        - Zoom
       type: string
       description: Name of the webcast provider.
       example: Zoom

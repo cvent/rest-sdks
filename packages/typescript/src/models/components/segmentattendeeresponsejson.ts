@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { SegmentJson0, SegmentJson0$inboundSchema } from "./segmentjson0.js";
+import { SegmentJson, SegmentJson$inboundSchema } from "./segmentjson.js";
 
 /**
  * Represents the attendees that are associated/disassociated to/from a segment
@@ -31,7 +31,7 @@ export type SegmentAttendeeResponseJson = {
   /**
    * Segment details
    */
-  segment?: SegmentJson0 | undefined;
+  segment?: SegmentJson | undefined;
   /**
    * ID of the attendee.
    */
@@ -55,7 +55,7 @@ export const SegmentAttendeeResponseJson$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  segment: SegmentJson0$inboundSchema.optional(),
+  segment: SegmentJson$inboundSchema.optional(),
   id: z.string().optional(),
   disassociated: z.boolean().optional(),
 });

@@ -18,23 +18,24 @@ namespace Cvent.SDK.Models.Components
     /// </summary>
     public enum WebcastProviderJson
     {
-        [JsonProperty("None")] None,
-        [JsonProperty("Zoom")] Zoom,
-        [JsonProperty("ON24")] On24,
-        [JsonProperty("Intrado")] Intrado,
         [JsonProperty("Adobe Connect")] AdobeConnect,
+        [JsonProperty("Amazon Chime")] AmazonChime,
+        [JsonProperty("BlueJeans")] BlueJeans,
+        [JsonProperty("Brightcove")] Brightcove,
+        [JsonProperty("Cisco Webex")] CiscoWebex,
+        [JsonProperty("Facebook Live")] FacebookLive,
+        [JsonProperty("GlobalMeet")] GlobalMeet,
         [JsonProperty("GoToMeeting")] GoToMeeting,
         [JsonProperty("GoToWebinar")] GoToWebinar,
-        [JsonProperty("GlobalMeet")] GlobalMeet,
-        [JsonProperty("Amazon Chime")] AmazonChime,
-        [JsonProperty("Cisco Webex")] CiscoWebex,
-        [JsonProperty("BlueJeans")] BlueJeans,
+        [JsonProperty("Goldcast")] Goldcast,
+        [JsonProperty("Intrado")] Intrado,
         [JsonProperty("Microsoft Teams")] MicrosoftTeams,
+        [JsonProperty("None")] None,
+        [JsonProperty("ON24")] On24,
+        [JsonProperty("Other")] Other,
         [JsonProperty("Vimeo")] Vimeo,
         [JsonProperty("YouTube Live")] YouTubeLive,
-        [JsonProperty("Facebook Live")] FacebookLive,
-        [JsonProperty("Brightcove")] Brightcove,
-        [JsonProperty("Other")] Other,
+        [JsonProperty("Zoom")] Zoom,
     }
 
     public static class WebcastProviderJsonExtension

@@ -13,5 +13,5 @@ let value: WebcastProviderJson = "Zoom";
 ## Values
 
 ```typescript
-"None" | "Zoom" | "ON24" | "Intrado" | "Adobe Connect" | "GoToMeeting" | "GoToWebinar" | "GlobalMeet" | "Amazon Chime" | "Cisco Webex" | "BlueJeans" | "Microsoft Teams" | "Vimeo" | "YouTube Live" | "Facebook Live" | "Brightcove" | "Other"
+"Adobe Connect" | "Amazon Chime" | "BlueJeans" | "Brightcove" | "Cisco Webex" | "Facebook Live" | "GlobalMeet" | "GoToMeeting" | "GoToWebinar" | "Goldcast" | "Intrado" | "Microsoft Teams" | "None" | "ON24" | "Other" | "Vimeo" | "YouTube Live" | "Zoom"
 ```

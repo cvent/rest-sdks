@@ -14,23 +14,24 @@ import java.util.Optional;
  * <p>Name of the webcast provider.
  */
 public enum WebcastProviderJson {
-    NONE("None"),
-    ZOOM("Zoom"),
-    ON24("ON24"),
-    INTRADO("Intrado"),
     ADOBE_CONNECT("Adobe Connect"),
+    AMAZON_CHIME("Amazon Chime"),
+    BLUE_JEANS("BlueJeans"),
+    BRIGHTCOVE("Brightcove"),
+    CISCO_WEBEX("Cisco Webex"),
+    FACEBOOK_LIVE("Facebook Live"),
+    GLOBAL_MEET("GlobalMeet"),
     GO_TO_MEETING("GoToMeeting"),
     GO_TO_WEBINAR("GoToWebinar"),
-    GLOBAL_MEET("GlobalMeet"),
-    AMAZON_CHIME("Amazon Chime"),
-    CISCO_WEBEX("Cisco Webex"),
-    BLUE_JEANS("BlueJeans"),
+    GOLDCAST("Goldcast"),
+    INTRADO("Intrado"),
     MICROSOFT_TEAMS("Microsoft Teams"),
+    NONE("None"),
+    ON24("ON24"),
+    OTHER("Other"),
     VIMEO("Vimeo"),
     YOU_TUBE_LIVE("YouTube Live"),
-    FACEBOOK_LIVE("Facebook Live"),
-    BRIGHTCOVE("Brightcove"),
-    OTHER("Other");
+    ZOOM("Zoom");
 
     @JsonValue
     private final String value;

@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// Segment details.
         /// </summary>
         [JsonProperty("segment")]
-        public SegmentJson0? Segment { get; set; }
+        public SegmentJson? Segment { get; set; }
 
         /// <summary>
         /// ID of the attendee.

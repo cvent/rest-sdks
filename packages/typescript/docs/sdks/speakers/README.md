@@ -522,6 +522,7 @@ async function run() {
   const result = await cventSDK.speakers.listSpeakersCategories({
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "active eq 'true'",
+    sort: "name:DESC",
   });
 
   for await (const page of result) {
@@ -557,6 +558,7 @@ async function run() {
   const res = await speakersListSpeakersCategories(cventSDK, {
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     filter: "active eq 'true'",
+    sort: "name:DESC",
   });
   if (res.ok) {
     const { value: result } = res;

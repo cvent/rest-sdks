@@ -25,5 +25,38 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
+
+        /// <summary>
+        /// The sort order passed as a parameter, used to control the order of the<br/>
+        /// search results as a priority ordered list of sorts<br/>
+        /// <br/>
+        /// There are two orders:<br/>
+        ///   * ascending: ASC<br/>
+        ///   * descending: DESC<br/>
+        /// <br/>
+        /// The following fields are sortable:<br/>
+        ///   * name.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")]
+        public string? Sort { get; set; }
+
+        /// <summary>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
+        /// <br/>
+        /// Supported fields and operators are listed below:<br/>
+        /// <br/>
+        /// | Field            | Operators                           |<br/>
+        /// |------------------|-------------------------------------|<br/>
+        /// | id               | `eq`, `ne`, `in`                    |<br/>
+        /// | name             | `eq`, `ne`, `contains`              |<br/>
+        /// <br/>
+        /// The following operators are available:<br/>
+        ///   * and<br/>
+        ///   * or.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
+        public string? Filter { get; set; }
     }
 }

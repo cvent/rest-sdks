@@ -69,7 +69,10 @@ export type ListAttendeesPostFilterRequest = {
    */
   sort?: string | undefined;
   /**
-   * This allows users to include deleted guests in the response.
+   * True indicates the request should include deleted guests in the response. By default, deleted guests are excluded.
+   *
+   * @remarks
+   * The `deletedGuest` filter has no effect unless this parameter is `true`.
    */
   includeDeletedGuests?: boolean | undefined;
   /**

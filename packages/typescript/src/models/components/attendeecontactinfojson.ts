@@ -28,10 +28,7 @@ import {
   ContactLinksJson,
   ContactLinksJson$inboundSchema,
 } from "./contactlinksjson.js";
-import {
-  CustomFieldJson3,
-  CustomFieldJson3$inboundSchema,
-} from "./customfieldjson3.js";
+import { CustomField, CustomField$inboundSchema } from "./customfield.js";
 import { GenderJson, GenderJson$inboundSchema } from "./genderjson.js";
 
 /**
@@ -161,7 +158,7 @@ export type AttendeeContactInfoJson = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomFieldJson3> | undefined;
+  customFields?: Array<CustomField> | undefined;
   /**
    * This is a ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name has part of the ID
    */
@@ -264,7 +261,7 @@ export const AttendeeContactInfoJson$inboundSchema: z.ZodType<
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
   optOut: z.lazy(() => OptOut$inboundSchema).optional(),
-  customFields: z.array(CustomFieldJson3$inboundSchema).optional(),
+  customFields: z.array(CustomField$inboundSchema).optional(),
   sourceId: z.string().optional(),
   mobilePhone: z.string().optional(),
   compliance: z.array(ComplianceJson$inboundSchema).optional(),

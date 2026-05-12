@@ -453,7 +453,7 @@ export class Sessions extends ClientSDK {
   async updateSessionCustomFieldAnswers(
     request: operations.UpdateSessionCustomFieldAnswersRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField1> {
+  ): Promise<components.CustomField> {
     return unwrapAsync(sessionsUpdateSessionCustomFieldAnswers(
       this,
       request,

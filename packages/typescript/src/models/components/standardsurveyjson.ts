@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomFieldJson4,
-  CustomFieldJson4$inboundSchema,
-} from "./customfieldjson4.js";
+  CustomFieldJson3,
+  CustomFieldJson3$inboundSchema,
+} from "./customfieldjson3.js";
 import {
   SurveyAuthorJson,
   SurveyAuthorJson$inboundSchema,
@@ -82,7 +82,7 @@ export type StandardSurveyJson = {
   /**
    * Collection of survey custom fields.
    */
-  customFields?: Array<CustomFieldJson4> | undefined;
+  customFields?: Array<CustomFieldJson3> | undefined;
 };
 
 /** @internal */
@@ -111,7 +111,7 @@ export const StandardSurveyJson$inboundSchema: z.ZodType<
   archiveAfter: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  customFields: z.array(CustomFieldJson4$inboundSchema).optional(),
+  customFields: z.array(CustomFieldJson3$inboundSchema).optional(),
 });
 
 export function standardSurveyJsonFromJSON(

@@ -4,7 +4,7 @@
 
 import { CventSDKCore } from "../core.js";
 import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import { encodeFormQuery, queryJoin } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -106,10 +106,16 @@ async function $do(
 
   const path = pathToFunc("/session-categories")();
 
-  const query = encodeFormQuery({
-    "limit": payload.limit,
-    "token": payload.token,
-  });
+  const query = queryJoin(
+    encodeFormQuery({
+      "sort": payload.sort,
+    }, { explode: false }),
+    encodeFormQuery({
+      "filter": payload.filter,
+      "limit": payload.limit,
+      "token": payload.token,
+    }),
+  );
 
   const headers = new Headers(compactMap({
     Accept: "application/json",

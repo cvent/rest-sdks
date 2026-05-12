@@ -89,7 +89,9 @@ public class ListAttendeesPostFilterRequest {
     private String sort;
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=includeDeletedGuests")
     private Boolean includeDeletedGuests;
@@ -201,7 +203,9 @@ public class ListAttendeesPostFilterRequest {
     }
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     public Optional<Boolean> includeDeletedGuests() {
         return Optional.ofNullable(this.includeDeletedGuests);
@@ -300,7 +304,9 @@ public class ListAttendeesPostFilterRequest {
     }
 
     /**
-     * This allows users to include deleted guests in the response.
+     * True indicates the request should include deleted guests in the response. By default, deleted guests
+     * are excluded.
+     * The `deletedGuest` filter has no effect unless this parameter is `true`.
      */
     public ListAttendeesPostFilterRequest withIncludeDeletedGuests(@Nullable Boolean includeDeletedGuests) {
         this.includeDeletedGuests = includeDeletedGuests;
@@ -466,7 +472,9 @@ public class ListAttendeesPostFilterRequest {
         }
 
         /**
-         * This allows users to include deleted guests in the response.
+         * True indicates the request should include deleted guests in the response. By default, deleted guests
+         * are excluded.
+         * The `deletedGuest` filter has no effect unless this parameter is `true`.
          */
         public Builder includeDeletedGuests(@Nullable Boolean includeDeletedGuests) {
             this.includeDeletedGuests = includeDeletedGuests;

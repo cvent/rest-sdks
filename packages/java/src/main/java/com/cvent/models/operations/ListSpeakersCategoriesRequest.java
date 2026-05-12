@@ -36,22 +36,40 @@ public class ListSpeakersCategoriesRequest {
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
+     * * contains a value: contains
      *
-     * <p>The following field is filterable:
+     * <p>The following fields are filterable:
      * * active (eq|ne)
+     * * id (eq|ne)
+     * * name (eq|ne|contains)
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
 
+    /**
+     * Sorts the returned speaker categories in ascending or descending order by its name.
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")
+    private String sort;
+
     @JsonCreator
-    public ListSpeakersCategoriesRequest(@Nullable Long limit, @Nullable String token, @Nullable String filter) {
+    public ListSpeakersCategoriesRequest(
+            @Nullable Long limit, @Nullable String token, @Nullable String filter, @Nullable String sort) {
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
         this.filter = filter;
+        this.sort = sort;
     }
 
     public ListSpeakersCategoriesRequest() {
-        this(null, null, null);
+        this(null, null, null, null);
     }
 
     /**
@@ -77,12 +95,29 @@ public class ListSpeakersCategoriesRequest {
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
+     * * contains a value: contains
      *
-     * <p>The following field is filterable:
+     * <p>The following fields are filterable:
      * * active (eq|ne)
+     * * id (eq|ne)
+     * * name (eq|ne|contains)
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
+    }
+
+    /**
+     * Sorts the returned speaker categories in ascending or descending order by its name.
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    public Optional<String> sort() {
+        return Optional.ofNullable(this.sort);
     }
 
     public static Builder builder() {
@@ -114,12 +149,30 @@ public class ListSpeakersCategoriesRequest {
      * <p>The following can be used in filter expressions:
      * * equal: eq
      * * not equal: ne
+     * * contains a value: contains
      *
-     * <p>The following field is filterable:
+     * <p>The following fields are filterable:
      * * active (eq|ne)
+     * * id (eq|ne)
+     * * name (eq|ne|contains)
      */
     public ListSpeakersCategoriesRequest withFilter(@Nullable String filter) {
         this.filter = filter;
+        return this;
+    }
+
+    /**
+     * Sorts the returned speaker categories in ascending or descending order by its name.
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    public ListSpeakersCategoriesRequest withSort(@Nullable String sort) {
+        this.sort = sort;
         return this;
     }
 
@@ -134,17 +187,19 @@ public class ListSpeakersCategoriesRequest {
         ListSpeakersCategoriesRequest other = (ListSpeakersCategoriesRequest) o;
         return Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
-                && Utils.enhancedDeepEquals(this.filter, other.filter);
+                && Utils.enhancedDeepEquals(this.filter, other.filter)
+                && Utils.enhancedDeepEquals(this.sort, other.sort);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(limit, token, filter);
+        return Utils.enhancedHash(limit, token, filter, sort);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ListSpeakersCategoriesRequest.class, "limit", limit, "token", token, "filter", filter);
+        return Utils.toString(
+                ListSpeakersCategoriesRequest.class, "limit", limit, "token", token, "filter", filter, "sort", sort);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -155,6 +210,8 @@ public class ListSpeakersCategoriesRequest {
         private String token;
 
         private String filter;
+
+        private String sort;
 
         private Builder() {
             // force use of static builder() method
@@ -185,17 +242,35 @@ public class ListSpeakersCategoriesRequest {
          * <p>The following can be used in filter expressions:
          * * equal: eq
          * * not equal: ne
+         * * contains a value: contains
          *
-         * <p>The following field is filterable:
+         * <p>The following fields are filterable:
          * * active (eq|ne)
+         * * id (eq|ne)
+         * * name (eq|ne|contains)
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;
             return this;
         }
 
+        /**
+         * Sorts the returned speaker categories in ascending or descending order by its name.
+         *
+         * <p>There are two orders:
+         * * ascending: ASC
+         * * descending: DESC
+         *
+         * <p>The following fields are sortable:
+         * * name
+         */
+        public Builder sort(@Nullable String sort) {
+            this.sort = sort;
+            return this;
+        }
+
         public ListSpeakersCategoriesRequest build() {
-            return new ListSpeakersCategoriesRequest(limit, token, filter);
+            return new ListSpeakersCategoriesRequest(limit, token, filter, sort);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

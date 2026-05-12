@@ -1,22 +1,36 @@
 # CustomFieldJson4CustomFieldType
 
-This is used to denote the type of data collected by a custom field.
+The type of data collected by a custom field.
 
 ## Example Usage
 
 ```java
 import com.cvent.models.components.CustomFieldJson4CustomFieldType;
 
-CustomFieldJson4CustomFieldType value = CustomFieldJson4CustomFieldType.OPEN_ENDED_TEXT_DATE_TIME;
+CustomFieldJson4CustomFieldType value = CustomFieldJson4CustomFieldType.AUTO_INCREMENT;
 ```
 
 
 ## Values
 
-| Name                          | Value                         |
-| ----------------------------- | ----------------------------- |
-| `OPEN_ENDED_TEXT_DATE_TIME`   | Open Ended Text - Date/Time   |
-| `OPEN_ENDED_TEXT_ONE_LINE`    | Open Ended Text - One Line    |
-| `OPEN_ENDED_TEXT_COMMENT_BOX` | Open Ended Text - Comment Box |
-| `CHOICE_SINGLE_ANSWER`        | Choice - Single Answer        |
-| `CHOICE_MULTIPLE_ANSWERS`     | Choice - Multiple Answers     |
+| Name                   | Value                  |
+| ---------------------- | ---------------------- |
+| `AUTO_INCREMENT`       | AutoIncrement          |
+| `CONSENT_QUESTION`     | ConsentQuestion        |
+| `CURRENCY`             | Currency               |
+| `DECIMAL`              | Decimal                |
+| `DATE`                 | Date                   |
+| `DATE_TIME`            | DateTime               |
+| `EMAIL`                | Email                  |
+| `FILE_UPLOAD`          | FileUpload             |
+| `FREE_TEXT`            | FreeText               |
+| `GENERAL`              | General                |
+| `MULTI_CHOICE`         | MultiChoice            |
+| `MULTI_SELECT`         | MultiSelect            |
+| `NUMBER`               | Number                 |
+| `OPEN_ENDED_DATE_TIME` | OpenEndedDateTime      |
+| `OPEN_ENDED_TEXT`      | OpenEndedText          |
+| `SINGLE_CHOICE`        | SingleChoice           |
+| `SINGLE_SELECT`        | SingleSelect           |
+| `US_PHONE_NUMBER`      | USPhoneNumber          |
+| `UNKNOWN`              | Unknown                |

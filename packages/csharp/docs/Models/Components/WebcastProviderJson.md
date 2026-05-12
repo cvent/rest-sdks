@@ -7,7 +7,7 @@ Name of the webcast provider.
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = WebcastProviderJson.None;
+var value = WebcastProviderJson.AdobeConnect;
 ```
 
 
@@ -15,20 +15,21 @@ var value = WebcastProviderJson.None;
 
 | Name             | Value            |
 | ---------------- | ---------------- |
-| `None`           | None             |
-| `Zoom`           | Zoom             |
-| `On24`           | ON24             |
-| `Intrado`        | Intrado          |
 | `AdobeConnect`   | Adobe Connect    |
+| `AmazonChime`    | Amazon Chime     |
+| `BlueJeans`      | BlueJeans        |
+| `Brightcove`     | Brightcove       |
+| `CiscoWebex`     | Cisco Webex      |
+| `FacebookLive`   | Facebook Live    |
+| `GlobalMeet`     | GlobalMeet       |
 | `GoToMeeting`    | GoToMeeting      |
 | `GoToWebinar`    | GoToWebinar      |
-| `GlobalMeet`     | GlobalMeet       |
-| `AmazonChime`    | Amazon Chime     |
-| `CiscoWebex`     | Cisco Webex      |
-| `BlueJeans`      | BlueJeans        |
+| `Goldcast`       | Goldcast         |
+| `Intrado`        | Intrado          |
 | `MicrosoftTeams` | Microsoft Teams  |
+| `None`           | None             |
+| `On24`           | ON24             |
+| `Other`          | Other            |
 | `Vimeo`          | Vimeo            |
 | `YouTubeLive`    | YouTube Live     |
-| `FacebookLive`   | Facebook Live    |
-| `Brightcove`     | Brightcove       |
-| `Other`          | Other            |
+| `Zoom`           | Zoom             |

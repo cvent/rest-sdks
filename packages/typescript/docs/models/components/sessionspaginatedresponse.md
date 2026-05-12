@@ -83,7 +83,7 @@ let value: SessionsPaginatedResponse = {
       dataTagCode: "Optional Session",
       customFields: [
         {
-          id: "00cb1a18-dd09-4db4-8c7b-2607f5a61812",
+          id: "8cbf1ce9-c677-4dcf-9fbe-5c465eaf5ee1",
           name: "What is your favorite color?",
           value: [
             "Choice C",

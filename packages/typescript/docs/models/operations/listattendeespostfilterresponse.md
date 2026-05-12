@@ -167,7 +167,6 @@ let value: ListAttendeesPostFilterResponse = {
         administrator: {
           id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        unsubscribed: false,
         status: "Accepted",
         registeredAt: new Date("2018-01-13T02:00:00Z"),
         registrationLastModified: new Date("2018-01-13T02:00:00Z"),

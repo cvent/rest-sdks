@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.CustomField1;
+import com.cvent.models.components.CustomField;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,20 +35,20 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answers for a session.
      */
-    private CustomField1 customField1;
+    private CustomField customField;
 
     @JsonCreator
     public UpdateSessionCustomFieldAnswersResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable CustomField1 customField1) {
+            @Nullable CustomField customField) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.customField1 = customField1;
+        this.customField = customField;
     }
 
     public UpdateSessionCustomFieldAnswersResponse(
@@ -80,8 +80,8 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answers for a session.
      */
-    public Optional<CustomField1> customField1() {
-        return Optional.ofNullable(this.customField1);
+    public Optional<CustomField> customField() {
+        return Optional.ofNullable(this.customField);
     }
 
     public static Builder builder() {
@@ -115,8 +115,8 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
     /**
      * Successfully updated custom field answers for a session.
      */
-    public UpdateSessionCustomFieldAnswersResponse withCustomField1(@Nullable CustomField1 customField1) {
-        this.customField1 = customField1;
+    public UpdateSessionCustomFieldAnswersResponse withCustomField(@Nullable CustomField customField) {
+        this.customField = customField;
         return this;
     }
 
@@ -132,12 +132,12 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.customField1, other.customField1);
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField1);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, customField);
     }
 
     @Override
@@ -150,8 +150,8 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "customField1",
-                customField1);
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -163,7 +163,7 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private CustomField1 customField1;
+        private CustomField customField;
 
         private Builder() {
             // force use of static builder() method
@@ -196,13 +196,13 @@ public class UpdateSessionCustomFieldAnswersResponse implements AsyncResponse {
         /**
          * Successfully updated custom field answers for a session.
          */
-        public Builder customField1(@Nullable CustomField1 customField1) {
-            this.customField1 = customField1;
+        public Builder customField(@Nullable CustomField customField) {
+            this.customField = customField;
             return this;
         }
 
         public UpdateSessionCustomFieldAnswersResponse build() {
-            return new UpdateSessionCustomFieldAnswersResponse(contentType, statusCode, rawResponse, customField1);
+            return new UpdateSessionCustomFieldAnswersResponse(contentType, statusCode, rawResponse, customField);
         }
     }
 }

@@ -698,6 +698,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListSessionsCategoriesRequest req = new ListSessionsCategoriesRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    Sort = "name:ASC",
+    Filter = "name contains 'general'",
 };
 
 ListSessionsCategoriesResponse? res = await sdk.Sessions.ListSessionsCategoriesAsync(req);
@@ -1279,13 +1281,13 @@ var sdk = new CventSDK(security: new Security() {
 UpdateSessionCustomFieldAnswersRequest req = new UpdateSessionCustomFieldAnswersRequest() {
     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     CustomFieldId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    CustomField1 = new CustomField1Input() {
+    CustomField = new CustomFieldInput() {
         Id = "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
         Value = new List<string>() {
             "Choice C",
             "Choice A",
         },
-        Type = CustomField1CustomFieldType.General,
+        Type = CustomFieldCustomFieldType.General,
     },
 };
 

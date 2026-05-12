@@ -245,7 +245,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomFieldJson2>? CustomFields { get; set; }
+        public List<CustomField>? CustomFields { get; set; }
 
         /// <summary>
         /// Contains unique identifiers for segments associated with this session.

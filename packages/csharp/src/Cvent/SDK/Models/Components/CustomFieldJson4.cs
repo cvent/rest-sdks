@@ -15,12 +15,12 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A survey custom field.
+    /// A Custom Field.
     /// </summary>
     public class CustomFieldJson4
     {
         /// <summary>
-        /// The unique id representing this custom field.
+        /// The unique ID representing this custom field.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;
@@ -32,18 +32,21 @@ namespace Cvent.SDK.Models.Components
         public string? Name { get; set; }
 
         /// <summary>
-        /// Code to uniquely identify custom field.
+        /// The set of answers or possible answers to a question.
         /// </summary>
-        [JsonProperty("code")]
-        public string? Code { get; set; }
-
-        [JsonProperty("type")]
-        public CustomFieldJson4CustomFieldType? Type { get; set; }
+        [JsonProperty("value")]
+        public List<string> Value { get; set; } = default!;
 
         /// <summary>
-        /// The set of values or possible values to a custom field.
+        /// The order of this question in the bigger list of questions.
         /// </summary>
-        [JsonProperty("values")]
-        public List<string> Values { get; set; } = default!;
+        [JsonProperty("order")]
+        public long? Order { get; set; }
+
+        /// <summary>
+        /// The type of data collected by a custom field.
+        /// </summary>
+        [JsonProperty("type")]
+        public CustomFieldJson4CustomFieldType? Type { get; set; }
     }
 }
