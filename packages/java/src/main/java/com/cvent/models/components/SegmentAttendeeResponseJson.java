@@ -54,7 +54,7 @@ public class SegmentAttendeeResponseJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("segment")
-    private SegmentJson0 segment;
+    private SegmentJson segment;
 
     /**
      * ID of the attendee.
@@ -77,7 +77,7 @@ public class SegmentAttendeeResponseJson {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("segment") @Nullable SegmentJson0 segment,
+            @JsonProperty("segment") @Nullable SegmentJson segment,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("disassociated") @Nullable Boolean disassociated) {
         this.created = created;
@@ -124,7 +124,7 @@ public class SegmentAttendeeResponseJson {
     /**
      * Segment details
      */
-    public Optional<SegmentJson0> segment() {
+    public Optional<SegmentJson> segment() {
         return Optional.ofNullable(this.segment);
     }
 
@@ -182,7 +182,7 @@ public class SegmentAttendeeResponseJson {
     /**
      * Segment details
      */
-    public SegmentAttendeeResponseJson withSegment(@Nullable SegmentJson0 segment) {
+    public SegmentAttendeeResponseJson withSegment(@Nullable SegmentJson segment) {
         this.segment = segment;
         return this;
     }
@@ -258,7 +258,7 @@ public class SegmentAttendeeResponseJson {
 
         private String lastModifiedBy;
 
-        private SegmentJson0 segment;
+        private SegmentJson segment;
 
         private String id;
 
@@ -303,7 +303,7 @@ public class SegmentAttendeeResponseJson {
         /**
          * Segment details
          */
-        public Builder segment(@Nullable SegmentJson0 segment) {
+        public Builder segment(@Nullable SegmentJson segment) {
             this.segment = segment;
             return this;
         }

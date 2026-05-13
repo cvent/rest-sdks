@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     /// <summary>
     /// Segment details.
     /// </summary>
-    public class SegmentJson0
+    public class SegmentJson
     {
         /// <summary>
         /// Segment Id.

@@ -309,6 +309,7 @@ var sdk = new CventSDK(security: new Security() {
 ListSpeakersCategoriesRequest req = new ListSpeakersCategoriesRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
     Filter = "active eq 'true'",
+    Sort = "name:DESC",
 };
 
 ListSpeakersCategoriesResponse? res = await sdk.Speakers.ListSpeakersCategoriesAsync(req);

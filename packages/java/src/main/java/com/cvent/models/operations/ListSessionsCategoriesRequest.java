@@ -28,14 +28,50 @@ public class ListSessionsCategoriesRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")
     private String token;
 
+    /**
+     * The sort order passed as a parameter, used to control the order of the
+     * search results as a priority ordered list of sorts
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=false,name=sort")
+    private String sort;
+
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
+     *
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           |
+     * |------------------|-------------------------------------|
+     * | id               | `eq`, `ne`, `in`                    |
+     * | name             | `eq`, `ne`, `contains`              |
+     *
+     * <p>The following operators are available:
+     * * and
+     * * or
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
+    private String filter;
+
     @JsonCreator
-    public ListSessionsCategoriesRequest(@Nullable Long limit, @Nullable String token) {
+    public ListSessionsCategoriesRequest(
+            @Nullable Long limit, @Nullable String token, @Nullable String sort, @Nullable String filter) {
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
+        this.sort = sort;
+        this.filter = filter;
     }
 
     public ListSessionsCategoriesRequest() {
-        this(null, null);
+        this(null, null, null, null);
     }
 
     /**
@@ -51,6 +87,41 @@ public class ListSessionsCategoriesRequest {
      */
     public Optional<String> token() {
         return Optional.ofNullable(this.token);
+    }
+
+    /**
+     * The sort order passed as a parameter, used to control the order of the
+     * search results as a priority ordered list of sorts
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    public Optional<String> sort() {
+        return Optional.ofNullable(this.sort);
+    }
+
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
+     *
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           |
+     * |------------------|-------------------------------------|
+     * | id               | `eq`, `ne`, `in`                    |
+     * | name             | `eq`, `ne`, `contains`              |
+     *
+     * <p>The following operators are available:
+     * * and
+     * * or
+     */
+    public Optional<String> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     public static Builder builder() {
@@ -74,6 +145,43 @@ public class ListSessionsCategoriesRequest {
         return this;
     }
 
+    /**
+     * The sort order passed as a parameter, used to control the order of the
+     * search results as a priority ordered list of sorts
+     *
+     * <p>There are two orders:
+     * * ascending: ASC
+     * * descending: DESC
+     *
+     * <p>The following fields are sortable:
+     * * name
+     */
+    public ListSessionsCategoriesRequest withSort(@Nullable String sort) {
+        this.sort = sort;
+        return this;
+    }
+
+    /**
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
+     *
+     * <p>Supported fields and operators are listed below:
+     *
+     * <p>| Field            | Operators                           |
+     * |------------------|-------------------------------------|
+     * | id               | `eq`, `ne`, `in`                    |
+     * | name             | `eq`, `ne`, `contains`              |
+     *
+     * <p>The following operators are available:
+     * * and
+     * * or
+     */
+    public ListSessionsCategoriesRequest withFilter(@Nullable String filter) {
+        this.filter = filter;
+        return this;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -83,17 +191,21 @@ public class ListSessionsCategoriesRequest {
             return false;
         }
         ListSessionsCategoriesRequest other = (ListSessionsCategoriesRequest) o;
-        return Utils.enhancedDeepEquals(this.limit, other.limit) && Utils.enhancedDeepEquals(this.token, other.token);
+        return Utils.enhancedDeepEquals(this.limit, other.limit)
+                && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.sort, other.sort)
+                && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(limit, token);
+        return Utils.enhancedHash(limit, token, sort, filter);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ListSessionsCategoriesRequest.class, "limit", limit, "token", token);
+        return Utils.toString(
+                ListSessionsCategoriesRequest.class, "limit", limit, "token", token, "sort", sort, "filter", filter);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -102,6 +214,10 @@ public class ListSessionsCategoriesRequest {
         private Long limit;
 
         private String token;
+
+        private String sort;
+
+        private String filter;
 
         private Builder() {
             // force use of static builder() method
@@ -124,8 +240,45 @@ public class ListSessionsCategoriesRequest {
             return this;
         }
 
+        /**
+         * The sort order passed as a parameter, used to control the order of the
+         * search results as a priority ordered list of sorts
+         *
+         * <p>There are two orders:
+         * * ascending: ASC
+         * * descending: DESC
+         *
+         * <p>The following fields are sortable:
+         * * name
+         */
+        public Builder sort(@Nullable String sort) {
+            this.sort = sort;
+            return this;
+        }
+
+        /**
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
+         *
+         * <p>Supported fields and operators are listed below:
+         *
+         * <p>| Field            | Operators                           |
+         * |------------------|-------------------------------------|
+         * | id               | `eq`, `ne`, `in`                    |
+         * | name             | `eq`, `ne`, `contains`              |
+         *
+         * <p>The following operators are available:
+         * * and
+         * * or
+         */
+        public Builder filter(@Nullable String filter) {
+            this.filter = filter;
+            return this;
+        }
+
         public ListSessionsCategoriesRequest build() {
-            return new ListSessionsCategoriesRequest(limit, token);
+            return new ListSessionsCategoriesRequest(limit, token, sort, filter);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =

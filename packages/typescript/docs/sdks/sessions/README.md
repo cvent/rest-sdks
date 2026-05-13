@@ -1228,6 +1228,8 @@ const cventSDK = new CventSDK({
 async function run() {
   const result = await cventSDK.sessions.listSessionsCategories({
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    sort: "name:ASC",
+    filter: "name contains 'general'",
   });
 
   for await (const page of result) {
@@ -1262,6 +1264,8 @@ const cventSDK = new CventSDKCore({
 async function run() {
   const res = await sessionsListSessionsCategories(cventSDK, {
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    sort: "name:ASC",
+    filter: "name contains 'general'",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -2277,7 +2281,7 @@ async function run() {
   const result = await cventSDK.sessions.updateSessionCustomFieldAnswers({
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField: {
       id: "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
       value: [
         "Choice C",
@@ -2318,7 +2322,7 @@ async function run() {
   const res = await sessionsUpdateSessionCustomFieldAnswers(cventSDK, {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField: {
       id: "5bcc98a1-7899-448a-a52d-4fcaf9af774f",
       value: [
         "Choice C",
@@ -2349,7 +2353,7 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField1](../../models/components/customfield1.md)\>**
+**Promise\<[components.CustomField](../../models/components/customfield.md)\>**
 
 ### Errors
 

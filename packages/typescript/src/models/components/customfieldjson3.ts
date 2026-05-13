@@ -9,42 +9,28 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The type of data collected by a custom field.
+ * This is used to denote the type of data collected by a custom field.
  */
 export const CustomFieldJson3CustomFieldType = {
-  AutoIncrement: "AutoIncrement",
-  ConsentQuestion: "ConsentQuestion",
-  Currency: "Currency",
-  Decimal: "Decimal",
-  Date: "Date",
-  DateTime: "DateTime",
-  Email: "Email",
-  FileUpload: "FileUpload",
-  FreeText: "FreeText",
-  General: "General",
-  MultiChoice: "MultiChoice",
-  MultiSelect: "MultiSelect",
-  Number: "Number",
-  OpenEndedDateTime: "OpenEndedDateTime",
-  OpenEndedText: "OpenEndedText",
-  SingleChoice: "SingleChoice",
-  SingleSelect: "SingleSelect",
-  USPhoneNumber: "USPhoneNumber",
-  Unknown: "Unknown",
+  OpenEndedTextDateTime: "Open Ended Text - Date/Time",
+  OpenEndedTextOneLine: "Open Ended Text - One Line",
+  OpenEndedTextCommentBox: "Open Ended Text - Comment Box",
+  ChoiceSingleAnswer: "Choice - Single Answer",
+  ChoiceMultipleAnswers: "Choice - Multiple Answers",
 } as const;
 /**
- * The type of data collected by a custom field.
+ * This is used to denote the type of data collected by a custom field.
  */
 export type CustomFieldJson3CustomFieldType = ClosedEnum<
   typeof CustomFieldJson3CustomFieldType
 >;
 
 /**
- * A Custom Field
+ * A survey custom field.
  */
 export type CustomFieldJson3 = {
   /**
-   * The unique ID representing this custom field.
+   * The unique id representing this custom field.
    */
   id: string;
   /**
@@ -52,17 +38,14 @@ export type CustomFieldJson3 = {
    */
   name?: string | undefined;
   /**
-   * The set of answers or possible answers to a question.
+   * Code to uniquely identify custom field.
    */
-  value: Array<string>;
-  /**
-   * The order of this question in the bigger list of questions.
-   */
-  order?: number | undefined;
-  /**
-   * The type of data collected by a custom field.
-   */
+  code?: string | undefined;
   type?: CustomFieldJson3CustomFieldType | undefined;
+  /**
+   * The set of values or possible values to a custom field.
+   */
+  values: Array<string>;
 };
 
 /** @internal */
@@ -78,9 +61,9 @@ export const CustomFieldJson3$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string().optional(),
-  value: z.array(z.string()),
-  order: z.number().int().optional(),
+  code: z.string().optional(),
   type: CustomFieldJson3CustomFieldType$inboundSchema.optional(),
+  values: z.array(z.string()),
 });
 
 export function customFieldJson3FromJSON(

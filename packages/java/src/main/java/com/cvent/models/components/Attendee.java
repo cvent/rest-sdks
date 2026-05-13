@@ -208,11 +208,17 @@ public class Attendee {
     private UuidJson administrator;
 
     /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unsubscribed")
+    @Deprecated
     private Boolean unsubscribed;
 
     /**
@@ -289,7 +295,7 @@ public class Attendee {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
     @Deprecated
-    private List<CustomFieldJson3> questions;
+    private List<CustomField> questions;
 
     /**
      * The list of answers to the registration questions.
@@ -421,7 +427,7 @@ public class Attendee {
             @JsonProperty("registrationCancelledAt") @Nullable OffsetDateTime registrationCancelledAt,
             @JsonProperty("invitedBy") @Nullable AttendeeInvitedByJson invitedBy,
             @JsonProperty("responseMethod") @Nullable AttendeeResponseMethodJson responseMethod,
-            @JsonProperty("questions") @Nullable List<CustomFieldJson3> questions,
+            @JsonProperty("questions") @Nullable List<CustomField> questions,
             @JsonProperty("answers") @Nullable List<AttendeeAnswerJson> answers,
             @JsonProperty("admissionItem") @Nullable AttendeeLookup admissionItem,
             @JsonProperty("visibility") @Nullable AttendeeVisibilityJson visibility,
@@ -713,9 +719,15 @@ public class Attendee {
     }
 
     /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public Optional<Boolean> unsubscribed() {
         return Optional.ofNullable(this.unsubscribed);
     }
@@ -792,7 +804,7 @@ public class Attendee {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomFieldJson3>> questions() {
+    public Optional<List<CustomField>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -1104,9 +1116,15 @@ public class Attendee {
     }
 
     /**
-     * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-     * triggered by their own actions (like registration modification).
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
+    @Deprecated
     public Attendee withUnsubscribed(@Nullable Boolean unsubscribed) {
         this.unsubscribed = unsubscribed;
         return this;
@@ -1190,7 +1208,7 @@ public class Attendee {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Attendee withQuestions(@Nullable List<CustomFieldJson3> questions) {
+    public Attendee withQuestions(@Nullable List<CustomField> questions) {
         this.questions = questions;
         return this;
     }
@@ -1559,6 +1577,7 @@ public class Attendee {
 
         private UuidJson administrator;
 
+        @Deprecated
         private Boolean unsubscribed;
 
         private AttendeeStatusJson status;
@@ -1574,7 +1593,7 @@ public class Attendee {
         private AttendeeResponseMethodJson responseMethod;
 
         @Deprecated
-        private List<CustomFieldJson3> questions;
+        private List<CustomField> questions;
 
         private List<AttendeeAnswerJson> answers;
 
@@ -1813,9 +1832,15 @@ public class Attendee {
         }
 
         /**
-         * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails
-         * triggered by their own actions (like registration modification).
+         * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+         * receive emails triggered by their own actions (like registration modification). This field has been
+         * deprecated.
+         *
+         * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
+        @Deprecated
         public Builder unsubscribed(@Nullable Boolean unsubscribed) {
             this.unsubscribed = unsubscribed;
             return this;
@@ -1899,7 +1924,7 @@ public class Attendee {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder questions(@Nullable List<CustomFieldJson3> questions) {
+        public Builder questions(@Nullable List<CustomField> questions) {
             this.questions = questions;
             return this;
         }

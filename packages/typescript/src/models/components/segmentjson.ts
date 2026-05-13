@@ -10,7 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Segment details
  */
-export type SegmentJson0 = {
+export type SegmentJson = {
   /**
    * Segment Id
    */
@@ -18,20 +18,20 @@ export type SegmentJson0 = {
 };
 
 /** @internal */
-export const SegmentJson0$inboundSchema: z.ZodType<
-  SegmentJson0,
+export const SegmentJson$inboundSchema: z.ZodType<
+  SegmentJson,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
 });
 
-export function segmentJson0FromJSON(
+export function segmentJsonFromJSON(
   jsonString: string,
-): SafeParseResult<SegmentJson0, SDKValidationError> {
+): SafeParseResult<SegmentJson, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SegmentJson0$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SegmentJson0' from JSON`,
+    (x) => SegmentJson$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SegmentJson' from JSON`,
   );
 }

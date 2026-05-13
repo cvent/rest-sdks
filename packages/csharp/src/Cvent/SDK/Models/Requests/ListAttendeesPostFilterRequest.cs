@@ -81,7 +81,8 @@ namespace Cvent.SDK.Models.Requests
         public string? Sort { get; set; }
 
         /// <summary>
-        /// This allows users to include deleted guests in the response.
+        /// True indicates the request should include deleted guests in the response. By default, deleted guests are excluded.<br/>
+        /// The `deletedGuest` filter has no effect unless this parameter is `true`.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=includeDeletedGuests")]
         public bool? IncludeDeletedGuests { get; set; } = false;

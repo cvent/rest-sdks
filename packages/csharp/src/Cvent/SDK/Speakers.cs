@@ -1410,7 +1410,8 @@ namespace Cvent.SDK
                 var newRequest = new ListSpeakersCategoriesRequest {
                     Limit = request?.Limit,
                     Token = nextCursor,
-                    Filter = request?.Filter
+                    Filter = request?.Filter,
+                    Sort = request?.Sort
                 };
 
                 return await ListSpeakersCategoriesAsync(

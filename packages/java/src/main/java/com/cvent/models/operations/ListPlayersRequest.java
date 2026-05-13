@@ -43,23 +43,18 @@ public class ListPlayersRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * webcast.id (eq|ne)
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------| -----------------------------------|
+     * | webcast.id   | `eq`, `ne`                         |
+     * | id           | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
     private String filter;
@@ -113,23 +108,18 @@ public class ListPlayersRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * webcast.id (eq|ne)
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------| -----------------------------------|
+     * | webcast.id   | `eq`, `ne`                         |
+     * | id           | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      */
     public Optional<String> filter() {
         return Optional.ofNullable(this.filter);
@@ -174,23 +164,18 @@ public class ListPlayersRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * webcast.id (eq|ne)
-     * * id (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>| Field        | Operators                          |
+     * |--------------| -----------------------------------|
+     * | webcast.id   | `eq`, `ne`                         |
+     * | id           | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      */
     public ListPlayersRequest withFilter(@Nullable String filter) {
         this.filter = filter;
@@ -286,23 +271,18 @@ public class ListPlayersRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There are six comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * webcast.id (eq|ne)
-         * * id (eq|ne)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * lastModified (eq|ne|lt|le|gt|ge)
+         * <p>| Field        | Operators                          |
+         * |--------------| -----------------------------------|
+         * | webcast.id   | `eq`, `ne`                         |
+         * | id           | `eq`, `ne`                         |
+         * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
          */
         public Builder filter(@Nullable String filter) {
             this.filter = filter;

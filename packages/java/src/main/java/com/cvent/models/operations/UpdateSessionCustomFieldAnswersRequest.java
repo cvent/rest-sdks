@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.CustomField1Input;
+import com.cvent.models.components.CustomFieldInput;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -29,16 +29,16 @@ public class UpdateSessionCustomFieldAnswersRequest {
      * Contains the custom field you're updating, and the new answer.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private CustomField1Input customField1;
+    private CustomFieldInput customField;
 
     @JsonCreator
     public UpdateSessionCustomFieldAnswersRequest(
-            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomField1Input customField1) {
+            @Nonnull String id, @Nonnull String customFieldId, @Nonnull CustomFieldInput customField) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.customFieldId = Optional.ofNullable(customFieldId)
                 .orElseThrow(() -> new IllegalArgumentException("customFieldId cannot be null"));
-        this.customField1 = Optional.ofNullable(customField1)
-                .orElseThrow(() -> new IllegalArgumentException("customField1 cannot be null"));
+        this.customField = Optional.ofNullable(customField)
+                .orElseThrow(() -> new IllegalArgumentException("customField cannot be null"));
     }
 
     /**
@@ -58,8 +58,8 @@ public class UpdateSessionCustomFieldAnswersRequest {
     /**
      * Contains the custom field you're updating, and the new answer.
      */
-    public CustomField1Input customField1() {
-        return this.customField1;
+    public CustomFieldInput customField() {
+        return this.customField;
     }
 
     public static Builder builder() {
@@ -85,8 +85,8 @@ public class UpdateSessionCustomFieldAnswersRequest {
     /**
      * Contains the custom field you're updating, and the new answer.
      */
-    public UpdateSessionCustomFieldAnswersRequest withCustomField1(@Nonnull CustomField1Input customField1) {
-        this.customField1 = Utils.checkNotNull(customField1, "customField1");
+    public UpdateSessionCustomFieldAnswersRequest withCustomField(@Nonnull CustomFieldInput customField) {
+        this.customField = Utils.checkNotNull(customField, "customField");
         return this;
     }
 
@@ -101,12 +101,12 @@ public class UpdateSessionCustomFieldAnswersRequest {
         UpdateSessionCustomFieldAnswersRequest other = (UpdateSessionCustomFieldAnswersRequest) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.customFieldId, other.customFieldId)
-                && Utils.enhancedDeepEquals(this.customField1, other.customField1);
+                && Utils.enhancedDeepEquals(this.customField, other.customField);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, customFieldId, customField1);
+        return Utils.enhancedHash(id, customFieldId, customField);
     }
 
     @Override
@@ -117,8 +117,8 @@ public class UpdateSessionCustomFieldAnswersRequest {
                 id,
                 "customFieldId",
                 customFieldId,
-                "customField1",
-                customField1);
+                "customField",
+                customField);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -128,7 +128,7 @@ public class UpdateSessionCustomFieldAnswersRequest {
 
         private String customFieldId;
 
-        private CustomField1Input customField1;
+        private CustomFieldInput customField;
 
         private Builder() {
             // force use of static builder() method
@@ -153,13 +153,13 @@ public class UpdateSessionCustomFieldAnswersRequest {
         /**
          * Contains the custom field you're updating, and the new answer.
          */
-        public Builder customField1(@Nonnull CustomField1Input customField1) {
-            this.customField1 = Utils.checkNotNull(customField1, "customField1");
+        public Builder customField(@Nonnull CustomFieldInput customField) {
+            this.customField = Utils.checkNotNull(customField, "customField");
             return this;
         }
 
         public UpdateSessionCustomFieldAnswersRequest build() {
-            return new UpdateSessionCustomFieldAnswersRequest(id, customFieldId, customField1);
+            return new UpdateSessionCustomFieldAnswersRequest(id, customFieldId, customField);
         }
     }
 }

@@ -10,9 +10,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomFieldJson5,
-  CustomFieldJson5$inboundSchema,
-} from "./customfieldjson5.js";
+  CustomFieldJson4,
+  CustomFieldJson4$inboundSchema,
+} from "./customfieldjson4.js";
 import { LinkJson, LinkJson$inboundSchema } from "./linkjson.js";
 import { OptoutByJson, OptoutByJson$inboundSchema } from "./optoutbyjson.js";
 
@@ -389,7 +389,7 @@ export type PlannerJson2 = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  customFields?: Array<CustomFieldJson5> | undefined;
+  customFields?: Array<CustomFieldJson4> | undefined;
   /**
    * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    *
@@ -637,7 +637,7 @@ export const PlannerJson2$inboundSchema: z.ZodType<
     .optional(),
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
-  customFields: z.array(CustomFieldJson5$inboundSchema).optional(),
+  customFields: z.array(CustomFieldJson4$inboundSchema).optional(),
   sourceId: z.string().optional(),
   mobilePhone: z.string().optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))

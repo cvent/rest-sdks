@@ -42,10 +42,7 @@ import {
   AttendeeWebLinksJson,
   AttendeeWebLinksJson$inboundSchema,
 } from "./attendeeweblinksjson.js";
-import {
-  CustomFieldJson3,
-  CustomFieldJson3$inboundSchema,
-} from "./customfieldjson3.js";
+import { CustomField, CustomField$inboundSchema } from "./customfield.js";
 import {
   ExternalReferenceJson,
   ExternalReferenceJson$inboundSchema,
@@ -189,7 +186,9 @@ export type Attendee = {
    */
   administrator?: UuidJson | undefined;
   /**
-   * True indicates this attendee is unsubscribed from this event's emails. They'll still recieve emails triggered by their own actions (like registration modification).
+   * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   unsubscribed?: boolean | undefined;
   /**
@@ -240,7 +239,7 @@ export type Attendee = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  questions?: Array<CustomFieldJson3> | undefined;
+  questions?: Array<CustomField> | undefined;
   /**
    * The list of answers to the registration questions.
    */
@@ -383,7 +382,7 @@ export const Attendee$inboundSchema: z.ZodType<
   ).optional(),
   invitedBy: AttendeeInvitedByJson$inboundSchema.optional(),
   responseMethod: AttendeeResponseMethodJson$inboundSchema.optional(),
-  questions: z.array(CustomFieldJson3$inboundSchema).optional(),
+  questions: z.array(CustomField$inboundSchema).optional(),
   answers: z.array(AttendeeAnswerJson$inboundSchema).optional(),
   admissionItem: z.lazy(() => AttendeeLookup$inboundSchema).optional(),
   visibility: AttendeeVisibilityJson$inboundSchema.optional(),

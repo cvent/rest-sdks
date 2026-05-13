@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: fd015893-3730-4721-bf8d-bb6d3730cc0f
 management:
-  docChecksum: 561a41aedbb54ba01909a289f5a18efe
+  docChecksum: d102ff2d61db687e73460aa2c29e6458
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.2.2
-  configChecksum: 0c59e9c93c18af521a5df90de8c55580
+  releaseVersion: 1.2.3
+  configChecksum: 0f15ca856dde5f5e8f0f5680eea6b3e8
   repoURL: https://github.com/cvent/rest-sdks
   repoSubDirectory: packages/typescript
   published: true
@@ -551,7 +551,7 @@ trackedFiles:
     last_write_checksum: sha1:939d5dbc6bec4c2ca4d3bd22af9cec159773831e
   docs/models/components/attendee.md:
     id: 9cc6ee7d74bd
-    last_write_checksum: sha1:59ed30a557e212f03bbf360a871717f0dbb724af
+    last_write_checksum: sha1:fbf897d7754b05259e3f4cf22ab2779cbc3266eb
     pristine_git_object: 0abf3ffa446c47eba0c5260f918c6ea1e6a6de96
   docs/models/components/attendeeactivitiespaginatedresponse.md:
     id: 695252df9aa3
@@ -651,7 +651,7 @@ trackedFiles:
     pristine_git_object: 657594163b1cf83ddc50b4674ca9bbbbc5d911ba
   docs/models/components/attendeecontactinfojson.md:
     id: 42c1d2dbc233
-    last_write_checksum: sha1:dd8349cf0d0dcc3498bb17d02e7f879e1ae476c2
+    last_write_checksum: sha1:f1ff8a8786c48ac1f935c9041ab1a27312c962ff
     pristine_git_object: c86ba63ab733a308024ca018944bd05fc1a6a5f3
   docs/models/components/attendeecontactmembershipjson.md:
     id: 7a00fe27046c
@@ -1563,15 +1563,15 @@ trackedFiles:
     pristine_git_object: 5b022c75d394d04f080061e69756118705206410
   docs/models/components/contact.md:
     id: 135136c1868a
-    last_write_checksum: sha1:da76ce72d399e5dc25e04b8e575890846a198f63
+    last_write_checksum: sha1:f5325ef7d20bc7b6f4399603c1937d95087155eb
     pristine_git_object: 595cdb527a4f2538b6bf5d705d56afebb0a18df7
   docs/models/components/contactbulkitemjson.md:
     id: 640c3e7079e9
-    last_write_checksum: sha1:3d8bfe7e5cf196e31e9915a37dccef0de26d3222
+    last_write_checksum: sha1:6e9f569c8185246dc8f45a5aefa1337a7ade4b8e
     pristine_git_object: 4d2ac8611cfd3464957d448a8d00262f5b2d2285
   docs/models/components/contactbulkitemjsondata.md:
     id: 8c68a62ad902
-    last_write_checksum: sha1:57d6ecfcfd2a36662bf4deae7ea2a8f50d38fef2
+    last_write_checksum: sha1:eb3e9f2515db5f8a8d2ebb83de424e5a035bd3ed
     pristine_git_object: f73bed894089adf3ddda7bc081062c2135045bdf
   docs/models/components/contactcommonjson.md:
     id: 3780286b852d
@@ -1697,7 +1697,7 @@ trackedFiles:
     pristine_git_object: 7dd51d1efe91ce5397a892e0aaf7a8b3548d1680
   docs/models/components/contactpaginatedresponse.md:
     id: 28b143759e99
-    last_write_checksum: sha1:e1c1e193d6bf0e5102d04a53f85c8138eb9df749
+    last_write_checksum: sha1:299b87815d097d9c76e17b478afc8a8ee0d2a639
     pristine_git_object: a2628a2df0515738f2ef559fa9ef1cb680353f14
   docs/models/components/contactpatch.md:
     id: 709d16747cfb
@@ -1845,26 +1845,14 @@ trackedFiles:
     last_write_checksum: sha1:500549d1bd0b7865650ff7334e7e3e1ddd606aa8
   docs/models/components/customfieldjson1customfieldtype.md:
     last_write_checksum: sha1:e1cd23444a5c8bfde047f94b1563d60d7724be8d
-  docs/models/components/customfieldjson2.md:
-    id: 56846fe524a1
-    last_write_checksum: sha1:c3e59931812da0db16ca4a7aaffea15582a890b5
-    pristine_git_object: b6508f2f57cdac9b6a0b66946de7902ef3f55219
-  docs/models/components/customfieldjson2customfieldtype.md:
-    id: c99ad1a02a75
-    last_write_checksum: sha1:11e4500c087e5a3bacc0bc0638040594d32dae1c
-    pristine_git_object: 60f9efc35096cbe153667acfb9fb7c045493a31c
   docs/models/components/customfieldjson3.md:
-    last_write_checksum: sha1:ee302977daa8ef89cdd3008bded5700594d4ed46
+    last_write_checksum: sha1:7a4621c6c069ee64b935fe57ebf81c61a7a18e03
   docs/models/components/customfieldjson3customfieldtype.md:
-    last_write_checksum: sha1:33827683aa93020cb00484c0793dbc2ee5e69ace
+    last_write_checksum: sha1:93cd771f7f1fcd445eac1799f5d8daa4a6f15e70
   docs/models/components/customfieldjson4.md:
-    last_write_checksum: sha1:26c69e62cd5ef8cb1f4303f91161101cc7609086
+    last_write_checksum: sha1:a3176c18a2d2618273fdbba6acfe62e6ce240cee
   docs/models/components/customfieldjson4customfieldtype.md:
-    last_write_checksum: sha1:95e78243be06faa2adf419ab2d139520192b88d4
-  docs/models/components/customfieldjson5.md:
-    last_write_checksum: sha1:15492db227528453a7293b48b5ff3e0d7f9c0c54
-  docs/models/components/customfieldjson5customfieldtype.md:
-    last_write_checksum: sha1:641f3fa0131fa40c1b8e7ea5facef8231e41ab54
+    last_write_checksum: sha1:acf107a26a18a3892bbcb9390f110e286c248a6a
   docs/models/components/customfieldsjson.md:
     id: aae04cb0df68
     last_write_checksum: sha1:4729f3f89524938d282f0bf9e91bc0dc577bef55
@@ -2129,7 +2117,7 @@ trackedFiles:
     pristine_git_object: b7cc363cc04ec989464d7e6a7c4f71a4f00088e8
   docs/models/components/event.md:
     id: 0593e0f6a673
-    last_write_checksum: sha1:2589985e303d931bc75b6a67ee74f86292f7ff50
+    last_write_checksum: sha1:023ea067a4ee38f5e83e9bff2414e7a3a384fb16
     pristine_git_object: cc474195a16720a671a99d4d2fe28ad2d399008d
   docs/models/components/eventactivitydetailsjson.md:
     id: d62983e08097
@@ -2469,7 +2457,7 @@ trackedFiles:
     pristine_git_object: ef755cfbe4755b644d898a4cbb995be728bf80d8
   docs/models/components/eventupdate.md:
     id: a0f46e2595a2
-    last_write_checksum: sha1:2fdb77af4f9759e3af982f0519fbcaaa175a3112
+    last_write_checksum: sha1:fff59e24e39c80f800231a370dd34d26418c32cd
     pristine_git_object: 89461bc28d6236848937904a28279bdc19a8d5d1
   docs/models/components/eventupdateinput.md:
     id: 0c2de4c2d58b
@@ -3871,7 +3859,7 @@ trackedFiles:
     pristine_git_object: 5cdd9eb28931b32c698aaf7d52f94a9c83ef0fd2
   docs/models/components/plannerjson2.md:
     id: f049ab5a58ce
-    last_write_checksum: sha1:9c7fc296f1f800f7a738c47e4f2fc455c6477a1c
+    last_write_checksum: sha1:822a6a2990ef7c1f7095dee7fd3ee78565e3dc70
     pristine_git_object: 468f58d1fe316b30fa55851783b8f13bc8275c96
   docs/models/components/plannerjson2addresstype.md:
     id: 86e1e5b5cffd
@@ -4629,16 +4617,14 @@ trackedFiles:
     pristine_git_object: 0f64dfd6141c8bd3d010256931ad08f49fbea2c2
   docs/models/components/segmentattendeeresponsejson.md:
     id: eb992dc22ff8
-    last_write_checksum: sha1:a13b9fb7d309e18cfaf02be11baf69537262d120
+    last_write_checksum: sha1:0d8175f024fa0b4f67bb38c7c66001caf4a0ecff
     pristine_git_object: 41d36eb44109e67c2096e9e70d6b2f9f806820a6
   docs/models/components/segmentattendeesassociatedpaginatedresponse.md:
     id: 2e61752f8c7f
     last_write_checksum: sha1:d956d991c95805ed0334782f097d83cc72298246
     pristine_git_object: c12a019b4a21747cf6ed520899b73e6b8bb94b1e
-  docs/models/components/segmentjson0.md:
-    id: 447a263f93db
-    last_write_checksum: sha1:20f57c893ec128577c48dde4e0719456bce8ae76
-    pristine_git_object: 7ed7b55b930e06a952737ea12cb831b7327239ee
+  docs/models/components/segmentjson.md:
+    last_write_checksum: sha1:34cb65d74d008ad76b61e9483102a869f1e34d3a
   docs/models/components/segmentlitejson.md:
     id: 5c93630e2c7f
     last_write_checksum: sha1:39595e956c5fab95f50275e0547588437ed9d534
@@ -4681,7 +4667,7 @@ trackedFiles:
     pristine_git_object: 3231c9760097cab8084e25e8081af73e3a9d76ab
   docs/models/components/session.md:
     id: 0af1ad73cf6c
-    last_write_checksum: sha1:23e77d333f38595cc080128b3d4e85bd1a47e0db
+    last_write_checksum: sha1:de7e8cf120e85dce349b39f83b739fe8f732a1c8
     pristine_git_object: a518657819c61475e50b6ca30f61015a8bf3a12f
   docs/models/components/sessionactivity1.md:
     id: 897769a8e207
@@ -4861,7 +4847,7 @@ trackedFiles:
     pristine_git_object: 280c5d8b9f309f5512eb09b671d0bff873949a4e
   docs/models/components/sessionspaginatedresponse.md:
     id: a8feb9ad12ef
-    last_write_checksum: sha1:398babc292ae8bf2c975f0a088618a47ad35e7ee
+    last_write_checksum: sha1:52cc045945296f38a3b235346732fe013cbd665d
     pristine_git_object: d9aa1f8f1cc6e690d574af0ffe346400809bc632
   docs/models/components/sessionspeakerassignment.md:
     id: c54dc781b373
@@ -5023,7 +5009,7 @@ trackedFiles:
     pristine_git_object: b2455041d9da9e514eef88f035e9ccc9bbcf236d
   docs/models/components/stakeholderjson.md:
     id: 4c103f615160
-    last_write_checksum: sha1:1c24682378fe2e6f3e8bb007ba9a61beb310635d
+    last_write_checksum: sha1:32de07a1f468872ff0ed551e314a8705bf19a409
     pristine_git_object: 087d029454344824b8d9aa4db2baaa4c5e17df14
   docs/models/components/stakeholderjsonaddresstype.md:
     id: 3d9ac9deeb3b
@@ -5073,7 +5059,7 @@ trackedFiles:
     pristine_git_object: 5395c043e5b2a74aa0ebc5880820027ac7364e83
   docs/models/components/standardsurveyjson.md:
     id: c4957c64226e
-    last_write_checksum: sha1:0c520a54618873895dde4d31150389fc18d16c64
+    last_write_checksum: sha1:b92f49c3cbe6562555a445b2f28c57945a5b04a2
     pristine_git_object: 813a485669f753db961e132a46bdf0ffa411fe5e
   docs/models/components/standardsurveyquestionjson.md:
     id: cc32818c26d6
@@ -5797,7 +5783,7 @@ trackedFiles:
     pristine_git_object: cff2c73773e737585675b20bdc693c1acacbe7e3
   docs/models/components/webcastproviderjson.md:
     id: 92293f60e3c2
-    last_write_checksum: sha1:1554d6ca3bc58d71f2c864d31aaddb755b3e2100
+    last_write_checksum: sha1:cd1c1fe3d5538f779e768a360df94103333619ed
     pristine_git_object: 10126a983614691a12f937a3e3bf9a3f0df84b65
   docs/models/components/webcaststatusjson.md:
     id: 896c11a6336e
@@ -5853,7 +5839,7 @@ trackedFiles:
     pristine_git_object: fd8c702e10151de39635e2ee9b96151998f52619
   docs/models/components/zeroallof7.md:
     id: dd34773bd2f6
-    last_write_checksum: sha1:03e849646a64133d5e576fed3bab6ad33b9d26c2
+    last_write_checksum: sha1:6732be549543da5feb9f61ab0c39fc0e34ec7af4
     pristine_git_object: 8f58d15aa53a9189e91490199fbe9e2f3ff323b6
   docs/models/components/zeroallof8.md:
     id: 745f725b6abb
@@ -7187,7 +7173,7 @@ trackedFiles:
     pristine_git_object: 8596ba0efc0023e19f964ffe8c68a3a5d9d50771
   docs/models/operations/listattendeelinksrequest.md:
     id: 8c651acb3be9
-    last_write_checksum: sha1:edbdd4c6a40b4564df8829a10112bfc17e0f6aa5
+    last_write_checksum: sha1:793fb4275895e4e66613ca2ffea09d3fa8529434
     pristine_git_object: 7aab8a0e96f1d170493491b72a947200bfc4feeb
   docs/models/operations/listattendeelinksresponse.md:
     id: 0f15ea975504
@@ -7195,19 +7181,19 @@ trackedFiles:
     pristine_git_object: 1104f5ff90e1c287a2353a073ab4843f4f5549a6
   docs/models/operations/listattendeespostfilterrequest.md:
     id: add611bd45a5
-    last_write_checksum: sha1:3406f2a8ad1bc990d7a0c42208ad314b0c63e085
+    last_write_checksum: sha1:4d5bed1ae65fc1d1ba956391844f4f9710887c74
     pristine_git_object: 8f89fb0ff8086e20bc93ae9eae2cbe7d60aefb50
   docs/models/operations/listattendeespostfilterresponse.md:
     id: 3195c54a30e8
-    last_write_checksum: sha1:d743be14fb38ffbdc09a1b6b1bccdb33b44a01f6
+    last_write_checksum: sha1:88dbfbf7561af78e36e8b9868a177c777378a413
     pristine_git_object: 1059127e5f44dbe123fa7438322f964787e3aa33
   docs/models/operations/listattendeesrequest.md:
     id: 86d79b5330c0
-    last_write_checksum: sha1:1eae639665ab49a76d84b4d18f3f0e8dfa7527e2
+    last_write_checksum: sha1:61ed00dc179bb2acc5d693e265d0f659028643a7
     pristine_git_object: c620e252d67d0ee254b00c815e79c05d44a0f899
   docs/models/operations/listattendeesresponse.md:
     id: bef9085cfc7d
-    last_write_checksum: sha1:fc11a91471da9369a7e3e4ace9d93e550c61fe90
+    last_write_checksum: sha1:323fda0dd0c381724ad5828dc6dfada8c50859ff
     pristine_git_object: 6d67c8251a01aebdf3bdce43386b513ac9b5693f
   docs/models/operations/listaudiencesegmentspostfilterrequest.md:
     id: 40431411a37c
@@ -7483,7 +7469,7 @@ trackedFiles:
     pristine_git_object: 0807dc658540dc07db68d641c135f967489595db
   docs/models/operations/listplayersrequest.md:
     id: 3c5c4d8970c9
-    last_write_checksum: sha1:e2efb4da17f73c937e10b2701cb5f0bb279053a3
+    last_write_checksum: sha1:876e1ef84ae31fac0001e316655a70e8158c55c4
     pristine_git_object: 0826295eccbcee886073330788f35e4fafe0fe91
   docs/models/operations/listplayersresponse.md:
     id: 9ddc1e971d33
@@ -7625,7 +7611,7 @@ trackedFiles:
     pristine_git_object: 197826771db85d8e562eb2ce817bbcc0b9443a8e
   docs/models/operations/listsessionscategoriesrequest.md:
     id: 03b3faa6aac3
-    last_write_checksum: sha1:ad9f4626d5552c479818d949e178b5519b5357eb
+    last_write_checksum: sha1:800ad218bd6b36ba6428113cc5178b1977a2c80c
     pristine_git_object: d282cf377ab5a27e9aaffa7b237bb09684067035
   docs/models/operations/listsessionscategoriesresponse.md:
     id: eb5cdf3cc542
@@ -7681,7 +7667,7 @@ trackedFiles:
     pristine_git_object: 0d53fa7fbfcf89219e1188d6510a9d68b331518f
   docs/models/operations/listspeakerscategoriesrequest.md:
     id: 9bbcf5f750c6
-    last_write_checksum: sha1:5dd8de701b535f460eff58cec5123f27df544f6a
+    last_write_checksum: sha1:d7e7a60777e39f29cbae36b5a1b63972a1edcac3
     pristine_git_object: 982ba719aed5ba12f599cc1c8cbd8f3ee8ea6b5a
   docs/models/operations/listspeakerscategoriesresponse.md:
     id: 723da240ccb7
@@ -7797,7 +7783,7 @@ trackedFiles:
     pristine_git_object: b1684e4cc2f818778f8556b781a63c9c6ffbed56
   docs/models/operations/listwebcastattendeelinksrequest.md:
     id: 16ca96b1af1d
-    last_write_checksum: sha1:bdd655292464cd7bf35c69fef4f5c02e57df7c88
+    last_write_checksum: sha1:3ab7472e4413bb4a37374e9f041ea805122cbdb9
     pristine_git_object: 17b59ef3af6e799ce46197d6994dbaa5882d7f48
   docs/models/operations/listwebcastattendeelinksresponse.md:
     id: 8bcde3b39a29
@@ -7805,7 +7791,7 @@ trackedFiles:
     pristine_git_object: f62b23af72ae728dd0571d06cdaf27ad7c99041f
   docs/models/operations/listwebcastsrequest.md:
     id: 0ac93bb32690
-    last_write_checksum: sha1:46046f9760c11ac65361dc85f0cf915c1aeca47b
+    last_write_checksum: sha1:2a3f2e501417e09a10550e159d9e2d839cd2ce80
     pristine_git_object: 04eb18fdd28c0332249d04d1d142b43c93e98c95
   docs/models/operations/listwebcastsresponse.md:
     id: e903abb68b67
@@ -8115,7 +8101,7 @@ trackedFiles:
     pristine_git_object: 4e56835ee682cf1f5d6d1f7dfcc1de6296bdaf22
   docs/models/operations/updatesessioncustomfieldanswersrequest.md:
     id: 1d0770622e85
-    last_write_checksum: sha1:1511252b32952ac1b591655f45442d74736fb4ce
+    last_write_checksum: sha1:3bc2addb76c3cc6d31a4a06c65d268beadafda4e
     pristine_git_object: e61d6fad8a1035b27097781f00552be6da122d22
   docs/models/operations/updatesessionrequest.md:
     id: 97db783e0eda
@@ -8303,7 +8289,7 @@ trackedFiles:
     pristine_git_object: 38fff27ed2b4185ebccb610f21b2d21931f50a94
   docs/sdks/sessions/README.md:
     id: 57ad62844f79
-    last_write_checksum: sha1:af353d24cb14eb3d55f9a9f4668edc4bb31776df
+    last_write_checksum: sha1:d47a9452c8c90599de69fb4cfa210208a81f1e15
     pristine_git_object: 44e68c1900e8795d62ef91e47c072e6568acde8e
   docs/sdks/signatures/README.md:
     id: d0ea24deff8f
@@ -8311,7 +8297,7 @@ trackedFiles:
     pristine_git_object: 95b84d8e34cf132d1b8062e2455cff8cf7d2663e
   docs/sdks/speakers/README.md:
     id: 21a0d65de4a5
-    last_write_checksum: sha1:4ece323da2f0d99dd840a60087b6b40fbca5b321
+    last_write_checksum: sha1:b83c99426e1866e2110d3ed167c7ef1d563efef6
     pristine_git_object: 968655ce8e63d8261a3482a8e83276f194e6e79f
   docs/sdks/surveys/README.md:
     id: b7f48111aedf
@@ -8375,11 +8361,11 @@ trackedFiles:
     pristine_git_object: 80795a72645811f07559dbfd91e59131f127b3d4
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8140a927b89a8d6b0dc3ff77e73a172aa4ac5511
+    last_write_checksum: sha1:c184ab64496ab0380ea8ab2a8bafe45e8055750e
     pristine_git_object: 3f8c18265e80f8c46d349b3a7d92f1a61f1d2dc9
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:0f2b0f0b209afedd60cf53e8a71019b610141d9a
+    last_write_checksum: sha1:835d5f4262563991796e639084a9a95cf72d5a2d
     pristine_git_object: 3474c00ef1d014883367c7bbeca6cbe6e330ca41
   src/core.ts:
     id: f431fdbcd144
@@ -9679,7 +9665,7 @@ trackedFiles:
     pristine_git_object: 1a5b776328be3ce5f37f802e648d1daa61896080
   src/funcs/sessionsListSessionsCategories.ts:
     id: a3e067b1637a
-    last_write_checksum: sha1:5a10ff4c1ab1e795569ec7b474104dd790cf27d8
+    last_write_checksum: sha1:a7744a1167aa2c27e5f1303c1a4f02acafbde9c2
     pristine_git_object: 41945442d34bd1e9443a3b7da652430bdfc71f30
   src/funcs/sessionsListSessionsPostFilters.ts:
     id: e87a122d5300
@@ -9703,7 +9689,7 @@ trackedFiles:
     pristine_git_object: 22ee424226d689c79717a6ab9acc32a191c52cec
   src/funcs/sessionsUpdateSessionCustomFieldAnswers.ts:
     id: d33bd96cf57d
-    last_write_checksum: sha1:ac23527eb97bc3eeb1fc1e8389845e59980092b0
+    last_write_checksum: sha1:caa7fd7bda18d786025f10ddfd32844e5058e7ea
     pristine_git_object: ccbcc15d8594aea281be21d6f0a4852579f250e6
   src/funcs/signaturesGetSignatures.ts:
     id: 1cd695d3d16e
@@ -9775,7 +9761,7 @@ trackedFiles:
     pristine_git_object: e1cc7c722afdaad0a7a1bcec6545cc547f65e15a
   src/funcs/speakersListSpeakersCategories.ts:
     id: f39d9dae010a
-    last_write_checksum: sha1:544eec49b451ce68ed329136cc3d5d54ccca004c
+    last_write_checksum: sha1:9f2fec6b70023afa6e646c3b1079a6e2561bda9c
     pristine_git_object: c344bc41d82f2bd24f4273758733d9d19e035e78
   src/funcs/speakersListSpeakersPostFilter.ts:
     id: e5e4b88ad8f2
@@ -10143,7 +10129,7 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:602ed2e3767dfe427d5d2d0e6af3c99725de3af7
+    last_write_checksum: sha1:5b01a969597e496c7da1716d140a8b53c545084e
     pristine_git_object: 95847bcf50487c6ea615eb470cacdf861e9ba5e2
   src/lib/dlv.ts:
     id: b1988214835a
@@ -10533,7 +10519,7 @@ trackedFiles:
     last_write_checksum: sha1:8a861f455a2e19774259cf058cc43781105f29d7
   src/models/components/attendee.ts:
     id: 12f83608d617
-    last_write_checksum: sha1:07d8de69880f84c68dba42eebc6b05615887a72d
+    last_write_checksum: sha1:7f9154c4a68fcae7298066984df8d2cd9359a127
     pristine_git_object: c3dbbb248272728ec9a2f86d9b15b16ca2b10262
   src/models/components/attendeeactivitiespaginatedresponse.ts:
     id: e2e29669b081
@@ -10577,7 +10563,7 @@ trackedFiles:
     pristine_git_object: 7a97e79f42049c5e7b5ddb4d0ec8a9a4cbe9a921
   src/models/components/attendeecontactinfojson.ts:
     id: 5c5b3d1eb75d
-    last_write_checksum: sha1:13a2983588aaf61f27ac441d66a423c0e72427e5
+    last_write_checksum: sha1:5b9f9038bbecd5f6fd5828f4ef89489cc525c19f
     pristine_git_object: be3f5a1755679397fec457ad5b03c53eb97095e4
   src/models/components/attendeecontactmembershipjson.ts:
     id: e3b9aa366b39
@@ -11479,16 +11465,10 @@ trackedFiles:
     last_write_checksum: sha1:21179a2317dd4aba95154ff8dd48d70cb4023858
   src/models/components/customfieldjson1.ts:
     last_write_checksum: sha1:c090a14ebc14d037b7930a325ffdb027ff64be99
-  src/models/components/customfieldjson2.ts:
-    id: 755804de3c72
-    last_write_checksum: sha1:e165f8d61d519cdf5e35ffa850696e61cb51f847
-    pristine_git_object: fa9c89c0030347370dc1a0891f440ff8ce71c397
   src/models/components/customfieldjson3.ts:
-    last_write_checksum: sha1:5473003331254d67820f092311b5ebf20106a0e6
+    last_write_checksum: sha1:38e262c40ba2f39bbb43931c8bddba71c0acd07a
   src/models/components/customfieldjson4.ts:
-    last_write_checksum: sha1:a7dfd11969d5287d71426ac5d3288d3107639307
-  src/models/components/customfieldjson5.ts:
-    last_write_checksum: sha1:b586b619600fde14b7d8e88d54863a1f8c264ba2
+    last_write_checksum: sha1:a2451de939c96c8d7ab526cd1647c54467093f7a
   src/models/components/customfieldsjson.ts:
     id: a2d42e012b13
     last_write_checksum: sha1:520e679cc72dc07643fcc5ea33727d7b83d696d5
@@ -11687,7 +11667,7 @@ trackedFiles:
     pristine_git_object: d82c848fc51713a70309efd7604983ad10aae81c
   src/models/components/event.ts:
     id: a27c655f037c
-    last_write_checksum: sha1:b079bd6f58738c08ea60d1ff544edb07518a499d
+    last_write_checksum: sha1:2b34f99765f677fd2dda607c5f0172acc7e7a665
     pristine_git_object: 0fae4c6ba79baf99a96615e90fff406e33e6fc2b
   src/models/components/eventactivitydetailsjson.ts:
     id: 65db0eea2beb
@@ -11903,7 +11883,7 @@ trackedFiles:
     pristine_git_object: fd2c963b6569554fa737fb27159b30468d808c47
   src/models/components/eventupdate.ts:
     id: 4d7e27eddc9c
-    last_write_checksum: sha1:59311a1f105205a0e471662c8ec937181bfbd5fe
+    last_write_checksum: sha1:4253962f12b5648b73e906cca6cded9ad2f47f3a
     pristine_git_object: 117f629d78d7609a642d3b4004762a59325a4dbd
   src/models/components/eventupdateinput.ts:
     id: 1c8bfef1c395
@@ -12535,7 +12515,7 @@ trackedFiles:
     pristine_git_object: 25b6d73a71db2a2cce7aebf7c477a206af1553d6
   src/models/components/index.ts:
     id: 0aa842dce54d
-    last_write_checksum: sha1:ceb12c898f4d205a3251b51134b29477b102c746
+    last_write_checksum: sha1:e879a780f4600b6b57291915f1a42b9f3cf80b97
     pristine_git_object: 1636a9903e66817622b1ea5a59afd4c1913879a5
   src/models/components/industryjson0.ts:
     last_write_checksum: sha1:012568755ccc3c401028edcfaa244ecdeda212d8
@@ -13003,7 +12983,7 @@ trackedFiles:
     pristine_git_object: 4c24eaef67c5d3af7cb70111c0d55dc7c57127fe
   src/models/components/plannerjson2.ts:
     id: dbe6de9c6119
-    last_write_checksum: sha1:7d1c07e877edc2b09e20451fcf11ef9839f0500e
+    last_write_checksum: sha1:4b3fc1aa1f1efd705628c18b46592f6f454a3cf1
     pristine_git_object: 7e813fe3ec9864e10ae1f449672e9e0d2db139f7
   src/models/components/plannerjson2input.ts:
     id: 05a1307f24ab
@@ -13589,16 +13569,14 @@ trackedFiles:
     pristine_git_object: 20eecb91f5b877c6443189a4bf0d861d6b2587d7
   src/models/components/segmentattendeeresponsejson.ts:
     id: 0c68686da5f9
-    last_write_checksum: sha1:06c4ccd67d38959b1c7cb3071db90e599eef9b9f
+    last_write_checksum: sha1:299d0dafd8be4ba113ac1b5cfdbe6c0b94bd27eb
     pristine_git_object: 08fa8dd596d9544a4173068c4b5ee7b8d5ff1a10
   src/models/components/segmentattendeesassociatedpaginatedresponse.ts:
     id: f1c50bfa0873
     last_write_checksum: sha1:e6a5a4dabe50ad272a49c3fe92880694a28c0fd1
     pristine_git_object: 58dc921785b57b2101cadab968e6d57bcc8a1ac0
-  src/models/components/segmentjson0.ts:
-    id: 1e21c07d19ef
-    last_write_checksum: sha1:e120de460267fd7c3bfe95ae43bf5c0ac1e7a762
-    pristine_git_object: 81dda1dc9b4e6d9db0038a8319a55605fe4fb611
+  src/models/components/segmentjson.ts:
+    last_write_checksum: sha1:dd041a9bd9fd4cd057a52735e37768843c30ecd3
   src/models/components/segmentlitejson.ts:
     id: bd94a65a76fd
     last_write_checksum: sha1:bbabb453e6d82fcbd0ca5c3d12f0b55405035118
@@ -13637,7 +13615,7 @@ trackedFiles:
     pristine_git_object: 865db8b7ee03ea218f4e7a8c9880b9d9e759b0ab
   src/models/components/session.ts:
     id: df291d2da0a7
-    last_write_checksum: sha1:29a3bcff2f0ad79d4706ee0d08515c02e15d69bc
+    last_write_checksum: sha1:472bf99bfd3629b5112ce433dbb9c27aafa591a2
     pristine_git_object: 43c672a1fbd7486ebce32058d406a2fd28ccc9f4
   src/models/components/sessioncategory.ts:
     id: 17438347c7c1
@@ -13839,7 +13817,7 @@ trackedFiles:
     pristine_git_object: acbbfaff66303e11a8ce0695f014afa4318126a6
   src/models/components/stakeholderjson.ts:
     id: 188349d35e09
-    last_write_checksum: sha1:2059080486156b9584884515be04adec3d3086d6
+    last_write_checksum: sha1:4196eaa24d560bf49441b4559ff2ba093f0308b8
     pristine_git_object: 695b044aaa1978f3fb13eb5f621681c0b9aab1cd
   src/models/components/standardquestionjson.ts:
     last_write_checksum: sha1:1533c797db31b8522d87a8da12e3db178d94af78
@@ -13853,7 +13831,7 @@ trackedFiles:
     pristine_git_object: 612e0363d2ac0b8e50217537cb43cb894bec4cf8
   src/models/components/standardsurveyjson.ts:
     id: ab84e09cfaeb
-    last_write_checksum: sha1:7bf4980712935205b2f626b57f107d6efcab675d
+    last_write_checksum: sha1:21e46f0079aae4d6660945089f80e2d89e5830c1
     pristine_git_object: 1e27648d14b1787aa3af6925eba3c48d4a2714e1
   src/models/components/standardsurveyquestionjson.ts:
     id: 03a6512e1a62
@@ -14453,7 +14431,7 @@ trackedFiles:
     pristine_git_object: d9b81bcff4b0a42150af2bd1ce584a66aa712188
   src/models/components/webcastproviderjson.ts:
     id: 3765876d63e2
-    last_write_checksum: sha1:888ba634a44be97df7230cf7ff554d0502186e4c
+    last_write_checksum: sha1:3a895cef3a34d48a6506c2a5887abfb26fcac73c
     pristine_git_object: 276ed0a9086d2578dbe62d8427d2f9deb4da6655
   src/models/components/webcaststatusjson.ts:
     id: ec62174ade64
@@ -15545,15 +15523,15 @@ trackedFiles:
     pristine_git_object: 10fe2d19714575d068de54b185b41faf3b380053
   src/models/operations/listattendeelinks.ts:
     id: 4c2aec574fac
-    last_write_checksum: sha1:35f6902efab988f84df52d00b978153eec3ae3ae
+    last_write_checksum: sha1:3cb11049e5c18153d65e3ec9445119ec6b106c29
     pristine_git_object: 7f96c5bbd50f641248314f8f4dd3945dcc4aabeb
   src/models/operations/listattendees.ts:
     id: e3565b250895
-    last_write_checksum: sha1:f6be6986891eba3d3668cfc8daa8ae6f306ed84e
+    last_write_checksum: sha1:078e126cdcef3911229f0f09970ce998016e3bda
     pristine_git_object: 4a655b4f822fd4f4f2b8bb7a88decc45e512b643
   src/models/operations/listattendeespostfilter.ts:
     id: 091f5e61d17c
-    last_write_checksum: sha1:27e318421abccc5ab11ae42f0ab4b0ffb1bcd131
+    last_write_checksum: sha1:4612f21a213c943dcf6697a0afe8957452a91b9d
     pristine_git_object: 072657ba2d0e4f8ce5c748891e63ac002781cb85
   src/models/operations/listaudiencesegments.ts:
     id: ebbf17db4ddd
@@ -15699,7 +15677,7 @@ trackedFiles:
     pristine_git_object: bbfa00ef42664d97673c2c9c2dcb429ed8657d13
   src/models/operations/listplayers.ts:
     id: 0aff5ded116e
-    last_write_checksum: sha1:35cfc2057ddbefbd34f1230174805a57e87d0eb5
+    last_write_checksum: sha1:633e7a02cc386bb6539620ddb048aeb830d5b493
     pristine_git_object: 4c27ed9522f7940048d02608495dde001d481d9d
   src/models/operations/listprocessformsubmission.ts:
     id: 708dcf3be395
@@ -15775,7 +15753,7 @@ trackedFiles:
     pristine_git_object: a51b591240cbedaeb3ab4eb58d8ba730f4b9d6f8
   src/models/operations/listsessionscategories.ts:
     id: 980c28ac5818
-    last_write_checksum: sha1:b7245f365175a57f70fe8b454c4d2186d61e1ed5
+    last_write_checksum: sha1:bbfabdf4f2d6d3bdd8373e669ac8940fe168a5f0
     pristine_git_object: 83d1782e74548a301e48ae3fdb6015c2ecf1c7a5
   src/models/operations/listsessionsenrollment.ts:
     id: cdbac73c7d4d
@@ -15803,7 +15781,7 @@ trackedFiles:
     pristine_git_object: 66ae38d38e17bc0cd0cedf91132414484c49c131
   src/models/operations/listspeakerscategories.ts:
     id: 16049e429ca7
-    last_write_checksum: sha1:9947dae57ecf2e6294140604855e8b64de24f800
+    last_write_checksum: sha1:74b2621ae16ecbfc5eebde9efd42d98e26358afe
     pristine_git_object: 9719fde7647b4ddc5ff11a8af44dd3f3171c1db9
   src/models/operations/listspeakersessions.ts:
     id: e67c7ccd136d
@@ -15863,11 +15841,11 @@ trackedFiles:
     pristine_git_object: 96ab83dd2af1c454743b6e00aa47d829aa05d94f
   src/models/operations/listwebcastattendeelinks.ts:
     id: 80814669504f
-    last_write_checksum: sha1:34beb7f386502dfdbd3d8d5934c7a39a0b9e28bc
+    last_write_checksum: sha1:45817bdcc2faeacdbfcf2c7f9c11cd453ac5d285
     pristine_git_object: 4382f678879b8cf962374094fd5ee56c48461a63
   src/models/operations/listwebcasts.ts:
     id: 0af1602ac47a
-    last_write_checksum: sha1:49d9c7e058d6a709a601ab19d4bfc6004a15bdd9
+    last_write_checksum: sha1:0e9f0dc338b3ed593a9ddd551c68c70829477d3c
     pristine_git_object: b543194c7b5aee6b84de3530dc9211944fa7283a
   src/models/operations/mergecontacts.ts:
     id: eb4a3a7e9764
@@ -16145,7 +16123,7 @@ trackedFiles:
     pristine_git_object: c6face5e973e277a505d0c72d23faa0ba44e0f82
   src/models/operations/updatesessioncustomfieldanswers.ts:
     id: 5605df0c43e9
-    last_write_checksum: sha1:88a0fd763877467e372cc15e715e79dd440c4509
+    last_write_checksum: sha1:383bf729c52ad921198b74e41f89203ab0168687
     pristine_git_object: e97b1574b8343b873a0f7cdf944234fb7df1dc67
   src/models/operations/updatespeaker.ts:
     id: cbff95c0a7b2
@@ -16337,7 +16315,7 @@ trackedFiles:
     pristine_git_object: bcf4fbed6a4badd3ee5d04385c85513543d89b0c
   src/sdk/sessions.ts:
     id: 8dd1c8430722
-    last_write_checksum: sha1:b87b5c9d3f864c2f260224ecfc868f563ab1c2cf
+    last_write_checksum: sha1:ce36d6b206eef96d10dfd6684aea5ac6d16c4217
     pristine_git_object: 0b01f50466e50d57188e9f4e2e917e87895de443
   src/sdk/signatures.ts:
     id: 7ee869d9ce04
@@ -17345,7 +17323,7 @@ examples:
           expand: ["answers.question", "registrationType"]
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "8e8665e7-ca97-4610-90dc-3527c766faf9", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "unsubscribed": false, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "8e8665e7-ca97-4610-90dc-3527c766faf9", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   updateAttendee:
@@ -17357,7 +17335,7 @@ examples:
         application/json: {"event": {"id": "0a955598-376e-43d4-a796-91d6d5f41e3f"}, "contact": {"id": "ea66a709-2a93-4fa0-8b83-cf4f62df9dc3"}, "invitationList": {"id": "06da38f9-12da-4cb6-a581-7a5954f8e0e2"}, "referenceId": "refid-marketingwebsite", "note": "Would like to sit near the front of the room for sessions.", "administrator": {"id": "7949c335-b5b2-46cf-8f5d-f6b21795df51"}, "admissionItem": {"id": "7949c335-b5b2-46cf-8f5d-f6b21795df51"}, "visibility": "Private", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "sendEmail": false, "status": "Accepted"}
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "d1b5785a-f370-4935-ab5c-d8b318a79002", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "unsubscribed": false, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "d1b5785a-f370-4935-ab5c-d8b318a79002", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   updateInternalInfoAnswers:
@@ -20387,6 +20365,8 @@ examples:
         query:
           limit: 100
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          sort: "name:ASC"
+          filter: "name contains 'general'"
       responses:
         "200":
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
@@ -20785,6 +20765,7 @@ examples:
           limit: 100
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
           filter: "active eq 'true'"
+          sort: "name:DESC"
       responses:
         "200":
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"name": "Presenters", "id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}]}

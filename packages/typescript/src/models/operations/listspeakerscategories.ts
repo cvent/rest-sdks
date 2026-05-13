@@ -30,11 +30,27 @@ export type ListSpeakersCategoriesRequest = {
    * The following can be used in filter expressions:
    *   * equal: eq
    *   * not equal: ne
+   *   * contains a value: contains
    *
-   * The following field is filterable:
+   * The following fields are filterable:
    *   * active (eq|ne)
+   *   * id (eq|ne)
+   *   * name (eq|ne|contains)
    */
   filter?: string | undefined;
+  /**
+   * Sorts the returned speaker categories in ascending or descending order by its name.
+   *
+   * @remarks
+   *
+   * There are two orders:
+   *   * ascending: ASC
+   *   * descending: DESC
+   *
+   * The following fields are sortable:
+   *   * name
+   */
+  sort?: string | undefined;
 };
 
 export type ListSpeakersCategoriesResponse = {
@@ -46,6 +62,7 @@ export type ListSpeakersCategoriesRequest$Outbound = {
   limit: number;
   token?: string | undefined;
   filter?: string | undefined;
+  sort?: string | undefined;
 };
 
 /** @internal */
@@ -57,6 +74,7 @@ export const ListSpeakersCategoriesRequest$outboundSchema: z.ZodType<
   limit: z.number().int().default(100),
   token: z.string().optional(),
   filter: z.string().optional(),
+  sort: z.string().optional(),
 });
 
 export function listSpeakersCategoriesRequestToJSON(

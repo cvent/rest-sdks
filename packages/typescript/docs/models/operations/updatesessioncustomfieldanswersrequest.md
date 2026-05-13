@@ -8,8 +8,8 @@ import { UpdateSessionCustomFieldAnswersRequest } from "@cvent/sdk/models/operat
 let value: UpdateSessionCustomFieldAnswersRequest = {
   id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
   customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-  customField1: {
-    id: "1b66c479-861d-4de7-9666-fd5487bee091",
+  customField: {
+    id: "585e5c41-ee97-4ef4-9915-aa47a6ca9361",
     value: [
       "Choice C",
       "Choice A",
@@ -21,8 +21,8 @@ let value: UpdateSessionCustomFieldAnswersRequest = {
 
 ## Fields
 
-| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `id`                                                                         | *string*                                                                     | :heavy_check_mark:                                                           | Unique Id of a session                                                       | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                         |
-| `customFieldId`                                                              | *string*                                                                     | :heavy_check_mark:                                                           | Unique Id of a custom field                                                  | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                         |
-| `customField1`                                                               | [components.CustomField1Input](../../models/components/customfield1input.md) | :heavy_check_mark:                                                           | Contains the custom field you're updating, and the new answer.               |                                                                              |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `id`                                                                       | *string*                                                                   | :heavy_check_mark:                                                         | Unique Id of a session                                                     | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                       |
+| `customFieldId`                                                            | *string*                                                                   | :heavy_check_mark:                                                         | Unique Id of a custom field                                                | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                       |
+| `customField`                                                              | [components.CustomFieldInput](../../models/components/customfieldinput.md) | :heavy_check_mark:                                                         | Contains the custom field you're updating, and the new answer.             |                                                                            |

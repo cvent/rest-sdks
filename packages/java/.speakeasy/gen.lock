@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 795b0bc6-b124-44d6-a714-d4fdbc56212b
 management:
-  docChecksum: 561a41aedbb54ba01909a289f5a18efe
+  docChecksum: d102ff2d61db687e73460aa2c29e6458
   docVersion: ea
   speakeasyVersion: 1.752.0
   generationVersion: 2.859.2
-  releaseVersion: 1.2.3
-  configChecksum: 806e9f0c1af51ec59af694315d02320c
+  releaseVersion: 1.2.4
+  configChecksum: b9eef70e96be6947d4d46bd6db9e7bb8
   published: true
 persistentEdits:
   generation_id: 6ad3309a-d2a1-4e74-a3ae-065e16d1999e
@@ -212,7 +212,7 @@ trackedFiles:
   docs/models/components/AdditionalChoiceJson11.md:
     last_write_checksum: sha1:bc0201911c379c9e120670783af0f031ce0f1c11
   docs/models/components/AdditionalChoiceJson2.md:
-    last_write_checksum: sha1:5388212edad01111e0b6449b7c8ab5883eb78314
+    last_write_checksum: sha1:9f317a427c749d14a2c3b13d71a24eac3e6b6fb9
   docs/models/components/AdditionalGuestFeesJson.md:
     id: b06986916918
     last_write_checksum: sha1:c6bec98de43766efe8c7bc46f6353f0cf0cd2b58
@@ -537,7 +537,7 @@ trackedFiles:
     last_write_checksum: sha1:3a972b87928b78a456bff775a5258fe14d19003c
   docs/models/components/Attendee.md:
     id: 9ed3d9f25c6d
-    last_write_checksum: sha1:e62676d9240672195be6a66b2d9254094454c342
+    last_write_checksum: sha1:df0d809aee5aa9205a86f3fc91b84d809ae20411
     pristine_git_object: 61b0051fa646e02bb4301bec19d3b1e0fe8102d1
   docs/models/components/AttendeeActivitiesPaginatedResponse.md:
     id: ceea5b023b77
@@ -637,7 +637,7 @@ trackedFiles:
     pristine_git_object: 853d350ab051199223f77b392e219f46f1e287e2
   docs/models/components/AttendeeContactInfoJson.md:
     id: b2695d44b280
-    last_write_checksum: sha1:6d2f60d60c8a92bb879f28ca7b2afe4bbf588f26
+    last_write_checksum: sha1:a12b4bbfd5fb89cc66bd371fc997f682a27c95a4
     pristine_git_object: 74588f27017792b9960835ef758c4db663278386
   docs/models/components/AttendeeContactMembershipJson.md:
     id: 7871bc02d1c0
@@ -1843,26 +1843,14 @@ trackedFiles:
     last_write_checksum: sha1:ce6ec59110b68f752f7821fb961576238df14235
   docs/models/components/CustomFieldJson1CustomFieldType.md:
     last_write_checksum: sha1:4c00a571e414536caa86461600236b7641b9d105
-  docs/models/components/CustomFieldJson2.md:
-    id: 1ba5545e1a50
-    last_write_checksum: sha1:596d79af6098c529bb8769bd3ecf2c832b75a262
-    pristine_git_object: 8a2c32dd47b79343f3fa6acfaaa0963e1c3c4a2f
-  docs/models/components/CustomFieldJson2CustomFieldType.md:
-    id: c34388288b1e
-    last_write_checksum: sha1:2c08e68bc2738a71838560bcdb9a0c40a5d6a7ff
-    pristine_git_object: 2ed40637ff7a12a95aa85aad860e5f6b15d7afb3
   docs/models/components/CustomFieldJson3.md:
-    last_write_checksum: sha1:9456b8271440a4679149a7d9cc5d1c0088d99a34
+    last_write_checksum: sha1:e1b21a601f7e476f3f0b6b3ca5936b13d82ba238
   docs/models/components/CustomFieldJson3CustomFieldType.md:
-    last_write_checksum: sha1:1d4c9bc9f7e0226f1d702910c8da8a7982499c6b
+    last_write_checksum: sha1:fea74229e30d435d9a940069191d51c7cd0e98f3
   docs/models/components/CustomFieldJson4.md:
-    last_write_checksum: sha1:c6139667da0efa1ca5e7be0f1570ef7fc03fb2bc
+    last_write_checksum: sha1:fe4cb1a7657276406347d5b1018d148f22203716
   docs/models/components/CustomFieldJson4CustomFieldType.md:
-    last_write_checksum: sha1:d91d0786f98d4279e0c27501d33992a687f66529
-  docs/models/components/CustomFieldJson5.md:
-    last_write_checksum: sha1:b6d2284168da5bc09026c04447796a99236eb970
-  docs/models/components/CustomFieldJson5CustomFieldType.md:
-    last_write_checksum: sha1:e23800b047cae1637acd22d96dbdfe493a2eff5e
+    last_write_checksum: sha1:a19800cccc22bfe2e8867c2193bf7c87907ab7ba
   docs/models/components/CustomFieldTypeJson1.md:
     id: 97b8f6589f61
     last_write_checksum: sha1:cc2e5a41f62e351f16769f43d41ccd404cceba70
@@ -2127,7 +2115,7 @@ trackedFiles:
     pristine_git_object: 9ce8bdfcda156eeba556af2f95b02f66a9b9ceab
   docs/models/components/Event.md:
     id: 30ea2ea346e2
-    last_write_checksum: sha1:c2cbaf6b4204e75b9c6747888245dbd6b128aeca
+    last_write_checksum: sha1:2e8da00251d7350263008566a98e2339db45a130
     pristine_git_object: 73c27d065bc3d33e6040ec32007ddd5a80f4a063
   docs/models/components/EventActivityDetailsJson.md:
     id: afd07bd677a3
@@ -2467,7 +2455,7 @@ trackedFiles:
     pristine_git_object: 463087f3955daef0395f59dca5fec770d94a87d7
   docs/models/components/EventUpdate.md:
     id: 67528f16165b
-    last_write_checksum: sha1:3671f613f7077f3a1b47456c703f8dd0d5aca59a
+    last_write_checksum: sha1:72d106a839508e3bc2c00e3cf5d1a904cb75102a
     pristine_git_object: 7ae33e0cd6721a2e25170dc004195ea8cdc45395
   docs/models/components/EventUpdateInput.md:
     id: 5947df2c1cea
@@ -3877,7 +3865,7 @@ trackedFiles:
     pristine_git_object: a1a8359280c5514dcac6b6864741c6ffdcee1b0b
   docs/models/components/PlannerJson2.md:
     id: 34e65d369df1
-    last_write_checksum: sha1:d1477bce224a9b2cde388d3e8266a0bd1b4103e1
+    last_write_checksum: sha1:5c4911dcbaab3c57b0115e37f572cce04adc9caf
     pristine_git_object: 2a115f6a1207c6fad21c3a69f098021f510c0eaa
   docs/models/components/PlannerJson2AddressType.md:
     id: a166efdbfb6e
@@ -4635,16 +4623,14 @@ trackedFiles:
     pristine_git_object: 9180b812d219aa7ff4ba98fb377663262c43f747
   docs/models/components/SegmentAttendeeResponseJson.md:
     id: 4c4dc28e0a86
-    last_write_checksum: sha1:218b7bb8d7bcdb4d5a2e9d405ea4ebe724ea7d71
+    last_write_checksum: sha1:e2a03ad8d310ee65ab91df22e03a9fbb329d8513
     pristine_git_object: 44d71e80dd633f1972652aa3eaf284060fc25349
   docs/models/components/SegmentAttendeesAssociatedPaginatedResponse.md:
     id: 0aa83acb017f
     last_write_checksum: sha1:fa765810aaa61ebdb0a754e0416fbc7d6aac2f50
     pristine_git_object: da086cecabd118444cb416de906d1a0dc02ae570
-  docs/models/components/SegmentJson0.md:
-    id: a784ed2b4092
-    last_write_checksum: sha1:d77cad7f0179beab539ceafab9681e323fa61aab
-    pristine_git_object: 858040f3b9ca9022c81152a678ed3ce12b0dddf0
+  docs/models/components/SegmentJson.md:
+    last_write_checksum: sha1:da64e22ae0dcf575cc446e0f13523566c6d6a4d4
   docs/models/components/SegmentLiteJson.md:
     id: 43ab03beac85
     last_write_checksum: sha1:d576a9ed9078100dcbc6c4f3fb2c0f2758d2098e
@@ -4687,7 +4673,7 @@ trackedFiles:
     pristine_git_object: aa27090683fc8e9105fe8a97d97a5bf3917835fd
   docs/models/components/Session.md:
     id: 24e1ad96652a
-    last_write_checksum: sha1:6f886850aa821c67e37caa68d0d27d8150495de1
+    last_write_checksum: sha1:3ca9d305190ba9a4da844b83ed2e5e824b82ed5d
     pristine_git_object: a96d95cbbfd16236de753dbc21ee54328d0568bd
   docs/models/components/SessionActivity1.md:
     id: df179c0e099f
@@ -5029,7 +5015,7 @@ trackedFiles:
     pristine_git_object: 69ed13bbb205e3ee39b05e1f7e24f7857979b218
   docs/models/components/StakeholderJson.md:
     id: 745fd912115f
-    last_write_checksum: sha1:0a58ab922f1bc23c0e526762fd3ab2e8483972f3
+    last_write_checksum: sha1:799f1cccfe897a003a085b29716b16270ee2f004
     pristine_git_object: 88a2c1872f5cac5f77deb8e847308c72f2e3484b
   docs/models/components/StakeholderJsonAddressType.md:
     id: 94d3470443da
@@ -5079,7 +5065,7 @@ trackedFiles:
     pristine_git_object: cd0b20bc52eaf93effa08f1591bc57e0615dc6ed
   docs/models/components/StandardSurveyJson.md:
     id: 1eab329d20a5
-    last_write_checksum: sha1:2e2048fc238146ef098dcdf33ecd16e1ad628005
+    last_write_checksum: sha1:c34d981f05da73919208e9e148df2b53a98e55ba
     pristine_git_object: fb868e5a5f4d61e4404da9af191987bfa0f4d3ec
   docs/models/components/StandardSurveyQuestionJson.md:
     id: 5bcbaa73a0bd
@@ -5807,7 +5793,7 @@ trackedFiles:
     pristine_git_object: 39c143f2df6cc540dc6b15af7b3f356ba5380118
   docs/models/components/WebcastProviderJson.md:
     id: f653ba63c7ba
-    last_write_checksum: sha1:241111690f54a684023bbbd08a6b92be188c0720
+    last_write_checksum: sha1:1e8baaa241f93d1b0b68dd212b3e8372d8f043de
     pristine_git_object: d80c2cba7d245cb49e8336376eafe612930951db
   docs/models/components/WebcastStatusJson.md:
     id: 1366879a6a0d
@@ -7941,7 +7927,7 @@ trackedFiles:
     pristine_git_object: 74bc1546a4459e3397c155b18ef9f435411727b5
   docs/models/operations/ListAttendeeLinksRequest.md:
     id: ae043893ff54
-    last_write_checksum: sha1:ab20c2de591e1c62c9e3969dd3b17168f2a1a958
+    last_write_checksum: sha1:187ecfe9b60fbb10bd4102be3989a0c508bb09c8
     pristine_git_object: b261842fa54c86c93124920962b4311b52525f15
   docs/models/operations/ListAttendeeLinksResponse.md:
     id: 1ebb4fd68499
@@ -7949,7 +7935,7 @@ trackedFiles:
     pristine_git_object: 3dc05a439c99e277d9531c9d0bc5b2475cebd153
   docs/models/operations/ListAttendeesPostFilterRequest.md:
     id: 8696b0965ec5
-    last_write_checksum: sha1:39d59d43c6e9062b43786e8aa69b6b7f149cc28d
+    last_write_checksum: sha1:4e9e904b329fcf76a5c49b47220fe8693b8fa69e
     pristine_git_object: fcda6832e39d9a8411ecd541ce51d40d5c1c3381
   docs/models/operations/ListAttendeesPostFilterResponse.md:
     id: f71d754774d0
@@ -7957,7 +7943,7 @@ trackedFiles:
     pristine_git_object: 0bf976169268bea2876194df1d29be05a9a3dee8
   docs/models/operations/ListAttendeesRequest.md:
     id: d4fe1a9b4b30
-    last_write_checksum: sha1:d67bb492e72049cd65360adb1479e0fdb32d3f81
+    last_write_checksum: sha1:bfb2fa79548e555ba3518d3e12f75a760a5420cf
     pristine_git_object: 3e8af6ddf64dcf7b01bc2d13459d7fc2668bb067
   docs/models/operations/ListAttendeesResponse.md:
     id: 7fda14352744
@@ -8249,7 +8235,7 @@ trackedFiles:
     last_write_checksum: sha1:0412b953f879d6be1e37642a4a7eb00466b1d8fe
   docs/models/operations/ListPlayersRequest.md:
     id: 037fc258074d
-    last_write_checksum: sha1:b6b75235e82a13f92f5d50e379d415f965251fb4
+    last_write_checksum: sha1:b344d507d00e9e38e0799a3be72f038ad37f3447
     pristine_git_object: 3c37b36192357467fad8de19c79ce2f451965026
   docs/models/operations/ListPlayersResponse.md:
     id: 5a86b8440f00
@@ -8401,7 +8387,7 @@ trackedFiles:
     pristine_git_object: 1cff06b93d0854828c60a1793c5881c798d2a55a
   docs/models/operations/ListSessionsCategoriesRequest.md:
     id: 0e4a54d59ef9
-    last_write_checksum: sha1:5002aea0ab5de7a25b00a3a1f04949e74d793b5b
+    last_write_checksum: sha1:f18fbb0a39375796f45d18d7087eb960cb7c39f7
     pristine_git_object: 2f6ef95f2c20573c67d669193e05139a7478e696
   docs/models/operations/ListSessionsCategoriesResponse.md:
     id: ba20ee4fc631
@@ -8457,7 +8443,7 @@ trackedFiles:
     pristine_git_object: 29fb143297e4d7bc665e8038b14a395d849a9ec3
   docs/models/operations/ListSpeakersCategoriesRequest.md:
     id: 05c416e8e252
-    last_write_checksum: sha1:4136f64e20e69ce0b2a21054fcca2906474aa52d
+    last_write_checksum: sha1:70ab71fcf181f4fb4dc9502f89fb36e69abca3fd
     pristine_git_object: b824bcbd6fe754bf1148d194cad37bf313edd360
   docs/models/operations/ListSpeakersCategoriesResponse.md:
     id: dbfa1a8519e3
@@ -8577,7 +8563,7 @@ trackedFiles:
     pristine_git_object: ec3250bdc9269b507764728265c35843a0dfd24e
   docs/models/operations/ListWebcastAttendeeLinksRequest.md:
     id: 5e82a0194ef6
-    last_write_checksum: sha1:806ef073f59f909ca296422257493794860f43f3
+    last_write_checksum: sha1:73277da45d180f0dfef1fb10e60653c17e107e55
     pristine_git_object: f0dc23af74b2113e688a7e73e77042357a0efb4f
   docs/models/operations/ListWebcastAttendeeLinksResponse.md:
     id: 2b86b3779f94
@@ -8585,7 +8571,7 @@ trackedFiles:
     pristine_git_object: 9c7f1d0ee71e7a8114f6a1ca03e817e0bead7617
   docs/models/operations/ListWebcastsRequest.md:
     id: 40beda17f59d
-    last_write_checksum: sha1:c2e4d3e4595fa76814586a2ca31713f78d1294b2
+    last_write_checksum: sha1:af01277171a3c0a0d4313504c48d8b23a7fb78c3
     pristine_git_object: 1de5527428cd37cf3f6d3f32356827c80abae989
   docs/models/operations/ListWebcastsResponse.md:
     id: 7c73392490c1
@@ -9165,11 +9151,11 @@ trackedFiles:
     pristine_git_object: be7e7cd411341b9f669b63f1fc8a00551051003d
   docs/models/operations/UpdateSessionCustomFieldAnswersRequest.md:
     id: 77cf2d157386
-    last_write_checksum: sha1:abf27a1cb55055380dc329020e38ef7580d8dc34
+    last_write_checksum: sha1:948ed867c89ae097479349b6a701094c24d7669e
     pristine_git_object: 7ea4f1001577a8758f8c259938ac75336773bb62
   docs/models/operations/UpdateSessionCustomFieldAnswersResponse.md:
     id: dc9691843665
-    last_write_checksum: sha1:77a3e0299b1bc2eb23fec73c6994e715beeb6c76
+    last_write_checksum: sha1:eae8fb592839d734596b9016a864889858a36059
     pristine_git_object: 2d55d4813248679fd44f8582e42cd43f148a5126
   docs/models/operations/UpdateSessionRequest.md:
     id: 3764c660085b
@@ -9397,7 +9383,7 @@ trackedFiles:
     pristine_git_object: a047004e380c4d0dc2430aa76f8b1330421fd65e
   docs/sdks/sessions/README.md:
     id: 57ad62844f79
-    last_write_checksum: sha1:05aa95e9ec5da79ec4da1264b05fff603c49d812
+    last_write_checksum: sha1:fbffe5e202d4d36c73aa3c7da8f074df12ff82a7
     pristine_git_object: 0e8cf3ad90aa82beb79ed33bb9d33ce437783a87
   docs/sdks/signatures/README.md:
     id: d0ea24deff8f
@@ -9405,7 +9391,7 @@ trackedFiles:
     pristine_git_object: edf8aa05303b34155cfb67f9f418c340f7ee6e19
   docs/sdks/speakers/README.md:
     id: 21a0d65de4a5
-    last_write_checksum: sha1:bce7a5a49ea1b117b64be3a8ca345592f5c41bf1
+    last_write_checksum: sha1:15488bd70bc98d2d423fedc1419f3d3dae43c970
     pristine_git_object: 118e111b964ba99c3bae0466bc3362af503548ff
   docs/sdks/surveys/README.md:
     id: b7f48111aedf
@@ -9449,7 +9435,7 @@ trackedFiles:
     pristine_git_object: cda742065b0bb30407900c4d39885b8db164b9b4
   gradle.properties:
     id: 2afbb999f001
-    last_write_checksum: sha1:0a4eb4470a0c711d17fc19884a8e386e3d31dc2e
+    last_write_checksum: sha1:5295cd8c73a217f9dc39150d1d27096e5c457548
     pristine_git_object: 6da141a8453a679109d12dba513b6d08b9e37fd5
   gradle/wrapper/gradle-wrapper.jar:
     id: ec27dae6e852
@@ -9833,7 +9819,7 @@ trackedFiles:
     last_write_checksum: sha1:0396671d6b0de814aaa27700f35eed30523c66ed
   src/main/java/com/cvent/SDKConfiguration.java:
     id: cdb9837839f5
-    last_write_checksum: sha1:f41a84a749a794a32c773cade51df970a34d2e9e
+    last_write_checksum: sha1:05826533fac17bd83ca99c5fac1cd8161c6845d8
     pristine_git_object: 4b98b23f51bc18bad5890089f44055b6187ed9f0
   src/main/java/com/cvent/Seating.java:
     id: 70583b24bb9b
@@ -10395,7 +10381,7 @@ trackedFiles:
     last_write_checksum: sha1:aaa3d10b9559e8e023cd56bdea60bcdca8836fa6
   src/main/java/com/cvent/models/components/Attendee.java:
     id: 0533904461db
-    last_write_checksum: sha1:e6c2d7de43c746ab78ceb5557f0cac3b3947fb01
+    last_write_checksum: sha1:3481223e5933ad5deb2e0cd2d31e841bf5de2592
     pristine_git_object: 66811a013f2464f2b6618733f2ed062c0a0fbd49
   src/main/java/com/cvent/models/components/AttendeeActivitiesPaginatedResponse.java:
     id: fa1fb86e61be
@@ -10495,7 +10481,7 @@ trackedFiles:
     pristine_git_object: f356d0e4b636da88154ee5d4d5ba7984b5b05916
   src/main/java/com/cvent/models/components/AttendeeContactInfoJson.java:
     id: fd181b292ffa
-    last_write_checksum: sha1:2ed23c75b43c3424eadab6de05c0f9b30d90052c
+    last_write_checksum: sha1:141361db3e0456b563f50a3683228d82977d88d7
     pristine_git_object: 97f47b39a209f809a7903383f31cc07d018e19e8
   src/main/java/com/cvent/models/components/AttendeeContactMembershipJson.java:
     id: 7293bb6e0648
@@ -11709,26 +11695,14 @@ trackedFiles:
     last_write_checksum: sha1:24dd6e6b8a0051bb5e1105a4c938f755f962ecc7
   src/main/java/com/cvent/models/components/CustomFieldJson1CustomFieldType.java:
     last_write_checksum: sha1:7e8cb5d4b4855ff0a1c8d2fc90d65e9dbc4fe880
-  src/main/java/com/cvent/models/components/CustomFieldJson2.java:
-    id: 666f4aec77f9
-    last_write_checksum: sha1:fae3bfdf18029f7a439cdd3daf7b807a32fb414b
-    pristine_git_object: d8cbd515247259b2dc072b194c675c99cb6fb0da
-  src/main/java/com/cvent/models/components/CustomFieldJson2CustomFieldType.java:
-    id: 1fec38b5ea71
-    last_write_checksum: sha1:ab262c6a334e2ec1ef623e8a35dabae12c25e99c
-    pristine_git_object: 864bc50070706f9516d09a956e5eec945af6c566
   src/main/java/com/cvent/models/components/CustomFieldJson3.java:
-    last_write_checksum: sha1:89179d17adff0a9e19fc4bfa0f358b0d8b417e02
+    last_write_checksum: sha1:376a3619d0bf4bdb60211b3f9e1694939f43fe65
   src/main/java/com/cvent/models/components/CustomFieldJson3CustomFieldType.java:
-    last_write_checksum: sha1:a0d00ab17e83153398f7388d26f4489745ba284d
+    last_write_checksum: sha1:e74a2886ad21586ce8df1639140ab475262f2ea7
   src/main/java/com/cvent/models/components/CustomFieldJson4.java:
-    last_write_checksum: sha1:4a087377495043d700bea5650be8017e5dd5504a
+    last_write_checksum: sha1:0176722dcc359485b35c354018ba35984935c05f
   src/main/java/com/cvent/models/components/CustomFieldJson4CustomFieldType.java:
-    last_write_checksum: sha1:c19406bd1465ebd1990fe1601d85abeecb712631
-  src/main/java/com/cvent/models/components/CustomFieldJson5.java:
-    last_write_checksum: sha1:ca8c2896c29f2884f474aabc4c3d7d47e89e4949
-  src/main/java/com/cvent/models/components/CustomFieldJson5CustomFieldType.java:
-    last_write_checksum: sha1:0cf1b9c0310bc63972f9deab9ce157c9db981a14
+    last_write_checksum: sha1:86eaef474797a70df30e0892a7d9266bd557e226
   src/main/java/com/cvent/models/components/CustomFieldTypeJson1.java:
     id: 3720734b682c
     last_write_checksum: sha1:b6ce6d79c1ee7fa7a22495504e0c7f236f521acd
@@ -11993,7 +11967,7 @@ trackedFiles:
     pristine_git_object: 164b5f9e7dc89be3540f98f1f7bd770af701dfaa
   src/main/java/com/cvent/models/components/Event.java:
     id: c797f7ecad54
-    last_write_checksum: sha1:c145d1cf5673ae23d615e918a37740b7fc99268e
+    last_write_checksum: sha1:2fb3c712d2b27ee40e8d5816b05aa4390a0235c9
     pristine_git_object: 2cbb7d505c1fe1458053eb38de73fff1b8f972d7
   src/main/java/com/cvent/models/components/EventActivityDetailsJson.java:
     id: cae903159e50
@@ -12333,7 +12307,7 @@ trackedFiles:
     pristine_git_object: 1dd50580c761a2596e8a3e37e1f7d38061e86713
   src/main/java/com/cvent/models/components/EventUpdate.java:
     id: 41eb20f603b1
-    last_write_checksum: sha1:3ebd2ffd799225b59466ad73d7fa62237972b785
+    last_write_checksum: sha1:50721792dc8791ad9e363813ebacb31c02ed3dc5
     pristine_git_object: f211848985ed27a23e1203742df7dd8f268f3f4b
   src/main/java/com/cvent/models/components/EventUpdateInput.java:
     id: 7d83d218d312
@@ -13749,7 +13723,7 @@ trackedFiles:
     pristine_git_object: 4610e8ab27027bc8d24b80f6bfc90fae64fab40a
   src/main/java/com/cvent/models/components/PlannerJson2.java:
     id: b3fae8109524
-    last_write_checksum: sha1:3d024c190d7cc57abbf160fbd7e96bf212f9d68b
+    last_write_checksum: sha1:543103dbd12296d08b123be0a58fd8fa6713432f
     pristine_git_object: 71b90ddba1daa21a88a344a619c29ee2fde46287
   src/main/java/com/cvent/models/components/PlannerJson2AddressType.java:
     id: 53687a242028
@@ -14507,16 +14481,14 @@ trackedFiles:
     pristine_git_object: 6aacf0fce91aa7966587a323800501a0a98f1dd5
   src/main/java/com/cvent/models/components/SegmentAttendeeResponseJson.java:
     id: f14248f40c36
-    last_write_checksum: sha1:449f215ab1412cfdc8da371bd9bc7c88a72e9b93
+    last_write_checksum: sha1:77b89b2aa99cbfee7577279d6d0210649dd9eda1
     pristine_git_object: 56d9033ea0400ce6a65dc5c3efaa2a4a21ed7476
   src/main/java/com/cvent/models/components/SegmentAttendeesAssociatedPaginatedResponse.java:
     id: cc667bb9d625
     last_write_checksum: sha1:36962047bd0131cda1ed1d91de177272358fa0b2
     pristine_git_object: ddbd4071ef300fac89c4849f923292bf2fbc891c
-  src/main/java/com/cvent/models/components/SegmentJson0.java:
-    id: 541abbb269ad
-    last_write_checksum: sha1:9a8c091a21b84cb82d015b79f3d255ecdc7ec1ce
-    pristine_git_object: f2f4539582a6fb51003861bf627ce9de54a158b6
+  src/main/java/com/cvent/models/components/SegmentJson.java:
+    last_write_checksum: sha1:70154571dec21dda021ad4dfd0408d587d0c3038
   src/main/java/com/cvent/models/components/SegmentLiteJson.java:
     id: c4fca174676a
     last_write_checksum: sha1:8501ba73ec9b55edc2e8ea3ff9c00ff3a6ceec4d
@@ -14559,7 +14531,7 @@ trackedFiles:
     pristine_git_object: 109b64efeaa39cc0447a9635d2bb57f035e1654e
   src/main/java/com/cvent/models/components/Session.java:
     id: ac0bbf9f8aa9
-    last_write_checksum: sha1:e5fc494524b3b608bc05e99d90e894b2a634598c
+    last_write_checksum: sha1:527b58dbd4123de6e18aec12bf610769c397a2dc
     pristine_git_object: 9092ac9b4d5e04bb0ea323bd7651617071f579ef
   src/main/java/com/cvent/models/components/SessionActivity1.java:
     id: 194a580be2cf
@@ -14901,7 +14873,7 @@ trackedFiles:
     pristine_git_object: 87d57f51d1c4d98a03073d61186dbb22678ee9e7
   src/main/java/com/cvent/models/components/StakeholderJson.java:
     id: 60857248e15a
-    last_write_checksum: sha1:0d9cbe1b41a7f171065725e8eef57040bf88703c
+    last_write_checksum: sha1:76a754c292a8b975085a1e16a7d54a830b6c8e97
     pristine_git_object: d5ad757cc46598d84a84afe16e73ff5c95fe10d7
   src/main/java/com/cvent/models/components/StakeholderJsonAddressType.java:
     id: 64a3df541c87
@@ -14951,7 +14923,7 @@ trackedFiles:
     pristine_git_object: 7acd5659d1da1634ae21c1f44cd85631086c184b
   src/main/java/com/cvent/models/components/StandardSurveyJson.java:
     id: d8fac0816bc6
-    last_write_checksum: sha1:f761fb42273b7fbe20e3699c31b1c1135bce01b2
+    last_write_checksum: sha1:f9a8b3fc6ef5e988975b123f4cf929f76cca6a2a
     pristine_git_object: 4016b60b5332d080e28ec309dde987780df7eeee
   src/main/java/com/cvent/models/components/StandardSurveyQuestionJson.java:
     id: 2d5923437545
@@ -15701,7 +15673,7 @@ trackedFiles:
     pristine_git_object: 2eae847d20084d5ffa772790a0ed665161e11675
   src/main/java/com/cvent/models/components/WebcastProviderJson.java:
     id: 53710c808c0c
-    last_write_checksum: sha1:b6986d0ee95fabfedf99ea71400f8c6e1644f9df
+    last_write_checksum: sha1:859f5a82256db1f7f3ccc8f00fde6ae0e7527f83
     pristine_git_object: 0dda40b7043bef2fcf5496596abd71e98b78db71
   src/main/java/com/cvent/models/components/WebcastStatusJson.java:
     id: 3e7fb8f8c0b2
@@ -20647,7 +20619,7 @@ trackedFiles:
     pristine_git_object: cbafe32c6c150512f13d6e9110476fe82e46e20b
   src/main/java/com/cvent/models/operations/ListAttendeeLinksRequest.java:
     id: 6e8041ce7021
-    last_write_checksum: sha1:75ae34f533cd6b52d42af816f451f2a12d22824d
+    last_write_checksum: sha1:82b7d0195fc1feb3fe09a75a53fbbd6acedbf10b
     pristine_git_object: 0276dd71e081488862642c402c8325f2d7014904
   src/main/java/com/cvent/models/operations/ListAttendeeLinksRequestBuilder.java:
     id: 3ecdf3334df0
@@ -20659,7 +20631,7 @@ trackedFiles:
     pristine_git_object: fc2bd68d2093597559b392993886349fde11a605
   src/main/java/com/cvent/models/operations/ListAttendeesPostFilterRequest.java:
     id: 167f66602587
-    last_write_checksum: sha1:1c704edaca80be8a744a121388344028d5976701
+    last_write_checksum: sha1:9cb4675b0fff2c6f372f872822b8977e3d69c957
     pristine_git_object: 704ad1fd2c6ee2247f62f67dd02f7f1f43daf262
   src/main/java/com/cvent/models/operations/ListAttendeesPostFilterRequestBuilder.java:
     id: 6fc7f540bb80
@@ -20671,7 +20643,7 @@ trackedFiles:
     pristine_git_object: fe4e7923fce41445e9ba79fb621699f334460990
   src/main/java/com/cvent/models/operations/ListAttendeesRequest.java:
     id: 20acb36cb19c
-    last_write_checksum: sha1:0087aca8c4f00389a4d798f22f7917529905d481
+    last_write_checksum: sha1:25ba8a973285eaa2508f479b3cda79ea18260c39
     pristine_git_object: be13a74a913947ab79882e656ab219b61d349717
   src/main/java/com/cvent/models/operations/ListAttendeesRequestBuilder.java:
     id: 9d79ec3fc623
@@ -21109,7 +21081,7 @@ trackedFiles:
     last_write_checksum: sha1:1348d03aa46c4663511491abddb46e95a143312f
   src/main/java/com/cvent/models/operations/ListPlayersRequest.java:
     id: 31ff58fecbc3
-    last_write_checksum: sha1:cb42db088649d0e54f7ebab86f5c4d03e34c5e02
+    last_write_checksum: sha1:2ce7a3ff31dc93f97fd709a1947e4eb38799d4a9
     pristine_git_object: 6b8f0962adad6c12390dc1579a4934815459bb3a
   src/main/java/com/cvent/models/operations/ListPlayersRequestBuilder.java:
     id: 288bada73561
@@ -21337,7 +21309,7 @@ trackedFiles:
     pristine_git_object: e0e9ca29d2a15cc4cd3961773ebd7c50ef61845e
   src/main/java/com/cvent/models/operations/ListSessionsCategoriesRequest.java:
     id: dc3d6d634467
-    last_write_checksum: sha1:bdcf311df6138090bbcd34d9c7904f4c5345ff0f
+    last_write_checksum: sha1:57dfc62e568954143a1e1f78c72bc50896910a9b
     pristine_git_object: 1e9a1c294d708e56866a640662bfa72b326fe2f9
   src/main/java/com/cvent/models/operations/ListSessionsCategoriesRequestBuilder.java:
     id: 5410cbe9b595
@@ -21421,7 +21393,7 @@ trackedFiles:
     pristine_git_object: a62dce7cdb0f52b59727dc633886e76f334d49b8
   src/main/java/com/cvent/models/operations/ListSpeakersCategoriesRequest.java:
     id: 8896f4a6968a
-    last_write_checksum: sha1:90512188da2ae4f8fee71454982fdc0e05ec380b
+    last_write_checksum: sha1:b0e542385604fcd87c154a04353f1af8a3c8899c
     pristine_git_object: 3388bedcb3b3addbe34f861d4e2ff75a58868016
   src/main/java/com/cvent/models/operations/ListSpeakersCategoriesRequestBuilder.java:
     id: 96a3fb0ed197
@@ -21601,7 +21573,7 @@ trackedFiles:
     pristine_git_object: e638b7b92fbea77caece0504f01923fada52c9b3
   src/main/java/com/cvent/models/operations/ListWebcastAttendeeLinksRequest.java:
     id: 61b9ec49290f
-    last_write_checksum: sha1:75e921893425963611ec0ef1ce742b09b54a6ec0
+    last_write_checksum: sha1:6a74dbe6a9f61bbfc24c4c7d2feaa54945136960
     pristine_git_object: 6dc1c5f6f5da2bb52a92733c3aaac42104f06d81
   src/main/java/com/cvent/models/operations/ListWebcastAttendeeLinksRequestBuilder.java:
     id: c8d8c1b9dd2a
@@ -21613,7 +21585,7 @@ trackedFiles:
     pristine_git_object: eb5b9cf96cf2e7dbeb288541d3e27d956cf0ee8a
   src/main/java/com/cvent/models/operations/ListWebcastsRequest.java:
     id: 48760ce7ba3d
-    last_write_checksum: sha1:93e56b6c8714d8bd7cfea06dde85c9deb1cbeb51
+    last_write_checksum: sha1:86e0b53a60e5306816c0b25a56794ce03b57077e
     pristine_git_object: d4b4a34c28cfb05a752662376ad0decf28e28805
   src/main/java/com/cvent/models/operations/ListWebcastsRequestBuilder.java:
     id: 5485819aabb9
@@ -22487,7 +22459,7 @@ trackedFiles:
     pristine_git_object: e311e4e0a89204456221c4032d2ad43b082725ba
   src/main/java/com/cvent/models/operations/UpdateSessionCustomFieldAnswersRequest.java:
     id: f38b544def29
-    last_write_checksum: sha1:78267c6b75afb5cecd426373f092c1de168d3018
+    last_write_checksum: sha1:cff4b0916a94ce2abffceb47cbdeab07b510c8d0
     pristine_git_object: a98edcbe8ef7bbcf4075db36bb7926f5194f6936
   src/main/java/com/cvent/models/operations/UpdateSessionCustomFieldAnswersRequestBuilder.java:
     id: 7257b642185e
@@ -22495,7 +22467,7 @@ trackedFiles:
     pristine_git_object: 451ca824d356a4f39a19f1e4d8a297b0f2a5123c
   src/main/java/com/cvent/models/operations/UpdateSessionCustomFieldAnswersResponse.java:
     id: 64a4f61a3a4c
-    last_write_checksum: sha1:4e8c38c2d0616a15c835dcf536a393b824212675
+    last_write_checksum: sha1:bf7e4d01831d45c508d058acaa4237920ffb42ca
     pristine_git_object: 90e8514e1ce48e7b2e7712d26eafaa46e0fe7f0f
   src/main/java/com/cvent/models/operations/UpdateSessionRequest.java:
     id: a66dc8a60bf0
@@ -24295,7 +24267,7 @@ trackedFiles:
     pristine_git_object: a1f18adea73a78b32d8af39f07636ea638595dad
   src/main/java/com/cvent/models/operations/async/UpdateSessionCustomFieldAnswersResponse.java:
     id: eb168df7c3f1
-    last_write_checksum: sha1:51c28ddd991118d7fe1b216f4866acd887371125
+    last_write_checksum: sha1:4f1dd178437a2be8dfcf4491d39f82c2a1285c40
     pristine_git_object: 0e2b49c399eed769e772e7790d8f0543878f86b5
   src/main/java/com/cvent/models/operations/async/UpdateSessionResponse.java:
     id: 528e80810eb7
@@ -26031,7 +26003,7 @@ trackedFiles:
     pristine_git_object: 5743b61fe96bab05db740ee81e601b342877c5c1
   src/main/java/com/cvent/operations/UpdateSessionCustomFieldAnswers.java:
     id: a1e122b8777b
-    last_write_checksum: sha1:e5bc55839f6ad3d5845f29264e1a0f2760f18b64
+    last_write_checksum: sha1:d8b43db447b34a72dc079b46927d477da0412888
     pristine_git_object: 3f7b28bc82e4022d7d8b3b21e3054d93d9e7a614
   src/main/java/com/cvent/operations/UpdateSpeaker.java:
     id: 954f55aea05c
@@ -27283,7 +27255,7 @@ examples:
           expand: ["answers.question", "registrationType"]
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "8e8665e7-ca97-4610-90dc-3527c766faf9", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "unsubscribed": false, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "8e8665e7-ca97-4610-90dc-3527c766faf9", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   updateAttendee:
@@ -27295,7 +27267,7 @@ examples:
         application/json: {"event": {"id": "0a955598-376e-43d4-a796-91d6d5f41e3f"}, "contact": {"id": "ea66a709-2a93-4fa0-8b83-cf4f62df9dc3"}, "invitationList": {"id": "06da38f9-12da-4cb6-a581-7a5954f8e0e2"}, "referenceId": "refid-marketingwebsite", "note": "Would like to sit near the front of the room for sessions.", "administrator": {"id": "7949c335-b5b2-46cf-8f5d-f6b21795df51"}, "admissionItem": {"id": "7949c335-b5b2-46cf-8f5d-f6b21795df51"}, "visibility": "Private", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "sendEmail": false, "status": "Accepted"}
       responses:
         "200":
-          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "d1b5785a-f370-4935-ab5c-d8b318a79002", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "unsubscribed": false, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
+          application/json: {"created": "2017-01-02T02:00:00Z", "createdBy": "hporter", "lastModified": "2019-02-12T03:00:00Z", "lastModifiedBy": "hporter", "confirmationNumber": "VNNDLJ6DKVK", "contact": {"firstName": "Henry", "lastName": "Potterfield", "middleName": "A", "nickname": "Harry", "email": "h.potterfield@test.com", "ccEmail": "h.porter@tesing.com", "gender": "Male", "company": "Cvent Inc.", "designation": "Event", "title": "Event Planner", "type": {"id": "861B51EC-AA7E-475F-B38D-4C8E35C47D63", "name": "VIP Member"}, "primaryAddressType": "Home", "homeAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "homePhone": "555-555-5555", "homeFax": "555-555-5555", "workAddress": {"address1": "Cvent Inc.", "address2": "4001 West Parmer Lane", "address3": "PO Box 123", "city": "Austin", "countryCode": "US", "postalCode": "78727", "region": "Texas", "regionCode": "TX", "country": "United States of America", "latitude": 30, "longitude": -97}, "workPhone": "555-555-5555", "workFax": "555-555-5555", "optOut": {"optedOut": false}, "customFields": [{"id": "d1b5785a-f370-4935-ab5c-d8b318a79002", "name": "What is a your favorite color?", "value": ["Choice C", "Choice A"], "order": 1, "type": "General"}], "sourceId": "system-a-00000000-0000-0000-0000-000000000000", "mobilePhone": "555-555-5555", "compliance": [{"creationTime": "2021-03-08T17:30:01.727Z", "complianceScope": "CCPA", "action": "DO_NOT_SELL", "createdBy": "PLANNER"}], "prefix": "Dr.", "pager": "555-555-5555", "deleted": false, "headline": "Marketing Director Crafting Memorable Campaigns that Engage Audiences and Elevate Brands", "personalWebsite": "https://www.example.com", "biography": "I am a marketing professional with experience in event planning and brand strategy.", "pronouns": "he/him/she/her/they/them", "_links": {"twitterUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "facebookUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "linkedInUrl": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "profilePicture": {"href": "https://cvent.com/picture123"}}}, "checkedIn": true, "checkIn": "2018-01-13T02:00:00Z", "checkOut": "2018-01-13T02:00:00Z", "duration": 4000, "registrationPath": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "invitationList": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "name": "Sample Object name"}, "webLinks": {"acceptRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv", "declineRegistration": "https://example.com/123ABC?i=abcdefghijklmnopqrstuv"}, "registrationType": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "referenceId": "refid-plannerside", "externalReferences": [{"type": "Cvent Salesforce App", "id": "0000X123sfjhooks", "referenceId": "000X123jhooks"}], "note": "Would like to sit near the front of the room for sessions.", "guest": true, "deletedGuest": false, "group": {"id": "d97d28b6-cf35-4d6c-90eb-bb10fef1d1ce", "member": true, "leader": true}, "administrator": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}, "status": "Accepted", "registeredAt": "2018-01-13T02:00:00Z", "registrationLastModified": "2018-01-13T02:00:00Z", "registrationCancelledAt": "2018-01-13T02:00:00Z", "invitedBy": "Planner-Invited", "responseMethod": "Self-Responded", "answers": [{"question": {"id": "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a"}, "value": ["1234"]}], "admissionItem": {"id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3", "code": "MU", "name": "Meet up"}, "visibility": "Private", "bio": "In west Philadelphia, born and raised, on the playground is where I spent most of my days.", "websiteUrl": "https://www.example.com", "allowPushNotifications": false, "allowAppointmentPushNotifications": false, "testRecord": false, "attendeeLastModified": "2018-01-13T02:00:00Z", "appointmentGroups": [{"id": "bf183d50-56ad-454b-8b9f-06d8e923e1fd"}], "credit": 10}
         "400":
           application/json: {"code": 400, "message": "Bad Request", "target": "example target", "details": [{"code": 400, "message": "Bad Request", "target": "example target"}]}
   updateInternalInfoAnswers:
@@ -30325,6 +30297,8 @@ examples:
         query:
           limit: 100
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
+          sort: "name:ASC"
+          filter: "name contains 'general'"
       responses:
         "200":
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": []}
@@ -30723,6 +30697,7 @@ examples:
           limit: 100
           token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a"
           filter: "active eq 'true'"
+          sort: "name:DESC"
       responses:
         "200":
           application/json: {"paging": {"previousToken": "1a2b3c4d5e6f7g8h9i10j11k", "nextToken": "1a2b3c4d5e6f7g8h9i10j11k", "currentToken": "1a2b3c4d5e6f7g8h9i10j11k", "limit": 100, "totalCount": 2, "_links": {"next": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "self": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}, "prev": {"href": "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262"}}}, "data": [{"name": "Presenters", "id": "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3"}]}

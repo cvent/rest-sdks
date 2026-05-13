@@ -33,11 +33,27 @@ namespace Cvent.SDK.Models.Requests
         /// The following can be used in filter expressions:<br/>
         ///   * equal: eq<br/>
         ///   * not equal: ne<br/>
+        ///   * contains a value: contains<br/>
         /// <br/>
-        /// The following field is filterable:<br/>
-        ///   * active (eq|ne).
+        /// The following fields are filterable:<br/>
+        ///   * active (eq|ne)<br/>
+        ///   * id (eq|ne)<br/>
+        ///   * name (eq|ne|contains).
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }
+
+        /// <summary>
+        /// Sorts the returned speaker categories in ascending or descending order by its name.<br/>
+        /// <br/>
+        /// There are two orders:<br/>
+        ///   * ascending: ASC<br/>
+        ///   * descending: DESC<br/>
+        /// <br/>
+        /// The following fields are sortable:<br/>
+        ///   * name.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=sort")]
+        public string? Sort { get; set; }
     }
 }

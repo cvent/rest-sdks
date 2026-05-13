@@ -2837,7 +2837,9 @@ namespace Cvent.SDK
 
                 var newRequest = new ListSessionsCategoriesRequest {
                     Limit = request?.Limit,
-                    Token = nextCursor
+                    Token = nextCursor,
+                    Sort = request?.Sort,
+                    Filter = request?.Filter
                 };
 
                 return await ListSessionsCategoriesAsync(
@@ -4370,7 +4372,7 @@ namespace Cvent.SDK
                 httpRequest.Headers.Add("Accept", "application/json");
             }
 
-            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField1", "json", false, false);
+            var serializedBody = RequestBodySerializer.Serialize(request, "CustomField", "json", false, false);
             if (serializedBody != null)
             {
                 httpRequest.Content = serializedBody;
@@ -4456,14 +4458,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    CustomField1 obj;
+                    CustomField obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField1>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<CustomField>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into CustomField1.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into CustomField.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateSessionCustomFieldAnswersResponse() {
@@ -4472,7 +4474,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.CustomField1 = obj;
+                    response.CustomField = obj;
                     return response;
                 }
 

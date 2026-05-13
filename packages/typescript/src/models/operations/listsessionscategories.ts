@@ -21,6 +21,39 @@ export type ListSessionsCategoriesRequest = {
    * This will override any other pageable parameters provided.
    */
   token?: string | undefined;
+  /**
+   * The sort order passed as a parameter, used to control the order of the
+   *
+   * @remarks
+   * search results as a priority ordered list of sorts
+   *
+   * There are two orders:
+   *   * ascending: ASC
+   *   * descending: DESC
+   *
+   * The following fields are sortable:
+   *   * name
+   */
+  sort?: string | undefined;
+  /**
+   * Use filter query parameters to limit results
+   *
+   * @remarks
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
+   *
+   * Supported fields and operators are listed below:
+   *
+   * | Field            | Operators                           |
+   * |------------------|-------------------------------------|
+   * | id               | `eq`, `ne`, `in`                    |
+   * | name             | `eq`, `ne`, `contains`              |
+   *
+   * The following operators are available:
+   *   * and
+   *   * or
+   */
+  filter?: string | undefined;
 };
 
 export type ListSessionsCategoriesResponse = {
@@ -31,6 +64,8 @@ export type ListSessionsCategoriesResponse = {
 export type ListSessionsCategoriesRequest$Outbound = {
   limit: number;
   token?: string | undefined;
+  sort?: string | undefined;
+  filter?: string | undefined;
 };
 
 /** @internal */
@@ -41,6 +76,8 @@ export const ListSessionsCategoriesRequest$outboundSchema: z.ZodType<
 > = z.object({
   limit: z.number().int().default(100),
   token: z.string().optional(),
+  sort: z.string().optional(),
+  filter: z.string().optional(),
 });
 
 export function listSessionsCategoriesRequestToJSON(

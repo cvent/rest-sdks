@@ -12,11 +12,11 @@ import java.lang.String;
 import java.util.Optional;
 
 /**
- * SegmentJson0
+ * SegmentJson
  *
  * <p>Segment details
  */
-public class SegmentJson0 {
+public class SegmentJson {
     /**
      * Segment Id
      */
@@ -24,7 +24,7 @@ public class SegmentJson0 {
     private String id;
 
     @JsonCreator
-    public SegmentJson0(@JsonProperty("id") @Nonnull String id) {
+    public SegmentJson(@JsonProperty("id") @Nonnull String id) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
@@ -42,7 +42,7 @@ public class SegmentJson0 {
     /**
      * Segment Id
      */
-    public SegmentJson0 withId(@Nonnull String id) {
+    public SegmentJson withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
         return this;
     }
@@ -55,7 +55,7 @@ public class SegmentJson0 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SegmentJson0 other = (SegmentJson0) o;
+        SegmentJson other = (SegmentJson) o;
         return Utils.enhancedDeepEquals(this.id, other.id);
     }
 
@@ -66,7 +66,7 @@ public class SegmentJson0 {
 
     @Override
     public String toString() {
-        return Utils.toString(SegmentJson0.class, "id", id);
+        return Utils.toString(SegmentJson.class, "id", id);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -86,8 +86,8 @@ public class SegmentJson0 {
             return this;
         }
 
-        public SegmentJson0 build() {
-            return new SegmentJson0(id);
+        public SegmentJson build() {
+            return new SegmentJson(id);
         }
     }
 }

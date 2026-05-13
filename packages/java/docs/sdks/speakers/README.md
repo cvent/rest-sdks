@@ -404,6 +404,7 @@ public class Application {
         ListSpeakersCategoriesRequest req = ListSpeakersCategoriesRequest.builder()
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
                 .filter("active eq 'true'")
+                .sort("name:DESC")
                 .build();
 
 
