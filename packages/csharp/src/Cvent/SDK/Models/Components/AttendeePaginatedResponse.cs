@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of attendees.
         /// </summary>
         [JsonProperty("data")]
-        public List<Attendee> Data { get; set; } = default!;
+        public List<Attendee1> Data { get; set; } = default!;
     }
 }

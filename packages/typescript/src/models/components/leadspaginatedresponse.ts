@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ExistingLeadJson,
-  ExistingLeadJson$inboundSchema,
-} from "./existingleadjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Lead, Lead$inboundSchema } from "./lead.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated response of leads.
@@ -19,11 +16,11 @@ export type LeadsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of leads.
    */
-  data?: Array<ExistingLeadJson> | undefined;
+  data?: Array<Lead> | undefined;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const LeadsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExistingLeadJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(Lead$inboundSchema).optional(),
 });
 
 export function leadsPaginatedResponseFromJSON(

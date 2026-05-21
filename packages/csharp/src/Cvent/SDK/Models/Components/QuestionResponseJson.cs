@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// List of answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AnswerJson2>? Answers { get; set; }
+        public List<AnswerJson1>? Answers { get; set; }
     }
 }

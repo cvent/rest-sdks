@@ -87,7 +87,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
+        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.<br/>
+        /// <br/>
+        /// **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the <a href="/documentation#tag/Meeting-Request/operation/getMeetingRequestById">Get MR</a> endpoint.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -107,7 +109,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
+        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.<br/>
+        /// <br/>
+        /// **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the <a href="/documentation#tag/Meeting-Request/operation/getMeetingRequestById">Get MR</a> endpoint.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -727,7 +731,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
+        /// Creates a collection of meeting requests for a given active form. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.<br/>
+        /// <br/>
+        /// **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of initial creation. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the <a href="/documentation#tag/Meeting-Request/operation/getMeetingRequestById">Get MR</a> endpoint.
         /// </remarks>
         /// <param name="request">A <see cref="CreateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -900,7 +906,9 @@ namespace Cvent.SDK
         /// <see href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</see>
         /// </summary>
         /// <remarks>
-        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.
+        /// Updates a collection of meeting requests for a given form, adding information to the existing meeting requests. For complex questions such as Meeting Room Requirements, Sleeping Room Requirements, or Budget Estimates, send the answer as a JSON-serialized string. See the question schema and the <a href="/docs/rest-api/guides/meeting-request-complex-questions">Complex Questions Guide</a> for details.<br/>
+        /// <br/>
+        /// **Note:** If the meeting request form is configured to auto-create an event upon submission, the `event.id` field may not be populated in the response at the time of the update. Event creation is processed asynchronously after the meeting request is saved. To retrieve the associated event ID once it is available, poll the <a href="/documentation#tag/Meeting-Request/operation/getMeetingRequestById">Get MR</a> endpoint.
         /// </remarks>
         /// <param name="request">A <see cref="UpdateMeetingRequestRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

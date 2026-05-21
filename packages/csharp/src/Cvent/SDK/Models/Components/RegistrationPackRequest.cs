@@ -23,18 +23,18 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson6 Event { get; set; } = default!;
+        public Event1 Event { get; set; } = default!;
 
         /// <summary>
         /// The Associated Exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson Exhibitor { get; set; } = default!;
+        public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
         /// An array of capacities for the registration pack.
         /// </summary>
         [JsonProperty("capacities")]
-        public List<CapacityJson> Capacities { get; set; } = default!;
+        public List<Capacity> Capacities { get; set; } = default!;
     }
 }

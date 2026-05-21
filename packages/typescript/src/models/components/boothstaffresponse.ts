@@ -6,9 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AttendeeJson3, AttendeeJson3$inboundSchema } from "./attendeejson3.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
-import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
+import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
  * Booth staff with an associated ID.
@@ -31,17 +31,17 @@ export type BoothStaffResponse = {
    */
   lastModifiedBy?: string | undefined;
   /**
-   * A JSON Schema for an Attendee object
+   * The associated Attendee.
    */
-  attendee: AttendeeJson3;
+  attendee: Attendee2;
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * ID of an exhibitor booth staff member.
    */
@@ -61,9 +61,9 @@ export const BoothStaffResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  attendee: AttendeeJson3$inboundSchema,
-  event: EventJson6$inboundSchema,
-  exhibitor: ExhibitorJson$inboundSchema,
+  attendee: Attendee2$inboundSchema,
+  event: Event1$inboundSchema,
+  exhibitor: Exhibitor$inboundSchema,
   id: z.string().optional(),
 });
 

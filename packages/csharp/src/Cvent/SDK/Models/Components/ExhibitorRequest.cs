@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson6 Event { get; set; } = default!;
+        public Event1 Event { get; set; } = default!;
 
         /// <summary>
         /// Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
@@ -58,7 +58,7 @@ namespace Cvent.SDK.Models.Components
         /// An object representing an address with various properties.
         /// </summary>
         [JsonProperty("address")]
-        public ExhibitorAddressJson? Address { get; set; }
+        public Address11? Address { get; set; }
 
         /// <summary>
         /// Email address of the exhibitor.
@@ -94,7 +94,7 @@ namespace Cvent.SDK.Models.Components
         /// A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
         /// </summary>
         [JsonProperty("contactLinks")]
-        public ContactLinksJson2? ContactLinks { get; set; }
+        public ContactLinks? ContactLinks { get; set; }
 
         /// <summary>
         /// A boolean indicating whether the exhibitor is deleted or not.
@@ -124,6 +124,6 @@ namespace Cvent.SDK.Models.Components
         /// Associated sponsorship level for an exhibitor.
         /// </summary>
         [JsonProperty("sponsorshipLevel")]
-        public SponsorshipLevelJson? SponsorshipLevel { get; set; }
+        public SponsorshipLevel? SponsorshipLevel { get; set; }
     }
 }

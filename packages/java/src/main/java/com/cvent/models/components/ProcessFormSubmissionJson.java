@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -52,14 +53,12 @@ public class ProcessFormSubmissionJson {
     /**
      * The unique ID representing the process form submission.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
      * The event which the process form submission is associated with.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
     private ProcessFormSubmissionJsonEvent event;
 
@@ -92,8 +91,8 @@ public class ProcessFormSubmissionJson {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nullable ProcessFormSubmissionJsonEvent event,
+            @JsonProperty("id") @Nonnull String id,
+            @JsonProperty("event") @Nonnull ProcessFormSubmissionJsonEvent event,
             @JsonProperty("process-form") @Nullable ProcessFormJson processForm,
             @JsonProperty("status") @Nullable String status,
             @JsonProperty("questions") @Nullable List<ProcessFormSubmissionQuestionJson> questions) {
@@ -101,15 +100,15 @@ public class ProcessFormSubmissionJson {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.id = id;
-        this.event = event;
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.processForm = processForm;
         this.status = status;
         this.questions = questions;
     }
 
-    public ProcessFormSubmissionJson() {
-        this(null, null, null, null, null, null, null, null, null);
+    public ProcessFormSubmissionJson(@Nonnull String id, @Nonnull ProcessFormSubmissionJsonEvent event) {
+        this(null, null, null, null, id, event, null, null, null);
     }
 
     /**
@@ -143,15 +142,15 @@ public class ProcessFormSubmissionJson {
     /**
      * The unique ID representing the process form submission.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     /**
      * The event which the process form submission is associated with.
      */
-    public Optional<ProcessFormSubmissionJsonEvent> event() {
-        return Optional.ofNullable(this.event);
+    public ProcessFormSubmissionJsonEvent event() {
+        return this.event;
     }
 
     /**
@@ -216,16 +215,16 @@ public class ProcessFormSubmissionJson {
     /**
      * The unique ID representing the process form submission.
      */
-    public ProcessFormSubmissionJson withId(@Nullable String id) {
-        this.id = id;
+    public ProcessFormSubmissionJson withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
     /**
      * The event which the process form submission is associated with.
      */
-    public ProcessFormSubmissionJson withEvent(@Nullable ProcessFormSubmissionJsonEvent event) {
-        this.event = event;
+    public ProcessFormSubmissionJson withEvent(@Nonnull ProcessFormSubmissionJsonEvent event) {
+        this.event = Utils.checkNotNull(event, "event");
         return this;
     }
 
@@ -365,16 +364,16 @@ public class ProcessFormSubmissionJson {
         /**
          * The unique ID representing the process form submission.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 
         /**
          * The event which the process form submission is associated with.
          */
-        public Builder event(@Nullable ProcessFormSubmissionJsonEvent event) {
-            this.event = event;
+        public Builder event(@Nonnull ProcessFormSubmissionJsonEvent event) {
+            this.event = Utils.checkNotNull(event, "event");
             return this;
         }
 

@@ -5,8 +5,11 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -14,42 +17,68 @@ import java.util.Optional;
 /**
  * CapacityJson
  *
- * <p>Registration capacity object containing registration type and reserved capacity
+ * <p>Represents capacity statistics of the registration type.
  */
 public class CapacityJson {
     /**
-     * Registration type information
+     * The remaining capacity of an event item, such as registration type. A value of -1 denotes that
+     * remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that
+     * the consumed capacity has surpassed the total capacity.
      */
-    @JsonProperty("registrationType")
-    private CapacityJsonRegistrationType registrationType;
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("remaining")
+    private Long remaining;
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * The consumed capacity of an event item, such as registration type.
      */
-    @JsonProperty("reservedCapacity")
-    private long reservedCapacity;
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("consumed")
+    private Long consumed;
+
+    /**
+     * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
+     * capacity.
+     */
+    @JsonProperty("total")
+    private long total;
 
     @JsonCreator
     public CapacityJson(
-            @JsonProperty("registrationType") @Nonnull CapacityJsonRegistrationType registrationType,
-            @JsonProperty("reservedCapacity") long reservedCapacity) {
-        this.registrationType = Optional.ofNullable(registrationType)
-                .orElseThrow(() -> new IllegalArgumentException("registrationType cannot be null"));
-        this.reservedCapacity = reservedCapacity;
+            @JsonProperty("remaining") @Nullable Long remaining,
+            @JsonProperty("consumed") @Nullable Long consumed,
+            @JsonProperty("total") long total) {
+        this.remaining = remaining;
+        this.consumed = consumed;
+        this.total = total;
+    }
+
+    public CapacityJson(long total) {
+        this(null, null, total);
     }
 
     /**
-     * Registration type information
+     * The remaining capacity of an event item, such as registration type. A value of -1 denotes that
+     * remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that
+     * the consumed capacity has surpassed the total capacity.
      */
-    public CapacityJsonRegistrationType registrationType() {
-        return this.registrationType;
+    public Optional<Long> remaining() {
+        return Optional.ofNullable(this.remaining);
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * The consumed capacity of an event item, such as registration type.
      */
-    public long reservedCapacity() {
-        return this.reservedCapacity;
+    public Optional<Long> consumed() {
+        return Optional.ofNullable(this.consumed);
+    }
+
+    /**
+     * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
+     * capacity.
+     */
+    public long total() {
+        return this.total;
     }
 
     public static Builder builder() {
@@ -57,18 +86,29 @@ public class CapacityJson {
     }
 
     /**
-     * Registration type information
+     * The remaining capacity of an event item, such as registration type. A value of -1 denotes that
+     * remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that
+     * the consumed capacity has surpassed the total capacity.
      */
-    public CapacityJson withRegistrationType(@Nonnull CapacityJsonRegistrationType registrationType) {
-        this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
+    public CapacityJson withRemaining(@Nullable Long remaining) {
+        this.remaining = remaining;
         return this;
     }
 
     /**
-     * Reserved capacity of the registration type for an exhibitor
+     * The consumed capacity of an event item, such as registration type.
      */
-    public CapacityJson withReservedCapacity(long reservedCapacity) {
-        this.reservedCapacity = reservedCapacity;
+    public CapacityJson withConsumed(@Nullable Long consumed) {
+        this.consumed = consumed;
+        return this;
+    }
+
+    /**
+     * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
+     * capacity.
+     */
+    public CapacityJson withTotal(long total) {
+        this.total = total;
         return this;
     }
 
@@ -81,50 +121,63 @@ public class CapacityJson {
             return false;
         }
         CapacityJson other = (CapacityJson) o;
-        return Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
-                && Utils.enhancedDeepEquals(this.reservedCapacity, other.reservedCapacity);
+        return Utils.enhancedDeepEquals(this.remaining, other.remaining)
+                && Utils.enhancedDeepEquals(this.consumed, other.consumed)
+                && Utils.enhancedDeepEquals(this.total, other.total);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(registrationType, reservedCapacity);
+        return Utils.enhancedHash(remaining, consumed, total);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                CapacityJson.class, "registrationType", registrationType, "reservedCapacity", reservedCapacity);
+        return Utils.toString(CapacityJson.class, "remaining", remaining, "consumed", consumed, "total", total);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private CapacityJsonRegistrationType registrationType;
+        private Long remaining;
 
-        private long reservedCapacity;
+        private Long consumed;
+
+        private long total;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Registration type information
+         * The remaining capacity of an event item, such as registration type. A value of -1 denotes that
+         * remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that
+         * the consumed capacity has surpassed the total capacity.
          */
-        public Builder registrationType(@Nonnull CapacityJsonRegistrationType registrationType) {
-            this.registrationType = Utils.checkNotNull(registrationType, "registrationType");
+        public Builder remaining(@Nullable Long remaining) {
+            this.remaining = remaining;
             return this;
         }
 
         /**
-         * Reserved capacity of the registration type for an exhibitor
+         * The consumed capacity of an event item, such as registration type.
          */
-        public Builder reservedCapacity(long reservedCapacity) {
-            this.reservedCapacity = reservedCapacity;
+        public Builder consumed(@Nullable Long consumed) {
+            this.consumed = consumed;
+            return this;
+        }
+
+        /**
+         * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited
+         * capacity.
+         */
+        public Builder total(long total) {
+            this.total = total;
             return this;
         }
 
         public CapacityJson build() {
-            return new CapacityJson(registrationType, reservedCapacity);
+            return new CapacityJson(remaining, consumed, total);
         }
     }
 }

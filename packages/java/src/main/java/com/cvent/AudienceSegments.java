@@ -23,6 +23,12 @@ import com.cvent.models.operations.DisassociateAttendeeFromAudienceSegmentsRespo
 import com.cvent.models.operations.GetAudienceSegmentByIdRequest;
 import com.cvent.models.operations.GetAudienceSegmentByIdRequestBuilder;
 import com.cvent.models.operations.GetAudienceSegmentByIdResponse;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsRequest;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsRequestBuilder;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsResponse;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsRequest;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsRequestBuilder;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsResponse;
 import com.cvent.models.operations.ListAudienceSegmentsPostFilterRequest;
 import com.cvent.models.operations.ListAudienceSegmentsPostFilterRequestBuilder;
 import com.cvent.models.operations.ListAudienceSegmentsPostFilterResponse;
@@ -41,6 +47,8 @@ import com.cvent.operations.DeleteAudienceSegment;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegment;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegments;
 import com.cvent.operations.GetAudienceSegmentById;
+import com.cvent.operations.ListAssociatedAudienceSegments;
+import com.cvent.operations.ListAttendeeAudienceSegments;
 import com.cvent.operations.ListAudienceSegments;
 import com.cvent.operations.ListAudienceSegmentsPostFilter;
 import com.cvent.operations.ListSegmentAssociatedAttendees;
@@ -74,6 +82,57 @@ public class AudienceSegments {
      */
     public AsyncAudienceSegments async() {
         return asyncSDK;
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The call builder
+     */
+    public ListAttendeeAudienceSegmentsRequestBuilder listAttendeeAudienceSegments() {
+        return new ListAttendeeAudienceSegmentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAttendeeAudienceSegmentsResponse listAttendeeAudienceSegments(
+            @Nonnull ListAttendeeAudienceSegmentsRequest request) {
+        return listAttendeeAudienceSegments(request, null);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAttendeeAudienceSegmentsResponse listAttendeeAudienceSegments(
+            @Nonnull ListAttendeeAudienceSegmentsRequest request, @Nullable Options options) {
+        RequestOperation<ListAttendeeAudienceSegmentsRequest, ListAttendeeAudienceSegmentsResponse> operation =
+                new ListAttendeeAudienceSegments.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
     }
 
     /**
@@ -123,6 +182,60 @@ public class AudienceSegments {
                         DisassociateAttendeeFromAudienceSegmentsRequest,
                         DisassociateAttendeeFromAudienceSegmentsResponse>
                 operation = new DisassociateAttendeeFromAudienceSegments.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The call builder
+     */
+    public ListAssociatedAudienceSegmentsRequestBuilder listAssociatedAudienceSegments() {
+        return new ListAssociatedAudienceSegmentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAssociatedAudienceSegmentsResponse listAssociatedAudienceSegments(
+            @Nonnull ListAssociatedAudienceSegmentsRequest request) {
+        return listAssociatedAudienceSegments(request, null);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListAssociatedAudienceSegmentsResponse listAssociatedAudienceSegments(
+            @Nonnull ListAssociatedAudienceSegmentsRequest request, @Nullable Options options) {
+        RequestOperation<ListAssociatedAudienceSegmentsRequest, ListAssociatedAudienceSegmentsResponse> operation =
+                new ListAssociatedAudienceSegments.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

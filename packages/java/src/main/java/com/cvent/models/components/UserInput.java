@@ -76,7 +76,7 @@ public class UserInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<AddressJson6> addresses;
+    private List<AddressJson5> addresses;
 
     /**
      * The type of the user.
@@ -117,7 +117,7 @@ public class UserInput {
             @JsonProperty("emails") @Nonnull List<EmailJson1> emails,
             @JsonProperty("title") @Nullable String title,
             @JsonProperty("phoneNumbers") @Nullable List<PhoneNumberJson1> phoneNumbers,
-            @JsonProperty("addresses") @Nullable List<AddressJson6> addresses,
+            @JsonProperty("addresses") @Nullable List<AddressJson5> addresses,
             @JsonProperty("userType") @Nonnull UserTypeJson userType,
             @JsonProperty("timezone") @Nullable String timezone,
             @JsonProperty("locale") @Nonnull String locale,
@@ -220,7 +220,7 @@ public class UserInput {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public Optional<List<AddressJson6>> addresses() {
+    public Optional<List<AddressJson5>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
@@ -322,7 +322,7 @@ public class UserInput {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public UserInput withAddresses(@Nullable List<AddressJson6> addresses) {
+    public UserInput withAddresses(@Nullable List<AddressJson5> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -456,7 +456,7 @@ public class UserInput {
 
         private List<PhoneNumberJson1> phoneNumbers;
 
-        private List<AddressJson6> addresses;
+        private List<AddressJson5> addresses;
 
         private UserTypeJson userType;
 
@@ -531,7 +531,7 @@ public class UserInput {
          * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
          * the sequence
          */
-        public Builder addresses(@Nullable List<AddressJson6> addresses) {
+        public Builder addresses(@Nullable List<AddressJson5> addresses) {
             this.addresses = addresses;
             return this;
         }

@@ -81,7 +81,7 @@ public class MeetingRequestQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerType")
-    private AnswerTypeJson1 answerType;
+    private AnswerTypeJson answerType;
 
     /**
      * The secondary value of the question. This can be the other answer of choice questions which have
@@ -108,7 +108,7 @@ public class MeetingRequestQuestionJson {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable QuestionTypeJson1 type,
             @JsonProperty("value") @Nonnull List<String> value,
-            @JsonProperty("answerType") @Nullable AnswerTypeJson1 answerType,
+            @JsonProperty("answerType") @Nullable AnswerTypeJson answerType,
             @JsonProperty("secondaryValue") @Nullable String secondaryValue,
             @JsonProperty("compositeValue") @Nullable CompositeValueJson compositeValue) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
@@ -182,7 +182,7 @@ public class MeetingRequestQuestionJson {
      *
      * <p>In all other cases, `answerType` is not expected to be set.
      */
-    public Optional<AnswerTypeJson1> answerType() {
+    public Optional<AnswerTypeJson> answerType() {
         return Optional.ofNullable(this.answerType);
     }
 
@@ -271,7 +271,7 @@ public class MeetingRequestQuestionJson {
      *
      * <p>In all other cases, `answerType` is not expected to be set.
      */
-    public MeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson1 answerType) {
+    public MeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson answerType) {
         this.answerType = answerType;
         return this;
     }
@@ -351,7 +351,7 @@ public class MeetingRequestQuestionJson {
 
         private List<String> value;
 
-        private AnswerTypeJson1 answerType;
+        private AnswerTypeJson answerType;
 
         private String secondaryValue;
 
@@ -423,7 +423,7 @@ public class MeetingRequestQuestionJson {
          *
          * <p>In all other cases, `answerType` is not expected to be set.
          */
-        public Builder answerType(@Nullable AnswerTypeJson1 answerType) {
+        public Builder answerType(@Nullable AnswerTypeJson answerType) {
             this.answerType = answerType;
             return this;
         }

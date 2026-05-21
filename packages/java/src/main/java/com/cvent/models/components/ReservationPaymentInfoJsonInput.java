@@ -39,7 +39,7 @@ public class ReservationPaymentInfoJsonInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson3 address;
+    private AddressJson2 address;
 
     /**
      * Phone number.
@@ -66,7 +66,7 @@ public class ReservationPaymentInfoJsonInput {
     public ReservationPaymentInfoJsonInput(
             @JsonProperty("paymentType") @Nullable PaymentTypesJson paymentType,
             @JsonProperty("fullName") @Nullable String fullName,
-            @JsonProperty("address") @Nullable AddressJson3 address,
+            @JsonProperty("address") @Nullable AddressJson2 address,
             @JsonProperty("phone") @Nullable String phone,
             @JsonProperty("other") @Nullable OtherPaymentJson other,
             @JsonProperty("creditCard") @Nullable TokenizedCreditCardJsonInput creditCard) {
@@ -100,7 +100,7 @@ public class ReservationPaymentInfoJsonInput {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public Optional<AddressJson3> address() {
+    public Optional<AddressJson2> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -149,7 +149,7 @@ public class ReservationPaymentInfoJsonInput {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public ReservationPaymentInfoJsonInput withAddress(@Nullable AddressJson3 address) {
+    public ReservationPaymentInfoJsonInput withAddress(@Nullable AddressJson2 address) {
         this.address = address;
         return this;
     }
@@ -225,7 +225,7 @@ public class ReservationPaymentInfoJsonInput {
 
         private String fullName;
 
-        private AddressJson3 address;
+        private AddressJson2 address;
 
         private String phone;
 
@@ -257,7 +257,7 @@ public class ReservationPaymentInfoJsonInput {
          * Address details. Required to create/update a guest's reservation if the hotel/event requires an
          * address in reservations.
          */
-        public Builder address(@Nullable AddressJson3 address) {
+        public Builder address(@Nullable AddressJson2 address) {
             this.address = address;
             return this;
         }

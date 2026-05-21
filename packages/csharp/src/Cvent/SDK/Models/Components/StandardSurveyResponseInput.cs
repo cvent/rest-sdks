@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// List of responded survey answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AnswerJson1> Answers { get; set; } = default!;
+        public List<AnswerJson> Answers { get; set; } = default!;
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.

@@ -7,26 +7,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson11,
-  AdditionalChoiceJson11$inboundSchema,
-} from "./additionalchoicejson11.js";
+  AdditionalChoice,
+  AdditionalChoice$inboundSchema,
+} from "./additionalchoice.js";
+import { BaseChoice, BaseChoice$inboundSchema } from "./basechoice.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
 import {
-  BaseChoiceJson,
-  BaseChoiceJson$inboundSchema,
-} from "./basechoicejson.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
+  ExhibitorAnswerFormat,
+  ExhibitorAnswerFormat$inboundSchema,
+} from "./exhibitoranswerformat.js";
 import {
-  ExhibitorAnswerFormatJson,
-  ExhibitorAnswerFormatJson$inboundSchema,
-} from "./exhibitoranswerformatjson.js";
+  ExhibitorAnswerLimits,
+  ExhibitorAnswerLimits$inboundSchema,
+} from "./exhibitoranswerlimits.js";
 import {
-  ExhibitorAnswerLimitsJson,
-  ExhibitorAnswerLimitsJson$inboundSchema,
-} from "./exhibitoranswerlimitsjson.js";
-import {
-  ExhibitorQuestionTypeJson,
-  ExhibitorQuestionTypeJson$inboundSchema,
-} from "./exhibitorquestiontypejson.js";
+  ExhibitorQuestionType,
+  ExhibitorQuestionType$inboundSchema,
+} from "./exhibitorquestiontype.js";
 
 /**
  * Schema for an existing exhibitor question
@@ -51,7 +48,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The actual text of the exhibitor question.
    */
@@ -63,7 +60,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
    */
-  type: ExhibitorQuestionTypeJson;
+  type: ExhibitorQuestionType;
   /**
    * A boolean indicating whether the question is mandatory or not
    */
@@ -71,23 +68,23 @@ export type ExistingExhibitorQuestion = {
   /**
    * An array of choices for the exhibitor question.
    */
-  choices?: Array<BaseChoiceJson> | undefined;
+  choices?: Array<BaseChoice> | undefined;
   /**
    * Contains text of additional choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson11 | undefined;
+  notApplicableAnswer?: AdditionalChoice | undefined;
   /**
    * Contains text of additional choice
    */
-  otherAnswer?: AdditionalChoiceJson11 | undefined;
+  otherAnswer?: AdditionalChoice | undefined;
   /**
    * Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
    */
-  answerFormat?: ExhibitorAnswerFormatJson | undefined;
+  answerFormat?: ExhibitorAnswerFormat | undefined;
   /**
    * Defines the limits for answers to exhibitor questions.
    */
-  answerLimits?: ExhibitorAnswerLimitsJson | undefined;
+  answerLimits?: ExhibitorAnswerLimits | undefined;
   /**
    * True indicates the current date and time is automatically set as the default value for OpenEndedDateTime questions.
    */
@@ -115,16 +112,16 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson6$inboundSchema,
+  event: Event1$inboundSchema,
   text: z.string(),
   code: z.string().optional(),
-  type: ExhibitorQuestionTypeJson$inboundSchema,
+  type: ExhibitorQuestionType$inboundSchema,
   required: z.boolean(),
-  choices: z.array(BaseChoiceJson$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson11$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson11$inboundSchema.optional(),
-  answerFormat: ExhibitorAnswerFormatJson$inboundSchema.optional(),
-  answerLimits: ExhibitorAnswerLimitsJson$inboundSchema.optional(),
+  choices: z.array(BaseChoice$inboundSchema).optional(),
+  notApplicableAnswer: AdditionalChoice$inboundSchema.optional(),
+  otherAnswer: AdditionalChoice$inboundSchema.optional(),
+  answerFormat: ExhibitorAnswerFormat$inboundSchema.optional(),
+  answerLimits: ExhibitorAnswerLimits$inboundSchema.optional(),
   defaultToCurrentDate: z.boolean().optional(),
   id: z.string(),
   displayOrder: z.number().int().default(1),

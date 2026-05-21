@@ -1,0 +1,13 @@
+# Compliance
+
+Privacy compliance fields for a contact.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `CreationTime`                                                                        | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | Date-time (in GMT) when privacy compliance details were created for the contact.      | 2021-03-08T17:30:01.727Z                                                              |
+| `ComplianceScope`                                                                     | [ComplianceComplianceScope](../../Models/Components/ComplianceComplianceScope.md)     | :heavy_minus_sign:                                                                    | Scope of privacy compliance.                                                          | CCPA                                                                                  |
+| `Action`                                                                              | [ComplianceAction](../../Models/Components/ComplianceAction.md)                       | :heavy_minus_sign:                                                                    | Action to take for a compliance request.                                              | DO_NOT_SELL                                                                           |
+| `CreatedBy`                                                                           | [ComplianceCreatedBy](../../Models/Components/ComplianceCreatedBy.md)                 | :heavy_minus_sign:                                                                    | Denotes how the compliance request was created.                                       | PLANNER                                                                               |

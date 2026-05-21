@@ -25,7 +25,7 @@ public class BadgePaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of badges.
@@ -36,7 +36,7 @@ public class BadgePaginatedResponse {
 
     @JsonCreator
     public BadgePaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nullable List<Badge> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<Badge> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -48,7 +48,7 @@ public class BadgePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
@@ -66,7 +66,7 @@ public class BadgePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BadgePaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public BadgePaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -104,7 +104,7 @@ public class BadgePaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<Badge> data;
 
@@ -115,7 +115,7 @@ public class BadgePaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }

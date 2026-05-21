@@ -8,6 +8,8 @@ import { audienceSegmentsDeleteAudienceSegment } from "../funcs/audienceSegments
 import { audienceSegmentsDisassociateAttendeeFromAudienceSegment } from "../funcs/audienceSegmentsDisassociateAttendeeFromAudienceSegment.js";
 import { audienceSegmentsDisassociateAttendeeFromAudienceSegments } from "../funcs/audienceSegmentsDisassociateAttendeeFromAudienceSegments.js";
 import { audienceSegmentsGetAudienceSegmentById } from "../funcs/audienceSegmentsGetAudienceSegmentById.js";
+import { audienceSegmentsListAssociatedAudienceSegments } from "../funcs/audienceSegmentsListAssociatedAudienceSegments.js";
+import { audienceSegmentsListAttendeeAudienceSegments } from "../funcs/audienceSegmentsListAttendeeAudienceSegments.js";
 import { audienceSegmentsListAudienceSegments } from "../funcs/audienceSegmentsListAudienceSegments.js";
 import { audienceSegmentsListAudienceSegmentsPostFilter } from "../funcs/audienceSegmentsListAudienceSegmentsPostFilter.js";
 import { audienceSegmentsListSegmentAssociatedAttendees } from "../funcs/audienceSegmentsListSegmentAssociatedAttendees.js";
@@ -19,6 +21,30 @@ import { unwrapAsync } from "../types/fp.js";
 import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class AudienceSegments extends ClientSDK {
+  /**
+   * List Associated Segments
+   *
+   * @remarks
+   * Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query parameter to filter by segment ID.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async listAttendeeAudienceSegments(
+    request: operations.ListAttendeeAudienceSegmentsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<
+      operations.ListAttendeeAudienceSegmentsResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(audienceSegmentsListAttendeeAudienceSegments(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * Delete Attendee Associations
    *
@@ -32,6 +58,30 @@ export class AudienceSegments extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(audienceSegmentsDisassociateAttendeeFromAudienceSegments(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Associated Segments
+   *
+   * @remarks
+   * Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in the body of the request. This method returns the same data as [GET List Associated Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+   *
+   * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
+   */
+  async listAssociatedAudienceSegments(
+    request: operations.ListAssociatedAudienceSegmentsRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<
+      operations.ListAssociatedAudienceSegmentsResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(audienceSegmentsListAssociatedAudienceSegments(
       this,
       request,
       options,

@@ -13,14 +13,32 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The Associated Exhibitor.
+    /// An exhibitor.
     /// </summary>
     public class ExhibitorJson
     {
         /// <summary>
-        /// Exhibitor id.
+        /// The unique identifier of the exhibitor.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// The Name of an exhibitor.
+        /// </summary>
+        [JsonProperty("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
+        /// If the exhibitor is featured.
+        /// </summary>
+        [JsonProperty("featured")]
+        public bool? Featured { get; set; }
+
+        /// <summary>
+        /// If the exhibitor is an event sponsor.
+        /// </summary>
+        [JsonProperty("eventSponsor")]
+        public bool? EventSponsor { get; set; }
     }
 }

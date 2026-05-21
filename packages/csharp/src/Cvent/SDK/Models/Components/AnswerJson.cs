@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An object representing the possible answers for lead qualification questions.
+    /// A survey answer.
     /// </summary>
     public class AnswerJson
     {
@@ -22,10 +22,10 @@ namespace Cvent.SDK.Models.Components
         /// Type of answer.
         /// </summary>
         [JsonProperty("type")]
-        public AnswerTypeJson Type { get; set; } = default!;
+        public AnswerTypeJson1 Type { get; set; } = default!;
 
         /// <summary>
-        /// Answered value like: Choice text, text answer input etc.
+        /// Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.
         /// </summary>
         [JsonProperty("value")]
         public string? Value { get; set; }
@@ -35,5 +35,23 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [JsonProperty("choice")]
         public UuidJson? Choice { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("category")]
+        public UuidJson? Category { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("subCategory")]
+        public UuidJson? SubCategory { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("field")]
+        public UuidJson? Field { get; set; }
     }
 }

@@ -56,13 +56,13 @@ public class ExistingWeblink {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * Display name of the weblink.
@@ -102,8 +102,8 @@ public class ExistingWeblink {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
+            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("url") @Nonnull String url,
             @JsonProperty("hidden") @Nullable Boolean hidden,
@@ -124,8 +124,8 @@ public class ExistingWeblink {
     }
 
     public ExistingWeblink(
-            @Nonnull EventJson6 event,
-            @Nonnull ExhibitorJson exhibitor,
+            @Nonnull Event1 event,
+            @Nonnull Exhibitor exhibitor,
             @Nonnull String name,
             @Nonnull String url,
             long order) {
@@ -163,14 +163,14 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
@@ -248,7 +248,7 @@ public class ExistingWeblink {
     /**
      * The Associated Event.
      */
-    public ExistingWeblink withEvent(@Nonnull EventJson6 event) {
+    public ExistingWeblink withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -256,7 +256,7 @@ public class ExistingWeblink {
     /**
      * The Associated Exhibitor.
      */
-    public ExistingWeblink withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public ExistingWeblink withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -368,9 +368,9 @@ public class ExistingWeblink {
 
         private String lastModifiedBy;
 
-        private EventJson6 event;
+        private Event1 event;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
         private String name;
 
@@ -421,7 +421,7 @@ public class ExistingWeblink {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -429,7 +429,7 @@ public class ExistingWeblink {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }

@@ -63,7 +63,7 @@ namespace Cvent.SDK.Models.Components
         /// List of responded survey answers.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AnswerJson1> Answers { get; set; } = default!;
+        public List<AnswerJson> Answers { get; set; } = default!;
 
         /// <summary>
         /// Answer score (This property is not supported).

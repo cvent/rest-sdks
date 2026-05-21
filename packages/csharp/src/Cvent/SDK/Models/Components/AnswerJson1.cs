@@ -9,49 +9,32 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
 
     /// <summary>
-    /// A survey answer.
+    /// A question answer.
     /// </summary>
     public class AnswerJson1
     {
         /// <summary>
-        /// Type of answer.
+        /// The unique identifier of the question.
         /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// Question text.
+        /// </summary>
+        [JsonProperty("text")]
+        public string? Text { get; set; }
+
+        /// <summary>
+        /// Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("type")]
-        public AnswerTypeJson2 Type { get; set; } = default!;
-
-        /// <summary>
-        /// Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.
-        /// </summary>
-        [JsonProperty("value")]
-        public string? Value { get; set; }
-
-        /// <summary>
-        /// The reference to the related entity. Contains only the ID of the related entity.
-        /// </summary>
-        [JsonProperty("choice")]
-        public UuidJson? Choice { get; set; }
-
-        /// <summary>
-        /// The reference to the related entity. Contains only the ID of the related entity.
-        /// </summary>
-        [JsonProperty("category")]
-        public UuidJson? Category { get; set; }
-
-        /// <summary>
-        /// The reference to the related entity. Contains only the ID of the related entity.
-        /// </summary>
-        [JsonProperty("subCategory")]
-        public UuidJson? SubCategory { get; set; }
-
-        /// <summary>
-        /// The reference to the related entity. Contains only the ID of the related entity.
-        /// </summary>
-        [JsonProperty("field")]
-        public UuidJson? Field { get; set; }
+        public string? Type { get; set; }
     }
 }

@@ -47,14 +47,14 @@ public class RegistrationTypeUpdateInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("capacity")
-    private CapacityJson1Input capacity;
+    private CapacityJsonInput capacity;
 
     @JsonCreator
     public RegistrationTypeUpdateInput(
             @JsonProperty("openForRegistration") boolean openForRegistration,
             @JsonProperty("automaticOpenDate") @Nullable OffsetDateTime automaticOpenDate,
             @JsonProperty("automaticEndDate") @Nullable OffsetDateTime automaticEndDate,
-            @JsonProperty("capacity") @Nullable CapacityJson1Input capacity) {
+            @JsonProperty("capacity") @Nullable CapacityJsonInput capacity) {
         this.openForRegistration = openForRegistration;
         this.automaticOpenDate = automaticOpenDate;
         this.automaticEndDate = automaticEndDate;
@@ -91,7 +91,7 @@ public class RegistrationTypeUpdateInput {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public Optional<CapacityJson1Input> capacity() {
+    public Optional<CapacityJsonInput> capacity() {
         return Optional.ofNullable(this.capacity);
     }
 
@@ -128,7 +128,7 @@ public class RegistrationTypeUpdateInput {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public RegistrationTypeUpdateInput withCapacity(@Nullable CapacityJson1Input capacity) {
+    public RegistrationTypeUpdateInput withCapacity(@Nullable CapacityJsonInput capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -176,7 +176,7 @@ public class RegistrationTypeUpdateInput {
 
         private OffsetDateTime automaticEndDate;
 
-        private CapacityJson1Input capacity;
+        private CapacityJsonInput capacity;
 
         private Builder() {
             // force use of static builder() method
@@ -211,7 +211,7 @@ public class RegistrationTypeUpdateInput {
         /**
          * Represents capacity statistics of the registration type.
          */
-        public Builder capacity(@Nullable CapacityJson1Input capacity) {
+        public Builder capacity(@Nullable CapacityJsonInput capacity) {
             this.capacity = capacity;
             return this;
         }

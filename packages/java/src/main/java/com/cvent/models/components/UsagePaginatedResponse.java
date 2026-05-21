@@ -26,36 +26,36 @@ public class UsagePaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of usage objects.
      */
     @JsonProperty("data")
-    private List<UsageJson> data;
+    private List<Usage> data;
 
     @JsonCreator
     public UsagePaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging, @JsonProperty("data") @Nonnull List<UsageJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nonnull List<Usage> data) {
         this.paging = paging;
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
     }
 
-    public UsagePaginatedResponse(@Nonnull List<UsageJson> data) {
+    public UsagePaginatedResponse(@Nonnull List<Usage> data) {
         this(null, data);
     }
 
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of usage objects.
      */
-    public List<UsageJson> data() {
+    public List<Usage> data() {
         return this.data;
     }
 
@@ -66,7 +66,7 @@ public class UsagePaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public UsagePaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public UsagePaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -74,7 +74,7 @@ public class UsagePaginatedResponse {
     /**
      * Collection of usage objects.
      */
-    public UsagePaginatedResponse withData(@Nonnull List<UsageJson> data) {
+    public UsagePaginatedResponse withData(@Nonnull List<Usage> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -104,9 +104,9 @@ public class UsagePaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<UsageJson> data;
+        private List<Usage> data;
 
         private Builder() {
             // force use of static builder() method
@@ -115,7 +115,7 @@ public class UsagePaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -123,7 +123,7 @@ public class UsagePaginatedResponse {
         /**
          * Collection of usage objects.
          */
-        public Builder data(@Nonnull List<UsageJson> data) {
+        public Builder data(@Nonnull List<Usage> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

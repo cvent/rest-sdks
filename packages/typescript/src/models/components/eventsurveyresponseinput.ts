@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  AnswerJson1,
-  AnswerJson1$Outbound,
-  AnswerJson1$outboundSchema,
-} from "./answerjson1.js";
+  AnswerJson,
+  AnswerJson$Outbound,
+  AnswerJson$outboundSchema,
+} from "./answerjson.js";
 import {
   UuidJson,
   UuidJson$Outbound,
@@ -25,7 +25,7 @@ export type EventSurveyResponseInput = {
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson1>;
+  answers: Array<AnswerJson>;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
@@ -43,7 +43,7 @@ export type EventSurveyResponseInput = {
 /** @internal */
 export type EventSurveyResponseInput$Outbound = {
   question: UuidJson$Outbound;
-  answers: Array<AnswerJson1$Outbound>;
+  answers: Array<AnswerJson$Outbound>;
   survey?: UuidJson$Outbound | undefined;
   session?: UuidJson$Outbound | undefined;
   speaker?: UuidJson$Outbound | undefined;
@@ -56,7 +56,7 @@ export const EventSurveyResponseInput$outboundSchema: z.ZodType<
   EventSurveyResponseInput
 > = z.object({
   question: UuidJson$outboundSchema,
-  answers: z.array(AnswerJson1$outboundSchema),
+  answers: z.array(AnswerJson$outboundSchema),
   survey: UuidJson$outboundSchema.optional(),
   session: UuidJson$outboundSchema.optional(),
   speaker: UuidJson$outboundSchema.optional(),

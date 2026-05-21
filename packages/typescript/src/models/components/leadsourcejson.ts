@@ -16,7 +16,7 @@ import {
  */
 export type LeadSourceJson = {
   /**
-   * Unique identifier for source generating the RFP.  Details about this lead source section can be fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development currently)</a>
+   * Unique identifier for source generating the RFP. Details about this lead source can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
    */
   id?: string | undefined;
   /**

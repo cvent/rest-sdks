@@ -3,71 +3,45 @@
  */
 
 import * as z from "zod/v3";
+import { safeParse } from "../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Registration type information
- */
-export type CapacityJsonRegistrationType = {
-  /**
-   * Registration type id
-   */
-  id: string;
-};
-
-/**
- * Registration capacity object containing registration type and reserved capacity
+ * Represents capacity statistics of the registration type.
  */
 export type CapacityJson = {
   /**
-   * Registration type information
+   * The remaining capacity of an event item, such as registration type. A value of -1 denotes that remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that the consumed capacity has surpassed the total capacity.
    */
-  registrationType: CapacityJsonRegistrationType;
+  remaining?: number | undefined;
   /**
-   * Reserved capacity of the registration type for an exhibitor
+   * The consumed capacity of an event item, such as registration type.
    */
-  reservedCapacity: number;
+  consumed?: number | undefined;
+  /**
+   * The total capacity of an event item, such as registration type. A value of -1 denotes unlimited capacity.
+   */
+  total: number;
 };
 
 /** @internal */
-export type CapacityJsonRegistrationType$Outbound = {
-  id: string;
-};
-
-/** @internal */
-export const CapacityJsonRegistrationType$outboundSchema: z.ZodType<
-  CapacityJsonRegistrationType$Outbound,
+export const CapacityJson$inboundSchema: z.ZodType<
+  CapacityJson,
   z.ZodTypeDef,
-  CapacityJsonRegistrationType
+  unknown
 > = z.object({
-  id: z.string(),
+  remaining: z.number().int().optional(),
+  consumed: z.number().int().optional(),
+  total: z.number().int(),
 });
 
-export function capacityJsonRegistrationTypeToJSON(
-  capacityJsonRegistrationType: CapacityJsonRegistrationType,
-): string {
-  return JSON.stringify(
-    CapacityJsonRegistrationType$outboundSchema.parse(
-      capacityJsonRegistrationType,
-    ),
+export function capacityJsonFromJSON(
+  jsonString: string,
+): SafeParseResult<CapacityJson, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CapacityJson$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CapacityJson' from JSON`,
   );
-}
-
-/** @internal */
-export type CapacityJson$Outbound = {
-  registrationType: CapacityJsonRegistrationType$Outbound;
-  reservedCapacity: number;
-};
-
-/** @internal */
-export const CapacityJson$outboundSchema: z.ZodType<
-  CapacityJson$Outbound,
-  z.ZodTypeDef,
-  CapacityJson
-> = z.object({
-  registrationType: z.lazy(() => CapacityJsonRegistrationType$outboundSchema),
-  reservedCapacity: z.number().int(),
-});
-
-export function capacityJsonToJSON(capacityJson: CapacityJson): string {
-  return JSON.stringify(CapacityJson$outboundSchema.parse(capacityJson));
 }

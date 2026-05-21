@@ -21,7 +21,7 @@ public class ExhibitorAdminRequest {
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * The first name of the exhibitor admin
@@ -43,7 +43,7 @@ public class ExhibitorAdminRequest {
 
     @JsonCreator
     public ExhibitorAdminRequest(
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("firstName") @Nonnull String firstName,
             @JsonProperty("lastName") @Nonnull String lastName,
             @JsonProperty("email") @Nonnull String email) {
@@ -59,7 +59,7 @@ public class ExhibitorAdminRequest {
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
@@ -91,7 +91,7 @@ public class ExhibitorAdminRequest {
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorAdminRequest withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public ExhibitorAdminRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -157,7 +157,7 @@ public class ExhibitorAdminRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
         private String firstName;
 
@@ -172,7 +172,7 @@ public class ExhibitorAdminRequest {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }

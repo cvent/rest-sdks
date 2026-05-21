@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { CapacityJson1, CapacityJson1$inboundSchema } from "./capacityjson1.js";
+import { CapacityJson, CapacityJson$inboundSchema } from "./capacityjson.js";
 
 /**
  * Event associated with the registration.
@@ -61,7 +61,7 @@ export type RegistrationTypeUpdate = {
   /**
    * Represents capacity statistics of the registration type.
    */
-  capacity?: CapacityJson1 | undefined;
+  capacity?: CapacityJson | undefined;
 };
 
 /** @internal */
@@ -102,7 +102,7 @@ export const RegistrationTypeUpdate$inboundSchema: z.ZodType<
   ).optional(),
   event: z.lazy(() => RegistrationTypeUpdateEvent$inboundSchema).optional(),
   id: z.string(),
-  capacity: CapacityJson1$inboundSchema.optional(),
+  capacity: CapacityJson$inboundSchema.optional(),
 });
 
 export function registrationTypeUpdateFromJSON(

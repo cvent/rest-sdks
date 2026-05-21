@@ -25,19 +25,19 @@ public class EliteratureRequestPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of E-literature request data.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingEliteratureRequestDataJson> data;
+    private List<ExistingELiteratureRequestDataForLead> data;
 
     @JsonCreator
     public EliteratureRequestPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExistingEliteratureRequestDataJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<ExistingELiteratureRequestDataForLead> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class EliteratureRequestPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of E-literature request data.
      */
-    public Optional<List<ExistingEliteratureRequestDataJson>> data() {
+    public Optional<List<ExistingELiteratureRequestDataForLead>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class EliteratureRequestPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EliteratureRequestPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public EliteratureRequestPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class EliteratureRequestPaginatedResponse {
     /**
      * Collection of E-literature request data.
      */
-    public EliteratureRequestPaginatedResponse withData(@Nullable List<ExistingEliteratureRequestDataJson> data) {
+    public EliteratureRequestPaginatedResponse withData(@Nullable List<ExistingELiteratureRequestDataForLead> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class EliteratureRequestPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingEliteratureRequestDataJson> data;
+        private List<ExistingELiteratureRequestDataForLead> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class EliteratureRequestPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class EliteratureRequestPaginatedResponse {
         /**
          * Collection of E-literature request data.
          */
-        public Builder data(@Nullable List<ExistingEliteratureRequestDataJson> data) {
+        public Builder data(@Nullable List<ExistingELiteratureRequestDataForLead> data) {
             this.data = data;
             return this;
         }

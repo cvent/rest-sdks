@@ -23,25 +23,25 @@ public class RegistrationPackRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * An array of capacities for the registration pack.
      */
     @JsonProperty("capacities")
-    private List<CapacityJson> capacities;
+    private List<Capacity> capacities;
 
     @JsonCreator
     public RegistrationPackRequest(
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
-            @JsonProperty("capacities") @Nonnull List<CapacityJson> capacities) {
+            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
+            @JsonProperty("capacities") @Nonnull List<Capacity> capacities) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
                 .orElseThrow(() -> new IllegalArgumentException("exhibitor cannot be null"));
@@ -52,21 +52,21 @@ public class RegistrationPackRequest {
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
      * An array of capacities for the registration pack.
      */
-    public List<CapacityJson> capacities() {
+    public List<Capacity> capacities() {
         return this.capacities;
     }
 
@@ -77,7 +77,7 @@ public class RegistrationPackRequest {
     /**
      * The Associated Event.
      */
-    public RegistrationPackRequest withEvent(@Nonnull EventJson6 event) {
+    public RegistrationPackRequest withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -85,7 +85,7 @@ public class RegistrationPackRequest {
     /**
      * The Associated Exhibitor.
      */
-    public RegistrationPackRequest withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public RegistrationPackRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -93,7 +93,7 @@ public class RegistrationPackRequest {
     /**
      * An array of capacities for the registration pack.
      */
-    public RegistrationPackRequest withCapacities(@Nonnull List<CapacityJson> capacities) {
+    public RegistrationPackRequest withCapacities(@Nonnull List<Capacity> capacities) {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
         return this;
     }
@@ -126,11 +126,11 @@ public class RegistrationPackRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson6 event;
+        private Event1 event;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
-        private List<CapacityJson> capacities;
+        private List<Capacity> capacities;
 
         private Builder() {
             // force use of static builder() method
@@ -139,7 +139,7 @@ public class RegistrationPackRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -147,7 +147,7 @@ public class RegistrationPackRequest {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }
@@ -155,7 +155,7 @@ public class RegistrationPackRequest {
         /**
          * An array of capacities for the registration pack.
          */
-        public Builder capacities(@Nonnull List<CapacityJson> capacities) {
+        public Builder capacities(@Nonnull List<Capacity> capacities) {
             this.capacities = Utils.checkNotNull(capacities, "capacities");
             return this;
         }

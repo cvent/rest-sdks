@@ -21,8 +21,8 @@ import java.util.Optional;
 public class LeadSourceSectionJson {
     /**
      * Unique identifier for sub area of source generating the RFP. Details about this lead source section
-     * can be fetched using <a href="#tag/LeadSource/operation/getLeadSourceSection">lead source section
-     * API (under development currently).</a>
+     * can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">lead source
+     * section API.</a>
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -39,8 +39,8 @@ public class LeadSourceSectionJson {
 
     /**
      * Unique identifier for sub area of source generating the RFP. Details about this lead source section
-     * can be fetched using <a href="#tag/LeadSource/operation/getLeadSourceSection">lead source section
-     * API (under development currently).</a>
+     * can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">lead source
+     * section API.</a>
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -52,8 +52,8 @@ public class LeadSourceSectionJson {
 
     /**
      * Unique identifier for sub area of source generating the RFP. Details about this lead source section
-     * can be fetched using <a href="#tag/LeadSource/operation/getLeadSourceSection">lead source section
-     * API (under development currently).</a>
+     * can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">lead source
+     * section API.</a>
      */
     public LeadSourceSectionJson withId(@Nullable String id) {
         this.id = id;
@@ -93,8 +93,8 @@ public class LeadSourceSectionJson {
 
         /**
          * Unique identifier for sub area of source generating the RFP. Details about this lead source section
-         * can be fetched using <a href="#tag/LeadSource/operation/getLeadSourceSection">lead source section
-         * API (under development currently).</a>
+         * can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">lead source
+         * section API.</a>
          */
         public Builder id(@Nullable String id) {
             this.id = id;

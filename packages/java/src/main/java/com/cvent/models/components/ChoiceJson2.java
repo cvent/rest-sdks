@@ -16,22 +16,29 @@ import java.util.Optional;
 /**
  * ChoiceJson2
  *
- * <p>A schema representing a choice object
+ * <p>A survey choice.
  */
 public class ChoiceJson2 {
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Text value of the field
+     * text Value of the Field
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
+
+    /**
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("shortText")
+    private String shortText;
 
     /**
      * Label of choice
@@ -44,28 +51,37 @@ public class ChoiceJson2 {
     public ChoiceJson2(
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("text") @Nullable String text,
+            @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("label") @Nullable String label) {
         this.id = id;
         this.text = text;
+        this.shortText = shortText;
         this.label = label;
     }
 
     public ChoiceJson2() {
-        this(null, null, null);
+        this(null, null, null, null);
     }
 
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Text value of the field
+     * text Value of the Field
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
+    }
+
+    /**
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
     }
 
     /**
@@ -80,7 +96,7 @@ public class ChoiceJson2 {
     }
 
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     public ChoiceJson2 withId(@Nullable String id) {
         this.id = id;
@@ -88,10 +104,18 @@ public class ChoiceJson2 {
     }
 
     /**
-     * Text value of the field
+     * text Value of the Field
      */
     public ChoiceJson2 withText(@Nullable String text) {
         this.text = text;
+        return this;
+    }
+
+    /**
+     * Reporting value of the Category, Its like a custom abbreviation
+     */
+    public ChoiceJson2 withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
         return this;
     }
 
@@ -114,17 +138,18 @@ public class ChoiceJson2 {
         ChoiceJson2 other = (ChoiceJson2) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
                 && Utils.enhancedDeepEquals(this.label, other.label);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, label);
+        return Utils.enhancedHash(id, text, shortText, label);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson2.class, "id", id, "text", text, "label", label);
+        return Utils.toString(ChoiceJson2.class, "id", id, "text", text, "shortText", shortText, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -134,6 +159,8 @@ public class ChoiceJson2 {
 
         private String text;
 
+        private String shortText;
+
         private String label;
 
         private Builder() {
@@ -141,7 +168,7 @@ public class ChoiceJson2 {
         }
 
         /**
-         * Unique identifier for the choice
+         * Text field ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -149,10 +176,18 @@ public class ChoiceJson2 {
         }
 
         /**
-         * Text value of the field
+         * text Value of the Field
          */
         public Builder text(@Nullable String text) {
             this.text = text;
+            return this;
+        }
+
+        /**
+         * Reporting value of the Category, Its like a custom abbreviation
+         */
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
             return this;
         }
 
@@ -165,7 +200,7 @@ public class ChoiceJson2 {
         }
 
         public ChoiceJson2 build() {
-            return new ChoiceJson2(id, text, label);
+            return new ChoiceJson2(id, text, shortText, label);
         }
     }
 }

@@ -49,11 +49,11 @@ export type ProcessFormSubmissionJson = {
   /**
    * The unique ID representing the process form submission.
    */
-  id?: string | undefined;
+  id: string;
   /**
    * The event which the process form submission is associated with.
    */
-  event?: ProcessFormSubmissionJsonEvent | undefined;
+  event: ProcessFormSubmissionJsonEvent;
   /**
    * An object that contains the process form ID.
    *
@@ -104,8 +104,8 @@ export const ProcessFormSubmissionJson$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  id: z.string().optional(),
-  event: z.lazy(() => ProcessFormSubmissionJsonEvent$inboundSchema).optional(),
+  id: z.string(),
+  event: z.lazy(() => ProcessFormSubmissionJsonEvent$inboundSchema),
   "process-form": ProcessFormJson$inboundSchema.optional(),
   status: z.string().optional(),
   questions: z.array(ProcessFormSubmissionQuestionJson$inboundSchema)

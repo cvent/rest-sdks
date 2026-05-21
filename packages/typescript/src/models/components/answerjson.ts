@@ -7,27 +7,45 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AnswerTypeJson,
-  AnswerTypeJson$inboundSchema,
-} from "./answertypejson.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+  AnswerTypeJson1,
+  AnswerTypeJson1$inboundSchema,
+  AnswerTypeJson1$outboundSchema,
+} from "./answertypejson1.js";
+import {
+  UuidJson,
+  UuidJson$inboundSchema,
+  UuidJson$Outbound,
+  UuidJson$outboundSchema,
+} from "./uuidjson.js";
 
 /**
- * An object representing the possible answers for lead qualification questions.
+ * A survey answer.
  */
 export type AnswerJson = {
   /**
    * Type of answer
    */
-  type: AnswerTypeJson;
+  type: AnswerTypeJson1;
   /**
-   * Answered value like: Choice text, text answer input etc.
+   * Value property is used to send information like string, number and date in case of following types of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be put into value. Refer to questions resource to get choice label or category label from their respective ids.
    */
   value?: string | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
   choice?: UuidJson | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  category?: UuidJson | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  subCategory?: UuidJson | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  field?: UuidJson | undefined;
 };
 
 /** @internal */
@@ -36,11 +54,40 @@ export const AnswerJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: AnswerTypeJson$inboundSchema,
+  type: AnswerTypeJson1$inboundSchema,
   value: z.string().optional(),
   choice: UuidJson$inboundSchema.optional(),
+  category: UuidJson$inboundSchema.optional(),
+  subCategory: UuidJson$inboundSchema.optional(),
+  field: UuidJson$inboundSchema.optional(),
+});
+/** @internal */
+export type AnswerJson$Outbound = {
+  type: string;
+  value?: string | undefined;
+  choice?: UuidJson$Outbound | undefined;
+  category?: UuidJson$Outbound | undefined;
+  subCategory?: UuidJson$Outbound | undefined;
+  field?: UuidJson$Outbound | undefined;
+};
+
+/** @internal */
+export const AnswerJson$outboundSchema: z.ZodType<
+  AnswerJson$Outbound,
+  z.ZodTypeDef,
+  AnswerJson
+> = z.object({
+  type: AnswerTypeJson1$outboundSchema,
+  value: z.string().optional(),
+  choice: UuidJson$outboundSchema.optional(),
+  category: UuidJson$outboundSchema.optional(),
+  subCategory: UuidJson$outboundSchema.optional(),
+  field: UuidJson$outboundSchema.optional(),
 });
 
+export function answerJsonToJSON(answerJson: AnswerJson): string {
+  return JSON.stringify(AnswerJson$outboundSchema.parse(answerJson));
+}
 export function answerJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<AnswerJson, SDKValidationError> {

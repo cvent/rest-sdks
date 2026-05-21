@@ -8,9 +8,9 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AnswerTypeJson1,
-  AnswerTypeJson1$inboundSchema,
-} from "./answertypejson1.js";
+  AnswerTypeJson,
+  AnswerTypeJson$inboundSchema,
+} from "./answertypejson.js";
 
 /**
  * The type of data collected by a custom field.
@@ -106,7 +106,7 @@ export type MeetingRequestCustomFieldJson = {
   /**
    * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is omitted when no non-default answer type is defined for the question.
    */
-  answerTypes?: Array<AnswerTypeJson1> | undefined;
+  answerTypes?: Array<AnswerTypeJson> | undefined;
 };
 
 /** @internal */
@@ -134,7 +134,7 @@ export const MeetingRequestCustomFieldJson$inboundSchema: z.ZodType<
   maxChoice: z.number().optional(),
   minDate: z.string().optional(),
   maxDate: z.string().optional(),
-  answerTypes: z.array(AnswerTypeJson1$inboundSchema).optional(),
+  answerTypes: z.array(AnswerTypeJson$inboundSchema).optional(),
 });
 
 export function meetingRequestCustomFieldJsonFromJSON(

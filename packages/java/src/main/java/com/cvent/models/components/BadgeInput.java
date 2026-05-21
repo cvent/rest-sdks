@@ -27,33 +27,33 @@ public class BadgeInput {
      * Badge status
      */
     @JsonProperty("status")
-    private BadgeStatusJson status;
+    private BadgeStatus status;
 
     /**
      * Badge type
      */
     @JsonProperty("type")
-    private BadgeTypeJson type;
+    private BadgeType type;
 
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
     @JsonProperty("attendee")
-    private AttendeeJson3 attendee;
+    private Attendee2 attendee;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     @JsonCreator
     public BadgeInput(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("status") @Nonnull BadgeStatusJson status,
-            @JsonProperty("type") @Nonnull BadgeTypeJson type,
-            @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
-            @JsonProperty("event") @Nonnull EventJson6 event) {
+            @JsonProperty("status") @Nonnull BadgeStatus status,
+            @JsonProperty("type") @Nonnull BadgeType type,
+            @JsonProperty("attendee") @Nonnull Attendee2 attendee,
+            @JsonProperty("event") @Nonnull Event1 event) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.status =
                 Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
@@ -73,28 +73,28 @@ public class BadgeInput {
     /**
      * Badge status
      */
-    public BadgeStatusJson status() {
+    public BadgeStatus status() {
         return this.status;
     }
 
     /**
      * Badge type
      */
-    public BadgeTypeJson type() {
+    public BadgeType type() {
         return this.type;
     }
 
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
-    public AttendeeJson3 attendee() {
+    public Attendee2 attendee() {
         return this.attendee;
     }
 
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
@@ -113,7 +113,7 @@ public class BadgeInput {
     /**
      * Badge status
      */
-    public BadgeInput withStatus(@Nonnull BadgeStatusJson status) {
+    public BadgeInput withStatus(@Nonnull BadgeStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -121,15 +121,15 @@ public class BadgeInput {
     /**
      * Badge type
      */
-    public BadgeInput withType(@Nonnull BadgeTypeJson type) {
+    public BadgeInput withType(@Nonnull BadgeType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
 
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
-    public BadgeInput withAttendee(@Nonnull AttendeeJson3 attendee) {
+    public BadgeInput withAttendee(@Nonnull Attendee2 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -137,7 +137,7 @@ public class BadgeInput {
     /**
      * The Associated Event.
      */
-    public BadgeInput withEvent(@Nonnull EventJson6 event) {
+    public BadgeInput withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -174,13 +174,13 @@ public class BadgeInput {
 
         private String id;
 
-        private BadgeStatusJson status;
+        private BadgeStatus status;
 
-        private BadgeTypeJson type;
+        private BadgeType type;
 
-        private AttendeeJson3 attendee;
+        private Attendee2 attendee;
 
-        private EventJson6 event;
+        private Event1 event;
 
         private Builder() {
             // force use of static builder() method
@@ -197,7 +197,7 @@ public class BadgeInput {
         /**
          * Badge status
          */
-        public Builder status(@Nonnull BadgeStatusJson status) {
+        public Builder status(@Nonnull BadgeStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -205,15 +205,15 @@ public class BadgeInput {
         /**
          * Badge type
          */
-        public Builder type(@Nonnull BadgeTypeJson type) {
+        public Builder type(@Nonnull BadgeType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
 
         /**
-         * A JSON Schema for an Attendee object
+         * The associated Attendee.
          */
-        public Builder attendee(@Nonnull AttendeeJson3 attendee) {
+        public Builder attendee(@Nonnull Attendee2 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -221,7 +221,7 @@ public class BadgeInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

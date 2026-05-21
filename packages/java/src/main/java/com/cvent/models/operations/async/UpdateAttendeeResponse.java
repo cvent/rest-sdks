@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.Attendee;
+import com.cvent.models.components.Attendee1;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,14 +35,14 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    private Attendee attendee;
+    private Attendee1 attendee;
 
     @JsonCreator
     public UpdateAttendeeResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable Attendee attendee) {
+            @Nullable Attendee1 attendee) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    public Optional<Attendee> attendee() {
+    public Optional<Attendee1> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -115,7 +115,7 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    public UpdateAttendeeResponse withAttendee(@Nullable Attendee attendee) {
+    public UpdateAttendeeResponse withAttendee(@Nullable Attendee1 attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -163,7 +163,7 @@ public class UpdateAttendeeResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private Attendee attendee;
+        private Attendee1 attendee;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class UpdateAttendeeResponse implements AsyncResponse {
         /**
          * Successfully updated the attendee.
          */
-        public Builder attendee(@Nullable Attendee attendee) {
+        public Builder attendee(@Nullable Attendee1 attendee) {
             this.attendee = attendee;
             return this;
         }

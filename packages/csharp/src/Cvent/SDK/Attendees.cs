@@ -1198,14 +1198,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Attendee obj;
+                    Attendee1 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee1>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Attendee.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Attendee1.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetAttendeeByIdResponse() {
@@ -1371,14 +1371,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Attendee obj;
+                    Attendee1 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee1>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Attendee.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Attendee1.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateAttendeeResponse() {

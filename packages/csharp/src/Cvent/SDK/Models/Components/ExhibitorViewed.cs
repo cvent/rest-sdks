@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// An exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson1? Exhibitor { get; set; }
+        public ExhibitorJson? Exhibitor { get; set; }
 
         /// <summary>
         /// The platform used by the user.

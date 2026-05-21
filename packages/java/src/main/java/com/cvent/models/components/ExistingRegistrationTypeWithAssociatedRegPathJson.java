@@ -90,7 +90,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("capacity")
-    private CapacityJson1 capacity;
+    private CapacityJson capacity;
 
     /**
      * Represents the details of a registration path.
@@ -110,7 +110,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
             @JsonProperty("automaticEndDate") @Nullable OffsetDateTime automaticEndDate,
             @JsonProperty("event") @Nullable ExistingRegistrationTypeWithAssociatedRegPathJsonEvent event,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("capacity") @Nullable CapacityJson1 capacity,
+            @JsonProperty("capacity") @Nullable CapacityJson capacity,
             @JsonProperty("registrationPath") @Nullable AssociatedRegistrationPathJson registrationPath) {
         this.name = name;
         this.code = code;
@@ -197,7 +197,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public Optional<CapacityJson1> capacity() {
+    public Optional<CapacityJson> capacity() {
         return Optional.ofNullable(this.capacity);
     }
 
@@ -292,7 +292,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public ExistingRegistrationTypeWithAssociatedRegPathJson withCapacity(@Nullable CapacityJson1 capacity) {
+    public ExistingRegistrationTypeWithAssociatedRegPathJson withCapacity(@Nullable CapacityJson capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -393,7 +393,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
 
         private String id;
 
-        private CapacityJson1 capacity;
+        private CapacityJson capacity;
 
         private AssociatedRegistrationPathJson registrationPath;
 
@@ -478,7 +478,7 @@ public class ExistingRegistrationTypeWithAssociatedRegPathJson {
         /**
          * Represents capacity statistics of the registration type.
          */
-        public Builder capacity(@Nullable CapacityJson1 capacity) {
+        public Builder capacity(@Nullable CapacityJson capacity) {
             this.capacity = capacity;
             return this;
         }

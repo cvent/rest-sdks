@@ -187,6 +187,8 @@ namespace Cvent.SDK
                 var newRequest = new ListEventRoleAssignmentRequest {
                     Limit = request?.Limit,
                     Token = nextCursor,
+                    After = request?.After,
+                    Before = request?.Before,
                     Expand = request?.Expand,
                     Filter = request?.Filter
                 };

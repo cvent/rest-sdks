@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingMemberJson,
-  ExistingMemberJson$inboundSchema,
-} from "./existingmemberjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExistingMember,
+  ExistingMember$inboundSchema,
+} from "./existingmember.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated list of Events+ members.
@@ -19,11 +19,11 @@ export type PaginatedExistingMember = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of Events+ members.
    */
-  data: Array<ExistingMemberJson>;
+  data: Array<ExistingMember>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const PaginatedExistingMember$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(ExistingMemberJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(ExistingMember$inboundSchema),
 });
 
 export function paginatedExistingMemberFromJSON(

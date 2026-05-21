@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of Lead Qualification Answers.
         /// </summary>
         [JsonProperty("data")]
-        public List<LeadQualificationAnswersJson>? Data { get; set; }
+        public List<LeadQualificationAnswers>? Data { get; set; }
     }
 }

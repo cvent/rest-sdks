@@ -39,7 +39,7 @@ public class PaymentInfoJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson3 address;
+    private AddressJson2 address;
 
     /**
      * Phone number.
@@ -59,7 +59,7 @@ public class PaymentInfoJson {
     public PaymentInfoJson(
             @JsonProperty("paymentType") @Nullable PaymentTypesJson paymentType,
             @JsonProperty("fullName") @Nullable String fullName,
-            @JsonProperty("address") @Nullable AddressJson3 address,
+            @JsonProperty("address") @Nullable AddressJson2 address,
             @JsonProperty("phone") @Nullable String phone,
             @JsonProperty("other") @Nullable OtherPaymentJson other) {
         this.paymentType = paymentType;
@@ -91,7 +91,7 @@ public class PaymentInfoJson {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public Optional<AddressJson3> address() {
+    public Optional<AddressJson2> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -133,7 +133,7 @@ public class PaymentInfoJson {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public PaymentInfoJson withAddress(@Nullable AddressJson3 address) {
+    public PaymentInfoJson withAddress(@Nullable AddressJson2 address) {
         this.address = address;
         return this;
     }
@@ -198,7 +198,7 @@ public class PaymentInfoJson {
 
         private String fullName;
 
-        private AddressJson3 address;
+        private AddressJson2 address;
 
         private String phone;
 
@@ -228,7 +228,7 @@ public class PaymentInfoJson {
          * Address details. Required to create/update a guest's reservation if the hotel/event requires an
          * address in reservations.
          */
-        public Builder address(@Nullable AddressJson3 address) {
+        public Builder address(@Nullable AddressJson2 address) {
             this.address = address;
             return this;
         }

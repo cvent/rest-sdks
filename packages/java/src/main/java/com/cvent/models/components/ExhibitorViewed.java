@@ -24,7 +24,7 @@ public class ExhibitorViewed {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson1 exhibitor;
+    private ExhibitorJson exhibitor;
 
     /**
      * The platform used by the user.
@@ -49,7 +49,7 @@ public class ExhibitorViewed {
 
     @JsonCreator
     public ExhibitorViewed(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson1 exhibitor,
+            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel,
             @JsonProperty("navigationSource") @Nullable ActivityExhibitorNavigationSourceJson navigationSource) {
@@ -66,7 +66,7 @@ public class ExhibitorViewed {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson1> exhibitor() {
+    public Optional<ExhibitorJson> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -98,7 +98,7 @@ public class ExhibitorViewed {
     /**
      * An exhibitor.
      */
-    public ExhibitorViewed withExhibitor(@Nullable ExhibitorJson1 exhibitor) {
+    public ExhibitorViewed withExhibitor(@Nullable ExhibitorJson exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -164,7 +164,7 @@ public class ExhibitorViewed {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson1 exhibitor;
+        private ExhibitorJson exhibitor;
 
         private String platform;
 
@@ -179,7 +179,7 @@ public class ExhibitorViewed {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson1 exhibitor) {
+        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }

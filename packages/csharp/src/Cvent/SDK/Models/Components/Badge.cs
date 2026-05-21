@@ -53,24 +53,24 @@ namespace Cvent.SDK.Models.Components
         /// Badge status.
         /// </summary>
         [JsonProperty("status")]
-        public BadgeStatusJson Status { get; set; } = default!;
+        public BadgeStatus Status { get; set; } = default!;
 
         /// <summary>
         /// Badge type.
         /// </summary>
         [JsonProperty("type")]
-        public BadgeTypeJson Type { get; set; } = default!;
+        public BadgeType Type { get; set; } = default!;
 
         /// <summary>
-        /// A JSON Schema for an Attendee object.
+        /// The associated Attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public AttendeeJson3 Attendee { get; set; } = default!;
+        public Attendee2 Attendee { get; set; } = default!;
 
         /// <summary>
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson6 Event { get; set; } = default!;
+        public Event1 Event { get; set; } = default!;
     }
 }

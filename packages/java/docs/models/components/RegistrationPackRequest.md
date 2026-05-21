@@ -5,8 +5,8 @@ A registration pack defining the registration type capacity allocations for an e
 
 ## Fields
 
-| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
-| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `event`                                                        | [EventJson6](../../models/components/EventJson6.md)            | :heavy_check_mark:                                             | The Associated Event.                                          |
-| `exhibitor`                                                    | [ExhibitorJson](../../models/components/ExhibitorJson.md)      | :heavy_check_mark:                                             | The Associated Exhibitor.                                      |
-| `capacities`                                                   | List\<[CapacityJson](../../models/components/CapacityJson.md)> | :heavy_check_mark:                                             | An array of capacities for the registration pack.              |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `event`                                                | [Event1](../../models/components/Event1.md)            | :heavy_check_mark:                                     | The Associated Event.                                  |
+| `exhibitor`                                            | [Exhibitor](../../models/components/Exhibitor.md)      | :heavy_check_mark:                                     | The Associated Exhibitor.                              |
+| `capacities`                                           | List\<[Capacity](../../models/components/Capacity.md)> | :heavy_check_mark:                                     | An array of capacities for the registration pack.      |

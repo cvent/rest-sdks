@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  LeadQualificationAnswersJson,
-  LeadQualificationAnswersJson$inboundSchema,
-} from "./leadqualificationanswersjson.js";
+  LeadQualificationAnswers,
+  LeadQualificationAnswers$inboundSchema,
+} from "./leadqualificationanswers.js";
 
 /**
  * A JSON schema representing the response for a list of lead qualification answers.
@@ -18,7 +18,7 @@ export type LeadQualificationAnswersListResponse = {
   /**
    * Collection of Lead Qualification Answers.
    */
-  data?: Array<LeadQualificationAnswersJson> | undefined;
+  data?: Array<LeadQualificationAnswers> | undefined;
 };
 
 /** @internal */
@@ -27,7 +27,7 @@ export const LeadQualificationAnswersListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(LeadQualificationAnswersJson$inboundSchema).optional(),
+  data: z.array(LeadQualificationAnswers$inboundSchema).optional(),
 });
 
 export function leadQualificationAnswersListResponseFromJSON(

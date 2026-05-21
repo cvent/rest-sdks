@@ -240,7 +240,9 @@ run();
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
 
+* [listAttendeeAudienceSegments](docs/sdks/audiencesegments/README.md#listattendeeaudiencesegments) - List Associated Segments
 * [disassociateAttendeeFromAudienceSegments](docs/sdks/audiencesegments/README.md#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
+* [listAssociatedAudienceSegments](docs/sdks/audiencesegments/README.md#listassociatedaudiencesegments) - List Associated Segments
 * [createAudienceSegment](docs/sdks/audiencesegments/README.md#createaudiencesegment) - Create Audience Segment
 * [listAudienceSegments](docs/sdks/audiencesegments/README.md#listaudiencesegments) - List Audience Segments
 * [listAudienceSegmentsPostFilter](docs/sdks/audiencesegments/README.md#listaudiencesegmentspostfilter) - List Audience Segments
@@ -430,6 +432,7 @@ run();
 * [listFeeItems](docs/sdks/events/README.md#listfeeitems) - List Fee Items
 * [getInvitationList](docs/sdks/events/README.md#getinvitationlist) - List Invitation Lists
 * [listMembershipItems](docs/sdks/events/README.md#listmembershipitems) - List Membership Items
+* [listMembershipItemsPostFilter](docs/sdks/events/README.md#listmembershipitemspostfilter) - List Membership Items
 * [getOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [getOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [associateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
@@ -848,6 +851,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`audienceSegmentsDisassociateAttendeeFromAudienceSegment`](docs/sdks/audiencesegments/README.md#disassociateattendeefromaudiencesegment) - Disassociate Attendee
 - [`audienceSegmentsDisassociateAttendeeFromAudienceSegments`](docs/sdks/audiencesegments/README.md#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
 - [`audienceSegmentsGetAudienceSegmentById`](docs/sdks/audiencesegments/README.md#getaudiencesegmentbyid) - Get Audience Segment
+- [`audienceSegmentsListAssociatedAudienceSegments`](docs/sdks/audiencesegments/README.md#listassociatedaudiencesegments) - List Associated Segments
+- [`audienceSegmentsListAttendeeAudienceSegments`](docs/sdks/audiencesegments/README.md#listattendeeaudiencesegments) - List Associated Segments
 - [`audienceSegmentsListAudienceSegments`](docs/sdks/audiencesegments/README.md#listaudiencesegments) - List Audience Segments
 - [`audienceSegmentsListAudienceSegmentsPostFilter`](docs/sdks/audiencesegments/README.md#listaudiencesegmentspostfilter) - List Audience Segments
 - [`audienceSegmentsListSegmentAssociatedAttendees`](docs/sdks/audiencesegments/README.md#listsegmentassociatedattendees) - List Associated Attendees
@@ -985,6 +990,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsListEventUserGroups`](docs/sdks/events/README.md#listeventusergroups) - List Event User Groups
 - [`eventsListFeeItems`](docs/sdks/events/README.md#listfeeitems) - List Fee Items
 - [`eventsListMembershipItems`](docs/sdks/events/README.md#listmembershipitems) - List Membership Items
+- [`eventsListMembershipItemsPostFilter`](docs/sdks/events/README.md#listmembershipitemspostfilter) - List Membership Items
 - [`eventsListQuantityItems`](docs/sdks/events/README.md#listquantityitems) - List Quantity Items
 - [`eventsListQuantityItemsPostFilter`](docs/sdks/events/README.md#listquantityitemspostfilter) - List Quantity Items
 - [`eventsListRegistrationPaths`](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
@@ -1504,9 +1510,9 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 441 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 441 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 441 methods.*
+* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 444 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 444 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 444 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

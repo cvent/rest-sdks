@@ -31,7 +31,7 @@ public class StandardSurveyResponseInput {
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson1> answers;
+    private List<AnswerJson> answers;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -51,7 +51,7 @@ public class StandardSurveyResponseInput {
     @JsonCreator
     public StandardSurveyResponseInput(
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson1> answers,
+            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("loopingChoice") @Nullable LoopingChoiceJson loopingChoice) {
         this.question = Optional.ofNullable(question)
@@ -62,7 +62,7 @@ public class StandardSurveyResponseInput {
         this.loopingChoice = loopingChoice;
     }
 
-    public StandardSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+    public StandardSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
         this(question, answers, null, null);
     }
 
@@ -76,7 +76,7 @@ public class StandardSurveyResponseInput {
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson1> answers() {
+    public List<AnswerJson> answers() {
         return this.answers;
     }
 
@@ -110,7 +110,7 @@ public class StandardSurveyResponseInput {
     /**
      * List of responded survey answers.
      */
-    public StandardSurveyResponseInput withAnswers(@Nonnull List<AnswerJson1> answers) {
+    public StandardSurveyResponseInput withAnswers(@Nonnull List<AnswerJson> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -171,7 +171,7 @@ public class StandardSurveyResponseInput {
 
         private UuidJson question;
 
-        private List<AnswerJson1> answers;
+        private List<AnswerJson> answers;
 
         private UuidJson survey;
 
@@ -192,7 +192,7 @@ public class StandardSurveyResponseInput {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson1> answers) {
+        public Builder answers(@Nonnull List<AnswerJson> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

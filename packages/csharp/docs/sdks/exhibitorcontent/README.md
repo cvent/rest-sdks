@@ -150,10 +150,10 @@ UpdateExhibitorFileRequest req = new UpdateExhibitorFileRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     FileId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     File = new FileInput() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
-        Exhibitor = new ExhibitorJson() {
+        Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
             Id = "4888db54-db22-11eb-8d19-0242ac130003",
         },
         DisplayName = "Marketing Page",
@@ -314,10 +314,10 @@ CreateExhibitorWeblinkRequest req = new CreateExhibitorWeblinkRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     Weblink = new Weblink() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
-        Exhibitor = new ExhibitorJson() {
+        Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
             Id = "4888db54-db22-11eb-8d19-0242ac130003",
         },
         Name = "Marketing Page",
@@ -429,10 +429,10 @@ UpdateExhibitorWeblinkRequest req = new UpdateExhibitorWeblinkRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     WeblinkId = "4d44b9e4-8c1a-403d-a20a-0b981f539935",
     Weblink = new Weblink() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
-        Exhibitor = new ExhibitorJson() {
+        Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
             Id = "4888db54-db22-11eb-8d19-0242ac130003",
         },
         Name = "Marketing Page",

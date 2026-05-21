@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  CapacityJson1Input,
-  CapacityJson1Input$Outbound,
-  CapacityJson1Input$outboundSchema,
-} from "./capacityjson1input.js";
+  CapacityJsonInput,
+  CapacityJsonInput$Outbound,
+  CapacityJsonInput$outboundSchema,
+} from "./capacityjsoninput.js";
 
 /**
  * Represents the details of an existing registration type.
@@ -28,7 +28,7 @@ export type RegistrationTypeUpdateInput = {
   /**
    * Represents capacity statistics of the registration type.
    */
-  capacity?: CapacityJson1Input | undefined;
+  capacity?: CapacityJsonInput | undefined;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export type RegistrationTypeUpdateInput$Outbound = {
   openForRegistration: boolean;
   automaticOpenDate?: string | undefined;
   automaticEndDate?: string | undefined;
-  capacity?: CapacityJson1Input$Outbound | undefined;
+  capacity?: CapacityJsonInput$Outbound | undefined;
 };
 
 /** @internal */
@@ -48,7 +48,7 @@ export const RegistrationTypeUpdateInput$outboundSchema: z.ZodType<
   openForRegistration: z.boolean(),
   automaticOpenDate: z.date().transform(v => v.toISOString()).optional(),
   automaticEndDate: z.date().transform(v => v.toISOString()).optional(),
-  capacity: CapacityJson1Input$outboundSchema.optional(),
+  capacity: CapacityJsonInput$outboundSchema.optional(),
 });
 
 export function registrationTypeUpdateInputToJSON(

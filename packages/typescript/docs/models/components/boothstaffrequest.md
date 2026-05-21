@@ -22,8 +22,8 @@ let value: BoothStaffRequest = {
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `attendee`                                                           | [components.AttendeeJson3](../../models/components/attendeejson3.md) | :heavy_check_mark:                                                   | A JSON Schema for an Attendee object                                 |
-| `event`                                                              | [components.EventJson6](../../models/components/eventjson6.md)       | :heavy_check_mark:                                                   | The Associated Event.                                                |
-| `exhibitor`                                                          | [components.ExhibitorJson](../../models/components/exhibitorjson.md) | :heavy_check_mark:                                                   | The Associated Exhibitor.                                            |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `attendee`                                                   | [components.Attendee2](../../models/components/attendee2.md) | :heavy_check_mark:                                           | The associated Attendee.                                     |
+| `event`                                                      | [components.Event1](../../models/components/event1.md)       | :heavy_check_mark:                                           | The Associated Event.                                        |
+| `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | The Associated Exhibitor.                                    |

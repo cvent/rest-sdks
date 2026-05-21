@@ -403,9 +403,9 @@ CreateEventSurveyResponsesRequest req = new CreateEventSurveyResponsesRequest() 
         Question = new UuidJson() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson1>() {
-            new AnswerJson1() {
-                Type = AnswerTypeJson2.ChoiceText,
+        Answers = new List<AnswerJson>() {
+            new AnswerJson() {
+                Type = AnswerTypeJson1.ChoiceText,
                 Value = "1",
                 Choice = new UuidJson() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
@@ -1213,7 +1213,7 @@ CreateStandardSurveyResponsesRequest req = new CreateStandardSurveyResponsesRequ
         Question = new UuidJson() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson1>() {},
+        Answers = new List<AnswerJson>() {},
         Survey = new UuidJson() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
@@ -1275,9 +1275,9 @@ UpdateStandardSurveyResponsesRequest req = new UpdateStandardSurveyResponsesRequ
         Question = new UuidJson() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Answers = new List<AnswerJson1>() {
-            new AnswerJson1() {
-                Type = AnswerTypeJson2.ChoiceText,
+        Answers = new List<AnswerJson>() {
+            new AnswerJson() {
+                Type = AnswerTypeJson1.ChoiceText,
                 Value = "1",
                 Choice = new UuidJson() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",

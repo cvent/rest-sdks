@@ -19,21 +19,21 @@ namespace Cvent.SDK.Models.Components
     public class BoothStaffRequest
     {
         /// <summary>
-        /// A JSON Schema for an Attendee object.
+        /// The associated Attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public AttendeeJson3 Attendee { get; set; } = default!;
+        public Attendee2 Attendee { get; set; } = default!;
 
         /// <summary>
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson6 Event { get; set; } = default!;
+        public Event1 Event { get; set; } = default!;
 
         /// <summary>
         /// The Associated Exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson Exhibitor { get; set; } = default!;
+        public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
     }
 }

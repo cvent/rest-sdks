@@ -4,25 +4,21 @@
 
 import * as z from "zod/v3";
 import {
-  ContactLinksJson2,
-  ContactLinksJson2$Outbound,
-  ContactLinksJson2$outboundSchema,
-} from "./contactlinksjson2.js";
+  Address11,
+  Address11$Outbound,
+  Address11$outboundSchema,
+} from "./address11.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
+  ContactLinks,
+  ContactLinks$Outbound,
+  ContactLinks$outboundSchema,
+} from "./contactlinks.js";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 import {
-  ExhibitorAddressJson,
-  ExhibitorAddressJson$Outbound,
-  ExhibitorAddressJson$outboundSchema,
-} from "./exhibitoraddressjson.js";
-import {
-  SponsorshipLevelJson,
-  SponsorshipLevelJson$Outbound,
-  SponsorshipLevelJson$outboundSchema,
-} from "./sponsorshipleveljson.js";
+  SponsorshipLevel,
+  SponsorshipLevel$Outbound,
+  SponsorshipLevel$outboundSchema,
+} from "./sponsorshiplevel.js";
 
 /**
  * A representation of an exhibitor including all relevant information.
@@ -31,7 +27,7 @@ export type ExhibitorRequest = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -55,7 +51,7 @@ export type ExhibitorRequest = {
   /**
    * An object representing an address with various properties.
    */
-  address?: ExhibitorAddressJson | undefined;
+  address?: Address11 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -79,7 +75,7 @@ export type ExhibitorRequest = {
   /**
    * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
    */
-  contactLinks?: ContactLinksJson2 | undefined;
+  contactLinks?: ContactLinks | undefined;
   /**
    * A boolean indicating whether the exhibitor is deleted or not
    */
@@ -99,29 +95,29 @@ export type ExhibitorRequest = {
   /**
    * Associated sponsorship level for an exhibitor
    */
-  sponsorshipLevel?: SponsorshipLevelJson | undefined;
+  sponsorshipLevel?: SponsorshipLevel | undefined;
 };
 
 /** @internal */
 export type ExhibitorRequest$Outbound = {
-  event: EventJson6$Outbound;
+  event: Event1$Outbound;
   name: string;
   description?: string | undefined;
   code?: string | undefined;
   sourceId?: string | undefined;
   location?: string | undefined;
-  address?: ExhibitorAddressJson$Outbound | undefined;
+  address?: Address11$Outbound | undefined;
   email?: string | undefined;
   mobilePhone?: string | undefined;
   workPhone?: string | undefined;
   otherPhone?: string | undefined;
   website?: string | undefined;
-  contactLinks?: ContactLinksJson2$Outbound | undefined;
+  contactLinks?: ContactLinks$Outbound | undefined;
   deleted: boolean;
   hidden: boolean;
   eventSponsor: boolean;
   featured: boolean;
-  sponsorshipLevel?: SponsorshipLevelJson$Outbound | undefined;
+  sponsorshipLevel?: SponsorshipLevel$Outbound | undefined;
 };
 
 /** @internal */
@@ -130,24 +126,24 @@ export const ExhibitorRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorRequest
 > = z.object({
-  event: EventJson6$outboundSchema,
+  event: Event1$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: ExhibitorAddressJson$outboundSchema.optional(),
+  address: Address11$outboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),
   otherPhone: z.string().optional(),
   website: z.string().optional(),
-  contactLinks: ContactLinksJson2$outboundSchema.optional(),
+  contactLinks: ContactLinks$outboundSchema.optional(),
   deleted: z.boolean().default(false),
   hidden: z.boolean().default(false),
   eventSponsor: z.boolean().default(false),
   featured: z.boolean().default(false),
-  sponsorshipLevel: SponsorshipLevelJson$outboundSchema.optional(),
+  sponsorshipLevel: SponsorshipLevel$outboundSchema.optional(),
 });
 
 export function exhibitorRequestToJSON(

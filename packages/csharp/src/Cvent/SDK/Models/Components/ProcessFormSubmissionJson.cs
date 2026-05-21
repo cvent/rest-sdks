@@ -48,13 +48,13 @@ namespace Cvent.SDK.Models.Components
         /// The unique ID representing the process form submission.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
 
         /// <summary>
         /// The event which the process form submission is associated with.
         /// </summary>
         [JsonProperty("event")]
-        public ProcessFormSubmissionJsonEvent? Event { get; set; }
+        public ProcessFormSubmissionJsonEvent Event { get; set; } = default!;
 
         /// <summary>
         /// An object that contains the process form ID.<br/>

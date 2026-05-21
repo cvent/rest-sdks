@@ -19,7 +19,7 @@ namespace Cvent.SDK.Models.Components
     public class LeadSourceJson
     {
         /// <summary>
-        /// Unique identifier for source generating the RFP.  Details about this lead source section can be fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development currently)</a>
+        /// Unique identifier for source generating the RFP. Details about this lead source can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

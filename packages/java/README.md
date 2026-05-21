@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.2.4'
+implementation 'com.cvent:sdk:1.3.0'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.2.4</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
@@ -400,7 +400,9 @@ public class Application {
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
 
+* [listAttendeeAudienceSegments](docs/sdks/audiencesegments/README.md#listattendeeaudiencesegments) - List Associated Segments
 * [disassociateAttendeeFromAudienceSegments](docs/sdks/audiencesegments/README.md#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
+* [listAssociatedAudienceSegments](docs/sdks/audiencesegments/README.md#listassociatedaudiencesegments) - List Associated Segments
 * [createAudienceSegment](docs/sdks/audiencesegments/README.md#createaudiencesegment) - Create Audience Segment
 * [listAudienceSegments](docs/sdks/audiencesegments/README.md#listaudiencesegments) - List Audience Segments
 * [listAudienceSegmentsPostFilter](docs/sdks/audiencesegments/README.md#listaudiencesegmentspostfilter) - List Audience Segments
@@ -590,6 +592,7 @@ public class Application {
 * [listFeeItems](docs/sdks/events/README.md#listfeeitems) - List Fee Items
 * [getInvitationList](docs/sdks/events/README.md#getinvitationlist) - List Invitation Lists
 * [listMembershipItems](docs/sdks/events/README.md#listmembershipitems) - List Membership Items
+* [listMembershipItemsPostFilter](docs/sdks/events/README.md#listmembershipitemspostfilter) - List Membership Items
 * [getOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [getOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [associateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
@@ -1290,9 +1293,9 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 441 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 441 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 441 methods.*
+* [`com.cvent.models.errors.ErrorResponseJson20`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson20.java): The error response. Applicable to 11 of 444 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 444 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 444 methods.*
 
 
 </details>

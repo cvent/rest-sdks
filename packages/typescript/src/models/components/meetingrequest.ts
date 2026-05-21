@@ -30,7 +30,7 @@ export type MeetingRequestMeetingRequestForm = {
  */
 export type MeetingRequestEvent = {
   /**
-   * Event ID.
+   * Event ID. This field may be absent immediately after creation when the meeting request form is configured to auto-create an event on submission, as event creation is processed asynchronously.
    */
   id?: string | undefined;
 };

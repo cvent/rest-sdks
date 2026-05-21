@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson4, AddressJson4$inboundSchema } from "./addressjson4.js";
+import { AddressJson3, AddressJson3$inboundSchema } from "./addressjson3.js";
 import {
   AddressTypeJson,
   AddressTypeJson$inboundSchema,
@@ -130,7 +130,7 @@ export type AttendeeContactInfoJson = {
   /**
    * Address details
    */
-  homeAddress?: AddressJson4 | undefined;
+  homeAddress?: AddressJson3 | undefined;
   /**
    * Home phone number
    */
@@ -142,7 +142,7 @@ export type AttendeeContactInfoJson = {
   /**
    * Address details
    */
-  workAddress?: AddressJson4 | undefined;
+  workAddress?: AddressJson3 | undefined;
   /**
    * Work phone number
    */
@@ -254,10 +254,10 @@ export const AttendeeContactInfoJson$inboundSchema: z.ZodType<
   type: AttendeeContactTypeJson$inboundSchema.optional(),
   membership: AttendeeContactMembershipJson$inboundSchema.optional(),
   primaryAddressType: AddressTypeJson$inboundSchema.optional(),
-  homeAddress: AddressJson4$inboundSchema.optional(),
+  homeAddress: AddressJson3$inboundSchema.optional(),
   homePhone: z.string().optional(),
   homeFax: z.string().optional(),
-  workAddress: AddressJson4$inboundSchema.optional(),
+  workAddress: AddressJson3$inboundSchema.optional(),
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
   optOut: z.lazy(() => OptOut$inboundSchema).optional(),

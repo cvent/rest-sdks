@@ -180,7 +180,7 @@ public class AttendeeContactInfoJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
-    private AddressJson4 homeAddress;
+    private AddressJson3 homeAddress;
 
     /**
      * Home phone number
@@ -201,7 +201,7 @@ public class AttendeeContactInfoJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
-    private AddressJson4 workAddress;
+    private AddressJson3 workAddress;
 
     /**
      * Work phone number
@@ -339,10 +339,10 @@ public class AttendeeContactInfoJson {
             @JsonProperty("type") @Nullable AttendeeContactTypeJson type,
             @JsonProperty("membership") @Nullable AttendeeContactMembershipJson membership,
             @JsonProperty("primaryAddressType") @Nullable AddressTypeJson primaryAddressType,
-            @JsonProperty("homeAddress") @Nullable AddressJson4 homeAddress,
+            @JsonProperty("homeAddress") @Nullable AddressJson3 homeAddress,
             @JsonProperty("homePhone") @Nullable String homePhone,
             @JsonProperty("homeFax") @Nullable String homeFax,
-            @JsonProperty("workAddress") @Nullable AddressJson4 workAddress,
+            @JsonProperty("workAddress") @Nullable AddressJson3 workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("optOut") @Nullable OptOut optOut,
@@ -594,7 +594,7 @@ public class AttendeeContactInfoJson {
     /**
      * Address details
      */
-    public Optional<AddressJson4> homeAddress() {
+    public Optional<AddressJson3> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
@@ -615,7 +615,7 @@ public class AttendeeContactInfoJson {
     /**
      * Address details
      */
-    public Optional<AddressJson4> workAddress() {
+    public Optional<AddressJson3> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
@@ -910,7 +910,7 @@ public class AttendeeContactInfoJson {
     /**
      * Address details
      */
-    public AttendeeContactInfoJson withHomeAddress(@Nullable AddressJson4 homeAddress) {
+    public AttendeeContactInfoJson withHomeAddress(@Nullable AddressJson3 homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
@@ -934,7 +934,7 @@ public class AttendeeContactInfoJson {
     /**
      * Address details
      */
-    public AttendeeContactInfoJson withWorkAddress(@Nullable AddressJson4 workAddress) {
+    public AttendeeContactInfoJson withWorkAddress(@Nullable AddressJson3 workAddress) {
         this.workAddress = workAddress;
         return this;
     }
@@ -1289,13 +1289,13 @@ public class AttendeeContactInfoJson {
 
         private AddressTypeJson primaryAddressType;
 
-        private AddressJson4 homeAddress;
+        private AddressJson3 homeAddress;
 
         private String homePhone;
 
         private String homeFax;
 
-        private AddressJson4 workAddress;
+        private AddressJson3 workAddress;
 
         private String workPhone;
 
@@ -1505,7 +1505,7 @@ public class AttendeeContactInfoJson {
         /**
          * Address details
          */
-        public Builder homeAddress(@Nullable AddressJson4 homeAddress) {
+        public Builder homeAddress(@Nullable AddressJson3 homeAddress) {
             this.homeAddress = homeAddress;
             return this;
         }
@@ -1529,7 +1529,7 @@ public class AttendeeContactInfoJson {
         /**
          * Address details
          */
-        public Builder workAddress(@Nullable AddressJson4 workAddress) {
+        public Builder workAddress(@Nullable AddressJson3 workAddress) {
             this.workAddress = workAddress;
             return this;
         }

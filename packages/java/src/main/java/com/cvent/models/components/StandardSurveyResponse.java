@@ -73,7 +73,7 @@ public class StandardSurveyResponse {
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson1> answers;
+    private List<AnswerJson> answers;
 
     /**
      * Answer score (This property is not supported).
@@ -109,7 +109,7 @@ public class StandardSurveyResponse {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("respondent") @Nullable StandardSurveyResponseUUID respondent,
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson1> answers,
+            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
             @JsonProperty("score") @Nullable Double score,
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("loopingChoice") @Nullable LoopingChoiceJson loopingChoice) {
@@ -128,7 +128,7 @@ public class StandardSurveyResponse {
         this.loopingChoice = loopingChoice;
     }
 
-    public StandardSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+    public StandardSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
         this(null, null, null, null, null, null, question, answers, null, null, null);
     }
 
@@ -181,7 +181,7 @@ public class StandardSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson1> answers() {
+    public List<AnswerJson> answers() {
         return this.answers;
     }
 
@@ -270,7 +270,7 @@ public class StandardSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public StandardSurveyResponse withAnswers(@Nonnull List<AnswerJson1> answers) {
+    public StandardSurveyResponse withAnswers(@Nonnull List<AnswerJson> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -386,7 +386,7 @@ public class StandardSurveyResponse {
 
         private UuidJson question;
 
-        private List<AnswerJson1> answers;
+        private List<AnswerJson> answers;
 
         @Deprecated
         private Double score;
@@ -455,7 +455,7 @@ public class StandardSurveyResponse {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson1> answers) {
+        public Builder answers(@Nonnull List<AnswerJson> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

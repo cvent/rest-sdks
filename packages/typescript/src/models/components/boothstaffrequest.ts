@@ -4,44 +4,40 @@
 
 import * as z from "zod/v3";
 import {
-  AttendeeJson3,
-  AttendeeJson3$Outbound,
-  AttendeeJson3$outboundSchema,
-} from "./attendeejson3.js";
+  Attendee2,
+  Attendee2$Outbound,
+  Attendee2$outboundSchema,
+} from "./attendee2.js";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
-import {
-  ExhibitorJson,
-  ExhibitorJson$Outbound,
-  ExhibitorJson$outboundSchema,
-} from "./exhibitorjson.js";
+  Exhibitor,
+  Exhibitor$Outbound,
+  Exhibitor$outboundSchema,
+} from "./exhibitor.js";
 
 /**
  * A JSON schema representing booth staff.
  */
 export type BoothStaffRequest = {
   /**
-   * A JSON Schema for an Attendee object
+   * The associated Attendee.
    */
-  attendee: AttendeeJson3;
+  attendee: Attendee2;
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
 };
 
 /** @internal */
 export type BoothStaffRequest$Outbound = {
-  attendee: AttendeeJson3$Outbound;
-  event: EventJson6$Outbound;
-  exhibitor: ExhibitorJson$Outbound;
+  attendee: Attendee2$Outbound;
+  event: Event1$Outbound;
+  exhibitor: Exhibitor$Outbound;
 };
 
 /** @internal */
@@ -50,9 +46,9 @@ export const BoothStaffRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BoothStaffRequest
 > = z.object({
-  attendee: AttendeeJson3$outboundSchema,
-  event: EventJson6$outboundSchema,
-  exhibitor: ExhibitorJson$outboundSchema,
+  attendee: Attendee2$outboundSchema,
+  event: Event1$outboundSchema,
+  exhibitor: Exhibitor$outboundSchema,
 });
 
 export function boothStaffRequestToJSON(

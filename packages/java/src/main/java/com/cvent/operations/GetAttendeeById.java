@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.Attendee;
+import com.cvent.models.components.Attendee1;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.GetAttendeeByIdRequest;
@@ -181,7 +181,7 @@ public class GetAttendeeById {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withAttendee(Utils.unmarshal(response, new TypeReference<Attendee>() {}));
+                    return res.withAttendee(Utils.unmarshal(response, new TypeReference<Attendee1>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -269,7 +269,7 @@ public class GetAttendeeById {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<Attendee>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<Attendee1>() {})
                             .thenApply(res::withAttendee);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);

@@ -1,16 +1,17 @@
 # AddressJson6
 
-Address
+Address details.
 
 
 ## Fields
 
-| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
-| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| `Type`                                                          | [AddressTypeJson1](../../Models/Components/AddressTypeJson1.md) | :heavy_check_mark:                                              | The type of the address.                                        | work                                                            |
-| `StreetAddress`                                                 | *string*                                                        | :heavy_minus_sign:                                              | The street address of the user.                                 | 100 Universal City Plaza                                        |
-| `Locality`                                                      | *string*                                                        | :heavy_minus_sign:                                              | The locality/city of the user.                                  | Hollywood                                                       |
-| `Region`                                                        | *string*                                                        | :heavy_minus_sign:                                              | The region/state/province of the user.                          | CA                                                              |
-| `PostalCode`                                                    | *string*                                                        | :heavy_minus_sign:                                              | Postal code (also known as zipcode) of the user.                | 91608                                                           |
-| `Country`                                                       | *string*                                                        | :heavy_minus_sign:                                              | The country of the user.                                        | USA                                                             |
-| `Primary`                                                       | *bool*                                                          | :heavy_minus_sign:                                              | True indicates the address is primary.                          | true                                                            |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `Address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | 717 N Harwood St               |
+| `Address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Suite 2800                     |
+| `City`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Dallas                         |
+| `Region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
+| `RegionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
+| `PostalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 75201                          |
+| `Country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States                  |
+| `CountryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Exhibitor.
         /// </summary>
         [JsonProperty("exhibitor")]
-        public ExhibitorJson Exhibitor { get; set; } = default!;
+        public Models.Components.Exhibitor Exhibitor { get; set; } = default!;
 
         /// <summary>
         /// The first name of the exhibitor admin.

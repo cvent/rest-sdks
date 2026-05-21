@@ -25,19 +25,19 @@ public class BoothStaffListResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of booth staff.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingBoothStaffJson> data;
+    private List<BoothStaffResponse> data;
 
     @JsonCreator
     public BoothStaffListResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExistingBoothStaffJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<BoothStaffResponse> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class BoothStaffListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of booth staff.
      */
-    public Optional<List<ExistingBoothStaffJson>> data() {
+    public Optional<List<BoothStaffResponse>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class BoothStaffListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BoothStaffListResponse withPaging(@Nullable PagingJson paging) {
+    public BoothStaffListResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class BoothStaffListResponse {
     /**
      * List of booth staff.
      */
-    public BoothStaffListResponse withData(@Nullable List<ExistingBoothStaffJson> data) {
+    public BoothStaffListResponse withData(@Nullable List<BoothStaffResponse> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class BoothStaffListResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingBoothStaffJson> data;
+        private List<BoothStaffResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class BoothStaffListResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class BoothStaffListResponse {
         /**
          * List of booth staff.
          */
-        public Builder data(@Nullable List<ExistingBoothStaffJson> data) {
+        public Builder data(@Nullable List<BoothStaffResponse> data) {
             this.data = data;
             return this;
         }

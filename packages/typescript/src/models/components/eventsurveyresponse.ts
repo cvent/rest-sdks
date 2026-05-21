@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AnswerJson1, AnswerJson1$inboundSchema } from "./answerjson1.js";
-import { EventJson7, EventJson7$inboundSchema } from "./eventjson7.js";
+import { AnswerJson, AnswerJson$inboundSchema } from "./answerjson.js";
+import { EventJson5, EventJson5$inboundSchema } from "./eventjson5.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
@@ -52,7 +52,7 @@ export type EventSurveyResponse = {
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson1>;
+  answers: Array<AnswerJson>;
   /**
    * Answer score (This property is not supported).
    *
@@ -62,7 +62,7 @@ export type EventSurveyResponse = {
   /**
    * Detail object of an event which is associated to a survey.
    */
-  event?: EventJson7 | undefined;
+  event?: EventJson5 | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
@@ -112,9 +112,9 @@ export const EventSurveyResponse$inboundSchema: z.ZodType<
   id: z.string().optional(),
   respondent: z.lazy(() => EventSurveyResponseUUID$inboundSchema).optional(),
   question: UuidJson$inboundSchema,
-  answers: z.array(AnswerJson1$inboundSchema),
+  answers: z.array(AnswerJson$inboundSchema),
   score: z.number().optional(),
-  event: EventJson7$inboundSchema.optional(),
+  event: EventJson5$inboundSchema.optional(),
   survey: UuidJson$inboundSchema.optional(),
   session: UuidJson$inboundSchema.optional(),
   speaker: UuidJson$inboundSchema.optional(),

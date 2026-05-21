@@ -73,7 +73,7 @@ public class EventSurveyResponse {
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson1> answers;
+    private List<AnswerJson> answers;
 
     /**
      * Answer score (This property is not supported).
@@ -90,7 +90,7 @@ public class EventSurveyResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson7 event;
+    private EventJson5 event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -122,9 +122,9 @@ public class EventSurveyResponse {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("respondent") @Nullable EventSurveyResponseUUID respondent,
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson1> answers,
+            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
             @JsonProperty("score") @Nullable Double score,
-            @JsonProperty("event") @Nullable EventJson7 event,
+            @JsonProperty("event") @Nullable EventJson5 event,
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("session") @Nullable UuidJson session,
             @JsonProperty("speaker") @Nullable UuidJson speaker) {
@@ -145,7 +145,7 @@ public class EventSurveyResponse {
         this.speaker = speaker;
     }
 
-    public EventSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+    public EventSurveyResponse(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
         this(null, null, null, null, null, null, question, answers, null, null, null, null, null);
     }
 
@@ -198,7 +198,7 @@ public class EventSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson1> answers() {
+    public List<AnswerJson> answers() {
         return this.answers;
     }
 
@@ -215,7 +215,7 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson7> event() {
+    public Optional<EventJson5> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -300,7 +300,7 @@ public class EventSurveyResponse {
     /**
      * List of responded survey answers.
      */
-    public EventSurveyResponse withAnswers(@Nonnull List<AnswerJson1> answers) {
+    public EventSurveyResponse withAnswers(@Nonnull List<AnswerJson> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -319,7 +319,7 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public EventSurveyResponse withEvent(@Nullable EventJson7 event) {
+    public EventSurveyResponse withEvent(@Nullable EventJson5 event) {
         this.event = event;
         return this;
     }
@@ -439,12 +439,12 @@ public class EventSurveyResponse {
 
         private UuidJson question;
 
-        private List<AnswerJson1> answers;
+        private List<AnswerJson> answers;
 
         @Deprecated
         private Double score;
 
-        private EventJson7 event;
+        private EventJson5 event;
 
         private UuidJson survey;
 
@@ -512,7 +512,7 @@ public class EventSurveyResponse {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson1> answers) {
+        public Builder answers(@Nonnull List<AnswerJson> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }
@@ -531,7 +531,7 @@ public class EventSurveyResponse {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson7 event) {
+        public Builder event(@Nullable EventJson5 event) {
             this.event = event;
             return this;
         }

@@ -16,18 +16,18 @@ import java.util.Optional;
 /**
  * AdditionalChoiceJson2
  *
- * <p>Contains text of additional choice i.e N/A choice or otherAnswer choice
+ * <p>Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
  */
 public class AdditionalChoiceJson2 {
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Reporting value of additional choice text
+     * Name of additional choice text in reporting.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shortText")
@@ -45,14 +45,14 @@ public class AdditionalChoiceJson2 {
     }
 
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Reporting value of additional choice text
+     * Name of additional choice text in reporting.
      */
     public Optional<String> shortText() {
         return Optional.ofNullable(this.shortText);
@@ -63,7 +63,7 @@ public class AdditionalChoiceJson2 {
     }
 
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     public AdditionalChoiceJson2 withText(@Nullable String text) {
         this.text = text;
@@ -71,7 +71,7 @@ public class AdditionalChoiceJson2 {
     }
 
     /**
-     * Reporting value of additional choice text
+     * Name of additional choice text in reporting.
      */
     public AdditionalChoiceJson2 withShortText(@Nullable String shortText) {
         this.shortText = shortText;
@@ -112,7 +112,7 @@ public class AdditionalChoiceJson2 {
         }
 
         /**
-         * Text Value of additional choice
+         * Display text of additional choice.
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -120,7 +120,7 @@ public class AdditionalChoiceJson2 {
         }
 
         /**
-         * Reporting value of additional choice text
+         * Name of additional choice text in reporting.
          */
         public Builder shortText(@Nullable String shortText) {
             this.shortText = shortText;

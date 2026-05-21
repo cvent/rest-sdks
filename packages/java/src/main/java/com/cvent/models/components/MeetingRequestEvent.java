@@ -20,7 +20,8 @@ import java.util.Optional;
  */
 public class MeetingRequestEvent {
     /**
-     * Event ID.
+     * Event ID. This field may be absent immediately after creation when the meeting request form is
+     * configured to auto-create an event on submission, as event creation is processed asynchronously.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -36,7 +37,8 @@ public class MeetingRequestEvent {
     }
 
     /**
-     * Event ID.
+     * Event ID. This field may be absent immediately after creation when the meeting request form is
+     * configured to auto-create an event on submission, as event creation is processed asynchronously.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -47,7 +49,8 @@ public class MeetingRequestEvent {
     }
 
     /**
-     * Event ID.
+     * Event ID. This field may be absent immediately after creation when the meeting request form is
+     * configured to auto-create an event on submission, as event creation is processed asynchronously.
      */
     public MeetingRequestEvent withId(@Nullable String id) {
         this.id = id;
@@ -86,7 +89,8 @@ public class MeetingRequestEvent {
         }
 
         /**
-         * Event ID.
+         * Event ID. This field may be absent immediately after creation when the meeting request form is
+         * configured to auto-create an event on submission, as event creation is processed asynchronously.
          */
         public Builder id(@Nullable String id) {
             this.id = id;

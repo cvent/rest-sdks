@@ -10,7 +10,7 @@ import {
   EventEmailJson,
   EventEmailJson$inboundSchema,
 } from "./eventemailjson.js";
-import { PagingJson25, PagingJson25$inboundSchema } from "./pagingjson25.js";
+import { PagingJson23, PagingJson23$inboundSchema } from "./pagingjson23.js";
 
 /**
  * Paginated response for the collection of emails for a specified event.
@@ -19,7 +19,7 @@ export type EventEmailsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson25;
+  paging: PagingJson23;
   /**
    * Collection of emails for a specific event.
    */
@@ -32,7 +32,7 @@ export const EventEmailsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson25$inboundSchema,
+  paging: PagingJson23$inboundSchema,
   data: z.array(EventEmailJson$inboundSchema),
 });
 

@@ -51,7 +51,7 @@ public class PublicUsagePlan {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("switchBackPlan")
-    private SwitchBackTargetUsagePlanJson switchBackPlan;
+    private SwitchBackTargetUsagePlan switchBackPlan;
 
     @JsonCreator
     public PublicUsagePlan(
@@ -59,7 +59,7 @@ public class PublicUsagePlan {
             @JsonProperty("quota") double quota,
             @JsonProperty("burstLimit") double burstLimit,
             @JsonProperty("rateLimit") double rateLimit,
-            @JsonProperty("switchBackPlan") @Nullable SwitchBackTargetUsagePlanJson switchBackPlan) {
+            @JsonProperty("switchBackPlan") @Nullable SwitchBackTargetUsagePlan switchBackPlan) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.quota = quota;
         this.burstLimit = burstLimit;
@@ -103,7 +103,7 @@ public class PublicUsagePlan {
      * Object representing the target usage plan and the date when the current plan is scheduled to revert
      * to it. This object is only present when a switch-back is scheduled.
      */
-    public Optional<SwitchBackTargetUsagePlanJson> switchBackPlan() {
+    public Optional<SwitchBackTargetUsagePlan> switchBackPlan() {
         return Optional.ofNullable(this.switchBackPlan);
     }
 
@@ -147,7 +147,7 @@ public class PublicUsagePlan {
      * Object representing the target usage plan and the date when the current plan is scheduled to revert
      * to it. This object is only present when a switch-back is scheduled.
      */
-    public PublicUsagePlan withSwitchBackPlan(@Nullable SwitchBackTargetUsagePlanJson switchBackPlan) {
+    public PublicUsagePlan withSwitchBackPlan(@Nullable SwitchBackTargetUsagePlan switchBackPlan) {
         this.switchBackPlan = switchBackPlan;
         return this;
     }
@@ -200,7 +200,7 @@ public class PublicUsagePlan {
 
         private double rateLimit;
 
-        private SwitchBackTargetUsagePlanJson switchBackPlan;
+        private SwitchBackTargetUsagePlan switchBackPlan;
 
         private Builder() {
             // force use of static builder() method
@@ -242,7 +242,7 @@ public class PublicUsagePlan {
          * Object representing the target usage plan and the date when the current plan is scheduled to revert
          * to it. This object is only present when a switch-back is scheduled.
          */
-        public Builder switchBackPlan(@Nullable SwitchBackTargetUsagePlanJson switchBackPlan) {
+        public Builder switchBackPlan(@Nullable SwitchBackTargetUsagePlan switchBackPlan) {
             this.switchBackPlan = switchBackPlan;
             return this;
         }

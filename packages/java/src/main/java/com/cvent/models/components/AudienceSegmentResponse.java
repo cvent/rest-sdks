@@ -55,9 +55,8 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson3 event;
+    private EventJson2 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -99,7 +98,7 @@ public class AudienceSegmentResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable EventJson3 event,
+            @JsonProperty("event") @Nonnull EventJson2 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("id") @Nullable String id,
@@ -109,7 +108,7 @@ public class AudienceSegmentResponse {
         this.createdBy = createdBy;
         this.lastModified = lastModified;
         this.lastModifiedBy = lastModifiedBy;
-        this.event = event;
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
         this.id = id;
@@ -117,8 +116,8 @@ public class AudienceSegmentResponse {
         this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
 
-    public AudienceSegmentResponse(@Nonnull String name) {
-        this(null, null, null, null, null, name, null, null, null, null);
+    public AudienceSegmentResponse(@Nonnull EventJson2 event, @Nonnull String name) {
+        this(null, null, null, null, event, name, null, null, null, null);
     }
 
     /**
@@ -152,8 +151,8 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public Optional<EventJson3> event() {
-        return Optional.ofNullable(this.event);
+    public EventJson2 event() {
+        return this.event;
     }
 
     /**
@@ -230,8 +229,8 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public AudienceSegmentResponse withEvent(@Nullable EventJson3 event) {
-        this.event = event;
+    public AudienceSegmentResponse withEvent(@Nonnull EventJson2 event) {
+        this.event = Utils.checkNotNull(event, "event");
         return this;
     }
 
@@ -339,7 +338,7 @@ public class AudienceSegmentResponse {
 
         private String lastModifiedBy;
 
-        private EventJson3 event;
+        private EventJson2 event;
 
         private String name;
 
@@ -390,8 +389,8 @@ public class AudienceSegmentResponse {
         /**
          * ID of the event.
          */
-        public Builder event(@Nullable EventJson3 event) {
-            this.event = event;
+        public Builder event(@Nonnull EventJson2 event) {
+            this.event = Utils.checkNotNull(event, "event");
             return this;
         }
 

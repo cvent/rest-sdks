@@ -11,30 +11,32 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Scope of privacy compliance.
  */
-export const ComplianceScope = {
+export const ComplianceJsonComplianceScope = {
   Ccpa: "CCPA",
 } as const;
 /**
  * Scope of privacy compliance.
  */
-export type ComplianceScope = ClosedEnum<typeof ComplianceScope>;
+export type ComplianceJsonComplianceScope = ClosedEnum<
+  typeof ComplianceJsonComplianceScope
+>;
 
 /**
  * Action to take for a compliance request.
  */
-export const Action = {
+export const ComplianceJsonAction = {
   DoNotSell: "DO_NOT_SELL",
   OkToSell: "OK_TO_SELL",
 } as const;
 /**
  * Action to take for a compliance request.
  */
-export type Action = ClosedEnum<typeof Action>;
+export type ComplianceJsonAction = ClosedEnum<typeof ComplianceJsonAction>;
 
 /**
  * Denotes how the compliance request was created.
  */
-export const CreatedBy = {
+export const ComplianceJsonCreatedBy = {
   Attendee: "ATTENDEE",
   Planner: "PLANNER",
   Import: "IMPORT",
@@ -49,7 +51,9 @@ export const CreatedBy = {
 /**
  * Denotes how the compliance request was created.
  */
-export type CreatedBy = ClosedEnum<typeof CreatedBy>;
+export type ComplianceJsonCreatedBy = ClosedEnum<
+  typeof ComplianceJsonCreatedBy
+>;
 
 /**
  * Privacy compliance fields for a contact.
@@ -62,29 +66,31 @@ export type ComplianceJson = {
   /**
    * Scope of privacy compliance.
    */
-  complianceScope?: ComplianceScope | undefined;
+  complianceScope?: ComplianceJsonComplianceScope | undefined;
   /**
    * Action to take for a compliance request.
    */
-  action?: Action | undefined;
+  action?: ComplianceJsonAction | undefined;
   /**
    * Denotes how the compliance request was created.
    */
-  createdBy?: CreatedBy | undefined;
+  createdBy?: ComplianceJsonCreatedBy | undefined;
 };
 
 /** @internal */
-export const ComplianceScope$inboundSchema: z.ZodNativeEnum<
-  typeof ComplianceScope
-> = z.nativeEnum(ComplianceScope);
+export const ComplianceJsonComplianceScope$inboundSchema: z.ZodNativeEnum<
+  typeof ComplianceJsonComplianceScope
+> = z.nativeEnum(ComplianceJsonComplianceScope);
 
 /** @internal */
-export const Action$inboundSchema: z.ZodNativeEnum<typeof Action> = z
-  .nativeEnum(Action);
+export const ComplianceJsonAction$inboundSchema: z.ZodNativeEnum<
+  typeof ComplianceJsonAction
+> = z.nativeEnum(ComplianceJsonAction);
 
 /** @internal */
-export const CreatedBy$inboundSchema: z.ZodNativeEnum<typeof CreatedBy> = z
-  .nativeEnum(CreatedBy);
+export const ComplianceJsonCreatedBy$inboundSchema: z.ZodNativeEnum<
+  typeof ComplianceJsonCreatedBy
+> = z.nativeEnum(ComplianceJsonCreatedBy);
 
 /** @internal */
 export const ComplianceJson$inboundSchema: z.ZodType<
@@ -95,9 +101,9 @@ export const ComplianceJson$inboundSchema: z.ZodType<
   creationTime: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  complianceScope: ComplianceScope$inboundSchema.optional(),
-  action: Action$inboundSchema.optional(),
-  createdBy: CreatedBy$inboundSchema.optional(),
+  complianceScope: ComplianceJsonComplianceScope$inboundSchema.optional(),
+  action: ComplianceJsonAction$inboundSchema.optional(),
+  createdBy: ComplianceJsonCreatedBy$inboundSchema.optional(),
 });
 
 export function complianceJsonFromJSON(

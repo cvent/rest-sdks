@@ -1,6 +1,6 @@
 # ChoiceJson2
 
-A schema representing a choice object
+A survey choice.
 
 ## Example Usage
 
@@ -8,15 +8,17 @@ A schema representing a choice object
 import { ChoiceJson2 } from "@cvent/sdk/models/components";
 
 let value: ChoiceJson2 = {
-  text: "Choice 1",
+  text: "Field value",
+  shortText: "Category 1 Reporting value",
   label: "Choice A",
 };
 ```
 
 ## Fields
 
-| Field                            | Type                             | Required                         | Description                      | Example                          |
-| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
-| `id`                             | *string*                         | :heavy_minus_sign:               | Unique identifier for the choice |                                  |
-| `text`                           | *string*                         | :heavy_minus_sign:               | Text value of the field          | Choice 1                         |
-| `label`                          | *string*                         | :heavy_minus_sign:               | Label of choice                  | Choice A                         |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `id`                                                            | *string*                                                        | :heavy_minus_sign:                                              | Text field ID.                                                  |                                                                 |
+| `text`                                                          | *string*                                                        | :heavy_minus_sign:                                              | text Value of the Field                                         | Field value                                                     |
+| `shortText`                                                     | *string*                                                        | :heavy_minus_sign:                                              | Reporting value of the Category, Its like a custom abbreviation | Category 1 Reporting value                                      |
+| `label`                                                         | *string*                                                        | :heavy_minus_sign:                                              | Label of choice                                                 | Choice A                                                        |

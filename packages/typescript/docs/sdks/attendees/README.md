@@ -598,7 +598,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Attendee](../../models/components/attendee.md)\>**
+**Promise\<[components.Attendee1](../../models/components/attendee1.md)\>**
 
 ### Errors
 
@@ -753,7 +753,7 @@ run();
 
 ### Response
 
-**Promise\<[components.Attendee](../../models/components/attendee.md)\>**
+**Promise\<[components.Attendee1](../../models/components/attendee1.md)\>**
 
 ### Errors
 

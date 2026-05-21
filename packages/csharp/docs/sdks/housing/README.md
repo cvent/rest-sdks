@@ -790,7 +790,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 Email = "guest@cvent.com",
                 HomePhone = "(231)-213-1222",
                 WorkPhone = "(231)-213-1222",
-                HomeAddress = new AddressJson3() {
+                HomeAddress = new AddressJson2() {
                     Address1 = "West St. 1",
                     Address2 = "Apt. 16",
                     City = "Austin",
@@ -802,7 +802,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 },
                 PaymentInfo = new PaymentInfoJson() {
                     FullName = "Gustav Schultz",
-                    Address = new AddressJson3() {
+                    Address = new AddressJson2() {
                         Address1 = "West St. 1",
                         Address2 = "Apt. 16",
                         City = "Austin",

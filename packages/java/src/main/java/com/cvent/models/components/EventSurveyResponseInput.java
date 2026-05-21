@@ -31,7 +31,7 @@ public class EventSurveyResponseInput {
      * List of responded survey answers.
      */
     @JsonProperty("answers")
-    private List<AnswerJson1> answers;
+    private List<AnswerJson> answers;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -57,7 +57,7 @@ public class EventSurveyResponseInput {
     @JsonCreator
     public EventSurveyResponseInput(
             @JsonProperty("question") @Nonnull UuidJson question,
-            @JsonProperty("answers") @Nonnull List<AnswerJson1> answers,
+            @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("session") @Nullable UuidJson session,
             @JsonProperty("speaker") @Nullable UuidJson speaker) {
@@ -70,7 +70,7 @@ public class EventSurveyResponseInput {
         this.speaker = speaker;
     }
 
-    public EventSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson1> answers) {
+    public EventSurveyResponseInput(@Nonnull UuidJson question, @Nonnull List<AnswerJson> answers) {
         this(question, answers, null, null, null);
     }
 
@@ -84,7 +84,7 @@ public class EventSurveyResponseInput {
     /**
      * List of responded survey answers.
      */
-    public List<AnswerJson1> answers() {
+    public List<AnswerJson> answers() {
         return this.answers;
     }
 
@@ -124,7 +124,7 @@ public class EventSurveyResponseInput {
     /**
      * List of responded survey answers.
      */
-    public EventSurveyResponseInput withAnswers(@Nonnull List<AnswerJson1> answers) {
+    public EventSurveyResponseInput withAnswers(@Nonnull List<AnswerJson> answers) {
         this.answers = Utils.checkNotNull(answers, "answers");
         return this;
     }
@@ -195,7 +195,7 @@ public class EventSurveyResponseInput {
 
         private UuidJson question;
 
-        private List<AnswerJson1> answers;
+        private List<AnswerJson> answers;
 
         private UuidJson survey;
 
@@ -218,7 +218,7 @@ public class EventSurveyResponseInput {
         /**
          * List of responded survey answers.
          */
-        public Builder answers(@Nonnull List<AnswerJson1> answers) {
+        public Builder answers(@Nonnull List<AnswerJson> answers) {
             this.answers = Utils.checkNotNull(answers, "answers");
             return this;
         }

@@ -90,7 +90,7 @@ public class RegistrationTypeUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("capacity")
-    private CapacityJson1 capacity;
+    private CapacityJson capacity;
 
     @JsonCreator
     public RegistrationTypeUpdate(
@@ -103,7 +103,7 @@ public class RegistrationTypeUpdate {
             @JsonProperty("automaticEndDate") @Nullable OffsetDateTime automaticEndDate,
             @JsonProperty("event") @Nullable RegistrationTypeUpdateEvent event,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("capacity") @Nullable CapacityJson1 capacity) {
+            @JsonProperty("capacity") @Nullable CapacityJson capacity) {
         this.name = name;
         this.code = code;
         this.description = description;
@@ -188,7 +188,7 @@ public class RegistrationTypeUpdate {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public Optional<CapacityJson1> capacity() {
+    public Optional<CapacityJson> capacity() {
         return Optional.ofNullable(this.capacity);
     }
 
@@ -273,7 +273,7 @@ public class RegistrationTypeUpdate {
     /**
      * Represents capacity statistics of the registration type.
      */
-    public RegistrationTypeUpdate withCapacity(@Nullable CapacityJson1 capacity) {
+    public RegistrationTypeUpdate withCapacity(@Nullable CapacityJson capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -361,7 +361,7 @@ public class RegistrationTypeUpdate {
 
         private String id;
 
-        private CapacityJson1 capacity;
+        private CapacityJson capacity;
 
         private Builder() {
             // force use of static builder() method
@@ -444,7 +444,7 @@ public class RegistrationTypeUpdate {
         /**
          * Represents capacity statistics of the registration type.
          */
-        public Builder capacity(@Nullable CapacityJson1 capacity) {
+        public Builder capacity(@Nullable CapacityJson capacity) {
             this.capacity = capacity;
             return this;
         }

@@ -8,17 +8,21 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A schema representing a choice object
+ * A survey choice.
  */
 export type ChoiceJson2 = {
   /**
-   * Unique identifier for the choice
+   * Text field ID.
    */
   id?: string | undefined;
   /**
-   * Text value of the field
+   * text Value of the Field
    */
   text?: string | undefined;
+  /**
+   * Reporting value of the Category, Its like a custom abbreviation
+   */
+  shortText?: string | undefined;
   /**
    * Label of choice
    */
@@ -33,6 +37,7 @@ export const ChoiceJson2$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string().optional(),
   text: z.string().optional(),
+  shortText: z.string().optional(),
   label: z.string().optional(),
 });
 

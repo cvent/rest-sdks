@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
+import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
  * Existing Exhibitor Admin with an id property
@@ -33,7 +33,7 @@ export type ExhibitorAdminResponse = {
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * The first name of the exhibitor admin
    */
@@ -65,7 +65,7 @@ export const ExhibitorAdminResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  exhibitor: ExhibitorJson$inboundSchema,
+  exhibitor: Exhibitor$inboundSchema,
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),

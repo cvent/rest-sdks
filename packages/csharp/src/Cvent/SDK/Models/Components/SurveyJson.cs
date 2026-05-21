@@ -114,6 +114,6 @@ namespace Cvent.SDK.Models.Components
         /// List of events with which this survey is linked.
         /// </summary>
         [JsonProperty("events")]
-        public List<EventJson7>? Events { get; set; }
+        public List<EventJson5>? Events { get; set; }
     }
 }

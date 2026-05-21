@@ -26,19 +26,21 @@ export type ListMembershipItemsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * Only 'includes value(s): in' comparison type can be used in filter expression.
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * id (in)
-   *   * registrationTypes (in)
+   * | Field             | Operators |
+   * |-------------------|-----------|
+   * | id                | `in`      |
+   * | registrationTypes | `in`      |
    *
-   * The following operator is available:
-   *   * and
+   * The following logical operators are supported for combining filters:
+   * * and
    */
   filter?: string | undefined;
 };

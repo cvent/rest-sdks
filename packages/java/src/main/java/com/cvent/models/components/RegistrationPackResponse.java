@@ -28,26 +28,26 @@ public class RegistrationPackResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * Capacities allocated per registration type for this exhibitor's registration pack.
      */
     @JsonProperty("capacities")
-    private List<ExistingCapacityJson> capacities;
+    private List<ExistingCapacity> capacities;
 
     @JsonCreator
     public RegistrationPackResponse(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
-            @JsonProperty("capacities") @Nonnull List<ExistingCapacityJson> capacities) {
+            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
+            @JsonProperty("capacities") @Nonnull List<ExistingCapacity> capacities) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.exhibitor = Optional.ofNullable(exhibitor)
@@ -66,21 +66,21 @@ public class RegistrationPackResponse {
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
     /**
      * Capacities allocated per registration type for this exhibitor's registration pack.
      */
-    public List<ExistingCapacityJson> capacities() {
+    public List<ExistingCapacity> capacities() {
         return this.capacities;
     }
 
@@ -99,7 +99,7 @@ public class RegistrationPackResponse {
     /**
      * The Associated Event.
      */
-    public RegistrationPackResponse withEvent(@Nonnull EventJson6 event) {
+    public RegistrationPackResponse withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -107,7 +107,7 @@ public class RegistrationPackResponse {
     /**
      * The Associated Exhibitor.
      */
-    public RegistrationPackResponse withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public RegistrationPackResponse withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -115,7 +115,7 @@ public class RegistrationPackResponse {
     /**
      * Capacities allocated per registration type for this exhibitor's registration pack.
      */
-    public RegistrationPackResponse withCapacities(@Nonnull List<ExistingCapacityJson> capacities) {
+    public RegistrationPackResponse withCapacities(@Nonnull List<ExistingCapacity> capacities) {
         this.capacities = Utils.checkNotNull(capacities, "capacities");
         return this;
     }
@@ -159,11 +159,11 @@ public class RegistrationPackResponse {
 
         private String id;
 
-        private EventJson6 event;
+        private Event1 event;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
-        private List<ExistingCapacityJson> capacities;
+        private List<ExistingCapacity> capacities;
 
         private Builder() {
             // force use of static builder() method
@@ -180,7 +180,7 @@ public class RegistrationPackResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -188,7 +188,7 @@ public class RegistrationPackResponse {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }
@@ -196,7 +196,7 @@ public class RegistrationPackResponse {
         /**
          * Capacities allocated per registration type for this exhibitor's registration pack.
          */
-        public Builder capacities(@Nonnull List<ExistingCapacityJson> capacities) {
+        public Builder capacities(@Nonnull List<ExistingCapacity> capacities) {
             this.capacities = Utils.checkNotNull(capacities, "capacities");
             return this;
         }

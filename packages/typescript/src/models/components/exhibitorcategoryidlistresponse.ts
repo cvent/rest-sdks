@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExhibitorCategoryIdJson,
-  ExhibitorCategoryIdJson$inboundSchema,
-} from "./exhibitorcategoryidjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExhibitorCategoryId,
+  ExhibitorCategoryId$inboundSchema,
+} from "./exhibitorcategoryid.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated response containing a list of exhibitor category Ids.
@@ -19,11 +19,11 @@ export type ExhibitorCategoryIdListResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Paginated list of exhibitor category Ids for an exhibitor.
    */
-  data?: Array<ExhibitorCategoryIdJson> | undefined;
+  data?: Array<ExhibitorCategoryId> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const ExhibitorCategoryIdListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExhibitorCategoryIdJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ExhibitorCategoryId$inboundSchema).optional(),
 });
 
 export function exhibitorCategoryIdListResponseFromJSON(

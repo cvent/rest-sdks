@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// List of answers for all exhibitor questions.
         /// </summary>
         [JsonProperty("data")]
-        public List<ExistingExhibitorAnswerJsonInput>? Data { get; set; }
+        public List<ExistingExhibitorAnswerInput>? Data { get; set; }
     }
 }

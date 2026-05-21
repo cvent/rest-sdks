@@ -32,12 +32,12 @@ public class QuestionResponseJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answers")
-    private List<AnswerJson2> answers;
+    private List<AnswerJson1> answers;
 
     @JsonCreator
     public QuestionResponseJson(
             @JsonProperty("question") @Nullable QuestionJson3 question,
-            @JsonProperty("answers") @Nullable List<AnswerJson2> answers) {
+            @JsonProperty("answers") @Nullable List<AnswerJson1> answers) {
         this.question = question;
         this.answers = answers;
     }
@@ -56,7 +56,7 @@ public class QuestionResponseJson {
     /**
      * List of answers.
      */
-    public Optional<List<AnswerJson2>> answers() {
+    public Optional<List<AnswerJson1>> answers() {
         return Optional.ofNullable(this.answers);
     }
 
@@ -75,7 +75,7 @@ public class QuestionResponseJson {
     /**
      * List of answers.
      */
-    public QuestionResponseJson withAnswers(@Nullable List<AnswerJson2> answers) {
+    public QuestionResponseJson withAnswers(@Nullable List<AnswerJson1> answers) {
         this.answers = answers;
         return this;
     }
@@ -108,7 +108,7 @@ public class QuestionResponseJson {
 
         private QuestionJson3 question;
 
-        private List<AnswerJson2> answers;
+        private List<AnswerJson1> answers;
 
         private Builder() {
             // force use of static builder() method
@@ -125,7 +125,7 @@ public class QuestionResponseJson {
         /**
          * List of answers.
          */
-        public Builder answers(@Nullable List<AnswerJson2> answers) {
+        public Builder answers(@Nullable List<AnswerJson1> answers) {
             this.answers = answers;
             return this;
         }

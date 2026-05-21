@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  ExistingExhibitorAnswerJsonInput,
-  ExistingExhibitorAnswerJsonInput$Outbound,
-  ExistingExhibitorAnswerJsonInput$outboundSchema,
-} from "./existingexhibitoranswerjsoninput.js";
+  ExistingExhibitorAnswerInput,
+  ExistingExhibitorAnswerInput$Outbound,
+  ExistingExhibitorAnswerInput$outboundSchema,
+} from "./existingexhibitoranswerinput.js";
 
 /**
  * An object representing the request for exhibitor answers.
@@ -16,12 +16,12 @@ export type ExhibitorAnswersRequest = {
   /**
    * List of answers for all exhibitor questions.
    */
-  data?: Array<ExistingExhibitorAnswerJsonInput> | undefined;
+  data?: Array<ExistingExhibitorAnswerInput> | undefined;
 };
 
 /** @internal */
 export type ExhibitorAnswersRequest$Outbound = {
-  data?: Array<ExistingExhibitorAnswerJsonInput$Outbound> | undefined;
+  data?: Array<ExistingExhibitorAnswerInput$Outbound> | undefined;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const ExhibitorAnswersRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorAnswersRequest
 > = z.object({
-  data: z.array(ExistingExhibitorAnswerJsonInput$outboundSchema).optional(),
+  data: z.array(ExistingExhibitorAnswerInput$outboundSchema).optional(),
 });
 
 export function exhibitorAnswersRequestToJSON(

@@ -24,7 +24,7 @@ public class ExhibitorDocumentOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson1 exhibitor;
+    private ExhibitorJson exhibitor;
 
     /**
      * The platform used by the user.
@@ -42,7 +42,7 @@ public class ExhibitorDocumentOpened {
 
     @JsonCreator
     public ExhibitorDocumentOpened(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson1 exhibitor,
+            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("document") @Nullable ActivityExhibitorDocumentJson document) {
         this.exhibitor = exhibitor;
@@ -57,7 +57,7 @@ public class ExhibitorDocumentOpened {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson1> exhibitor() {
+    public Optional<ExhibitorJson> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -82,7 +82,7 @@ public class ExhibitorDocumentOpened {
     /**
      * An exhibitor.
      */
-    public ExhibitorDocumentOpened withExhibitor(@Nullable ExhibitorJson1 exhibitor) {
+    public ExhibitorDocumentOpened withExhibitor(@Nullable ExhibitorJson exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -131,7 +131,7 @@ public class ExhibitorDocumentOpened {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson1 exhibitor;
+        private ExhibitorJson exhibitor;
 
         private String platform;
 
@@ -144,7 +144,7 @@ public class ExhibitorDocumentOpened {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson1 exhibitor) {
+        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }

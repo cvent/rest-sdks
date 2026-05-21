@@ -137,7 +137,7 @@ namespace Cvent.SDK.Models.Components
         /// Address details.
         /// </summary>
         [JsonProperty("homeAddress")]
-        public AddressJson4? HomeAddress { get; set; }
+        public AddressJson3? HomeAddress { get; set; }
 
         /// <summary>
         /// Home phone number.
@@ -155,7 +155,7 @@ namespace Cvent.SDK.Models.Components
         /// Address details.
         /// </summary>
         [JsonProperty("workAddress")]
-        public AddressJson4? WorkAddress { get; set; }
+        public AddressJson3? WorkAddress { get; set; }
 
         /// <summary>
         /// Work phone number.

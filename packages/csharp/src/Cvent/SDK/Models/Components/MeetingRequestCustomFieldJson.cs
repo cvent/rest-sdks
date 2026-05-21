@@ -107,6 +107,6 @@ namespace Cvent.SDK.Models.Components
         /// List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is omitted when no non-default answer type is defined for the question.
         /// </summary>
         [JsonProperty("answerTypes")]
-        public List<AnswerTypeJson1>? AnswerTypes { get; set; }
+        public List<AnswerTypeJson>? AnswerTypes { get; set; }
     }
 }

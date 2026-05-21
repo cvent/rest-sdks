@@ -4,11 +4,7 @@
 
 import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
-import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 
 /**
  * Type of exhibitor category
@@ -31,7 +27,7 @@ export type ExhibitorCategoryRequest = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * Name of the exhibitor category
    */
@@ -57,7 +53,7 @@ export const ExhibitorCategoryRequestType$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export type ExhibitorCategoryRequest$Outbound = {
-  event: EventJson6$Outbound;
+  event: Event1$Outbound;
   name: string;
   description?: string | undefined;
   order: number;
@@ -70,7 +66,7 @@ export const ExhibitorCategoryRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorCategoryRequest
 > = z.object({
-  event: EventJson6$outboundSchema,
+  event: Event1$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
   order: z.number().int(),

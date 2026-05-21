@@ -13,21 +13,27 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A schema representing a choice object.
+    /// A survey choice.
     /// </summary>
     public class ChoiceJson2
     {
         /// <summary>
-        /// Unique identifier for the choice.
+        /// Text field ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Text value of the field.
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
+
+        /// <summary>
+        /// Reporting value of the Category, Its like a custom abbreviation.
+        /// </summary>
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
 
         /// <summary>
         /// Label of choice.

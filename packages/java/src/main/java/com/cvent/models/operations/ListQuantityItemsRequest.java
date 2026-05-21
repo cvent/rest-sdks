@@ -36,17 +36,18 @@ public class ListQuantityItemsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Only 'includes value(s): in' comparison type can be used in filter expression.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (in)
-     * * registrationTypes (in)
+     * <p>| Field             | Operators |
+     * |-------------------|-----------|
+     * | id                | `in`      |
+     * | registrationTypes | `in`      |
      *
-     * <p>The following operator is available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -88,17 +89,18 @@ public class ListQuantityItemsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Only 'includes value(s): in' comparison type can be used in filter expression.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (in)
-     * * registrationTypes (in)
+     * <p>| Field             | Operators |
+     * |-------------------|-----------|
+     * | id                | `in`      |
+     * | registrationTypes | `in`      |
      *
-     * <p>The following operator is available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public Optional<String> filter() {
@@ -135,17 +137,18 @@ public class ListQuantityItemsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>Only 'includes value(s): in' comparison type can be used in filter expression.
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (in)
-     * * registrationTypes (in)
+     * <p>| Field             | Operators |
+     * |-------------------|-----------|
+     * | id                | `in`      |
+     * | registrationTypes | `in`      |
      *
-     * <p>The following operator is available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public ListQuantityItemsRequest withFilter(@Nullable String filter) {
@@ -220,17 +223,18 @@ public class ListQuantityItemsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>Only 'includes value(s): in' comparison type can be used in filter expression.
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * id (in)
-         * * registrationTypes (in)
+         * <p>| Field             | Operators |
+         * |-------------------|-----------|
+         * | id                | `in`      |
+         * | registrationTypes | `in`      |
          *
-         * <p>The following operator is available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          */
         public Builder filter(@Nullable String filter) {

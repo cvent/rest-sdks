@@ -18,7 +18,8 @@ The type of feature available for a container event.
 | `Exhibitors` | Centralizes exhibitor setup—profiles, tasks, content/categories—and booth staff and LeadCapture management, with exhibitor listings and engagement surfaced in Attendee Hub. |
 | `Vendors` | Allows planners to source and manage event services directly from the container event. |
 | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the event app. |
-| `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. |
+| `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+| `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and sessions, and award credits to attendees. Also enables creating certificates, linking them to credit rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
 
 ## Example Usage
 
@@ -31,5 +32,5 @@ let value: FeatureTypeJson = "Registration";
 ## Values
 
 ```typescript
-"Website" | "Registration" | "OnArrival" | "AttendeeHub" | "Appointments" | "Planning" | "Agenda" | "Travel" | "Marketing" | "Surveys" | "Speakers" | "Exhibitors" | "Vendors" | "EventAds" | "EventCredits"
+"Website" | "Registration" | "OnArrival" | "AttendeeHub" | "Appointments" | "Planning" | "Agenda" | "Travel" | "Marketing" | "Surveys" | "Speakers" | "Exhibitors" | "Vendors" | "EventAds" | "EventCredits" | "CreditsAndCertificates"
 ```

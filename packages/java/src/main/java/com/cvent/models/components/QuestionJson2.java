@@ -101,7 +101,7 @@ public class QuestionJson2 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson3> choices;
+    private List<ChoiceJson2> choices;
 
     /**
      * List of categories for the question.
@@ -122,14 +122,14 @@ public class QuestionJson2 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson2 notApplicableAnswer;
+    private AdditionalChoiceJson1 notApplicableAnswer;
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson2 otherAnswer;
+    private AdditionalChoiceJson1 otherAnswer;
 
     /**
      * Text Value of Comments Input box placeholder
@@ -150,7 +150,7 @@ public class QuestionJson2 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fields")
-    private List<FieldJson5> fields;
+    private List<FieldJson3> fields;
 
     /**
      * Max possible score
@@ -192,14 +192,14 @@ public class QuestionJson2 {
             @JsonProperty("htmlText") @Nullable String htmlText,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nullable QuestionTypeJson2 type,
-            @JsonProperty("choices") @Nullable List<ChoiceJson3> choices,
+            @JsonProperty("choices") @Nullable List<ChoiceJson2> choices,
             @JsonProperty("categories") @Nullable List<CategoryJson2> categories,
             @JsonProperty("subCategories") @Nullable List<TextFieldJson1> subCategories,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson2 notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson2 otherAnswer,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson1 notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson1 otherAnswer,
             @JsonProperty("comments") @Nullable String comments,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("fields") @Nullable List<FieldJson5> fields,
+            @JsonProperty("fields") @Nullable List<FieldJson3> fields,
             @JsonProperty("maxScore") @Nullable Double maxScore,
             @JsonProperty("totalSum") @Nullable Long totalSum,
             @JsonProperty("survey") @Nullable UuidJson survey,
@@ -327,7 +327,7 @@ public class QuestionJson2 {
     /**
      * List of choices for the question.
      */
-    public Optional<List<ChoiceJson3>> choices() {
+    public Optional<List<ChoiceJson2>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
@@ -348,14 +348,14 @@ public class QuestionJson2 {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson2> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson1> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson2> otherAnswer() {
+    public Optional<AdditionalChoiceJson1> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -376,7 +376,7 @@ public class QuestionJson2 {
     /**
      * List of fields for form/matrix questions
      */
-    public Optional<List<FieldJson5>> fields() {
+    public Optional<List<FieldJson3>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
@@ -495,7 +495,7 @@ public class QuestionJson2 {
     /**
      * List of choices for the question.
      */
-    public QuestionJson2 withChoices(@Nullable List<ChoiceJson3> choices) {
+    public QuestionJson2 withChoices(@Nullable List<ChoiceJson2> choices) {
         this.choices = choices;
         return this;
     }
@@ -519,7 +519,7 @@ public class QuestionJson2 {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public QuestionJson2 withNotApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
+    public QuestionJson2 withNotApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -527,7 +527,7 @@ public class QuestionJson2 {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public QuestionJson2 withOtherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
+    public QuestionJson2 withOtherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -551,7 +551,7 @@ public class QuestionJson2 {
     /**
      * List of fields for form/matrix questions
      */
-    public QuestionJson2 withFields(@Nullable List<FieldJson5> fields) {
+    public QuestionJson2 withFields(@Nullable List<FieldJson3> fields) {
         this.fields = fields;
         return this;
     }
@@ -721,21 +721,21 @@ public class QuestionJson2 {
 
         private QuestionTypeJson2 type;
 
-        private List<ChoiceJson3> choices;
+        private List<ChoiceJson2> choices;
 
         private List<CategoryJson2> categories;
 
         private List<TextFieldJson1> subCategories;
 
-        private AdditionalChoiceJson2 notApplicableAnswer;
+        private AdditionalChoiceJson1 notApplicableAnswer;
 
-        private AdditionalChoiceJson2 otherAnswer;
+        private AdditionalChoiceJson1 otherAnswer;
 
         private String comments;
 
         private Boolean required;
 
-        private List<FieldJson5> fields;
+        private List<FieldJson3> fields;
 
         private Double maxScore;
 
@@ -832,7 +832,7 @@ public class QuestionJson2 {
         /**
          * List of choices for the question.
          */
-        public Builder choices(@Nullable List<ChoiceJson3> choices) {
+        public Builder choices(@Nullable List<ChoiceJson2> choices) {
             this.choices = choices;
             return this;
         }
@@ -856,7 +856,7 @@ public class QuestionJson2 {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -864,7 +864,7 @@ public class QuestionJson2 {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }
@@ -888,7 +888,7 @@ public class QuestionJson2 {
         /**
          * List of fields for form/matrix questions
          */
-        public Builder fields(@Nullable List<FieldJson5> fields) {
+        public Builder fields(@Nullable List<FieldJson3> fields) {
             this.fields = fields;
             return this;
         }

@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingExhibitorJson,
-  ExistingExhibitorJson$inboundSchema,
-} from "./existingexhibitorjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExhibitorResponse,
+  ExhibitorResponse$inboundSchema,
+} from "./exhibitorresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated response containing a list of exhibitors for an event.
@@ -19,11 +19,11 @@ export type ExhibitorsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Paginated list of exhibitors for an event.
    */
-  data?: Array<ExistingExhibitorJson> | undefined;
+  data?: Array<ExhibitorResponse> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const ExhibitorsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExistingExhibitorJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ExhibitorResponse$inboundSchema).optional(),
 });
 
 export function exhibitorsPaginatedResponseFromJSON(

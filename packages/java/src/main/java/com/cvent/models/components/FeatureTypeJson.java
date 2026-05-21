@@ -42,7 +42,13 @@ import java.util.Optional;
  * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the
  * event app. |
  * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and
- * the event. |
+ * the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+ * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and
+ * sessions, and award credits to attendees. Also enables creating certificates, linking them to credit
+ * rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be
+ * active at a time.
+ *
+ * <p>|
  */
 public enum FeatureTypeJson {
     WEBSITE("Website"),
@@ -59,7 +65,8 @@ public enum FeatureTypeJson {
     EXHIBITORS("Exhibitors"),
     VENDORS("Vendors"),
     EVENT_ADS("EventAds"),
-    EVENT_CREDITS("EventCredits");
+    EVENT_CREDITS("EventCredits"),
+    CREDITS_AND_CERTIFICATES("CreditsAndCertificates");
 
     @JsonValue
     private final String value;

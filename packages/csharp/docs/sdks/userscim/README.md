@@ -323,8 +323,8 @@ UserInput req = new UserInput() {
             Value = "+911234567890",
         },
     },
-    Addresses = new List<AddressJson6>() {
-        new AddressJson6() {
+    Addresses = new List<AddressJson5>() {
+        new AddressJson5() {
             Type = AddressTypeJson1.Work,
             StreetAddress = "100 Universal City Plaza",
             Locality = "Hollywood",
@@ -511,8 +511,8 @@ UpdateUserRequest req = new UpdateUserRequest() {
                 Value = "+911234567890",
             },
         },
-        Addresses = new List<AddressJson6>() {
-            new AddressJson6() {
+        Addresses = new List<AddressJson5>() {
+            new AddressJson5() {
                 Type = AddressTypeJson1.Work,
                 StreetAddress = "100 Universal City Plaza",
                 Locality = "Hollywood",

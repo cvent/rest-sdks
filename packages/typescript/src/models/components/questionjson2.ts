@@ -7,12 +7,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson2,
-  AdditionalChoiceJson2$inboundSchema,
-} from "./additionalchoicejson2.js";
+  AdditionalChoiceJson1,
+  AdditionalChoiceJson1$inboundSchema,
+} from "./additionalchoicejson1.js";
 import { CategoryJson2, CategoryJson2$inboundSchema } from "./categoryjson2.js";
-import { ChoiceJson3, ChoiceJson3$inboundSchema } from "./choicejson3.js";
-import { FieldJson5, FieldJson5$inboundSchema } from "./fieldjson5.js";
+import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
+import { FieldJson3, FieldJson3$inboundSchema } from "./fieldjson3.js";
 import {
   QuestionTypeJson2,
   QuestionTypeJson2$inboundSchema,
@@ -70,7 +70,7 @@ export type QuestionJson2 = {
   /**
    * List of choices for the question.
    */
-  choices?: Array<ChoiceJson3> | undefined;
+  choices?: Array<ChoiceJson2> | undefined;
   /**
    * List of categories for the question.
    */
@@ -82,11 +82,11 @@ export type QuestionJson2 = {
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson2 | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson1 | undefined;
   /**
    * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  otherAnswer?: AdditionalChoiceJson2 | undefined;
+  otherAnswer?: AdditionalChoiceJson1 | undefined;
   /**
    * Text Value of Comments Input box placeholder
    */
@@ -98,7 +98,7 @@ export type QuestionJson2 = {
   /**
    * List of fields for form/matrix questions
    */
-  fields?: Array<FieldJson5> | undefined;
+  fields?: Array<FieldJson3> | undefined;
   /**
    * Max possible score
    */
@@ -136,14 +136,14 @@ export const QuestionJson2$inboundSchema: z.ZodType<
   htmlText: z.string().optional(),
   code: z.string().optional(),
   type: QuestionTypeJson2$inboundSchema.optional(),
-  choices: z.array(ChoiceJson3$inboundSchema).optional(),
+  choices: z.array(ChoiceJson2$inboundSchema).optional(),
   categories: z.array(CategoryJson2$inboundSchema).optional(),
   subCategories: z.array(TextFieldJson1$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
+  otherAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
   comments: z.string().optional(),
   required: z.boolean().default(false),
-  fields: z.array(FieldJson5$inboundSchema).optional(),
+  fields: z.array(FieldJson3$inboundSchema).optional(),
   maxScore: z.number().optional(),
   totalSum: z.number().int().optional(),
   survey: UuidJson$inboundSchema.optional(),

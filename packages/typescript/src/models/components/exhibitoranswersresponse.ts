@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingExhibitorAnswerJson,
-  ExistingExhibitorAnswerJson$inboundSchema,
-} from "./existingexhibitoranswerjson.js";
+  ExistingExhibitorAnswer,
+  ExistingExhibitorAnswer$inboundSchema,
+} from "./existingexhibitoranswer.js";
 
 /**
  * A response object containing a list of exhibitor question answers.
@@ -18,7 +18,7 @@ export type ExhibitorAnswersResponse = {
   /**
    * List of answers for all exhibitor questions.
    */
-  data?: Array<ExistingExhibitorAnswerJson> | undefined;
+  data?: Array<ExistingExhibitorAnswer> | undefined;
 };
 
 /** @internal */
@@ -27,7 +27,7 @@ export const ExhibitorAnswersResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ExistingExhibitorAnswerJson$inboundSchema).optional(),
+  data: z.array(ExistingExhibitorAnswer$inboundSchema).optional(),
 });
 
 export function exhibitorAnswersResponseFromJSON(

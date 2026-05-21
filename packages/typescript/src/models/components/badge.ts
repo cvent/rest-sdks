@@ -6,13 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AttendeeJson3, AttendeeJson3$inboundSchema } from "./attendeejson3.js";
-import {
-  BadgeStatusJson,
-  BadgeStatusJson$inboundSchema,
-} from "./badgestatusjson.js";
-import { BadgeTypeJson, BadgeTypeJson$inboundSchema } from "./badgetypejson.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
+import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { BadgeStatus, BadgeStatus$inboundSchema } from "./badgestatus.js";
+import { BadgeType, BadgeType$inboundSchema } from "./badgetype.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
 
 /**
  * A JSON Schema for Badge object.
@@ -41,19 +38,19 @@ export type Badge = {
   /**
    * Badge status
    */
-  status: BadgeStatusJson;
+  status: BadgeStatus;
   /**
    * Badge type
    */
-  type: BadgeTypeJson;
+  type: BadgeType;
   /**
-   * A JSON Schema for an Attendee object
+   * The associated Attendee.
    */
-  attendee: AttendeeJson3;
+  attendee: Attendee2;
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
 };
 
 /** @internal */
@@ -67,10 +64,10 @@ export const Badge$inboundSchema: z.ZodType<Badge, z.ZodTypeDef, unknown> = z
     ).optional(),
     lastModifiedBy: z.string().optional(),
     id: z.string(),
-    status: BadgeStatusJson$inboundSchema,
-    type: BadgeTypeJson$inboundSchema,
-    attendee: AttendeeJson3$inboundSchema,
-    event: EventJson6$inboundSchema,
+    status: BadgeStatus$inboundSchema,
+    type: BadgeType$inboundSchema,
+    attendee: Attendee2$inboundSchema,
+    event: Event1$inboundSchema,
   });
 
 export function badgeFromJSON(

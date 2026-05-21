@@ -22,6 +22,14 @@ export type ListEventRoleAssignmentRequest = {
    */
   token?: string | undefined;
   /**
+   * Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+   */
+  after?: Date | undefined;
+  /**
+   * Used to query records that have been added or updated before this time point.
+   */
+  before?: Date | undefined;
+  /**
    * Use the `expand` query parameter to request additional details for each field specified.
    *
    * @remarks
@@ -55,6 +63,8 @@ export type ListEventRoleAssignmentResponse = {
 export type ListEventRoleAssignmentRequest$Outbound = {
   limit: number;
   token?: string | undefined;
+  after?: string | undefined;
+  before?: string | undefined;
   expand?: Array<string> | undefined;
   filter?: string | undefined;
 };
@@ -67,6 +77,8 @@ export const ListEventRoleAssignmentRequest$outboundSchema: z.ZodType<
 > = z.object({
   limit: z.number().int().default(10),
   token: z.string().optional(),
+  after: z.date().transform(v => v.toISOString()).optional(),
+  before: z.date().transform(v => v.toISOString()).optional(),
   expand: z.array(components.EventRoleExpand$outboundSchema).optional(),
   filter: z.string().optional(),
 });

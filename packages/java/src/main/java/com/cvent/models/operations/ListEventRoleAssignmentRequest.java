@@ -13,6 +13,7 @@ import jakarta.annotation.Nullable;
 import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +30,19 @@ public class ListEventRoleAssignmentRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")
     private String token;
+
+    /**
+     * Used to query records that have been added or updated after this time point. Default to the
+     * beginning of time of the data store.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")
+    private OffsetDateTime after;
+
+    /**
+     * Used to query records that have been added or updated before this time point.
+     */
+    @SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")
+    private OffsetDateTime before;
 
     /**
      * Use the `expand` query parameter to request additional details for each field specified.
@@ -60,16 +74,20 @@ public class ListEventRoleAssignmentRequest {
     public ListEventRoleAssignmentRequest(
             @Nullable Long limit,
             @Nullable String token,
+            @Nullable OffsetDateTime after,
+            @Nullable OffsetDateTime before,
             @Nullable List<EventRoleExpand> expand,
             @Nullable String filter) {
         this.limit = Optional.ofNullable(limit).orElse(Builder._SINGLETON_VALUE_Limit.value());
         this.token = token;
+        this.after = after;
+        this.before = before;
         this.expand = expand;
         this.filter = filter;
     }
 
     public ListEventRoleAssignmentRequest() {
-        this(null, null, null, null);
+        this(null, null, null, null, null, null);
     }
 
     /**
@@ -85,6 +103,21 @@ public class ListEventRoleAssignmentRequest {
      */
     public Optional<String> token() {
         return Optional.ofNullable(this.token);
+    }
+
+    /**
+     * Used to query records that have been added or updated after this time point. Default to the
+     * beginning of time of the data store.
+     */
+    public Optional<OffsetDateTime> after() {
+        return Optional.ofNullable(this.after);
+    }
+
+    /**
+     * Used to query records that have been added or updated before this time point.
+     */
+    public Optional<OffsetDateTime> before() {
+        return Optional.ofNullable(this.before);
     }
 
     /**
@@ -137,6 +170,23 @@ public class ListEventRoleAssignmentRequest {
     }
 
     /**
+     * Used to query records that have been added or updated after this time point. Default to the
+     * beginning of time of the data store.
+     */
+    public ListEventRoleAssignmentRequest withAfter(@Nullable OffsetDateTime after) {
+        this.after = after;
+        return this;
+    }
+
+    /**
+     * Used to query records that have been added or updated before this time point.
+     */
+    public ListEventRoleAssignmentRequest withBefore(@Nullable OffsetDateTime before) {
+        this.before = before;
+        return this;
+    }
+
+    /**
      * Use the `expand` query parameter to request additional details for each field specified.
      *
      * <p>Each event role assignment includes the ID of its associated event role. By using the expand
@@ -177,13 +227,15 @@ public class ListEventRoleAssignmentRequest {
         ListEventRoleAssignmentRequest other = (ListEventRoleAssignmentRequest) o;
         return Utils.enhancedDeepEquals(this.limit, other.limit)
                 && Utils.enhancedDeepEquals(this.token, other.token)
+                && Utils.enhancedDeepEquals(this.after, other.after)
+                && Utils.enhancedDeepEquals(this.before, other.before)
                 && Utils.enhancedDeepEquals(this.expand, other.expand)
                 && Utils.enhancedDeepEquals(this.filter, other.filter);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(limit, token, expand, filter);
+        return Utils.enhancedHash(limit, token, after, before, expand, filter);
     }
 
     @Override
@@ -194,6 +246,10 @@ public class ListEventRoleAssignmentRequest {
                 limit,
                 "token",
                 token,
+                "after",
+                after,
+                "before",
+                before,
                 "expand",
                 expand,
                 "filter",
@@ -206,6 +262,10 @@ public class ListEventRoleAssignmentRequest {
         private Long limit;
 
         private String token;
+
+        private OffsetDateTime after;
+
+        private OffsetDateTime before;
 
         private List<EventRoleExpand> expand;
 
@@ -229,6 +289,23 @@ public class ListEventRoleAssignmentRequest {
          */
         public Builder token(@Nullable String token) {
             this.token = token;
+            return this;
+        }
+
+        /**
+         * Used to query records that have been added or updated after this time point. Default to the
+         * beginning of time of the data store.
+         */
+        public Builder after(@Nullable OffsetDateTime after) {
+            this.after = after;
+            return this;
+        }
+
+        /**
+         * Used to query records that have been added or updated before this time point.
+         */
+        public Builder before(@Nullable OffsetDateTime before) {
+            this.before = before;
             return this;
         }
 
@@ -263,7 +340,7 @@ public class ListEventRoleAssignmentRequest {
         }
 
         public ListEventRoleAssignmentRequest build() {
-            return new ListEventRoleAssignmentRequest(limit, token, expand, filter);
+            return new ListEventRoleAssignmentRequest(limit, token, after, before, expand, filter);
         }
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Limit =
