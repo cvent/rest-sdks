@@ -3,16 +3,12 @@
  */
 
 import * as z from "zod/v3";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
-import {
-  ExhibitorJson,
-  ExhibitorJson$Outbound,
-  ExhibitorJson$outboundSchema,
-} from "./exhibitorjson.js";
+  Exhibitor,
+  Exhibitor$Outbound,
+  Exhibitor$outboundSchema,
+} from "./exhibitor.js";
 
 /**
  * Content of exhibitor weblink.
@@ -21,11 +17,11 @@ export type Weblink = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * Display name of the weblink.
    */
@@ -46,8 +42,8 @@ export type Weblink = {
 
 /** @internal */
 export type Weblink$Outbound = {
-  event: EventJson6$Outbound;
-  exhibitor: ExhibitorJson$Outbound;
+  event: Event1$Outbound;
+  exhibitor: Exhibitor$Outbound;
   name: string;
   url: string;
   hidden: boolean;
@@ -60,8 +56,8 @@ export const Weblink$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Weblink
 > = z.object({
-  event: EventJson6$outboundSchema,
-  exhibitor: ExhibitorJson$outboundSchema,
+  event: Event1$outboundSchema,
+  exhibitor: Exhibitor$outboundSchema,
   name: z.string(),
   url: z.string(),
   hidden: z.boolean().default(false),

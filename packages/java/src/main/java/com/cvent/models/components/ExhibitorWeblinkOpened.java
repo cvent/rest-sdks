@@ -24,7 +24,7 @@ public class ExhibitorWeblinkOpened {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson1 exhibitor;
+    private ExhibitorJson exhibitor;
 
     /**
      * The platform used by the user.
@@ -42,7 +42,7 @@ public class ExhibitorWeblinkOpened {
 
     @JsonCreator
     public ExhibitorWeblinkOpened(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson1 exhibitor,
+            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("weblink") @Nullable ActivityExhibitorWebLinkJson weblink) {
         this.exhibitor = exhibitor;
@@ -57,7 +57,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson1> exhibitor() {
+    public Optional<ExhibitorJson> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -82,7 +82,7 @@ public class ExhibitorWeblinkOpened {
     /**
      * An exhibitor.
      */
-    public ExhibitorWeblinkOpened withExhibitor(@Nullable ExhibitorJson1 exhibitor) {
+    public ExhibitorWeblinkOpened withExhibitor(@Nullable ExhibitorJson exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -131,7 +131,7 @@ public class ExhibitorWeblinkOpened {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson1 exhibitor;
+        private ExhibitorJson exhibitor;
 
         private String platform;
 
@@ -144,7 +144,7 @@ public class ExhibitorWeblinkOpened {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson1 exhibitor) {
+        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }

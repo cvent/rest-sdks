@@ -33,17 +33,19 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// Only 'includes value(s): in' comparison type can be used in filter expression.<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * id (in)<br/>
-        ///   * registrationTypes (in)<br/>
+        /// | Field             | Operators |<br/>
+        /// |-------------------|-----------|<br/>
+        /// | id                | `in`      |<br/>
+        /// | registrationTypes | `in`      |<br/>
         /// <br/>
-        /// The following operator is available:<br/>
-        ///   * and.
+        /// The following logical operators are supported for combining filters:<br/>
+        /// * and.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string? Filter { get; set; }

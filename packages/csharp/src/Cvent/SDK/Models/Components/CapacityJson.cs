@@ -9,25 +9,30 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Registration capacity object containing registration type and reserved capacity.
+    /// Represents capacity statistics of the registration type.
     /// </summary>
     public class CapacityJson
     {
         /// <summary>
-        /// Registration type information.
+        /// The remaining capacity of an event item, such as registration type. A value of -1 denotes that remaining capacity is unlimited. A value less than 0 if total capacity is greater than 0 shows that the consumed capacity has surpassed the total capacity.
         /// </summary>
-        [JsonProperty("registrationType")]
-        public CapacityJsonRegistrationType RegistrationType { get; set; } = default!;
+        [JsonProperty("remaining")]
+        public long? Remaining { get; set; }
 
         /// <summary>
-        /// Reserved capacity of the registration type for an exhibitor.
+        /// The consumed capacity of an event item, such as registration type.
         /// </summary>
-        [JsonProperty("reservedCapacity")]
-        public long ReservedCapacity { get; set; } = default!;
+        [JsonProperty("consumed")]
+        public long? Consumed { get; set; }
+
+        /// <summary>
+        /// The total capacity of an event item, such as registration type. A value of -1 denotes unlimited capacity.
+        /// </summary>
+        [JsonProperty("total")]
+        public long Total { get; set; } = default!;
     }
 }

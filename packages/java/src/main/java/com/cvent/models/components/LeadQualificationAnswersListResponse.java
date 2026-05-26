@@ -25,11 +25,10 @@ public class LeadQualificationAnswersListResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<LeadQualificationAnswersJson> data;
+    private List<LeadQualificationAnswers> data;
 
     @JsonCreator
-    public LeadQualificationAnswersListResponse(
-            @JsonProperty("data") @Nullable List<LeadQualificationAnswersJson> data) {
+    public LeadQualificationAnswersListResponse(@JsonProperty("data") @Nullable List<LeadQualificationAnswers> data) {
         this.data = data;
     }
 
@@ -40,7 +39,7 @@ public class LeadQualificationAnswersListResponse {
     /**
      * Collection of Lead Qualification Answers.
      */
-    public Optional<List<LeadQualificationAnswersJson>> data() {
+    public Optional<List<LeadQualificationAnswers>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -51,7 +50,7 @@ public class LeadQualificationAnswersListResponse {
     /**
      * Collection of Lead Qualification Answers.
      */
-    public LeadQualificationAnswersListResponse withData(@Nullable List<LeadQualificationAnswersJson> data) {
+    public LeadQualificationAnswersListResponse withData(@Nullable List<LeadQualificationAnswers> data) {
         this.data = data;
         return this;
     }
@@ -81,7 +80,7 @@ public class LeadQualificationAnswersListResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<LeadQualificationAnswersJson> data;
+        private List<LeadQualificationAnswers> data;
 
         private Builder() {
             // force use of static builder() method
@@ -90,7 +89,7 @@ public class LeadQualificationAnswersListResponse {
         /**
          * Collection of Lead Qualification Answers.
          */
-        public Builder data(@Nullable List<LeadQualificationAnswersJson> data) {
+        public Builder data(@Nullable List<LeadQualificationAnswers> data) {
             this.data = data;
             return this;
         }

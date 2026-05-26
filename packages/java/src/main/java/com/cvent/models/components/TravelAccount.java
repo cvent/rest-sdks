@@ -83,7 +83,7 @@ public class TravelAccount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<AddressJson7> addresses;
+    private List<AddressJson6> addresses;
 
     @JsonCreator
     public TravelAccount(
@@ -95,7 +95,7 @@ public class TravelAccount {
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("type") @Nullable TravelAccountTypeJson type,
             @JsonProperty("certified") @Nullable Boolean certified,
-            @JsonProperty("addresses") @Nullable List<AddressJson7> addresses) {
+            @JsonProperty("addresses") @Nullable List<AddressJson6> addresses) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -170,7 +170,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public Optional<List<AddressJson7>> addresses() {
+    public Optional<List<AddressJson6>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
@@ -245,7 +245,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public TravelAccount withAddresses(@Nullable List<AddressJson7> addresses) {
+    public TravelAccount withAddresses(@Nullable List<AddressJson6> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -319,7 +319,7 @@ public class TravelAccount {
 
         private Boolean certified;
 
-        private List<AddressJson7> addresses;
+        private List<AddressJson6> addresses;
 
         private Builder() {
             // force use of static builder() method
@@ -392,7 +392,7 @@ public class TravelAccount {
         /**
          * List of addresses associated with the travel account.
          */
-        public Builder addresses(@Nullable List<AddressJson7> addresses) {
+        public Builder addresses(@Nullable List<AddressJson6> addresses) {
             this.addresses = addresses;
             return this;
         }

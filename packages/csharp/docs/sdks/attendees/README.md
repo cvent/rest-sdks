@@ -575,12 +575,12 @@ PostBadgeRequest req = new PostBadgeRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     Badge = new BadgeInput() {
         Id = "abc123",
-        Status = BadgeStatusJson.Active,
-        Type = BadgeTypeJson.Epc,
-        Attendee = new AttendeeJson3() {
+        Status = BadgeStatus.Active,
+        Type = BadgeType.Epc,
+        Attendee = new Attendee2() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -753,12 +753,12 @@ UpdateBadgeRequest req = new UpdateBadgeRequest() {
     BadgeId = "abc123",
     Badge = new BadgeInput() {
         Id = "abc123",
-        Status = BadgeStatusJson.Active,
-        Type = BadgeTypeJson.Epc,
-        Attendee = new AttendeeJson3() {
+        Status = BadgeStatus.Active,
+        Type = BadgeType.Epc,
+        Attendee = new Attendee2() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },

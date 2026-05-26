@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// The registration pack for an exhibitor. Contains at most one item.
         /// </summary>
         [JsonProperty("data")]
-        public List<ExistingRegistrationPackJson>? Data { get; set; }
+        public List<RegistrationPackResponse>? Data { get; set; }
     }
 }

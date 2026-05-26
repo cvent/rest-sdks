@@ -4,9 +4,9 @@
 
 import * as z from "zod/v3";
 import {
-  AnswerTypeJson1,
-  AnswerTypeJson1$outboundSchema,
-} from "./answertypejson1.js";
+  AnswerTypeJson,
+  AnswerTypeJson$outboundSchema,
+} from "./answertypejson.js";
 
 /**
  * A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine how to format the `value` array.
@@ -56,7 +56,7 @@ export type RequestedMeetingRequestQuestionJson = {
    *
    * In all other cases, `answerType` is not expected to be set.
    */
-  answerType?: AnswerTypeJson1 | undefined;
+  answerType?: AnswerTypeJson | undefined;
   /**
    * The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
    */
@@ -79,7 +79,7 @@ export const RequestedMeetingRequestQuestionJson$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   value: z.array(z.string()),
-  answerType: AnswerTypeJson1$outboundSchema.optional(),
+  answerType: AnswerTypeJson$outboundSchema.optional(),
   secondaryValue: z.string().optional(),
 });
 

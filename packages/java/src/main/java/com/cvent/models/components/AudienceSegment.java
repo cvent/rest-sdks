@@ -25,9 +25,8 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson3 event;
+    private EventJson2 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -44,23 +43,23 @@ public class AudienceSegment {
 
     @JsonCreator
     public AudienceSegment(
-            @JsonProperty("event") @Nullable EventJson3 event,
+            @JsonProperty("event") @Nonnull EventJson2 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
-        this.event = event;
+        this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.description = description;
     }
 
-    public AudienceSegment(@Nonnull String name) {
-        this(null, name, null);
+    public AudienceSegment(@Nonnull EventJson2 event, @Nonnull String name) {
+        this(event, name, null);
     }
 
     /**
      * ID of the event.
      */
-    public Optional<EventJson3> event() {
-        return Optional.ofNullable(this.event);
+    public EventJson2 event() {
+        return this.event;
     }
 
     /**
@@ -84,8 +83,8 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    public AudienceSegment withEvent(@Nullable EventJson3 event) {
-        this.event = event;
+    public AudienceSegment withEvent(@Nonnull EventJson2 event) {
+        this.event = Utils.checkNotNull(event, "event");
         return this;
     }
 
@@ -132,7 +131,7 @@ public class AudienceSegment {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson3 event;
+        private EventJson2 event;
 
         private String name;
 
@@ -145,8 +144,8 @@ public class AudienceSegment {
         /**
          * ID of the event.
          */
-        public Builder event(@Nullable EventJson3 event) {
-            this.event = event;
+        public Builder event(@Nonnull EventJson2 event) {
+            this.event = Utils.checkNotNull(event, "event");
             return this;
         }
 

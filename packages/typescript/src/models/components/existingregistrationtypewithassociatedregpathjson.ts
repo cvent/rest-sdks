@@ -10,7 +10,7 @@ import {
   AssociatedRegistrationPathJson,
   AssociatedRegistrationPathJson$inboundSchema,
 } from "./associatedregistrationpathjson.js";
-import { CapacityJson1, CapacityJson1$inboundSchema } from "./capacityjson1.js";
+import { CapacityJson, CapacityJson$inboundSchema } from "./capacityjson.js";
 
 /**
  * Event associated with the registration.
@@ -65,7 +65,7 @@ export type ExistingRegistrationTypeWithAssociatedRegPathJson = {
   /**
    * Represents capacity statistics of the registration type.
    */
-  capacity?: CapacityJson1 | undefined;
+  capacity?: CapacityJson | undefined;
   /**
    * Represents the details of a registration path.
    */
@@ -119,7 +119,7 @@ export const ExistingRegistrationTypeWithAssociatedRegPathJson$inboundSchema:
       ExistingRegistrationTypeWithAssociatedRegPathJsonEvent$inboundSchema
     ).optional(),
     id: z.string(),
-    capacity: CapacityJson1$inboundSchema.optional(),
+    capacity: CapacityJson$inboundSchema.optional(),
     registrationPath: AssociatedRegistrationPathJson$inboundSchema.optional(),
   });
 

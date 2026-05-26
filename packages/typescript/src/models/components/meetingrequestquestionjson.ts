@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AnswerTypeJson1,
-  AnswerTypeJson1$inboundSchema,
-} from "./answertypejson1.js";
+  AnswerTypeJson,
+  AnswerTypeJson$inboundSchema,
+} from "./answertypejson.js";
 import {
   CompositeValueJson,
   CompositeValueJson$inboundSchema,
@@ -66,7 +66,7 @@ export type MeetingRequestQuestionJson = {
    *
    * In all other cases, `answerType` is not expected to be set.
    */
-  answerType?: AnswerTypeJson1 | undefined;
+  answerType?: AnswerTypeJson | undefined;
   /**
    * The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.
    */
@@ -91,7 +91,7 @@ export const MeetingRequestQuestionJson$inboundSchema: z.ZodType<
   name: z.string().optional(),
   type: QuestionTypeJson1$inboundSchema.optional(),
   value: z.array(z.string()),
-  answerType: AnswerTypeJson1$inboundSchema.optional(),
+  answerType: AnswerTypeJson$inboundSchema.optional(),
   secondaryValue: z.string().optional(),
   compositeValue: CompositeValueJson$inboundSchema.optional(),
 });

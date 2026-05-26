@@ -53,7 +53,7 @@ namespace Cvent.SDK.Models.Components
         /// The owner of the Events+ hub and their information.
         /// </summary>
         [JsonProperty("owner")]
-        public HubOwnerJson Owner { get; set; } = default!;
+        public HubOwner Owner { get; set; } = default!;
 
         /// <summary>
         /// Custom domain name of the Events+ hub.
@@ -71,7 +71,7 @@ namespace Cvent.SDK.Models.Components
         /// All the colors associated with the Events+ hub.
         /// </summary>
         [JsonProperty("colors")]
-        public HubColorsJson? Colors { get; set; }
+        public HubColors? Colors { get; set; }
 
         /// <summary>
         /// True guarantees that controls shown on the page will contrast with the background color.
@@ -83,13 +83,13 @@ namespace Cvent.SDK.Models.Components
         /// The logo for the Events+ hub.
         /// </summary>
         [JsonProperty("logo")]
-        public HubLogoJson? Logo { get; set; }
+        public HubLogo? Logo { get; set; }
 
         /// <summary>
         /// The background image of the Events+ hub.
         /// </summary>
         [JsonProperty("background")]
-        public HubBackgroundJson? Background { get; set; }
+        public HubBackground? Background { get; set; }
 
         /// <summary>
         /// An IETF BCP 47 language tag used to indicate the language of the Events+ hub.
@@ -101,7 +101,7 @@ namespace Cvent.SDK.Models.Components
         /// The event calendar associated with this Events+ hub. The event calendar allows you to share multiple events and sessions in a list or calendar format.
         /// </summary>
         [JsonProperty("calendar")]
-        public HubCalendarJson? Calendar { get; set; }
+        public HubCalendar? Calendar { get; set; }
 
         /// <summary>
         /// Help email address to reach out in case of any issues logging in or registering.
@@ -125,19 +125,19 @@ namespace Cvent.SDK.Models.Components
         /// Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose of identifying and tracking traffic) settings will override passed in items.
         /// </summary>
         [JsonProperty("utmOverride")]
-        public UtmOverrideJson? UtmOverride { get; set; } = Cvent.SDK.Models.Components.UtmOverrideJson.UseExistingParameter;
+        public UTMOverride? UtmOverride { get; set; } = Cvent.SDK.Models.Components.UTMOverride.UseExistingParameter;
 
         /// <summary>
         /// The fonts of the Events+ hub.
         /// </summary>
         [JsonProperty("fonts")]
-        public HubFontsJson? Fonts { get; set; }
+        public HubFonts? Fonts { get; set; }
 
         /// <summary>
         /// Fields relating to the login process for the Events+ hub.
         /// </summary>
         [JsonProperty("login")]
-        public HubLoginJson? Login { get; set; }
+        public HubLogin? Login { get; set; }
 
         /// <summary>
         /// The unique ID of an Events+ Hub.
@@ -149,6 +149,6 @@ namespace Cvent.SDK.Models.Components
         /// The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members. Active: Members can access the Events+ Hub. Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
         /// </summary>
         [JsonProperty("status")]
-        public HubStatusPropertyJson? Status { get; set; }
+        public HubStatusProperty? Status { get; set; }
     }
 }

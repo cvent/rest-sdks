@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class MeetingRequestEvent
     {
         /// <summary>
-        /// Event ID.
+        /// Event ID. This field may be absent immediately after creation when the meeting request form is configured to auto-create an event on submission, as event creation is processed asynchronously.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }

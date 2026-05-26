@@ -10,7 +10,7 @@ import {
   InvitationListJson,
   InvitationListJson$inboundSchema,
 } from "./invitationlistjson.js";
-import { PagingJson25, PagingJson25$inboundSchema } from "./pagingjson25.js";
+import { PagingJson23, PagingJson23$inboundSchema } from "./pagingjson23.js";
 
 /**
  * Return a response object containing paginated data for the invitation list(s).
@@ -19,7 +19,7 @@ export type InvitationListPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson25;
+  paging: PagingJson23;
   /**
    * Collection of invitation list objects.
    */
@@ -32,7 +32,7 @@ export const InvitationListPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson25$inboundSchema,
+  paging: PagingJson23$inboundSchema,
   data: z.array(InvitationListJson$inboundSchema),
 });
 

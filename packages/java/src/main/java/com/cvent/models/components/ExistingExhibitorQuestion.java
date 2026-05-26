@@ -58,7 +58,7 @@ public class ExistingExhibitorQuestion {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The actual text of the exhibitor question.
@@ -83,7 +83,7 @@ public class ExistingExhibitorQuestion {
      * captures date and time information from respondents.
      */
     @JsonProperty("type")
-    private ExhibitorQuestionTypeJson type;
+    private ExhibitorQuestionType type;
 
     /**
      * A boolean indicating whether the question is mandatory or not
@@ -96,21 +96,21 @@ public class ExistingExhibitorQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<BaseChoiceJson> choices;
+    private List<BaseChoice> choices;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson11 notApplicableAnswer;
+    private AdditionalChoice notApplicableAnswer;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson11 otherAnswer;
+    private AdditionalChoice otherAnswer;
 
     /**
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
@@ -121,14 +121,14 @@ public class ExistingExhibitorQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerFormat")
-    private ExhibitorAnswerFormatJson answerFormat;
+    private ExhibitorAnswerFormat answerFormat;
 
     /**
      * Defines the limits for answers to exhibitor questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerLimits")
-    private ExhibitorAnswerLimitsJson answerLimits;
+    private ExhibitorAnswerLimits answerLimits;
 
     /**
      * True indicates the current date and time is automatically set as the default value for
@@ -157,16 +157,16 @@ public class ExistingExhibitorQuestion {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson6 event,
+            @JsonProperty("event") @Nonnull Event1 event,
             @JsonProperty("text") @Nonnull String text,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("type") @Nonnull ExhibitorQuestionTypeJson type,
+            @JsonProperty("type") @Nonnull ExhibitorQuestionType type,
             @JsonProperty("required") boolean required,
-            @JsonProperty("choices") @Nullable List<BaseChoiceJson> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson11 notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson11 otherAnswer,
-            @JsonProperty("answerFormat") @Nullable ExhibitorAnswerFormatJson answerFormat,
-            @JsonProperty("answerLimits") @Nullable ExhibitorAnswerLimitsJson answerLimits,
+            @JsonProperty("choices") @Nullable List<BaseChoice> choices,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoice otherAnswer,
+            @JsonProperty("answerFormat") @Nullable ExhibitorAnswerFormat answerFormat,
+            @JsonProperty("answerLimits") @Nullable ExhibitorAnswerLimits answerLimits,
             @JsonProperty("defaultToCurrentDate") @Nullable Boolean defaultToCurrentDate,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("displayOrder") @Nullable Long displayOrder) {
@@ -190,9 +190,9 @@ public class ExistingExhibitorQuestion {
     }
 
     public ExistingExhibitorQuestion(
-            @Nonnull EventJson6 event,
+            @Nonnull Event1 event,
             @Nonnull String text,
-            @Nonnull ExhibitorQuestionTypeJson type,
+            @Nonnull ExhibitorQuestionType type,
             boolean required,
             @Nonnull String id) {
         this(null, null, null, null, event, text, null, type, required, null, null, null, null, null, null, id, null);
@@ -229,7 +229,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
@@ -256,7 +256,7 @@ public class ExistingExhibitorQuestion {
      * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
      * captures date and time information from respondents.
      */
-    public ExhibitorQuestionTypeJson type() {
+    public ExhibitorQuestionType type() {
         return this.type;
     }
 
@@ -270,21 +270,21 @@ public class ExistingExhibitorQuestion {
     /**
      * An array of choices for the exhibitor question.
      */
-    public Optional<List<BaseChoiceJson>> choices() {
+    public Optional<List<BaseChoice>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson11> notApplicableAnswer() {
+    public Optional<AdditionalChoice> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoiceJson11> otherAnswer() {
+    public Optional<AdditionalChoice> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -295,14 +295,14 @@ public class ExistingExhibitorQuestion {
      *
      * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
      */
-    public Optional<ExhibitorAnswerFormatJson> answerFormat() {
+    public Optional<ExhibitorAnswerFormat> answerFormat() {
         return Optional.ofNullable(this.answerFormat);
     }
 
     /**
      * Defines the limits for answers to exhibitor questions.
      */
-    public Optional<ExhibitorAnswerLimitsJson> answerLimits() {
+    public Optional<ExhibitorAnswerLimits> answerLimits() {
         return Optional.ofNullable(this.answerLimits);
     }
 
@@ -367,7 +367,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorQuestion withEvent(@Nonnull EventJson6 event) {
+    public ExistingExhibitorQuestion withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -397,7 +397,7 @@ public class ExistingExhibitorQuestion {
      * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
      * captures date and time information from respondents.
      */
-    public ExistingExhibitorQuestion withType(@Nonnull ExhibitorQuestionTypeJson type) {
+    public ExistingExhibitorQuestion withType(@Nonnull ExhibitorQuestionType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -413,7 +413,7 @@ public class ExistingExhibitorQuestion {
     /**
      * An array of choices for the exhibitor question.
      */
-    public ExistingExhibitorQuestion withChoices(@Nullable List<BaseChoiceJson> choices) {
+    public ExistingExhibitorQuestion withChoices(@Nullable List<BaseChoice> choices) {
         this.choices = choices;
         return this;
     }
@@ -421,7 +421,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
+    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -429,7 +429,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoiceJson11 otherAnswer) {
+    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoice otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -441,7 +441,7 @@ public class ExistingExhibitorQuestion {
      *
      * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
      */
-    public ExistingExhibitorQuestion withAnswerFormat(@Nullable ExhibitorAnswerFormatJson answerFormat) {
+    public ExistingExhibitorQuestion withAnswerFormat(@Nullable ExhibitorAnswerFormat answerFormat) {
         this.answerFormat = answerFormat;
         return this;
     }
@@ -449,7 +449,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Defines the limits for answers to exhibitor questions.
      */
-    public ExistingExhibitorQuestion withAnswerLimits(@Nullable ExhibitorAnswerLimitsJson answerLimits) {
+    public ExistingExhibitorQuestion withAnswerLimits(@Nullable ExhibitorAnswerLimits answerLimits) {
         this.answerLimits = answerLimits;
         return this;
     }
@@ -580,25 +580,25 @@ public class ExistingExhibitorQuestion {
 
         private String lastModifiedBy;
 
-        private EventJson6 event;
+        private Event1 event;
 
         private String text;
 
         private String code;
 
-        private ExhibitorQuestionTypeJson type;
+        private ExhibitorQuestionType type;
 
         private boolean required;
 
-        private List<BaseChoiceJson> choices;
+        private List<BaseChoice> choices;
 
-        private AdditionalChoiceJson11 notApplicableAnswer;
+        private AdditionalChoice notApplicableAnswer;
 
-        private AdditionalChoiceJson11 otherAnswer;
+        private AdditionalChoice otherAnswer;
 
-        private ExhibitorAnswerFormatJson answerFormat;
+        private ExhibitorAnswerFormat answerFormat;
 
-        private ExhibitorAnswerLimitsJson answerLimits;
+        private ExhibitorAnswerLimits answerLimits;
 
         private Boolean defaultToCurrentDate;
 
@@ -645,7 +645,7 @@ public class ExistingExhibitorQuestion {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -675,7 +675,7 @@ public class ExistingExhibitorQuestion {
          * 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime':
          * captures date and time information from respondents.
          */
-        public Builder type(@Nonnull ExhibitorQuestionTypeJson type) {
+        public Builder type(@Nonnull ExhibitorQuestionType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -691,7 +691,7 @@ public class ExistingExhibitorQuestion {
         /**
          * An array of choices for the exhibitor question.
          */
-        public Builder choices(@Nullable List<BaseChoiceJson> choices) {
+        public Builder choices(@Nullable List<BaseChoice> choices) {
             this.choices = choices;
             return this;
         }
@@ -699,7 +699,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson11 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -707,7 +707,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson11 otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoice otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }
@@ -719,7 +719,7 @@ public class ExistingExhibitorQuestion {
          *
          * <p>For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
          */
-        public Builder answerFormat(@Nullable ExhibitorAnswerFormatJson answerFormat) {
+        public Builder answerFormat(@Nullable ExhibitorAnswerFormat answerFormat) {
             this.answerFormat = answerFormat;
             return this;
         }
@@ -727,7 +727,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Defines the limits for answers to exhibitor questions.
          */
-        public Builder answerLimits(@Nullable ExhibitorAnswerLimitsJson answerLimits) {
+        public Builder answerLimits(@Nullable ExhibitorAnswerLimits answerLimits) {
             this.answerLimits = answerLimits;
             return this;
         }

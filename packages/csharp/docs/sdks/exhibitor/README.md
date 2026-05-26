@@ -131,7 +131,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorCategoryRequest req = new CreateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -191,7 +191,7 @@ UpdateExhibitorCategoryRequest req = new UpdateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryId = "534a465b-b4cb-471d-9498-4bf3917ad8bf",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -679,7 +679,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorRequest req = new CreateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -687,7 +687,7 @@ CreateExhibitorRequest req = new CreateExhibitorRequest() {
         Code = "abc123",
         SourceId = "software",
         Location = "Taj Mahal",
-        Address = new ExhibitorAddressJson() {
+        Address = new Address11() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             City = "Austin",
@@ -700,21 +700,21 @@ CreateExhibitorRequest req = new CreateExhibitorRequest() {
         WorkPhone = "555-555-5555",
         OtherPhone = "555-555-5555",
         Website = "www.superhappyfuntime.com",
-        ContactLinks = new ContactLinksJson2() {
-            TwitterUrl = new LinkJson() {
+        ContactLinks = new ContactLinks() {
+            TwitterUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            FacebookUrl = new LinkJson() {
+            FacebookUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            LinkedInUrl = new LinkJson() {
+            LinkedInUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            InstagramUrl = new LinkJson() {
+            InstagramUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
         },
-        SponsorshipLevel = new SponsorshipLevelJson() {
+        SponsorshipLevel = new SponsorshipLevel() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -821,7 +821,7 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -829,7 +829,7 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
         Code = "abc123",
         SourceId = "software",
         Location = "Taj Mahal",
-        Address = new ExhibitorAddressJson() {
+        Address = new Address11() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             City = "Austin",
@@ -842,21 +842,21 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
         WorkPhone = "555-555-5555",
         OtherPhone = "555-555-5555",
         Website = "www.superhappyfuntime.com",
-        ContactLinks = new ContactLinksJson2() {
-            TwitterUrl = new LinkJson() {
+        ContactLinks = new ContactLinks() {
+            TwitterUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            FacebookUrl = new LinkJson() {
+            FacebookUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            LinkedInUrl = new LinkJson() {
+            LinkedInUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            InstagramUrl = new LinkJson() {
+            InstagramUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
         },
-        SponsorshipLevel = new SponsorshipLevelJson() {
+        SponsorshipLevel = new SponsorshipLevel() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -1122,20 +1122,20 @@ UpdateExhibitorAnswersRequest req = new UpdateExhibitorAnswersRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     ExhibitorAnswersRequest = new ExhibitorAnswersRequest() {
-        Data = new List<ExistingExhibitorAnswerJsonInput>() {
-            new ExistingExhibitorAnswerJsonInput() {
-                Question = new UuidJson() {
+        Data = new List<ExistingExhibitorAnswerInput>() {
+            new ExistingExhibitorAnswerInput() {
+                Question = new Uuid1() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Event = new EventJson6() {
+                Event = new Event1() {
                     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
                 },
-                Exhibitor = new ExhibitorJson() {
+                Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
                     Id = "4888db54-db22-11eb-8d19-0242ac130003",
                 },
-                Answers = new List<AnswerJson0>() {
-                    new AnswerJson0() {
-                        Type = AnswerTypeJson0.Choice,
+                Answers = new List<Answer2>() {
+                    new Answer2() {
+                        Type = AnswerType1.Choice,
                         Value = "Choice A",
                     },
                 },
@@ -1410,15 +1410,15 @@ PostRegistrationPackRequest req = new PostRegistrationPackRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
-        Exhibitor = new ExhibitorJson() {
+        Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
             Id = "4888db54-db22-11eb-8d19-0242ac130003",
         },
-        Capacities = new List<CapacityJson>() {
-            new CapacityJson() {
-                RegistrationType = new CapacityJsonRegistrationType() {
+        Capacities = new List<Capacity>() {
+            new Capacity() {
+                RegistrationType = new CapacityRegistrationType() {
                     Id = "923d5629-3cac-40c2-8237-34937dd93475",
                 },
                 ReservedCapacity = 5,
@@ -1584,15 +1584,15 @@ UpdateRegistrationPackRequest req = new UpdateRegistrationPackRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackId = "50f4f0df-0c2d-4e6b-8e68-e1413b6917f5",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new EventJson6() {
+        Event = new Event1() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
-        Exhibitor = new ExhibitorJson() {
+        Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
             Id = "4888db54-db22-11eb-8d19-0242ac130003",
         },
-        Capacities = new List<CapacityJson>() {
-            new CapacityJson() {
-                RegistrationType = new CapacityJsonRegistrationType() {
+        Capacities = new List<Capacity>() {
+            new Capacity() {
+                RegistrationType = new CapacityRegistrationType() {
                     Id = "923d5629-3cac-40c2-8237-34937dd93475",
                 },
                 ReservedCapacity = 5,

@@ -22,18 +22,17 @@ public class PaginatedExistingMember {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of Events+ members.
      */
     @JsonProperty("data")
-    private List<ExistingMemberJson> data;
+    private List<ExistingMember> data;
 
     @JsonCreator
     public PaginatedExistingMember(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ExistingMemberJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<ExistingMember> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class PaginatedExistingMember {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of Events+ members.
      */
-    public List<ExistingMemberJson> data() {
+    public List<ExistingMember> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class PaginatedExistingMember {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedExistingMember withPaging(@Nonnull PagingJson paging) {
+    public PaginatedExistingMember withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class PaginatedExistingMember {
     /**
      * Collection of Events+ members.
      */
-    public PaginatedExistingMember withData(@Nonnull List<ExistingMemberJson> data) {
+    public PaginatedExistingMember withData(@Nonnull List<ExistingMember> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class PaginatedExistingMember {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingMemberJson> data;
+        private List<ExistingMember> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class PaginatedExistingMember {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class PaginatedExistingMember {
         /**
          * Collection of Events+ members.
          */
-        public Builder data(@Nonnull List<ExistingMemberJson> data) {
+        public Builder data(@Nonnull List<ExistingMember> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

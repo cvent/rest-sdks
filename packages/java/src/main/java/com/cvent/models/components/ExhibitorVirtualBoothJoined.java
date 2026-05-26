@@ -24,7 +24,7 @@ public class ExhibitorVirtualBoothJoined {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson1 exhibitor;
+    private ExhibitorJson exhibitor;
 
     /**
      * The platform used by the user.
@@ -49,7 +49,7 @@ public class ExhibitorVirtualBoothJoined {
 
     @JsonCreator
     public ExhibitorVirtualBoothJoined(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson1 exhibitor,
+            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("sponsorshipLevel") @Nullable ActivityExhibitorSponsorshipLevelJson sponsorshipLevel,
             @JsonProperty("solutionType") @Nullable String solutionType) {
@@ -66,7 +66,7 @@ public class ExhibitorVirtualBoothJoined {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson1> exhibitor() {
+    public Optional<ExhibitorJson> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -98,7 +98,7 @@ public class ExhibitorVirtualBoothJoined {
     /**
      * An exhibitor.
      */
-    public ExhibitorVirtualBoothJoined withExhibitor(@Nullable ExhibitorJson1 exhibitor) {
+    public ExhibitorVirtualBoothJoined withExhibitor(@Nullable ExhibitorJson exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -165,7 +165,7 @@ public class ExhibitorVirtualBoothJoined {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson1 exhibitor;
+        private ExhibitorJson exhibitor;
 
         private String platform;
 
@@ -180,7 +180,7 @@ public class ExhibitorVirtualBoothJoined {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson1 exhibitor) {
+        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }

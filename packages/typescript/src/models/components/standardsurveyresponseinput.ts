@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  AnswerJson1,
-  AnswerJson1$Outbound,
-  AnswerJson1$outboundSchema,
-} from "./answerjson1.js";
+  AnswerJson,
+  AnswerJson$Outbound,
+  AnswerJson$outboundSchema,
+} from "./answerjson.js";
 import {
   LoopingChoiceJson,
   LoopingChoiceJson$Outbound,
@@ -30,7 +30,7 @@ export type StandardSurveyResponseInput = {
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson1>;
+  answers: Array<AnswerJson>;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
@@ -44,7 +44,7 @@ export type StandardSurveyResponseInput = {
 /** @internal */
 export type StandardSurveyResponseInput$Outbound = {
   question: UuidJson$Outbound;
-  answers: Array<AnswerJson1$Outbound>;
+  answers: Array<AnswerJson$Outbound>;
   survey?: UuidJson$Outbound | undefined;
   loopingChoice?: LoopingChoiceJson$Outbound | undefined;
 };
@@ -56,7 +56,7 @@ export const StandardSurveyResponseInput$outboundSchema: z.ZodType<
   StandardSurveyResponseInput
 > = z.object({
   question: UuidJson$outboundSchema,
-  answers: z.array(AnswerJson1$outboundSchema),
+  answers: z.array(AnswerJson$outboundSchema),
   survey: UuidJson$outboundSchema.optional(),
   loopingChoice: LoopingChoiceJson$outboundSchema.optional(),
 });

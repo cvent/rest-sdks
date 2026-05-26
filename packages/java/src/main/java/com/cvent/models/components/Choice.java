@@ -16,30 +16,63 @@ import java.util.Optional;
 /**
  * Choice
  *
- * <p>The choice that was selected.
+ * <p>A schema representing a choice object
  */
 public class Choice {
     /**
-     * The ID of the choice that was selected.
+     * Unique identifier for the choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
+    /**
+     * Text value of the field
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("text")
+    private String text;
+
+    /**
+     * Label of choice
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("label")
+    private String label;
+
     @JsonCreator
-    public Choice(@JsonProperty("id") @Nullable String id) {
+    public Choice(
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("text") @Nullable String text,
+            @JsonProperty("label") @Nullable String label) {
         this.id = id;
+        this.text = text;
+        this.label = label;
     }
 
     public Choice() {
-        this(null);
+        this(null, null, null);
     }
 
     /**
-     * The ID of the choice that was selected.
+     * Unique identifier for the choice
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * Text value of the field
+     */
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
+    }
+
+    /**
+     * Label of choice
+     */
+    public Optional<String> label() {
+        return Optional.ofNullable(this.label);
     }
 
     public static Builder builder() {
@@ -47,10 +80,26 @@ public class Choice {
     }
 
     /**
-     * The ID of the choice that was selected.
+     * Unique identifier for the choice
      */
     public Choice withId(@Nullable String id) {
         this.id = id;
+        return this;
+    }
+
+    /**
+     * Text value of the field
+     */
+    public Choice withText(@Nullable String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Label of choice
+     */
+    public Choice withLabel(@Nullable String label) {
+        this.label = label;
         return this;
     }
 
@@ -63,17 +112,19 @@ public class Choice {
             return false;
         }
         Choice other = (Choice) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.label, other.label);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(id, text, label);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Choice.class, "id", id);
+        return Utils.toString(Choice.class, "id", id, "text", text, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -81,20 +132,40 @@ public class Choice {
 
         private String id;
 
+        private String text;
+
+        private String label;
+
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The ID of the choice that was selected.
+         * Unique identifier for the choice
          */
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
 
+        /**
+         * Text value of the field
+         */
+        public Builder text(@Nullable String text) {
+            this.text = text;
+            return this;
+        }
+
+        /**
+         * Label of choice
+         */
+        public Builder label(@Nullable String label) {
+            this.label = label;
+            return this;
+        }
+
         public Choice build() {
-            return new Choice(id);
+            return new Choice(id, text, label);
         }
     }
 }

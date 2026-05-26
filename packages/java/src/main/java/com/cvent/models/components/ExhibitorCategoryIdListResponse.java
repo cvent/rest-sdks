@@ -25,19 +25,19 @@ public class ExhibitorCategoryIdListResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Paginated list of exhibitor category Ids for an exhibitor.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExhibitorCategoryIdJson> data;
+    private List<ExhibitorCategoryId> data;
 
     @JsonCreator
     public ExhibitorCategoryIdListResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExhibitorCategoryIdJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<ExhibitorCategoryId> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class ExhibitorCategoryIdListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Paginated list of exhibitor category Ids for an exhibitor.
      */
-    public Optional<List<ExhibitorCategoryIdJson>> data() {
+    public Optional<List<ExhibitorCategoryId>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class ExhibitorCategoryIdListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ExhibitorCategoryIdListResponse withPaging(@Nullable PagingJson paging) {
+    public ExhibitorCategoryIdListResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class ExhibitorCategoryIdListResponse {
     /**
      * Paginated list of exhibitor category Ids for an exhibitor.
      */
-    public ExhibitorCategoryIdListResponse withData(@Nullable List<ExhibitorCategoryIdJson> data) {
+    public ExhibitorCategoryIdListResponse withData(@Nullable List<ExhibitorCategoryId> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class ExhibitorCategoryIdListResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExhibitorCategoryIdJson> data;
+        private List<ExhibitorCategoryId> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class ExhibitorCategoryIdListResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class ExhibitorCategoryIdListResponse {
         /**
          * Paginated list of exhibitor category Ids for an exhibitor.
          */
-        public Builder data(@Nullable List<ExhibitorCategoryIdJson> data) {
+        public Builder data(@Nullable List<ExhibitorCategoryId> data) {
             this.data = data;
             return this;
         }

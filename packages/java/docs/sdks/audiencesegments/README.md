@@ -11,7 +11,9 @@ audience segment.
 
 ### Available Operations
 
+* [listAttendeeAudienceSegments](#listattendeeaudiencesegments) - List Associated Segments
 * [disassociateAttendeeFromAudienceSegments](#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
+* [listAssociatedAudienceSegments](#listassociatedaudiencesegments) - List Associated Segments
 * [createAudienceSegment](#createaudiencesegment) - Create Audience Segment
 * [listAudienceSegments](#listaudiencesegments) - List Audience Segments
 * [listAudienceSegmentsPostFilter](#listaudiencesegmentspostfilter) - List Audience Segments
@@ -21,6 +23,77 @@ audience segment.
 * [listSegmentAssociatedAttendees](#listsegmentassociatedattendees) - List Associated Attendees
 * [associateAttendeeToSegment](#associateattendeetosegment) - Associate Attendee to Segment
 * [disassociateAttendeeFromAudienceSegment](#disassociateattendeefromaudiencesegment) - Disassociate Attendee
+
+## listAttendeeAudienceSegments
+
+Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query parameter to filter by segment ID.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listAttendeeAudienceSegments" method="get" path="/attendees/{attendeeId}/audience-segments" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsRequest;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAttendeeAudienceSegmentsRequest req = ListAttendeeAudienceSegmentsRequest.builder()
+                .attendeeId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .filter("segment.id eq '313097a4-143d-11e5-9f99-d0a637ee0897'")
+                .build();
+
+
+        sdk.audienceSegments().listAttendeeAudienceSegments()
+                .callAsStream()
+                .forEach((ListAttendeeAudienceSegmentsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                             | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `request`                                                                                             | [ListAttendeeAudienceSegmentsRequest](../../models/operations/ListAttendeeAudienceSegmentsRequest.md) | :heavy_check_mark:                                                                                    | The request object to use for the request.                                                            |
+
+### Response
+
+**[ListAttendeeAudienceSegmentsResponse](../../models/operations/ListAttendeeAudienceSegmentsResponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
+| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
 
 ## disassociateAttendeeFromAudienceSegments
 
@@ -89,6 +162,79 @@ public class Application {
 | models/errors/ErrorResponse | 401, 403, 404               | application/json            |
 | models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
 
+## listAssociatedAudienceSegments
+
+Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in the body of the request. This method returns the same data as [GET List Associated Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listAssociatedAudienceSegments" method="post" path="/attendees/{attendeeId}/audience-segments/filter" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.*;
+import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsRequest;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListAssociatedAudienceSegmentsRequest req = ListAssociatedAudienceSegmentsRequest.builder()
+                .attendeeId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .filter(Filter.builder()
+                    .filter("segment.id in ('313097a4-143d-11e5-9f99-d0a637ee0897', '423097a4-143d-11e5-9f99-d0a637ee0897')")
+                    .build())
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .build();
+
+
+        sdk.audienceSegments().listAssociatedAudienceSegments()
+                .callAsStream()
+                .forEach((ListAssociatedAudienceSegmentsResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                 | [ListAssociatedAudienceSegmentsRequest](../../models/operations/ListAssociatedAudienceSegmentsRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+
+### Response
+
+**[ListAssociatedAudienceSegmentsResponse](../../models/operations/ListAssociatedAudienceSegmentsResponse.md)**
+
+### Errors
+
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
+| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+
 ## createAudienceSegment
 
 Creates an audience segment in the given event based on the details supplied in the request body.
@@ -126,10 +272,10 @@ public class Application {
             .build();
 
         AudienceSegmentCreate req = AudienceSegmentCreate.builder()
-                .name("VIP Attendees")
-                .event(EventJson3.builder()
+                .event(EventJson2.builder()
                     .id("103097a4-143d-11e5-9f99-d0a637ee0032")
                     .build())
+                .name("VIP Attendees")
                 .description("A group of VIP attendees.")
                 .build();
 
@@ -428,10 +574,10 @@ public class Application {
         UpdateAudienceSegmentRequest req = UpdateAudienceSegmentRequest.builder()
                 .audienceSegmentId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                 .audienceSegment(AudienceSegment.builder()
-                    .name("VIP Attendees")
-                    .event(EventJson3.builder()
+                    .event(EventJson2.builder()
                         .id("103097a4-143d-11e5-9f99-d0a637ee0032")
                         .build())
+                    .name("VIP Attendees")
                     .description("A group of VIP attendees.")
                     .build())
                 .build();

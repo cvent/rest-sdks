@@ -54,6 +54,14 @@ actions:
     update: "#/components/schemas/error-response"
   - target: $["components"]["responses"]["Unauthorized34"]["content"]["application/json"]["schema"]["$ref"]
     update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["BadRequest35"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["Forbidden35"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["NotFound35"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
+  - target: $["components"]["responses"]["Unauthorized35"]["content"]["application/json"]["schema"]["$ref"]
+    update: "#/components/schemas/error-response"
   - target: $["components"]["schemas"]["ErrorResponse"]
     remove: true
   - target: $["components"]["schemas"]["supplier-summary.json"]["properties"]["supplier"]["oneOf"][0]

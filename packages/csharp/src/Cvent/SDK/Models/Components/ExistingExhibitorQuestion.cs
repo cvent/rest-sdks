@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson6 Event { get; set; } = default!;
+        public Event1 Event { get; set; } = default!;
 
         /// <summary>
         /// The actual text of the exhibitor question.
@@ -66,7 +66,7 @@ namespace Cvent.SDK.Models.Components
         /// Enumeration indicating the type of data collected by an exhibitor question. 'MultiChoice': Respondents select multiple options from a list. 'SingleChoice': restricts respondents to a single option from a list, often displayed as a dropdown or radio button. 'OpenEndedTextOneLine': brief text responses, such as names or short answers. 'OpenEndedTextCommentBox': longer text responses for detailed feedback. 'OpenEndedDateTime': captures date and time information from respondents.
         /// </summary>
         [JsonProperty("type")]
-        public ExhibitorQuestionTypeJson Type { get; set; } = default!;
+        public ExhibitorQuestionType Type { get; set; } = default!;
 
         /// <summary>
         /// A boolean indicating whether the question is mandatory or not.
@@ -78,31 +78,31 @@ namespace Cvent.SDK.Models.Components
         /// An array of choices for the exhibitor question.
         /// </summary>
         [JsonProperty("choices")]
-        public List<BaseChoiceJson>? Choices { get; set; }
+        public List<BaseChoice>? Choices { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoiceJson11? NotApplicableAnswer { get; set; }
+        public AdditionalChoice? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
-        public AdditionalChoiceJson11? OtherAnswer { get; set; }
+        public AdditionalChoice? OtherAnswer { get; set; }
 
         /// <summary>
         /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
         /// </summary>
         [JsonProperty("answerFormat")]
-        public ExhibitorAnswerFormatJson? AnswerFormat { get; set; }
+        public ExhibitorAnswerFormat? AnswerFormat { get; set; }
 
         /// <summary>
         /// Defines the limits for answers to exhibitor questions.
         /// </summary>
         [JsonProperty("answerLimits")]
-        public ExhibitorAnswerLimitsJson? AnswerLimits { get; set; }
+        public ExhibitorAnswerLimits? AnswerLimits { get; set; }
 
         /// <summary>
         /// True indicates the current date and time is automatically set as the default value for OpenEndedDateTime questions.

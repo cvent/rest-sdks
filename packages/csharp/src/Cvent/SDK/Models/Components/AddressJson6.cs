@@ -9,55 +9,60 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Address.
+    /// Address details.
     /// </summary>
     public class AddressJson6
     {
         /// <summary>
-        /// The type of the address.
+        /// Address line 1.
         /// </summary>
-        [JsonProperty("type")]
-        public AddressTypeJson1 Type { get; set; } = default!;
+        [JsonProperty("address1")]
+        public string? Address1 { get; set; }
 
         /// <summary>
-        /// The street address of the user.
+        /// Address line 2.
         /// </summary>
-        [JsonProperty("streetAddress")]
-        public string? StreetAddress { get; set; }
+        [JsonProperty("address2")]
+        public string? Address2 { get; set; }
 
         /// <summary>
-        /// The locality/city of the user.
+        /// City name.
         /// </summary>
-        [JsonProperty("locality")]
-        public string? Locality { get; set; }
+        [JsonProperty("city")]
+        public string? City { get; set; }
 
         /// <summary>
-        /// The region/state/province of the user.
+        /// Region name.
         /// </summary>
         [JsonProperty("region")]
         public string? Region { get; set; }
 
         /// <summary>
-        /// Postal code (also known as zipcode) of the user.
+        /// Region code.
+        /// </summary>
+        [JsonProperty("regionCode")]
+        public string? RegionCode { get; set; }
+
+        /// <summary>
+        /// Postal code.
         /// </summary>
         [JsonProperty("postalCode")]
         public string? PostalCode { get; set; }
 
         /// <summary>
-        /// The country of the user.
+        /// Country name.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }
 
         /// <summary>
-        /// True indicates the address is primary.
+        /// ISO 3166 alpha-2 country code.
         /// </summary>
-        [JsonProperty("primary")]
-        public bool? Primary { get; set; } = false;
+        [JsonProperty("countryCode")]
+        public string? CountryCode { get; set; }
     }
 }

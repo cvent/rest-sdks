@@ -1,20 +1,17 @@
 # AddressJson4
 
-Address details
+A physical address.
 
 
 ## Fields
 
-| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `address1`                                                    | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The first line of an address.                                 | Cvent Inc.                                                    |
-| `address2`                                                    | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The second line of an address.                                | 4001 West Parmer Lane                                         |
-| `address3`                                                    | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The third line of an address.                                 | PO Box 123                                                    |
-| `city`                                                        | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The name of the city.                                         | Austin                                                        |
-| `countryCode`                                                 | *Optional\<String>*                                           | :heavy_minus_sign:                                            | ISO 3166 two-letter (alpha-2) country code.                   | US                                                            |
-| `postalCode`                                                  | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the address.           | 78727                                                         |
-| `region`                                                      | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
-| `regionCode`                                                  | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
-| `country`                                                     | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Name of the country of the address.                           | United States of America                                      |
-| `latitude`                                                    | *Optional\<Long>*                                             | :heavy_minus_sign:                                            | The geo latitude of the address.                              | 30                                                            |
-| `longitude`                                                   | *Optional\<Long>*                                             | :heavy_minus_sign:                                            | The geo longitude of the address.                             | -97                                                           |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `address1`                     | *Optional\<String>*            | :heavy_minus_sign:             | Address line 1.                | 717 N Harwood St               |
+| `address2`                     | *Optional\<String>*            | :heavy_minus_sign:             | Address line 2.                | Suite 2800                     |
+| `city`                         | *Optional\<String>*            | :heavy_minus_sign:             | City name.                     | Dallas                         |
+| `region`                       | *Optional\<String>*            | :heavy_minus_sign:             | Region name.                   | Texas                          |
+| `regionCode`                   | *Optional\<String>*            | :heavy_minus_sign:             | Region code.                   | TX                             |
+| `postalCode`                   | *Optional\<String>*            | :heavy_minus_sign:             | Postal code.                   | 75201                          |
+| `country`                      | *Optional\<String>*            | :heavy_minus_sign:             | Country name.                  | United States                  |
+| `countryCode`                  | *Optional\<String>*            | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

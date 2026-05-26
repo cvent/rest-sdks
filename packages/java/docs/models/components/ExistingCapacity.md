@@ -1,0 +1,12 @@
+# ExistingCapacity
+
+Represents the existing capacity of the registration type for an exhibitor
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `registrationType`                                                                              | [ExistingCapacityRegistrationType](../../models/components/ExistingCapacityRegistrationType.md) | :heavy_check_mark:                                                                              | Registration type information                                                                   |                                                                                                 |
+| `reservedCapacity`                                                                              | *long*                                                                                          | :heavy_check_mark:                                                                              | Reserved capacity of the registration type for an exhibitor                                     | 5                                                                                               |
+| `availableCapacity`                                                                             | *long*                                                                                          | :heavy_check_mark:                                                                              | Available capacity of the registration type for an exhibitor                                    | 4                                                                                               |

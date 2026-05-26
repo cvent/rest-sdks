@@ -53,7 +53,13 @@ public class EventFeatureJson {
      * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the
      * event app. |
      * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and
-     * the event. |
+     * the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+     * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and
+     * sessions, and award credits to attendees. Also enables creating certificates, linking them to credit
+     * rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be
+     * active at a time.
+     *
+     * <p>|
      */
     @JsonProperty("type")
     private FeatureTypeJson type;
@@ -161,7 +167,13 @@ public class EventFeatureJson {
      * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the
      * event app. |
      * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and
-     * the event. |
+     * the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+     * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and
+     * sessions, and award credits to attendees. Also enables creating certificates, linking them to credit
+     * rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be
+     * active at a time.
+     *
+     * <p>|
      */
     public FeatureTypeJson type() {
         return this.type;
@@ -252,7 +264,13 @@ public class EventFeatureJson {
      * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the
      * event app. |
      * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and
-     * the event. |
+     * the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+     * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and
+     * sessions, and award credits to attendees. Also enables creating certificates, linking them to credit
+     * rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be
+     * active at a time.
+     *
+     * <p>|
      */
     public EventFeatureJson withType(@Nonnull FeatureTypeJson type) {
         this.type = Utils.checkNotNull(type, "type");
@@ -416,7 +434,13 @@ public class EventFeatureJson {
          * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the
          * event app. |
          * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and
-         * the event. |
+         * the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+         * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and
+         * sessions, and award credits to attendees. Also enables creating certificates, linking them to credit
+         * rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be
+         * active at a time.
+         *
+         * <p>|
          */
         public Builder type(@Nonnull FeatureTypeJson type) {
             this.type = Utils.checkNotNull(type, "type");

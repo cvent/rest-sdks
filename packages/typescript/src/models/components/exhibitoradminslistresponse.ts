@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingExhibitorAdminJson,
-  ExistingExhibitorAdminJson$inboundSchema,
-} from "./existingexhibitoradminjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExhibitorAdminResponse,
+  ExhibitorAdminResponse$inboundSchema,
+} from "./exhibitoradminresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Exhibitor Admins List Response schema
@@ -19,11 +19,11 @@ export type ExhibitorAdminsListResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of exhibitor admins.
    */
-  data?: Array<ExistingExhibitorAdminJson> | undefined;
+  data?: Array<ExhibitorAdminResponse> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const ExhibitorAdminsListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExistingExhibitorAdminJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ExhibitorAdminResponse$inboundSchema).optional(),
 });
 
 export function exhibitorAdminsListResponseFromJSON(

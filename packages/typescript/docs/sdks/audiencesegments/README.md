@@ -11,7 +11,9 @@ audience segment.
 
 ### Available Operations
 
+* [listAttendeeAudienceSegments](#listattendeeaudiencesegments) - List Associated Segments
 * [disassociateAttendeeFromAudienceSegments](#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
+* [listAssociatedAudienceSegments](#listassociatedaudiencesegments) - List Associated Segments
 * [createAudienceSegment](#createaudiencesegment) - Create Audience Segment
 * [listAudienceSegments](#listaudiencesegments) - List Audience Segments
 * [listAudienceSegmentsPostFilter](#listaudiencesegmentspostfilter) - List Audience Segments
@@ -21,6 +23,105 @@ audience segment.
 * [listSegmentAssociatedAttendees](#listsegmentassociatedattendees) - List Associated Attendees
 * [associateAttendeeToSegment](#associateattendeetosegment) - Associate Attendee to Segment
 * [disassociateAttendeeFromAudienceSegment](#disassociateattendeefromaudiencesegment) - Disassociate Attendee
+
+## listAttendeeAudienceSegments
+
+Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query parameter to filter by segment ID.
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listAttendeeAudienceSegments" method="get" path="/attendees/{attendeeId}/audience-segments" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.audienceSegments.listAttendeeAudienceSegments({
+    attendeeId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "segment.id eq '313097a4-143d-11e5-9f99-d0a637ee0897'",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { audienceSegmentsListAttendeeAudienceSegments } from "@cvent/sdk/funcs/audienceSegmentsListAttendeeAudienceSegments.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await audienceSegmentsListAttendeeAudienceSegments(cventSDK, {
+    attendeeId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "segment.id eq '313097a4-143d-11e5-9f99-d0a637ee0897'",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("audienceSegmentsListAttendeeAudienceSegments failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListAttendeeAudienceSegmentsRequest](../../models/operations/listattendeeaudiencesegmentsrequest.md)                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListAttendeeAudienceSegmentsResponse](../../models/operations/listattendeeaudiencesegmentsresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## disassociateAttendeeFromAudienceSegments
 
@@ -112,6 +213,110 @@ run();
 | -------------------- | -------------------- | -------------------- |
 | errors.ErrorResponse | 401, 403, 404        | application/json     |
 | errors.APIError      | 4XX, 5XX             | \*/\*                |
+
+## listAssociatedAudienceSegments
+
+Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in the body of the request. This method returns the same data as [GET List Associated Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+
+
+More about OAuth2 authorization code support for administrators
+<#oauth2-auth-code-planner-admin>
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listAssociatedAudienceSegments" method="post" path="/attendees/{attendeeId}/audience-segments/filter" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.audienceSegments.listAssociatedAudienceSegments({
+    attendeeId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: {
+      filter: "segment.id in ('313097a4-143d-11e5-9f99-d0a637ee0897', '423097a4-143d-11e5-9f99-d0a637ee0897')",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { audienceSegmentsListAssociatedAudienceSegments } from "@cvent/sdk/funcs/audienceSegmentsListAssociatedAudienceSegments.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await audienceSegmentsListAssociatedAudienceSegments(cventSDK, {
+    attendeeId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: {
+      filter: "segment.id in ('313097a4-143d-11e5-9f99-d0a637ee0897', '423097a4-143d-11e5-9f99-d0a637ee0897')",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("audienceSegmentsListAssociatedAudienceSegments failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListAssociatedAudienceSegmentsRequest](../../models/operations/listassociatedaudiencesegmentsrequest.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListAssociatedAudienceSegmentsResponse](../../models/operations/listassociatedaudiencesegmentsresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createAudienceSegment
 

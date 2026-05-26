@@ -22,6 +22,7 @@ More about OAuth2 authorization code support for administrators
 using Cvent.SDK;
 using Cvent.SDK.Models.Components;
 using Cvent.SDK.Models.Requests;
+using System;
 using System.Collections.Generic;
 
 var sdk = new CventSDK(security: new Security() {
@@ -35,6 +36,8 @@ var sdk = new CventSDK(security: new Security() {
 
 ListEventRoleAssignmentRequest req = new ListEventRoleAssignmentRequest() {
     Token = "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    After = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
+    Before = System.DateTime.Parse("2017-01-02T02:00:00Z").ToUniversalTime(),
     Expand = new List<EventRoleExpand>() {
         EventRoleExpand.EventRole,
     },

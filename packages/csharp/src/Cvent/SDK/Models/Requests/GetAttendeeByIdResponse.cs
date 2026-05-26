@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved an attendee object.
         /// </summary>
-        public Attendee? Attendee { get; set; }
+        public Attendee1? Attendee { get; set; }
     }
 }

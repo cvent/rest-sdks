@@ -27,6 +27,7 @@ import com.cvent.models.errors.ErrorResponse;
 import com.cvent.models.operations.ListEventRoleAssignmentRequest;
 import com.cvent.models.operations.ListEventRoleAssignmentResponse;
 import java.lang.Exception;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 public class Application {
@@ -46,6 +47,8 @@ public class Application {
 
         ListEventRoleAssignmentRequest req = ListEventRoleAssignmentRequest.builder()
                 .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
                 .expand(List.of(
                     EventRoleExpand.EVENT_ROLE))
                 .filter("event.id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3' and user.id eq '6807e044-993b-428c-aec8-7316f13c1b95'")

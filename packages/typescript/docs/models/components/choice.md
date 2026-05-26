@@ -1,17 +1,22 @@
 # Choice
 
-The choice that was selected.
+A schema representing a choice object
 
 ## Example Usage
 
 ```typescript
 import { Choice } from "@cvent/sdk/models/components";
 
-let value: Choice = {};
+let value: Choice = {
+  text: "Choice 1",
+  label: "Choice A",
+};
 ```
 
 ## Fields
 
-| Field                                   | Type                                    | Required                                | Description                             |
-| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
-| `id`                                    | *string*                                | :heavy_minus_sign:                      | The ID of the choice that was selected. |
+| Field                            | Type                             | Required                         | Description                      | Example                          |
+| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
+| `id`                             | *string*                         | :heavy_minus_sign:               | Unique identifier for the choice |                                  |
+| `text`                           | *string*                         | :heavy_minus_sign:               | Text value of the field          | Choice 1                         |
+| `label`                          | *string*                         | :heavy_minus_sign:               | Label of choice                  | Choice A                         |

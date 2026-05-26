@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
 
 /**
  * Type of exhibitor category
@@ -46,7 +46,7 @@ export type ExhibitorCategoryResponse = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * Name of the exhibitor category
    */
@@ -95,7 +95,7 @@ export const ExhibitorCategoryResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson6$inboundSchema,
+  event: Event1$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   order: z.number().int(),

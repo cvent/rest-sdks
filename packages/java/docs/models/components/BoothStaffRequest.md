@@ -5,8 +5,8 @@ A JSON schema representing booth staff.
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `attendee`                                                | [AttendeeJson3](../../models/components/AttendeeJson3.md) | :heavy_check_mark:                                        | A JSON Schema for an Attendee object                      |
-| `event`                                                   | [EventJson6](../../models/components/EventJson6.md)       | :heavy_check_mark:                                        | The Associated Event.                                     |
-| `exhibitor`                                               | [ExhibitorJson](../../models/components/ExhibitorJson.md) | :heavy_check_mark:                                        | The Associated Exhibitor.                                 |
+| Field                                             | Type                                              | Required                                          | Description                                       |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| `attendee`                                        | [Attendee2](../../models/components/Attendee2.md) | :heavy_check_mark:                                | The associated Attendee.                          |
+| `event`                                           | [Event1](../../models/components/Event1.md)       | :heavy_check_mark:                                | The Associated Event.                             |
+| `exhibitor`                                       | [Exhibitor](../../models/components/Exhibitor.md) | :heavy_check_mark:                                | The Associated Exhibitor.                         |

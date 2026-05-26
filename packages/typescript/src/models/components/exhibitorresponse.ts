@@ -6,19 +6,13 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { Address11, Address11$inboundSchema } from "./address11.js";
+import { ContactLinks, ContactLinks$inboundSchema } from "./contactlinks.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
 import {
-  ContactLinksJson2,
-  ContactLinksJson2$inboundSchema,
-} from "./contactlinksjson2.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
-import {
-  ExhibitorAddressJson,
-  ExhibitorAddressJson$inboundSchema,
-} from "./exhibitoraddressjson.js";
-import {
-  SponsorshipLevelJson,
-  SponsorshipLevelJson$inboundSchema,
-} from "./sponsorshipleveljson.js";
+  SponsorshipLevel,
+  SponsorshipLevel$inboundSchema,
+} from "./sponsorshiplevel.js";
 
 /**
  * JSON schema for the exhibitor object
@@ -43,7 +37,7 @@ export type ExhibitorResponse = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -67,7 +61,7 @@ export type ExhibitorResponse = {
   /**
    * An object representing an address with various properties.
    */
-  address?: ExhibitorAddressJson | undefined;
+  address?: Address11 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -91,7 +85,7 @@ export type ExhibitorResponse = {
   /**
    * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
    */
-  contactLinks?: ContactLinksJson2 | undefined;
+  contactLinks?: ContactLinks | undefined;
   /**
    * A boolean indicating whether the exhibitor is deleted or not
    */
@@ -111,7 +105,7 @@ export type ExhibitorResponse = {
   /**
    * Associated sponsorship level for an exhibitor
    */
-  sponsorshipLevel?: SponsorshipLevelJson | undefined;
+  sponsorshipLevel?: SponsorshipLevel | undefined;
   /**
    * ID of an exhibitor.
    */
@@ -147,24 +141,24 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson6$inboundSchema,
+  event: Event1$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: ExhibitorAddressJson$inboundSchema.optional(),
+  address: Address11$inboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),
   otherPhone: z.string().optional(),
   website: z.string().optional(),
-  contactLinks: ContactLinksJson2$inboundSchema.optional(),
+  contactLinks: ContactLinks$inboundSchema.optional(),
   deleted: z.boolean().default(false),
   hidden: z.boolean().default(false),
   eventSponsor: z.boolean().default(false),
   featured: z.boolean().default(false),
-  sponsorshipLevel: SponsorshipLevelJson$inboundSchema.optional(),
+  sponsorshipLevel: SponsorshipLevel$inboundSchema.optional(),
   id: z.string().optional(),
   profileLogoId: z.string().optional(),
   profileLogoUrl: z.string().optional(),

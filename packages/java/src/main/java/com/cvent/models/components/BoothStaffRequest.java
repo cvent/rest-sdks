@@ -18,28 +18,28 @@ import java.util.Optional;
  */
 public class BoothStaffRequest {
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
     @JsonProperty("attendee")
-    private AttendeeJson3 attendee;
+    private Attendee2 attendee;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     @JsonCreator
     public BoothStaffRequest(
-            @JsonProperty("attendee") @Nonnull AttendeeJson3 attendee,
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor) {
+            @JsonProperty("attendee") @Nonnull Attendee2 attendee,
+            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor) {
         this.attendee = Optional.ofNullable(attendee)
                 .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -48,23 +48,23 @@ public class BoothStaffRequest {
     }
 
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
-    public AttendeeJson3 attendee() {
+    public Attendee2 attendee() {
         return this.attendee;
     }
 
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
@@ -73,9 +73,9 @@ public class BoothStaffRequest {
     }
 
     /**
-     * A JSON Schema for an Attendee object
+     * The associated Attendee.
      */
-    public BoothStaffRequest withAttendee(@Nonnull AttendeeJson3 attendee) {
+    public BoothStaffRequest withAttendee(@Nonnull Attendee2 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -83,7 +83,7 @@ public class BoothStaffRequest {
     /**
      * The Associated Event.
      */
-    public BoothStaffRequest withEvent(@Nonnull EventJson6 event) {
+    public BoothStaffRequest withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -91,7 +91,7 @@ public class BoothStaffRequest {
     /**
      * The Associated Exhibitor.
      */
-    public BoothStaffRequest withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public BoothStaffRequest withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -123,20 +123,20 @@ public class BoothStaffRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AttendeeJson3 attendee;
+        private Attendee2 attendee;
 
-        private EventJson6 event;
+        private Event1 event;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * A JSON Schema for an Attendee object
+         * The associated Attendee.
          */
-        public Builder attendee(@Nonnull AttendeeJson3 attendee) {
+        public Builder attendee(@Nonnull Attendee2 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -144,7 +144,7 @@ public class BoothStaffRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -152,7 +152,7 @@ public class BoothStaffRequest {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }

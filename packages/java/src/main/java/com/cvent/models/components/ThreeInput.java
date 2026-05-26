@@ -25,7 +25,7 @@ public class ThreeInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson4Input> choices;
+    private List<ChoiceJson3Input> choices;
 
     /**
      * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field
@@ -38,7 +38,7 @@ public class ThreeInput {
 
     @JsonCreator
     public ThreeInput(
-            @JsonProperty("choices") @Nullable List<ChoiceJson4Input> choices,
+            @JsonProperty("choices") @Nullable List<ChoiceJson3Input> choices,
             @JsonProperty("displayType") @Nullable ChoicesDisplayTypeJson displayType) {
         this.choices = choices;
         this.displayType = displayType;
@@ -51,7 +51,7 @@ public class ThreeInput {
     /**
      * Choices of custom fields.
      */
-    public Optional<List<ChoiceJson4Input>> choices() {
+    public Optional<List<ChoiceJson3Input>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
@@ -71,7 +71,7 @@ public class ThreeInput {
     /**
      * Choices of custom fields.
      */
-    public ThreeInput withChoices(@Nullable List<ChoiceJson4Input> choices) {
+    public ThreeInput withChoices(@Nullable List<ChoiceJson3Input> choices) {
         this.choices = choices;
         return this;
     }
@@ -112,7 +112,7 @@ public class ThreeInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<ChoiceJson4Input> choices;
+        private List<ChoiceJson3Input> choices;
 
         private ChoicesDisplayTypeJson displayType;
 
@@ -123,7 +123,7 @@ public class ThreeInput {
         /**
          * Choices of custom fields.
          */
-        public Builder choices(@Nullable List<ChoiceJson4Input> choices) {
+        public Builder choices(@Nullable List<ChoiceJson3Input> choices) {
             this.choices = choices;
             return this;
         }

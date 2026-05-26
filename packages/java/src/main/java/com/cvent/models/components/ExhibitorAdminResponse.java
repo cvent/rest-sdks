@@ -57,7 +57,7 @@ public class ExhibitorAdminResponse {
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * The first name of the exhibitor admin
@@ -90,7 +90,7 @@ public class ExhibitorAdminResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("firstName") @Nonnull String firstName,
             @JsonProperty("lastName") @Nonnull String lastName,
             @JsonProperty("email") @Nonnull String email,
@@ -110,10 +110,7 @@ public class ExhibitorAdminResponse {
     }
 
     public ExhibitorAdminResponse(
-            @Nonnull ExhibitorJson exhibitor,
-            @Nonnull String firstName,
-            @Nonnull String lastName,
-            @Nonnull String email) {
+            @Nonnull Exhibitor exhibitor, @Nonnull String firstName, @Nonnull String lastName, @Nonnull String email) {
         this(null, null, null, null, exhibitor, firstName, lastName, email, null);
     }
 
@@ -151,7 +148,7 @@ public class ExhibitorAdminResponse {
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
@@ -225,7 +222,7 @@ public class ExhibitorAdminResponse {
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorAdminResponse withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public ExhibitorAdminResponse withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -324,7 +321,7 @@ public class ExhibitorAdminResponse {
         @Deprecated
         private String lastModifiedBy;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
         private String firstName;
 
@@ -376,7 +373,7 @@ public class ExhibitorAdminResponse {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }

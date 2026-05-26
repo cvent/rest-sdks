@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingRegistrationPackJson,
-  ExistingRegistrationPackJson$inboundSchema,
-} from "./existingregistrationpackjson.js";
+  RegistrationPackResponse,
+  RegistrationPackResponse$inboundSchema,
+} from "./registrationpackresponse.js";
 
 /**
  * The registration pack associated with an exhibitor. Each exhibitor has at most one registration pack per event.
@@ -18,7 +18,7 @@ export type ExhibitorRegistrationPackListResponse = {
   /**
    * The registration pack for an exhibitor. Contains at most one item.
    */
-  data?: Array<ExistingRegistrationPackJson> | undefined;
+  data?: Array<RegistrationPackResponse> | undefined;
 };
 
 /** @internal */
@@ -27,7 +27,7 @@ export const ExhibitorRegistrationPackListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(ExistingRegistrationPackJson$inboundSchema).optional(),
+  data: z.array(RegistrationPackResponse$inboundSchema).optional(),
 });
 
 export function exhibitorRegistrationPackListResponseFromJSON(

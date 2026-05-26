@@ -6,12 +6,12 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
-import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import {
-  ExistingCapacityJson,
-  ExistingCapacityJson$inboundSchema,
-} from "./existingcapacityjson.js";
+  ExistingCapacity,
+  ExistingCapacity$inboundSchema,
+} from "./existingcapacity.js";
 
 /**
  * Schema for existing registration pack object
@@ -24,15 +24,15 @@ export type RegistrationPackResponse = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * Capacities allocated per registration type for this exhibitor's registration pack.
    */
-  capacities: Array<ExistingCapacityJson>;
+  capacities: Array<ExistingCapacity>;
 };
 
 /** @internal */
@@ -42,9 +42,9 @@ export const RegistrationPackResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  event: EventJson6$inboundSchema,
-  exhibitor: ExhibitorJson$inboundSchema,
-  capacities: z.array(ExistingCapacityJson$inboundSchema),
+  event: Event1$inboundSchema,
+  exhibitor: Exhibitor$inboundSchema,
+  capacities: z.array(ExistingCapacity$inboundSchema),
 });
 
 export function registrationPackResponseFromJSON(

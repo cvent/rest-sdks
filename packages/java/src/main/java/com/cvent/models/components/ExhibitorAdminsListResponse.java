@@ -25,19 +25,19 @@ public class ExhibitorAdminsListResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of exhibitor admins.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingExhibitorAdminJson> data;
+    private List<ExhibitorAdminResponse> data;
 
     @JsonCreator
     public ExhibitorAdminsListResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExistingExhibitorAdminJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<ExhibitorAdminResponse> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class ExhibitorAdminsListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of exhibitor admins.
      */
-    public Optional<List<ExistingExhibitorAdminJson>> data() {
+    public Optional<List<ExhibitorAdminResponse>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class ExhibitorAdminsListResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ExhibitorAdminsListResponse withPaging(@Nullable PagingJson paging) {
+    public ExhibitorAdminsListResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class ExhibitorAdminsListResponse {
     /**
      * List of exhibitor admins.
      */
-    public ExhibitorAdminsListResponse withData(@Nullable List<ExistingExhibitorAdminJson> data) {
+    public ExhibitorAdminsListResponse withData(@Nullable List<ExhibitorAdminResponse> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class ExhibitorAdminsListResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingExhibitorAdminJson> data;
+        private List<ExhibitorAdminResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class ExhibitorAdminsListResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class ExhibitorAdminsListResponse {
         /**
          * List of exhibitor admins.
          */
-        public Builder data(@Nullable List<ExistingExhibitorAdminJson> data) {
+        public Builder data(@Nullable List<ExhibitorAdminResponse> data) {
             this.data = data;
             return this;
         }

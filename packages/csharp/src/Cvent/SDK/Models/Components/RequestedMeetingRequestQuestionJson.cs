@@ -62,7 +62,7 @@ namespace Cvent.SDK.Models.Components
         /// In all other cases, `answerType` is not expected to be set.
         /// </summary>
         [JsonProperty("answerType")]
-        public AnswerTypeJson1? AnswerType { get; set; }
+        public AnswerTypeJson? AnswerType { get; set; }
 
         /// <summary>
         /// The secondary value of the question. This can be the other answer of choice questions which have `Other` as an answer type.

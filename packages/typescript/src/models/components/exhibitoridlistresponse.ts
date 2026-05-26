@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ExhibitorIdJson,
-  ExhibitorIdJson$inboundSchema,
-} from "./exhibitoridjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { ExhibitorId, ExhibitorId$inboundSchema } from "./exhibitorid.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Exhibitor Id Paginated Response schema
@@ -19,11 +16,11 @@ export type ExhibitorIdListResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Paginated list of exhibitor Ids for an exhibitor category.
    */
-  data?: Array<ExhibitorIdJson> | undefined;
+  data?: Array<ExhibitorId> | undefined;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const ExhibitorIdListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExhibitorIdJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ExhibitorId$inboundSchema).optional(),
 });
 
 export function exhibitorIdListResponseFromJSON(

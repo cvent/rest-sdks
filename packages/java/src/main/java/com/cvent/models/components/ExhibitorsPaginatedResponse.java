@@ -25,19 +25,19 @@ public class ExhibitorsPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Paginated list of exhibitors for an event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingExhibitorJson> data;
+    private List<ExhibitorResponse> data;
 
     @JsonCreator
     public ExhibitorsPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExistingExhibitorJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<ExhibitorResponse> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class ExhibitorsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Paginated list of exhibitors for an event.
      */
-    public Optional<List<ExistingExhibitorJson>> data() {
+    public Optional<List<ExhibitorResponse>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class ExhibitorsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ExhibitorsPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public ExhibitorsPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class ExhibitorsPaginatedResponse {
     /**
      * Paginated list of exhibitors for an event.
      */
-    public ExhibitorsPaginatedResponse withData(@Nullable List<ExistingExhibitorJson> data) {
+    public ExhibitorsPaginatedResponse withData(@Nullable List<ExhibitorResponse> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class ExhibitorsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingExhibitorJson> data;
+        private List<ExhibitorResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class ExhibitorsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class ExhibitorsPaginatedResponse {
         /**
          * Paginated list of exhibitors for an event.
          */
-        public Builder data(@Nullable List<ExistingExhibitorJson> data) {
+        public Builder data(@Nullable List<ExhibitorResponse> data) {
             this.data = data;
             return this;
         }

@@ -127,7 +127,7 @@ public class MeetingRequestCustomFieldJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerTypes")
-    private List<AnswerTypeJson1> answerTypes;
+    private List<AnswerTypeJson> answerTypes;
 
     @JsonCreator
     public MeetingRequestCustomFieldJson(
@@ -145,7 +145,7 @@ public class MeetingRequestCustomFieldJson {
             @JsonProperty("maxChoice") @Nullable Double maxChoice,
             @JsonProperty("minDate") @Nullable String minDate,
             @JsonProperty("maxDate") @Nullable String maxDate,
-            @JsonProperty("answerTypes") @Nullable List<AnswerTypeJson1> answerTypes) {
+            @JsonProperty("answerTypes") @Nullable List<AnswerTypeJson> answerTypes) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
@@ -270,7 +270,7 @@ public class MeetingRequestCustomFieldJson {
      * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
      * omitted when no non-default answer type is defined for the question.
      */
-    public Optional<List<AnswerTypeJson1>> answerTypes() {
+    public Optional<List<AnswerTypeJson>> answerTypes() {
         return Optional.ofNullable(this.answerTypes);
     }
 
@@ -395,7 +395,7 @@ public class MeetingRequestCustomFieldJson {
      * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
      * omitted when no non-default answer type is defined for the question.
      */
-    public MeetingRequestCustomFieldJson withAnswerTypes(@Nullable List<AnswerTypeJson1> answerTypes) {
+    public MeetingRequestCustomFieldJson withAnswerTypes(@Nullable List<AnswerTypeJson> answerTypes) {
         this.answerTypes = answerTypes;
         return this;
     }
@@ -513,7 +513,7 @@ public class MeetingRequestCustomFieldJson {
 
         private String maxDate;
 
-        private List<AnswerTypeJson1> answerTypes;
+        private List<AnswerTypeJson> answerTypes;
 
         private Builder() {
             // force use of static builder() method
@@ -636,7 +636,7 @@ public class MeetingRequestCustomFieldJson {
          * List of non-null answer types applicable to the question, such as `Other` or `NA`. This field is
          * omitted when no non-default answer type is defined for the question.
          */
-        public Builder answerTypes(@Nullable List<AnswerTypeJson1> answerTypes) {
+        public Builder answerTypes(@Nullable List<AnswerTypeJson> answerTypes) {
             this.answerTypes = answerTypes;
             return this;
         }

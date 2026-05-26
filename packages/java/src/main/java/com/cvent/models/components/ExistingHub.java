@@ -62,7 +62,7 @@ public class ExistingHub {
      * The owner of the Events+ hub and their information.
      */
     @JsonProperty("owner")
-    private HubOwnerJson owner;
+    private HubOwner owner;
 
     /**
      * Custom domain name of the Events+ hub.
@@ -83,7 +83,7 @@ public class ExistingHub {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("colors")
-    private HubColorsJson colors;
+    private HubColors colors;
 
     /**
      * True guarantees that controls shown on the page will contrast with the background color.
@@ -97,14 +97,14 @@ public class ExistingHub {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("logo")
-    private HubLogoJson logo;
+    private HubLogo logo;
 
     /**
      * The background image of the Events+ hub.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("background")
-    private HubBackgroundJson background;
+    private HubBackground background;
 
     /**
      * An IETF BCP 47 language tag used to indicate the language of the Events+ hub.
@@ -119,7 +119,7 @@ public class ExistingHub {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("calendar")
-    private HubCalendarJson calendar;
+    private HubCalendar calendar;
 
     /**
      * Help email address to reach out in case of any issues logging in or registering.
@@ -149,21 +149,21 @@ public class ExistingHub {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("utmOverride")
-    private UtmOverrideJson utmOverride;
+    private UTMOverride utmOverride;
 
     /**
      * The fonts of the Events+ hub.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fonts")
-    private HubFontsJson fonts;
+    private HubFonts fonts;
 
     /**
      * Fields relating to the login process for the Events+ hub.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("login")
-    private HubLoginJson login;
+    private HubLogin login;
 
     /**
      * The unique ID of an Events+ Hub.
@@ -180,7 +180,7 @@ public class ExistingHub {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private HubStatusPropertyJson status;
+    private HubStatusProperty status;
 
     @JsonCreator
     public ExistingHub(
@@ -189,23 +189,23 @@ public class ExistingHub {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("title") @Nonnull String title,
-            @JsonProperty("owner") @Nonnull HubOwnerJson owner,
+            @JsonProperty("owner") @Nonnull HubOwner owner,
             @JsonProperty("customDomain") @Nullable String customDomain,
             @JsonProperty("url") @Nullable String url,
-            @JsonProperty("colors") @Nullable HubColorsJson colors,
+            @JsonProperty("colors") @Nullable HubColors colors,
             @JsonProperty("themeSafeMode") @Nullable Boolean themeSafeMode,
-            @JsonProperty("logo") @Nullable HubLogoJson logo,
-            @JsonProperty("background") @Nullable HubBackgroundJson background,
+            @JsonProperty("logo") @Nullable HubLogo logo,
+            @JsonProperty("background") @Nullable HubBackground background,
             @JsonProperty("locale") @Nullable String locale,
-            @JsonProperty("calendar") @Nullable HubCalendarJson calendar,
+            @JsonProperty("calendar") @Nullable HubCalendar calendar,
             @JsonProperty("helpEmailAddress") @Nullable String helpEmailAddress,
             @JsonProperty("autoDetectBrowserLocale") @Nullable Boolean autoDetectBrowserLocale,
             @JsonProperty("faviconUrl") @Nullable String faviconUrl,
-            @JsonProperty("utmOverride") @Nullable UtmOverrideJson utmOverride,
-            @JsonProperty("fonts") @Nullable HubFontsJson fonts,
-            @JsonProperty("login") @Nullable HubLoginJson login,
+            @JsonProperty("utmOverride") @Nullable UTMOverride utmOverride,
+            @JsonProperty("fonts") @Nullable HubFonts fonts,
+            @JsonProperty("login") @Nullable HubLogin login,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("status") @Nullable HubStatusPropertyJson status) {
+            @JsonProperty("status") @Nullable HubStatusProperty status) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -230,7 +230,7 @@ public class ExistingHub {
         this.status = status;
     }
 
-    public ExistingHub(@Nonnull String title, @Nonnull HubOwnerJson owner) {
+    public ExistingHub(@Nonnull String title, @Nonnull HubOwner owner) {
         this(
                 null,
                 null,
@@ -294,7 +294,7 @@ public class ExistingHub {
     /**
      * The owner of the Events+ hub and their information.
      */
-    public HubOwnerJson owner() {
+    public HubOwner owner() {
         return this.owner;
     }
 
@@ -315,7 +315,7 @@ public class ExistingHub {
     /**
      * All the colors associated with the Events+ hub.
      */
-    public Optional<HubColorsJson> colors() {
+    public Optional<HubColors> colors() {
         return Optional.ofNullable(this.colors);
     }
 
@@ -329,14 +329,14 @@ public class ExistingHub {
     /**
      * The logo for the Events+ hub.
      */
-    public Optional<HubLogoJson> logo() {
+    public Optional<HubLogo> logo() {
         return Optional.ofNullable(this.logo);
     }
 
     /**
      * The background image of the Events+ hub.
      */
-    public Optional<HubBackgroundJson> background() {
+    public Optional<HubBackground> background() {
         return Optional.ofNullable(this.background);
     }
 
@@ -351,7 +351,7 @@ public class ExistingHub {
      * The event calendar associated with this Events+ hub. The event calendar allows you to share multiple
      * events and sessions in a list or calendar format.
      */
-    public Optional<HubCalendarJson> calendar() {
+    public Optional<HubCalendar> calendar() {
         return Optional.ofNullable(this.calendar);
     }
 
@@ -381,21 +381,21 @@ public class ExistingHub {
      * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose
      * of identifying and tracking traffic) settings will override passed in items.
      */
-    public Optional<UtmOverrideJson> utmOverride() {
+    public Optional<UTMOverride> utmOverride() {
         return Optional.ofNullable(this.utmOverride);
     }
 
     /**
      * The fonts of the Events+ hub.
      */
-    public Optional<HubFontsJson> fonts() {
+    public Optional<HubFonts> fonts() {
         return Optional.ofNullable(this.fonts);
     }
 
     /**
      * Fields relating to the login process for the Events+ hub.
      */
-    public Optional<HubLoginJson> login() {
+    public Optional<HubLogin> login() {
         return Optional.ofNullable(this.login);
     }
 
@@ -412,7 +412,7 @@ public class ExistingHub {
      *
      * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
      */
-    public Optional<HubStatusPropertyJson> status() {
+    public Optional<HubStatusProperty> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -463,7 +463,7 @@ public class ExistingHub {
     /**
      * The owner of the Events+ hub and their information.
      */
-    public ExistingHub withOwner(@Nonnull HubOwnerJson owner) {
+    public ExistingHub withOwner(@Nonnull HubOwner owner) {
         this.owner = Utils.checkNotNull(owner, "owner");
         return this;
     }
@@ -487,7 +487,7 @@ public class ExistingHub {
     /**
      * All the colors associated with the Events+ hub.
      */
-    public ExistingHub withColors(@Nullable HubColorsJson colors) {
+    public ExistingHub withColors(@Nullable HubColors colors) {
         this.colors = colors;
         return this;
     }
@@ -503,7 +503,7 @@ public class ExistingHub {
     /**
      * The logo for the Events+ hub.
      */
-    public ExistingHub withLogo(@Nullable HubLogoJson logo) {
+    public ExistingHub withLogo(@Nullable HubLogo logo) {
         this.logo = logo;
         return this;
     }
@@ -511,7 +511,7 @@ public class ExistingHub {
     /**
      * The background image of the Events+ hub.
      */
-    public ExistingHub withBackground(@Nullable HubBackgroundJson background) {
+    public ExistingHub withBackground(@Nullable HubBackground background) {
         this.background = background;
         return this;
     }
@@ -528,7 +528,7 @@ public class ExistingHub {
      * The event calendar associated with this Events+ hub. The event calendar allows you to share multiple
      * events and sessions in a list or calendar format.
      */
-    public ExistingHub withCalendar(@Nullable HubCalendarJson calendar) {
+    public ExistingHub withCalendar(@Nullable HubCalendar calendar) {
         this.calendar = calendar;
         return this;
     }
@@ -562,7 +562,7 @@ public class ExistingHub {
      * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose
      * of identifying and tracking traffic) settings will override passed in items.
      */
-    public ExistingHub withUtmOverride(@Nullable UtmOverrideJson utmOverride) {
+    public ExistingHub withUtmOverride(@Nullable UTMOverride utmOverride) {
         this.utmOverride = utmOverride;
         return this;
     }
@@ -570,7 +570,7 @@ public class ExistingHub {
     /**
      * The fonts of the Events+ hub.
      */
-    public ExistingHub withFonts(@Nullable HubFontsJson fonts) {
+    public ExistingHub withFonts(@Nullable HubFonts fonts) {
         this.fonts = fonts;
         return this;
     }
@@ -578,7 +578,7 @@ public class ExistingHub {
     /**
      * Fields relating to the login process for the Events+ hub.
      */
-    public ExistingHub withLogin(@Nullable HubLoginJson login) {
+    public ExistingHub withLogin(@Nullable HubLogin login) {
         this.login = login;
         return this;
     }
@@ -597,7 +597,7 @@ public class ExistingHub {
      *
      * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
      */
-    public ExistingHub withStatus(@Nullable HubStatusPropertyJson status) {
+    public ExistingHub withStatus(@Nullable HubStatusProperty status) {
         this.status = status;
         return this;
     }
@@ -725,23 +725,23 @@ public class ExistingHub {
 
         private String title;
 
-        private HubOwnerJson owner;
+        private HubOwner owner;
 
         private String customDomain;
 
         private String url;
 
-        private HubColorsJson colors;
+        private HubColors colors;
 
         private Boolean themeSafeMode;
 
-        private HubLogoJson logo;
+        private HubLogo logo;
 
-        private HubBackgroundJson background;
+        private HubBackground background;
 
         private String locale;
 
-        private HubCalendarJson calendar;
+        private HubCalendar calendar;
 
         private String helpEmailAddress;
 
@@ -749,15 +749,15 @@ public class ExistingHub {
 
         private String faviconUrl;
 
-        private UtmOverrideJson utmOverride;
+        private UTMOverride utmOverride;
 
-        private HubFontsJson fonts;
+        private HubFonts fonts;
 
-        private HubLoginJson login;
+        private HubLogin login;
 
         private String id;
 
-        private HubStatusPropertyJson status;
+        private HubStatusProperty status;
 
         private Builder() {
             // force use of static builder() method
@@ -806,7 +806,7 @@ public class ExistingHub {
         /**
          * The owner of the Events+ hub and their information.
          */
-        public Builder owner(@Nonnull HubOwnerJson owner) {
+        public Builder owner(@Nonnull HubOwner owner) {
             this.owner = Utils.checkNotNull(owner, "owner");
             return this;
         }
@@ -830,7 +830,7 @@ public class ExistingHub {
         /**
          * All the colors associated with the Events+ hub.
          */
-        public Builder colors(@Nullable HubColorsJson colors) {
+        public Builder colors(@Nullable HubColors colors) {
             this.colors = colors;
             return this;
         }
@@ -846,7 +846,7 @@ public class ExistingHub {
         /**
          * The logo for the Events+ hub.
          */
-        public Builder logo(@Nullable HubLogoJson logo) {
+        public Builder logo(@Nullable HubLogo logo) {
             this.logo = logo;
             return this;
         }
@@ -854,7 +854,7 @@ public class ExistingHub {
         /**
          * The background image of the Events+ hub.
          */
-        public Builder background(@Nullable HubBackgroundJson background) {
+        public Builder background(@Nullable HubBackground background) {
             this.background = background;
             return this;
         }
@@ -871,7 +871,7 @@ public class ExistingHub {
          * The event calendar associated with this Events+ hub. The event calendar allows you to share multiple
          * events and sessions in a list or calendar format.
          */
-        public Builder calendar(@Nullable HubCalendarJson calendar) {
+        public Builder calendar(@Nullable HubCalendar calendar) {
             this.calendar = calendar;
             return this;
         }
@@ -905,7 +905,7 @@ public class ExistingHub {
          * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose
          * of identifying and tracking traffic) settings will override passed in items.
          */
-        public Builder utmOverride(@Nullable UtmOverrideJson utmOverride) {
+        public Builder utmOverride(@Nullable UTMOverride utmOverride) {
             this.utmOverride = utmOverride;
             return this;
         }
@@ -913,7 +913,7 @@ public class ExistingHub {
         /**
          * The fonts of the Events+ hub.
          */
-        public Builder fonts(@Nullable HubFontsJson fonts) {
+        public Builder fonts(@Nullable HubFonts fonts) {
             this.fonts = fonts;
             return this;
         }
@@ -921,7 +921,7 @@ public class ExistingHub {
         /**
          * Fields relating to the login process for the Events+ hub.
          */
-        public Builder login(@Nullable HubLoginJson login) {
+        public Builder login(@Nullable HubLogin login) {
             this.login = login;
             return this;
         }
@@ -940,7 +940,7 @@ public class ExistingHub {
          *
          * <p>Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
          */
-        public Builder status(@Nullable HubStatusPropertyJson status) {
+        public Builder status(@Nullable HubStatusProperty status) {
             this.status = status;
             return this;
         }
@@ -974,7 +974,6 @@ public class ExistingHub {
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_ThemeSafeMode =
                 new LazySingletonValue<>("themeSafeMode", "false", new TypeReference<Boolean>() {});
 
-        private static final LazySingletonValue<UtmOverrideJson> _SINGLETON_VALUE_UtmOverride =
-                new LazySingletonValue<>("utmOverride", "\"use-existing-parameter\"", new TypeReference<UtmOverrideJson>() {});
+        private static final LazySingletonValue<UTMOverride> _SINGLETON_VALUE_UtmOverride = new LazySingletonValue<>("utmOverride", "\"use-existing-parameter\"", new TypeReference<UTMOverride>() {});
     }
 }

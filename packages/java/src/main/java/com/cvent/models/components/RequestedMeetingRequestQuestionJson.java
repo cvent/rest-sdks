@@ -74,7 +74,7 @@ public class RequestedMeetingRequestQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answerType")
-    private AnswerTypeJson1 answerType;
+    private AnswerTypeJson answerType;
 
     /**
      * The secondary value of the question. This can be the other answer of choice questions which have
@@ -88,7 +88,7 @@ public class RequestedMeetingRequestQuestionJson {
     public RequestedMeetingRequestQuestionJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("value") @Nonnull List<String> value,
-            @JsonProperty("answerType") @Nullable AnswerTypeJson1 answerType,
+            @JsonProperty("answerType") @Nullable AnswerTypeJson answerType,
             @JsonProperty("secondaryValue") @Nullable String secondaryValue) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
@@ -151,7 +151,7 @@ public class RequestedMeetingRequestQuestionJson {
      *
      * <p>In all other cases, `answerType` is not expected to be set.
      */
-    public Optional<AnswerTypeJson1> answerType() {
+    public Optional<AnswerTypeJson> answerType() {
         return Optional.ofNullable(this.answerType);
     }
 
@@ -220,7 +220,7 @@ public class RequestedMeetingRequestQuestionJson {
      *
      * <p>In all other cases, `answerType` is not expected to be set.
      */
-    public RequestedMeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson1 answerType) {
+    public RequestedMeetingRequestQuestionJson withAnswerType(@Nullable AnswerTypeJson answerType) {
         this.answerType = answerType;
         return this;
     }
@@ -275,7 +275,7 @@ public class RequestedMeetingRequestQuestionJson {
 
         private List<String> value;
 
-        private AnswerTypeJson1 answerType;
+        private AnswerTypeJson answerType;
 
         private String secondaryValue;
 
@@ -336,7 +336,7 @@ public class RequestedMeetingRequestQuestionJson {
          *
          * <p>In all other cases, `answerType` is not expected to be set.
          */
-        public Builder answerType(@Nullable AnswerTypeJson1 answerType) {
+        public Builder answerType(@Nullable AnswerTypeJson answerType) {
             this.answerType = answerType;
             return this;
         }

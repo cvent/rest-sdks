@@ -11,6 +11,7 @@ namespace Cvent.SDK.Models.Requests
 {
     using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
+    using System;
     using System.Collections.Generic;
 
     public class ListEventRoleAssignmentRequest
@@ -27,6 +28,18 @@ namespace Cvent.SDK.Models.Requests
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=token")]
         public string? Token { get; set; }
+
+        /// <summary>
+        /// Used to query records that have been added or updated after this time point. Default to the beginning of time of the data store.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=after")]
+        public DateTime? After { get; set; }
+
+        /// <summary>
+        /// Used to query records that have been added or updated before this time point.
+        /// </summary>
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=before")]
+        public DateTime? Before { get; set; }
 
         /// <summary>
         /// Use the `expand` query parameter to request additional details for each field specified.<br/>

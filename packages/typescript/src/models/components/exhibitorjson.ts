@@ -8,13 +8,25 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The Associated Exhibitor.
+ * An exhibitor.
  */
 export type ExhibitorJson = {
   /**
-   * Exhibitor id
+   * The unique identifier of the exhibitor.
    */
-  id: string;
+  id?: string | undefined;
+  /**
+   * The Name of an exhibitor.
+   */
+  name?: string | undefined;
+  /**
+   * If the exhibitor is featured.
+   */
+  featured?: boolean | undefined;
+  /**
+   * If the exhibitor is an event sponsor.
+   */
+  eventSponsor?: boolean | undefined;
 };
 
 /** @internal */
@@ -23,25 +35,12 @@ export const ExhibitorJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
-});
-/** @internal */
-export type ExhibitorJson$Outbound = {
-  id: string;
-};
-
-/** @internal */
-export const ExhibitorJson$outboundSchema: z.ZodType<
-  ExhibitorJson$Outbound,
-  z.ZodTypeDef,
-  ExhibitorJson
-> = z.object({
-  id: z.string(),
+  id: z.string().optional(),
+  name: z.string().optional(),
+  featured: z.boolean().optional(),
+  eventSponsor: z.boolean().optional(),
 });
 
-export function exhibitorJsonToJSON(exhibitorJson: ExhibitorJson): string {
-  return JSON.stringify(ExhibitorJson$outboundSchema.parse(exhibitorJson));
-}
 export function exhibitorJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<ExhibitorJson, SDKValidationError> {

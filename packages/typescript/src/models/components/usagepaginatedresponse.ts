@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { UsageJson, UsageJson$inboundSchema } from "./usagejson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { Usage, Usage$inboundSchema } from "./usage.js";
 
 /**
  * The list of usage for the caller's account in the date range specified.
@@ -16,11 +16,11 @@ export type UsagePaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of usage objects.
    */
-  data: Array<UsageJson>;
+  data: Array<Usage>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const UsagePaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(UsageJson$inboundSchema),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(Usage$inboundSchema),
 });
 
 export function usagePaginatedResponseFromJSON(

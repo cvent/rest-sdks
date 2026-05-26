@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingEliteratureRequestDataJson,
-  ExistingEliteratureRequestDataJson$inboundSchema,
-} from "./existingeliteraturerequestdatajson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExistingELiteratureRequestDataForLead,
+  ExistingELiteratureRequestDataForLead$inboundSchema,
+} from "./existingeliteraturerequestdataforlead.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated response for E-literature requests.
@@ -19,11 +19,11 @@ export type EliteratureRequestPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of E-literature request data.
    */
-  data?: Array<ExistingEliteratureRequestDataJson> | undefined;
+  data?: Array<ExistingELiteratureRequestDataForLead> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const EliteratureRequestPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExistingEliteratureRequestDataJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ExistingELiteratureRequestDataForLead$inboundSchema).optional(),
 });
 
 export function eliteratureRequestPaginatedResponseFromJSON(

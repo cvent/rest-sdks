@@ -35,6 +35,8 @@ const cventSDK = new CventSDK({
 async function run() {
   const result = await cventSDK.eventRole.listEventRoleAssignment({
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    after: new Date("2017-01-02T02:00:00Z"),
+    before: new Date("2017-01-02T02:00:00Z"),
     expand: [
       "eventRole",
     ],
@@ -73,6 +75,8 @@ const cventSDK = new CventSDKCore({
 async function run() {
   const res = await eventRoleListEventRoleAssignment(cventSDK, {
     token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    after: new Date("2017-01-02T02:00:00Z"),
+    before: new Date("2017-01-02T02:00:00Z"),
     expand: [
       "eventRole",
     ],

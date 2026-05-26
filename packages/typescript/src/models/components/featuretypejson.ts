@@ -26,7 +26,8 @@ import { ClosedEnum } from "../../types/enums.js";
  * | `Exhibitors` | Centralizes exhibitor setup—profiles, tasks, content/categories—and booth staff and LeadCapture management, with exhibitor listings and engagement surfaced in Attendee Hub. |
  * | `Vendors` | Allows planners to source and manage event services directly from the container event. |
  * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the event app. |
- * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. |
+ * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+ * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and sessions, and award credits to attendees. Also enables creating certificates, linking them to credit rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
  */
 export const FeatureTypeJson = {
   Website: "Website",
@@ -44,6 +45,7 @@ export const FeatureTypeJson = {
   Vendors: "Vendors",
   EventAds: "EventAds",
   EventCredits: "EventCredits",
+  CreditsAndCertificates: "CreditsAndCertificates",
 } as const;
 /**
  * The type of feature available for a container event.
@@ -66,7 +68,8 @@ export const FeatureTypeJson = {
  * | `Exhibitors` | Centralizes exhibitor setup—profiles, tasks, content/categories—and booth staff and LeadCapture management, with exhibitor listings and engagement surfaced in Attendee Hub. |
  * | `Vendors` | Allows planners to source and manage event services directly from the container event. |
  * | `EventAds` | Allows planners to create, place, and track targeted ads across Attendee Hub and the event app. |
- * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. |
+ * | `EventCredits` | Allows planners to set rules and track credits attendees earn for sessions and the event. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
+ * | `CreditsAndCertificates` | Allows planners to create credit rules, link them to events and sessions, and award credits to attendees. Also enables creating certificates, linking them to credit rules, and awarding them to attendees. Only one of `EventCredits` or `CreditsAndCertificates` can be active at a time. |
  */
 export type FeatureTypeJson = ClosedEnum<typeof FeatureTypeJson>;
 

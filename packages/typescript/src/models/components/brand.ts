@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson5, AddressJson5$inboundSchema } from "./addressjson5.js";
+import { AddressJson4, AddressJson4$inboundSchema } from "./addressjson4.js";
 
 /**
  * Brand details.
@@ -39,7 +39,7 @@ export type Brand = {
   /**
    * A physical address.
    */
-  address?: AddressJson5 | undefined;
+  address?: AddressJson4 | undefined;
   /**
    * True indicates the brand is deleted.
    */
@@ -58,7 +58,7 @@ export const Brand$inboundSchema: z.ZodType<Brand, z.ZodTypeDef, unknown> = z
     lastModifiedBy: z.string().optional(),
     id: z.string().optional(),
     name: z.string().optional(),
-    address: AddressJson5$inboundSchema.optional(),
+    address: AddressJson4$inboundSchema.optional(),
     deleted: z.boolean().default(false),
   });
 

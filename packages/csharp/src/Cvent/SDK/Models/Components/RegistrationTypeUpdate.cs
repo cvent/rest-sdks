@@ -77,6 +77,6 @@ namespace Cvent.SDK.Models.Components
         /// Represents capacity statistics of the registration type.
         /// </summary>
         [JsonProperty("capacity")]
-        public CapacityJson1? Capacity { get; set; }
+        public CapacityJson? Capacity { get; set; }
     }
 }

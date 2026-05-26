@@ -38,6 +38,7 @@ import com.cvent.models.operations.ListDonationItemsRequest;
 import com.cvent.models.operations.ListEventEmailsRequest;
 import com.cvent.models.operations.ListEventUserGroupsRequest;
 import com.cvent.models.operations.ListFeeItemsRequest;
+import com.cvent.models.operations.ListMembershipItemsPostFilterRequest;
 import com.cvent.models.operations.ListMembershipItemsRequest;
 import com.cvent.models.operations.ListQuantityItemsPostFilterRequest;
 import com.cvent.models.operations.ListQuantityItemsRequest;
@@ -116,6 +117,8 @@ import com.cvent.models.operations.async.ListEventUserGroupsRequestBuilder;
 import com.cvent.models.operations.async.ListEventUserGroupsResponse;
 import com.cvent.models.operations.async.ListFeeItemsRequestBuilder;
 import com.cvent.models.operations.async.ListFeeItemsResponse;
+import com.cvent.models.operations.async.ListMembershipItemsPostFilterRequestBuilder;
+import com.cvent.models.operations.async.ListMembershipItemsPostFilterResponse;
 import com.cvent.models.operations.async.ListMembershipItemsRequestBuilder;
 import com.cvent.models.operations.async.ListMembershipItemsResponse;
 import com.cvent.models.operations.async.ListQuantityItemsPostFilterRequestBuilder;
@@ -179,6 +182,7 @@ import com.cvent.operations.ListEventEmails;
 import com.cvent.operations.ListEventUserGroups;
 import com.cvent.operations.ListFeeItems;
 import com.cvent.operations.ListMembershipItems;
+import com.cvent.operations.ListMembershipItemsPostFilter;
 import com.cvent.operations.ListQuantityItems;
 import com.cvent.operations.ListQuantityItemsPostFilter;
 import com.cvent.operations.ListRegistrationPaths;
@@ -1286,6 +1290,55 @@ public class AsyncEvents {
             @Nonnull ListMembershipItemsRequest request, @Nullable Options options) {
         AsyncRequestOperation<ListMembershipItemsRequest, ListMembershipItemsResponse> operation =
                 new ListMembershipItems.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Membership Items
+     *
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     *
+     * @return The async call builder
+     */
+    public ListMembershipItemsPostFilterRequestBuilder listMembershipItemsPostFilter() {
+        return new ListMembershipItemsPostFilterRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Membership Items
+     *
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListMembershipItemsPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListMembershipItemsPostFilterResponse> listMembershipItemsPostFilter(
+            @Nonnull ListMembershipItemsPostFilterRequest request) {
+        return listMembershipItemsPostFilter(request, null);
+    }
+
+    /**
+     * List Membership Items
+     *
+     * <p>Gets a paginated list of membership items. [Membership
+     * items](https://support.cvent.com/s/communityarticle/Setting-Up-Memberships) are a type of [optional
+     * item](https://support.cvent.com/s/communityarticle/Understanding-Agenda-Items) that can be purchased
+     * during registration.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListMembershipItemsPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListMembershipItemsPostFilterResponse> listMembershipItemsPostFilter(
+            @Nonnull ListMembershipItemsPostFilterRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListMembershipItemsPostFilterRequest, ListMembershipItemsPostFilterResponse> operation =
+                new ListMembershipItemsPostFilter.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

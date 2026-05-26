@@ -25,19 +25,18 @@ public class LeadsPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of leads.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingLeadJson> data;
+    private List<Lead> data;
 
     @JsonCreator
     public LeadsPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ExistingLeadJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<Lead> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +48,14 @@ public class LeadsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of leads.
      */
-    public Optional<List<ExistingLeadJson>> data() {
+    public Optional<List<Lead>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +66,7 @@ public class LeadsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public LeadsPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public LeadsPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +74,7 @@ public class LeadsPaginatedResponse {
     /**
      * Collection of leads.
      */
-    public LeadsPaginatedResponse withData(@Nullable List<ExistingLeadJson> data) {
+    public LeadsPaginatedResponse withData(@Nullable List<Lead> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +104,9 @@ public class LeadsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ExistingLeadJson> data;
+        private List<Lead> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +115,7 @@ public class LeadsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +123,7 @@ public class LeadsPaginatedResponse {
         /**
          * Collection of leads.
          */
-        public Builder data(@Nullable List<ExistingLeadJson> data) {
+        public Builder data(@Nullable List<Lead> data) {
             this.data = data;
             return this;
         }

@@ -6,27 +6,18 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { HubBackground, HubBackground$inboundSchema } from "./hubbackground.js";
+import { HubCalendar, HubCalendar$inboundSchema } from "./hubcalendar.js";
+import { HubColors, HubColors$inboundSchema } from "./hubcolors.js";
+import { HubFonts, HubFonts$inboundSchema } from "./hubfonts.js";
+import { HubLogin, HubLogin$inboundSchema } from "./hublogin.js";
+import { HubLogo, HubLogo$inboundSchema } from "./hublogo.js";
+import { HubOwner, HubOwner$inboundSchema } from "./hubowner.js";
 import {
-  HubBackgroundJson,
-  HubBackgroundJson$inboundSchema,
-} from "./hubbackgroundjson.js";
-import {
-  HubCalendarJson,
-  HubCalendarJson$inboundSchema,
-} from "./hubcalendarjson.js";
-import { HubColorsJson, HubColorsJson$inboundSchema } from "./hubcolorsjson.js";
-import { HubFontsJson, HubFontsJson$inboundSchema } from "./hubfontsjson.js";
-import { HubLoginJson, HubLoginJson$inboundSchema } from "./hubloginjson.js";
-import { HubLogoJson, HubLogoJson$inboundSchema } from "./hublogojson.js";
-import { HubOwnerJson, HubOwnerJson$inboundSchema } from "./hubownerjson.js";
-import {
-  HubStatusPropertyJson,
-  HubStatusPropertyJson$inboundSchema,
-} from "./hubstatuspropertyjson.js";
-import {
-  UtmOverrideJson,
-  UtmOverrideJson$inboundSchema,
-} from "./utmoverridejson.js";
+  HubStatusProperty,
+  HubStatusProperty$inboundSchema,
+} from "./hubstatusproperty.js";
+import { UTMOverride, UTMOverride$inboundSchema } from "./utmoverride.js";
 
 /**
  * Represents an existing Events+ hub.
@@ -55,7 +46,7 @@ export type ExistingHub = {
   /**
    * The owner of the Events+ hub and their information.
    */
-  owner: HubOwnerJson;
+  owner: HubOwner;
   /**
    * Custom domain name of the Events+ hub.
    */
@@ -67,7 +58,7 @@ export type ExistingHub = {
   /**
    * All the colors associated with the Events+ hub.
    */
-  colors?: HubColorsJson | undefined;
+  colors?: HubColors | undefined;
   /**
    * True guarantees that controls shown on the page will contrast with the background color.
    */
@@ -75,11 +66,11 @@ export type ExistingHub = {
   /**
    * The logo for the Events+ hub.
    */
-  logo?: HubLogoJson | undefined;
+  logo?: HubLogo | undefined;
   /**
    * The background image of the Events+ hub.
    */
-  background?: HubBackgroundJson | undefined;
+  background?: HubBackground | undefined;
   /**
    * An IETF BCP 47 language tag used to indicate the language of the Events+ hub.
    */
@@ -87,7 +78,7 @@ export type ExistingHub = {
   /**
    * The event calendar associated with this Events+ hub. The event calendar allows you to share multiple events and sessions in a list or calendar format.
    */
-  calendar?: HubCalendarJson | undefined;
+  calendar?: HubCalendar | undefined;
   /**
    * Help email address to reach out in case of any issues logging in or registering.
    */
@@ -103,15 +94,15 @@ export type ExistingHub = {
   /**
    * Specifies how UTM (urchin tracking module: a key and value that is attached to URLs for the purpose of identifying and tracking traffic) settings will override passed in items.
    */
-  utmOverride: UtmOverrideJson;
+  utmOverride: UTMOverride;
   /**
    * The fonts of the Events+ hub.
    */
-  fonts?: HubFontsJson | undefined;
+  fonts?: HubFonts | undefined;
   /**
    * Fields relating to the login process for the Events+ hub.
    */
-  login?: HubLoginJson | undefined;
+  login?: HubLogin | undefined;
   /**
    * The unique ID of an Events+ Hub.
    */
@@ -119,7 +110,7 @@ export type ExistingHub = {
   /**
    * The current Events+ Hub status. Inactive: The Events+ Hub is inactive and unavailable to members. Active: Members can access the Events+ Hub. Deleted: The Events+ Hub has been deleted and is unavailable to members or planners.
    */
-  status?: HubStatusPropertyJson | undefined;
+  status?: HubStatusProperty | undefined;
 };
 
 /** @internal */
@@ -136,23 +127,23 @@ export const ExistingHub$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   title: z.string(),
-  owner: HubOwnerJson$inboundSchema,
+  owner: HubOwner$inboundSchema,
   customDomain: z.string().optional(),
   url: z.string().optional(),
-  colors: HubColorsJson$inboundSchema.optional(),
+  colors: HubColors$inboundSchema.optional(),
   themeSafeMode: z.boolean().default(false),
-  logo: HubLogoJson$inboundSchema.optional(),
-  background: HubBackgroundJson$inboundSchema.optional(),
+  logo: HubLogo$inboundSchema.optional(),
+  background: HubBackground$inboundSchema.optional(),
   locale: z.string().optional(),
-  calendar: HubCalendarJson$inboundSchema.optional(),
+  calendar: HubCalendar$inboundSchema.optional(),
   helpEmailAddress: z.string().optional(),
   autoDetectBrowserLocale: z.boolean().optional(),
   faviconUrl: z.string().optional(),
-  utmOverride: UtmOverrideJson$inboundSchema.default("use-existing-parameter"),
-  fonts: HubFontsJson$inboundSchema.optional(),
-  login: HubLoginJson$inboundSchema.optional(),
+  utmOverride: UTMOverride$inboundSchema.default("use-existing-parameter"),
+  fonts: HubFonts$inboundSchema.optional(),
+  login: HubLogin$inboundSchema.optional(),
   id: z.string().optional(),
-  status: HubStatusPropertyJson$inboundSchema.optional(),
+  status: HubStatusProperty$inboundSchema.optional(),
 });
 
 export function existingHubFromJSON(

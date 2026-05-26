@@ -56,7 +56,7 @@ public class ExhibitorResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
@@ -98,7 +98,7 @@ public class ExhibitorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private ExhibitorAddressJson address;
+    private Address11 address;
 
     /**
      * Email address of the exhibitor
@@ -140,7 +140,7 @@ public class ExhibitorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contactLinks")
-    private ContactLinksJson2 contactLinks;
+    private ContactLinks contactLinks;
 
     /**
      * A boolean indicating whether the exhibitor is deleted or not
@@ -175,7 +175,7 @@ public class ExhibitorResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("sponsorshipLevel")
-    private SponsorshipLevelJson sponsorshipLevel;
+    private SponsorshipLevel sponsorshipLevel;
 
     /**
      * ID of an exhibitor.
@@ -218,24 +218,24 @@ public class ExhibitorResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson6 event,
+            @JsonProperty("event") @Nonnull Event1 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("location") @Nullable String location,
-            @JsonProperty("address") @Nullable ExhibitorAddressJson address,
+            @JsonProperty("address") @Nullable Address11 address,
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("otherPhone") @Nullable String otherPhone,
             @JsonProperty("website") @Nullable String website,
-            @JsonProperty("contactLinks") @Nullable ContactLinksJson2 contactLinks,
+            @JsonProperty("contactLinks") @Nullable ContactLinks contactLinks,
             @JsonProperty("deleted") @Nullable Boolean deleted,
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("eventSponsor") @Nullable Boolean eventSponsor,
             @JsonProperty("featured") @Nullable Boolean featured,
-            @JsonProperty("sponsorshipLevel") @Nullable SponsorshipLevelJson sponsorshipLevel,
+            @JsonProperty("sponsorshipLevel") @Nullable SponsorshipLevel sponsorshipLevel,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("profileLogoId") @Nullable String profileLogoId,
             @JsonProperty("profileLogoUrl") @Nullable String profileLogoUrl,
@@ -270,7 +270,7 @@ public class ExhibitorResponse {
         this.bannerUrl = bannerUrl;
     }
 
-    public ExhibitorResponse(@Nonnull EventJson6 event, @Nonnull String name) {
+    public ExhibitorResponse(@Nonnull Event1 event, @Nonnull String name) {
         this(
                 null,
                 null,
@@ -332,7 +332,7 @@ public class ExhibitorResponse {
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
@@ -375,7 +375,7 @@ public class ExhibitorResponse {
     /**
      * An object representing an address with various properties.
      */
-    public Optional<ExhibitorAddressJson> address() {
+    public Optional<Address11> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -417,7 +417,7 @@ public class ExhibitorResponse {
     /**
      * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
      */
-    public Optional<ContactLinksJson2> contactLinks() {
+    public Optional<ContactLinks> contactLinks() {
         return Optional.ofNullable(this.contactLinks);
     }
 
@@ -452,7 +452,7 @@ public class ExhibitorResponse {
     /**
      * Associated sponsorship level for an exhibitor
      */
-    public Optional<SponsorshipLevelJson> sponsorshipLevel() {
+    public Optional<SponsorshipLevel> sponsorshipLevel() {
         return Optional.ofNullable(this.sponsorshipLevel);
     }
 
@@ -530,7 +530,7 @@ public class ExhibitorResponse {
     /**
      * The Associated Event.
      */
-    public ExhibitorResponse withEvent(@Nonnull EventJson6 event) {
+    public ExhibitorResponse withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -579,7 +579,7 @@ public class ExhibitorResponse {
     /**
      * An object representing an address with various properties.
      */
-    public ExhibitorResponse withAddress(@Nullable ExhibitorAddressJson address) {
+    public ExhibitorResponse withAddress(@Nullable Address11 address) {
         this.address = address;
         return this;
     }
@@ -627,7 +627,7 @@ public class ExhibitorResponse {
     /**
      * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
      */
-    public ExhibitorResponse withContactLinks(@Nullable ContactLinksJson2 contactLinks) {
+    public ExhibitorResponse withContactLinks(@Nullable ContactLinks contactLinks) {
         this.contactLinks = contactLinks;
         return this;
     }
@@ -667,7 +667,7 @@ public class ExhibitorResponse {
     /**
      * Associated sponsorship level for an exhibitor
      */
-    public ExhibitorResponse withSponsorshipLevel(@Nullable SponsorshipLevelJson sponsorshipLevel) {
+    public ExhibitorResponse withSponsorshipLevel(@Nullable SponsorshipLevel sponsorshipLevel) {
         this.sponsorshipLevel = sponsorshipLevel;
         return this;
     }
@@ -853,7 +853,7 @@ public class ExhibitorResponse {
 
         private String lastModifiedBy;
 
-        private EventJson6 event;
+        private Event1 event;
 
         private String name;
 
@@ -865,7 +865,7 @@ public class ExhibitorResponse {
 
         private String location;
 
-        private ExhibitorAddressJson address;
+        private Address11 address;
 
         private String email;
 
@@ -877,7 +877,7 @@ public class ExhibitorResponse {
 
         private String website;
 
-        private ContactLinksJson2 contactLinks;
+        private ContactLinks contactLinks;
 
         private Boolean deleted;
 
@@ -887,7 +887,7 @@ public class ExhibitorResponse {
 
         private Boolean featured;
 
-        private SponsorshipLevelJson sponsorshipLevel;
+        private SponsorshipLevel sponsorshipLevel;
 
         private String id;
 
@@ -938,7 +938,7 @@ public class ExhibitorResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -987,7 +987,7 @@ public class ExhibitorResponse {
         /**
          * An object representing an address with various properties.
          */
-        public Builder address(@Nullable ExhibitorAddressJson address) {
+        public Builder address(@Nullable Address11 address) {
             this.address = address;
             return this;
         }
@@ -1035,7 +1035,7 @@ public class ExhibitorResponse {
         /**
          * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
          */
-        public Builder contactLinks(@Nullable ContactLinksJson2 contactLinks) {
+        public Builder contactLinks(@Nullable ContactLinks contactLinks) {
             this.contactLinks = contactLinks;
             return this;
         }
@@ -1075,7 +1075,7 @@ public class ExhibitorResponse {
         /**
          * Associated sponsorship level for an exhibitor
          */
-        public Builder sponsorshipLevel(@Nullable SponsorshipLevelJson sponsorshipLevel) {
+        public Builder sponsorshipLevel(@Nullable SponsorshipLevel sponsorshipLevel) {
             this.sponsorshipLevel = sponsorshipLevel;
             return this;
         }

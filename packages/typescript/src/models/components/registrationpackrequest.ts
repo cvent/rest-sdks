@@ -4,20 +4,16 @@
 
 import * as z from "zod/v3";
 import {
-  CapacityJson,
-  CapacityJson$Outbound,
-  CapacityJson$outboundSchema,
-} from "./capacityjson.js";
+  Capacity,
+  Capacity$Outbound,
+  Capacity$outboundSchema,
+} from "./capacity.js";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
-import {
-  ExhibitorJson,
-  ExhibitorJson$Outbound,
-  ExhibitorJson$outboundSchema,
-} from "./exhibitorjson.js";
+  Exhibitor,
+  Exhibitor$Outbound,
+  Exhibitor$outboundSchema,
+} from "./exhibitor.js";
 
 /**
  * A registration pack defining the registration type capacity allocations for an exhibitor at an event.
@@ -26,22 +22,22 @@ export type RegistrationPackRequest = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * An array of capacities for the registration pack.
    */
-  capacities: Array<CapacityJson>;
+  capacities: Array<Capacity>;
 };
 
 /** @internal */
 export type RegistrationPackRequest$Outbound = {
-  event: EventJson6$Outbound;
-  exhibitor: ExhibitorJson$Outbound;
-  capacities: Array<CapacityJson$Outbound>;
+  event: Event1$Outbound;
+  exhibitor: Exhibitor$Outbound;
+  capacities: Array<Capacity$Outbound>;
 };
 
 /** @internal */
@@ -50,9 +46,9 @@ export const RegistrationPackRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RegistrationPackRequest
 > = z.object({
-  event: EventJson6$outboundSchema,
-  exhibitor: ExhibitorJson$outboundSchema,
-  capacities: z.array(CapacityJson$outboundSchema),
+  event: Event1$outboundSchema,
+  exhibitor: Exhibitor$outboundSchema,
+  capacities: z.array(Capacity$outboundSchema),
 });
 
 export function registrationPackRequestToJSON(

@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type LeadSourceSectionJson = {
   /**
-   * Unique identifier for sub area of source generating the RFP. Details about this lead source section can be fetched using <a href="#tag/LeadSource/operation/getLeadSourceSection">lead source section API (under development currently).</a>
+   * Unique identifier for sub area of source generating the RFP. Details about this lead source section can be fetched using <a href="#tag/RFP-Management/operation/getRfpLeadSourceSection">lead source section API.</a>
    */
   id?: string | undefined;
 };

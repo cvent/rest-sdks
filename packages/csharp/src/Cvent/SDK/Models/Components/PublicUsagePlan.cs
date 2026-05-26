@@ -46,6 +46,6 @@ namespace Cvent.SDK.Models.Components
         /// Object representing the target usage plan and the date when the current plan is scheduled to revert to it. This object is only present when a switch-back is scheduled.
         /// </summary>
         [JsonProperty("switchBackPlan")]
-        public SwitchBackTargetUsagePlanJson? SwitchBackPlan { get; set; }
+        public SwitchBackTargetUsagePlan? SwitchBackPlan { get; set; }
     }
 }

@@ -26,11 +26,10 @@ public class ExhibitorRegistrationPackListResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingRegistrationPackJson> data;
+    private List<RegistrationPackResponse> data;
 
     @JsonCreator
-    public ExhibitorRegistrationPackListResponse(
-            @JsonProperty("data") @Nullable List<ExistingRegistrationPackJson> data) {
+    public ExhibitorRegistrationPackListResponse(@JsonProperty("data") @Nullable List<RegistrationPackResponse> data) {
         this.data = data;
     }
 
@@ -41,7 +40,7 @@ public class ExhibitorRegistrationPackListResponse {
     /**
      * The registration pack for an exhibitor. Contains at most one item.
      */
-    public Optional<List<ExistingRegistrationPackJson>> data() {
+    public Optional<List<RegistrationPackResponse>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -52,7 +51,7 @@ public class ExhibitorRegistrationPackListResponse {
     /**
      * The registration pack for an exhibitor. Contains at most one item.
      */
-    public ExhibitorRegistrationPackListResponse withData(@Nullable List<ExistingRegistrationPackJson> data) {
+    public ExhibitorRegistrationPackListResponse withData(@Nullable List<RegistrationPackResponse> data) {
         this.data = data;
         return this;
     }
@@ -82,7 +81,7 @@ public class ExhibitorRegistrationPackListResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<ExistingRegistrationPackJson> data;
+        private List<RegistrationPackResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -91,7 +90,7 @@ public class ExhibitorRegistrationPackListResponse {
         /**
          * The registration pack for an exhibitor. Contains at most one item.
          */
-        public Builder data(@Nullable List<ExistingRegistrationPackJson> data) {
+        public Builder data(@Nullable List<RegistrationPackResponse> data) {
             this.data = data;
             return this;
         }

@@ -5,8 +5,11 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import java.lang.Boolean;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -14,25 +17,79 @@ import java.util.Optional;
 /**
  * ExhibitorJson
  *
- * <p>The Associated Exhibitor.
+ * <p>An exhibitor.
  */
 public class ExhibitorJson {
     /**
-     * Exhibitor id
+     * The unique identifier of the exhibitor.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
+    /**
+     * The Name of an exhibitor.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("name")
+    private String name;
+
+    /**
+     * If the exhibitor is featured.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("featured")
+    private Boolean featured;
+
+    /**
+     * If the exhibitor is an event sponsor.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("eventSponsor")
+    private Boolean eventSponsor;
+
     @JsonCreator
-    public ExhibitorJson(@JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public ExhibitorJson(
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("featured") @Nullable Boolean featured,
+            @JsonProperty("eventSponsor") @Nullable Boolean eventSponsor) {
+        this.id = id;
+        this.name = name;
+        this.featured = featured;
+        this.eventSponsor = eventSponsor;
+    }
+
+    public ExhibitorJson() {
+        this(null, null, null, null);
     }
 
     /**
-     * Exhibitor id
+     * The unique identifier of the exhibitor.
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The Name of an exhibitor.
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * If the exhibitor is featured.
+     */
+    public Optional<Boolean> featured() {
+        return Optional.ofNullable(this.featured);
+    }
+
+    /**
+     * If the exhibitor is an event sponsor.
+     */
+    public Optional<Boolean> eventSponsor() {
+        return Optional.ofNullable(this.eventSponsor);
     }
 
     public static Builder builder() {
@@ -40,10 +97,34 @@ public class ExhibitorJson {
     }
 
     /**
-     * Exhibitor id
+     * The unique identifier of the exhibitor.
      */
-    public ExhibitorJson withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
+    public ExhibitorJson withId(@Nullable String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * The Name of an exhibitor.
+     */
+    public ExhibitorJson withName(@Nullable String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * If the exhibitor is featured.
+     */
+    public ExhibitorJson withFeatured(@Nullable Boolean featured) {
+        this.featured = featured;
+        return this;
+    }
+
+    /**
+     * If the exhibitor is an event sponsor.
+     */
+    public ExhibitorJson withEventSponsor(@Nullable Boolean eventSponsor) {
+        this.eventSponsor = eventSponsor;
         return this;
     }
 
@@ -56,17 +137,21 @@ public class ExhibitorJson {
             return false;
         }
         ExhibitorJson other = (ExhibitorJson) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.featured, other.featured)
+                && Utils.enhancedDeepEquals(this.eventSponsor, other.eventSponsor);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(id, name, featured, eventSponsor);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ExhibitorJson.class, "id", id);
+        return Utils.toString(
+                ExhibitorJson.class, "id", id, "name", name, "featured", featured, "eventSponsor", eventSponsor);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -74,20 +159,50 @@ public class ExhibitorJson {
 
         private String id;
 
+        private String name;
+
+        private Boolean featured;
+
+        private Boolean eventSponsor;
+
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Exhibitor id
+         * The unique identifier of the exhibitor.
          */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
+        public Builder id(@Nullable String id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * The Name of an exhibitor.
+         */
+        public Builder name(@Nullable String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * If the exhibitor is featured.
+         */
+        public Builder featured(@Nullable Boolean featured) {
+            this.featured = featured;
+            return this;
+        }
+
+        /**
+         * If the exhibitor is an event sponsor.
+         */
+        public Builder eventSponsor(@Nullable Boolean eventSponsor) {
+            this.eventSponsor = eventSponsor;
             return this;
         }
 
         public ExhibitorJson build() {
-            return new ExhibitorJson(id);
+            return new ExhibitorJson(id, name, featured, eventSponsor);
         }
     }
 }

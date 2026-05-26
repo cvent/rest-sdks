@@ -209,7 +209,7 @@ public class Application {
                     .type(CustomFieldTypeJson1.OPEN_ENDED_TEXT_ONE_LINE)
                     .details(ExistingCustomFieldDetailsInput.of(ThreeInput.builder()
                         .choices(List.of(
-                            ChoiceJson4Input.builder()
+                            ChoiceJson3Input.builder()
                                 .text("What is your current designation?")
                                 .build()))
                         .build()))

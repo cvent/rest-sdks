@@ -23,12 +23,12 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination information for a collection of resources.
         /// </summary>
         [JsonProperty("paging")]
-        public PagingJson? Paging { get; set; }
+        public Paging? Paging { get; set; }
 
         /// <summary>
         /// Paginated list of exhibitor Ids for an exhibitor category.
         /// </summary>
         [JsonProperty("data")]
-        public List<ExhibitorIdJson>? Data { get; set; }
+        public List<ExhibitorId>? Data { get; set; }
     }
 }

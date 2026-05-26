@@ -168,8 +168,8 @@ UpdateCustomFieldRequest req = new UpdateCustomFieldRequest() {
         Type = CustomFieldTypeJson1.OpenEndedTextOneLine,
         Details = ExistingCustomFieldDetailsInput.CreateThreeInput(
             new ThreeInput() {
-                Choices = new List<ChoiceJson4Input>() {
-                    new ChoiceJson4Input() {
+                Choices = new List<ChoiceJson3Input>() {
+                    new ChoiceJson3Input() {
                         Text = "What is your current designation?",
                     },
                 },

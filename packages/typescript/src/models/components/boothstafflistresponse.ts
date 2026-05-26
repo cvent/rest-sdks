@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingBoothStaffJson,
-  ExistingBoothStaffJson$inboundSchema,
-} from "./existingboothstaffjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  BoothStaffResponse,
+  BoothStaffResponse$inboundSchema,
+} from "./boothstaffresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Represents the booth staff list response, with paging information and a list of booth staff.
@@ -19,11 +19,11 @@ export type BoothStaffListResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of booth staff.
    */
-  data?: Array<ExistingBoothStaffJson> | undefined;
+  data?: Array<BoothStaffResponse> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const BoothStaffListResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ExistingBoothStaffJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(BoothStaffResponse$inboundSchema).optional(),
 });
 
 export function boothStaffListResponseFromJSON(

@@ -20,9 +20,8 @@ import java.util.Optional;
  */
 public class LeadSourceJson {
     /**
-     * Unique identifier for source generating the RFP. Details about this lead source section can be
-     * fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development
-     * currently)</a>
+     * Unique identifier for source generating the RFP. Details about this lead source can be fetched using
+     * <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
@@ -47,9 +46,8 @@ public class LeadSourceJson {
     }
 
     /**
-     * Unique identifier for source generating the RFP. Details about this lead source section can be
-     * fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development
-     * currently)</a>
+     * Unique identifier for source generating the RFP. Details about this lead source can be fetched using
+     * <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -67,9 +65,8 @@ public class LeadSourceJson {
     }
 
     /**
-     * Unique identifier for source generating the RFP. Details about this lead source section can be
-     * fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development
-     * currently)</a>
+     * Unique identifier for source generating the RFP. Details about this lead source can be fetched using
+     * <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
      */
     public LeadSourceJson withId(@Nullable String id) {
         this.id = id;
@@ -118,9 +115,8 @@ public class LeadSourceJson {
         }
 
         /**
-         * Unique identifier for source generating the RFP. Details about this lead source section can be
-         * fetched using <a href="#tag/LeadSource/operation/getLeadSource">lead source API. (under development
-         * currently)</a>
+         * Unique identifier for source generating the RFP. Details about this lead source can be fetched using
+         * <a href="#tag/RFP-Management/operation/getRfpLeadSource">lead source API.</a>
          */
         public Builder id(@Nullable String id) {
             this.id = id;

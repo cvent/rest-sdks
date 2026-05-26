@@ -216,7 +216,9 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 
 ### [AudienceSegments](docs/sdks/audiencesegments/README.md)
 
+* [ListAttendeeAudienceSegments](docs/sdks/audiencesegments/README.md#listattendeeaudiencesegments) - List Associated Segments
 * [DisassociateAttendeeFromAudienceSegments](docs/sdks/audiencesegments/README.md#disassociateattendeefromaudiencesegments) - Delete Attendee Associations
+* [ListAssociatedAudienceSegments](docs/sdks/audiencesegments/README.md#listassociatedaudiencesegments) - List Associated Segments
 * [CreateAudienceSegment](docs/sdks/audiencesegments/README.md#createaudiencesegment) - Create Audience Segment
 * [ListAudienceSegments](docs/sdks/audiencesegments/README.md#listaudiencesegments) - List Audience Segments
 * [ListAudienceSegmentsPostFilter](docs/sdks/audiencesegments/README.md#listaudiencesegmentspostfilter) - List Audience Segments
@@ -406,6 +408,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [ListFeeItems](docs/sdks/events/README.md#listfeeitems) - List Fee Items
 * [GetInvitationList](docs/sdks/events/README.md#getinvitationlist) - List Invitation Lists
 * [ListMembershipItems](docs/sdks/events/README.md#listmembershipitems) - List Membership Items
+* [ListMembershipItemsPostFilter](docs/sdks/events/README.md#listmembershipitemspostfilter) - List Membership Items
 * [GetOrders](docs/sdks/events/README.md#getorders) - List Orders
 * [GetOrderItems](docs/sdks/events/README.md#getorderitems) - List Order Items
 * [AssociateDiscountCodeToOrderItem](docs/sdks/events/README.md#associatediscountcodetoorderitem) - Assign Discount to Order Item
@@ -981,9 +984,9 @@ catch (System.Net.Http.HttpRequestException ex)
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 441 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 441 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 441 methods.*
+  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 444 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 444 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 444 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

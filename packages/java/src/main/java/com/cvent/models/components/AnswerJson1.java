@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
+import java.lang.Deprecated;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -17,116 +17,69 @@ import java.util.Optional;
 /**
  * AnswerJson1
  *
- * <p>A survey answer.
+ * <p>A question answer.
  */
 public class AnswerJson1 {
     /**
-     * Type of answer
+     * The unique identifier of the question.
      */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("id")
+    private String id;
+
+    /**
+     * Question text.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("text")
+    private String text;
+
+    /**
+     * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private AnswerTypeJson2 type;
-
-    /**
-     * Value property is used to send information like string, number and date in case of following types
-     * of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be
-     * put into value. Refer to questions resource to get choice label or category label from their
-     * respective ids.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("value")
-    private String value;
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("choice")
-    private UuidJson choice;
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("category")
-    private UuidJson category;
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("subCategory")
-    private UuidJson subCategory;
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("field")
-    private UuidJson field;
+    @Deprecated
+    private String type;
 
     @JsonCreator
     public AnswerJson1(
-            @JsonProperty("type") @Nonnull AnswerTypeJson2 type,
-            @JsonProperty("value") @Nullable String value,
-            @JsonProperty("choice") @Nullable UuidJson choice,
-            @JsonProperty("category") @Nullable UuidJson category,
-            @JsonProperty("subCategory") @Nullable UuidJson subCategory,
-            @JsonProperty("field") @Nullable UuidJson field) {
-        this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
-        this.value = value;
-        this.choice = choice;
-        this.category = category;
-        this.subCategory = subCategory;
-        this.field = field;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("text") @Nullable String text,
+            @JsonProperty("type") @Nullable String type) {
+        this.id = id;
+        this.text = text;
+        this.type = type;
     }
 
-    public AnswerJson1(@Nonnull AnswerTypeJson2 type) {
-        this(type, null, null, null, null, null);
+    public AnswerJson1() {
+        this(null, null, null);
     }
 
     /**
-     * Type of answer
+     * The unique identifier of the question.
      */
-    public AnswerTypeJson2 type() {
-        return this.type;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     /**
-     * Value property is used to send information like string, number and date in case of following types
-     * of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be
-     * put into value. Refer to questions resource to get choice label or category label from their
-     * respective ids.
+     * Question text.
      */
-    public Optional<String> value() {
-        return Optional.ofNullable(this.value);
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     /**
-     * The reference to the related entity. Contains only the ID of the related entity.
+     * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    public Optional<UuidJson> choice() {
-        return Optional.ofNullable(this.choice);
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public Optional<UuidJson> category() {
-        return Optional.ofNullable(this.category);
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public Optional<UuidJson> subCategory() {
-        return Optional.ofNullable(this.subCategory);
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public Optional<UuidJson> field() {
-        return Optional.ofNullable(this.field);
+    @Deprecated
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     public static Builder builder() {
@@ -134,53 +87,29 @@ public class AnswerJson1 {
     }
 
     /**
-     * Type of answer
+     * The unique identifier of the question.
      */
-    public AnswerJson1 withType(@Nonnull AnswerTypeJson2 type) {
-        this.type = Utils.checkNotNull(type, "type");
+    public AnswerJson1 withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * Value property is used to send information like string, number and date in case of following types
-     * of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be
-     * put into value. Refer to questions resource to get choice label or category label from their
-     * respective ids.
+     * Question text.
      */
-    public AnswerJson1 withValue(@Nullable String value) {
-        this.value = value;
+    public AnswerJson1 withText(@Nullable String text) {
+        this.text = text;
         return this;
     }
 
     /**
-     * The reference to the related entity. Contains only the ID of the related entity.
+     * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    public AnswerJson1 withChoice(@Nullable UuidJson choice) {
-        this.choice = choice;
-        return this;
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public AnswerJson1 withCategory(@Nullable UuidJson category) {
-        this.category = category;
-        return this;
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public AnswerJson1 withSubCategory(@Nullable UuidJson subCategory) {
-        this.subCategory = subCategory;
-        return this;
-    }
-
-    /**
-     * The reference to the related entity. Contains only the ID of the related entity.
-     */
-    public AnswerJson1 withField(@Nullable UuidJson field) {
-        this.field = field;
+    @Deprecated
+    public AnswerJson1 withType(@Nullable String type) {
+        this.type = type;
         return this;
     }
 
@@ -193,109 +122,64 @@ public class AnswerJson1 {
             return false;
         }
         AnswerJson1 other = (AnswerJson1) o;
-        return Utils.enhancedDeepEquals(this.type, other.type)
-                && Utils.enhancedDeepEquals(this.value, other.value)
-                && Utils.enhancedDeepEquals(this.choice, other.choice)
-                && Utils.enhancedDeepEquals(this.category, other.category)
-                && Utils.enhancedDeepEquals(this.subCategory, other.subCategory)
-                && Utils.enhancedDeepEquals(this.field, other.field);
+        return Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.type, other.type);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(type, value, choice, category, subCategory, field);
+        return Utils.enhancedHash(id, text, type);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                AnswerJson1.class,
-                "type",
-                type,
-                "value",
-                value,
-                "choice",
-                choice,
-                "category",
-                category,
-                "subCategory",
-                subCategory,
-                "field",
-                field);
+        return Utils.toString(AnswerJson1.class, "id", id, "text", text, "type", type);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private AnswerTypeJson2 type;
+        private String id;
 
-        private String value;
+        private String text;
 
-        private UuidJson choice;
-
-        private UuidJson category;
-
-        private UuidJson subCategory;
-
-        private UuidJson field;
+        @Deprecated
+        private String type;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Type of answer
+         * The unique identifier of the question.
          */
-        public Builder type(@Nonnull AnswerTypeJson2 type) {
-            this.type = Utils.checkNotNull(type, "type");
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * Value property is used to send information like string, number and date in case of following types
-         * of answers only: ChoiceText, Text, Comment, Other. In case of Rank Order question, rank should be
-         * put into value. Refer to questions resource to get choice label or category label from their
-         * respective ids.
+         * Question text.
          */
-        public Builder value(@Nullable String value) {
-            this.value = value;
+        public Builder text(@Nullable String text) {
+            this.text = text;
             return this;
         }
 
         /**
-         * The reference to the related entity. Contains only the ID of the related entity.
+         * Data type of an answer. DEPRECATED: This field is deprecated and not applicable to this activity.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
-        public Builder choice(@Nullable UuidJson choice) {
-            this.choice = choice;
-            return this;
-        }
-
-        /**
-         * The reference to the related entity. Contains only the ID of the related entity.
-         */
-        public Builder category(@Nullable UuidJson category) {
-            this.category = category;
-            return this;
-        }
-
-        /**
-         * The reference to the related entity. Contains only the ID of the related entity.
-         */
-        public Builder subCategory(@Nullable UuidJson subCategory) {
-            this.subCategory = subCategory;
-            return this;
-        }
-
-        /**
-         * The reference to the related entity. Contains only the ID of the related entity.
-         */
-        public Builder field(@Nullable UuidJson field) {
-            this.field = field;
+        @Deprecated
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
 
         public AnswerJson1 build() {
-            return new AnswerJson1(type, value, choice, category, subCategory, field);
+            return new AnswerJson1(id, text, type);
         }
     }
 }

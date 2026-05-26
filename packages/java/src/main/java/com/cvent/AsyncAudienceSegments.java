@@ -11,6 +11,8 @@ import com.cvent.models.operations.DeleteAudienceSegmentRequest;
 import com.cvent.models.operations.DisassociateAttendeeFromAudienceSegmentRequest;
 import com.cvent.models.operations.DisassociateAttendeeFromAudienceSegmentsRequest;
 import com.cvent.models.operations.GetAudienceSegmentByIdRequest;
+import com.cvent.models.operations.ListAssociatedAudienceSegmentsRequest;
+import com.cvent.models.operations.ListAttendeeAudienceSegmentsRequest;
 import com.cvent.models.operations.ListAudienceSegmentsPostFilterRequest;
 import com.cvent.models.operations.ListAudienceSegmentsRequest;
 import com.cvent.models.operations.ListSegmentAssociatedAttendeesRequest;
@@ -27,6 +29,10 @@ import com.cvent.models.operations.async.DisassociateAttendeeFromAudienceSegment
 import com.cvent.models.operations.async.DisassociateAttendeeFromAudienceSegmentsResponse;
 import com.cvent.models.operations.async.GetAudienceSegmentByIdRequestBuilder;
 import com.cvent.models.operations.async.GetAudienceSegmentByIdResponse;
+import com.cvent.models.operations.async.ListAssociatedAudienceSegmentsRequestBuilder;
+import com.cvent.models.operations.async.ListAssociatedAudienceSegmentsResponse;
+import com.cvent.models.operations.async.ListAttendeeAudienceSegmentsRequestBuilder;
+import com.cvent.models.operations.async.ListAttendeeAudienceSegmentsResponse;
 import com.cvent.models.operations.async.ListAudienceSegmentsPostFilterRequestBuilder;
 import com.cvent.models.operations.async.ListAudienceSegmentsPostFilterResponse;
 import com.cvent.models.operations.async.ListAudienceSegmentsRequestBuilder;
@@ -41,6 +47,8 @@ import com.cvent.operations.DeleteAudienceSegment;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegment;
 import com.cvent.operations.DisassociateAttendeeFromAudienceSegments;
 import com.cvent.operations.GetAudienceSegmentById;
+import com.cvent.operations.ListAssociatedAudienceSegments;
+import com.cvent.operations.ListAttendeeAudienceSegments;
 import com.cvent.operations.ListAudienceSegments;
 import com.cvent.operations.ListAudienceSegmentsPostFilter;
 import com.cvent.operations.ListSegmentAssociatedAttendees;
@@ -75,6 +83,55 @@ public class AsyncAudienceSegments {
      */
     public AudienceSegments sync() {
         return syncSDK;
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public ListAttendeeAudienceSegmentsRequestBuilder listAttendeeAudienceSegments() {
+        return new ListAttendeeAudienceSegmentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListAttendeeAudienceSegmentsResponse>} - The async response
+     */
+    public CompletableFuture<ListAttendeeAudienceSegmentsResponse> listAttendeeAudienceSegments(
+            @Nonnull ListAttendeeAudienceSegmentsRequest request) {
+        return listAttendeeAudienceSegments(request, null);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee. Use the filter query
+     * parameter to filter by segment ID.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAttendeeAudienceSegmentsResponse>} - The async response
+     */
+    public CompletableFuture<ListAttendeeAudienceSegmentsResponse> listAttendeeAudienceSegments(
+            @Nonnull ListAttendeeAudienceSegmentsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListAttendeeAudienceSegmentsRequest, ListAttendeeAudienceSegmentsResponse> operation =
+                new ListAttendeeAudienceSegments.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 
     /**
@@ -122,6 +179,59 @@ public class AsyncAudienceSegments {
                         DisassociateAttendeeFromAudienceSegmentsRequest,
                         DisassociateAttendeeFromAudienceSegmentsResponse>
                 operation = new DisassociateAttendeeFromAudienceSegments.Async(
+                        sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @return The async call builder
+     */
+    public ListAssociatedAudienceSegmentsRequestBuilder listAssociatedAudienceSegments() {
+        return new ListAssociatedAudienceSegmentsRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListAssociatedAudienceSegmentsResponse>} - The async response
+     */
+    public CompletableFuture<ListAssociatedAudienceSegmentsResponse> listAssociatedAudienceSegments(
+            @Nonnull ListAssociatedAudienceSegmentsRequest request) {
+        return listAssociatedAudienceSegments(request, null);
+    }
+
+    /**
+     * List Associated Segments
+     *
+     * <p>Gets a paginated list of ACTIVE audience segment associations for the attendee by sending filter in
+     * the body of the request. This method returns the same data as [GET List Associated
+     * Segments](#operation/listAttendeeAudienceSegments) but allows for longer filters.
+     *
+     * <p><a href="#oauth2-auth-code-planner-admin">More about OAuth2 authorization code support for administrators</a>
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListAssociatedAudienceSegmentsResponse>} - The async response
+     */
+    public CompletableFuture<ListAssociatedAudienceSegmentsResponse> listAssociatedAudienceSegments(
+            @Nonnull ListAssociatedAudienceSegmentsRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListAssociatedAudienceSegmentsRequest, ListAssociatedAudienceSegmentsResponse> operation =
+                new ListAssociatedAudienceSegments.Async(
                         sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

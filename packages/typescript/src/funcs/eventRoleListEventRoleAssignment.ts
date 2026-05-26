@@ -111,6 +111,8 @@ async function $do(
       "expand": payload.expand,
     }, { explode: false }),
     encodeFormQuery({
+      "after": payload.after,
+      "before": payload.before,
       "filter": payload.filter,
       "limit": payload.limit,
       "token": payload.token,

@@ -58,10 +58,7 @@ import {
   ContactCommonJson,
   ContactCommonJson$inboundSchema,
 } from "./contactcommonjson.js";
-import {
-  ExhibitorJson1,
-  ExhibitorJson1$inboundSchema,
-} from "./exhibitorjson1.js";
+import { ExhibitorJson, ExhibitorJson$inboundSchema } from "./exhibitorjson.js";
 import {
   LeadObjectJson,
   LeadObjectJson$inboundSchema,
@@ -651,7 +648,7 @@ export type ExhibitorWeblinkOpened = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -669,7 +666,7 @@ export type ExhibitorVirtualBoothJoined = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -691,7 +688,7 @@ export type ExhibitorViewed = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -713,7 +710,7 @@ export type ExhibitorSocialLinkOpened = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -739,7 +736,7 @@ export type ExhibitorDocumentOpened = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -1063,7 +1060,7 @@ export type EventBannerLinkClicked = {
   /**
    * An exhibitor.
    */
-  exhibitor?: ExhibitorJson1 | undefined;
+  exhibitor?: ExhibitorJson | undefined;
   /**
    * The platform used by the user.
    */
@@ -2108,7 +2105,7 @@ export const ExhibitorWeblinkOpened$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   weblink: ActivityExhibitorWebLinkJson$inboundSchema.optional(),
 });
@@ -2129,7 +2126,7 @@ export const ExhibitorVirtualBoothJoined$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   sponsorshipLevel: ActivityExhibitorSponsorshipLevelJson$inboundSchema
     .optional(),
@@ -2152,7 +2149,7 @@ export const ExhibitorViewed$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   sponsorshipLevel: ActivityExhibitorSponsorshipLevelJson$inboundSchema
     .optional(),
@@ -2176,7 +2173,7 @@ export const ExhibitorSocialLinkOpened$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   sponsorshipLevel: ActivityExhibitorSponsorshipLevelJson$inboundSchema
     .optional(),
@@ -2200,7 +2197,7 @@ export const ExhibitorDocumentOpened$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   document: ActivityExhibitorDocumentJson$inboundSchema.optional(),
 });
@@ -2644,7 +2641,7 @@ export const EventBannerLinkClicked$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  exhibitor: ExhibitorJson1$inboundSchema.optional(),
+  exhibitor: ExhibitorJson$inboundSchema.optional(),
   platform: z.string().optional(),
   banner: z.lazy(() => Banner$inboundSchema).optional(),
   target: BannerLinkTargetJson$inboundSchema.optional(),

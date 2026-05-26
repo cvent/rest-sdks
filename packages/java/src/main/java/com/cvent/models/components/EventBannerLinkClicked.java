@@ -24,7 +24,7 @@ public class EventBannerLinkClicked {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("exhibitor")
-    private ExhibitorJson1 exhibitor;
+    private ExhibitorJson exhibitor;
 
     /**
      * The platform used by the user.
@@ -49,7 +49,7 @@ public class EventBannerLinkClicked {
 
     @JsonCreator
     public EventBannerLinkClicked(
-            @JsonProperty("exhibitor") @Nullable ExhibitorJson1 exhibitor,
+            @JsonProperty("exhibitor") @Nullable ExhibitorJson exhibitor,
             @JsonProperty("platform") @Nullable String platform,
             @JsonProperty("banner") @Nullable Banner banner,
             @JsonProperty("target") @Nullable BannerLinkTargetJson target) {
@@ -66,7 +66,7 @@ public class EventBannerLinkClicked {
     /**
      * An exhibitor.
      */
-    public Optional<ExhibitorJson1> exhibitor() {
+    public Optional<ExhibitorJson> exhibitor() {
         return Optional.ofNullable(this.exhibitor);
     }
 
@@ -98,7 +98,7 @@ public class EventBannerLinkClicked {
     /**
      * An exhibitor.
      */
-    public EventBannerLinkClicked withExhibitor(@Nullable ExhibitorJson1 exhibitor) {
+    public EventBannerLinkClicked withExhibitor(@Nullable ExhibitorJson exhibitor) {
         this.exhibitor = exhibitor;
         return this;
     }
@@ -164,7 +164,7 @@ public class EventBannerLinkClicked {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ExhibitorJson1 exhibitor;
+        private ExhibitorJson exhibitor;
 
         private String platform;
 
@@ -179,7 +179,7 @@ public class EventBannerLinkClicked {
         /**
          * An exhibitor.
          */
-        public Builder exhibitor(@Nullable ExhibitorJson1 exhibitor) {
+        public Builder exhibitor(@Nullable ExhibitorJson exhibitor) {
             this.exhibitor = exhibitor;
             return this;
         }

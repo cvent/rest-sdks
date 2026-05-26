@@ -27,13 +27,13 @@ public class FileInput {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private EventJson6 event;
+    private Event1 event;
 
     /**
      * The Associated Exhibitor.
      */
     @JsonProperty("exhibitor")
-    private ExhibitorJson exhibitor;
+    private Exhibitor exhibitor;
 
     /**
      * Display name of the file.
@@ -56,8 +56,8 @@ public class FileInput {
 
     @JsonCreator
     public FileInput(
-            @JsonProperty("event") @Nonnull EventJson6 event,
-            @JsonProperty("exhibitor") @Nonnull ExhibitorJson exhibitor,
+            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("displayName") @Nonnull String displayName,
             @JsonProperty("hidden") @Nullable Boolean hidden,
             @JsonProperty("order") long order) {
@@ -70,22 +70,21 @@ public class FileInput {
         this.order = order;
     }
 
-    public FileInput(
-            @Nonnull EventJson6 event, @Nonnull ExhibitorJson exhibitor, @Nonnull String displayName, long order) {
+    public FileInput(@Nonnull Event1 event, @Nonnull Exhibitor exhibitor, @Nonnull String displayName, long order) {
         this(event, exhibitor, displayName, null, order);
     }
 
     /**
      * The Associated Event.
      */
-    public EventJson6 event() {
+    public Event1 event() {
         return this.event;
     }
 
     /**
      * The Associated Exhibitor.
      */
-    public ExhibitorJson exhibitor() {
+    public Exhibitor exhibitor() {
         return this.exhibitor;
     }
 
@@ -117,7 +116,7 @@ public class FileInput {
     /**
      * The Associated Event.
      */
-    public FileInput withEvent(@Nonnull EventJson6 event) {
+    public FileInput withEvent(@Nonnull Event1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -125,7 +124,7 @@ public class FileInput {
     /**
      * The Associated Exhibitor.
      */
-    public FileInput withExhibitor(@Nonnull ExhibitorJson exhibitor) {
+    public FileInput withExhibitor(@Nonnull Exhibitor exhibitor) {
         this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
         return this;
     }
@@ -194,9 +193,9 @@ public class FileInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson6 event;
+        private Event1 event;
 
-        private ExhibitorJson exhibitor;
+        private Exhibitor exhibitor;
 
         private String displayName;
 
@@ -211,7 +210,7 @@ public class FileInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull EventJson6 event) {
+        public Builder event(@Nonnull Event1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -219,7 +218,7 @@ public class FileInput {
         /**
          * The Associated Exhibitor.
          */
-        public Builder exhibitor(@Nonnull ExhibitorJson exhibitor) {
+        public Builder exhibitor(@Nonnull Exhibitor exhibitor) {
             this.exhibitor = Utils.checkNotNull(exhibitor, "exhibitor");
             return this;
         }

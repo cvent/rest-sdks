@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  SwitchBackTargetUsagePlanJson,
-  SwitchBackTargetUsagePlanJson$inboundSchema,
-} from "./switchbacktargetusageplanjson.js";
+  SwitchBackTargetUsagePlan,
+  SwitchBackTargetUsagePlan$inboundSchema,
+} from "./switchbacktargetusageplan.js";
 
 /**
  * Object representing an API Platform Usage Tier, including information when the usage plan is scheduled to revert to a previous plan, if any.
@@ -34,7 +34,7 @@ export type PublicUsagePlan = {
   /**
    * Object representing the target usage plan and the date when the current plan is scheduled to revert to it. This object is only present when a switch-back is scheduled.
    */
-  switchBackPlan?: SwitchBackTargetUsagePlanJson | undefined;
+  switchBackPlan?: SwitchBackTargetUsagePlan | undefined;
 };
 
 /** @internal */
@@ -47,7 +47,7 @@ export const PublicUsagePlan$inboundSchema: z.ZodType<
   quota: z.number(),
   burstLimit: z.number(),
   rateLimit: z.number(),
-  switchBackPlan: SwitchBackTargetUsagePlanJson$inboundSchema.optional(),
+  switchBackPlan: SwitchBackTargetUsagePlan$inboundSchema.optional(),
 });
 
 export function publicUsagePlanFromJSON(

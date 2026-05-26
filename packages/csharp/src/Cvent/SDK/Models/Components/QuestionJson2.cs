@@ -84,7 +84,7 @@ namespace Cvent.SDK.Models.Components
         /// List of choices for the question.
         /// </summary>
         [JsonProperty("choices")]
-        public List<ChoiceJson3>? Choices { get; set; }
+        public List<ChoiceJson2>? Choices { get; set; }
 
         /// <summary>
         /// List of categories for the question.
@@ -102,13 +102,13 @@ namespace Cvent.SDK.Models.Components
         /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoiceJson2? NotApplicableAnswer { get; set; }
+        public AdditionalChoiceJson1? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
-        public AdditionalChoiceJson2? OtherAnswer { get; set; }
+        public AdditionalChoiceJson1? OtherAnswer { get; set; }
 
         /// <summary>
         /// Text Value of Comments Input box placeholder.
@@ -126,7 +126,7 @@ namespace Cvent.SDK.Models.Components
         /// List of fields for form/matrix questions.
         /// </summary>
         [JsonProperty("fields")]
-        public List<FieldJson5>? Fields { get; set; }
+        public List<FieldJson3>? Fields { get; set; }
 
         /// <summary>
         /// Max possible score.

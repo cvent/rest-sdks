@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  ExhibitorJson,
-  ExhibitorJson$Outbound,
-  ExhibitorJson$outboundSchema,
-} from "./exhibitorjson.js";
+  Exhibitor,
+  Exhibitor$Outbound,
+  Exhibitor$outboundSchema,
+} from "./exhibitor.js";
 
 /**
  * An object representing the exhibitor admin.
@@ -16,7 +16,7 @@ export type ExhibitorAdminRequest = {
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * The first name of the exhibitor admin
    */
@@ -33,7 +33,7 @@ export type ExhibitorAdminRequest = {
 
 /** @internal */
 export type ExhibitorAdminRequest$Outbound = {
-  exhibitor: ExhibitorJson$Outbound;
+  exhibitor: Exhibitor$Outbound;
   firstName: string;
   lastName: string;
   email: string;
@@ -45,7 +45,7 @@ export const ExhibitorAdminRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorAdminRequest
 > = z.object({
-  exhibitor: ExhibitorJson$outboundSchema,
+  exhibitor: Exhibitor$outboundSchema,
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),

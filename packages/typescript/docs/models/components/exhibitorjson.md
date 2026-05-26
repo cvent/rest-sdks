@@ -1,6 +1,6 @@
 # ExhibitorJson
 
-The Associated Exhibitor.
+An exhibitor.
 
 ## Example Usage
 
@@ -8,12 +8,18 @@ The Associated Exhibitor.
 import { ExhibitorJson } from "@cvent/sdk/models/components";
 
 let value: ExhibitorJson = {
-  id: "4888db54-db22-11eb-8d19-0242ac130003",
+  id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  name: "AutoExpo",
+  featured: true,
+  eventSponsor: true,
 };
 ```
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | Exhibitor id                         | 4888db54-db22-11eb-8d19-0242ac130003 |
+| Field                                   | Type                                    | Required                                | Description                             | Example                                 |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `id`                                    | *string*                                | :heavy_minus_sign:                      | The unique identifier of the exhibitor. | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3    |
+| `name`                                  | *string*                                | :heavy_minus_sign:                      | The Name of an exhibitor.               | AutoExpo                                |
+| `featured`                              | *boolean*                               | :heavy_minus_sign:                      | If the exhibitor is featured.           | true                                    |
+| `eventSponsor`                          | *boolean*                               | :heavy_minus_sign:                      | If the exhibitor is an event sponsor.   | true                                    |

@@ -25,10 +25,10 @@ public class ExhibitorAnswersRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ExistingExhibitorAnswerJsonInput> data;
+    private List<ExistingExhibitorAnswerInput> data;
 
     @JsonCreator
-    public ExhibitorAnswersRequest(@JsonProperty("data") @Nullable List<ExistingExhibitorAnswerJsonInput> data) {
+    public ExhibitorAnswersRequest(@JsonProperty("data") @Nullable List<ExistingExhibitorAnswerInput> data) {
         this.data = data;
     }
 
@@ -39,7 +39,7 @@ public class ExhibitorAnswersRequest {
     /**
      * List of answers for all exhibitor questions.
      */
-    public Optional<List<ExistingExhibitorAnswerJsonInput>> data() {
+    public Optional<List<ExistingExhibitorAnswerInput>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -50,7 +50,7 @@ public class ExhibitorAnswersRequest {
     /**
      * List of answers for all exhibitor questions.
      */
-    public ExhibitorAnswersRequest withData(@Nullable List<ExistingExhibitorAnswerJsonInput> data) {
+    public ExhibitorAnswersRequest withData(@Nullable List<ExistingExhibitorAnswerInput> data) {
         this.data = data;
         return this;
     }
@@ -80,7 +80,7 @@ public class ExhibitorAnswersRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<ExistingExhibitorAnswerJsonInput> data;
+        private List<ExistingExhibitorAnswerInput> data;
 
         private Builder() {
             // force use of static builder() method
@@ -89,7 +89,7 @@ public class ExhibitorAnswersRequest {
         /**
          * List of answers for all exhibitor questions.
          */
-        public Builder data(@Nullable List<ExistingExhibitorAnswerJsonInput> data) {
+        public Builder data(@Nullable List<ExistingExhibitorAnswerInput> data) {
             this.data = data;
             return this;
         }

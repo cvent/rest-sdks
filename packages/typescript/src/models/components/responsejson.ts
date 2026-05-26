@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AnswerJson1, AnswerJson1$inboundSchema } from "./answerjson1.js";
+import { AnswerJson, AnswerJson$inboundSchema } from "./answerjson.js";
 import {
   LoopingChoiceJson,
   LoopingChoiceJson$inboundSchema,
@@ -55,7 +55,7 @@ export type ResponseJson = {
   /**
    * List of responded survey answers.
    */
-  answers: Array<AnswerJson1>;
+  answers: Array<AnswerJson>;
   /**
    * Answer score (This property is not supported).
    *
@@ -127,7 +127,7 @@ export const ResponseJson$inboundSchema: z.ZodType<
   id: z.string().optional(),
   respondent: z.lazy(() => ResponseJsonUUID$inboundSchema).optional(),
   question: UuidJson$inboundSchema,
-  answers: z.array(AnswerJson1$inboundSchema),
+  answers: z.array(AnswerJson$inboundSchema),
   score: z.number().optional(),
   event: UuidJson$inboundSchema.optional(),
   session: UuidJson$inboundSchema.optional(),

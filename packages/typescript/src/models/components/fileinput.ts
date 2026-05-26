@@ -3,16 +3,12 @@
  */
 
 import * as z from "zod/v3";
+import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
 import {
-  EventJson6,
-  EventJson6$Outbound,
-  EventJson6$outboundSchema,
-} from "./eventjson6.js";
-import {
-  ExhibitorJson,
-  ExhibitorJson$Outbound,
-  ExhibitorJson$outboundSchema,
-} from "./exhibitorjson.js";
+  Exhibitor,
+  Exhibitor$Outbound,
+  Exhibitor$outboundSchema,
+} from "./exhibitor.js";
 
 /**
  * Content of exhibitor file.
@@ -21,11 +17,11 @@ export type FileInput = {
   /**
    * The Associated Event.
    */
-  event: EventJson6;
+  event: Event1;
   /**
    * The Associated Exhibitor.
    */
-  exhibitor: ExhibitorJson;
+  exhibitor: Exhibitor;
   /**
    * Display name of the file.
    */
@@ -42,8 +38,8 @@ export type FileInput = {
 
 /** @internal */
 export type FileInput$Outbound = {
-  event: EventJson6$Outbound;
-  exhibitor: ExhibitorJson$Outbound;
+  event: Event1$Outbound;
+  exhibitor: Exhibitor$Outbound;
   displayName: string;
   hidden: boolean;
   order: number;
@@ -55,8 +51,8 @@ export const FileInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FileInput
 > = z.object({
-  event: EventJson6$outboundSchema,
-  exhibitor: ExhibitorJson$outboundSchema,
+  event: Event1$outboundSchema,
+  exhibitor: Exhibitor$outboundSchema,
   displayName: z.string(),
   hidden: z.boolean().default(false),
   order: z.number().int(),
