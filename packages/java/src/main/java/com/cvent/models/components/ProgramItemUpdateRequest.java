@@ -31,13 +31,13 @@ public class ProgramItemUpdateRequest {
      * The related event object.
      */
     @JsonProperty("event")
-    private EventLiteJson1 event;
+    private EventId event;
 
     /**
      * The related session object.
      */
     @JsonProperty("session")
-    private SessionLiteJson1 session;
+    private Session1 session;
 
     /**
      * Name of the program item.
@@ -69,8 +69,8 @@ public class ProgramItemUpdateRequest {
     @JsonCreator
     public ProgramItemUpdateRequest(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("event") @Nonnull EventLiteJson1 event,
-            @JsonProperty("session") @Nonnull SessionLiteJson1 session,
+            @JsonProperty("event") @Nonnull EventId event,
+            @JsonProperty("session") @Nonnull Session1 session,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("duration") @Nullable Long duration,
             @JsonProperty("description") @Nullable String description,
@@ -86,10 +86,7 @@ public class ProgramItemUpdateRequest {
     }
 
     public ProgramItemUpdateRequest(
-            @Nonnull String id,
-            @Nonnull EventLiteJson1 event,
-            @Nonnull SessionLiteJson1 session,
-            @Nonnull String name) {
+            @Nonnull String id, @Nonnull EventId event, @Nonnull Session1 session, @Nonnull String name) {
         this(id, event, session, name, null, null, null);
     }
 
@@ -103,14 +100,14 @@ public class ProgramItemUpdateRequest {
     /**
      * The related event object.
      */
-    public EventLiteJson1 event() {
+    public EventId event() {
         return this.event;
     }
 
     /**
      * The related session object.
      */
-    public SessionLiteJson1 session() {
+    public Session1 session() {
         return this.session;
     }
 
@@ -157,7 +154,7 @@ public class ProgramItemUpdateRequest {
     /**
      * The related event object.
      */
-    public ProgramItemUpdateRequest withEvent(@Nonnull EventLiteJson1 event) {
+    public ProgramItemUpdateRequest withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -165,7 +162,7 @@ public class ProgramItemUpdateRequest {
     /**
      * The related session object.
      */
-    public ProgramItemUpdateRequest withSession(@Nonnull SessionLiteJson1 session) {
+    public ProgramItemUpdateRequest withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
@@ -250,9 +247,9 @@ public class ProgramItemUpdateRequest {
 
         private String id;
 
-        private EventLiteJson1 event;
+        private EventId event;
 
-        private SessionLiteJson1 session;
+        private Session1 session;
 
         private String name;
 
@@ -277,7 +274,7 @@ public class ProgramItemUpdateRequest {
         /**
          * The related event object.
          */
-        public Builder event(@Nonnull EventLiteJson1 event) {
+        public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -285,7 +282,7 @@ public class ProgramItemUpdateRequest {
         /**
          * The related session object.
          */
-        public Builder session(@Nonnull SessionLiteJson1 session) {
+        public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
             return this;
         }

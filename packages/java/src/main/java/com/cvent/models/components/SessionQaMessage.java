@@ -32,7 +32,7 @@ public class SessionQaMessage {
      * Attendee details
      */
     @JsonProperty("attendee")
-    private AttendeeJson2 attendee;
+    private AttendeeJson attendee;
 
     /**
      * Question details
@@ -43,7 +43,7 @@ public class SessionQaMessage {
     @JsonCreator
     public SessionQaMessage(
             @JsonProperty("actionType") @Nonnull SessionQaActionTypeJson actionType,
-            @JsonProperty("attendee") @Nonnull AttendeeJson2 attendee,
+            @JsonProperty("attendee") @Nonnull AttendeeJson attendee,
             @JsonProperty("question") @Nonnull QuestionJson1 question) {
         this.actionType = Optional.ofNullable(actionType)
                 .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
@@ -68,7 +68,7 @@ public class SessionQaMessage {
     /**
      * Attendee details
      */
-    public AttendeeJson2 attendee() {
+    public AttendeeJson attendee() {
         return this.attendee;
     }
 
@@ -99,7 +99,7 @@ public class SessionQaMessage {
     /**
      * Attendee details
      */
-    public SessionQaMessage withAttendee(@Nonnull AttendeeJson2 attendee) {
+    public SessionQaMessage withAttendee(@Nonnull AttendeeJson attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -142,7 +142,7 @@ public class SessionQaMessage {
 
         private SessionQaActionTypeJson actionType;
 
-        private AttendeeJson2 attendee;
+        private AttendeeJson attendee;
 
         private QuestionJson1 question;
 
@@ -166,7 +166,7 @@ public class SessionQaMessage {
         /**
          * Attendee details
          */
-        public Builder attendee(@Nonnull AttendeeJson2 attendee) {
+        public Builder attendee(@Nonnull AttendeeJson attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }

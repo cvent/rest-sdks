@@ -6,21 +6,15 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AttendeeJson, AttendeeJson$inboundSchema } from "./attendeejson.js";
-import { EventJson, EventJson$inboundSchema } from "./eventjson.js";
-import { OrderJson, OrderJson$inboundSchema } from "./orderjson.js";
+import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { Event2, Event2$inboundSchema } from "./event2.js";
+import { Order, Order$inboundSchema } from "./order.js";
+import { PaymentMethod, PaymentMethod$inboundSchema } from "./paymentmethod.js";
+import { PaymentType, PaymentType$inboundSchema } from "./paymenttype.js";
 import {
-  PaymentMethodJson,
-  PaymentMethodJson$inboundSchema,
-} from "./paymentmethodjson.js";
-import {
-  PaymentTypeCreateJson,
-  PaymentTypeCreateJson$inboundSchema,
-} from "./paymenttypecreatejson.js";
-import {
-  TransactionItemCreateJson,
-  TransactionItemCreateJson$inboundSchema,
-} from "./transactionitemcreatejson.js";
+  TransactionItemCreate,
+  TransactionItemCreate$inboundSchema,
+} from "./transactionitemcreate.js";
 
 /**
  * Denotes the details of the transaction created for an attendee.
@@ -49,15 +43,15 @@ export type CreateTransactionResponse = {
   /**
    * The reference to the event. Contains only the ID of the event.
    */
-  event?: EventJson | undefined;
+  event?: Event2 | undefined;
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: AttendeeJson | undefined;
+  attendee?: Attendee2 | undefined;
   /**
    * This denotes the order IDs corresponding to this transaction.
    */
-  orders?: Array<OrderJson> | undefined;
+  orders?: Array<Order> | undefined;
   /**
    * Journal number for this transaction. Represents an identifier for the transaction in your bank or ledger.
    */
@@ -65,11 +59,11 @@ export type CreateTransactionResponse = {
   /**
    * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. To create an offline charge, the attendee must have a balance owing. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency. To create an offline refund, the attendee must have a balance due.
    */
-  paymentType: PaymentTypeCreateJson;
+  paymentType: PaymentType;
   /**
    * This denotes the payment method in a transaction.
    */
-  paymentMethod: PaymentMethodJson;
+  paymentMethod: PaymentMethod;
   /**
    * True indicates the transaction was successful.
    */
@@ -101,7 +95,7 @@ export type CreateTransactionResponse = {
   /**
    * The list of order items you'll apply the transaction amount towards. Values in the array must sum to the `amount` in the request body. Can only be included in the request body if `partialPayment` query parameter is true.
    */
-  transactionItems?: Array<TransactionItemCreateJson> | undefined;
+  transactionItems?: Array<TransactionItemCreate> | undefined;
 };
 
 /** @internal */
@@ -118,12 +112,12 @@ export const CreateTransactionResponse$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: EventJson$inboundSchema.optional(),
-  attendee: AttendeeJson$inboundSchema.optional(),
-  orders: z.array(OrderJson$inboundSchema).optional(),
+  event: Event2$inboundSchema.optional(),
+  attendee: Attendee2$inboundSchema.optional(),
+  orders: z.array(Order$inboundSchema).optional(),
   journalNumber: z.string().optional(),
-  paymentType: PaymentTypeCreateJson$inboundSchema,
-  paymentMethod: PaymentMethodJson$inboundSchema,
+  paymentType: PaymentType$inboundSchema,
+  paymentMethod: PaymentMethod$inboundSchema,
   success: z.boolean().optional(),
   date: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   batchNumber: z.string().optional(),
@@ -131,7 +125,7 @@ export const CreateTransactionResponse$inboundSchema: z.ZodType<
   amount: z.number().optional(),
   currency: z.string().optional(),
   paymentNote: z.string().optional(),
-  transactionItems: z.array(TransactionItemCreateJson$inboundSchema).optional(),
+  transactionItems: z.array(TransactionItemCreate$inboundSchema).optional(),
 });
 
 export function createTransactionResponseFromJSON(

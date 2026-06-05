@@ -117,10 +117,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## createAttendee
 
@@ -265,21 +265,21 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [components.AttendeeAddJson[]](../../models/.md)                                                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [components.AttendeeAdd[]](../../models/.md)                                                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[components.AttendeeAddBulkItem[]](../../models/.md)\>**
+**Promise\<[components.AttendeeInvitesBulkResponseItem[]](../../models/.md)\>**
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listAttendees
 
@@ -387,10 +387,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listAttendeesPostFilter
 
@@ -503,10 +503,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getAttendeeById
 
@@ -604,7 +604,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateAttendee
@@ -759,7 +759,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateAttendeeSubscriptionStatus
@@ -856,7 +856,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateInternalInfoAnswers
@@ -965,7 +965,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## postBadge
@@ -1078,7 +1078,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getBadge
@@ -1177,7 +1177,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getBadgesPostFilters
@@ -1280,7 +1280,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateBadge
@@ -1395,5 +1395,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

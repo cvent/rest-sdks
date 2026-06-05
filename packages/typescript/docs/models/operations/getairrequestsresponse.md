@@ -49,13 +49,13 @@ let value: GetAirRequestsResponse = {
             outgoingLeg: {
               origin: "Delhi - Indira Gandhi Intl - (DEL)",
               destination: "Dubai - International (DXB)",
-              date: new Date("2023-05-19T00:00:00"),
+              date: new Date("2023-05-19T00:00:00Z"),
               time: "Morning",
             },
             incomingLeg: {
               origin: "Delhi - Indira Gandhi Intl - (DEL)",
               destination: "Dubai - International (DXB)",
-              date: new Date("2023-05-19T00:00:00"),
+              date: new Date("2023-05-19T00:00:00Z"),
               time: "Morning",
             },
             ticketType: "Economy/Coach",
@@ -92,6 +92,6 @@ let value: GetAirRequestsResponse = {
 
 ## Fields
 
-| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `result`                                                                           | [components.AirReservationDetail](../../models/components/airreservationdetail.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `result`                                                                             | [components.AirReservationDetail2](../../models/components/airreservationdetail2.md) | :heavy_check_mark:                                                                   | N/A                                                                                  |

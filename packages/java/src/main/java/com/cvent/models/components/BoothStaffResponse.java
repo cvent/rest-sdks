@@ -53,13 +53,13 @@ public class BoothStaffResponse {
      * The associated Attendee.
      */
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee11 attendee;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -80,8 +80,8 @@ public class BoothStaffResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("attendee") @Nonnull Attendee2 attendee,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("attendee") @Nonnull Attendee11 attendee,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("id") @Nullable String id) {
         this.created = created;
@@ -96,7 +96,7 @@ public class BoothStaffResponse {
         this.id = id;
     }
 
-    public BoothStaffResponse(@Nonnull Attendee2 attendee, @Nonnull Event1 event, @Nonnull Exhibitor exhibitor) {
+    public BoothStaffResponse(@Nonnull Attendee11 attendee, @Nonnull Event21 event, @Nonnull Exhibitor exhibitor) {
         this(null, null, null, null, attendee, event, exhibitor, null);
     }
 
@@ -131,14 +131,14 @@ public class BoothStaffResponse {
     /**
      * The associated Attendee.
      */
-    public Attendee2 attendee() {
+    public Attendee11 attendee() {
         return this.attendee;
     }
 
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -195,7 +195,7 @@ public class BoothStaffResponse {
     /**
      * The associated Attendee.
      */
-    public BoothStaffResponse withAttendee(@Nonnull Attendee2 attendee) {
+    public BoothStaffResponse withAttendee(@Nonnull Attendee11 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -203,7 +203,7 @@ public class BoothStaffResponse {
     /**
      * The Associated Event.
      */
-    public BoothStaffResponse withEvent(@Nonnull Event1 event) {
+    public BoothStaffResponse withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -281,9 +281,9 @@ public class BoothStaffResponse {
 
         private String lastModifiedBy;
 
-        private Attendee2 attendee;
+        private Attendee11 attendee;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -328,7 +328,7 @@ public class BoothStaffResponse {
         /**
          * The associated Attendee.
          */
-        public Builder attendee(@Nonnull Attendee2 attendee) {
+        public Builder attendee(@Nonnull Attendee11 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -336,7 +336,7 @@ public class BoothStaffResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

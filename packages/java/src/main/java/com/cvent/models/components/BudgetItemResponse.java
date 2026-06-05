@@ -109,7 +109,7 @@ public class BudgetItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedgerJson1 generalLedger;
+    private GeneralLedgerJson generalLedger;
 
     /**
      * Budget cost avoidance information.
@@ -216,7 +216,7 @@ public class BudgetItemResponse {
             @JsonProperty("rfp") @Nullable BudgetRfpJson rfp,
             @JsonProperty("date") @Nonnull OffsetDateTime date,
             @JsonProperty("lastModifiedDate") @Nullable OffsetDateTime lastModifiedDate,
-            @JsonProperty("generalLedger") @Nullable GeneralLedgerJson1 generalLedger,
+            @JsonProperty("generalLedger") @Nullable GeneralLedgerJson generalLedger,
             @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidanceJson costAvoidance,
             @JsonProperty("costIncludesTaxGratuity") boolean costIncludesTaxGratuity,
             @JsonProperty("calculateTaxOnGratuity") boolean calculateTaxOnGratuity,
@@ -392,7 +392,7 @@ public class BudgetItemResponse {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public Optional<GeneralLedgerJson1> generalLedger() {
+    public Optional<GeneralLedgerJson> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
@@ -597,7 +597,7 @@ public class BudgetItemResponse {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public BudgetItemResponse withGeneralLedger(@Nullable GeneralLedgerJson1 generalLedger) {
+    public BudgetItemResponse withGeneralLedger(@Nullable GeneralLedgerJson generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -865,7 +865,7 @@ public class BudgetItemResponse {
 
         private OffsetDateTime lastModifiedDate;
 
-        private GeneralLedgerJson1 generalLedger;
+        private GeneralLedgerJson generalLedger;
 
         private BudgetCostAvoidanceJson costAvoidance;
 
@@ -998,7 +998,7 @@ public class BudgetItemResponse {
         /**
          * This is used to denote the general ledger code associated with budget.
          */
-        public Builder generalLedger(@Nullable GeneralLedgerJson1 generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedgerJson generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }

@@ -60,25 +60,25 @@ public class ProgramItemSessionDocument {
      * The related event object.
      */
     @JsonProperty("event")
-    private EventLiteJson1 event;
+    private EventId event;
 
     /**
      * The related session object.
      */
     @JsonProperty("session")
-    private SessionLiteJson1 session;
+    private Session1 session;
 
     /**
      * The related document object.
      */
     @JsonProperty("document")
-    private SessionDocumentLiteJson document;
+    private SessionDocumentLite document;
 
     /**
      * The program item associated with the session.
      */
     @JsonProperty("programItem")
-    private ProgramItemLiteJson1 programItem;
+    private ProgramItem2 programItem;
 
     @JsonCreator
     public ProgramItemSessionDocument(
@@ -87,10 +87,10 @@ public class ProgramItemSessionDocument {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nonnull EventLiteJson1 event,
-            @JsonProperty("session") @Nonnull SessionLiteJson1 session,
-            @JsonProperty("document") @Nonnull SessionDocumentLiteJson document,
-            @JsonProperty("programItem") @Nonnull ProgramItemLiteJson1 programItem) {
+            @JsonProperty("event") @Nonnull EventId event,
+            @JsonProperty("session") @Nonnull Session1 session,
+            @JsonProperty("document") @Nonnull SessionDocumentLite document,
+            @JsonProperty("programItem") @Nonnull ProgramItem2 programItem) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -106,10 +106,10 @@ public class ProgramItemSessionDocument {
     }
 
     public ProgramItemSessionDocument(
-            @Nonnull EventLiteJson1 event,
-            @Nonnull SessionLiteJson1 session,
-            @Nonnull SessionDocumentLiteJson document,
-            @Nonnull ProgramItemLiteJson1 programItem) {
+            @Nonnull EventId event,
+            @Nonnull Session1 session,
+            @Nonnull SessionDocumentLite document,
+            @Nonnull ProgramItem2 programItem) {
         this(null, null, null, null, null, event, session, document, programItem);
     }
 
@@ -151,28 +151,28 @@ public class ProgramItemSessionDocument {
     /**
      * The related event object.
      */
-    public EventLiteJson1 event() {
+    public EventId event() {
         return this.event;
     }
 
     /**
      * The related session object.
      */
-    public SessionLiteJson1 session() {
+    public Session1 session() {
         return this.session;
     }
 
     /**
      * The related document object.
      */
-    public SessionDocumentLiteJson document() {
+    public SessionDocumentLite document() {
         return this.document;
     }
 
     /**
      * The program item associated with the session.
      */
-    public ProgramItemLiteJson1 programItem() {
+    public ProgramItem2 programItem() {
         return this.programItem;
     }
 
@@ -223,7 +223,7 @@ public class ProgramItemSessionDocument {
     /**
      * The related event object.
      */
-    public ProgramItemSessionDocument withEvent(@Nonnull EventLiteJson1 event) {
+    public ProgramItemSessionDocument withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -231,7 +231,7 @@ public class ProgramItemSessionDocument {
     /**
      * The related session object.
      */
-    public ProgramItemSessionDocument withSession(@Nonnull SessionLiteJson1 session) {
+    public ProgramItemSessionDocument withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
@@ -239,7 +239,7 @@ public class ProgramItemSessionDocument {
     /**
      * The related document object.
      */
-    public ProgramItemSessionDocument withDocument(@Nonnull SessionDocumentLiteJson document) {
+    public ProgramItemSessionDocument withDocument(@Nonnull SessionDocumentLite document) {
         this.document = Utils.checkNotNull(document, "document");
         return this;
     }
@@ -247,7 +247,7 @@ public class ProgramItemSessionDocument {
     /**
      * The program item associated with the session.
      */
-    public ProgramItemSessionDocument withProgramItem(@Nonnull ProgramItemLiteJson1 programItem) {
+    public ProgramItemSessionDocument withProgramItem(@Nonnull ProgramItem2 programItem) {
         this.programItem = Utils.checkNotNull(programItem, "programItem");
         return this;
     }
@@ -315,13 +315,13 @@ public class ProgramItemSessionDocument {
 
         private String id;
 
-        private EventLiteJson1 event;
+        private EventId event;
 
-        private SessionLiteJson1 session;
+        private Session1 session;
 
-        private SessionDocumentLiteJson document;
+        private SessionDocumentLite document;
 
-        private ProgramItemLiteJson1 programItem;
+        private ProgramItem2 programItem;
 
         private Builder() {
             // force use of static builder() method
@@ -370,7 +370,7 @@ public class ProgramItemSessionDocument {
         /**
          * The related event object.
          */
-        public Builder event(@Nonnull EventLiteJson1 event) {
+        public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -378,7 +378,7 @@ public class ProgramItemSessionDocument {
         /**
          * The related session object.
          */
-        public Builder session(@Nonnull SessionLiteJson1 session) {
+        public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
             return this;
         }
@@ -386,7 +386,7 @@ public class ProgramItemSessionDocument {
         /**
          * The related document object.
          */
-        public Builder document(@Nonnull SessionDocumentLiteJson document) {
+        public Builder document(@Nonnull SessionDocumentLite document) {
             this.document = Utils.checkNotNull(document, "document");
             return this;
         }
@@ -394,7 +394,7 @@ public class ProgramItemSessionDocument {
         /**
          * The program item associated with the session.
          */
-        public Builder programItem(@Nonnull ProgramItemLiteJson1 programItem) {
+        public Builder programItem(@Nonnull ProgramItem2 programItem) {
             this.programItem = Utils.checkNotNull(programItem, "programItem");
             return this;
         }

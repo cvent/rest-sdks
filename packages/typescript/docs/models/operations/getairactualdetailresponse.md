@@ -55,8 +55,8 @@ let value: GetAirActualDetailResponse = {
                 originCode: "DEL",
                 destination: "New York - John F Kennedy Intl - (JFK)",
                 destinationCode: "JFK",
-                departing: new Date("2023-05-19T00:00:00"),
-                arriving: new Date("2023-05-19T00:00:00"),
+                departing: new Date("2023-05-19T00:00:00Z"),
+                arriving: new Date("2023-05-19T00:00:00Z"),
                 seatNumber: "21A",
                 ticketClass: "coach",
                 flightConfirmationNumber: "123-456-XYZ",
@@ -84,6 +84,6 @@ let value: GetAirActualDetailResponse = {
 
 ## Fields
 
-| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `result`                                                                 | [components.AirActualDetail](../../models/components/airactualdetail.md) | :heavy_check_mark:                                                       | N/A                                                                      |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `result`                                                                   | [components.AirActualDetail2](../../models/components/airactualdetail2.md) | :heavy_check_mark:                                                         | N/A                                                                        |

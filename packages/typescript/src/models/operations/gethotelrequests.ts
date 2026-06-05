@@ -78,7 +78,7 @@ export type GetHotelRequestsRequest = {
 };
 
 export type GetHotelRequestsResponse = {
-  result: components.HotelReservationDetail;
+  result: components.HotelReservationDetail2;
 };
 
 /** @internal */
@@ -124,7 +124,7 @@ export const GetHotelRequestsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.HotelReservationDetail$inboundSchema,
+  Result: components.HotelReservationDetail2$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",

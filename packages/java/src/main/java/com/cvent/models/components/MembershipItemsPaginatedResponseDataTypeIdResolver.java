@@ -18,8 +18,8 @@ public class MembershipItemsPaginatedResponseDataTypeIdResolver
     }
 
     private void initializeTypeMap() {
-        registerType("Anniversary", AnniversaryMembershipItemJson.class);
-        registerType("Calendar", CalendarMembershipItemJson.class);
+        registerType("Anniversary", Anniversary.class);
+        registerType("Calendar", Calendar.class);
     }
 
     @Override

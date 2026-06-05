@@ -51,9 +51,9 @@ export class Attendees extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async createAttendee(
-    request: Array<components.AttendeeAddJson>,
+    request: Array<components.AttendeeAdd>,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItem>> {
+  ): Promise<Array<components.AttendeeInvitesBulkResponseItem>> {
     return unwrapAsync(attendeesCreateAttendee(
       this,
       request,

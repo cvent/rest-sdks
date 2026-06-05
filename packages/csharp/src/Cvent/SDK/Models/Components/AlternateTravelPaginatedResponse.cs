@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of alternate travel answers for attendees.
         /// </summary>
         [JsonProperty("data")]
-        public List<AlternateTravelDetailJson> Data { get; set; } = default!;
+        public List<AlternateTravelDetail> Data { get; set; } = default!;
     }
 }

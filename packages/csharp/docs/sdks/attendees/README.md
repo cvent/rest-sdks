@@ -74,10 +74,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## CreateAttendee
 
@@ -103,29 +103,29 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-List<AttendeeAddJson> req = new List<AttendeeAddJson>() {
-    new AttendeeAddJson() {
-        Event = new AttendeeAddJsonEvent() {
+List<AttendeeAdd> req = new List<AttendeeAdd>() {
+    new AttendeeAdd() {
+        Event = new AttendeeAddEvent() {
             Id = "0a955598-376e-43d4-a796-91d6d5f41e3f",
         },
-        Contact = new AttendeeAddJsonContact() {
+        Contact = new AttendeeAddContact() {
             Id = "ea66a709-2a93-4fa0-8b83-cf4f62df9dc3",
         },
-        InvitationList = new AttendeeAddJsonInvitationList() {
+        InvitationList = new AttendeeAddInvitationList() {
             Id = "06da38f9-12da-4cb6-a581-7a5954f8e0e2",
         },
         ReferenceId = "refid-marketingwebsite",
         Note = "Would like to sit near the front of the room for sessions.",
-        Administrator = new AttendeeAddJsonAdministrator() {
+        Administrator = new AttendeeAddAdministrator() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
-        AdmissionItem = new AttendeeAddJsonAdmissionItem() {
+        AdmissionItem = new AttendeeAddAdmissionItem() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
-        Visibility = AttendeeVisibilityJson.Private,
-        Answers = new List<AttendeeAnswerJson>() {
-            new AttendeeAnswerJson() {
-                Question = new AttendeeAnswerJsonQuestion() {
+        Visibility = AttendeeVisibility.Private,
+        Answers = new List<AttendeeAnswer>() {
+            new AttendeeAnswer() {
+                Question = new AttendeeAnswerQuestion() {
                     Id = "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a",
                 },
                 Value = new List<string>() {
@@ -134,10 +134,10 @@ List<AttendeeAddJson> req = new List<AttendeeAddJson>() {
             },
         },
         SendEmail = false,
-        Status = AttendeeAddStatusJson.Accepted,
+        Status = AttendeeAddStatus.Accepted,
         Guest = true,
-        InvitedBy = AttendeeInvitedByJson.PlannerInvited,
-        ResponseMethod = AttendeeResponseMethodJson.SelfResponded,
+        InvitedBy = AttendeeInvitedBy1.PlannerInvited,
+        ResponseMethod = AttendeeResponseMethod1.SelfResponded,
     },
 };
 
@@ -148,9 +148,9 @@ var res = await sdk.Attendees.CreateAttendeeAsync(req);
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | List<[AttendeeAddJson](../../Models/Components/AttendeeAddJson.md)> | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `request`                                                   | List<[AttendeeAdd](../../Models/Components/AttendeeAdd.md)> | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
 ### Response
 
@@ -158,10 +158,10 @@ var res = await sdk.Attendees.CreateAttendeeAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListAttendees
 
@@ -223,10 +223,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListAttendeesPostFilter
 
@@ -291,10 +291,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetAttendeeById
 
@@ -346,10 +346,10 @@ var res = await sdk.Attendees.GetAttendeeByIdAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## UpdateAttendee
 
@@ -396,10 +396,10 @@ UpdateAttendeeRequest req = new UpdateAttendeeRequest() {
         AdmissionItem = new AttendeeUpdateAdmissionItem() {
             Id = "7949c335-b5b2-46cf-8f5d-f6b21795df51",
         },
-        Visibility = AttendeeVisibilityJson.Private,
-        Answers = new List<AttendeeAnswerJson>() {
-            new AttendeeAnswerJson() {
-                Question = new AttendeeAnswerJsonQuestion() {
+        Visibility = AttendeeVisibility.Private,
+        Answers = new List<AttendeeAnswer>() {
+            new AttendeeAnswer() {
+                Question = new AttendeeAnswerQuestion() {
                     Id = "60f1d05b-e3ee-4d70-a7f3-0edb9a76af4a",
                 },
                 Value = new List<string>() {
@@ -408,7 +408,7 @@ UpdateAttendeeRequest req = new UpdateAttendeeRequest() {
             },
         },
         SendEmail = false,
-        Status = AttendeeUpdateStatusJson.Accepted,
+        Status = AttendeeUpdateStatus.Accepted,
     },
 };
 
@@ -429,10 +429,10 @@ var res = await sdk.Attendees.UpdateAttendeeAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## UpdateAttendeeSubscriptionStatus
 
@@ -482,10 +482,10 @@ var res = await sdk.Attendees.UpdateAttendeeSubscriptionStatusAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## UpdateInternalInfoAnswers
 
@@ -542,10 +542,10 @@ var res = await sdk.Attendees.UpdateInternalInfoAnswersAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## PostBadge
 
@@ -577,10 +577,10 @@ PostBadgeRequest req = new PostBadgeRequest() {
         Id = "abc123",
         Status = BadgeStatus.Active,
         Type = BadgeType.Epc,
-        Attendee = new Attendee2() {
+        Attendee = new Attendee11() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new Event1() {
+        Event = new Event21() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -603,10 +603,10 @@ var res = await sdk.Attendees.PostBadgeAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetBadge
 
@@ -660,10 +660,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetBadgesPostFilters
 
@@ -719,10 +719,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## UpdateBadge
 
@@ -755,10 +755,10 @@ UpdateBadgeRequest req = new UpdateBadgeRequest() {
         Id = "abc123",
         Status = BadgeStatus.Active,
         Type = BadgeType.Epc,
-        Attendee = new Attendee2() {
+        Attendee = new Attendee11() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new Event1() {
+        Event = new Event21() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -781,7 +781,7 @@ var res = await sdk.Attendees.UpdateBadgeAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |

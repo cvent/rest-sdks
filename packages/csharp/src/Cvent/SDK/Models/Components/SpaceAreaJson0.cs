@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Space area divisions.
+    /// Space area divisons.
     /// </summary>
     public enum SpaceAreaJson0
     {

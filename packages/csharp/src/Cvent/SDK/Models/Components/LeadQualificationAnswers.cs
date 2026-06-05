@@ -54,13 +54,13 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("question")]
-        public Uuid1? Question { get; set; }
+        public Uuid? Question { get; set; }
 
         /// <summary>
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event1? Event { get; set; }
+        public Event21? Event { get; set; }
 
         /// <summary>
         /// The Associated Exhibitor.

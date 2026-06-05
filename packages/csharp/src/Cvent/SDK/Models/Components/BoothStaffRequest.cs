@@ -22,13 +22,13 @@ namespace Cvent.SDK.Models.Components
         /// The associated Attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public Attendee2 Attendee { get; set; } = default!;
+        public Attendee11 Attendee { get; set; } = default!;
 
         /// <summary>
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event1 Event { get; set; } = default!;
+        public Event21 Event { get; set; } = default!;
 
         /// <summary>
         /// The Associated Exhibitor.

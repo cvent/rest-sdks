@@ -65,7 +65,7 @@ namespace Cvent.SDK.Models.Components
         /// Details about how the discount applies.
         /// </summary>
         [JsonProperty("method")]
-        public DiscountMethodJson Method { get; set; } = default!;
+        public DiscountMethod Method { get; set; } = default!;
 
         /// <summary>
         /// The ISO 8601 formatted date from which the discount is effective.
@@ -95,7 +95,7 @@ namespace Cvent.SDK.Models.Components
         /// Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who's the guest of a primary registrant.
         /// </summary>
         [JsonProperty("audienceType")]
-        public DiscountAudienceTypeJson? AudienceType { get; set; } = Cvent.SDK.Models.Components.DiscountAudienceTypeJson.All;
+        public DiscountAudienceType? AudienceType { get; set; } = Cvent.SDK.Models.Components.DiscountAudienceType.All;
 
         /// <summary>
         /// True indicates that guests will be included along with primary registrants towards the discount code's capacity.
@@ -131,7 +131,7 @@ namespace Cvent.SDK.Models.Components
         /// Details about the discount capacity.
         /// </summary>
         [JsonProperty("capacity")]
-        public DiscountCapacityJson? Capacity { get; set; }
+        public DiscountCapacity? Capacity { get; set; }
 
         /// <summary>
         /// The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.

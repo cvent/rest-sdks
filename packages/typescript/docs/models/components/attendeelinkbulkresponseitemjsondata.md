@@ -32,10 +32,10 @@ const value: components.ExistingAttendeeLink = {
 };
 ```
 
-### `components.ErrorResponse`
+### `components.ErrorResponse1`
 
 ```typescript
-const value: components.ErrorResponse = {
+const value: components.ErrorResponse1 = {
   code: 400,
   message: "Bad Request",
   target: "example target",

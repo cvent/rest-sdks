@@ -9,8 +9,8 @@
 ContactBulkItemJsonData.CreateZeroAllOf7(/* values here */);
 ```
 
-### ErrorResponse
+### ErrorResponse1
 
 ```csharp
-ContactBulkItemJsonData.CreateErrorResponse(/* values here */);
+ContactBulkItemJsonData.CreateErrorResponse1(/* values here */);
 ```

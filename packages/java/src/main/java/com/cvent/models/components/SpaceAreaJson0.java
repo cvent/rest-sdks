@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * SpaceAreaJson0
  *
- * <p>Space area divisions.
+ * <p>Space area divisons.
  */
 public enum SpaceAreaJson0 {
     LESS_THAN_ONE_THOUSAND_SQ_FT("LESS_THAN_ONE_THOUSAND_SQ_FT"),

@@ -77,7 +77,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
      * Details about how the discount applies.
      */
     @JsonProperty("method")
-    private DiscountMethodJson method;
+    private DiscountMethod method;
 
     /**
      * The ISO 8601 formatted date from which the discount is effective.
@@ -114,7 +114,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("audienceType")
-    private DiscountAudienceTypeJson audienceType;
+    private DiscountAudienceType audienceType;
 
     /**
      * True indicates that guests will be included along with primary registrants towards the discount
@@ -159,7 +159,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("capacity")
-    private DiscountCapacityJson capacity;
+    private DiscountCapacity capacity;
 
     /**
      * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE.
@@ -179,18 +179,18 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("stackable") @Nullable Boolean stackable,
-            @JsonProperty("method") @Nonnull DiscountMethodJson method,
+            @JsonProperty("method") @Nonnull DiscountMethod method,
             @JsonProperty("effectiveFrom") @Nullable LocalDate effectiveFrom,
             @JsonProperty("effectiveTo") @Nullable LocalDate effectiveTo,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("code") @Nonnull String code,
-            @JsonProperty("audienceType") @Nullable DiscountAudienceTypeJson audienceType,
+            @JsonProperty("audienceType") @Nullable DiscountAudienceType audienceType,
             @JsonProperty("includeGuestsTowardsCapacity") @Nullable Boolean includeGuestsTowardsCapacity,
             @JsonProperty("autoApply") @Nullable Boolean autoApply,
             @JsonProperty("applyToAllAgendaItems") @Nullable Boolean applyToAllAgendaItems,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("level") @Nullable CreateUpdateDiscountCodeResponseLevel level,
-            @JsonProperty("capacity") @Nullable DiscountCapacityJson capacity,
+            @JsonProperty("capacity") @Nullable DiscountCapacity capacity,
             @JsonProperty("type") @Nonnull CreateUpdateDiscountCodeResponseType type) {
         this.created = created;
         this.createdBy = createdBy;
@@ -219,7 +219,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
 
     public CreateUpdateDiscountCodeResponse(
             @Nonnull String name,
-            @Nonnull DiscountMethodJson method,
+            @Nonnull DiscountMethod method,
             @Nonnull String code,
             @Nonnull CreateUpdateDiscountCodeResponseType type) {
         this(
@@ -297,7 +297,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
     /**
      * Details about how the discount applies.
      */
-    public DiscountMethodJson method() {
+    public DiscountMethod method() {
         return this.method;
     }
 
@@ -335,7 +335,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
      *
      * <p>`ALL`: An attendee who's the guest of a primary registrant.
      */
-    public Optional<DiscountAudienceTypeJson> audienceType() {
+    public Optional<DiscountAudienceType> audienceType() {
         return Optional.ofNullable(this.audienceType);
     }
 
@@ -380,7 +380,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
     /**
      * Details about the discount capacity.
      */
-    public Optional<DiscountCapacityJson> capacity() {
+    public Optional<DiscountCapacity> capacity() {
         return Optional.ofNullable(this.capacity);
     }
 
@@ -458,7 +458,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
     /**
      * Details about how the discount applies.
      */
-    public CreateUpdateDiscountCodeResponse withMethod(@Nonnull DiscountMethodJson method) {
+    public CreateUpdateDiscountCodeResponse withMethod(@Nonnull DiscountMethod method) {
         this.method = Utils.checkNotNull(method, "method");
         return this;
     }
@@ -501,7 +501,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
      *
      * <p>`ALL`: An attendee who's the guest of a primary registrant.
      */
-    public CreateUpdateDiscountCodeResponse withAudienceType(@Nullable DiscountAudienceTypeJson audienceType) {
+    public CreateUpdateDiscountCodeResponse withAudienceType(@Nullable DiscountAudienceType audienceType) {
         this.audienceType = audienceType;
         return this;
     }
@@ -553,7 +553,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
     /**
      * Details about the discount capacity.
      */
-    public CreateUpdateDiscountCodeResponse withCapacity(@Nullable DiscountCapacityJson capacity) {
+    public CreateUpdateDiscountCodeResponse withCapacity(@Nullable DiscountCapacity capacity) {
         this.capacity = capacity;
         return this;
     }
@@ -688,7 +688,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
 
         private Boolean stackable;
 
-        private DiscountMethodJson method;
+        private DiscountMethod method;
 
         private LocalDate effectiveFrom;
 
@@ -698,7 +698,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
 
         private String code;
 
-        private DiscountAudienceTypeJson audienceType;
+        private DiscountAudienceType audienceType;
 
         private Boolean includeGuestsTowardsCapacity;
 
@@ -710,7 +710,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
 
         private CreateUpdateDiscountCodeResponseLevel level;
 
-        private DiscountCapacityJson capacity;
+        private DiscountCapacity capacity;
 
         private CreateUpdateDiscountCodeResponseType type;
 
@@ -777,7 +777,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
         /**
          * Details about how the discount applies.
          */
-        public Builder method(@Nonnull DiscountMethodJson method) {
+        public Builder method(@Nonnull DiscountMethod method) {
             this.method = Utils.checkNotNull(method, "method");
             return this;
         }
@@ -820,7 +820,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
          *
          * <p>`ALL`: An attendee who's the guest of a primary registrant.
          */
-        public Builder audienceType(@Nullable DiscountAudienceTypeJson audienceType) {
+        public Builder audienceType(@Nullable DiscountAudienceType audienceType) {
             this.audienceType = audienceType;
             return this;
         }
@@ -871,7 +871,7 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
         /**
          * Details about the discount capacity.
          */
-        public Builder capacity(@Nullable DiscountCapacityJson capacity) {
+        public Builder capacity(@Nullable DiscountCapacity capacity) {
             this.capacity = capacity;
             return this;
         }
@@ -917,8 +917,8 @@ public class CreateUpdateDiscountCodeResponse implements CreateUpdateDiscountRes
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Stackable =
                 new LazySingletonValue<>("stackable", "true", new TypeReference<Boolean>() {});
 
-        private static final LazySingletonValue<DiscountAudienceTypeJson> _SINGLETON_VALUE_AudienceType =
-                new LazySingletonValue<>("audienceType", "\"ALL\"", new TypeReference<DiscountAudienceTypeJson>() {});
+        private static final LazySingletonValue<DiscountAudienceType> _SINGLETON_VALUE_AudienceType =
+                new LazySingletonValue<>("audienceType", "\"ALL\"", new TypeReference<DiscountAudienceType>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_IncludeGuestsTowardsCapacity =
                 new LazySingletonValue<>("includeGuestsTowardsCapacity", "false", new TypeReference<Boolean>() {});

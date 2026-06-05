@@ -22,18 +22,17 @@ public class DonationItemsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of donation items.
      */
     @JsonProperty("data")
-    private List<DonationItemJson1> data;
+    private List<DonationItem1> data;
 
     @JsonCreator
     public DonationItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<DonationItemJson1> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<DonationItem1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class DonationItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of donation items.
      */
-    public List<DonationItemJson1> data() {
+    public List<DonationItem1> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class DonationItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public DonationItemsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public DonationItemsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class DonationItemsPaginatedResponse {
     /**
      * Collection of donation items.
      */
-    public DonationItemsPaginatedResponse withData(@Nonnull List<DonationItemJson1> data) {
+    public DonationItemsPaginatedResponse withData(@Nonnull List<DonationItem1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class DonationItemsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<DonationItemJson1> data;
+        private List<DonationItem1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class DonationItemsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class DonationItemsPaginatedResponse {
         /**
          * Collection of donation items.
          */
-        public Builder data(@Nonnull List<DonationItemJson1> data) {
+        public Builder data(@Nonnull List<DonationItem1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

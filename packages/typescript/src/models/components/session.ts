@@ -8,29 +8,29 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+import { Location, Location$inboundSchema } from "./location.js";
 import {
-  IdNameJson,
-  IdNameJson$inboundSchema,
-  IdNameJson$Outbound,
-  IdNameJson$outboundSchema,
-} from "./idnamejson.js";
-import { LocationJson2, LocationJson2$inboundSchema } from "./locationjson2.js";
+  LocationInput,
+  LocationInput$Outbound,
+  LocationInput$outboundSchema,
+} from "./locationinput.js";
 import {
-  LocationJson2Input,
-  LocationJson2Input$Outbound,
-  LocationJson2Input$outboundSchema,
-} from "./locationjson2input.js";
+  NamedObject,
+  NamedObject$inboundSchema,
+  NamedObject$Outbound,
+  NamedObject$outboundSchema,
+} from "./namedobject.js";
 import {
-  SessionStatusJson,
-  SessionStatusJson$inboundSchema,
-  SessionStatusJson$outboundSchema,
-} from "./sessionstatusjson.js";
+  SessionStatus,
+  SessionStatus$inboundSchema,
+  SessionStatus$outboundSchema,
+} from "./sessionstatus.js";
 import {
-  UuidJson,
-  UuidJson$inboundSchema,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  Uuid,
+  Uuid$inboundSchema,
+  Uuid$Outbound,
+  Uuid$outboundSchema,
+} from "./uuid.js";
 
 /**
  * Lookup response object
@@ -50,6 +50,16 @@ export type SessionLookup = {
    * Name of the lookup item.
    */
   name?: string | undefined;
+};
+
+/**
+ * The session group, if the session belongs to one.
+ */
+export type SessionGroup = {
+  /**
+   * The ID of the session group, if the session belongs to one.
+   */
+  id?: string | undefined;
 };
 
 /**
@@ -83,7 +93,7 @@ export type Session = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event: UuidJson;
+  event: Uuid;
   /**
    * Title of the session. For example, Keynote Session.
    */
@@ -95,12 +105,12 @@ export type Session = {
   /**
    * A Named object
    */
-  category?: IdNameJson | undefined;
+  category?: NamedObject | undefined;
   type?: SessionLookup | undefined;
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: LocationJson2 | undefined;
+  location?: Location | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -125,7 +135,7 @@ export type Session = {
   /**
    * This is used to denote the status of a session.
    */
-  status: SessionStatusJson;
+  status: SessionStatus;
   /**
    * The ISO 8601 formatted date when the session registration automatically opens.
    */
@@ -181,9 +191,9 @@ export type Session = {
    */
   featured?: boolean | undefined;
   /**
-   * The id of the session group, if the session belongs to one
+   * The session group, if the session belongs to one.
    */
-  group?: string | undefined;
+  group?: SessionGroup | undefined;
   /**
    * The ids of the admission items, if the session is included with any.
    */
@@ -237,7 +247,7 @@ export type SessionInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event: UuidJson;
+  event: Uuid;
   /**
    * Title of the session. For example, Keynote Session.
    */
@@ -249,12 +259,12 @@ export type SessionInput = {
   /**
    * A Named object
    */
-  category?: IdNameJson | undefined;
+  category?: NamedObject | undefined;
   type?: SessionLookup | undefined;
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: LocationJson2Input | undefined;
+  location?: LocationInput | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -279,7 +289,7 @@ export type SessionInput = {
   /**
    * This is used to denote the status of a session.
    */
-  status: SessionStatusJson;
+  status: SessionStatus;
   /**
    * The ISO 8601 formatted date when the session registration automatically opens.
    */
@@ -329,9 +339,9 @@ export type SessionInput = {
    */
   featured?: boolean | undefined;
   /**
-   * The id of the session group, if the session belongs to one
+   * The session group, if the session belongs to one.
    */
-  group?: string | undefined;
+  group?: SessionGroup | undefined;
   /**
    * The ids of the admission items, if the session is included with any.
    */
@@ -412,6 +422,41 @@ export function sessionLookupFromJSON(
 }
 
 /** @internal */
+export const SessionGroup$inboundSchema: z.ZodType<
+  SessionGroup,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+});
+/** @internal */
+export type SessionGroup$Outbound = {
+  id?: string | undefined;
+};
+
+/** @internal */
+export const SessionGroup$outboundSchema: z.ZodType<
+  SessionGroup$Outbound,
+  z.ZodTypeDef,
+  SessionGroup
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function sessionGroupToJSON(sessionGroup: SessionGroup): string {
+  return JSON.stringify(SessionGroup$outboundSchema.parse(sessionGroup));
+}
+export function sessionGroupFromJSON(
+  jsonString: string,
+): SafeParseResult<SessionGroup, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SessionGroup$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SessionGroup' from JSON`,
+  );
+}
+
+/** @internal */
 export const Session$inboundSchema: z.ZodType<Session, z.ZodTypeDef, unknown> =
   z.object({
     created: z.string().datetime({ offset: true }).transform(v => new Date(v))
@@ -423,16 +468,16 @@ export const Session$inboundSchema: z.ZodType<Session, z.ZodTypeDef, unknown> =
     lastModifiedBy: z.string().optional(),
     id: z.string().optional(),
     virtual: z.boolean().optional(),
-    event: UuidJson$inboundSchema,
+    event: Uuid$inboundSchema,
     title: z.string(),
     code: z.string().optional(),
-    category: IdNameJson$inboundSchema.optional(),
+    category: NamedObject$inboundSchema.optional(),
     type: z.lazy(() => SessionLookup$inboundSchema).optional(),
-    location: LocationJson2$inboundSchema.optional(),
+    location: Location$inboundSchema.optional(),
     description: z.string().optional(),
     start: z.string().datetime({ offset: true }).transform(v => new Date(v)),
     end: z.string().datetime({ offset: true }).transform(v => new Date(v)),
-    status: SessionStatusJson$inboundSchema,
+    status: SessionStatus$inboundSchema,
     automaticallyOpensOn: z.string().transform(v => new RFCDate(v)).optional(),
     automaticallyClosesOn: z.string().transform(v => new RFCDate(v)).optional(),
     enableWaitlist: z.boolean().optional(),
@@ -446,7 +491,7 @@ export const Session$inboundSchema: z.ZodType<Session, z.ZodTypeDef, unknown> =
     timezone: z.string().optional(),
     displayOnAgenda: z.boolean().default(true),
     featured: z.boolean().optional(),
-    group: z.string().optional(),
+    group: z.lazy(() => SessionGroup$inboundSchema).optional(),
     admissionItems: z.array(z.string()).optional(),
     openForRegistration: z.boolean().optional(),
     openForAttendeeHub: z.boolean().optional(),
@@ -472,12 +517,12 @@ export function sessionFromJSON(
 
 /** @internal */
 export type SessionInput$Outbound = {
-  event: UuidJson$Outbound;
+  event: Uuid$Outbound;
   title: string;
   code?: string | undefined;
-  category?: IdNameJson$Outbound | undefined;
+  category?: NamedObject$Outbound | undefined;
   type?: SessionLookup$Outbound | undefined;
-  location?: LocationJson2Input$Outbound | undefined;
+  location?: LocationInput$Outbound | undefined;
   description?: string | undefined;
   start: string;
   end: string;
@@ -494,7 +539,7 @@ export type SessionInput$Outbound = {
   waitlistCapacityVirtual?: number | undefined;
   displayOnAgenda: boolean;
   featured?: boolean | undefined;
-  group?: string | undefined;
+  group?: SessionGroup$Outbound | undefined;
   admissionItems?: Array<string> | undefined;
   openForRegistration?: boolean | undefined;
   openForAttendeeHub?: boolean | undefined;
@@ -512,16 +557,16 @@ export const SessionInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SessionInput
 > = z.object({
-  event: UuidJson$outboundSchema,
+  event: Uuid$outboundSchema,
   title: z.string(),
   code: z.string().optional(),
-  category: IdNameJson$outboundSchema.optional(),
+  category: NamedObject$outboundSchema.optional(),
   type: z.lazy(() => SessionLookup$outboundSchema).optional(),
-  location: LocationJson2Input$outboundSchema.optional(),
+  location: LocationInput$outboundSchema.optional(),
   description: z.string().optional(),
   start: z.date().transform(v => v.toISOString()),
   end: z.date().transform(v => v.toISOString()),
-  status: SessionStatusJson$outboundSchema,
+  status: SessionStatus$outboundSchema,
   automaticallyOpensOn: z.instanceof(RFCDate).transform(v => v.toString())
     .optional(),
   automaticallyClosesOn: z.instanceof(RFCDate).transform(v => v.toString())
@@ -536,7 +581,7 @@ export const SessionInput$outboundSchema: z.ZodType<
   waitlistCapacityVirtual: z.number().int().optional(),
   displayOnAgenda: z.boolean().default(true),
   featured: z.boolean().optional(),
-  group: z.string().optional(),
+  group: z.lazy(() => SessionGroup$outboundSchema).optional(),
   admissionItems: z.array(z.string()).optional(),
   openForRegistration: z.boolean().optional(),
   openForAttendeeHub: z.boolean().optional(),

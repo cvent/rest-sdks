@@ -25,7 +25,7 @@ public class SessionSpeakerAssignment {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speakerCategory")
-    private CategoryIdJson speakerCategory;
+    private CategoryId speakerCategory;
 
     /**
      * Preferred position where the speaker will appear in an ordered list for a session. Smaller values
@@ -37,7 +37,7 @@ public class SessionSpeakerAssignment {
 
     @JsonCreator
     public SessionSpeakerAssignment(
-            @JsonProperty("speakerCategory") @Nullable CategoryIdJson speakerCategory,
+            @JsonProperty("speakerCategory") @Nullable CategoryId speakerCategory,
             @JsonProperty("order") @Nullable Long order) {
         this.speakerCategory = speakerCategory;
         this.order = order;
@@ -50,7 +50,7 @@ public class SessionSpeakerAssignment {
     /**
      * An object that holds the id for a category
      */
-    public Optional<CategoryIdJson> speakerCategory() {
+    public Optional<CategoryId> speakerCategory() {
         return Optional.ofNullable(this.speakerCategory);
     }
 
@@ -69,7 +69,7 @@ public class SessionSpeakerAssignment {
     /**
      * An object that holds the id for a category
      */
-    public SessionSpeakerAssignment withSpeakerCategory(@Nullable CategoryIdJson speakerCategory) {
+    public SessionSpeakerAssignment withSpeakerCategory(@Nullable CategoryId speakerCategory) {
         this.speakerCategory = speakerCategory;
         return this;
     }
@@ -109,7 +109,7 @@ public class SessionSpeakerAssignment {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private CategoryIdJson speakerCategory;
+        private CategoryId speakerCategory;
 
         private Long order;
 
@@ -120,7 +120,7 @@ public class SessionSpeakerAssignment {
         /**
          * An object that holds the id for a category
          */
-        public Builder speakerCategory(@Nullable CategoryIdJson speakerCategory) {
+        public Builder speakerCategory(@Nullable CategoryId speakerCategory) {
             this.speakerCategory = speakerCategory;
             return this;
         }

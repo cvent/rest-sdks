@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
-import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -17,95 +16,63 @@ import java.util.Optional;
 /**
  * GeneralLedgerJson
  *
- * <p>This is used to denote the general ledger detail in an order item
+ * <p>This is used to denote the general ledger code associated with budget.
  */
 public class GeneralLedgerJson {
     /**
-     * A unique identifier for the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * This denotes the name of the general ledger.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("name")
-    private String name;
-
-    /**
-     * This denotes the code of the general ledger.
+     * General Ledger Code.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("code")
     private String code;
 
     /**
-     * This denotes the description of the general ledger.
+     * Name of the General Ledger.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("description")
-    private String description;
-
-    /**
-     * This denotes the percentage allocation of the general ledger code for an order item.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("allocationPercentage")
-    private Double allocationPercentage;
+    @JsonProperty("name")
+    private String name;
 
     @JsonCreator
     public GeneralLedgerJson(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("name") @Nullable String name,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("description") @Nullable String description,
-            @JsonProperty("allocationPercentage") @Nullable Double allocationPercentage) {
+            @JsonProperty("name") @Nullable String name) {
         this.id = id;
-        this.name = name;
         this.code = code;
-        this.description = description;
-        this.allocationPercentage = allocationPercentage;
+        this.name = name;
     }
 
     public GeneralLedgerJson() {
-        this(null, null, null, null, null);
+        this(null, null, null);
     }
 
     /**
-     * A unique identifier for the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * This denotes the name of the general ledger.
-     */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
-     * This denotes the code of the general ledger.
+     * General Ledger Code.
      */
     public Optional<String> code() {
         return Optional.ofNullable(this.code);
     }
 
     /**
-     * This denotes the description of the general ledger.
+     * Name of the General Ledger.
      */
-    public Optional<String> description() {
-        return Optional.ofNullable(this.description);
-    }
-
-    /**
-     * This denotes the percentage allocation of the general ledger code for an order item.
-     */
-    public Optional<Double> allocationPercentage() {
-        return Optional.ofNullable(this.allocationPercentage);
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     public static Builder builder() {
@@ -113,7 +80,7 @@ public class GeneralLedgerJson {
     }
 
     /**
-     * A unique identifier for the general ledger.
+     * A string that has to be a format matching the industry standard uuid
      */
     public GeneralLedgerJson withId(@Nullable String id) {
         this.id = id;
@@ -121,15 +88,7 @@ public class GeneralLedgerJson {
     }
 
     /**
-     * This denotes the name of the general ledger.
-     */
-    public GeneralLedgerJson withName(@Nullable String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * This denotes the code of the general ledger.
+     * General Ledger Code.
      */
     public GeneralLedgerJson withCode(@Nullable String code) {
         this.code = code;
@@ -137,18 +96,10 @@ public class GeneralLedgerJson {
     }
 
     /**
-     * This denotes the description of the general ledger.
+     * Name of the General Ledger.
      */
-    public GeneralLedgerJson withDescription(@Nullable String description) {
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * This denotes the percentage allocation of the general ledger code for an order item.
-     */
-    public GeneralLedgerJson withAllocationPercentage(@Nullable Double allocationPercentage) {
-        this.allocationPercentage = allocationPercentage;
+    public GeneralLedgerJson withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
@@ -162,31 +113,18 @@ public class GeneralLedgerJson {
         }
         GeneralLedgerJson other = (GeneralLedgerJson) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.name, other.name)
                 && Utils.enhancedDeepEquals(this.code, other.code)
-                && Utils.enhancedDeepEquals(this.description, other.description)
-                && Utils.enhancedDeepEquals(this.allocationPercentage, other.allocationPercentage);
+                && Utils.enhancedDeepEquals(this.name, other.name);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, code, description, allocationPercentage);
+        return Utils.enhancedHash(id, code, name);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(
-                GeneralLedgerJson.class,
-                "id",
-                id,
-                "name",
-                name,
-                "code",
-                code,
-                "description",
-                description,
-                "allocationPercentage",
-                allocationPercentage);
+        return Utils.toString(GeneralLedgerJson.class, "id", id, "code", code, "name", name);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -194,20 +132,16 @@ public class GeneralLedgerJson {
 
         private String id;
 
-        private String name;
-
         private String code;
 
-        private String description;
-
-        private Double allocationPercentage;
+        private String name;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * A unique identifier for the general ledger.
+         * A string that has to be a format matching the industry standard uuid
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -215,15 +149,7 @@ public class GeneralLedgerJson {
         }
 
         /**
-         * This denotes the name of the general ledger.
-         */
-        public Builder name(@Nullable String name) {
-            this.name = name;
-            return this;
-        }
-
-        /**
-         * This denotes the code of the general ledger.
+         * General Ledger Code.
          */
         public Builder code(@Nullable String code) {
             this.code = code;
@@ -231,23 +157,15 @@ public class GeneralLedgerJson {
         }
 
         /**
-         * This denotes the description of the general ledger.
+         * Name of the General Ledger.
          */
-        public Builder description(@Nullable String description) {
-            this.description = description;
-            return this;
-        }
-
-        /**
-         * This denotes the percentage allocation of the general ledger code for an order item.
-         */
-        public Builder allocationPercentage(@Nullable Double allocationPercentage) {
-            this.allocationPercentage = allocationPercentage;
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
 
         public GeneralLedgerJson build() {
-            return new GeneralLedgerJson(id, name, code, description, allocationPercentage);
+            return new GeneralLedgerJson(id, code, name);
         }
     }
 }

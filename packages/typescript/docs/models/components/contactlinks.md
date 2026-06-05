@@ -1,6 +1,6 @@
 # ContactLinks
 
-A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
+Collection of social media links for the contact.
 
 ## Example Usage
 
@@ -17,17 +17,17 @@ let value: ContactLinks = {
   linkedInUrl: {
     href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
   },
-  instagramUrl: {
-    href: "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
+  profilePicture: {
+    href: "https://cvent.com/picture123",
   },
 };
 ```
 
 ## Fields
 
-| Field                                              | Type                                               | Required                                           | Description                                        |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| `twitterUrl`                                       | [components.Link](../../models/components/link.md) | :heavy_minus_sign:                                 | Represents a link to a related resource.           |
-| `facebookUrl`                                      | [components.Link](../../models/components/link.md) | :heavy_minus_sign:                                 | Represents a link to a related resource.           |
-| `linkedInUrl`                                      | [components.Link](../../models/components/link.md) | :heavy_minus_sign:                                 | Represents a link to a related resource.           |
-| `instagramUrl`                                     | [components.Link](../../models/components/link.md) | :heavy_minus_sign:                                 | Represents a link to a related resource.           |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `twitterUrl`                                                               | [components.Link](../../models/components/link.md)                         | :heavy_minus_sign:                                                         | Represents a link to a related resource.                                   |
+| `facebookUrl`                                                              | [components.Link](../../models/components/link.md)                         | :heavy_minus_sign:                                                         | Represents a link to a related resource.                                   |
+| `linkedInUrl`                                                              | [components.Link](../../models/components/link.md)                         | :heavy_minus_sign:                                                         | Represents a link to a related resource.                                   |
+| `profilePicture`                                                           | [components.ContactLinksLink](../../models/components/contactlinkslink.md) | :heavy_minus_sign:                                                         | Reference to a profile picture.                                            |

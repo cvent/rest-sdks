@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { ProgramItem, ProgramItem$inboundSchema } from "./programitem.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { ProgramItem1, ProgramItem1$inboundSchema } from "./programitem1.js";
 
 /**
  * The response from a request to get the list of session program items.
@@ -16,11 +16,11 @@ export type ProgramItemPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of Session Program Items.
    */
-  data: Array<ProgramItem>;
+  data: Array<ProgramItem1>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const ProgramItemPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(ProgramItem$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(ProgramItem1$inboundSchema),
 });
 
 export function programItemPaginatedResponseFromJSON(

@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// The reference to the attendee. Contains only the ID of the attendee.
+    /// Attendee details.
     /// </summary>
     public class AttendeeJson
     {
         /// <summary>
-        /// Unique identifier of the primary invitee for the current attendee's registration.
+        /// A Cvent attendee.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

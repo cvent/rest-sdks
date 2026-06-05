@@ -27,7 +27,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetAccountUserGroupsRequest;
 import com.cvent.models.operations.GetAccountUserGroupsResponse;
 import java.lang.Exception;
@@ -35,7 +35,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -76,10 +76,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## createAccountUserGroup
 
@@ -94,14 +94,14 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateAccountUserGroupResponse;
 import java.lang.Exception;
 import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -142,10 +142,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getAccountUserGroup
 
@@ -160,7 +160,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetAccountUserGroupRequest;
 import com.cvent.models.operations.GetAccountUserGroupResponse;
 import java.lang.Exception;
@@ -168,7 +168,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -208,10 +208,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateAccountUserGroup
 
@@ -225,7 +225,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateAccountUserGroupRequest;
 import com.cvent.models.operations.UpdateAccountUserGroupResponse;
 import java.lang.Exception;
@@ -233,7 +233,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -277,10 +277,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteAccountUserGroup
 
@@ -295,7 +295,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteAccountUserGroupRequest;
 import com.cvent.models.operations.DeleteAccountUserGroupResponse;
 import java.lang.Exception;
@@ -303,7 +303,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -341,10 +341,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## addUserToAccountUserGroup
 
@@ -359,7 +359,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.AddUserToAccountUserGroupRequest;
 import com.cvent.models.operations.AddUserToAccountUserGroupResponse;
 import java.lang.Exception;
@@ -367,7 +367,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -406,10 +406,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteUserFromAccountUserGroup
 
@@ -424,7 +424,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteUserFromAccountUserGroupRequest;
 import com.cvent.models.operations.DeleteUserFromAccountUserGroupResponse;
 import java.lang.Exception;
@@ -432,7 +432,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -471,7 +471,7 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |

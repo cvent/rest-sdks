@@ -486,6 +486,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "event/speakers:write"
   /**
+   * Allows the reading of taxes.
+   */
+  | "event/taxes:read"
+  /**
    * Allows the reading of transactions
    */
   | "event/transactions:read"
@@ -1317,6 +1321,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the creation of a speaker in an event
    */
   | "event/speakers:write"
+  /**
+   * Allows the reading of taxes.
+   */
+  | "event/taxes:read"
   /**
    * Allows the reading of transactions
    */

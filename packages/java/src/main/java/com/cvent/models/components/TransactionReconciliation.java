@@ -30,7 +30,7 @@ public class TransactionReconciliation {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("budgetItem")
-    private CardTransactionJson1BudgetItem budgetItem;
+    private CardTransactionJsonBudgetItem budgetItem;
 
     /**
      * This is used to denote the reconciliation status for a transaction.
@@ -62,7 +62,7 @@ public class TransactionReconciliation {
 
     @JsonCreator
     public TransactionReconciliation(
-            @JsonProperty("budgetItem") @Nullable CardTransactionJson1BudgetItem budgetItem,
+            @JsonProperty("budgetItem") @Nullable CardTransactionJsonBudgetItem budgetItem,
             @JsonProperty("status") @Nullable ReconciliationStatusJson status,
             @JsonProperty("amount") @Nullable Double amount,
             @JsonProperty("reconciledBy") @Nullable String reconciledBy,
@@ -81,7 +81,7 @@ public class TransactionReconciliation {
     /**
      * The identifier of reconciled budget item.
      */
-    public Optional<CardTransactionJson1BudgetItem> budgetItem() {
+    public Optional<CardTransactionJsonBudgetItem> budgetItem() {
         return Optional.ofNullable(this.budgetItem);
     }
 
@@ -120,7 +120,7 @@ public class TransactionReconciliation {
     /**
      * The identifier of reconciled budget item.
      */
-    public TransactionReconciliation withBudgetItem(@Nullable CardTransactionJson1BudgetItem budgetItem) {
+    public TransactionReconciliation withBudgetItem(@Nullable CardTransactionJsonBudgetItem budgetItem) {
         this.budgetItem = budgetItem;
         return this;
     }
@@ -197,7 +197,7 @@ public class TransactionReconciliation {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private CardTransactionJson1BudgetItem budgetItem;
+        private CardTransactionJsonBudgetItem budgetItem;
 
         private ReconciliationStatusJson status;
 
@@ -214,7 +214,7 @@ public class TransactionReconciliation {
         /**
          * The identifier of reconciled budget item.
          */
-        public Builder budgetItem(@Nullable CardTransactionJson1BudgetItem budgetItem) {
+        public Builder budgetItem(@Nullable CardTransactionJsonBudgetItem budgetItem) {
             this.budgetItem = budgetItem;
             return this;
         }

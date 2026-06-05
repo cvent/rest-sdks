@@ -8,13 +8,17 @@ import {
   Answer2$Outbound,
   Answer2$outboundSchema,
 } from "./answer2.js";
-import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
+import {
+  Event21,
+  Event21$Outbound,
+  Event21$outboundSchema,
+} from "./event21.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
   Exhibitor$outboundSchema,
 } from "./exhibitor.js";
-import { Uuid1, Uuid1$Outbound, Uuid1$outboundSchema } from "./uuid1.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
  * Existing Exhibitor Answer schema
@@ -23,11 +27,11 @@ export type ExistingExhibitorAnswerInput = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question: Uuid1;
+  question: Uuid;
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * The Associated Exhibitor.
    */
@@ -40,8 +44,8 @@ export type ExistingExhibitorAnswerInput = {
 
 /** @internal */
 export type ExistingExhibitorAnswerInput$Outbound = {
-  question: Uuid1$Outbound;
-  event: Event1$Outbound;
+  question: Uuid$Outbound;
+  event: Event21$Outbound;
   exhibitor: Exhibitor$Outbound;
   answers: Array<Answer2$Outbound>;
 };
@@ -52,8 +56,8 @@ export const ExistingExhibitorAnswerInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExistingExhibitorAnswerInput
 > = z.object({
-  question: Uuid1$outboundSchema,
-  event: Event1$outboundSchema,
+  question: Uuid$outboundSchema,
+  event: Event21$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
   answers: z.array(Answer2$outboundSchema),
 });

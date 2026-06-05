@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { FeeItemJson, FeeItemJson$inboundSchema } from "./feeitemjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { FeeItem, FeeItem$inboundSchema } from "./feeitem.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A response of fee item objects.
@@ -16,11 +16,11 @@ export type FeeItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of fee items.
    */
-  data: Array<FeeItemJson>;
+  data: Array<FeeItem>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const FeeItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(FeeItemJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(FeeItem$inboundSchema),
 });
 
 export function feeItemsPaginatedResponseFromJSON(

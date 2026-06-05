@@ -64,21 +64,21 @@ public class CreateTransactionResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson event;
+    private Event2 event;
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private AttendeeJson attendee;
+    private Attendee2 attendee;
 
     /**
      * This denotes the order IDs corresponding to this transaction.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("orders")
-    private List<OrderJson> orders;
+    private List<Order> orders;
 
     /**
      * Journal number for this transaction. Represents an identifier for the transaction in your bank or
@@ -98,13 +98,13 @@ public class CreateTransactionResponse {
      * balance due.
      */
     @JsonProperty("paymentType")
-    private PaymentTypeCreateJson paymentType;
+    private PaymentType paymentType;
 
     /**
      * This denotes the payment method in a transaction.
      */
     @JsonProperty("paymentMethod")
-    private PaymentMethodJson paymentMethod;
+    private PaymentMethod paymentMethod;
 
     /**
      * True indicates the transaction was successful.
@@ -163,7 +163,7 @@ public class CreateTransactionResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("transactionItems")
-    private List<TransactionItemCreateJson> transactionItems;
+    private List<TransactionItemCreate> transactionItems;
 
     @JsonCreator
     public CreateTransactionResponse(
@@ -172,12 +172,12 @@ public class CreateTransactionResponse {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nullable EventJson event,
-            @JsonProperty("attendee") @Nullable AttendeeJson attendee,
-            @JsonProperty("orders") @Nullable List<OrderJson> orders,
+            @JsonProperty("event") @Nullable Event2 event,
+            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("orders") @Nullable List<Order> orders,
             @JsonProperty("journalNumber") @Nullable String journalNumber,
-            @JsonProperty("paymentType") @Nonnull PaymentTypeCreateJson paymentType,
-            @JsonProperty("paymentMethod") @Nonnull PaymentMethodJson paymentMethod,
+            @JsonProperty("paymentType") @Nonnull PaymentType paymentType,
+            @JsonProperty("paymentMethod") @Nonnull PaymentMethod paymentMethod,
             @JsonProperty("success") @Nullable Boolean success,
             @JsonProperty("date") @Nonnull OffsetDateTime date,
             @JsonProperty("batchNumber") @Nullable String batchNumber,
@@ -185,7 +185,7 @@ public class CreateTransactionResponse {
             @JsonProperty("amount") @Nullable Double amount,
             @JsonProperty("currency") @Nullable String currency,
             @JsonProperty("paymentNote") @Nullable String paymentNote,
-            @JsonProperty("transactionItems") @Nullable List<TransactionItemCreateJson> transactionItems) {
+            @JsonProperty("transactionItems") @Nullable List<TransactionItemCreate> transactionItems) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -210,9 +210,7 @@ public class CreateTransactionResponse {
     }
 
     public CreateTransactionResponse(
-            @Nonnull PaymentTypeCreateJson paymentType,
-            @Nonnull PaymentMethodJson paymentMethod,
-            @Nonnull OffsetDateTime date) {
+            @Nonnull PaymentType paymentType, @Nonnull PaymentMethod paymentMethod, @Nonnull OffsetDateTime date) {
         this(
                 null,
                 null,
@@ -273,21 +271,21 @@ public class CreateTransactionResponse {
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public Optional<EventJson> event() {
+    public Optional<Event2> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<AttendeeJson> attendee() {
+    public Optional<Attendee2> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
     /**
      * This denotes the order IDs corresponding to this transaction.
      */
-    public Optional<List<OrderJson>> orders() {
+    public Optional<List<Order>> orders() {
         return Optional.ofNullable(this.orders);
     }
 
@@ -308,14 +306,14 @@ public class CreateTransactionResponse {
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
      */
-    public PaymentTypeCreateJson paymentType() {
+    public PaymentType paymentType() {
         return this.paymentType;
     }
 
     /**
      * This denotes the payment method in a transaction.
      */
-    public PaymentMethodJson paymentMethod() {
+    public PaymentMethod paymentMethod() {
         return this.paymentMethod;
     }
 
@@ -375,7 +373,7 @@ public class CreateTransactionResponse {
      * the `amount` in the request body. Can only be included in the request body if `partialPayment` query
      * parameter is true.
      */
-    public Optional<List<TransactionItemCreateJson>> transactionItems() {
+    public Optional<List<TransactionItemCreate>> transactionItems() {
         return Optional.ofNullable(this.transactionItems);
     }
 
@@ -426,7 +424,7 @@ public class CreateTransactionResponse {
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public CreateTransactionResponse withEvent(@Nullable EventJson event) {
+    public CreateTransactionResponse withEvent(@Nullable Event2 event) {
         this.event = event;
         return this;
     }
@@ -434,7 +432,7 @@ public class CreateTransactionResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public CreateTransactionResponse withAttendee(@Nullable AttendeeJson attendee) {
+    public CreateTransactionResponse withAttendee(@Nullable Attendee2 attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -442,7 +440,7 @@ public class CreateTransactionResponse {
     /**
      * This denotes the order IDs corresponding to this transaction.
      */
-    public CreateTransactionResponse withOrders(@Nullable List<OrderJson> orders) {
+    public CreateTransactionResponse withOrders(@Nullable List<Order> orders) {
         this.orders = orders;
         return this;
     }
@@ -465,7 +463,7 @@ public class CreateTransactionResponse {
      * of record, or paid in physical currency. To create an offline refund, the attendee must have a
      * balance due.
      */
-    public CreateTransactionResponse withPaymentType(@Nonnull PaymentTypeCreateJson paymentType) {
+    public CreateTransactionResponse withPaymentType(@Nonnull PaymentType paymentType) {
         this.paymentType = Utils.checkNotNull(paymentType, "paymentType");
         return this;
     }
@@ -473,7 +471,7 @@ public class CreateTransactionResponse {
     /**
      * This denotes the payment method in a transaction.
      */
-    public CreateTransactionResponse withPaymentMethod(@Nonnull PaymentMethodJson paymentMethod) {
+    public CreateTransactionResponse withPaymentMethod(@Nonnull PaymentMethod paymentMethod) {
         this.paymentMethod = Utils.checkNotNull(paymentMethod, "paymentMethod");
         return this;
     }
@@ -541,7 +539,7 @@ public class CreateTransactionResponse {
      * the `amount` in the request body. Can only be included in the request body if `partialPayment` query
      * parameter is true.
      */
-    public CreateTransactionResponse withTransactionItems(@Nullable List<TransactionItemCreateJson> transactionItems) {
+    public CreateTransactionResponse withTransactionItems(@Nullable List<TransactionItemCreate> transactionItems) {
         this.transactionItems = transactionItems;
         return this;
     }
@@ -657,17 +655,17 @@ public class CreateTransactionResponse {
 
         private String id;
 
-        private EventJson event;
+        private Event2 event;
 
-        private AttendeeJson attendee;
+        private Attendee2 attendee;
 
-        private List<OrderJson> orders;
+        private List<Order> orders;
 
         private String journalNumber;
 
-        private PaymentTypeCreateJson paymentType;
+        private PaymentType paymentType;
 
-        private PaymentMethodJson paymentMethod;
+        private PaymentMethod paymentMethod;
 
         private Boolean success;
 
@@ -683,7 +681,7 @@ public class CreateTransactionResponse {
 
         private String paymentNote;
 
-        private List<TransactionItemCreateJson> transactionItems;
+        private List<TransactionItemCreate> transactionItems;
 
         private Builder() {
             // force use of static builder() method
@@ -732,7 +730,7 @@ public class CreateTransactionResponse {
         /**
          * The reference to the event. Contains only the ID of the event.
          */
-        public Builder event(@Nullable EventJson event) {
+        public Builder event(@Nullable Event2 event) {
             this.event = event;
             return this;
         }
@@ -740,7 +738,7 @@ public class CreateTransactionResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable AttendeeJson attendee) {
+        public Builder attendee(@Nullable Attendee2 attendee) {
             this.attendee = attendee;
             return this;
         }
@@ -748,7 +746,7 @@ public class CreateTransactionResponse {
         /**
          * This denotes the order IDs corresponding to this transaction.
          */
-        public Builder orders(@Nullable List<OrderJson> orders) {
+        public Builder orders(@Nullable List<Order> orders) {
             this.orders = orders;
             return this;
         }
@@ -771,7 +769,7 @@ public class CreateTransactionResponse {
          * of record, or paid in physical currency. To create an offline refund, the attendee must have a
          * balance due.
          */
-        public Builder paymentType(@Nonnull PaymentTypeCreateJson paymentType) {
+        public Builder paymentType(@Nonnull PaymentType paymentType) {
             this.paymentType = Utils.checkNotNull(paymentType, "paymentType");
             return this;
         }
@@ -779,7 +777,7 @@ public class CreateTransactionResponse {
         /**
          * This denotes the payment method in a transaction.
          */
-        public Builder paymentMethod(@Nonnull PaymentMethodJson paymentMethod) {
+        public Builder paymentMethod(@Nonnull PaymentMethod paymentMethod) {
             this.paymentMethod = Utils.checkNotNull(paymentMethod, "paymentMethod");
             return this;
         }
@@ -847,7 +845,7 @@ public class CreateTransactionResponse {
          * the `amount` in the request body. Can only be included in the request body if `partialPayment` query
          * parameter is true.
          */
-        public Builder transactionItems(@Nullable List<TransactionItemCreateJson> transactionItems) {
+        public Builder transactionItems(@Nullable List<TransactionItemCreate> transactionItems) {
             this.transactionItems = transactionItems;
             return this;
         }

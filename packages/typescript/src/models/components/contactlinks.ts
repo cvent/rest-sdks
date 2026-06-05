@@ -6,15 +6,20 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Link,
-  Link$inboundSchema,
-  Link$Outbound,
-  Link$outboundSchema,
-} from "./link.js";
+import { Link, Link$inboundSchema } from "./link.js";
 
 /**
- * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
+ * Reference to a profile picture.
+ */
+export type ContactLinksLink = {
+  /**
+   * The url of the contact's profile picture
+   */
+  href: string;
+};
+
+/**
+ * Collection of social media links for the contact.
  */
 export type ContactLinks = {
   /**
@@ -30,10 +35,29 @@ export type ContactLinks = {
    */
   linkedInUrl?: Link | undefined;
   /**
-   * Represents a link to a related resource.
+   * Reference to a profile picture.
    */
-  instagramUrl?: Link | undefined;
+  profilePicture?: ContactLinksLink | undefined;
 };
+
+/** @internal */
+export const ContactLinksLink$inboundSchema: z.ZodType<
+  ContactLinksLink,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  href: z.string(),
+});
+
+export function contactLinksLinkFromJSON(
+  jsonString: string,
+): SafeParseResult<ContactLinksLink, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContactLinksLink$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContactLinksLink' from JSON`,
+  );
+}
 
 /** @internal */
 export const ContactLinks$inboundSchema: z.ZodType<
@@ -44,31 +68,9 @@ export const ContactLinks$inboundSchema: z.ZodType<
   twitterUrl: Link$inboundSchema.optional(),
   facebookUrl: Link$inboundSchema.optional(),
   linkedInUrl: Link$inboundSchema.optional(),
-  instagramUrl: Link$inboundSchema.optional(),
-});
-/** @internal */
-export type ContactLinks$Outbound = {
-  twitterUrl?: Link$Outbound | undefined;
-  facebookUrl?: Link$Outbound | undefined;
-  linkedInUrl?: Link$Outbound | undefined;
-  instagramUrl?: Link$Outbound | undefined;
-};
-
-/** @internal */
-export const ContactLinks$outboundSchema: z.ZodType<
-  ContactLinks$Outbound,
-  z.ZodTypeDef,
-  ContactLinks
-> = z.object({
-  twitterUrl: Link$outboundSchema.optional(),
-  facebookUrl: Link$outboundSchema.optional(),
-  linkedInUrl: Link$outboundSchema.optional(),
-  instagramUrl: Link$outboundSchema.optional(),
+  profilePicture: z.lazy(() => ContactLinksLink$inboundSchema).optional(),
 });
 
-export function contactLinksToJSON(contactLinks: ContactLinks): string {
-  return JSON.stringify(ContactLinks$outboundSchema.parse(contactLinks));
-}
 export function contactLinksFromJSON(
   jsonString: string,
 ): SafeParseResult<ContactLinks, SDKValidationError> {

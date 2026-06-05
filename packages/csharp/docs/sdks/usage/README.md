@@ -51,10 +51,10 @@ var res = await sdk.Usage.GetUsageAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetUsageTier
 
@@ -91,7 +91,7 @@ var res = await sdk.Usage.GetUsageTierAsync();
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 429                         | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 429                          | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |

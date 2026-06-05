@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.ProgramItem;
+import com.cvent.models.components.ProgramItem1;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,14 +35,14 @@ public class CreateProgramItemResponse implements AsyncResponse {
     /**
      * Successfully created the session program item.
      */
-    private ProgramItem programItem;
+    private ProgramItem1 programItem;
 
     @JsonCreator
     public CreateProgramItemResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable ProgramItem programItem) {
+            @Nullable ProgramItem1 programItem) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class CreateProgramItemResponse implements AsyncResponse {
     /**
      * Successfully created the session program item.
      */
-    public Optional<ProgramItem> programItem() {
+    public Optional<ProgramItem1> programItem() {
         return Optional.ofNullable(this.programItem);
     }
 
@@ -115,7 +115,7 @@ public class CreateProgramItemResponse implements AsyncResponse {
     /**
      * Successfully created the session program item.
      */
-    public CreateProgramItemResponse withProgramItem(@Nullable ProgramItem programItem) {
+    public CreateProgramItemResponse withProgramItem(@Nullable ProgramItem1 programItem) {
         this.programItem = programItem;
         return this;
     }
@@ -163,7 +163,7 @@ public class CreateProgramItemResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private ProgramItem programItem;
+        private ProgramItem1 programItem;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class CreateProgramItemResponse implements AsyncResponse {
         /**
          * Successfully created the session program item.
          */
-        public Builder programItem(@Nullable ProgramItem programItem) {
+        public Builder programItem(@Nullable ProgramItem1 programItem) {
             this.programItem = programItem;
             return this;
         }

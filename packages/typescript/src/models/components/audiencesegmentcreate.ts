@@ -8,10 +8,10 @@ import {
   AudienceSegmentCreationTypeJson$outboundSchema,
 } from "./audiencesegmentcreationtypejson.js";
 import {
-  EventJson2,
-  EventJson2$Outbound,
-  EventJson2$outboundSchema,
-} from "./eventjson2.js";
+  EventJson1,
+  EventJson1$Outbound,
+  EventJson1$outboundSchema,
+} from "./eventjson1.js";
 
 /**
  * Represents a request to create an audience segment.
@@ -20,7 +20,7 @@ export type AudienceSegmentCreate = {
   /**
    * ID of the event.
    */
-  event: EventJson2;
+  event: EventJson1;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -37,7 +37,7 @@ export type AudienceSegmentCreate = {
 
 /** @internal */
 export type AudienceSegmentCreate$Outbound = {
-  event: EventJson2$Outbound;
+  event: EventJson1$Outbound;
   name: string;
   description?: string | undefined;
   creationType: string;
@@ -49,7 +49,7 @@ export const AudienceSegmentCreate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AudienceSegmentCreate
 > = z.object({
-  event: EventJson2$outboundSchema,
+  event: EventJson1$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
   creationType: AudienceSegmentCreationTypeJson$outboundSchema.default(

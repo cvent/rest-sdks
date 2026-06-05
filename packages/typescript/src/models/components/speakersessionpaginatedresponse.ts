@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  SpeakerSessionJson,
-  SpeakerSessionJson$inboundSchema,
-} from "./speakersessionjson.js";
+  SpeakerSession,
+  SpeakerSession$inboundSchema,
+} from "./speakersession.js";
 
 /**
  * The response from a request to get the list of speaker sessions.  This includes the paging object as well as the collection of speaker sessions.
@@ -19,11 +19,11 @@ export type SpeakerSessionPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of speaker sessions.
    */
-  data: Array<SpeakerSessionJson>;
+  data: Array<SpeakerSession>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const SpeakerSessionPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(SpeakerSessionJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(SpeakerSession$inboundSchema),
 });
 
 export function speakerSessionPaginatedResponseFromJSON(

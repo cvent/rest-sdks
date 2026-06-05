@@ -22,18 +22,17 @@ public class DiscountAgendaItemsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of associated agenda items for a discount.
      */
     @JsonProperty("data")
-    private List<DiscountAgendaItemJson> data;
+    private List<AgendaItem1> data;
 
     @JsonCreator
     public DiscountAgendaItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<DiscountAgendaItemJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<AgendaItem1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class DiscountAgendaItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of associated agenda items for a discount.
      */
-    public List<DiscountAgendaItemJson> data() {
+    public List<AgendaItem1> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class DiscountAgendaItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public DiscountAgendaItemsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public DiscountAgendaItemsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class DiscountAgendaItemsPaginatedResponse {
     /**
      * Collection of associated agenda items for a discount.
      */
-    public DiscountAgendaItemsPaginatedResponse withData(@Nonnull List<DiscountAgendaItemJson> data) {
+    public DiscountAgendaItemsPaginatedResponse withData(@Nonnull List<AgendaItem1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class DiscountAgendaItemsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<DiscountAgendaItemJson> data;
+        private List<AgendaItem1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class DiscountAgendaItemsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class DiscountAgendaItemsPaginatedResponse {
         /**
          * Collection of associated agenda items for a discount.
          */
-        public Builder data(@Nonnull List<DiscountAgendaItemJson> data) {
+        public Builder data(@Nonnull List<AgendaItem1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

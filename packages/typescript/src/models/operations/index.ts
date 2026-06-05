@@ -326,6 +326,7 @@ export * from "./listspeakersessions.js";
 export * from "./listspeakerspostfilter.js";
 export * from "./listsupplieraccounts.js";
 export * from "./listtables.js";
+export * from "./listtaxes.js";
 export * from "./listtravelaccounts.js";
 export * from "./listtravelprogramquestions.js";
 export * from "./listtravelprograms.js";

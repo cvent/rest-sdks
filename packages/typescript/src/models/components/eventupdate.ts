@@ -8,9 +8,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomFieldJson4,
-  CustomFieldJson4$inboundSchema,
-} from "./customfieldjson4.js";
+  CustomFieldJson3,
+  CustomFieldJson3$inboundSchema,
+} from "./customfieldjson3.js";
 import {
   EventFormatJson,
   EventFormatJson$inboundSchema,
@@ -183,7 +183,7 @@ export type EventUpdate = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomFieldJson4> | undefined;
+  customFields?: Array<CustomFieldJson3> | undefined;
   /**
    * The category to which this event belongs (no longer supported).
    *
@@ -281,7 +281,7 @@ export const EventUpdate$inboundSchema: z.ZodType<
   capacity: z.number().int().optional(),
   planners: z.array(PlannerJson2$inboundSchema),
   stakeholders: z.array(StakeholderJson$inboundSchema).optional(),
-  customFields: z.array(CustomFieldJson4$inboundSchema).optional(),
+  customFields: z.array(CustomFieldJson3$inboundSchema).optional(),
   category: z.lazy(() => EventUpdateLookup$inboundSchema).optional(),
   type: EventTypeJson1$inboundSchema,
   _links: EventLinksJson$inboundSchema.optional(),

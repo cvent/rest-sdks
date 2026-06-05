@@ -62,7 +62,7 @@ public class LeadQualificationQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -127,7 +127,7 @@ public class LeadQualificationQuestion {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nullable Event1 event,
+            @JsonProperty("event") @Nullable Event21 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("type") @Nullable LeadQualificationQuestionType type,
             @JsonProperty("code") @Nullable String code,
@@ -194,7 +194,7 @@ public class LeadQualificationQuestion {
     /**
      * The Associated Event.
      */
-    public Optional<Event1> event() {
+    public Optional<Event21> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -301,7 +301,7 @@ public class LeadQualificationQuestion {
     /**
      * The Associated Event.
      */
-    public LeadQualificationQuestion withEvent(@Nullable Event1 event) {
+    public LeadQualificationQuestion withEvent(@Nullable Event21 event) {
         this.event = event;
         return this;
     }
@@ -461,7 +461,7 @@ public class LeadQualificationQuestion {
 
         private String id;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -526,7 +526,7 @@ public class LeadQualificationQuestion {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event1 event) {
+        public Builder event(@Nullable Event21 event) {
             this.event = event;
             return this;
         }

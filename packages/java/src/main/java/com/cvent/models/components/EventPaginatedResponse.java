@@ -28,11 +28,11 @@ public class EventPaginatedResponse {
      * A collection of event objects.
      */
     @JsonProperty("data")
-    private List<Event> data;
+    private List<Event1> data;
 
     @JsonCreator
     public EventPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<Event> data) {
+            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<Event1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -48,7 +48,7 @@ public class EventPaginatedResponse {
     /**
      * A collection of event objects.
      */
-    public List<Event> data() {
+    public List<Event1> data() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class EventPaginatedResponse {
     /**
      * A collection of event objects.
      */
-    public EventPaginatedResponse withData(@Nonnull List<Event> data) {
+    public EventPaginatedResponse withData(@Nonnull List<Event1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -99,7 +99,7 @@ public class EventPaginatedResponse {
 
         private PagingJson paging;
 
-        private List<Event> data;
+        private List<Event1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class EventPaginatedResponse {
         /**
          * A collection of event objects.
          */
-        public Builder data(@Nonnull List<Event> data) {
+        public Builder data(@Nonnull List<Event1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the card type for a card.
         /// </summary>
         [JsonProperty("type")]
-        public CardTypeJson1? Type { get; set; }
+        public CardTypeJson? Type { get; set; }
 
         /// <summary>
         /// This is used to denote the card status for a card.

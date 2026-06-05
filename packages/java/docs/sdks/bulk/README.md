@@ -47,7 +47,8 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.CreateBulkJobResponse;
 import java.lang.Exception;
 import java.util.List;
@@ -55,7 +56,7 @@ import java.util.Map;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -125,10 +126,11 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 409, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 409                          | application/json             |
+| models/errors/ErrorResponse2 | 400, 401, 403, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getBulkJobById
 
@@ -143,7 +145,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.GetBulkJobByIdRequest;
 import com.cvent.models.operations.GetBulkJobByIdResponse;
 import java.lang.Exception;
@@ -151,7 +153,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -191,10 +193,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse2 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## cancelBulkJob
 
@@ -209,7 +211,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.CancelBulkJobRequest;
 import com.cvent.models.operations.CancelBulkJobResponse;
 import java.lang.Exception;
@@ -217,7 +219,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -257,10 +259,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse2 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## uploadBulkJobData
 
@@ -280,7 +282,8 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.UploadBulkJobDataRequest;
 import com.cvent.models.operations.UploadBulkJobDataResponse;
 import java.lang.Exception;
@@ -289,7 +292,7 @@ import java.util.Map;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -355,7 +358,8 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 400, 401, 403, 404, 409, 429 | application/json             |
+| models/errors/ErrorResponse1 | 409                          | application/json             |
+| models/errors/ErrorResponse2 | 400, 401, 403, 404, 429      | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## listBulkJobResult
@@ -371,7 +375,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.ListBulkJobResultRequest;
 import com.cvent.models.operations.ListBulkJobResultResponse;
 import java.lang.Exception;
@@ -380,7 +384,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -424,10 +428,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse2 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## runBulkJob
 
@@ -444,7 +448,8 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.RunBulkJobRequest;
 import com.cvent.models.operations.RunBulkJobResponse;
 import java.lang.Exception;
@@ -452,7 +457,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, ErrorResponse2, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -494,5 +499,6 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 400, 401, 403, 404, 409, 429 | application/json             |
+| models/errors/ErrorResponse1 | 409                          | application/json             |
+| models/errors/ErrorResponse2 | 400, 401, 403, 404, 429      | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |

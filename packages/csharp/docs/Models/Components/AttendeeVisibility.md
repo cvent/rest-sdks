@@ -1,0 +1,19 @@
+# AttendeeVisibility
+
+Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
+
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = AttendeeVisibility.Private;
+```
+
+
+## Values
+
+| Name      | Value     |
+| --------- | --------- |
+| `Private` | Private   |
+| `Public`  | Public    |

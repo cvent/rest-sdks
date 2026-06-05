@@ -6,26 +6,20 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AttendeeJson, AttendeeJson$inboundSchema } from "./attendeejson.js";
+import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
 import {
-  DiscountDetailJson,
-  DiscountDetailJson$inboundSchema,
-} from "./discountdetailjson.js";
-import { EventJson, EventJson$inboundSchema } from "./eventjson.js";
-import { FeeJson, FeeJson$inboundSchema } from "./feejson.js";
+  DiscountDetail,
+  DiscountDetail$inboundSchema,
+} from "./discountdetail.js";
+import { Event2, Event2$inboundSchema } from "./event2.js";
+import { Fee, Fee$inboundSchema } from "./fee.js";
+import { GeneralLedger, GeneralLedger$inboundSchema } from "./generalledger.js";
+import { Guest, Guest$inboundSchema } from "./guest.js";
+import { OrderRef, OrderRef$inboundSchema } from "./orderref.js";
 import {
-  GeneralLedgerJson,
-  GeneralLedgerJson$inboundSchema,
-} from "./generalledgerjson.js";
-import {
-  GuestDetailJson,
-  GuestDetailJson$inboundSchema,
-} from "./guestdetailjson.js";
-import { OrderRefJson, OrderRefJson$inboundSchema } from "./orderrefjson.js";
-import {
-  ProductOrderItemJson,
-  ProductOrderItemJson$inboundSchema,
-} from "./productorderitemjson.js";
+  ProductOrderItem,
+  ProductOrderItem$inboundSchema,
+} from "./productorderitem.js";
 
 /**
  * This is used to denote an item in the order
@@ -54,15 +48,15 @@ export type OrderItemResponse = {
   /**
    * Represents an order by its ID and includes the order type.
    */
-  order?: OrderRefJson | undefined;
+  order?: OrderRef | undefined;
   /**
    * The reference to the event. Contains only the ID of the event.
    */
-  event?: EventJson | undefined;
+  event?: Event2 | undefined;
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: AttendeeJson | undefined;
+  attendee?: Attendee2 | undefined;
   /**
    * Indicates if an attendee is a guest
    */
@@ -70,11 +64,11 @@ export type OrderItemResponse = {
   /**
    * The reference to the guest. Contains only the ID of the guest.
    */
-  guestDetail?: GuestDetailJson | undefined;
+  guestDetail?: Guest | undefined;
   /**
    * This is used to denote the product details in an order item
    */
-  product?: ProductOrderItemJson | undefined;
+  product?: ProductOrderItem | undefined;
   /**
    * Indicates if the order item is active
    */
@@ -90,7 +84,7 @@ export type OrderItemResponse = {
   /**
    * Fee for a product.
    */
-  fee?: FeeJson | undefined;
+  fee?: Fee | undefined;
   /**
    * Quantity of item purchased by an attendee.
    */
@@ -118,11 +112,11 @@ export type OrderItemResponse = {
   /**
    * The list of general ledger details in an order item.
    */
-  generalLedgerItems?: Array<GeneralLedgerJson> | undefined;
+  generalLedgerItems?: Array<GeneralLedger> | undefined;
   /**
    * The list of discount details.
    */
-  discounts?: Array<DiscountDetailJson> | undefined;
+  discounts?: Array<DiscountDetail> | undefined;
   /**
    * True indicates the order item has been deleted.
    */
@@ -143,24 +137,24 @@ export const OrderItemResponse$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  order: OrderRefJson$inboundSchema.optional(),
-  event: EventJson$inboundSchema.optional(),
-  attendee: AttendeeJson$inboundSchema.optional(),
+  order: OrderRef$inboundSchema.optional(),
+  event: Event2$inboundSchema.optional(),
+  attendee: Attendee2$inboundSchema.optional(),
   guest: z.boolean().optional(),
-  guestDetail: GuestDetailJson$inboundSchema.optional(),
-  product: ProductOrderItemJson$inboundSchema.optional(),
+  guestDetail: Guest$inboundSchema.optional(),
+  product: ProductOrderItem$inboundSchema.optional(),
   active: z.boolean().optional(),
   name: z.string().optional(),
   price: z.number().optional(),
-  fee: FeeJson$inboundSchema.optional(),
+  fee: Fee$inboundSchema.optional(),
   quantity: z.number().int().optional(),
   amountOrdered: z.number().optional(),
   amountPaid: z.number().optional(),
   amountDue: z.number().optional(),
   productPriceTierAmount: z.number().optional(),
   tiered: z.boolean().optional(),
-  generalLedgerItems: z.array(GeneralLedgerJson$inboundSchema).optional(),
-  discounts: z.array(DiscountDetailJson$inboundSchema).optional(),
+  generalLedgerItems: z.array(GeneralLedger$inboundSchema).optional(),
+  discounts: z.array(DiscountDetail$inboundSchema).optional(),
   deleted: z.boolean().optional(),
 });
 

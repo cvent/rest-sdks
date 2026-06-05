@@ -74,10 +74,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSessionProgramSpeakersPostFilters
 
@@ -133,10 +133,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## CreateSessionProgramSpeaker
 
@@ -181,10 +181,10 @@ var res = await sdk.Speakers.CreateSessionProgramSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 409, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 409, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetSessionProgramSpeaker
 
@@ -229,10 +229,10 @@ var res = await sdk.Speakers.GetSessionProgramSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteSessionProgramSpeaker
 
@@ -277,10 +277,10 @@ var res = await sdk.Speakers.DeleteSessionProgramSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSpeakersCategories
 
@@ -334,10 +334,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## AddSpeakerCategory
 
@@ -383,10 +383,10 @@ var res = await sdk.Speakers.AddSpeakerCategoryAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSpeakers
 
@@ -441,10 +441,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## CreateSpeaker
 
@@ -517,10 +517,10 @@ var res = await sdk.Speakers.CreateSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSpeakersPostFilter
 
@@ -578,10 +578,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## UpdateSpeaker
 
@@ -658,10 +658,10 @@ var res = await sdk.Speakers.UpdateSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteSpeaker
 
@@ -708,10 +708,10 @@ var res = await sdk.Speakers.DeleteSpeakerAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSpeakerDocs
 
@@ -765,10 +765,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetSpeakerDoc
 
@@ -816,10 +816,10 @@ var res = await sdk.Speakers.GetSpeakerDocAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## AddSpeakerDoc
 
@@ -867,10 +867,10 @@ var res = await sdk.Speakers.AddSpeakerDocAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteSpeakerDocument
 
@@ -918,10 +918,10 @@ var res = await sdk.Speakers.DeleteSpeakerDocumentAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteSpeakerProfileImage
 
@@ -968,10 +968,10 @@ var res = await sdk.Speakers.DeleteSpeakerProfileImageAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## AssignSpeakerProfileImage
 
@@ -1023,10 +1023,10 @@ var res = await sdk.Speakers.AssignSpeakerProfileImageAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## ListSpeakerSessions
 
@@ -1079,7 +1079,7 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |

@@ -126,7 +126,7 @@ namespace Cvent.SDK.Models.Components
         /// List of fields for form/matrix questions.
         /// </summary>
         [JsonProperty("fields")]
-        public List<FieldJson3>? Fields { get; set; }
+        public List<FieldJson2>? Fields { get; set; }
 
         /// <summary>
         /// Max possible score.

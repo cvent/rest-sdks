@@ -9,10 +9,10 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.ProgramItem;
+import com.cvent.models.components.ProgramItem1;
 import com.cvent.models.components.ProgramItemInput;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateProgramItemResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -188,14 +188,14 @@ public class CreateProgramItem {
 
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return res.withProgramItem(Utils.unmarshal(response, new TypeReference<ProgramItem>() {}));
+                    return res.withProgramItem(Utils.unmarshal(response, new TypeReference<ProgramItem1>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -276,7 +276,7 @@ public class CreateProgramItem {
 
             if (Utils.statusCodeMatches(response.statusCode(), "201")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<ProgramItem>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<ProgramItem1>() {})
                             .thenApply(res::withProgramItem);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
@@ -284,7 +284,7 @@ public class CreateProgramItem {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

@@ -1,0 +1,18 @@
+# ExistingVolumeDiscountType
+
+The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
+
+## Example Usage
+
+```java
+import com.cvent.models.components.ExistingVolumeDiscountType;
+
+ExistingVolumeDiscountType value = ExistingVolumeDiscountType.VOLUME_DISCOUNT;
+```
+
+
+## Values
+
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `VOLUME_DISCOUNT` | VOLUME_DISCOUNT   |

@@ -8,55 +8,72 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
  * TransactionJson
  *
- * <p>This is used to denote the id and merchant/processor transaction id for transaction items.
+ * <p>The latest transaction that took place on a given proposal
  */
 public class TransactionJson {
     /**
-     * A string that has to be a format matching the industry standard uuid
+     * The unique ID of a specific transaction.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * This denotes the online processor transaction Id for transactions.
+     * The proposal transaction type
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("processorTransactionId")
-    private String processorTransactionId;
+    @JsonProperty("type")
+    private TransactionTypeJson type;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("time")
+    private OffsetDateTime time;
 
     @JsonCreator
     public TransactionJson(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("processorTransactionId") @Nullable String processorTransactionId) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.processorTransactionId = processorTransactionId;
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("type") @Nullable TransactionTypeJson type,
+            @JsonProperty("time") @Nullable OffsetDateTime time) {
+        this.id = id;
+        this.type = type;
+        this.time = time;
     }
 
-    public TransactionJson(@Nonnull String id) {
-        this(id, null);
-    }
-
-    /**
-     * A string that has to be a format matching the industry standard uuid
-     */
-    public String id() {
-        return this.id;
+    public TransactionJson() {
+        this(null, null, null);
     }
 
     /**
-     * This denotes the online processor transaction Id for transactions.
+     * The unique ID of a specific transaction.
      */
-    public Optional<String> processorTransactionId() {
-        return Optional.ofNullable(this.processorTransactionId);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The proposal transaction type
+     */
+    public Optional<TransactionTypeJson> type() {
+        return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> time() {
+        return Optional.ofNullable(this.time);
     }
 
     public static Builder builder() {
@@ -64,18 +81,26 @@ public class TransactionJson {
     }
 
     /**
-     * A string that has to be a format matching the industry standard uuid
+     * The unique ID of a specific transaction.
      */
-    public TransactionJson withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
+    public TransactionJson withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * This denotes the online processor transaction Id for transactions.
+     * The proposal transaction type
      */
-    public TransactionJson withProcessorTransactionId(@Nullable String processorTransactionId) {
-        this.processorTransactionId = processorTransactionId;
+    public TransactionJson withType(@Nullable TransactionTypeJson type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public TransactionJson withTime(@Nullable OffsetDateTime time) {
+        this.time = time;
         return this;
     }
 
@@ -89,17 +114,18 @@ public class TransactionJson {
         }
         TransactionJson other = (TransactionJson) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.processorTransactionId, other.processorTransactionId);
+                && Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.time, other.time);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, processorTransactionId);
+        return Utils.enhancedHash(id, type, time);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(TransactionJson.class, "id", id, "processorTransactionId", processorTransactionId);
+        return Utils.toString(TransactionJson.class, "id", id, "type", type, "time", time);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -107,30 +133,40 @@ public class TransactionJson {
 
         private String id;
 
-        private String processorTransactionId;
+        private TransactionTypeJson type;
+
+        private OffsetDateTime time;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * A string that has to be a format matching the industry standard uuid
+         * The unique ID of a specific transaction.
          */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 
         /**
-         * This denotes the online processor transaction Id for transactions.
+         * The proposal transaction type
          */
-        public Builder processorTransactionId(@Nullable String processorTransactionId) {
-            this.processorTransactionId = processorTransactionId;
+        public Builder type(@Nullable TransactionTypeJson type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder time(@Nullable OffsetDateTime time) {
+            this.time = time;
             return this;
         }
 
         public TransactionJson build() {
-            return new TransactionJson(id, processorTransactionId);
+            return new TransactionJson(id, type, time);
         }
     }
 }

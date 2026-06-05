@@ -4,28 +4,21 @@
 
 import * as z from "zod/v3";
 import {
-  AttendeeJson,
-  AttendeeJson$Outbound,
-  AttendeeJson$outboundSchema,
-} from "./attendeejson.js";
+  Attendee2,
+  Attendee2$Outbound,
+  Attendee2$outboundSchema,
+} from "./attendee2.js";
+import { Event2, Event2$Outbound, Event2$outboundSchema } from "./event2.js";
 import {
-  EventJson,
-  EventJson$Outbound,
-  EventJson$outboundSchema,
-} from "./eventjson.js";
+  PaymentMethod,
+  PaymentMethod$outboundSchema,
+} from "./paymentmethod.js";
+import { PaymentType, PaymentType$outboundSchema } from "./paymenttype.js";
 import {
-  PaymentMethodJson,
-  PaymentMethodJson$outboundSchema,
-} from "./paymentmethodjson.js";
-import {
-  PaymentTypeCreateJson,
-  PaymentTypeCreateJson$outboundSchema,
-} from "./paymenttypecreatejson.js";
-import {
-  TransactionItemCreateJsonInput,
-  TransactionItemCreateJsonInput$Outbound,
-  TransactionItemCreateJsonInput$outboundSchema,
-} from "./transactionitemcreatejsoninput.js";
+  TransactionItemCreateInput,
+  TransactionItemCreateInput$Outbound,
+  TransactionItemCreateInput$outboundSchema,
+} from "./transactionitemcreateinput.js";
 
 /**
  * Denotes the details of the transaction created for an attendee.
@@ -34,19 +27,19 @@ export type CreateTransactionResponseInput = {
   /**
    * The reference to the event. Contains only the ID of the event.
    */
-  event?: EventJson | undefined;
+  event?: Event2 | undefined;
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: AttendeeJson | undefined;
+  attendee?: Attendee2 | undefined;
   /**
    * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. To create an offline charge, the attendee must have a balance owing. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency. To create an offline refund, the attendee must have a balance due.
    */
-  paymentType: PaymentTypeCreateJson;
+  paymentType: PaymentType;
   /**
    * This denotes the payment method in a transaction.
    */
-  paymentMethod: PaymentMethodJson;
+  paymentMethod: PaymentMethod;
   /**
    * The ISO 8601 zoned date time when attendee made the transaction.
    */
@@ -70,13 +63,13 @@ export type CreateTransactionResponseInput = {
   /**
    * The list of order items you'll apply the transaction amount towards. Values in the array must sum to the `amount` in the request body. Can only be included in the request body if `partialPayment` query parameter is true.
    */
-  transactionItems?: Array<TransactionItemCreateJsonInput> | undefined;
+  transactionItems?: Array<TransactionItemCreateInput> | undefined;
 };
 
 /** @internal */
 export type CreateTransactionResponseInput$Outbound = {
-  event?: EventJson$Outbound | undefined;
-  attendee?: AttendeeJson$Outbound | undefined;
+  event?: Event2$Outbound | undefined;
+  attendee?: Attendee2$Outbound | undefined;
   paymentType: string;
   paymentMethod: string;
   date: string;
@@ -84,7 +77,7 @@ export type CreateTransactionResponseInput$Outbound = {
   referenceNumber?: string | undefined;
   amount?: number | undefined;
   paymentNote?: string | undefined;
-  transactionItems?: Array<TransactionItemCreateJsonInput$Outbound> | undefined;
+  transactionItems?: Array<TransactionItemCreateInput$Outbound> | undefined;
 };
 
 /** @internal */
@@ -93,16 +86,16 @@ export const CreateTransactionResponseInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateTransactionResponseInput
 > = z.object({
-  event: EventJson$outboundSchema.optional(),
-  attendee: AttendeeJson$outboundSchema.optional(),
-  paymentType: PaymentTypeCreateJson$outboundSchema,
-  paymentMethod: PaymentMethodJson$outboundSchema,
+  event: Event2$outboundSchema.optional(),
+  attendee: Attendee2$outboundSchema.optional(),
+  paymentType: PaymentType$outboundSchema,
+  paymentMethod: PaymentMethod$outboundSchema,
   date: z.date().transform(v => v.toISOString()),
   batchNumber: z.string().optional(),
   referenceNumber: z.string().optional(),
   amount: z.number().optional(),
   paymentNote: z.string().optional(),
-  transactionItems: z.array(TransactionItemCreateJsonInput$outboundSchema)
+  transactionItems: z.array(TransactionItemCreateInput$outboundSchema)
     .optional(),
 });
 

@@ -51,7 +51,7 @@ let value: ProgramItemPaginatedResponse = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `paging`                                                           | [components.PagingJson](../../models/components/pagingjson.md)     | :heavy_check_mark:                                                 | Represents pagination information for a collection of resources.   |
-| `data`                                                             | [components.ProgramItem](../../models/components/programitem.md)[] | :heavy_check_mark:                                                 | Collection of Session Program Items.                               |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `paging`                                                             | [components.Paging](../../models/components/paging.md)               | :heavy_check_mark:                                                   | Represents pagination information for a collection of resources.     |
+| `data`                                                               | [components.ProgramItem1](../../models/components/programitem1.md)[] | :heavy_check_mark:                                                   | Collection of Session Program Items.                                 |

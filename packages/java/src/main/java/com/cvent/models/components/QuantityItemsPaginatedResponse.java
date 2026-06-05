@@ -22,7 +22,7 @@ public class QuantityItemsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of quantity items.
@@ -32,8 +32,7 @@ public class QuantityItemsPaginatedResponse {
 
     @JsonCreator
     public QuantityItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<QuantityItem> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<QuantityItem> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,7 +41,7 @@ public class QuantityItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
@@ -60,7 +59,7 @@ public class QuantityItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public QuantityItemsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public QuantityItemsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -98,7 +97,7 @@ public class QuantityItemsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<QuantityItem> data;
 
@@ -109,7 +108,7 @@ public class QuantityItemsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

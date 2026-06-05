@@ -61,10 +61,10 @@ while(res != null)
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 400, 401, 403, 404, 429               | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetBadgePrinterPool
 
@@ -112,7 +112,7 @@ var res = await sdk.BadgePrinterPools.GetBadgePrinterPoolAsync(req);
 
 ### Errors
 
-| Error Type                            | Status Code                           | Content Type                          |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse | 401, 403, 404, 429                    | application/json                      |
-| Cvent.SDK.Models.Errors.APIException  | 4XX, 5XX                              | \*/\*                                 |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
+| Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |

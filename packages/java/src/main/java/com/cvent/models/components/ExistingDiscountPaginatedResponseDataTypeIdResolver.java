@@ -18,8 +18,8 @@ public class ExistingDiscountPaginatedResponseDataTypeIdResolver
     }
 
     private void initializeTypeMap() {
-        registerType("DISCOUNT_CODE", ExistingDiscountCodeJson.class);
-        registerType("VOLUME_DISCOUNT", ExistingVolumeDiscountJson.class);
+        registerType("DISCOUNT_CODE", ExistingDiscountCode.class);
+        registerType("VOLUME_DISCOUNT", ExistingVolumeDiscount.class);
     }
 
     @Override

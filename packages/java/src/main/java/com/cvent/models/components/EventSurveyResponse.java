@@ -90,7 +90,7 @@ public class EventSurveyResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson5 event;
+    private EventJson4 event;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
@@ -124,7 +124,7 @@ public class EventSurveyResponse {
             @JsonProperty("question") @Nonnull UuidJson question,
             @JsonProperty("answers") @Nonnull List<AnswerJson> answers,
             @JsonProperty("score") @Nullable Double score,
-            @JsonProperty("event") @Nullable EventJson5 event,
+            @JsonProperty("event") @Nullable EventJson4 event,
             @JsonProperty("survey") @Nullable UuidJson survey,
             @JsonProperty("session") @Nullable UuidJson session,
             @JsonProperty("speaker") @Nullable UuidJson speaker) {
@@ -215,7 +215,7 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public Optional<EventJson5> event() {
+    public Optional<EventJson4> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -319,7 +319,7 @@ public class EventSurveyResponse {
     /**
      * Detail object of an event which is associated to a survey.
      */
-    public EventSurveyResponse withEvent(@Nullable EventJson5 event) {
+    public EventSurveyResponse withEvent(@Nullable EventJson4 event) {
         this.event = event;
         return this;
     }
@@ -444,7 +444,7 @@ public class EventSurveyResponse {
         @Deprecated
         private Double score;
 
-        private EventJson5 event;
+        private EventJson4 event;
 
         private UuidJson survey;
 
@@ -531,7 +531,7 @@ public class EventSurveyResponse {
         /**
          * Detail object of an event which is associated to a survey.
          */
-        public Builder event(@Nullable EventJson5 event) {
+        public Builder event(@Nullable EventJson4 event) {
             this.event = event;
             return this;
         }

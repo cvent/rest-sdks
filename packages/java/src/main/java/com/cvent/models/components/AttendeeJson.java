@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * AttendeeJson
  *
- * <p>The reference to the attendee. Contains only the ID of the attendee.
+ * <p>Attendee details
  */
 public class AttendeeJson {
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * A Cvent attendee.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class AttendeeJson {
     }
 
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * A Cvent attendee.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class AttendeeJson {
     }
 
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * A Cvent attendee.
      */
     public AttendeeJson withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class AttendeeJson {
         }
 
         /**
-         * Unique identifier of the primary invitee for the current attendee's registration.
+         * A Cvent attendee.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

@@ -39,6 +39,7 @@ Events are used to collect registrations and allow attendees to select their sch
 * [listRegistrationPaths](#listregistrationpaths) - List Registration Paths
 * [listRegistrationTypes](#listregistrationtypes) - List Registration Types
 * [updateRegistrationType](#updateregistrationtype) - Update Event Registration Type
+* [listTaxes](#listtaxes) - List Taxes
 * [getTransactions](#gettransactions) - List Transactions
 * [postTransactions](#posttransactions) - Create Transactions
 * [getTransactionItems](#gettransactionitems) - List Transaction Items
@@ -151,10 +152,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listAdmissionItemsPostFilters
 
@@ -257,10 +258,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getEventQuestions
 
@@ -358,10 +359,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getChoicesForQuestion
 
@@ -459,7 +460,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEvents
@@ -561,10 +562,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## createEventAsync
 
@@ -723,10 +724,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getEventAsyncStatus
 
@@ -814,10 +815,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getEventCopyStatus
 
@@ -905,10 +906,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## sendEventEmails
 
@@ -1014,10 +1015,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getEventEmailStatus
 
@@ -1107,7 +1108,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventsPostFilters
@@ -1213,10 +1214,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getEventById
 
@@ -1300,14 +1301,14 @@ run();
 
 ### Response
 
-**Promise\<[components.Event](../../models/components/event.md)\>**
+**Promise\<[components.Event1](../../models/components/event1.md)\>**
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## updateEvent
 
@@ -1459,7 +1460,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## eventCheckIn
@@ -1552,7 +1553,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteEventCheckIn
@@ -1643,10 +1644,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## copyEvent
 
@@ -1762,7 +1763,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## answerEventCustomField
@@ -1795,7 +1796,7 @@ async function run() {
   const result = await cventSDK.events.answerEventCustomField({
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField2: {
       id: "8daec569-a328-48c3-b205-1fc913fc7c81",
       value: [
         "Choice C",
@@ -1836,7 +1837,7 @@ async function run() {
   const res = await eventsAnswerEventCustomField(cventSDK, {
     id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     customFieldId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
-    customField1: {
+    customField2: {
       id: "8daec569-a328-48c3-b205-1fc913fc7c81",
       value: [
         "Choice C",
@@ -1867,13 +1868,13 @@ run();
 
 ### Response
 
-**Promise\<[components.CustomField1](../../models/components/customfield1.md)\>**
+**Promise\<[components.CustomField2](../../models/components/customfield2.md)\>**
 
 ### Errors
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listDonationItems
@@ -1970,7 +1971,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listDonationItemsPostFilter
@@ -2071,7 +2072,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listEventEmails
@@ -2174,7 +2175,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listFeeItems
@@ -2271,7 +2272,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getInvitationList
@@ -2374,7 +2375,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listMembershipItems
@@ -2471,7 +2472,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listMembershipItemsPostFilter
@@ -2572,7 +2573,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getOrders
@@ -2675,7 +2676,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getOrderItems
@@ -2778,7 +2779,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## associateDiscountCodeToOrderItem
@@ -2896,7 +2897,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getEventPlanningDocuments
@@ -3000,7 +3001,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listQuantityItems
@@ -3097,7 +3098,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listQuantityItemsPostFilter
@@ -3198,7 +3199,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRegistrationPaths
@@ -3297,7 +3298,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listRegistrationTypes
@@ -3394,7 +3395,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateRegistrationType
@@ -3503,7 +3504,104 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## listTaxes
+
+Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied to products such as admission items, sessions, and other billable items.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listTaxes" method="get" path="/events/{id}/taxes" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.events.listTaxes({
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { eventsListTaxes } from "@cvent/sdk/funcs/eventsListTaxes.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await eventsListTaxes(cventSDK, {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    filter: "id eq '04ca6ae2-0dc3-487b-953e-86d6abbdf7d3'",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("eventsListTaxes failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListTaxesRequest](../../models/operations/listtaxesrequest.md)                                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListTaxesResponse](../../models/operations/listtaxesresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getTransactions
@@ -3606,7 +3704,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## postTransactions
@@ -3743,7 +3841,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getTransactionItems
@@ -3846,7 +3944,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listEventUserGroups
@@ -3943,7 +4041,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## associateEventUserGroup
@@ -4036,7 +4134,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## disassociateEventUserGroup
@@ -4129,7 +4227,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateQuantityItemRegistrationForAttendee
@@ -4233,7 +4331,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listSessionsAttendance
@@ -4332,10 +4430,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listSessionsEnrollment
 
@@ -4436,10 +4534,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listSessionsEnrollmentPostFilter
 
@@ -4545,10 +4643,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## deleteSessionAttendance
 
@@ -4638,10 +4736,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## sessionCheckIn
 
@@ -4727,13 +4825,13 @@ run();
 
 ### Response
 
-**Promise\<[components.AttendeeAddBulkItemJson1[]](../../models/.md)\>**
+**Promise\<[components.AttendeeAddBulkItemJson[]](../../models/.md)\>**
 
 ### Errors
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateSessionCheckIn
@@ -4820,13 +4918,13 @@ run();
 
 ### Response
 
-**Promise\<[components.AttendeeAddBulkItemJson1[]](../../models/.md)\>**
+**Promise\<[components.AttendeeAddBulkItemJson[]](../../models/.md)\>**
 
 ### Errors
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createSessionEnrollment
@@ -4923,7 +5021,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## deleteSessionEnrollment
@@ -5020,5 +5118,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

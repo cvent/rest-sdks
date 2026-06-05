@@ -58,7 +58,7 @@ public class ExistingExhibitorQuestion {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The actual text of the exhibitor question.
@@ -157,7 +157,7 @@ public class ExistingExhibitorQuestion {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("text") @Nonnull String text,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nonnull ExhibitorQuestionType type,
@@ -190,7 +190,7 @@ public class ExistingExhibitorQuestion {
     }
 
     public ExistingExhibitorQuestion(
-            @Nonnull Event1 event,
+            @Nonnull Event21 event,
             @Nonnull String text,
             @Nonnull ExhibitorQuestionType type,
             boolean required,
@@ -229,7 +229,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -367,7 +367,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorQuestion withEvent(@Nonnull Event1 event) {
+    public ExistingExhibitorQuestion withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -580,7 +580,7 @@ public class ExistingExhibitorQuestion {
 
         private String lastModifiedBy;
 
-        private Event1 event;
+        private Event21 event;
 
         private String text;
 
@@ -645,7 +645,7 @@ public class ExistingExhibitorQuestion {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

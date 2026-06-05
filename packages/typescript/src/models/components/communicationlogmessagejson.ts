@@ -10,7 +10,7 @@ import {
   AttachmentJson1,
   AttachmentJson1$inboundSchema,
 } from "./attachmentjson1.js";
-import { AttendeeJson2, AttendeeJson2$inboundSchema } from "./attendeejson2.js";
+import { AttendeeJson, AttendeeJson$inboundSchema } from "./attendeejson.js";
 import { ChannelJson, ChannelJson$inboundSchema } from "./channeljson.js";
 import {
   ChatActionTypeJson,
@@ -53,7 +53,7 @@ export type SessionQaMessage = {
   /**
    * Attendee details
    */
-  attendee: AttendeeJson2;
+  attendee: AttendeeJson;
   /**
    * Question details
    */
@@ -75,7 +75,7 @@ export type ChatMessage = {
   /**
    * Attendee details
    */
-  attendee: AttendeeJson2;
+  attendee: AttendeeJson;
   /**
    * Chat message details such as the ID of this message
    */
@@ -146,7 +146,7 @@ export const SessionQaMessage$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   actionType: SessionQaActionTypeJson$inboundSchema,
-  attendee: AttendeeJson2$inboundSchema,
+  attendee: AttendeeJson$inboundSchema,
   question: QuestionJson1$inboundSchema,
 });
 
@@ -168,7 +168,7 @@ export const ChatMessage$inboundSchema: z.ZodType<
 > = z.object({
   actionType: ChatActionTypeJson$inboundSchema,
   chatType: ChatTypeJson$inboundSchema,
-  attendee: AttendeeJson2$inboundSchema,
+  attendee: AttendeeJson$inboundSchema,
   message: ChatMessageDetailsJson$inboundSchema,
   parentMessage: ChatMessageDetailsJson$inboundSchema.optional(),
   reaction: ChatReactionJson$inboundSchema.optional(),

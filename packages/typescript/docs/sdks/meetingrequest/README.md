@@ -101,10 +101,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listMRF
 
@@ -198,10 +198,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getMRFById
 
@@ -291,7 +291,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 401, 403, 404, 422, 429 | application/json        |
+| errors.ErrorResponse1   | 401, 403, 404, 422, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## createMeetingRequest
@@ -412,7 +412,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## updateMeetingRequest
@@ -507,7 +507,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listMeetingRequest
@@ -610,7 +610,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## getMeetingRequestById
@@ -701,10 +701,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 401, 403, 404, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 401, 403, 404, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## listMeetingRequestDocuments
 
@@ -799,5 +799,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

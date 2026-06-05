@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of virtual card transaction.
         /// </summary>
         [JsonProperty("data")]
-        public List<CardTransactionJson1> Data { get; set; } = default!;
+        public List<CardTransactionJson> Data { get; set; } = default!;
     }
 }

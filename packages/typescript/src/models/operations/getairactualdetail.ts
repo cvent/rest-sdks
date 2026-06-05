@@ -78,7 +78,7 @@ export type GetAirActualDetailRequest = {
 };
 
 export type GetAirActualDetailResponse = {
-  result: components.AirActualDetail;
+  result: components.AirActualDetail2;
 };
 
 /** @internal */
@@ -124,7 +124,7 @@ export const GetAirActualDetailResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  Result: components.AirActualDetail$inboundSchema,
+  Result: components.AirActualDetail2$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "Result": "result",

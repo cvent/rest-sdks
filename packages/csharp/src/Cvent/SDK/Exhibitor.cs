@@ -52,7 +52,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(
             GetExhibitorCategoriesRequest request,
@@ -72,7 +72,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(
             CreateExhibitorCategoryRequest request,
@@ -92,7 +92,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(
             UpdateExhibitorCategoryRequest request,
@@ -112,7 +112,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(
             DeleteExhibitorCategoryRequest request,
@@ -134,7 +134,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(
             UpdateExhibitorCategoryBannerRequest request,
@@ -154,7 +154,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(
             DeleteExhibitorCategoryImageRequest request,
@@ -174,7 +174,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListExhibitorsResponse> ListExhibitorsAsync(
             ListExhibitorsRequest request,
@@ -194,7 +194,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(
             AddExhibitorToExhibitorCategoryRequest request,
@@ -214,7 +214,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(
             RemoveExhibitorFromExhibitorCategoryRequest request,
@@ -234,7 +234,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(
             GetExhibitorQuestionsRequest request,
@@ -254,7 +254,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorsResponse> GetExhibitorsAsync(
             GetExhibitorsRequest request,
@@ -274,7 +274,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<CreateExhibitorResponse> CreateExhibitorAsync(
             CreateExhibitorRequest request,
@@ -294,7 +294,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorResponse> GetExhibitorAsync(
             GetExhibitorRequest request,
@@ -314,7 +314,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorResponse> UpdateExhibitorAsync(
             UpdateExhibitorRequest request,
@@ -334,7 +334,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteExhibitorResponse> DeleteExhibitorAsync(
             DeleteExhibitorRequest request,
@@ -356,7 +356,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(
             UpdateExhibitorBannerRequest request,
@@ -376,7 +376,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(
             DeleteExhibitorBannerRequest request,
@@ -396,7 +396,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(
             GetExhibitorAnswersRequest request,
@@ -416,7 +416,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(
             UpdateExhibitorAnswersRequest request,
@@ -436,7 +436,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(
             ListExhibitorCategoriesRequest request,
@@ -458,7 +458,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(
             UpdateExhibitorLogoRequest request,
@@ -478,7 +478,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(
             DeleteExhibitorLogoRequest request,
@@ -498,7 +498,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(
             GetLeadQualificationQuestionsRequest request,
@@ -518,7 +518,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
             PostRegistrationPackRequest request,
@@ -539,7 +539,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(
             GetExhibitorRegistrationPacksRequest request,
@@ -559,7 +559,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetRegistrationPackResponse> GetRegistrationPackAsync(
             GetRegistrationPackRequest request,
@@ -579,7 +579,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(
             UpdateRegistrationPackRequest request,
@@ -599,7 +599,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
             DeleteRegistrationPackRequest request,
@@ -619,7 +619,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(
             GetSponsorshipLevelsRequest request,
@@ -639,7 +639,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(
             GetSponsorshipLevelRequest request,
@@ -686,7 +686,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorCategoriesResponse> GetExhibitorCategoriesAsync(
             GetExhibitorCategoriesRequest request,
@@ -842,17 +842,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -882,7 +882,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateExhibitorCategoryResponse> CreateExhibitorCategoryAsync(
             CreateExhibitorCategoryRequest request,
@@ -1015,17 +1015,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1055,7 +1055,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorCategoryResponse> UpdateExhibitorCategoryAsync(
             UpdateExhibitorCategoryRequest request,
@@ -1188,17 +1188,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1228,7 +1228,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteExhibitorCategoryResponse> DeleteExhibitorCategoryAsync(
             DeleteExhibitorCategoryRequest request,
@@ -1337,17 +1337,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1379,7 +1379,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorCategoryBannerResponse> UpdateExhibitorCategoryBannerAsync(
             UpdateExhibitorCategoryBannerRequest request,
@@ -1506,17 +1506,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1546,7 +1546,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteExhibitorCategoryImageResponse> DeleteExhibitorCategoryImageAsync(
             DeleteExhibitorCategoryImageRequest request,
@@ -1655,17 +1655,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1695,7 +1695,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<ListExhibitorsResponse> ListExhibitorsAsync(
             ListExhibitorsRequest request,
@@ -1852,17 +1852,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -1892,7 +1892,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<AddExhibitorToExhibitorCategoryResponse> AddExhibitorToExhibitorCategoryAsync(
             AddExhibitorToExhibitorCategoryRequest request,
@@ -2001,17 +2001,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2041,7 +2041,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<RemoveExhibitorFromExhibitorCategoryResponse> RemoveExhibitorFromExhibitorCategoryAsync(
             RemoveExhibitorFromExhibitorCategoryRequest request,
@@ -2150,17 +2150,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2190,7 +2190,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorQuestionsResponse> GetExhibitorQuestionsAsync(
             GetExhibitorQuestionsRequest request,
@@ -2317,17 +2317,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2357,7 +2357,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorsResponse> GetExhibitorsAsync(
             GetExhibitorsRequest request,
@@ -2516,17 +2516,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2556,7 +2556,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<CreateExhibitorResponse> CreateExhibitorAsync(
             CreateExhibitorRequest request,
@@ -2689,17 +2689,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2729,7 +2729,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorResponse> GetExhibitorAsync(
             GetExhibitorRequest request,
@@ -2856,17 +2856,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -2896,7 +2896,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorResponse> UpdateExhibitorAsync(
             UpdateExhibitorRequest request,
@@ -3029,17 +3029,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3069,7 +3069,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteExhibitorResponse> DeleteExhibitorAsync(
             DeleteExhibitorRequest request,
@@ -3178,17 +3178,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3220,7 +3220,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorBannerResponse> UpdateExhibitorBannerAsync(
             UpdateExhibitorBannerRequest request,
@@ -3347,17 +3347,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3387,7 +3387,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteExhibitorBannerResponse> DeleteExhibitorBannerAsync(
             DeleteExhibitorBannerRequest request,
@@ -3496,17 +3496,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3536,7 +3536,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorAnswersResponse> GetExhibitorAnswersAsync(
             GetExhibitorAnswersRequest request,
@@ -3663,17 +3663,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3703,7 +3703,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorAnswersResponse> UpdateExhibitorAnswersAsync(
             UpdateExhibitorAnswersRequest request,
@@ -3836,17 +3836,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -3876,7 +3876,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<ListExhibitorCategoriesResponse> ListExhibitorCategoriesAsync(
             ListExhibitorCategoriesRequest request,
@@ -4033,17 +4033,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4075,7 +4075,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateExhibitorLogoResponse> UpdateExhibitorLogoAsync(
             UpdateExhibitorLogoRequest request,
@@ -4202,17 +4202,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4242,7 +4242,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteExhibitorLogoResponse> DeleteExhibitorLogoAsync(
             DeleteExhibitorLogoRequest request,
@@ -4351,17 +4351,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4391,7 +4391,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetLeadQualificationQuestionsResponse> GetLeadQualificationQuestionsAsync(
             GetLeadQualificationQuestionsRequest request,
@@ -4518,17 +4518,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4558,7 +4558,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<PostRegistrationPackResponse> PostRegistrationPackAsync(
             PostRegistrationPackRequest request,
@@ -4691,17 +4691,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4732,7 +4732,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetExhibitorRegistrationPacksResponse> GetExhibitorRegistrationPacksAsync(
             GetExhibitorRegistrationPacksRequest request,
@@ -4859,17 +4859,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -4899,7 +4899,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetRegistrationPackResponse> GetRegistrationPackAsync(
             GetRegistrationPackRequest request,
@@ -5026,17 +5026,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -5066,7 +5066,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad request. Thrown when the API returns a 400, 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<UpdateRegistrationPackResponse> UpdateRegistrationPackAsync(
             UpdateRegistrationPackRequest request,
@@ -5199,17 +5199,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -5239,7 +5239,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404, 409 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<DeleteRegistrationPackResponse> DeleteRegistrationPackAsync(
             DeleteRegistrationPackRequest request,
@@ -5348,17 +5348,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -5388,7 +5388,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetSponsorshipLevelsResponse> GetSponsorshipLevelsAsync(
             GetSponsorshipLevelsRequest request,
@@ -5515,17 +5515,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());
@@ -5555,7 +5555,7 @@ namespace Cvent.SDK
         /// <exception cref="ArgumentNullException">The required parameter <paramref name="request"/> is null.</exception>
         /// <exception cref="HttpRequestException">The HTTP request failed due to network issues.</exception>
         /// <exception cref="ResponseValidationException">The response body could not be deserialized.</exception>
-        /// <exception cref="Models.Errors.ErrorResponse">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
+        /// <exception cref="Models.Errors.ErrorResponse1">Bad or expired token. Thrown when the API returns a 401, 403, 404 or 429 response.</exception>
         /// <exception cref="APIException">Default API Exception. Thrown when the API returns a 4XX or 5XX response.</exception>
         public async Task<GetSponsorshipLevelResponse> GetSponsorshipLevelAsync(
             GetSponsorshipLevelRequest request,
@@ -5682,17 +5682,17 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Models.Errors.ErrorResponsePayload payload;
+                    Models.Errors.ErrorResponse1Payload payload;
                     try
                     {
-                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponsePayload>(httpResponseBody, NullValueHandling.Ignore);
+                        payload = ResponseBodyDeserializer.DeserializeNotNull<Models.Errors.ErrorResponse1Payload>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponsePayload.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Models.Errors.ErrorResponse1Payload.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
-                    throw new Models.Errors.ErrorResponse(payload, httpRequest, httpResponse, httpResponseBody);
+                    throw new Models.Errors.ErrorResponse1(payload, httpRequest, httpResponse, httpResponseBody);
                 }
 
                 throw new Models.Errors.APIException("Unknown content type received", httpRequest, httpResponse, await httpResponse.Content.ReadAsStringAsync());

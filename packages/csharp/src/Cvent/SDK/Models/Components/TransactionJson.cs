@@ -9,24 +9,32 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
 
     /// <summary>
-    /// This is used to denote the id and merchant/processor transaction id for transaction items.
+    /// The latest transaction that took place on a given proposal.
     /// </summary>
     public class TransactionJson
     {
         /// <summary>
-        /// A string that has to be a format matching the industry standard uuid.
+        /// The unique ID of a specific transaction.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        public string? Id { get; set; }
 
         /// <summary>
-        /// This denotes the online processor transaction Id for transactions.
+        /// The proposal transaction type.
         /// </summary>
-        [JsonProperty("processorTransactionId")]
-        public string? ProcessorTransactionId { get; set; }
+        [JsonProperty("type")]
+        public TransactionTypeJson? Type { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [JsonProperty("time")]
+        public DateTime? Time { get; set; }
     }
 }

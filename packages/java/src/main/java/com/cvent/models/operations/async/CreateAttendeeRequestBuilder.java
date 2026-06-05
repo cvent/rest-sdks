@@ -6,7 +6,7 @@ package com.cvent.models.operations.async;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.AttendeeAddJson;
+import com.cvent.models.components.AttendeeAdd;
 import com.cvent.operations.CreateAttendee;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class CreateAttendeeRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private List<AttendeeAddJson> request;
+    private List<AttendeeAdd> request;
     private final Options.Builder optionsBuilder;
 
     public CreateAttendeeRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -33,12 +33,12 @@ public class CreateAttendeeRequestBuilder {
         return this;
     }
 
-    public CreateAttendeeRequestBuilder request(@Nonnull List<AttendeeAddJson> request) {
+    public CreateAttendeeRequestBuilder request(@Nonnull List<AttendeeAdd> request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private List<AttendeeAddJson> _buildRequest() {
+    private List<AttendeeAdd> _buildRequest() {
         return this.request;
     }
 
@@ -56,7 +56,7 @@ public class CreateAttendeeRequestBuilder {
      */
     public CompletableFuture<CreateAttendeeResponse> call() {
         Options options = optionsBuilder.build();
-        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+        AsyncRequestOperation<List<AttendeeAdd>, CreateAttendeeResponse> operation =
                 new CreateAttendee.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }

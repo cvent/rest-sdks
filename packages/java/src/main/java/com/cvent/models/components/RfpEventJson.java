@@ -65,7 +65,7 @@ public class RfpEventJson {
     private EventTypeJson0 type;
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("totalMeetingSpaceRequired")
@@ -114,7 +114,7 @@ public class RfpEventJson {
     private String referenceNumber;
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("largestMeetingSpaceRequired")
@@ -273,7 +273,7 @@ public class RfpEventJson {
     }
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     public Optional<SpaceAreaJson0> totalMeetingSpaceRequired() {
         return Optional.ofNullable(this.totalMeetingSpaceRequired);
@@ -322,7 +322,7 @@ public class RfpEventJson {
     }
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     public Optional<SpaceAreaJson0> largestMeetingSpaceRequired() {
         return Optional.ofNullable(this.largestMeetingSpaceRequired);
@@ -423,7 +423,7 @@ public class RfpEventJson {
     }
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     public RfpEventJson withTotalMeetingSpaceRequired(@Nullable SpaceAreaJson0 totalMeetingSpaceRequired) {
         this.totalMeetingSpaceRequired = totalMeetingSpaceRequired;
@@ -479,7 +479,7 @@ public class RfpEventJson {
     }
 
     /**
-     * Space area divisions.
+     * Space area divisons.
      */
     public RfpEventJson withLargestMeetingSpaceRequired(@Nullable SpaceAreaJson0 largestMeetingSpaceRequired) {
         this.largestMeetingSpaceRequired = largestMeetingSpaceRequired;
@@ -732,7 +732,7 @@ public class RfpEventJson {
         }
 
         /**
-         * Space area divisions.
+         * Space area divisons.
          */
         public Builder totalMeetingSpaceRequired(@Nullable SpaceAreaJson0 totalMeetingSpaceRequired) {
             this.totalMeetingSpaceRequired = totalMeetingSpaceRequired;
@@ -788,7 +788,7 @@ public class RfpEventJson {
         }
 
         /**
-         * Space area divisions.
+         * Space area divisons.
          */
         public Builder largestMeetingSpaceRequired(@Nullable SpaceAreaJson0 largestMeetingSpaceRequired) {
             this.largestMeetingSpaceRequired = largestMeetingSpaceRequired;

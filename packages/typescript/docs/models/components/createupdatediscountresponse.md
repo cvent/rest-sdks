@@ -34,10 +34,10 @@ const value: components.CreateUpdateDiscountCodeResponse = {
 };
 ```
 
-### `components.ExistingVolumeDiscountJson`
+### `components.ExistingVolumeDiscount`
 
 ```typescript
-const value: components.ExistingVolumeDiscountJson = {
+const value: components.ExistingVolumeDiscount = {
   created: new Date("2017-01-02T02:00:00Z"),
   createdBy: "hporter",
   lastModified: new Date("2019-02-12T03:00:00Z"),

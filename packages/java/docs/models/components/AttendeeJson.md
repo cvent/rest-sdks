@@ -1,10 +1,10 @@
 # AttendeeJson
 
-The reference to the attendee. Contains only the ID of the attendee.
+Attendee details
 
 
 ## Fields
 
-| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `id`                                                                              | *String*                                                                          | :heavy_check_mark:                                                                | Unique identifier of the primary invitee for the current attendee's registration. | 5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43                                              |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *String*                             | :heavy_check_mark:                   | A Cvent attendee.                    | 6dc0fe3d-4d1c-4bc6-af22-7d9126388388 |

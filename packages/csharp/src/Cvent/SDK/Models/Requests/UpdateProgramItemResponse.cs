@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully updated the session program item.
         /// </summary>
-        public ProgramItem? ProgramItem { get; set; }
+        public ProgramItem1? ProgramItem { get; set; }
     }
 }

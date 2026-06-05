@@ -105,10 +105,10 @@ run();
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| errors.ErrorResponse | 400, 401, 403, 429   | application/json     |
-| errors.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getFile
 
@@ -198,5 +198,5 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |

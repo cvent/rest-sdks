@@ -215,7 +215,7 @@ public class ProposalResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("transaction")
-    private TransactionJson1 transaction;
+    private TransactionJson transaction;
 
     /**
      * The unique ID of the proposal.
@@ -291,7 +291,7 @@ public class ProposalResponse {
             @JsonProperty("contacts") @Nullable List<ContactJson1> contacts,
             @JsonProperty("plannerContacts") @Nullable List<ContactJson1> plannerContacts,
             @JsonProperty("meetingRoom") @Nullable MeetingRoomJson meetingRoom,
-            @JsonProperty("transaction") @Nullable TransactionJson1 transaction,
+            @JsonProperty("transaction") @Nullable TransactionJson transaction,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("proposalCode") @Nonnull String proposalCode,
             @JsonProperty("status") @Nullable ProposalStatusJson status,
@@ -558,7 +558,7 @@ public class ProposalResponse {
     /**
      * The latest transaction that took place on a given proposal
      */
-    public Optional<TransactionJson1> transaction() {
+    public Optional<TransactionJson> transaction() {
         return Optional.ofNullable(this.transaction);
     }
 
@@ -827,7 +827,7 @@ public class ProposalResponse {
     /**
      * The latest transaction that took place on a given proposal
      */
-    public ProposalResponse withTransaction(@Nullable TransactionJson1 transaction) {
+    public ProposalResponse withTransaction(@Nullable TransactionJson transaction) {
         this.transaction = transaction;
         return this;
     }
@@ -1098,7 +1098,7 @@ public class ProposalResponse {
 
         private MeetingRoomJson meetingRoom;
 
-        private TransactionJson1 transaction;
+        private TransactionJson transaction;
 
         private String id;
 
@@ -1329,7 +1329,7 @@ public class ProposalResponse {
         /**
          * The latest transaction that took place on a given proposal
          */
-        public Builder transaction(@Nullable TransactionJson1 transaction) {
+        public Builder transaction(@Nullable TransactionJson transaction) {
             this.transaction = transaction;
             return this;
         }

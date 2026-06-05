@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static AttendeesType AttendeeAddBulkItemErrorResponse
+        public static AttendeesType ErrorResponse2
         {
             get {
-                return new AttendeesType("attendee-add-bulk-item_ErrorResponse");
+                return new AttendeesType("ErrorResponse_2");
             }
         }
 
@@ -55,8 +55,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "AttendeeAddResponse":
                     return AttendeeAddResponse;
-                case "attendee-add-bulk-item_ErrorResponse":
-                    return AttendeeAddBulkItemErrorResponse;
+                case "ErrorResponse_2":
+                    return ErrorResponse2;
                 default:
                     throw new ArgumentException("Invalid value for AttendeesType");
             }
@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Components
         public AttendeeAddResponse? AttendeeAddResponse { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public AttendeeAddBulkItemErrorResponse? AttendeeAddBulkItemErrorResponse { get; set; }
+        public Models.Components.ErrorResponse2? ErrorResponse2 { get; set; }
 
         public AttendeesType Type { get; set; }
         public static Attendees CreateAttendeeAddResponse(AttendeeAddResponse attendeeAddResponse)
@@ -99,12 +99,12 @@ namespace Cvent.SDK.Models.Components
             res.AttendeeAddResponse = attendeeAddResponse;
             return res;
         }
-        public static Attendees CreateAttendeeAddBulkItemErrorResponse(AttendeeAddBulkItemErrorResponse attendeeAddBulkItemErrorResponse)
+        public static Attendees CreateErrorResponse2(Models.Components.ErrorResponse2 errorResponse2)
         {
-            AttendeesType typ = AttendeesType.AttendeeAddBulkItemErrorResponse;
+            AttendeesType typ = AttendeesType.ErrorResponse2;
 
             Attendees res = new Attendees(typ);
-            res.AttendeeAddBulkItemErrorResponse = attendeeAddBulkItemErrorResponse;
+            res.ErrorResponse2 = errorResponse2;
             return res;
         }
 
@@ -145,13 +145,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new Attendees(AttendeesType.AttendeeAddBulkItemErrorResponse) {
-                        AttendeeAddBulkItemErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<AttendeeAddBulkItemErrorResponse>(json)
+                    return new Attendees(AttendeesType.ErrorResponse2) {
+                        ErrorResponse2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse2>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(AttendeeAddBulkItemErrorResponse), new Attendees(AttendeesType.AttendeeAddBulkItemErrorResponse), "AttendeeAddBulkItemErrorResponse"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse2), new Attendees(AttendeesType.ErrorResponse2), "ErrorResponse2"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -200,9 +200,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.AttendeeAddBulkItemErrorResponse != null)
+                if (res.ErrorResponse2 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.AttendeeAddBulkItemErrorResponse));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse2));
                     return;
                 }
             }

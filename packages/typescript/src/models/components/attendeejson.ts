@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The reference to the attendee. Contains only the ID of the attendee.
+ * Attendee details
  */
 export type AttendeeJson = {
   /**
-   * Unique identifier of the primary invitee for the current attendee's registration.
+   * A Cvent attendee.
    */
   id: string;
 };
@@ -25,23 +25,7 @@ export const AttendeeJson$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-/** @internal */
-export type AttendeeJson$Outbound = {
-  id: string;
-};
 
-/** @internal */
-export const AttendeeJson$outboundSchema: z.ZodType<
-  AttendeeJson$Outbound,
-  z.ZodTypeDef,
-  AttendeeJson
-> = z.object({
-  id: z.string(),
-});
-
-export function attendeeJsonToJSON(attendeeJson: AttendeeJson): string {
-  return JSON.stringify(AttendeeJson$outboundSchema.parse(attendeeJson));
-}
 export function attendeeJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<AttendeeJson, SDKValidationError> {

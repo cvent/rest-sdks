@@ -14,15 +14,57 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
+    /// Denotes the method of payment.
     /// </summary>
     public enum PaymentTypeJson
     {
-        [JsonProperty("Authorization")] Authorization,
-        [JsonProperty("Online Charge")] OnlineCharge,
-        [JsonProperty("Online Refund")] OnlineRefund,
-        [JsonProperty("Offline Charge")] OfflineCharge,
-        [JsonProperty("Offline Refund")] OfflineRefund,
+        [JsonProperty("AIRPLUS")] Airplus,
+        [JsonProperty("AMERICAN_EXPRESS")] AmericanExpress,
+        [JsonProperty("AURORA")] Aurora,
+        [JsonProperty("AURORE")] Aurore,
+        [JsonProperty("AUTHORIZE_NET_SIM")] AuthorizeNetSim,
+        [JsonProperty("BANK_TRANSFER")] BankTransfer,
+        [JsonProperty("BCMC")] Bcmc,
+        [JsonProperty("BILLY")] Billy,
+        [JsonProperty("CASH")] Cash,
+        [JsonProperty("CB")] Cb,
+        [JsonProperty("CHECK")] Check,
+        [JsonProperty("COFINOGA")] Cofinoga,
+        [JsonProperty("CORPORATE_CARD")] CorporateCard,
+        [JsonProperty("CREDIT")] Credit,
+        [JsonProperty("CYBERSOURCE_HOSTED_ORDER_PAGE")] CybersourceHostedOrderPage,
+        [JsonProperty("CYBERSOURCE_SECURE_ACCEPTANCE")] CybersourceSecureAcceptance,
+        [JsonProperty("DANKORT")] Dankort,
+        [JsonProperty("DINERS_CLUB")] DinersClub,
+        [JsonProperty("DIRECT_BILL")] DirectBill,
+        [JsonProperty("DISCOVER")] Discover,
+        [JsonProperty("EUROCARD_MASTERCARD")] EurocardMastercard,
+        [JsonProperty("INVOICE")] Invoice,
+        [JsonProperty("JCB")] Jcb,
+        [JsonProperty("LASER")] Laser,
+        [JsonProperty("MAESTRO")] Maestro,
+        [JsonProperty("MAESTROUK")] Maestrouk,
+        [JsonProperty("MASTERCARD")] Mastercard,
+        [JsonProperty("MASTERCARD_DEBIT")] MastercardDebit,
+        [JsonProperty("MONEY_ORDER")] MoneyOrder,
+        [JsonProperty("NETRESERVE")] Netreserve,
+        [JsonProperty("OTHER")] Other,
+        [JsonProperty("OTHER_2")] Other2,
+        [JsonProperty("OTHER_3")] Other3,
+        [JsonProperty("PAY_GOV")] PayGov,
+        [JsonProperty("PAYMENT_CREDITS")] PaymentCredits,
+        [JsonProperty("PAYPAL")] Paypal,
+        [JsonProperty("P_CARD")] PCard,
+        [JsonProperty("PRIVILEGE")] Privilege,
+        [JsonProperty("PURCHASE_ORDER")] PurchaseOrder,
+        [JsonProperty("SOLO")] Solo,
+        [JsonProperty("TOUCHNET")] Touchnet,
+        [JsonProperty("UATP")] Uatp,
+        [JsonProperty("UNIONPAY")] Unionpay,
+        [JsonProperty("VISA")] Visa,
+        [JsonProperty("VISA_DEBIT")] VisaDebit,
+        [JsonProperty("VISA_ELECTRON")] VisaElectron,
+        [JsonProperty("WPM")] Wpm,
     }
 
     public static class PaymentTypeJsonExtension

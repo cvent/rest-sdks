@@ -12,7 +12,7 @@ import com.cvent.SecuritySource;
 import com.cvent.models.components.User;
 import com.cvent.models.components.UserInput;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponseJson20;
+import com.cvent.models.errors.ErrorResponseJson17;
 import com.cvent.models.operations.CreateUserResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -192,7 +192,7 @@ public class CreateUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "409", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponseJson20.from(response);
+                    throw ErrorResponseJson17.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -280,7 +280,7 @@ public class CreateUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "409", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponseJson20.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponseJson17.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

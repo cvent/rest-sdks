@@ -96,7 +96,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the general ledger code associated with budget.
         /// </summary>
         [JsonProperty("generalLedger")]
-        public GeneralLedgerJson1? GeneralLedger { get; set; }
+        public GeneralLedgerJson? GeneralLedger { get; set; }
 
         /// <summary>
         /// Budget cost avoidance information.

@@ -33,7 +33,7 @@ namespace Cvent.SDK.Models.Components
         /// Attendee details.
         /// </summary>
         [JsonProperty("attendee")]
-        public AttendeeJson2 Attendee { get; set; } = default!;
+        public AttendeeJson Attendee { get; set; } = default!;
 
         /// <summary>
         /// Question details.

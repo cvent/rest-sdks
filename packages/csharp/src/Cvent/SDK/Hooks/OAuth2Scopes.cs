@@ -616,6 +616,11 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("event/speakers:write")] EventSpeakersWrite,
 
         /// <summary>
+        /// Allows the reading of taxes.
+        /// </summary>
+        [JsonProperty("event/taxes:read")] EventTaxesRead,
+
+        /// <summary>
         /// Allows the reading of transactions.
         /// </summary>
         [JsonProperty("event/transactions:read")] EventTransactionsRead,
@@ -1686,6 +1691,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the creation of a speaker in an event.
         /// </summary>
         [JsonProperty("event/speakers:write")] EventSpeakersWrite,
+
+        /// <summary>
+        /// Allows the reading of taxes.
+        /// </summary>
+        [JsonProperty("event/taxes:read")] EventTaxesRead,
 
         /// <summary>
         /// Allows the reading of transactions.

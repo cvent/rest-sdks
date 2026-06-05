@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Answer1, Answer1$inboundSchema } from "./answer1.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Lead2, Lead2$inboundSchema } from "./lead2.js";
-import { Uuid1, Uuid1$inboundSchema } from "./uuid1.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * This JSON schema file represents lead qualification answers
@@ -39,11 +39,11 @@ export type LeadQualificationAnswers = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question?: Uuid1 | undefined;
+  question?: Uuid | undefined;
   /**
    * The Associated Event.
    */
-  event?: Event1 | undefined;
+  event?: Event21 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -72,8 +72,8 @@ export const LeadQualificationAnswers$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  question: Uuid1$inboundSchema.optional(),
-  event: Event1$inboundSchema.optional(),
+  question: Uuid$inboundSchema.optional(),
+  event: Event21$inboundSchema.optional(),
   exhibitor: Exhibitor$inboundSchema.optional(),
   lead: Lead2$inboundSchema.optional(),
   answers: z.array(Answer1$inboundSchema).optional(),

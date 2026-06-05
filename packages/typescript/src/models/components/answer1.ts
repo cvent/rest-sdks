@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AnswerType, AnswerType$inboundSchema } from "./answertype.js";
-import { Uuid1, Uuid1$inboundSchema } from "./uuid1.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * An object representing the possible answers for lead qualification questions.
@@ -24,7 +24,7 @@ export type Answer1 = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  choice?: Uuid1 | undefined;
+  choice?: Uuid | undefined;
 };
 
 /** @internal */
@@ -32,7 +32,7 @@ export const Answer1$inboundSchema: z.ZodType<Answer1, z.ZodTypeDef, unknown> =
   z.object({
     type: AnswerType$inboundSchema,
     value: z.string().optional(),
-    choice: Uuid1$inboundSchema.optional(),
+    choice: Uuid$inboundSchema.optional(),
   });
 
 export function answer1FromJSON(

@@ -56,7 +56,7 @@ public class CardDetailsJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private CardTypeJson1 type;
+    private CardTypeJson type;
 
     /**
      * This is used to denote the card status for a card.
@@ -174,7 +174,7 @@ public class CardDetailsJson {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("first6") @Nullable String first6,
             @JsonProperty("last4") @Nullable String last4,
-            @JsonProperty("type") @Nullable CardTypeJson1 type,
+            @JsonProperty("type") @Nullable CardTypeJson type,
             @JsonProperty("status") @Nullable CardStatusJson status,
             @JsonProperty("issuer") @Nullable String issuer,
             @JsonProperty("spendLimit") @Nullable Double spendLimit,
@@ -267,7 +267,7 @@ public class CardDetailsJson {
     /**
      * This is used to denote the card type for a card.
      */
-    public Optional<CardTypeJson1> type() {
+    public Optional<CardTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -420,7 +420,7 @@ public class CardDetailsJson {
     /**
      * This is used to denote the card type for a card.
      */
-    public CardDetailsJson withType(@Nullable CardTypeJson1 type) {
+    public CardDetailsJson withType(@Nullable CardTypeJson type) {
         this.type = type;
         return this;
     }
@@ -663,7 +663,7 @@ public class CardDetailsJson {
 
         private String last4;
 
-        private CardTypeJson1 type;
+        private CardTypeJson type;
 
         private CardStatusJson status;
 
@@ -735,7 +735,7 @@ public class CardDetailsJson {
         /**
          * This is used to denote the card type for a card.
          */
-        public Builder type(@Nullable CardTypeJson1 type) {
+        public Builder type(@Nullable CardTypeJson type) {
             this.type = type;
             return this;
         }

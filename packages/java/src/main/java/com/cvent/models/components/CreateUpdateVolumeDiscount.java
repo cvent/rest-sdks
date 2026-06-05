@@ -49,7 +49,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      * Details about how the discount applies.
      */
     @JsonProperty("method")
-    private DiscountMethodJson method;
+    private DiscountMethod method;
 
     /**
      * The ISO 8601 formatted date from which the discount is effective.
@@ -88,7 +88,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("thresholdType")
-    private VolumeDiscountThresholdTypeJson thresholdType;
+    private VolumeDiscountThresholdType thresholdType;
 
     /**
      * Defines the threshold limit for the volume discount.
@@ -126,11 +126,11 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("stackable") @Nullable Boolean stackable,
-            @JsonProperty("method") @Nonnull DiscountMethodJson method,
+            @JsonProperty("method") @Nonnull DiscountMethod method,
             @JsonProperty("effectiveFrom") @Nullable LocalDate effectiveFrom,
             @JsonProperty("effectiveTo") @Nullable LocalDate effectiveTo,
             @JsonProperty("note") @Nullable String note,
-            @JsonProperty("thresholdType") @Nullable VolumeDiscountThresholdTypeJson thresholdType,
+            @JsonProperty("thresholdType") @Nullable VolumeDiscountThresholdType thresholdType,
             @JsonProperty("thresholdLimit") long thresholdLimit,
             @JsonProperty("interval") @Nullable Long interval,
             @JsonProperty("includePrimaryRegistrant") @Nullable Boolean includePrimaryRegistrant,
@@ -153,7 +153,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
 
     public CreateUpdateVolumeDiscount(
             @Nonnull String name,
-            @Nonnull DiscountMethodJson method,
+            @Nonnull DiscountMethod method,
             long thresholdLimit,
             @Nonnull CreateUpdateVolumeDiscountType type) {
         this(name, null, null, method, null, null, null, null, thresholdLimit, null, null, type);
@@ -183,7 +183,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
     /**
      * Details about how the discount applies.
      */
-    public DiscountMethodJson method() {
+    public DiscountMethod method() {
         return this.method;
     }
 
@@ -222,7 +222,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      * registration counting from the threshold recieves a discount, where N is defined by the `interval`
      * field.
      */
-    public Optional<VolumeDiscountThresholdTypeJson> thresholdType() {
+    public Optional<VolumeDiscountThresholdType> thresholdType() {
         return Optional.ofNullable(this.thresholdType);
     }
 
@@ -291,7 +291,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
     /**
      * Details about how the discount applies.
      */
-    public CreateUpdateVolumeDiscount withMethod(@Nonnull DiscountMethodJson method) {
+    public CreateUpdateVolumeDiscount withMethod(@Nonnull DiscountMethod method) {
         this.method = Utils.checkNotNull(method, "method");
         return this;
     }
@@ -334,7 +334,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
      * registration counting from the threshold recieves a discount, where N is defined by the `interval`
      * field.
      */
-    public CreateUpdateVolumeDiscount withThresholdType(@Nullable VolumeDiscountThresholdTypeJson thresholdType) {
+    public CreateUpdateVolumeDiscount withThresholdType(@Nullable VolumeDiscountThresholdType thresholdType) {
         this.thresholdType = thresholdType;
         return this;
     }
@@ -455,7 +455,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
 
         private Boolean stackable;
 
-        private DiscountMethodJson method;
+        private DiscountMethod method;
 
         private LocalDate effectiveFrom;
 
@@ -463,7 +463,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
 
         private String note;
 
-        private VolumeDiscountThresholdTypeJson thresholdType;
+        private VolumeDiscountThresholdType thresholdType;
 
         private long thresholdLimit;
 
@@ -504,7 +504,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         /**
          * Details about how the discount applies.
          */
-        public Builder method(@Nonnull DiscountMethodJson method) {
+        public Builder method(@Nonnull DiscountMethod method) {
             this.method = Utils.checkNotNull(method, "method");
             return this;
         }
@@ -547,7 +547,7 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
          * registration counting from the threshold recieves a discount, where N is defined by the `interval`
          * field.
          */
-        public Builder thresholdType(@Nullable VolumeDiscountThresholdTypeJson thresholdType) {
+        public Builder thresholdType(@Nullable VolumeDiscountThresholdType thresholdType) {
             this.thresholdType = thresholdType;
             return this;
         }
@@ -611,9 +611,9 @@ public class CreateUpdateVolumeDiscount implements CreateUpdateDiscount {
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Stackable =
                 new LazySingletonValue<>("stackable", "true", new TypeReference<Boolean>() {});
 
-        private static final LazySingletonValue<VolumeDiscountThresholdTypeJson> _SINGLETON_VALUE_ThresholdType =
+        private static final LazySingletonValue<VolumeDiscountThresholdType> _SINGLETON_VALUE_ThresholdType =
                 new LazySingletonValue<>(
-                        "thresholdType", "\"AFTER_THRESHOLD_LIMIT\"", new TypeReference<VolumeDiscountThresholdTypeJson>() {});
+                        "thresholdType", "\"AFTER_THRESHOLD_LIMIT\"", new TypeReference<VolumeDiscountThresholdType>() {});
 
         private static final LazySingletonValue<Long> _SINGLETON_VALUE_Interval =
                 new LazySingletonValue<>("interval", "1", new TypeReference<Long>() {});

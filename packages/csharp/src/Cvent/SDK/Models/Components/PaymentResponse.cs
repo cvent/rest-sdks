@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the method of payment.
         /// </summary>
         [JsonProperty("type")]
-        public PaymentTypeJson1? Type { get; set; }
+        public PaymentTypeJson? Type { get; set; }
 
         /// <summary>
         /// The ISO 8601 zoned date and time when the budget item was last modified.

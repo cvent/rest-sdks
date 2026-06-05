@@ -24,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("event")]
-        public UuidJson Event { get; set; } = default!;
+        public Uuid Event { get; set; } = default!;
 
         /// <summary>
         /// Title of the session. For example, Keynote Session.
@@ -42,7 +42,7 @@ namespace Cvent.SDK.Models.Components
         /// A Named object.
         /// </summary>
         [JsonProperty("category")]
-        public IdNameJson? Category { get; set; }
+        public NamedObject? Category { get; set; }
 
         [JsonProperty("type")]
         public SessionUpdateLookup? Type { get; set; }
@@ -51,7 +51,7 @@ namespace Cvent.SDK.Models.Components
         /// Used to denote a locations name and abbreviation.
         /// </summary>
         [JsonProperty("location")]
-        public LocationJson2Input? Location { get; set; }
+        public LocationInput? Location { get; set; }
 
         /// <summary>
         /// Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.<br/>
@@ -82,7 +82,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the status of a session.
         /// </summary>
         [JsonProperty("status")]
-        public SessionStatusJson Status { get; set; } = default!;
+        public SessionStatus Status { get; set; } = default!;
 
         /// <summary>
         /// The ISO 8601 formatted date when the session registration automatically opens.
@@ -157,10 +157,10 @@ namespace Cvent.SDK.Models.Components
         public bool? Featured { get; set; }
 
         /// <summary>
-        /// The id of the session group, if the session belongs to one.
+        /// The session group, if the session belongs to one.
         /// </summary>
         [JsonProperty("group")]
-        public string? Group { get; set; }
+        public SessionUpdateGroup? Group { get; set; }
 
         /// <summary>
         /// The ids of the admission items, if the session is included with any.

@@ -75,7 +75,7 @@ public class Session {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("event")
-    private UuidJson event;
+    private Uuid event;
 
     /**
      * Title of the session. For example, Keynote Session.
@@ -95,7 +95,7 @@ public class Session {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("category")
-    private IdNameJson category;
+    private NamedObject category;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
@@ -106,7 +106,7 @@ public class Session {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("location")
-    private LocationJson2 location;
+    private Location location;
 
     /**
      * Detailed description of the session. HTML is supported, but only a limited set of elements and
@@ -141,7 +141,7 @@ public class Session {
      * This is used to denote the status of a session.
      */
     @JsonProperty("status")
-    private SessionStatusJson status;
+    private SessionStatus status;
 
     /**
      * The ISO 8601 formatted date when the session registration automatically opens.
@@ -238,11 +238,11 @@ public class Session {
     private Boolean featured;
 
     /**
-     * The id of the session group, if the session belongs to one
+     * The session group, if the session belongs to one.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("group")
-    private String group;
+    private SessionGroup group;
 
     /**
      * The ids of the admission items, if the session is included with any.
@@ -333,16 +333,16 @@ public class Session {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("virtual") @Nullable Boolean virtual,
-            @JsonProperty("event") @Nonnull UuidJson event,
+            @JsonProperty("event") @Nonnull Uuid event,
             @JsonProperty("title") @Nonnull String title,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("category") @Nullable IdNameJson category,
+            @JsonProperty("category") @Nullable NamedObject category,
             @JsonProperty("type") @Nullable SessionLookup type,
-            @JsonProperty("location") @Nullable LocationJson2 location,
+            @JsonProperty("location") @Nullable Location location,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("start") @Nonnull OffsetDateTime start,
             @JsonProperty("end") @Nonnull OffsetDateTime end,
-            @JsonProperty("status") @Nonnull SessionStatusJson status,
+            @JsonProperty("status") @Nonnull SessionStatus status,
             @JsonProperty("automaticallyOpensOn") @Nullable LocalDate automaticallyOpensOn,
             @JsonProperty("automaticallyClosesOn") @Nullable LocalDate automaticallyClosesOn,
             @JsonProperty("enableWaitlist") @Nullable Boolean enableWaitlist,
@@ -356,7 +356,7 @@ public class Session {
             @JsonProperty("timezone") @Nullable String timezone,
             @JsonProperty("displayOnAgenda") @Nullable Boolean displayOnAgenda,
             @JsonProperty("featured") @Nullable Boolean featured,
-            @JsonProperty("group") @Nullable String group,
+            @JsonProperty("group") @Nullable SessionGroup group,
             @JsonProperty("admissionItems") @Nullable List<String> admissionItems,
             @JsonProperty("openForRegistration") @Nullable Boolean openForRegistration,
             @JsonProperty("openForAttendeeHub") @Nullable Boolean openForAttendeeHub,
@@ -415,11 +415,11 @@ public class Session {
     }
 
     public Session(
-            @Nonnull UuidJson event,
+            @Nonnull Uuid event,
             @Nonnull String title,
             @Nonnull OffsetDateTime start,
             @Nonnull OffsetDateTime end,
-            @Nonnull SessionStatusJson status) {
+            @Nonnull SessionStatus status) {
         this(
                 null,
                 null,
@@ -509,7 +509,7 @@ public class Session {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public UuidJson event() {
+    public Uuid event() {
         return this.event;
     }
 
@@ -530,7 +530,7 @@ public class Session {
     /**
      * A Named object
      */
-    public Optional<IdNameJson> category() {
+    public Optional<NamedObject> category() {
         return Optional.ofNullable(this.category);
     }
 
@@ -541,7 +541,7 @@ public class Session {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public Optional<LocationJson2> location() {
+    public Optional<Location> location() {
         return Optional.ofNullable(this.location);
     }
 
@@ -579,7 +579,7 @@ public class Session {
     /**
      * This is used to denote the status of a session.
      */
-    public SessionStatusJson status() {
+    public SessionStatus status() {
         return this.status;
     }
 
@@ -678,9 +678,9 @@ public class Session {
     }
 
     /**
-     * The id of the session group, if the session belongs to one
+     * The session group, if the session belongs to one.
      */
-    public Optional<String> group() {
+    public Optional<SessionGroup> group() {
         return Optional.ofNullable(this.group);
     }
 
@@ -820,7 +820,7 @@ public class Session {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Session withEvent(@Nonnull UuidJson event) {
+    public Session withEvent(@Nonnull Uuid event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -844,7 +844,7 @@ public class Session {
     /**
      * A Named object
      */
-    public Session withCategory(@Nullable IdNameJson category) {
+    public Session withCategory(@Nullable NamedObject category) {
         this.category = category;
         return this;
     }
@@ -857,7 +857,7 @@ public class Session {
     /**
      * Used to denote a locations name and abbreviation.
      */
-    public Session withLocation(@Nullable LocationJson2 location) {
+    public Session withLocation(@Nullable Location location) {
         this.location = location;
         return this;
     }
@@ -899,7 +899,7 @@ public class Session {
     /**
      * This is used to denote the status of a session.
      */
-    public Session withStatus(@Nonnull SessionStatusJson status) {
+    public Session withStatus(@Nonnull SessionStatus status) {
         this.status = Utils.checkNotNull(status, "status");
         return this;
     }
@@ -1012,9 +1012,9 @@ public class Session {
     }
 
     /**
-     * The id of the session group, if the session belongs to one
+     * The session group, if the session belongs to one.
      */
-    public Session withGroup(@Nullable String group) {
+    public Session withGroup(@Nullable SessionGroup group) {
         this.group = group;
         return this;
     }
@@ -1312,17 +1312,17 @@ public class Session {
 
         private Boolean virtual;
 
-        private UuidJson event;
+        private Uuid event;
 
         private String title;
 
         private String code;
 
-        private IdNameJson category;
+        private NamedObject category;
 
         private SessionLookup type;
 
-        private LocationJson2 location;
+        private Location location;
 
         private String description;
 
@@ -1330,7 +1330,7 @@ public class Session {
 
         private OffsetDateTime end;
 
-        private SessionStatusJson status;
+        private SessionStatus status;
 
         private LocalDate automaticallyOpensOn;
 
@@ -1359,7 +1359,7 @@ public class Session {
 
         private Boolean featured;
 
-        private String group;
+        private SessionGroup group;
 
         private List<String> admissionItems;
 
@@ -1438,7 +1438,7 @@ public class Session {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder event(@Nonnull UuidJson event) {
+        public Builder event(@Nonnull Uuid event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -1462,7 +1462,7 @@ public class Session {
         /**
          * A Named object
          */
-        public Builder category(@Nullable IdNameJson category) {
+        public Builder category(@Nullable NamedObject category) {
             this.category = category;
             return this;
         }
@@ -1475,7 +1475,7 @@ public class Session {
         /**
          * Used to denote a locations name and abbreviation.
          */
-        public Builder location(@Nullable LocationJson2 location) {
+        public Builder location(@Nullable Location location) {
             this.location = location;
             return this;
         }
@@ -1517,7 +1517,7 @@ public class Session {
         /**
          * This is used to denote the status of a session.
          */
-        public Builder status(@Nonnull SessionStatusJson status) {
+        public Builder status(@Nonnull SessionStatus status) {
             this.status = Utils.checkNotNull(status, "status");
             return this;
         }
@@ -1630,9 +1630,9 @@ public class Session {
         }
 
         /**
-         * The id of the session group, if the session belongs to one
+         * The session group, if the session belongs to one.
          */
-        public Builder group(@Nullable String group) {
+        public Builder group(@Nullable SessionGroup group) {
             this.group = group;
             return this;
         }

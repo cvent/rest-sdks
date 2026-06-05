@@ -5,19 +5,19 @@
 import * as z from "zod/v3";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  DiscountAudienceTypeJson,
-  DiscountAudienceTypeJson$outboundSchema,
-} from "./discountaudiencetypejson.js";
+  DiscountAudienceType,
+  DiscountAudienceType$outboundSchema,
+} from "./discountaudiencetype.js";
 import {
-  DiscountCapacityInputJson,
-  DiscountCapacityInputJson$Outbound,
-  DiscountCapacityInputJson$outboundSchema,
-} from "./discountcapacityinputjson.js";
+  DiscountCapacityInput,
+  DiscountCapacityInput$Outbound,
+  DiscountCapacityInput$outboundSchema,
+} from "./discountcapacityinput.js";
 import {
-  DiscountMethodJson,
-  DiscountMethodJson$Outbound,
-  DiscountMethodJson$outboundSchema,
-} from "./discountmethodjson.js";
+  DiscountMethod,
+  DiscountMethod$Outbound,
+  DiscountMethod$outboundSchema,
+} from "./discountmethod.js";
 
 /**
  * Representation of a discount code to be created or updated.
@@ -38,7 +38,7 @@ export type CreateUpdateDiscountCode = {
   /**
    * Details about how the discount applies.
    */
-  method: DiscountMethodJson;
+  method: DiscountMethod;
   /**
    * The ISO 8601 formatted date from which the discount is effective.
    */
@@ -58,7 +58,7 @@ export type CreateUpdateDiscountCode = {
   /**
    * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who's the guest of a primary registrant.
    */
-  audienceType?: DiscountAudienceTypeJson | undefined;
+  audienceType?: DiscountAudienceType | undefined;
   /**
    * True indicates that guests will be included along with primary registrants towards the discount code's capacity.
    */
@@ -78,7 +78,7 @@ export type CreateUpdateDiscountCode = {
   /**
    * Details about the discount capacity.
    */
-  capacity?: DiscountCapacityInputJson | undefined;
+  capacity?: DiscountCapacityInput | undefined;
 };
 
 /** @internal */
@@ -86,7 +86,7 @@ export type CreateUpdateDiscountCode$Outbound = {
   name: string;
   active: boolean;
   stackable: boolean;
-  method: DiscountMethodJson$Outbound;
+  method: DiscountMethod$Outbound;
   effectiveFrom?: string | undefined;
   effectiveTo?: string | undefined;
   note?: string | undefined;
@@ -96,7 +96,7 @@ export type CreateUpdateDiscountCode$Outbound = {
   autoApply: boolean;
   applyToAllAgendaItems: boolean;
   type: "DISCOUNT_CODE";
-  capacity?: DiscountCapacityInputJson$Outbound | undefined;
+  capacity?: DiscountCapacityInput$Outbound | undefined;
 };
 
 /** @internal */
@@ -108,17 +108,17 @@ export const CreateUpdateDiscountCode$outboundSchema: z.ZodType<
   name: z.string(),
   active: z.boolean().default(true),
   stackable: z.boolean().default(true),
-  method: DiscountMethodJson$outboundSchema,
+  method: DiscountMethod$outboundSchema,
   effectiveFrom: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   effectiveTo: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   note: z.string().optional(),
   code: z.string(),
-  audienceType: DiscountAudienceTypeJson$outboundSchema.default("ALL"),
+  audienceType: DiscountAudienceType$outboundSchema.default("ALL"),
   includeGuestsTowardsCapacity: z.boolean().default(false),
   autoApply: z.boolean().default(false),
   applyToAllAgendaItems: z.boolean().default(false),
   type: z.literal("DISCOUNT_CODE"),
-  capacity: DiscountCapacityInputJson$outboundSchema.optional(),
+  capacity: DiscountCapacityInput$outboundSchema.optional(),
 });
 
 export function createUpdateDiscountCodeToJSON(

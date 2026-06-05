@@ -150,7 +150,7 @@ public class EventSurveyQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fields")
-    private List<FieldJson3> fields;
+    private List<FieldJson2> fields;
 
     /**
      * Max possible score
@@ -199,7 +199,7 @@ public class EventSurveyQuestionJson {
             @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson1 otherAnswer,
             @JsonProperty("comments") @Nullable String comments,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("fields") @Nullable List<FieldJson3> fields,
+            @JsonProperty("fields") @Nullable List<FieldJson2> fields,
             @JsonProperty("maxScore") @Nullable Double maxScore,
             @JsonProperty("totalSum") @Nullable Long totalSum,
             @JsonProperty("survey") @Nullable UuidJson survey,
@@ -376,7 +376,7 @@ public class EventSurveyQuestionJson {
     /**
      * List of fields for form/matrix questions
      */
-    public Optional<List<FieldJson3>> fields() {
+    public Optional<List<FieldJson2>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
@@ -551,7 +551,7 @@ public class EventSurveyQuestionJson {
     /**
      * List of fields for form/matrix questions
      */
-    public EventSurveyQuestionJson withFields(@Nullable List<FieldJson3> fields) {
+    public EventSurveyQuestionJson withFields(@Nullable List<FieldJson2> fields) {
         this.fields = fields;
         return this;
     }
@@ -735,7 +735,7 @@ public class EventSurveyQuestionJson {
 
         private Boolean required;
 
-        private List<FieldJson3> fields;
+        private List<FieldJson2> fields;
 
         private Double maxScore;
 
@@ -888,7 +888,7 @@ public class EventSurveyQuestionJson {
         /**
          * List of fields for form/matrix questions
          */
-        public Builder fields(@Nullable List<FieldJson3> fields) {
+        public Builder fields(@Nullable List<FieldJson2> fields) {
             this.fields = fields;
             return this;
         }

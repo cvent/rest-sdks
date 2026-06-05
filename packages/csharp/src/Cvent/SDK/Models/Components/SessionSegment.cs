@@ -53,19 +53,19 @@ namespace Cvent.SDK.Models.Components
         /// The related event object.
         /// </summary>
         [JsonProperty("event")]
-        public EventLiteJson1 Event { get; set; } = default!;
+        public EventId Event { get; set; } = default!;
 
         /// <summary>
         /// The related session object.
         /// </summary>
         [JsonProperty("session")]
-        public SessionLiteJson1 Session { get; set; } = default!;
+        public Session1 Session { get; set; } = default!;
 
         /// <summary>
         /// The audience segment associated with the session.
         /// </summary>
         [JsonProperty("segment")]
-        public SegmentLiteJson Segment { get; set; } = default!;
+        public Segment Segment { get; set; } = default!;
 
         /// <summary>
         /// True indicates the session segment is active.

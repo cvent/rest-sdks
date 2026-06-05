@@ -1,6 +1,6 @@
 # GeneralLedgerJson
 
-This is used to denote the general ledger detail in an order item
+This is used to denote the general ledger code associated with budget.
 
 ## Example Usage
 
@@ -8,20 +8,16 @@ This is used to denote the general ledger detail in an order item
 import { GeneralLedgerJson } from "@cvent/sdk/models/components";
 
 let value: GeneralLedgerJson = {
-  id: "a6b6c1bc-e410-48da-86c2-80478ecf60f9",
-  name: "Other Accounts Receivable",
-  code: "123445",
-  description: "Other Accounts Receivable; Leg. Accounts Receivable",
-  allocationPercentage: 50,
+  id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+  code: "MU",
+  name: "Meet up",
 };
 ```
 
 ## Fields
 
-| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          | Example                                                                              |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `id`                                                                                 | *string*                                                                             | :heavy_minus_sign:                                                                   | A unique identifier for the general ledger.                                          | a6b6c1bc-e410-48da-86c2-80478ecf60f9                                                 |
-| `name`                                                                               | *string*                                                                             | :heavy_minus_sign:                                                                   | This denotes the name of the general ledger.                                         | Other Accounts Receivable                                                            |
-| `code`                                                                               | *string*                                                                             | :heavy_minus_sign:                                                                   | This denotes the code of the general ledger.                                         | 123445                                                                               |
-| `description`                                                                        | *string*                                                                             | :heavy_minus_sign:                                                                   | This denotes the description of the general ledger.                                  | Other Accounts Receivable; Leg. Accounts Receivable                                  |
-| `allocationPercentage`                                                               | *number*                                                                             | :heavy_minus_sign:                                                                   | This denotes the percentage allocation of the general ledger code for an order item. | 50                                                                                   |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `id`                                                                 | *string*                                                             | :heavy_minus_sign:                                                   | A string that has to be a format matching the industry standard uuid | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3                                 |
+| `code`                                                               | *string*                                                             | :heavy_minus_sign:                                                   | General Ledger Code.                                                 | MU                                                                   |
+| `name`                                                               | *string*                                                             | :heavy_minus_sign:                                                   | Name of the General Ledger.                                          | Meet up                                                              |

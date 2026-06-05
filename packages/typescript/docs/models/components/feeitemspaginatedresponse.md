@@ -32,7 +32,7 @@ let value: FeeItemsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                              | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `paging`                                                           | [components.PagingJson](../../models/components/pagingjson.md)     | :heavy_check_mark:                                                 | Represents pagination information for a collection of resources.   |
-| `data`                                                             | [components.FeeItemJson](../../models/components/feeitemjson.md)[] | :heavy_check_mark:                                                 | Collection of fee items.                                           |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.FeeItem](../../models/components/feeitem.md)[]       | :heavy_check_mark:                                               | Collection of fee items.                                         |

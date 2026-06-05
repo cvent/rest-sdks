@@ -9,17 +9,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  DiscountAudienceTypeJson,
-  DiscountAudienceTypeJson$inboundSchema,
-} from "./discountaudiencetypejson.js";
+  DiscountAudienceType,
+  DiscountAudienceType$inboundSchema,
+} from "./discountaudiencetype.js";
 import {
-  DiscountCapacityJson,
-  DiscountCapacityJson$inboundSchema,
-} from "./discountcapacityjson.js";
+  DiscountCapacity,
+  DiscountCapacity$inboundSchema,
+} from "./discountcapacity.js";
 import {
-  DiscountMethodJson,
-  DiscountMethodJson$inboundSchema,
-} from "./discountmethodjson.js";
+  DiscountMethod,
+  DiscountMethod$inboundSchema,
+} from "./discountmethod.js";
 
 /**
  * Whether the discount is created at event level or account level.
@@ -70,7 +70,7 @@ export type CreateUpdateDiscountCodeResponse = {
   /**
    * Details about how the discount applies.
    */
-  method: DiscountMethodJson;
+  method: DiscountMethod;
   /**
    * The ISO 8601 formatted date from which the discount is effective.
    */
@@ -90,7 +90,7 @@ export type CreateUpdateDiscountCodeResponse = {
   /**
    * Audiences which are eligible for the discount.`PRIMARY`: All attendees. Includes primary registrants and their guests. `GUEST`: Any attendee invited to the event. `ALL`: An attendee who's the guest of a primary registrant.
    */
-  audienceType: DiscountAudienceTypeJson;
+  audienceType: DiscountAudienceType;
   /**
    * True indicates that guests will be included along with primary registrants towards the discount code's capacity.
    */
@@ -114,7 +114,7 @@ export type CreateUpdateDiscountCodeResponse = {
   /**
    * Details about the discount capacity.
    */
-  capacity?: DiscountCapacityJson | undefined;
+  capacity?: DiscountCapacity | undefined;
   /**
    * The type of discount. For account-level discounts, all discounts are of type DISCOUNT_CODE. `DISCOUNT_CODE`: A code the user or system applies to induce a discount. `VOLUME_DISCOUNT`: A discount that applies when a certain volume of items are purchased.
    */
@@ -143,18 +143,18 @@ export const CreateUpdateDiscountCodeResponse$inboundSchema: z.ZodType<
   name: z.string(),
   active: z.boolean().default(true),
   stackable: z.boolean().default(true),
-  method: DiscountMethodJson$inboundSchema,
+  method: DiscountMethod$inboundSchema,
   effectiveFrom: z.string().transform(v => new RFCDate(v)).optional(),
   effectiveTo: z.string().transform(v => new RFCDate(v)).optional(),
   note: z.string().optional(),
   code: z.string(),
-  audienceType: DiscountAudienceTypeJson$inboundSchema.default("ALL"),
+  audienceType: DiscountAudienceType$inboundSchema.default("ALL"),
   includeGuestsTowardsCapacity: z.boolean().default(false),
   autoApply: z.boolean().default(false),
   applyToAllAgendaItems: z.boolean().default(false),
   id: z.string().optional(),
   level: CreateUpdateDiscountCodeResponseLevel$inboundSchema.optional(),
-  capacity: DiscountCapacityJson$inboundSchema.optional(),
+  capacity: DiscountCapacity$inboundSchema.optional(),
   type: z.literal("DISCOUNT_CODE"),
 });
 

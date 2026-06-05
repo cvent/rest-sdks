@@ -193,7 +193,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomFieldJson4>? CustomFields { get; set; }
+        public List<CustomFieldJson3>? CustomFields { get; set; }
 
         /// <summary>
         /// The category to which this event belongs (no longer supported).

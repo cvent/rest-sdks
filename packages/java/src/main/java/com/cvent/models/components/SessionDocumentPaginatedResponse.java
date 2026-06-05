@@ -23,7 +23,7 @@ public class SessionDocumentPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of a session's documents.
@@ -33,7 +33,7 @@ public class SessionDocumentPaginatedResponse {
 
     @JsonCreator
     public SessionDocumentPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<SessionFile> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<SessionFile> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,7 +42,7 @@ public class SessionDocumentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
@@ -60,7 +60,7 @@ public class SessionDocumentPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SessionDocumentPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public SessionDocumentPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -98,7 +98,7 @@ public class SessionDocumentPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<SessionFile> data;
 
@@ -109,7 +109,7 @@ public class SessionDocumentPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

@@ -11,7 +11,7 @@ import {
   AdditionalChoice$inboundSchema,
 } from "./additionalchoice.js";
 import { BaseChoice, BaseChoice$inboundSchema } from "./basechoice.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import {
   ExhibitorAnswerFormat,
   ExhibitorAnswerFormat$inboundSchema,
@@ -48,7 +48,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * The actual text of the exhibitor question.
    */
@@ -112,7 +112,7 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event1$inboundSchema,
+  event: Event21$inboundSchema,
   text: z.string(),
   code: z.string().optional(),
   type: ExhibitorQuestionType$inboundSchema,

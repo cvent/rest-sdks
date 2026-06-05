@@ -182,10 +182,11 @@ run();
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 409, 429 | application/json        |
-| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+| Error Type            | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.ErrorResponse1 | 409                   | application/json      |
+| errors.ErrorResponse2 | 400, 401, 403, 429    | application/json      |
+| errors.APIError       | 4XX, 5XX              | \*/\*                 |
 
 ## getBulkJobById
 
@@ -272,7 +273,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse2   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## cancelBulkJob
@@ -360,7 +361,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse2   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## uploadBulkJobData
@@ -500,10 +501,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse         | 400, 401, 403, 404, 409, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 409                     | application/json        |
+| errors.ErrorResponse2   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## listBulkJobResult
 
@@ -602,7 +604,7 @@ run();
 
 | Error Type              | Status Code             | Content Type            |
 | ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorResponse    | 400, 401, 403, 404, 429 | application/json        |
+| errors.ErrorResponse2   | 400, 401, 403, 404, 429 | application/json        |
 | errors.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## runBulkJob
@@ -690,7 +692,8 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorResponse         | 400, 401, 403, 404, 409, 429 | application/json             |
-| errors.APIError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 409                     | application/json        |
+| errors.ErrorResponse2   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |

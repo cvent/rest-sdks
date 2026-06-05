@@ -22,19 +22,19 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the event. Contains only the ID of the event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson Event { get; set; } = default!;
+        public Event2 Event { get; set; } = default!;
 
         /// <summary>
         /// Represents an order. Contains only the ID of the order.
         /// </summary>
         [JsonProperty("order")]
-        public OrderJson Order { get; set; } = default!;
+        public Order Order { get; set; } = default!;
 
         /// <summary>
         /// Represents an order item. Contains only the ID of the order item.
         /// </summary>
         [JsonProperty("item")]
-        public OrderItemJson0 Item { get; set; } = default!;
+        public OrderItem Item { get; set; } = default!;
 
         /// <summary>
         /// New order amount for the charge order item.

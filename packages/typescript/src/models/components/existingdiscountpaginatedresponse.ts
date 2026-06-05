@@ -7,18 +7,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ExistingDiscountCodeJson,
-  ExistingDiscountCodeJson$inboundSchema,
-} from "./existingdiscountcodejson.js";
+  ExistingDiscountCode,
+  ExistingDiscountCode$inboundSchema,
+} from "./existingdiscountcode.js";
 import {
-  ExistingVolumeDiscountJson,
-  ExistingVolumeDiscountJson$inboundSchema,
-} from "./existingvolumediscountjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ExistingVolumeDiscount,
+  ExistingVolumeDiscount$inboundSchema,
+} from "./existingvolumediscount.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 export type ExistingDiscountPaginatedResponseData =
-  | ExistingDiscountCodeJson
-  | ExistingVolumeDiscountJson;
+  | ExistingDiscountCode
+  | ExistingVolumeDiscount;
 
 /**
  * Returns a paginated list of all discounts used in an event, including both event-specific and account-level discount codes used in an event.
@@ -27,11 +27,11 @@ export type ExistingDiscountPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of discounts.
    */
-  data: Array<ExistingDiscountCodeJson | ExistingVolumeDiscountJson>;
+  data: Array<ExistingDiscountCode | ExistingVolumeDiscount>;
 };
 
 /** @internal */
@@ -40,8 +40,8 @@ export const ExistingDiscountPaginatedResponseData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  ExistingDiscountCodeJson$inboundSchema,
-  ExistingVolumeDiscountJson$inboundSchema,
+  ExistingDiscountCode$inboundSchema,
+  ExistingVolumeDiscount$inboundSchema,
 ]);
 
 export function existingDiscountPaginatedResponseDataFromJSON(
@@ -61,11 +61,11 @@ export const ExistingDiscountPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
+  paging: Paging$inboundSchema,
   data: z.array(
     z.union([
-      ExistingDiscountCodeJson$inboundSchema,
-      ExistingVolumeDiscountJson$inboundSchema,
+      ExistingDiscountCode$inboundSchema,
+      ExistingVolumeDiscount$inboundSchema,
     ]),
   ),
 });

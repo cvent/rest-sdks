@@ -34,28 +34,26 @@ export type GetTransactionItemsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * There are six comparison types that can be used in filter expressions:
-   * * equal: eq
-   * * not equal: ne
-   * * greater than: gt
-   * * greater or equal: ge
-   * * less than: lt
-   * * less than or equal: le
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * The following fields are filterable:
-   * * id (eq|ne)
-   * * attendee.id (eq|ne)
-   * * event.id (eq|ne)
-   * * transaction.id (eq|ne)
-   * * transaction.processorTransactionId (eq|ne)
-   * * uniqueId (eq|ne)
-   * * created (eq|ne|lt|le|gt|ge)
-   * * lastModified (eq|ne|lt|le|gt|ge)
+   * Supported fields and operators are listed below:
    *
-   * The following operators are available:
+   * | Field                              | Operators                          |
+   * |------------------------------------|------------------------------------|
+   * | id                                 | `eq`, `ne`                         |
+   * | attendee.id                        | `eq`, `ne`                         |
+   * | event.id                           | `eq`, `ne`                         |
+   * | transaction.id                     | `eq`, `ne`                         |
+   * | transaction.processorTransactionId | `eq`, `ne`                         |
+   * | uniqueId                           | `eq`, `ne`                         |
+   * | created                            | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   * | lastModified                       | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   *
+   * The following logical operators are supported for combining filters:
    * * and
    * * or
    */

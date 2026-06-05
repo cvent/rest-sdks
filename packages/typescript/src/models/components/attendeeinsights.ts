@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson7, EventJson7$inboundSchema } from "./eventjson7.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 
 /**
  * Attendee insights.
@@ -43,7 +43,7 @@ export type AttendeeInsights = {
   /**
    * An event reference used in attendee insights to identify the event context for engagement data
    */
-  event: EventJson7;
+  event: EventJson6;
   /**
    * True indicates this is the default engagement score in the event.
    */
@@ -66,7 +66,7 @@ export const AttendeeInsights$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
   description: z.string().optional(),
-  event: EventJson7$inboundSchema,
+  event: EventJson6$inboundSchema,
   default: z.boolean(),
 });
 

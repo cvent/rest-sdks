@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Event, Event$inboundSchema } from "./event.js";
+import { Event1, Event1$inboundSchema } from "./event1.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
 
 /**
@@ -20,7 +20,7 @@ export type EventPaginatedResponse = {
   /**
    * A collection of event objects.
    */
-  data: Array<Event>;
+  data: Array<Event1>;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const EventPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema,
-  data: z.array(Event$inboundSchema),
+  data: z.array(Event1$inboundSchema),
 });
 
 export function eventPaginatedResponseFromJSON(

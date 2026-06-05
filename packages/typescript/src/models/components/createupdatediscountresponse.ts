@@ -11,16 +11,16 @@ import {
   CreateUpdateDiscountCodeResponse$inboundSchema,
 } from "./createupdatediscountcoderesponse.js";
 import {
-  ExistingVolumeDiscountJson,
-  ExistingVolumeDiscountJson$inboundSchema,
-} from "./existingvolumediscountjson.js";
+  ExistingVolumeDiscount,
+  ExistingVolumeDiscount$inboundSchema,
+} from "./existingvolumediscount.js";
 
 /**
  * Representation of an existing discount response
  */
 export type CreateUpdateDiscountResponse =
   | CreateUpdateDiscountCodeResponse
-  | ExistingVolumeDiscountJson;
+  | ExistingVolumeDiscount;
 
 /** @internal */
 export const CreateUpdateDiscountResponse$inboundSchema: z.ZodType<
@@ -29,7 +29,7 @@ export const CreateUpdateDiscountResponse$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   CreateUpdateDiscountCodeResponse$inboundSchema,
-  ExistingVolumeDiscountJson$inboundSchema,
+  ExistingVolumeDiscount$inboundSchema,
 ]);
 
 export function createUpdateDiscountResponseFromJSON(

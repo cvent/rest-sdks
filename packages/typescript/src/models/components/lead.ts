@@ -8,11 +8,11 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Address12, Address12$inboundSchema } from "./address12.js";
-import { Appointment, Appointment$inboundSchema } from "./appointment.js";
+import { Appointment1, Appointment1$inboundSchema } from "./appointment1.js";
 import { Attendee12, Attendee12$inboundSchema } from "./attendee12.js";
 import { BoothStaff, BoothStaff$inboundSchema } from "./boothstaff.js";
 import { Device, Device$inboundSchema } from "./device.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -100,7 +100,7 @@ export type Lead = {
   /**
    * The Associated Event.
    */
-  event?: Event1 | undefined;
+  event?: Event21 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -120,7 +120,7 @@ export type Lead = {
   /**
    * A JSON schema representing the structure of an appointment object.
    */
-  appointment?: Appointment | undefined;
+  appointment?: Appointment1 | undefined;
   /**
    * The title of the lead
    */
@@ -251,12 +251,12 @@ export const Lead$inboundSchema: z.ZodType<Lead, z.ZodTypeDef, unknown> = z
       new Date(v)
     ).optional(),
     lastModifiedBy: z.string().optional(),
-    event: Event1$inboundSchema.optional(),
+    event: Event21$inboundSchema.optional(),
     exhibitor: Exhibitor$inboundSchema.optional(),
     attendee: Attendee12$inboundSchema.optional(),
     boothStaff: BoothStaff$inboundSchema.optional(),
     device: Device$inboundSchema.optional(),
-    appointment: Appointment$inboundSchema.optional(),
+    appointment: Appointment1$inboundSchema.optional(),
     title: z.string().optional(),
     firstName: z.string().optional(),
     lastName: z.string().optional(),

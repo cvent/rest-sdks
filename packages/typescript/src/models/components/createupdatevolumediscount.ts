@@ -5,14 +5,14 @@
 import * as z from "zod/v3";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  DiscountMethodJson,
-  DiscountMethodJson$Outbound,
-  DiscountMethodJson$outboundSchema,
-} from "./discountmethodjson.js";
+  DiscountMethod,
+  DiscountMethod$Outbound,
+  DiscountMethod$outboundSchema,
+} from "./discountmethod.js";
 import {
-  VolumeDiscountThresholdTypeJson,
-  VolumeDiscountThresholdTypeJson$outboundSchema,
-} from "./volumediscountthresholdtypejson.js";
+  VolumeDiscountThresholdType,
+  VolumeDiscountThresholdType$outboundSchema,
+} from "./volumediscountthresholdtype.js";
 
 /**
  * Representation of a volume based discount to be created or updated.
@@ -33,7 +33,7 @@ export type CreateUpdateVolumeDiscount = {
   /**
    * Details about how the discount applies.
    */
-  method: DiscountMethodJson;
+  method: DiscountMethod;
   /**
    * The ISO 8601 formatted date from which the discount is effective.
    */
@@ -49,7 +49,7 @@ export type CreateUpdateVolumeDiscount = {
   /**
    * Specifies who will receive the discount once the threshold for the number of ordered items is met or exceeded, depending on the type. `ALL`: All registrations receive the discount once the threshold is exceeded. `AFTER_THRESHOLD_LIMIT`: Every registration beyond the threshold receives the discount. `BEFORE_THRESHOLD_LIMIT:` Every registration, including those at the threshold, are discounted. Further registrations are at full price. If primaryRegistrant is not included then the first registrant is full price. Every registration afterward, up to and including the threshold, are discounted. Any additional registrations are at full price. `EVERY_NTH_REGISTRANT`: After reaching the threshold, every Nth registration counting from the threshold recieves a discount, where N is defined by the `interval` field.
    */
-  thresholdType?: VolumeDiscountThresholdTypeJson | undefined;
+  thresholdType?: VolumeDiscountThresholdType | undefined;
   /**
    * Defines the threshold limit for the volume discount.
    */
@@ -73,7 +73,7 @@ export type CreateUpdateVolumeDiscount$Outbound = {
   name: string;
   active: boolean;
   stackable: boolean;
-  method: DiscountMethodJson$Outbound;
+  method: DiscountMethod$Outbound;
   effectiveFrom?: string | undefined;
   effectiveTo?: string | undefined;
   note?: string | undefined;
@@ -93,11 +93,11 @@ export const CreateUpdateVolumeDiscount$outboundSchema: z.ZodType<
   name: z.string(),
   active: z.boolean().default(true),
   stackable: z.boolean().default(true),
-  method: DiscountMethodJson$outboundSchema,
+  method: DiscountMethod$outboundSchema,
   effectiveFrom: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   effectiveTo: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   note: z.string().optional(),
-  thresholdType: VolumeDiscountThresholdTypeJson$outboundSchema.default(
+  thresholdType: VolumeDiscountThresholdType$outboundSchema.default(
     "AFTER_THRESHOLD_LIMIT",
   ),
   thresholdLimit: z.number().int(),

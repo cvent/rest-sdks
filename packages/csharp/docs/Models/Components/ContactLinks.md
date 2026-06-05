@@ -1,13 +1,13 @@
 # ContactLinks
 
-A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
+Collection of social media links for the contact.
 
 
 ## Fields
 
-| Field                                    | Type                                     | Required                                 | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| `TwitterUrl`                             | [Link](../../Models/Components/Link.md)  | :heavy_minus_sign:                       | Represents a link to a related resource. |
-| `FacebookUrl`                            | [Link](../../Models/Components/Link.md)  | :heavy_minus_sign:                       | Represents a link to a related resource. |
-| `LinkedInUrl`                            | [Link](../../Models/Components/Link.md)  | :heavy_minus_sign:                       | Represents a link to a related resource. |
-| `InstagramUrl`                           | [Link](../../Models/Components/Link.md)  | :heavy_minus_sign:                       | Represents a link to a related resource. |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `TwitterUrl`                                                    | [Link](../../Models/Components/Link.md)                         | :heavy_minus_sign:                                              | Represents a link to a related resource.                        |
+| `FacebookUrl`                                                   | [Link](../../Models/Components/Link.md)                         | :heavy_minus_sign:                                              | Represents a link to a related resource.                        |
+| `LinkedInUrl`                                                   | [Link](../../Models/Components/Link.md)                         | :heavy_minus_sign:                                              | Represents a link to a related resource.                        |
+| `ProfilePicture`                                                | [ContactLinksLink](../../Models/Components/ContactLinksLink.md) | :heavy_minus_sign:                                              | Reference to a profile picture.                                 |

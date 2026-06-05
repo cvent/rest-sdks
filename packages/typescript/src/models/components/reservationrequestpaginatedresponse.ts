@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
 import {
-  ReservationRequestResponseJson,
-  ReservationRequestResponseJson$inboundSchema,
-} from "./reservationrequestresponsejson.js";
+  HousingReservationResponse,
+  HousingReservationResponse$inboundSchema,
+} from "./housingreservationresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of housing reservation request details for the attendees. This includes the paging object as well as the collection of housing reservation request details.
@@ -19,11 +19,11 @@ export type ReservationRequestPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of reservation request details for attendees.
    */
-  data: Array<ReservationRequestResponseJson>;
+  data: Array<HousingReservationResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const ReservationRequestPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(ReservationRequestResponseJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(HousingReservationResponse$inboundSchema),
 });
 
 export function reservationRequestPaginatedResponseFromJSON(

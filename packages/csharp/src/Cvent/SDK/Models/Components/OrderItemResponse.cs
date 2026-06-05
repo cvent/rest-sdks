@@ -54,19 +54,19 @@ namespace Cvent.SDK.Models.Components
         /// Represents an order by its ID and includes the order type.
         /// </summary>
         [JsonProperty("order")]
-        public OrderRefJson? Order { get; set; }
+        public OrderRef? Order { get; set; }
 
         /// <summary>
         /// The reference to the event. Contains only the ID of the event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson? Event { get; set; }
+        public Event2? Event { get; set; }
 
         /// <summary>
         /// The reference to the attendee. Contains only the ID of the attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public AttendeeJson? Attendee { get; set; }
+        public Attendee2? Attendee { get; set; }
 
         /// <summary>
         /// Indicates if an attendee is a guest.
@@ -78,13 +78,13 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the guest. Contains only the ID of the guest.
         /// </summary>
         [JsonProperty("guestDetail")]
-        public GuestDetailJson? GuestDetail { get; set; }
+        public Guest? GuestDetail { get; set; }
 
         /// <summary>
         /// This is used to denote the product details in an order item.
         /// </summary>
         [JsonProperty("product")]
-        public ProductOrderItemJson? Product { get; set; }
+        public ProductOrderItem? Product { get; set; }
 
         /// <summary>
         /// Indicates if the order item is active.
@@ -108,7 +108,7 @@ namespace Cvent.SDK.Models.Components
         /// Fee for a product.
         /// </summary>
         [JsonProperty("fee")]
-        public FeeJson? Fee { get; set; }
+        public Fee? Fee { get; set; }
 
         /// <summary>
         /// Quantity of item purchased by an attendee.
@@ -150,13 +150,13 @@ namespace Cvent.SDK.Models.Components
         /// The list of general ledger details in an order item.
         /// </summary>
         [JsonProperty("generalLedgerItems")]
-        public List<GeneralLedgerJson>? GeneralLedgerItems { get; set; }
+        public List<GeneralLedger>? GeneralLedgerItems { get; set; }
 
         /// <summary>
         /// The list of discount details.
         /// </summary>
         [JsonProperty("discounts")]
-        public List<DiscountDetailJson>? Discounts { get; set; }
+        public List<DiscountDetail>? Discounts { get; set; }
 
         /// <summary>
         /// True indicates the order item has been deleted.

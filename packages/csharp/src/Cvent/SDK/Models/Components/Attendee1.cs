@@ -66,7 +66,7 @@ namespace Cvent.SDK.Models.Components
         /// Information about attendee contact added to an event.
         /// </summary>
         [JsonProperty("contact")]
-        public AttendeeContactInfoJson? Contact { get; set; }
+        public AttendeeContactInfo? Contact { get; set; }
 
         /// <summary>
         /// True indicates the attendee checked in to the event.
@@ -103,25 +103,25 @@ namespace Cvent.SDK.Models.Components
         /// Lookup response object.
         /// </summary>
         [JsonProperty("registrationPath")]
-        public LookupJson? RegistrationPath { get; set; }
+        public Lookup? RegistrationPath { get; set; }
 
         /// <summary>
         /// A Named object.
         /// </summary>
         [JsonProperty("invitationList")]
-        public IdNameJson? InvitationList { get; set; }
+        public NamedObject? InvitationList { get; set; }
 
         /// <summary>
         /// Web links for an attendee.
         /// </summary>
         [JsonProperty("webLinks")]
-        public AttendeeWebLinksJson? WebLinks { get; set; }
+        public AttendeeWebLinks? WebLinks { get; set; }
 
         /// <summary>
         /// Lookup response object.
         /// </summary>
         [JsonProperty("registrationType")]
-        public LookupJson? RegistrationType { get; set; }
+        public Lookup? RegistrationType { get; set; }
 
         /// <summary>
         /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
@@ -133,7 +133,7 @@ namespace Cvent.SDK.Models.Components
         /// The details of an attendee in an external systems.
         /// </summary>
         [JsonProperty("externalReferences")]
-        public List<ExternalReferenceJson>? ExternalReferences { get; set; }
+        public List<ExternalReference>? ExternalReferences { get; set; }
 
         /// <summary>
         /// A planner created note for an attendee, used to track details about the attendee.
@@ -163,13 +163,13 @@ namespace Cvent.SDK.Models.Components
         /// An attendee group.
         /// </summary>
         [JsonProperty("group")]
-        public AttendeeGroupJson? Group { get; set; }
+        public AttendeeGroup? Group { get; set; }
 
         /// <summary>
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("administrator")]
-        public UuidJson? Administrator { get; set; }
+        public Uuid? Administrator { get; set; }
 
         /// <summary>
         /// DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
@@ -182,7 +182,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the status of an attendee.
         /// </summary>
         [JsonProperty("status")]
-        public AttendeeStatusJson? Status { get; set; }
+        public AttendeeStatus? Status { get; set; }
 
         /// <summary>
         /// The ISO 8601 zoned date time when attendee was registered.
@@ -206,7 +206,7 @@ namespace Cvent.SDK.Models.Components
         /// Method by which the attendee was invited to the event.
         /// </summary>
         [JsonProperty("invitedBy")]
-        public AttendeeInvitedByJson? InvitedBy { get; set; }
+        public AttendeeInvitedBy1? InvitedBy { get; set; }
 
         /// <summary>
         /// Represents the method by which an attendee registered for the event.<br/>
@@ -229,20 +229,20 @@ namespace Cvent.SDK.Models.Components
         /// Note: The responseMethod can only be set if the invitee's status is No Response.
         /// </summary>
         [JsonProperty("responseMethod")]
-        public AttendeeResponseMethodJson? ResponseMethod { get; set; }
+        public AttendeeResponseMethod1? ResponseMethod { get; set; }
 
         /// <summary>
         /// A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("questions")]
-        public List<CustomField>? Questions { get; set; }
+        public List<CustomFieldSchema>? Questions { get; set; }
 
         /// <summary>
         /// The list of answers to the registration questions.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AttendeeAnswerJson>? Answers { get; set; }
+        public List<AttendeeAnswer>? Answers { get; set; }
 
         /// <summary>
         /// Contains details related to the attendee's admission item.
@@ -254,7 +254,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
         /// </summary>
         [JsonProperty("visibility")]
-        public AttendeeVisibilityJson? Visibility { get; set; }
+        public AttendeeVisibility? Visibility { get; set; }
 
         /// <summary>
         /// The attendee's biographical writeup.
@@ -303,7 +303,7 @@ namespace Cvent.SDK.Models.Components
         /// List of appointment groups associated with attendee. These control permissions and visibility in appointments associated with the event.
         /// </summary>
         [JsonProperty("appointmentGroups")]
-        public List<AppointmentGroupJson>? AppointmentGroups { get; set; }
+        public List<AppointmentGroup>? AppointmentGroups { get; set; }
 
         /// <summary>
         /// The amount of credit associated with the attendee.

@@ -22,7 +22,7 @@ public class SessionsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of sessions.
@@ -32,7 +32,7 @@ public class SessionsPaginatedResponse {
 
     @JsonCreator
     public SessionsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<Session> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<Session> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -41,7 +41,7 @@ public class SessionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
@@ -59,7 +59,7 @@ public class SessionsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SessionsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public SessionsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -97,7 +97,7 @@ public class SessionsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<Session> data;
 
@@ -108,7 +108,7 @@ public class SessionsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

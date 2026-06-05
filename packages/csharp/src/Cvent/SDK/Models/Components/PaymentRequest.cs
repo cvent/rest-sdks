@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the method of payment.
         /// </summary>
         [JsonProperty("type")]
-        public PaymentTypeJson1? Type { get; set; }
+        public PaymentTypeJson? Type { get; set; }
 
         /// <summary>
         /// The ID of the payment.

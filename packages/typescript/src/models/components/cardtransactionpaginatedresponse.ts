@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CardTransactionJson1,
-  CardTransactionJson1$inboundSchema,
-} from "./cardtransactionjson1.js";
+  CardTransactionJson,
+  CardTransactionJson$inboundSchema,
+} from "./cardtransactionjson.js";
 import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
 
 /**
@@ -23,7 +23,7 @@ export type CardTransactionPaginatedResponse = {
   /**
    * Collection of virtual card transaction.
    */
-  data: Array<CardTransactionJson1>;
+  data: Array<CardTransactionJson>;
 };
 
 /** @internal */
@@ -33,7 +33,7 @@ export const CardTransactionPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: PagingJson$inboundSchema,
-  data: z.array(CardTransactionJson1$inboundSchema),
+  data: z.array(CardTransactionJson$inboundSchema),
 });
 
 export function cardTransactionPaginatedResponseFromJSON(

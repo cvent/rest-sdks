@@ -7,49 +7,49 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AppointmentGroupJson,
-  AppointmentGroupJson$inboundSchema,
-} from "./appointmentgroupjson.js";
+  AppointmentGroup,
+  AppointmentGroup$inboundSchema,
+} from "./appointmentgroup.js";
 import {
-  AttendeeAnswerJson,
-  AttendeeAnswerJson$inboundSchema,
-} from "./attendeeanswerjson.js";
+  AttendeeAnswer,
+  AttendeeAnswer$inboundSchema,
+} from "./attendeeanswer.js";
 import {
-  AttendeeContactInfoJson,
-  AttendeeContactInfoJson$inboundSchema,
-} from "./attendeecontactinfojson.js";
+  AttendeeContactInfo,
+  AttendeeContactInfo$inboundSchema,
+} from "./attendeecontactinfo.js";
+import { AttendeeGroup, AttendeeGroup$inboundSchema } from "./attendeegroup.js";
 import {
-  AttendeeGroupJson,
-  AttendeeGroupJson$inboundSchema,
-} from "./attendeegroupjson.js";
+  AttendeeInvitedBy1,
+  AttendeeInvitedBy1$inboundSchema,
+} from "./attendeeinvitedby1.js";
 import {
-  AttendeeInvitedByJson,
-  AttendeeInvitedByJson$inboundSchema,
-} from "./attendeeinvitedbyjson.js";
+  AttendeeResponseMethod1,
+  AttendeeResponseMethod1$inboundSchema,
+} from "./attendeeresponsemethod1.js";
 import {
-  AttendeeResponseMethodJson,
-  AttendeeResponseMethodJson$inboundSchema,
-} from "./attendeeresponsemethodjson.js";
+  AttendeeStatus,
+  AttendeeStatus$inboundSchema,
+} from "./attendeestatus.js";
 import {
-  AttendeeStatusJson,
-  AttendeeStatusJson$inboundSchema,
-} from "./attendeestatusjson.js";
+  AttendeeVisibility,
+  AttendeeVisibility$inboundSchema,
+} from "./attendeevisibility.js";
 import {
-  AttendeeVisibilityJson,
-  AttendeeVisibilityJson$inboundSchema,
-} from "./attendeevisibilityjson.js";
+  AttendeeWebLinks,
+  AttendeeWebLinks$inboundSchema,
+} from "./attendeeweblinks.js";
 import {
-  AttendeeWebLinksJson,
-  AttendeeWebLinksJson$inboundSchema,
-} from "./attendeeweblinksjson.js";
-import { CustomField, CustomField$inboundSchema } from "./customfield.js";
+  CustomFieldSchema,
+  CustomFieldSchema$inboundSchema,
+} from "./customfieldschema.js";
 import {
-  ExternalReferenceJson,
-  ExternalReferenceJson$inboundSchema,
-} from "./externalreferencejson.js";
-import { IdNameJson, IdNameJson$inboundSchema } from "./idnamejson.js";
-import { LookupJson, LookupJson$inboundSchema } from "./lookupjson.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
+  ExternalReference,
+  ExternalReference$inboundSchema,
+} from "./externalreference.js";
+import { Lookup, Lookup$inboundSchema } from "./lookup.js";
+import { NamedObject, NamedObject$inboundSchema } from "./namedobject.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * The attendee's associated event.
@@ -114,7 +114,7 @@ export type Attendee1 = {
   /**
    * Information about attendee contact added to an event.
    */
-  contact?: AttendeeContactInfoJson | undefined;
+  contact?: AttendeeContactInfo | undefined;
   /**
    * True indicates the attendee checked in to the event.
    */
@@ -140,19 +140,19 @@ export type Attendee1 = {
   /**
    * Lookup response object
    */
-  registrationPath?: LookupJson | undefined;
+  registrationPath?: Lookup | undefined;
   /**
    * A Named object
    */
-  invitationList?: IdNameJson | undefined;
+  invitationList?: NamedObject | undefined;
   /**
    * Web links for an attendee.
    */
-  webLinks?: AttendeeWebLinksJson | undefined;
+  webLinks?: AttendeeWebLinks | undefined;
   /**
    * Lookup response object
    */
-  registrationType?: LookupJson | undefined;
+  registrationType?: Lookup | undefined;
   /**
    * The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
    */
@@ -160,7 +160,7 @@ export type Attendee1 = {
   /**
    * The details of an attendee in an external systems.
    */
-  externalReferences?: Array<ExternalReferenceJson> | undefined;
+  externalReferences?: Array<ExternalReference> | undefined;
   /**
    * A planner created note for an attendee, used to track details about the attendee.
    */
@@ -180,11 +180,11 @@ export type Attendee1 = {
   /**
    * An attendee group.
    */
-  group?: AttendeeGroupJson | undefined;
+  group?: AttendeeGroup | undefined;
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  administrator?: UuidJson | undefined;
+  administrator?: Uuid | undefined;
   /**
    * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
    *
@@ -194,7 +194,7 @@ export type Attendee1 = {
   /**
    * This is used to denote the status of an attendee.
    */
-  status?: AttendeeStatusJson | undefined;
+  status?: AttendeeStatus | undefined;
   /**
    * The ISO 8601 zoned date time when attendee was registered.
    */
@@ -210,7 +210,7 @@ export type Attendee1 = {
   /**
    * Method by which the attendee was invited to the event.
    */
-  invitedBy?: AttendeeInvitedByJson | undefined;
+  invitedBy?: AttendeeInvitedBy1 | undefined;
   /**
    * Represents the method by which an attendee registered for the event.
    *
@@ -233,17 +233,17 @@ export type Attendee1 = {
    *
    * Note: The responseMethod can only be set if the invitee's status is No Response.
    */
-  responseMethod?: AttendeeResponseMethodJson | undefined;
+  responseMethod?: AttendeeResponseMethod1 | undefined;
   /**
    * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  questions?: Array<CustomField> | undefined;
+  questions?: Array<CustomFieldSchema> | undefined;
   /**
    * The list of answers to the registration questions.
    */
-  answers?: Array<AttendeeAnswerJson> | undefined;
+  answers?: Array<AttendeeAnswer> | undefined;
   /**
    * Contains details related to the attendee's admission item.
    */
@@ -251,7 +251,7 @@ export type Attendee1 = {
   /**
    * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
    */
-  visibility?: AttendeeVisibilityJson | undefined;
+  visibility?: AttendeeVisibility | undefined;
   /**
    * The attendee's biographical writeup.
    */
@@ -285,7 +285,7 @@ export type Attendee1 = {
   /**
    * List of appointment groups associated with attendee. These control permissions and visibility in appointments associated with the event.
    */
-  appointmentGroups?: Array<AppointmentGroupJson> | undefined;
+  appointmentGroups?: Array<AppointmentGroup> | undefined;
   /**
    * The amount of credit associated with the attendee.
    */
@@ -348,7 +348,7 @@ export const Attendee1$inboundSchema: z.ZodType<
   id: z.string().optional(),
   event: z.lazy(() => AttendeeEvent$inboundSchema).optional(),
   confirmationNumber: z.string().optional(),
-  contact: AttendeeContactInfoJson$inboundSchema.optional(),
+  contact: AttendeeContactInfo$inboundSchema.optional(),
   checkedIn: z.boolean().optional(),
   checkin: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
@@ -357,20 +357,20 @@ export const Attendee1$inboundSchema: z.ZodType<
   checkOut: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   duration: z.number().int().optional(),
-  registrationPath: LookupJson$inboundSchema.optional(),
-  invitationList: IdNameJson$inboundSchema.optional(),
-  webLinks: AttendeeWebLinksJson$inboundSchema.optional(),
-  registrationType: LookupJson$inboundSchema.optional(),
+  registrationPath: Lookup$inboundSchema.optional(),
+  invitationList: NamedObject$inboundSchema.optional(),
+  webLinks: AttendeeWebLinks$inboundSchema.optional(),
+  registrationType: Lookup$inboundSchema.optional(),
   referenceId: z.string().optional(),
-  externalReferences: z.array(ExternalReferenceJson$inboundSchema).optional(),
+  externalReferences: z.array(ExternalReference$inboundSchema).optional(),
   note: z.string().optional(),
   guest: z.boolean().optional(),
   deletedGuest: z.boolean().optional(),
   primaryId: z.string().optional(),
-  group: AttendeeGroupJson$inboundSchema.optional(),
-  administrator: UuidJson$inboundSchema.optional(),
+  group: AttendeeGroup$inboundSchema.optional(),
+  administrator: Uuid$inboundSchema.optional(),
   unsubscribed: z.boolean().optional(),
-  status: AttendeeStatusJson$inboundSchema.optional(),
+  status: AttendeeStatus$inboundSchema.optional(),
   registeredAt: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
@@ -380,12 +380,12 @@ export const Attendee1$inboundSchema: z.ZodType<
   registrationCancelledAt: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  invitedBy: AttendeeInvitedByJson$inboundSchema.optional(),
-  responseMethod: AttendeeResponseMethodJson$inboundSchema.optional(),
-  questions: z.array(CustomField$inboundSchema).optional(),
-  answers: z.array(AttendeeAnswerJson$inboundSchema).optional(),
+  invitedBy: AttendeeInvitedBy1$inboundSchema.optional(),
+  responseMethod: AttendeeResponseMethod1$inboundSchema.optional(),
+  questions: z.array(CustomFieldSchema$inboundSchema).optional(),
+  answers: z.array(AttendeeAnswer$inboundSchema).optional(),
   admissionItem: z.lazy(() => AttendeeLookup$inboundSchema).optional(),
-  visibility: AttendeeVisibilityJson$inboundSchema.optional(),
+  visibility: AttendeeVisibility$inboundSchema.optional(),
   bio: z.string().optional(),
   showPopupNotification: z.boolean().optional(),
   websiteUrl: z.string().optional(),
@@ -395,7 +395,7 @@ export const Attendee1$inboundSchema: z.ZodType<
   attendeeLastModified: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
-  appointmentGroups: z.array(AppointmentGroupJson$inboundSchema).optional(),
+  appointmentGroups: z.array(AppointmentGroup$inboundSchema).optional(),
   credit: z.number().optional(),
 });
 

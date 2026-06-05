@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event1? Event { get; set; }
+        public Event21? Event { get; set; }
 
         /// <summary>
         /// The Associated Exhibitor.
@@ -77,7 +77,7 @@ namespace Cvent.SDK.Models.Components
         /// A JSON schema representing the structure of an appointment object.
         /// </summary>
         [JsonProperty("appointment")]
-        public Appointment? Appointment { get; set; }
+        public Appointment1? Appointment { get; set; }
 
         /// <summary>
         /// The title of the lead.

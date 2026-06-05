@@ -9,9 +9,9 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.HotelReservationDetail;
+import com.cvent.models.components.HotelReservationDetail2;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetHotelRequestsRequest;
 import com.cvent.models.operations.GetHotelRequestsResponse;
 import com.cvent.utils.AsyncRetries;
@@ -184,14 +184,14 @@ public class GetHotelRequests {
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withHotelReservationDetail(
-                            Utils.unmarshal(response, new TypeReference<HotelReservationDetail>() {}));
+                            Utils.unmarshal(response, new TypeReference<HotelReservationDetail2>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -272,7 +272,7 @@ public class GetHotelRequests {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<HotelReservationDetail>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<HotelReservationDetail2>() {})
                             .thenApply(res::withHotelReservationDetail);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
@@ -280,7 +280,7 @@ public class GetHotelRequests {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

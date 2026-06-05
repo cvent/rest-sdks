@@ -64,7 +64,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorCategoriesRequest;
 import com.cvent.models.operations.GetExhibitorCategoriesResponse;
 import java.lang.Exception;
@@ -72,7 +72,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -113,10 +113,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## createExhibitorCategory
 
@@ -133,7 +133,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateExhibitorCategoryRequest;
 import com.cvent.models.operations.CreateExhibitorCategoryResponse;
 import java.lang.Exception;
@@ -141,7 +141,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -157,7 +157,7 @@ public class Application {
         CreateExhibitorCategoryRequest req = CreateExhibitorCategoryRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -190,10 +190,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitorCategory
 
@@ -210,7 +210,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorCategoryRequest;
 import com.cvent.models.operations.UpdateExhibitorCategoryResponse;
 import java.lang.Exception;
@@ -218,7 +218,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -235,7 +235,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryId("534a465b-b4cb-471d-9498-4bf3917ad8bf")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -268,10 +268,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitorCategory
 
@@ -289,7 +289,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteExhibitorCategoryRequest;
 import com.cvent.models.operations.DeleteExhibitorCategoryResponse;
 import java.lang.Exception;
@@ -297,7 +297,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -336,10 +336,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitorCategoryBanner
 
@@ -360,7 +360,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorCategoryBannerRequest;
 import com.cvent.models.operations.UpdateExhibitorCategoryBannerResponse;
 import java.lang.Exception;
@@ -368,7 +368,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -410,10 +410,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitorCategoryImage
 
@@ -431,7 +431,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteExhibitorCategoryImageRequest;
 import com.cvent.models.operations.DeleteExhibitorCategoryImageResponse;
 import java.lang.Exception;
@@ -439,7 +439,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -479,10 +479,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## listExhibitors
 
@@ -500,7 +500,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.ListExhibitorsRequest;
 import com.cvent.models.operations.ListExhibitorsResponse;
 import java.lang.Exception;
@@ -508,7 +508,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -550,10 +550,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## addExhibitorToExhibitorCategory
 
@@ -571,7 +571,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.AddExhibitorToExhibitorCategoryRequest;
 import com.cvent.models.operations.AddExhibitorToExhibitorCategoryResponse;
 import java.lang.Exception;
@@ -579,7 +579,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -619,10 +619,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## removeExhibitorFromExhibitorCategory
 
@@ -640,7 +640,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.RemoveExhibitorFromExhibitorCategoryRequest;
 import com.cvent.models.operations.RemoveExhibitorFromExhibitorCategoryResponse;
 import java.lang.Exception;
@@ -648,7 +648,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -688,10 +688,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitorQuestions
 
@@ -709,7 +709,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorQuestionsRequest;
 import com.cvent.models.operations.GetExhibitorQuestionsResponse;
 import java.lang.Exception;
@@ -717,7 +717,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -757,10 +757,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitors
 
@@ -778,7 +778,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorsRequest;
 import com.cvent.models.operations.GetExhibitorsResponse;
 import java.lang.Exception;
@@ -787,7 +787,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -831,10 +831,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## createExhibitor
 
@@ -851,7 +851,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateExhibitorRequest;
 import com.cvent.models.operations.CreateExhibitorResponse;
 import java.lang.Exception;
@@ -859,7 +859,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -875,7 +875,7 @@ public class Application {
         CreateExhibitorRequest req = CreateExhibitorRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -883,7 +883,7 @@ public class Application {
                     .code("abc123")
                     .sourceId("software")
                     .location("Taj Mahal")
-                    .address(Address11.builder()
+                    .address(Address2.builder()
                         .address1("Cvent Inc.")
                         .address2("4001 West Parmer Lane")
                         .city("Austin")
@@ -896,7 +896,7 @@ public class Application {
                     .workPhone("555-555-5555")
                     .otherPhone("555-555-5555")
                     .website("www.superhappyfuntime.com")
-                    .contactLinks(ContactLinks.builder()
+                    .contactLinks(ContactLinks1.builder()
                         .twitterUrl(Link.builder()
                             .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                             .build())
@@ -939,10 +939,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitor
 
@@ -960,7 +960,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorRequest;
 import com.cvent.models.operations.GetExhibitorResponse;
 import java.lang.Exception;
@@ -968,7 +968,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1009,10 +1009,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitor
 
@@ -1029,7 +1029,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorRequest;
 import com.cvent.models.operations.UpdateExhibitorResponse;
 import java.lang.Exception;
@@ -1037,7 +1037,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1054,7 +1054,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -1062,7 +1062,7 @@ public class Application {
                     .code("abc123")
                     .sourceId("software")
                     .location("Taj Mahal")
-                    .address(Address11.builder()
+                    .address(Address2.builder()
                         .address1("Cvent Inc.")
                         .address2("4001 West Parmer Lane")
                         .city("Austin")
@@ -1075,7 +1075,7 @@ public class Application {
                     .workPhone("555-555-5555")
                     .otherPhone("555-555-5555")
                     .website("www.superhappyfuntime.com")
-                    .contactLinks(ContactLinks.builder()
+                    .contactLinks(ContactLinks1.builder()
                         .twitterUrl(Link.builder()
                             .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                             .build())
@@ -1118,10 +1118,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitor
 
@@ -1139,7 +1139,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteExhibitorRequest;
 import com.cvent.models.operations.DeleteExhibitorResponse;
 import java.lang.Exception;
@@ -1147,7 +1147,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1186,10 +1186,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitorBanner
 
@@ -1210,7 +1210,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorBannerRequest;
 import com.cvent.models.operations.UpdateExhibitorBannerResponse;
 import java.lang.Exception;
@@ -1218,7 +1218,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1260,10 +1260,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitorBanner
 
@@ -1281,7 +1281,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteExhibitorBannerRequest;
 import com.cvent.models.operations.DeleteExhibitorBannerResponse;
 import java.lang.Exception;
@@ -1289,7 +1289,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1329,10 +1329,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitorAnswers
 
@@ -1350,7 +1350,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorAnswersRequest;
 import com.cvent.models.operations.GetExhibitorAnswersResponse;
 import java.lang.Exception;
@@ -1358,7 +1358,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1399,10 +1399,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitorAnswers
 
@@ -1419,7 +1419,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorAnswersRequest;
 import com.cvent.models.operations.UpdateExhibitorAnswersResponse;
 import java.lang.Exception;
@@ -1427,7 +1427,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1446,10 +1446,10 @@ public class Application {
                 .exhibitorAnswersRequest(ExhibitorAnswersRequest.builder()
                     .data(List.of(
                         ExistingExhibitorAnswerInput.builder()
-                            .question(Uuid1.builder()
+                            .question(Uuid.builder()
                                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                                 .build())
-                            .event(Event1.builder()
+                            .event(Event21.builder()
                                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                                 .build())
                             .exhibitor(Exhibitor.builder()
@@ -1487,10 +1487,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## listExhibitorCategories
 
@@ -1508,7 +1508,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.ListExhibitorCategoriesRequest;
 import com.cvent.models.operations.ListExhibitorCategoriesResponse;
 import java.lang.Exception;
@@ -1516,7 +1516,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1558,10 +1558,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateExhibitorLogo
 
@@ -1582,7 +1582,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateExhibitorLogoRequest;
 import com.cvent.models.operations.UpdateExhibitorLogoResponse;
 import java.lang.Exception;
@@ -1590,7 +1590,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1632,10 +1632,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteExhibitorLogo
 
@@ -1653,7 +1653,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteExhibitorLogoRequest;
 import com.cvent.models.operations.DeleteExhibitorLogoResponse;
 import java.lang.Exception;
@@ -1661,7 +1661,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1701,10 +1701,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getLeadQualificationQuestions
 
@@ -1722,7 +1722,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetLeadQualificationQuestionsRequest;
 import com.cvent.models.operations.GetLeadQualificationQuestionsResponse;
 import java.lang.Exception;
@@ -1730,7 +1730,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1771,10 +1771,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## postRegistrationPack
 
@@ -1791,7 +1791,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.PostRegistrationPackRequest;
 import com.cvent.models.operations.PostRegistrationPackResponse;
 import java.lang.Exception;
@@ -1799,7 +1799,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1816,7 +1816,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(Exhibitor.builder()
@@ -1857,7 +1857,7 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse  | 400, 401, 403, 404, 409, 429 | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 409, 429 | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitorRegistrationPacks
@@ -1878,7 +1878,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetExhibitorRegistrationPacksRequest;
 import com.cvent.models.operations.GetExhibitorRegistrationPacksResponse;
 import java.lang.Exception;
@@ -1886,7 +1886,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1927,10 +1927,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getRegistrationPack
 
@@ -1948,7 +1948,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetRegistrationPackRequest;
 import com.cvent.models.operations.GetRegistrationPackResponse;
 import java.lang.Exception;
@@ -1956,7 +1956,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1998,10 +1998,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## updateRegistrationPack
 
@@ -2018,7 +2018,7 @@ package hello.world;
 
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.UpdateRegistrationPackRequest;
 import com.cvent.models.operations.UpdateRegistrationPackResponse;
 import java.lang.Exception;
@@ -2026,7 +2026,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -2044,7 +2044,7 @@ public class Application {
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackId("50f4f0df-0c2d-4e6b-8e68-e1413b6917f5")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(Event1.builder()
+                    .event(Event21.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(Exhibitor.builder()
@@ -2083,10 +2083,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 400, 401, 403, 404, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteRegistrationPack
 
@@ -2104,7 +2104,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.DeleteRegistrationPackRequest;
 import com.cvent.models.operations.DeleteRegistrationPackResponse;
 import java.lang.Exception;
@@ -2112,7 +2112,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -2152,10 +2152,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 409, 429     | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 409, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getSponsorshipLevels
 
@@ -2173,7 +2173,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetSponsorshipLevelsRequest;
 import com.cvent.models.operations.GetSponsorshipLevelsResponse;
 import java.lang.Exception;
@@ -2181,7 +2181,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -2221,10 +2221,10 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getSponsorshipLevel
 
@@ -2242,7 +2242,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetSponsorshipLevelRequest;
 import com.cvent.models.operations.GetSponsorshipLevelResponse;
 import java.lang.Exception;
@@ -2250,7 +2250,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse, Exception {
+    public static void main(String[] args) throws ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -2291,7 +2291,7 @@ public class Application {
 
 ### Errors
 
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| models/errors/ErrorResponse | 401, 403, 404, 429          | application/json            |
-| models/errors/APIException  | 4XX, 5XX                    | \*/\*                       |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |

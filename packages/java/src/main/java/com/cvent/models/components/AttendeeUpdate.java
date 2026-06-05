@@ -80,14 +80,14 @@ public class AttendeeUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("visibility")
-    private AttendeeVisibilityJson visibility;
+    private AttendeeVisibility visibility;
 
     /**
      * The list of answers to the attendee's registration questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answers")
-    private List<AttendeeAnswerJson> answers;
+    private List<AttendeeAnswer> answers;
 
     /**
      * True indicates a confirmation email should be sent to the attendee. Cancelled attendees will not
@@ -117,7 +117,7 @@ public class AttendeeUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AttendeeUpdateStatusJson status;
+    private AttendeeUpdateStatus status;
 
     /**
      * The attendee's registration type.
@@ -135,7 +135,7 @@ public class AttendeeUpdate {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitedBy")
     @Deprecated
-    private DeprecatedAttendeeInvitedByJson invitedBy;
+    private AttendeeInvitedBy invitedBy;
 
     /**
      * Method by which attendee registered for the event. Note: This field is deprecated. Previous
@@ -146,7 +146,7 @@ public class AttendeeUpdate {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responseMethod")
     @Deprecated
-    private DeprecatedAttendeeResponseMethodJson responseMethod;
+    private AttendeeResponseMethod responseMethod;
 
     @JsonCreator
     public AttendeeUpdate(
@@ -157,13 +157,13 @@ public class AttendeeUpdate {
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("administrator") @Nullable AttendeeUpdateAdministrator administrator,
             @JsonProperty("admissionItem") @Nullable AttendeeUpdateAdmissionItem admissionItem,
-            @JsonProperty("visibility") @Nullable AttendeeVisibilityJson visibility,
-            @JsonProperty("answers") @Nullable List<AttendeeAnswerJson> answers,
+            @JsonProperty("visibility") @Nullable AttendeeVisibility visibility,
+            @JsonProperty("answers") @Nullable List<AttendeeAnswer> answers,
             @JsonProperty("sendEmail") @Nullable Boolean sendEmail,
-            @JsonProperty("status") @Nullable AttendeeUpdateStatusJson status,
+            @JsonProperty("status") @Nullable AttendeeUpdateStatus status,
             @JsonProperty("registrationType") @Nullable AttendeeUpdateRegistrationType registrationType,
-            @JsonProperty("invitedBy") @Nullable DeprecatedAttendeeInvitedByJson invitedBy,
-            @JsonProperty("responseMethod") @Nullable DeprecatedAttendeeResponseMethodJson responseMethod) {
+            @JsonProperty("invitedBy") @Nullable AttendeeInvitedBy invitedBy,
+            @JsonProperty("responseMethod") @Nullable AttendeeResponseMethod responseMethod) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.contact =
                 Optional.ofNullable(contact).orElseThrow(() -> new IllegalArgumentException("contact cannot be null"));
@@ -240,14 +240,14 @@ public class AttendeeUpdate {
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
      */
-    public Optional<AttendeeVisibilityJson> visibility() {
+    public Optional<AttendeeVisibility> visibility() {
         return Optional.ofNullable(this.visibility);
     }
 
     /**
      * The list of answers to the attendee's registration questions.
      */
-    public Optional<List<AttendeeAnswerJson>> answers() {
+    public Optional<List<AttendeeAnswer>> answers() {
         return Optional.ofNullable(this.answers);
     }
 
@@ -277,7 +277,7 @@ public class AttendeeUpdate {
      * Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> * Pending
      * Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval
      */
-    public Optional<AttendeeUpdateStatusJson> status() {
+    public Optional<AttendeeUpdateStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -295,7 +295,7 @@ public class AttendeeUpdate {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<DeprecatedAttendeeInvitedByJson> invitedBy() {
+    public Optional<AttendeeInvitedBy> invitedBy() {
         return Optional.ofNullable(this.invitedBy);
     }
 
@@ -306,7 +306,7 @@ public class AttendeeUpdate {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<DeprecatedAttendeeResponseMethodJson> responseMethod() {
+    public Optional<AttendeeResponseMethod> responseMethod() {
         return Optional.ofNullable(this.responseMethod);
     }
 
@@ -376,7 +376,7 @@ public class AttendeeUpdate {
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
      */
-    public AttendeeUpdate withVisibility(@Nullable AttendeeVisibilityJson visibility) {
+    public AttendeeUpdate withVisibility(@Nullable AttendeeVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -384,7 +384,7 @@ public class AttendeeUpdate {
     /**
      * The list of answers to the attendee's registration questions.
      */
-    public AttendeeUpdate withAnswers(@Nullable List<AttendeeAnswerJson> answers) {
+    public AttendeeUpdate withAnswers(@Nullable List<AttendeeAnswer> answers) {
         this.answers = answers;
         return this;
     }
@@ -416,7 +416,7 @@ public class AttendeeUpdate {
      * Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> * Pending
      * Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval
      */
-    public AttendeeUpdate withStatus(@Nullable AttendeeUpdateStatusJson status) {
+    public AttendeeUpdate withStatus(@Nullable AttendeeUpdateStatus status) {
         this.status = status;
         return this;
     }
@@ -436,7 +436,7 @@ public class AttendeeUpdate {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public AttendeeUpdate withInvitedBy(@Nullable DeprecatedAttendeeInvitedByJson invitedBy) {
+    public AttendeeUpdate withInvitedBy(@Nullable AttendeeInvitedBy invitedBy) {
         this.invitedBy = invitedBy;
         return this;
     }
@@ -448,7 +448,7 @@ public class AttendeeUpdate {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public AttendeeUpdate withResponseMethod(@Nullable DeprecatedAttendeeResponseMethodJson responseMethod) {
+    public AttendeeUpdate withResponseMethod(@Nullable AttendeeResponseMethod responseMethod) {
         this.responseMethod = responseMethod;
         return this;
     }
@@ -548,21 +548,21 @@ public class AttendeeUpdate {
 
         private AttendeeUpdateAdmissionItem admissionItem;
 
-        private AttendeeVisibilityJson visibility;
+        private AttendeeVisibility visibility;
 
-        private List<AttendeeAnswerJson> answers;
+        private List<AttendeeAnswer> answers;
 
         private Boolean sendEmail;
 
-        private AttendeeUpdateStatusJson status;
+        private AttendeeUpdateStatus status;
 
         private AttendeeUpdateRegistrationType registrationType;
 
         @Deprecated
-        private DeprecatedAttendeeInvitedByJson invitedBy;
+        private AttendeeInvitedBy invitedBy;
 
         @Deprecated
-        private DeprecatedAttendeeResponseMethodJson responseMethod;
+        private AttendeeResponseMethod responseMethod;
 
         private Builder() {
             // force use of static builder() method
@@ -630,7 +630,7 @@ public class AttendeeUpdate {
          * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
          * visible. Public: Their profile is visible.
          */
-        public Builder visibility(@Nullable AttendeeVisibilityJson visibility) {
+        public Builder visibility(@Nullable AttendeeVisibility visibility) {
             this.visibility = visibility;
             return this;
         }
@@ -638,7 +638,7 @@ public class AttendeeUpdate {
         /**
          * The list of answers to the attendee's registration questions.
          */
-        public Builder answers(@Nullable List<AttendeeAnswerJson> answers) {
+        public Builder answers(@Nullable List<AttendeeAnswer> answers) {
             this.answers = answers;
             return this;
         }
@@ -670,7 +670,7 @@ public class AttendeeUpdate {
          * Approval <br> * Accepted -&gt; Cancelled <br> * Pending Approval -&gt; Accepted <br> * Pending
          * Approval -&gt; Denied Approval <br> * Denied Approval -&gt; Pending Approval
          */
-        public Builder status(@Nullable AttendeeUpdateStatusJson status) {
+        public Builder status(@Nullable AttendeeUpdateStatus status) {
             this.status = status;
             return this;
         }
@@ -690,7 +690,7 @@ public class AttendeeUpdate {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder invitedBy(@Nullable DeprecatedAttendeeInvitedByJson invitedBy) {
+        public Builder invitedBy(@Nullable AttendeeInvitedBy invitedBy) {
             this.invitedBy = invitedBy;
             return this;
         }
@@ -702,7 +702,7 @@ public class AttendeeUpdate {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder responseMethod(@Nullable DeprecatedAttendeeResponseMethodJson responseMethod) {
+        public Builder responseMethod(@Nullable AttendeeResponseMethod responseMethod) {
             this.responseMethod = responseMethod;
             return this;
         }
@@ -725,7 +725,7 @@ public class AttendeeUpdate {
                     responseMethod);
         }
 
-        private static final LazySingletonValue<AttendeeUpdateStatusJson> _SINGLETON_VALUE_Status =
-                new LazySingletonValue<>("status", "\"No Response\"", new TypeReference<AttendeeUpdateStatusJson>() {});
+        private static final LazySingletonValue<AttendeeUpdateStatus> _SINGLETON_VALUE_Status =
+                new LazySingletonValue<>("status", "\"No Response\"", new TypeReference<AttendeeUpdateStatus>() {});
     }
 }

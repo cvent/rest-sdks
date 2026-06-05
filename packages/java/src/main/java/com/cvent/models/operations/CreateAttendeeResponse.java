@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.AttendeeAddBulkItem;
+import com.cvent.models.components.AttendeeInvitesBulkResponseItem;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,14 +35,14 @@ public class CreateAttendeeResponse implements Response {
     /**
      * Attendee(s) were successfully added to the event.
      */
-    private List<AttendeeAddBulkItem> attendeeAddBulkResponse;
+    private List<AttendeeInvitesBulkResponseItem> attendeeAddBulkResponse;
 
     @JsonCreator
     public CreateAttendeeResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable List<AttendeeAddBulkItem> attendeeAddBulkResponse) {
+            @Nullable List<AttendeeInvitesBulkResponseItem> attendeeAddBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class CreateAttendeeResponse implements Response {
     /**
      * Attendee(s) were successfully added to the event.
      */
-    public Optional<List<AttendeeAddBulkItem>> attendeeAddBulkResponse() {
+    public Optional<List<AttendeeInvitesBulkResponseItem>> attendeeAddBulkResponse() {
         return Optional.ofNullable(this.attendeeAddBulkResponse);
     }
 
@@ -116,7 +116,7 @@ public class CreateAttendeeResponse implements Response {
      * Attendee(s) were successfully added to the event.
      */
     public CreateAttendeeResponse withAttendeeAddBulkResponse(
-            @Nullable List<AttendeeAddBulkItem> attendeeAddBulkResponse) {
+            @Nullable List<AttendeeInvitesBulkResponseItem> attendeeAddBulkResponse) {
         this.attendeeAddBulkResponse = attendeeAddBulkResponse;
         return this;
     }
@@ -164,7 +164,7 @@ public class CreateAttendeeResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private List<AttendeeAddBulkItem> attendeeAddBulkResponse;
+        private List<AttendeeInvitesBulkResponseItem> attendeeAddBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -197,7 +197,8 @@ public class CreateAttendeeResponse implements Response {
         /**
          * Attendee(s) were successfully added to the event.
          */
-        public Builder attendeeAddBulkResponse(@Nullable List<AttendeeAddBulkItem> attendeeAddBulkResponse) {
+        public Builder attendeeAddBulkResponse(
+                @Nullable List<AttendeeInvitesBulkResponseItem> attendeeAddBulkResponse) {
             this.attendeeAddBulkResponse = attendeeAddBulkResponse;
             return this;
         }

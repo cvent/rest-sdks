@@ -6,18 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  EventLiteJson1,
-  EventLiteJson1$inboundSchema,
-} from "./eventlitejson1.js";
-import {
-  SegmentLiteJson,
-  SegmentLiteJson$inboundSchema,
-} from "./segmentlitejson.js";
-import {
-  SessionLiteJson1,
-  SessionLiteJson1$inboundSchema,
-} from "./sessionlitejson1.js";
+import { EventId, EventId$inboundSchema } from "./eventid.js";
+import { Segment, Segment$inboundSchema } from "./segment.js";
+import { Session1, Session1$inboundSchema } from "./session1.js";
 
 /**
  * Represents a mapping between a session and an audience segment, which is used to enforce session visibility to only those in certain audience segments.
@@ -46,15 +37,15 @@ export type SessionSegment = {
   /**
    * The related event object.
    */
-  event: EventLiteJson1;
+  event: EventId;
   /**
    * The related session object.
    */
-  session: SessionLiteJson1;
+  session: Session1;
   /**
    * The audience segment associated with the session.
    */
-  segment: SegmentLiteJson;
+  segment: Segment;
   /**
    * True indicates the session segment is active.
    */
@@ -75,9 +66,9 @@ export const SessionSegment$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: EventLiteJson1$inboundSchema,
-  session: SessionLiteJson1$inboundSchema,
-  segment: SegmentLiteJson$inboundSchema,
+  event: EventId$inboundSchema,
+  session: Session1$inboundSchema,
+  segment: Segment$inboundSchema,
   active: z.boolean().default(true),
 });
 

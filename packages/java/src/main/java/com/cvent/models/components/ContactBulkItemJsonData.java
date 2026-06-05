@@ -30,7 +30,7 @@ public class ContactBulkItemJsonData {
         return new ContactBulkItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ContactBulkItemJsonData of(ErrorResponse value) {
+    public static ContactBulkItemJsonData of(ErrorResponse1 value) {
         Utils.checkNotNull(value, "value");
         return new ContactBulkItemJsonData(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -39,7 +39,7 @@ public class ContactBulkItemJsonData {
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ZeroAllOf7}</li>
-     * <li>{@code com.cvent.models.components.ErrorResponse}</li>
+     * <li>{@code com.cvent.models.components.ErrorResponse1}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -82,7 +82,7 @@ public class ContactBulkItemJsonData {
                     ContactBulkItemJsonData.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<ZeroAllOf7>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse1>() {}, JsonShape.DEFAULT));
         }
     }
 

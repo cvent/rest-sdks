@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * The associated Attendee.
+ * The reference to the attendee. Contains only the ID of the attendee.
  */
 export type Attendee2 = {
   /**
-   * Attendee id
+   * Unique identifier of the primary invitee for the current attendee's registration.
    */
   id: string;
 };

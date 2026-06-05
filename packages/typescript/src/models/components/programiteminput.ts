@@ -4,15 +4,15 @@
 
 import * as z from "zod/v3";
 import {
-  EventLiteJson1,
-  EventLiteJson1$Outbound,
-  EventLiteJson1$outboundSchema,
-} from "./eventlitejson1.js";
+  EventId,
+  EventId$Outbound,
+  EventId$outboundSchema,
+} from "./eventid.js";
 import {
-  SessionLiteJson1,
-  SessionLiteJson1$Outbound,
-  SessionLiteJson1$outboundSchema,
-} from "./sessionlitejson1.js";
+  Session1,
+  Session1$Outbound,
+  Session1$outboundSchema,
+} from "./session1.js";
 
 /**
  * Represents a program item object that will be added to a session.
@@ -21,11 +21,11 @@ export type ProgramItemInput = {
   /**
    * The related event object.
    */
-  event: EventLiteJson1;
+  event: EventId;
   /**
    * The related session object.
    */
-  session: SessionLiteJson1;
+  session: Session1;
   /**
    * Name of the program item.
    */
@@ -46,8 +46,8 @@ export type ProgramItemInput = {
 
 /** @internal */
 export type ProgramItemInput$Outbound = {
-  event: EventLiteJson1$Outbound;
-  session: SessionLiteJson1$Outbound;
+  event: EventId$Outbound;
+  session: Session1$Outbound;
   name: string;
   duration: number;
   description?: string | undefined;
@@ -60,8 +60,8 @@ export const ProgramItemInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProgramItemInput
 > = z.object({
-  event: EventLiteJson1$outboundSchema,
-  session: SessionLiteJson1$outboundSchema,
+  event: EventId$outboundSchema,
+  session: Session1$outboundSchema,
   name: z.string(),
   duration: z.number().int().default(0),
   description: z.string().optional(),

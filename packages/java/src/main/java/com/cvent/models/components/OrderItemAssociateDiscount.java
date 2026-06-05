@@ -21,19 +21,19 @@ public class OrderItemAssociateDiscount {
      * The reference to the event. Contains only the ID of the event.
      */
     @JsonProperty("event")
-    private EventJson event;
+    private Event2 event;
 
     /**
      * Represents an order. Contains only the ID of the order.
      */
     @JsonProperty("order")
-    private OrderJson order;
+    private Order order;
 
     /**
      * Represents an order item. Contains only the ID of the order item.
      */
     @JsonProperty("item")
-    private OrderItemJson0 item;
+    private OrderItem item;
 
     /**
      * New order amount for the charge order item.
@@ -43,9 +43,9 @@ public class OrderItemAssociateDiscount {
 
     @JsonCreator
     public OrderItemAssociateDiscount(
-            @JsonProperty("event") @Nonnull EventJson event,
-            @JsonProperty("order") @Nonnull OrderJson order,
-            @JsonProperty("item") @Nonnull OrderItemJson0 item,
+            @JsonProperty("event") @Nonnull Event2 event,
+            @JsonProperty("order") @Nonnull Order order,
+            @JsonProperty("item") @Nonnull OrderItem item,
             @JsonProperty("amountOrdered") double amountOrdered) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
         this.order = Optional.ofNullable(order).orElseThrow(() -> new IllegalArgumentException("order cannot be null"));
@@ -56,21 +56,21 @@ public class OrderItemAssociateDiscount {
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public EventJson event() {
+    public Event2 event() {
         return this.event;
     }
 
     /**
      * Represents an order. Contains only the ID of the order.
      */
-    public OrderJson order() {
+    public Order order() {
         return this.order;
     }
 
     /**
      * Represents an order item. Contains only the ID of the order item.
      */
-    public OrderItemJson0 item() {
+    public OrderItem item() {
         return this.item;
     }
 
@@ -88,7 +88,7 @@ public class OrderItemAssociateDiscount {
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public OrderItemAssociateDiscount withEvent(@Nonnull EventJson event) {
+    public OrderItemAssociateDiscount withEvent(@Nonnull Event2 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -96,7 +96,7 @@ public class OrderItemAssociateDiscount {
     /**
      * Represents an order. Contains only the ID of the order.
      */
-    public OrderItemAssociateDiscount withOrder(@Nonnull OrderJson order) {
+    public OrderItemAssociateDiscount withOrder(@Nonnull Order order) {
         this.order = Utils.checkNotNull(order, "order");
         return this;
     }
@@ -104,7 +104,7 @@ public class OrderItemAssociateDiscount {
     /**
      * Represents an order item. Contains only the ID of the order item.
      */
-    public OrderItemAssociateDiscount withItem(@Nonnull OrderItemJson0 item) {
+    public OrderItemAssociateDiscount withItem(@Nonnull OrderItem item) {
         this.item = Utils.checkNotNull(item, "item");
         return this;
     }
@@ -154,11 +154,11 @@ public class OrderItemAssociateDiscount {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson event;
+        private Event2 event;
 
-        private OrderJson order;
+        private Order order;
 
-        private OrderItemJson0 item;
+        private OrderItem item;
 
         private double amountOrdered;
 
@@ -169,7 +169,7 @@ public class OrderItemAssociateDiscount {
         /**
          * The reference to the event. Contains only the ID of the event.
          */
-        public Builder event(@Nonnull EventJson event) {
+        public Builder event(@Nonnull Event2 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -177,7 +177,7 @@ public class OrderItemAssociateDiscount {
         /**
          * Represents an order. Contains only the ID of the order.
          */
-        public Builder order(@Nonnull OrderJson order) {
+        public Builder order(@Nonnull Order order) {
             this.order = Utils.checkNotNull(order, "order");
             return this;
         }
@@ -185,7 +185,7 @@ public class OrderItemAssociateDiscount {
         /**
          * Represents an order item. Contains only the ID of the order item.
          */
-        public Builder item(@Nonnull OrderItemJson0 item) {
+        public Builder item(@Nonnull OrderItem item) {
             this.item = Utils.checkNotNull(item, "item");
             return this;
         }

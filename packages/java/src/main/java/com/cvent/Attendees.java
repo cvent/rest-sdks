@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.RequestOperation;
 
-import com.cvent.models.components.AttendeeAddJson;
+import com.cvent.models.components.AttendeeAdd;
 import com.cvent.models.operations.CreateAttendeeRequestBuilder;
 import com.cvent.models.operations.CreateAttendeeResponse;
 import com.cvent.models.operations.GetAttendeeByIdRequest;
@@ -157,7 +157,7 @@ public class Attendees {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateAttendeeResponse createAttendee(@Nonnull List<AttendeeAddJson> request) {
+    public CreateAttendeeResponse createAttendee(@Nonnull List<AttendeeAdd> request) {
         return createAttendee(request, null);
     }
 
@@ -173,8 +173,8 @@ public class Attendees {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public CreateAttendeeResponse createAttendee(@Nonnull List<AttendeeAddJson> request, @Nullable Options options) {
-        RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+    public CreateAttendeeResponse createAttendee(@Nonnull List<AttendeeAdd> request, @Nullable Options options) {
+        RequestOperation<List<AttendeeAdd>, CreateAttendeeResponse> operation =
                 new CreateAttendee.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
