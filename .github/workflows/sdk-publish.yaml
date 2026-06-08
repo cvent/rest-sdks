@@ -76,7 +76,7 @@ jobs:
       use_sonatype_legacy: ${{ steps.release.outputs.use_sonatype_legacy }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - id: release
         name: Create GitHub Release
@@ -113,10 +113,10 @@ jobs:
         working-directory: ${{ needs.release.outputs.typescript_directory }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
@@ -197,16 +197,16 @@ jobs:
         working-directory: ${{ needs.release.outputs.java_directory }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Setup Java
-        uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
         with:
           distribution: "corretto"
           java-version: "11"
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3
+        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e
         with:
           gradle-version: "8.14"
 
@@ -284,10 +284,10 @@ jobs:
         working-directory: ${{ needs.release.outputs.csharp_directory }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@ea9897a6e57642ca932850b656df2880bc7cd2a8
+        uses: actions/setup-dotnet@9a946fdbd5fb07b82b2f5a4466058b876ab72bb2
         with:
           dotnet-version: "8.x"
 
