@@ -56,7 +56,7 @@ public class ExistingFile {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -96,7 +96,7 @@ public class ExistingFile {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("displayName") @Nonnull String displayName,
             @JsonProperty("hidden") @Nullable Boolean hidden,
@@ -116,7 +116,7 @@ public class ExistingFile {
         this.id = id;
     }
 
-    public ExistingFile(@Nonnull Event1 event, @Nonnull Exhibitor exhibitor, @Nonnull String displayName, long order) {
+    public ExistingFile(@Nonnull Event21 event, @Nonnull Exhibitor exhibitor, @Nonnull String displayName, long order) {
         this(null, null, null, null, event, exhibitor, displayName, null, order, null);
     }
 
@@ -151,7 +151,7 @@ public class ExistingFile {
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -229,7 +229,7 @@ public class ExistingFile {
     /**
      * The Associated Event.
      */
-    public ExistingFile withEvent(@Nonnull Event1 event) {
+    public ExistingFile withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -338,7 +338,7 @@ public class ExistingFile {
 
         private String lastModifiedBy;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -389,7 +389,7 @@ public class ExistingFile {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

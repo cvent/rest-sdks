@@ -6,9 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address11, Address11$inboundSchema } from "./address11.js";
-import { ContactLinks, ContactLinks$inboundSchema } from "./contactlinks.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Address2, Address2$inboundSchema } from "./address2.js";
+import { ContactLinks1, ContactLinks1$inboundSchema } from "./contactlinks1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import {
   SponsorshipLevel,
   SponsorshipLevel$inboundSchema,
@@ -37,7 +37,7 @@ export type ExhibitorResponse = {
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -61,7 +61,7 @@ export type ExhibitorResponse = {
   /**
    * An object representing an address with various properties.
    */
-  address?: Address11 | undefined;
+  address?: Address2 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -85,7 +85,7 @@ export type ExhibitorResponse = {
   /**
    * A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
    */
-  contactLinks?: ContactLinks | undefined;
+  contactLinks?: ContactLinks1 | undefined;
   /**
    * A boolean indicating whether the exhibitor is deleted or not
    */
@@ -141,19 +141,19 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event1$inboundSchema,
+  event: Event21$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: Address11$inboundSchema.optional(),
+  address: Address2$inboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),
   otherPhone: z.string().optional(),
   website: z.string().optional(),
-  contactLinks: ContactLinks$inboundSchema.optional(),
+  contactLinks: ContactLinks1$inboundSchema.optional(),
   deleted: z.boolean().default(false),
   hidden: z.boolean().default(false),
   eventSponsor: z.boolean().default(false),

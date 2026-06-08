@@ -46,26 +46,24 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators. The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// There are six comparison types that can be used in filter expressions:<br/>
-        /// * equal: eq<br/>
-        /// * not equal: ne<br/>
-        /// * greater than: gt<br/>
-        /// * greater or equal: ge<br/>
-        /// * less than: lt<br/>
-        /// * less than or equal: le<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        /// * id (eq|ne)<br/>
-        /// * attendee.id (eq|ne)<br/>
-        /// * event.id (eq|ne)<br/>
-        /// * order.id (eq|ne)<br/>
-        /// * product.id (eq|ne)<br/>
-        /// * product.type (eq|ne)<br/>
-        /// * created (eq|ne|lt|le|gt|ge)<br/>
-        /// * lastModified (eq|ne|lt|le|gt|ge)<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following operators are available:<br/>
+        /// | Field        | Operators                          |<br/>
+        /// |--------------|------------------------------------|<br/>
+        /// | id           | `eq`, `ne`                         |<br/>
+        /// | attendee.id  | `eq`, `ne`                         |<br/>
+        /// | event.id     | `eq`, `ne`                         |<br/>
+        /// | order.id     | `eq`, `ne`                         |<br/>
+        /// | product.id   | `eq`, `ne`                         |<br/>
+        /// | product.type | `eq`, `ne`                         |<br/>
+        /// | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |<br/>
+        /// | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
         /// * and<br/>
         /// * or.
         /// </summary>

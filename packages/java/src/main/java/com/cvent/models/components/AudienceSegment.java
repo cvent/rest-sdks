@@ -26,7 +26,7 @@ public class AudienceSegment {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson2 event;
+    private EventJson1 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -43,7 +43,7 @@ public class AudienceSegment {
 
     @JsonCreator
     public AudienceSegment(
-            @JsonProperty("event") @Nonnull EventJson2 event,
+            @JsonProperty("event") @Nonnull EventJson1 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description) {
         this.event = Optional.ofNullable(event).orElseThrow(() -> new IllegalArgumentException("event cannot be null"));
@@ -51,14 +51,14 @@ public class AudienceSegment {
         this.description = description;
     }
 
-    public AudienceSegment(@Nonnull EventJson2 event, @Nonnull String name) {
+    public AudienceSegment(@Nonnull EventJson1 event, @Nonnull String name) {
         this(event, name, null);
     }
 
     /**
      * ID of the event.
      */
-    public EventJson2 event() {
+    public EventJson1 event() {
         return this.event;
     }
 
@@ -83,7 +83,7 @@ public class AudienceSegment {
     /**
      * ID of the event.
      */
-    public AudienceSegment withEvent(@Nonnull EventJson2 event) {
+    public AudienceSegment withEvent(@Nonnull EventJson1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -131,7 +131,7 @@ public class AudienceSegment {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson2 event;
+        private EventJson1 event;
 
         private String name;
 
@@ -144,7 +144,7 @@ public class AudienceSegment {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson2 event) {
+        public Builder event(@Nonnull EventJson1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

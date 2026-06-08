@@ -52,6 +52,6 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination links for navigating between pages of data.
         /// </summary>
         [JsonProperty("_links")]
-        public PaginationLinksJson Links { get; set; } = default!;
+        public PaginationLinks Links { get; set; } = default!;
     }
 }

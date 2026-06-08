@@ -1,6 +1,6 @@
 # SpaceAreaJson0
 
-Space area divisions.
+Space area divisons.
 
 ## Example Usage
 

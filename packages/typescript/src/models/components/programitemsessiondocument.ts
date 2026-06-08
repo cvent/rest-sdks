@@ -6,22 +6,13 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { EventId, EventId$inboundSchema } from "./eventid.js";
+import { ProgramItem2, ProgramItem2$inboundSchema } from "./programitem2.js";
+import { Session1, Session1$inboundSchema } from "./session1.js";
 import {
-  EventLiteJson1,
-  EventLiteJson1$inboundSchema,
-} from "./eventlitejson1.js";
-import {
-  ProgramItemLiteJson1,
-  ProgramItemLiteJson1$inboundSchema,
-} from "./programitemlitejson1.js";
-import {
-  SessionDocumentLiteJson,
-  SessionDocumentLiteJson$inboundSchema,
-} from "./sessiondocumentlitejson.js";
-import {
-  SessionLiteJson1,
-  SessionLiteJson1$inboundSchema,
-} from "./sessionlitejson1.js";
+  SessionDocumentLite,
+  SessionDocumentLite$inboundSchema,
+} from "./sessiondocumentlite.js";
 
 /**
  * Represents a program item object that will be added to a session document.
@@ -50,19 +41,19 @@ export type ProgramItemSessionDocument = {
   /**
    * The related event object.
    */
-  event: EventLiteJson1;
+  event: EventId;
   /**
    * The related session object.
    */
-  session: SessionLiteJson1;
+  session: Session1;
   /**
    * The related document object.
    */
-  document: SessionDocumentLiteJson;
+  document: SessionDocumentLite;
   /**
    * The program item associated with the session.
    */
-  programItem: ProgramItemLiteJson1;
+  programItem: ProgramItem2;
 };
 
 /** @internal */
@@ -79,10 +70,10 @@ export const ProgramItemSessionDocument$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: EventLiteJson1$inboundSchema,
-  session: SessionLiteJson1$inboundSchema,
-  document: SessionDocumentLiteJson$inboundSchema,
-  programItem: ProgramItemLiteJson1$inboundSchema,
+  event: EventId$inboundSchema,
+  session: Session1$inboundSchema,
+  document: SessionDocumentLite$inboundSchema,
+  programItem: ProgramItem2$inboundSchema,
 });
 
 export function programItemSessionDocumentFromJSON(

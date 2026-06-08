@@ -47,6 +47,7 @@ import com.cvent.models.operations.ListRegistrationTypesRequest;
 import com.cvent.models.operations.ListSessionsAttendanceRequest;
 import com.cvent.models.operations.ListSessionsEnrollmentPostFilterRequest;
 import com.cvent.models.operations.ListSessionsEnrollmentRequest;
+import com.cvent.models.operations.ListTaxesRequest;
 import com.cvent.models.operations.PostTransactionsRequest;
 import com.cvent.models.operations.SessionCheckInRequest;
 import com.cvent.models.operations.UpdateEventRequest;
@@ -135,6 +136,8 @@ import com.cvent.models.operations.async.ListSessionsEnrollmentPostFilterRequest
 import com.cvent.models.operations.async.ListSessionsEnrollmentPostFilterResponse;
 import com.cvent.models.operations.async.ListSessionsEnrollmentRequestBuilder;
 import com.cvent.models.operations.async.ListSessionsEnrollmentResponse;
+import com.cvent.models.operations.async.ListTaxesRequestBuilder;
+import com.cvent.models.operations.async.ListTaxesResponse;
 import com.cvent.models.operations.async.PostTransactionsRequestBuilder;
 import com.cvent.models.operations.async.PostTransactionsResponse;
 import com.cvent.models.operations.async.SendEventEmailsRequestBuilder;
@@ -190,6 +193,7 @@ import com.cvent.operations.ListRegistrationTypes;
 import com.cvent.operations.ListSessionsAttendance;
 import com.cvent.operations.ListSessionsEnrollment;
 import com.cvent.operations.ListSessionsEnrollmentPostFilter;
+import com.cvent.operations.ListTaxes;
 import com.cvent.operations.PostTransactions;
 import com.cvent.operations.SendEventEmails;
 import com.cvent.operations.SessionCheckIn;
@@ -1742,6 +1746,48 @@ public class AsyncEvents {
             @Nonnull UpdateRegistrationTypeRequest request, @Nullable Options options) {
         AsyncRequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
                 new UpdateRegistrationType.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @return The async call builder
+     */
+    public ListTaxesRequestBuilder listTaxes() {
+        return new ListTaxesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListTaxesResponse>} - The async response
+     */
+    public CompletableFuture<ListTaxesResponse> listTaxes(@Nonnull ListTaxesRequest request) {
+        return listTaxes(request, null);
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListTaxesResponse>} - The async response
+     */
+    public CompletableFuture<ListTaxesResponse> listTaxes(
+            @Nonnull ListTaxesRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListTaxesRequest, ListTaxesResponse> operation =
+                new ListTaxes.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

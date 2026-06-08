@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  TransactionDetailJson,
-  TransactionDetailJson$inboundSchema,
-} from "./transactiondetailjson.js";
+  TransactionDetailResponse,
+  TransactionDetailResponse$inboundSchema,
+} from "./transactiondetailresponse.js";
 
 /**
  * The response from a request to list of transactions. This includes the paging object as well.
@@ -19,11 +19,11 @@ export type TransactionDetailsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of transaction details.
    */
-  data: Array<TransactionDetailJson>;
+  data: Array<TransactionDetailResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const TransactionDetailsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(TransactionDetailJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(TransactionDetailResponse$inboundSchema),
 });
 
 export function transactionDetailsPaginatedResponseFromJSON(

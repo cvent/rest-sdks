@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  CategoryIdJson,
-  CategoryIdJson$Outbound,
-  CategoryIdJson$outboundSchema,
-} from "./categoryidjson.js";
+  CategoryId,
+  CategoryId$Outbound,
+  CategoryId$outboundSchema,
+} from "./categoryid.js";
 
 /**
  * Holds fields that can be applied to a session speaker assignment.
@@ -16,7 +16,7 @@ export type SessionSpeakerAssignment = {
   /**
    * An object that holds the id for a category
    */
-  speakerCategory?: CategoryIdJson | undefined;
+  speakerCategory?: CategoryId | undefined;
   /**
    * Preferred position where the speaker will appear in an ordered list for a session. Smaller values indicate a higher position in the list with the value 1 being the first item in the list.
    */
@@ -25,7 +25,7 @@ export type SessionSpeakerAssignment = {
 
 /** @internal */
 export type SessionSpeakerAssignment$Outbound = {
-  speakerCategory?: CategoryIdJson$Outbound | undefined;
+  speakerCategory?: CategoryId$Outbound | undefined;
   order?: number | undefined;
 };
 
@@ -35,7 +35,7 @@ export const SessionSpeakerAssignment$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SessionSpeakerAssignment
 > = z.object({
-  speakerCategory: CategoryIdJson$outboundSchema.optional(),
+  speakerCategory: CategoryId$outboundSchema.optional(),
   order: z.number().int().optional(),
 });
 

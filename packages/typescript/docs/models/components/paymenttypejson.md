@@ -1,17 +1,17 @@
 # PaymentTypeJson
 
-Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
+Denotes the method of payment.
 
 ## Example Usage
 
 ```typescript
 import { PaymentTypeJson } from "@cvent/sdk/models/components";
 
-let value: PaymentTypeJson = "Online Refund";
+let value: PaymentTypeJson = "MASTERCARD_DEBIT";
 ```
 
 ## Values
 
 ```typescript
-"Authorization" | "Online Charge" | "Online Refund" | "Offline Charge" | "Offline Refund"
+"AIRPLUS" | "AMERICAN_EXPRESS" | "AURORA" | "AURORE" | "AUTHORIZE_NET_SIM" | "BANK_TRANSFER" | "BCMC" | "BILLY" | "CASH" | "CB" | "CHECK" | "COFINOGA" | "CORPORATE_CARD" | "CREDIT" | "CYBERSOURCE_HOSTED_ORDER_PAGE" | "CYBERSOURCE_SECURE_ACCEPTANCE" | "DANKORT" | "DINERS_CLUB" | "DIRECT_BILL" | "DISCOVER" | "EUROCARD_MASTERCARD" | "INVOICE" | "JCB" | "LASER" | "MAESTRO" | "MAESTROUK" | "MASTERCARD" | "MASTERCARD_DEBIT" | "MONEY_ORDER" | "NETRESERVE" | "OTHER" | "OTHER_2" | "OTHER_3" | "PAY_GOV" | "PAYMENT_CREDITS" | "PAYPAL" | "P_CARD" | "PRIVILEGE" | "PURCHASE_ORDER" | "SOLO" | "TOUCHNET" | "UATP" | "UNIONPAY" | "VISA" | "VISA_DEBIT" | "VISA_ELECTRON" | "WPM"
 ```

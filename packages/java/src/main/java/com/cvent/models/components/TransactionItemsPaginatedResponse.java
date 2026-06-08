@@ -22,18 +22,18 @@ public class TransactionItemsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of transaction details.
      */
     @JsonProperty("data")
-    private List<TransactionItemJson> data;
+    private List<TransactionItemResponse> data;
 
     @JsonCreator
     public TransactionItemsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<TransactionItemJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<TransactionItemResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class TransactionItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of transaction details.
      */
-    public List<TransactionItemJson> data() {
+    public List<TransactionItemResponse> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class TransactionItemsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public TransactionItemsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public TransactionItemsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class TransactionItemsPaginatedResponse {
     /**
      * Collection of transaction details.
      */
-    public TransactionItemsPaginatedResponse withData(@Nonnull List<TransactionItemJson> data) {
+    public TransactionItemsPaginatedResponse withData(@Nonnull List<TransactionItemResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class TransactionItemsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<TransactionItemJson> data;
+        private List<TransactionItemResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class TransactionItemsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class TransactionItemsPaginatedResponse {
         /**
          * Collection of transaction details.
          */
-        public Builder data(@Nonnull List<TransactionItemJson> data) {
+        public Builder data(@Nonnull List<TransactionItemResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

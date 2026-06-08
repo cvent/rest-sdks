@@ -22,7 +22,7 @@ public class EventEmailsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson23 paging;
+    private PagingJson19 paging;
 
     /**
      * Collection of emails for a specific event.
@@ -32,7 +32,7 @@ public class EventEmailsPaginatedResponse {
 
     @JsonCreator
     public EventEmailsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson23 paging,
+            @JsonProperty("paging") @Nonnull PagingJson19 paging,
             @JsonProperty("data") @Nonnull List<EventEmailJson> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
@@ -42,7 +42,7 @@ public class EventEmailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson23 paging() {
+    public PagingJson19 paging() {
         return this.paging;
     }
 
@@ -60,7 +60,7 @@ public class EventEmailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public EventEmailsPaginatedResponse withPaging(@Nonnull PagingJson23 paging) {
+    public EventEmailsPaginatedResponse withPaging(@Nonnull PagingJson19 paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -98,7 +98,7 @@ public class EventEmailsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson23 paging;
+        private PagingJson19 paging;
 
         private List<EventEmailJson> data;
 
@@ -109,7 +109,7 @@ public class EventEmailsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson23 paging) {
+        public Builder paging(@Nonnull PagingJson19 paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

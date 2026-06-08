@@ -64,21 +64,21 @@ public class OrderItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("order")
-    private OrderRefJson order;
+    private OrderRef order;
 
     /**
      * The reference to the event. Contains only the ID of the event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private EventJson event;
+    private Event2 event;
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private AttendeeJson attendee;
+    private Attendee2 attendee;
 
     /**
      * Indicates if an attendee is a guest
@@ -92,14 +92,14 @@ public class OrderItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("guestDetail")
-    private GuestDetailJson guestDetail;
+    private Guest guestDetail;
 
     /**
      * This is used to denote the product details in an order item
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("product")
-    private ProductOrderItemJson product;
+    private ProductOrderItem product;
 
     /**
      * Indicates if the order item is active
@@ -127,7 +127,7 @@ public class OrderItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fee")
-    private FeeJson fee;
+    private Fee fee;
 
     /**
      * Quantity of item purchased by an attendee.
@@ -176,14 +176,14 @@ public class OrderItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedgerItems")
-    private List<GeneralLedgerJson> generalLedgerItems;
+    private List<GeneralLedger> generalLedgerItems;
 
     /**
      * The list of discount details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discounts")
-    private List<DiscountDetailJson> discounts;
+    private List<DiscountDetail> discounts;
 
     /**
      * True indicates the order item has been deleted.
@@ -199,24 +199,24 @@ public class OrderItemResponse {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("order") @Nullable OrderRefJson order,
-            @JsonProperty("event") @Nullable EventJson event,
-            @JsonProperty("attendee") @Nullable AttendeeJson attendee,
+            @JsonProperty("order") @Nullable OrderRef order,
+            @JsonProperty("event") @Nullable Event2 event,
+            @JsonProperty("attendee") @Nullable Attendee2 attendee,
             @JsonProperty("guest") @Nullable Boolean guest,
-            @JsonProperty("guestDetail") @Nullable GuestDetailJson guestDetail,
-            @JsonProperty("product") @Nullable ProductOrderItemJson product,
+            @JsonProperty("guestDetail") @Nullable Guest guestDetail,
+            @JsonProperty("product") @Nullable ProductOrderItem product,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("price") @Nullable Double price,
-            @JsonProperty("fee") @Nullable FeeJson fee,
+            @JsonProperty("fee") @Nullable Fee fee,
             @JsonProperty("quantity") @Nullable Long quantity,
             @JsonProperty("amountOrdered") @Nullable Double amountOrdered,
             @JsonProperty("amountPaid") @Nullable Double amountPaid,
             @JsonProperty("amountDue") @Nullable Double amountDue,
             @JsonProperty("productPriceTierAmount") @Nullable Double productPriceTierAmount,
             @JsonProperty("tiered") @Nullable Boolean tiered,
-            @JsonProperty("generalLedgerItems") @Nullable List<GeneralLedgerJson> generalLedgerItems,
-            @JsonProperty("discounts") @Nullable List<DiscountDetailJson> discounts,
+            @JsonProperty("generalLedgerItems") @Nullable List<GeneralLedger> generalLedgerItems,
+            @JsonProperty("discounts") @Nullable List<DiscountDetail> discounts,
             @JsonProperty("deleted") @Nullable Boolean deleted) {
         this.created = created;
         this.createdBy = createdBy;
@@ -310,21 +310,21 @@ public class OrderItemResponse {
     /**
      * Represents an order by its ID and includes the order type.
      */
-    public Optional<OrderRefJson> order() {
+    public Optional<OrderRef> order() {
         return Optional.ofNullable(this.order);
     }
 
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public Optional<EventJson> event() {
+    public Optional<Event2> event() {
         return Optional.ofNullable(this.event);
     }
 
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<AttendeeJson> attendee() {
+    public Optional<Attendee2> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -338,14 +338,14 @@ public class OrderItemResponse {
     /**
      * The reference to the guest. Contains only the ID of the guest.
      */
-    public Optional<GuestDetailJson> guestDetail() {
+    public Optional<Guest> guestDetail() {
         return Optional.ofNullable(this.guestDetail);
     }
 
     /**
      * This is used to denote the product details in an order item
      */
-    public Optional<ProductOrderItemJson> product() {
+    public Optional<ProductOrderItem> product() {
         return Optional.ofNullable(this.product);
     }
 
@@ -373,7 +373,7 @@ public class OrderItemResponse {
     /**
      * Fee for a product.
      */
-    public Optional<FeeJson> fee() {
+    public Optional<Fee> fee() {
         return Optional.ofNullable(this.fee);
     }
 
@@ -422,14 +422,14 @@ public class OrderItemResponse {
     /**
      * The list of general ledger details in an order item.
      */
-    public Optional<List<GeneralLedgerJson>> generalLedgerItems() {
+    public Optional<List<GeneralLedger>> generalLedgerItems() {
         return Optional.ofNullable(this.generalLedgerItems);
     }
 
     /**
      * The list of discount details.
      */
-    public Optional<List<DiscountDetailJson>> discounts() {
+    public Optional<List<DiscountDetail>> discounts() {
         return Optional.ofNullable(this.discounts);
     }
 
@@ -487,7 +487,7 @@ public class OrderItemResponse {
     /**
      * Represents an order by its ID and includes the order type.
      */
-    public OrderItemResponse withOrder(@Nullable OrderRefJson order) {
+    public OrderItemResponse withOrder(@Nullable OrderRef order) {
         this.order = order;
         return this;
     }
@@ -495,7 +495,7 @@ public class OrderItemResponse {
     /**
      * The reference to the event. Contains only the ID of the event.
      */
-    public OrderItemResponse withEvent(@Nullable EventJson event) {
+    public OrderItemResponse withEvent(@Nullable Event2 event) {
         this.event = event;
         return this;
     }
@@ -503,7 +503,7 @@ public class OrderItemResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public OrderItemResponse withAttendee(@Nullable AttendeeJson attendee) {
+    public OrderItemResponse withAttendee(@Nullable Attendee2 attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -519,7 +519,7 @@ public class OrderItemResponse {
     /**
      * The reference to the guest. Contains only the ID of the guest.
      */
-    public OrderItemResponse withGuestDetail(@Nullable GuestDetailJson guestDetail) {
+    public OrderItemResponse withGuestDetail(@Nullable Guest guestDetail) {
         this.guestDetail = guestDetail;
         return this;
     }
@@ -527,7 +527,7 @@ public class OrderItemResponse {
     /**
      * This is used to denote the product details in an order item
      */
-    public OrderItemResponse withProduct(@Nullable ProductOrderItemJson product) {
+    public OrderItemResponse withProduct(@Nullable ProductOrderItem product) {
         this.product = product;
         return this;
     }
@@ -559,7 +559,7 @@ public class OrderItemResponse {
     /**
      * Fee for a product.
      */
-    public OrderItemResponse withFee(@Nullable FeeJson fee) {
+    public OrderItemResponse withFee(@Nullable Fee fee) {
         this.fee = fee;
         return this;
     }
@@ -615,7 +615,7 @@ public class OrderItemResponse {
     /**
      * The list of general ledger details in an order item.
      */
-    public OrderItemResponse withGeneralLedgerItems(@Nullable List<GeneralLedgerJson> generalLedgerItems) {
+    public OrderItemResponse withGeneralLedgerItems(@Nullable List<GeneralLedger> generalLedgerItems) {
         this.generalLedgerItems = generalLedgerItems;
         return this;
     }
@@ -623,7 +623,7 @@ public class OrderItemResponse {
     /**
      * The list of discount details.
      */
-    public OrderItemResponse withDiscounts(@Nullable List<DiscountDetailJson> discounts) {
+    public OrderItemResponse withDiscounts(@Nullable List<DiscountDetail> discounts) {
         this.discounts = discounts;
         return this;
     }
@@ -767,17 +767,17 @@ public class OrderItemResponse {
 
         private String id;
 
-        private OrderRefJson order;
+        private OrderRef order;
 
-        private EventJson event;
+        private Event2 event;
 
-        private AttendeeJson attendee;
+        private Attendee2 attendee;
 
         private Boolean guest;
 
-        private GuestDetailJson guestDetail;
+        private Guest guestDetail;
 
-        private ProductOrderItemJson product;
+        private ProductOrderItem product;
 
         private Boolean active;
 
@@ -785,7 +785,7 @@ public class OrderItemResponse {
 
         private Double price;
 
-        private FeeJson fee;
+        private Fee fee;
 
         private Long quantity;
 
@@ -799,9 +799,9 @@ public class OrderItemResponse {
 
         private Boolean tiered;
 
-        private List<GeneralLedgerJson> generalLedgerItems;
+        private List<GeneralLedger> generalLedgerItems;
 
-        private List<DiscountDetailJson> discounts;
+        private List<DiscountDetail> discounts;
 
         private Boolean deleted;
 
@@ -852,7 +852,7 @@ public class OrderItemResponse {
         /**
          * Represents an order by its ID and includes the order type.
          */
-        public Builder order(@Nullable OrderRefJson order) {
+        public Builder order(@Nullable OrderRef order) {
             this.order = order;
             return this;
         }
@@ -860,7 +860,7 @@ public class OrderItemResponse {
         /**
          * The reference to the event. Contains only the ID of the event.
          */
-        public Builder event(@Nullable EventJson event) {
+        public Builder event(@Nullable Event2 event) {
             this.event = event;
             return this;
         }
@@ -868,7 +868,7 @@ public class OrderItemResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable AttendeeJson attendee) {
+        public Builder attendee(@Nullable Attendee2 attendee) {
             this.attendee = attendee;
             return this;
         }
@@ -884,7 +884,7 @@ public class OrderItemResponse {
         /**
          * The reference to the guest. Contains only the ID of the guest.
          */
-        public Builder guestDetail(@Nullable GuestDetailJson guestDetail) {
+        public Builder guestDetail(@Nullable Guest guestDetail) {
             this.guestDetail = guestDetail;
             return this;
         }
@@ -892,7 +892,7 @@ public class OrderItemResponse {
         /**
          * This is used to denote the product details in an order item
          */
-        public Builder product(@Nullable ProductOrderItemJson product) {
+        public Builder product(@Nullable ProductOrderItem product) {
             this.product = product;
             return this;
         }
@@ -924,7 +924,7 @@ public class OrderItemResponse {
         /**
          * Fee for a product.
          */
-        public Builder fee(@Nullable FeeJson fee) {
+        public Builder fee(@Nullable Fee fee) {
             this.fee = fee;
             return this;
         }
@@ -980,7 +980,7 @@ public class OrderItemResponse {
         /**
          * The list of general ledger details in an order item.
          */
-        public Builder generalLedgerItems(@Nullable List<GeneralLedgerJson> generalLedgerItems) {
+        public Builder generalLedgerItems(@Nullable List<GeneralLedger> generalLedgerItems) {
             this.generalLedgerItems = generalLedgerItems;
             return this;
         }
@@ -988,7 +988,7 @@ public class OrderItemResponse {
         /**
          * The list of discount details.
          */
-        public Builder discounts(@Nullable List<DiscountDetailJson> discounts) {
+        public Builder discounts(@Nullable List<DiscountDetail> discounts) {
             this.discounts = discounts;
             return this;
         }

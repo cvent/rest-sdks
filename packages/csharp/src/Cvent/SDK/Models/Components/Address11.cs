@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An object representing an address with various properties.
+    /// Address details.
     /// </summary>
     public class Address11
     {
@@ -30,10 +30,28 @@ namespace Cvent.SDK.Models.Components
         public string? Address2 { get; set; }
 
         /// <summary>
+        /// The third line of an address.
+        /// </summary>
+        [JsonProperty("address3")]
+        public string? Address3 { get; set; }
+
+        /// <summary>
         /// The name of the city.
         /// </summary>
         [JsonProperty("city")]
         public string? City { get; set; }
+
+        /// <summary>
+        /// ISO 3166 two-letter (alpha-2) country code.
+        /// </summary>
+        [JsonProperty("countryCode")]
+        public string? CountryCode { get; set; }
+
+        /// <summary>
+        /// Postal code (also known as zipcode) of the address.
+        /// </summary>
+        [JsonProperty("postalCode")]
+        public string? PostalCode { get; set; }
 
         /// <summary>
         /// The name of the state/province/region of the address.
@@ -42,15 +60,27 @@ namespace Cvent.SDK.Models.Components
         public string? Region { get; set; }
 
         /// <summary>
-        /// postal code (also known as zipcode) of the address.
+        /// The abbreviation of the state/province/region of the address.
         /// </summary>
-        [JsonProperty("postalCode")]
-        public string? PostalCode { get; set; }
+        [JsonProperty("regionCode")]
+        public string? RegionCode { get; set; }
 
         /// <summary>
-        /// Name of the country for example, 'United States'
+        /// Name of the country of the address.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }
+
+        /// <summary>
+        /// The geo latitude of the address.
+        /// </summary>
+        [JsonProperty("latitude")]
+        public long? Latitude { get; set; }
+
+        /// <summary>
+        /// The geo longitude of the address.
+        /// </summary>
+        [JsonProperty("longitude")]
+        public long? Longitude { get; set; }
     }
 }

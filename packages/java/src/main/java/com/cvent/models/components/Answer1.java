@@ -38,13 +38,13 @@ public class Answer1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choice")
-    private Uuid1 choice;
+    private Uuid choice;
 
     @JsonCreator
     public Answer1(
             @JsonProperty("type") @Nonnull AnswerType type,
             @JsonProperty("value") @Nullable String value,
-            @JsonProperty("choice") @Nullable Uuid1 choice) {
+            @JsonProperty("choice") @Nullable Uuid choice) {
         this.type = Optional.ofNullable(type).orElseThrow(() -> new IllegalArgumentException("type cannot be null"));
         this.value = value;
         this.choice = choice;
@@ -71,7 +71,7 @@ public class Answer1 {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<Uuid1> choice() {
+    public Optional<Uuid> choice() {
         return Optional.ofNullable(this.choice);
     }
 
@@ -98,7 +98,7 @@ public class Answer1 {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Answer1 withChoice(@Nullable Uuid1 choice) {
+    public Answer1 withChoice(@Nullable Uuid choice) {
         this.choice = choice;
         return this;
     }
@@ -134,7 +134,7 @@ public class Answer1 {
 
         private String value;
 
-        private Uuid1 choice;
+        private Uuid choice;
 
         private Builder() {
             // force use of static builder() method
@@ -159,7 +159,7 @@ public class Answer1 {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder choice(@Nullable Uuid1 choice) {
+        public Builder choice(@Nullable Uuid choice) {
             this.choice = choice;
             return this;
         }

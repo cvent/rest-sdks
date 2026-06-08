@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.AttendeeAddBulkItemJson1;
+import com.cvent.models.components.AttendeeAddBulkItemJson;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,14 +35,14 @@ public class SessionCheckInResponse implements Response {
     /**
      * Attendee(s) successfully checked-in to the session.
      */
-    private List<AttendeeAddBulkItemJson1> attendeeAddBulkResponse1;
+    private List<AttendeeAddBulkItemJson> attendeeAddBulkResponse1;
 
     @JsonCreator
     public SessionCheckInResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable List<AttendeeAddBulkItemJson1> attendeeAddBulkResponse1) {
+            @Nullable List<AttendeeAddBulkItemJson> attendeeAddBulkResponse1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class SessionCheckInResponse implements Response {
     /**
      * Attendee(s) successfully checked-in to the session.
      */
-    public Optional<List<AttendeeAddBulkItemJson1>> attendeeAddBulkResponse1() {
+    public Optional<List<AttendeeAddBulkItemJson>> attendeeAddBulkResponse1() {
         return Optional.ofNullable(this.attendeeAddBulkResponse1);
     }
 
@@ -116,7 +116,7 @@ public class SessionCheckInResponse implements Response {
      * Attendee(s) successfully checked-in to the session.
      */
     public SessionCheckInResponse withAttendeeAddBulkResponse1(
-            @Nullable List<AttendeeAddBulkItemJson1> attendeeAddBulkResponse1) {
+            @Nullable List<AttendeeAddBulkItemJson> attendeeAddBulkResponse1) {
         this.attendeeAddBulkResponse1 = attendeeAddBulkResponse1;
         return this;
     }
@@ -164,7 +164,7 @@ public class SessionCheckInResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private List<AttendeeAddBulkItemJson1> attendeeAddBulkResponse1;
+        private List<AttendeeAddBulkItemJson> attendeeAddBulkResponse1;
 
         private Builder() {
             // force use of static builder() method
@@ -197,7 +197,7 @@ public class SessionCheckInResponse implements Response {
         /**
          * Attendee(s) successfully checked-in to the session.
          */
-        public Builder attendeeAddBulkResponse1(@Nullable List<AttendeeAddBulkItemJson1> attendeeAddBulkResponse1) {
+        public Builder attendeeAddBulkResponse1(@Nullable List<AttendeeAddBulkItemJson> attendeeAddBulkResponse1) {
             this.attendeeAddBulkResponse1 = attendeeAddBulkResponse1;
             return this;
         }

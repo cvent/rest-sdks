@@ -4,11 +4,15 @@
 
 import * as z from "zod/v3";
 import {
-  Attendee2,
-  Attendee2$Outbound,
-  Attendee2$outboundSchema,
-} from "./attendee2.js";
-import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
+  Attendee11,
+  Attendee11$Outbound,
+  Attendee11$outboundSchema,
+} from "./attendee11.js";
+import {
+  Event21,
+  Event21$Outbound,
+  Event21$outboundSchema,
+} from "./event21.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
@@ -22,11 +26,11 @@ export type BoothStaffRequest = {
   /**
    * The associated Attendee.
    */
-  attendee: Attendee2;
+  attendee: Attendee11;
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * The Associated Exhibitor.
    */
@@ -35,8 +39,8 @@ export type BoothStaffRequest = {
 
 /** @internal */
 export type BoothStaffRequest$Outbound = {
-  attendee: Attendee2$Outbound;
-  event: Event1$Outbound;
+  attendee: Attendee11$Outbound;
+  event: Event21$Outbound;
   exhibitor: Exhibitor$Outbound;
 };
 
@@ -46,8 +50,8 @@ export const BoothStaffRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BoothStaffRequest
 > = z.object({
-  attendee: Attendee2$outboundSchema,
-  event: Event1$outboundSchema,
+  attendee: Attendee11$outboundSchema,
+  event: Event21$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
 });
 

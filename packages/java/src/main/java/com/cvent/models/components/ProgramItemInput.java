@@ -27,13 +27,13 @@ public class ProgramItemInput {
      * The related event object.
      */
     @JsonProperty("event")
-    private EventLiteJson1 event;
+    private EventId event;
 
     /**
      * The related session object.
      */
     @JsonProperty("session")
-    private SessionLiteJson1 session;
+    private Session1 session;
 
     /**
      * Name of the program item.
@@ -64,8 +64,8 @@ public class ProgramItemInput {
 
     @JsonCreator
     public ProgramItemInput(
-            @JsonProperty("event") @Nonnull EventLiteJson1 event,
-            @JsonProperty("session") @Nonnull SessionLiteJson1 session,
+            @JsonProperty("event") @Nonnull EventId event,
+            @JsonProperty("session") @Nonnull Session1 session,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("duration") @Nullable Long duration,
             @JsonProperty("description") @Nullable String description,
@@ -79,21 +79,21 @@ public class ProgramItemInput {
         this.rteDescription = rteDescription;
     }
 
-    public ProgramItemInput(@Nonnull EventLiteJson1 event, @Nonnull SessionLiteJson1 session, @Nonnull String name) {
+    public ProgramItemInput(@Nonnull EventId event, @Nonnull Session1 session, @Nonnull String name) {
         this(event, session, name, null, null, null);
     }
 
     /**
      * The related event object.
      */
-    public EventLiteJson1 event() {
+    public EventId event() {
         return this.event;
     }
 
     /**
      * The related session object.
      */
-    public SessionLiteJson1 session() {
+    public Session1 session() {
         return this.session;
     }
 
@@ -132,7 +132,7 @@ public class ProgramItemInput {
     /**
      * The related event object.
      */
-    public ProgramItemInput withEvent(@Nonnull EventLiteJson1 event) {
+    public ProgramItemInput withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -140,7 +140,7 @@ public class ProgramItemInput {
     /**
      * The related session object.
      */
-    public ProgramItemInput withSession(@Nonnull SessionLiteJson1 session) {
+    public ProgramItemInput withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
@@ -220,9 +220,9 @@ public class ProgramItemInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventLiteJson1 event;
+        private EventId event;
 
-        private SessionLiteJson1 session;
+        private Session1 session;
 
         private String name;
 
@@ -239,7 +239,7 @@ public class ProgramItemInput {
         /**
          * The related event object.
          */
-        public Builder event(@Nonnull EventLiteJson1 event) {
+        public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -247,7 +247,7 @@ public class ProgramItemInput {
         /**
          * The related session object.
          */
-        public Builder session(@Nonnull SessionLiteJson1 session) {
+        public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
             return this;
         }

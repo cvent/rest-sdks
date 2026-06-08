@@ -30,7 +30,7 @@ public class Attendees {
         return new Attendees(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static Attendees of(AttendeeAddBulkItemErrorResponse value) {
+    public static Attendees of(ErrorResponse2 value) {
         Utils.checkNotNull(value, "value");
         return new Attendees(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -39,7 +39,7 @@ public class Attendees {
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.AttendeeAddResponse}</li>
-     * <li>{@code com.cvent.models.components.AttendeeAddBulkItemErrorResponse}</li>
+     * <li>{@code com.cvent.models.components.ErrorResponse2}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -82,8 +82,7 @@ public class Attendees {
                     Attendees.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<AttendeeAddResponse>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(
-                            new TypeReference<AttendeeAddBulkItemErrorResponse>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse2>() {}, JsonShape.DEFAULT));
         }
     }
 

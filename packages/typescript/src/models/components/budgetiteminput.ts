@@ -46,10 +46,10 @@ import {
   BudgetVendorJsonInput$outboundSchema,
 } from "./budgetvendorjsoninput.js";
 import {
-  GeneralLedgerJson1Input,
-  GeneralLedgerJson1Input$Outbound,
-  GeneralLedgerJson1Input$outboundSchema,
-} from "./generalledgerjson1input.js";
+  GeneralLedgerJsonInput,
+  GeneralLedgerJsonInput$Outbound,
+  GeneralLedgerJsonInput$outboundSchema,
+} from "./generalledgerjsoninput.js";
 
 /**
  * Budget item updates associated with an event.
@@ -90,7 +90,7 @@ export type BudgetItemInput = {
   /**
    * This is used to denote the general ledger code associated with budget.
    */
-  generalLedger?: GeneralLedgerJson1Input | undefined;
+  generalLedger?: GeneralLedgerJsonInput | undefined;
   /**
    * Budget cost avoidance information.
    */
@@ -149,7 +149,7 @@ export type BudgetItemInput$Outbound = {
   status: string;
   vendor?: BudgetVendorJsonInput$Outbound | undefined;
   date: string;
-  generalLedger?: GeneralLedgerJson1Input$Outbound | undefined;
+  generalLedger?: GeneralLedgerJsonInput$Outbound | undefined;
   costAvoidance?: BudgetCostAvoidanceJson$Outbound | undefined;
   costIncludesTaxGratuity: boolean;
   calculateTaxOnGratuity: boolean;
@@ -179,7 +179,7 @@ export const BudgetItemInput$outboundSchema: z.ZodType<
   status: BudgetStatusJson$outboundSchema,
   vendor: BudgetVendorJsonInput$outboundSchema.optional(),
   date: z.date().transform(v => v.toISOString()),
-  generalLedger: GeneralLedgerJson1Input$outboundSchema.optional(),
+  generalLedger: GeneralLedgerJsonInput$outboundSchema.optional(),
   costAvoidance: BudgetCostAvoidanceJson$outboundSchema.optional(),
   costIncludesTaxGratuity: z.boolean(),
   calculateTaxOnGratuity: z.boolean(),

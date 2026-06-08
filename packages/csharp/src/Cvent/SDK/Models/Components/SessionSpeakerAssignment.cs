@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// An object that holds the id for a category.
         /// </summary>
         [JsonProperty("speakerCategory")]
-        public CategoryIdJson? SpeakerCategory { get; set; }
+        public CategoryId? SpeakerCategory { get; set; }
 
         /// <summary>
         /// Preferred position where the speaker will appear in an ordered list for a session. Smaller values indicate a higher position in the list with the value 1 being the first item in the list.

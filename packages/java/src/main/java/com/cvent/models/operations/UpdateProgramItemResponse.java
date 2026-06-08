@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.ProgramItem;
+import com.cvent.models.components.ProgramItem1;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class UpdateProgramItemResponse implements Response {
     /**
      * Successfully updated the session program item.
      */
-    private ProgramItem programItem;
+    private ProgramItem1 programItem;
 
     @JsonCreator
     public UpdateProgramItemResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable ProgramItem programItem) {
+            @Nullable ProgramItem1 programItem) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class UpdateProgramItemResponse implements Response {
     /**
      * Successfully updated the session program item.
      */
-    public Optional<ProgramItem> programItem() {
+    public Optional<ProgramItem1> programItem() {
         return Optional.ofNullable(this.programItem);
     }
 
@@ -114,7 +114,7 @@ public class UpdateProgramItemResponse implements Response {
     /**
      * Successfully updated the session program item.
      */
-    public UpdateProgramItemResponse withProgramItem(@Nullable ProgramItem programItem) {
+    public UpdateProgramItemResponse withProgramItem(@Nullable ProgramItem1 programItem) {
         this.programItem = programItem;
         return this;
     }
@@ -162,7 +162,7 @@ public class UpdateProgramItemResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private ProgramItem programItem;
+        private ProgramItem1 programItem;
 
         private Builder() {
             // force use of static builder() method
@@ -195,7 +195,7 @@ public class UpdateProgramItemResponse implements Response {
         /**
          * Successfully updated the session program item.
          */
-        public Builder programItem(@Nullable ProgramItem programItem) {
+        public Builder programItem(@Nullable ProgramItem1 programItem) {
             this.programItem = programItem;
             return this;
         }

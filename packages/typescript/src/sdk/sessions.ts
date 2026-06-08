@@ -87,7 +87,7 @@ export class Sessions extends ClientSDK {
   async createProgramItem(
     request: components.ProgramItemInput,
     options?: RequestOptions,
-  ): Promise<components.ProgramItem> {
+  ): Promise<components.ProgramItem1> {
     return unwrapAsync(sessionsCreateProgramItem(
       this,
       request,
@@ -167,7 +167,7 @@ export class Sessions extends ClientSDK {
   async updateProgramItem(
     request: operations.UpdateProgramItemRequest,
     options?: RequestOptions,
-  ): Promise<components.ProgramItem> {
+  ): Promise<components.ProgramItem1> {
     return unwrapAsync(sessionsUpdateProgramItem(
       this,
       request,

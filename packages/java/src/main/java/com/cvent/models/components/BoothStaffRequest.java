@@ -21,13 +21,13 @@ public class BoothStaffRequest {
      * The associated Attendee.
      */
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee11 attendee;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -37,8 +37,8 @@ public class BoothStaffRequest {
 
     @JsonCreator
     public BoothStaffRequest(
-            @JsonProperty("attendee") @Nonnull Attendee2 attendee,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("attendee") @Nonnull Attendee11 attendee,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor) {
         this.attendee = Optional.ofNullable(attendee)
                 .orElseThrow(() -> new IllegalArgumentException("attendee cannot be null"));
@@ -50,14 +50,14 @@ public class BoothStaffRequest {
     /**
      * The associated Attendee.
      */
-    public Attendee2 attendee() {
+    public Attendee11 attendee() {
         return this.attendee;
     }
 
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -75,7 +75,7 @@ public class BoothStaffRequest {
     /**
      * The associated Attendee.
      */
-    public BoothStaffRequest withAttendee(@Nonnull Attendee2 attendee) {
+    public BoothStaffRequest withAttendee(@Nonnull Attendee11 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -83,7 +83,7 @@ public class BoothStaffRequest {
     /**
      * The Associated Event.
      */
-    public BoothStaffRequest withEvent(@Nonnull Event1 event) {
+    public BoothStaffRequest withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -123,9 +123,9 @@ public class BoothStaffRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Attendee2 attendee;
+        private Attendee11 attendee;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -136,7 +136,7 @@ public class BoothStaffRequest {
         /**
          * The associated Attendee.
          */
-        public Builder attendee(@Nonnull Attendee2 attendee) {
+        public Builder attendee(@Nonnull Attendee11 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -144,7 +144,7 @@ public class BoothStaffRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

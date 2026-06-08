@@ -54,19 +54,19 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the event. Contains only the ID of the event.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson? Event { get; set; }
+        public Event2? Event { get; set; }
 
         /// <summary>
         /// The reference to the attendee. Contains only the ID of the attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public AttendeeJson? Attendee { get; set; }
+        public Attendee2? Attendee { get; set; }
 
         /// <summary>
         /// This denotes the order IDs corresponding to this transaction.
         /// </summary>
         [JsonProperty("orders")]
-        public List<OrderJson>? Orders { get; set; }
+        public List<Order>? Orders { get; set; }
 
         /// <summary>
         /// Journal number for this transaction. Represents an identifier for the transaction in your bank or ledger.
@@ -78,13 +78,13 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. To create an offline charge, the attendee must have a balance owing. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency. To create an offline refund, the attendee must have a balance due.
         /// </summary>
         [JsonProperty("paymentType")]
-        public PaymentTypeCreateJson PaymentType { get; set; } = default!;
+        public PaymentType PaymentType { get; set; } = default!;
 
         /// <summary>
         /// This denotes the payment method in a transaction.
         /// </summary>
         [JsonProperty("paymentMethod")]
-        public PaymentMethodJson PaymentMethod { get; set; } = default!;
+        public PaymentMethod PaymentMethod { get; set; } = default!;
 
         /// <summary>
         /// True indicates the transaction was successful.
@@ -132,6 +132,6 @@ namespace Cvent.SDK.Models.Components
         /// The list of order items you'll apply the transaction amount towards. Values in the array must sum to the `amount` in the request body. Can only be included in the request body if `partialPayment` query parameter is true.
         /// </summary>
         [JsonProperty("transactionItems")]
-        public List<TransactionItemCreateJson>? TransactionItems { get; set; }
+        public List<TransactionItemCreate>? TransactionItems { get; set; }
     }
 }

@@ -5,8 +5,10 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -14,25 +16,30 @@ import java.util.Optional;
 /**
  * EventJson2
  *
- * <p>ID of the event.
+ * <p>Event ID Information.
  */
 public class EventJson2 {
     /**
-     * UUID of the event.
+     * Identifier of a particular Event.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     @JsonCreator
-    public EventJson2(@JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public EventJson2(@JsonProperty("id") @Nullable String id) {
+        this.id = id;
+    }
+
+    public EventJson2() {
+        this(null);
     }
 
     /**
-     * UUID of the event.
+     * Identifier of a particular Event.
      */
-    public String id() {
-        return this.id;
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     public static Builder builder() {
@@ -40,10 +47,10 @@ public class EventJson2 {
     }
 
     /**
-     * UUID of the event.
+     * Identifier of a particular Event.
      */
-    public EventJson2 withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
+    public EventJson2 withId(@Nullable String id) {
+        this.id = id;
         return this;
     }
 
@@ -79,10 +86,10 @@ public class EventJson2 {
         }
 
         /**
-         * UUID of the event.
+         * Identifier of a particular Event.
          */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
+        public Builder id(@Nullable String id) {
+            this.id = id;
             return this;
         }
 

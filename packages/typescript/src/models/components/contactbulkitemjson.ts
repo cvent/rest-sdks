@@ -6,16 +6,19 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ErrorResponse, ErrorResponse$inboundSchema } from "./errorresponse.js";
+import {
+  ErrorResponse1,
+  ErrorResponse1$inboundSchema,
+} from "./errorresponse1.js";
 import { ZeroAllOf7, ZeroAllOf7$inboundSchema } from "./zeroallof7.js";
 
-export type ContactBulkItemJsonData = ErrorResponse | ZeroAllOf7;
+export type ContactBulkItemJsonData = ErrorResponse1 | ZeroAllOf7;
 
 /**
  * This entity is used to represent a single item that is returned as part of a Bulk request call.
  */
 export type ContactBulkItemJson = {
-  data: ErrorResponse | ZeroAllOf7;
+  data: ErrorResponse1 | ZeroAllOf7;
   /**
    * http status code representing processing status of a single item
    */
@@ -35,7 +38,7 @@ export const ContactBulkItemJsonData$inboundSchema: z.ZodType<
   ContactBulkItemJsonData,
   z.ZodTypeDef,
   unknown
-> = z.union([ErrorResponse$inboundSchema, ZeroAllOf7$inboundSchema]);
+> = z.union([ErrorResponse1$inboundSchema, ZeroAllOf7$inboundSchema]);
 
 export function contactBulkItemJsonDataFromJSON(
   jsonString: string,
@@ -53,7 +56,7 @@ export const ContactBulkItemJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.union([ErrorResponse$inboundSchema, ZeroAllOf7$inboundSchema]),
+  data: z.union([ErrorResponse1$inboundSchema, ZeroAllOf7$inboundSchema]),
   status: z.number().int(),
   message: z.string().optional(),
   request: z.record(z.any()).optional(),

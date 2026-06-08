@@ -5,7 +5,7 @@ The response from a request to list of orders. This includes the paging object a
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `paging`                                                             | [PagingJson](../../models/components/PagingJson.md)                  | :heavy_check_mark:                                                   | Represents pagination information for a collection of resources.     |
-| `data`                                                               | List\<[OrderDetailJson](../../models/components/OrderDetailJson.md)> | :heavy_check_mark:                                                   | Collection of order details.                                         |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [Paging](../../models/components/Paging.md)                      | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | List\<[OrderDetail](../../models/components/OrderDetail.md)>     | :heavy_check_mark:                                               | Collection of order details.                                     |

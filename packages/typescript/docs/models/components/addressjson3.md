@@ -1,6 +1,6 @@
 # AddressJson3
 
-Address details
+A physical address.
 
 ## Example Usage
 
@@ -8,32 +8,26 @@ Address details
 import { AddressJson3 } from "@cvent/sdk/models/components";
 
 let value: AddressJson3 = {
-  address1: "Cvent Inc.",
-  address2: "4001 West Parmer Lane",
-  address3: "PO Box 123",
-  city: "Austin",
-  countryCode: "US",
-  postalCode: "78727",
+  address1: "717 N Harwood St",
+  address2: "Suite 2800",
+  city: "Dallas",
   region: "Texas",
   regionCode: "TX",
-  country: "United States of America",
-  latitude: 30,
-  longitude: -97,
+  postalCode: "75201",
+  country: "United States",
+  countryCode: "US",
 };
 ```
 
 ## Fields
 
-| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `address1`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The first line of an address.                                 | Cvent Inc.                                                    |
-| `address2`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The second line of an address.                                | 4001 West Parmer Lane                                         |
-| `address3`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The third line of an address.                                 | PO Box 123                                                    |
-| `city`                                                        | *string*                                                      | :heavy_minus_sign:                                            | The name of the city.                                         | Austin                                                        |
-| `countryCode`                                                 | *string*                                                      | :heavy_minus_sign:                                            | ISO 3166 two-letter (alpha-2) country code.                   | US                                                            |
-| `postalCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the address.           | 78727                                                         |
-| `region`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
-| `regionCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
-| `country`                                                     | *string*                                                      | :heavy_minus_sign:                                            | Name of the country of the address.                           | United States of America                                      |
-| `latitude`                                                    | *number*                                                      | :heavy_minus_sign:                                            | The geo latitude of the address.                              | 30                                                            |
-| `longitude`                                                   | *number*                                                      | :heavy_minus_sign:                                            | The geo longitude of the address.                             | -97                                                           |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | 717 N Harwood St               |
+| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Suite 2800                     |
+| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Dallas                         |
+| `region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
+| `regionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
+| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 75201                          |
+| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States                  |
+| `countryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

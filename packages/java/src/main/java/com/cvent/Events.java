@@ -129,6 +129,9 @@ import com.cvent.models.operations.ListSessionsEnrollmentPostFilterResponse;
 import com.cvent.models.operations.ListSessionsEnrollmentRequest;
 import com.cvent.models.operations.ListSessionsEnrollmentRequestBuilder;
 import com.cvent.models.operations.ListSessionsEnrollmentResponse;
+import com.cvent.models.operations.ListTaxesRequest;
+import com.cvent.models.operations.ListTaxesRequestBuilder;
+import com.cvent.models.operations.ListTaxesResponse;
 import com.cvent.models.operations.PostTransactionsRequest;
 import com.cvent.models.operations.PostTransactionsRequestBuilder;
 import com.cvent.models.operations.PostTransactionsResponse;
@@ -190,6 +193,7 @@ import com.cvent.operations.ListRegistrationTypes;
 import com.cvent.operations.ListSessionsAttendance;
 import com.cvent.operations.ListSessionsEnrollment;
 import com.cvent.operations.ListSessionsEnrollmentPostFilter;
+import com.cvent.operations.ListTaxes;
 import com.cvent.operations.PostTransactions;
 import com.cvent.operations.SendEventEmails;
 import com.cvent.operations.SessionCheckIn;
@@ -1783,6 +1787,49 @@ public class Events {
             @Nonnull UpdateRegistrationTypeRequest request, @Nullable Options options) {
         RequestOperation<UpdateRegistrationTypeRequest, UpdateRegistrationTypeResponse> operation =
                 new UpdateRegistrationType.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @return The call builder
+     */
+    public ListTaxesRequestBuilder listTaxes() {
+        return new ListTaxesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTaxesResponse listTaxes(@Nonnull ListTaxesRequest request) {
+        return listTaxes(request, null);
+    }
+
+    /**
+     * List Taxes
+     *
+     * <p>Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied
+     * to products such as admission items, sessions, and other billable items.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListTaxesResponse listTaxes(@Nonnull ListTaxesRequest request, @Nullable Options options) {
+        RequestOperation<ListTaxesRequest, ListTaxesResponse> operation =
+                new ListTaxes.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

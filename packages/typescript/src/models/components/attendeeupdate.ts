@@ -4,26 +4,26 @@
 
 import * as z from "zod/v3";
 import {
-  AttendeeAnswerJson,
-  AttendeeAnswerJson$Outbound,
-  AttendeeAnswerJson$outboundSchema,
-} from "./attendeeanswerjson.js";
+  AttendeeAnswer,
+  AttendeeAnswer$Outbound,
+  AttendeeAnswer$outboundSchema,
+} from "./attendeeanswer.js";
 import {
-  AttendeeUpdateStatusJson,
-  AttendeeUpdateStatusJson$outboundSchema,
-} from "./attendeeupdatestatusjson.js";
+  AttendeeInvitedBy,
+  AttendeeInvitedBy$outboundSchema,
+} from "./attendeeinvitedby.js";
 import {
-  AttendeeVisibilityJson,
-  AttendeeVisibilityJson$outboundSchema,
-} from "./attendeevisibilityjson.js";
+  AttendeeResponseMethod,
+  AttendeeResponseMethod$outboundSchema,
+} from "./attendeeresponsemethod.js";
 import {
-  DeprecatedAttendeeInvitedByJson,
-  DeprecatedAttendeeInvitedByJson$outboundSchema,
-} from "./deprecatedattendeeinvitedbyjson.js";
+  AttendeeUpdateStatus,
+  AttendeeUpdateStatus$outboundSchema,
+} from "./attendeeupdatestatus.js";
 import {
-  DeprecatedAttendeeResponseMethodJson,
-  DeprecatedAttendeeResponseMethodJson$outboundSchema,
-} from "./deprecatedattendeeresponsemethodjson.js";
+  AttendeeVisibility,
+  AttendeeVisibility$outboundSchema,
+} from "./attendeevisibility.js";
 
 /**
  * The ID of the event associated with the attendee.
@@ -120,11 +120,11 @@ export type AttendeeUpdate = {
   /**
    * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
    */
-  visibility?: AttendeeVisibilityJson | undefined;
+  visibility?: AttendeeVisibility | undefined;
   /**
    * The list of answers to the attendee's registration questions.
    */
-  answers?: Array<AttendeeAnswerJson> | undefined;
+  answers?: Array<AttendeeAnswer> | undefined;
   /**
    * True indicates a confirmation email should be sent to the attendee. Cancelled attendees will not receive emails as a result of this field. If this field is left blank, the event settings for confirmation emails will apply.
    */
@@ -132,7 +132,7 @@ export type AttendeeUpdate = {
   /**
    * Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. <br>The following status transitions are supported by this API:<br> * No Response -> Visited <br> * No Response -> Accepted <br> * No Response -> Declined <br> * No Response -> Pending Approval <br> * Cancelled -> Accepted <br> * Cancelled -> Pending Approval <br> * Visited -> Accepted <br> * Visited -> Pending Approval <br> * Declined -> Accepted <br> * Declined -> Pending Approval <br> * Accepted -> Cancelled <br> * Pending Approval -> Accepted <br> * Pending Approval -> Denied Approval <br> * Denied Approval -> Pending Approval
    */
-  status?: AttendeeUpdateStatusJson | undefined;
+  status?: AttendeeUpdateStatus | undefined;
   /**
    * The attendee's registration type.
    */
@@ -142,13 +142,13 @@ export type AttendeeUpdate = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  invitedBy?: DeprecatedAttendeeInvitedByJson | undefined;
+  invitedBy?: AttendeeInvitedBy | undefined;
   /**
    * Method by which attendee registered for the event. Note: This field is deprecated. Previous documentation incorrectly listed support for this feature.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  responseMethod?: DeprecatedAttendeeResponseMethodJson | undefined;
+  responseMethod?: AttendeeResponseMethod | undefined;
 };
 
 /** @internal */
@@ -301,7 +301,7 @@ export type AttendeeUpdate$Outbound = {
   administrator?: AttendeeUpdateAdministrator$Outbound | undefined;
   admissionItem?: AttendeeUpdateAdmissionItem$Outbound | undefined;
   visibility?: string | undefined;
-  answers?: Array<AttendeeAnswerJson$Outbound> | undefined;
+  answers?: Array<AttendeeAnswer$Outbound> | undefined;
   sendEmail?: boolean | undefined;
   status: string;
   registrationType?: AttendeeUpdateRegistrationType$Outbound | undefined;
@@ -325,15 +325,14 @@ export const AttendeeUpdate$outboundSchema: z.ZodType<
     .optional(),
   admissionItem: z.lazy(() => AttendeeUpdateAdmissionItem$outboundSchema)
     .optional(),
-  visibility: AttendeeVisibilityJson$outboundSchema.optional(),
-  answers: z.array(AttendeeAnswerJson$outboundSchema).optional(),
+  visibility: AttendeeVisibility$outboundSchema.optional(),
+  answers: z.array(AttendeeAnswer$outboundSchema).optional(),
   sendEmail: z.boolean().optional(),
-  status: AttendeeUpdateStatusJson$outboundSchema.default("No Response"),
+  status: AttendeeUpdateStatus$outboundSchema.default("No Response"),
   registrationType: z.lazy(() => AttendeeUpdateRegistrationType$outboundSchema)
     .optional(),
-  invitedBy: DeprecatedAttendeeInvitedByJson$outboundSchema.optional(),
-  responseMethod: DeprecatedAttendeeResponseMethodJson$outboundSchema
-    .optional(),
+  invitedBy: AttendeeInvitedBy$outboundSchema.optional(),
+  responseMethod: AttendeeResponseMethod$outboundSchema.optional(),
 });
 
 export function attendeeUpdateToJSON(attendeeUpdate: AttendeeUpdate): string {

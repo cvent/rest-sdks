@@ -6,19 +6,27 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  TransactionTypeJson,
+  TransactionTypeJson$inboundSchema,
+} from "./transactiontypejson.js";
 
 /**
- * This is used to denote the id and merchant/processor transaction id for transaction items.
+ * The latest transaction that took place on a given proposal
  */
 export type TransactionJson = {
   /**
-   * A string that has to be a format matching the industry standard uuid
+   * The unique ID of a specific transaction.
    */
-  id: string;
+  id?: string | undefined;
   /**
-   * This denotes the online processor transaction Id for transactions.
+   * The proposal transaction type
    */
-  processorTransactionId?: string | undefined;
+  type?: TransactionTypeJson | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was updated.
+   */
+  time?: Date | undefined;
 };
 
 /** @internal */
@@ -27,8 +35,10 @@ export const TransactionJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
-  processorTransactionId: z.string().optional(),
+  id: z.string().optional(),
+  type: TransactionTypeJson$inboundSchema.optional(),
+  time: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
 });
 
 export function transactionJsonFromJSON(

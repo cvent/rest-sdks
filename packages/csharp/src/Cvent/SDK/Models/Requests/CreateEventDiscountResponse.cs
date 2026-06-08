@@ -28,9 +28,9 @@ namespace Cvent.SDK.Models.Requests
             return CreateUpdateDiscountResponse != null ? CreateUpdateDiscountResponse.CreateUpdateDiscountCodeResponse : null;
         }
 
-        public ExistingVolumeDiscountJson? GetCreateUpdateDiscountResponseVolumeDiscount()
+        public ExistingVolumeDiscount? GetCreateUpdateDiscountResponseVolumeDiscount()
         {
-            return CreateUpdateDiscountResponse != null ? CreateUpdateDiscountResponse.ExistingVolumeDiscountJson : null;
+            return CreateUpdateDiscountResponse != null ? CreateUpdateDiscountResponse.ExistingVolumeDiscount : null;
         }
     }
 }

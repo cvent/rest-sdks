@@ -7,6 +7,6 @@ A registration pack defining the registration type capacity allocations for an e
 
 | Field                                                  | Type                                                   | Required                                               | Description                                            |
 | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `event`                                                | [Event1](../../models/components/Event1.md)            | :heavy_check_mark:                                     | The Associated Event.                                  |
+| `event`                                                | [Event21](../../models/components/Event21.md)          | :heavy_check_mark:                                     | The Associated Event.                                  |
 | `exhibitor`                                            | [Exhibitor](../../models/components/Exhibitor.md)      | :heavy_check_mark:                                     | The Associated Exhibitor.                              |
 | `capacities`                                           | List\<[Capacity](../../models/components/Capacity.md)> | :heavy_check_mark:                                     | An array of capacities for the registration pack.      |

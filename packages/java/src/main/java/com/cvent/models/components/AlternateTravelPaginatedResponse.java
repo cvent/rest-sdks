@@ -29,12 +29,12 @@ public class AlternateTravelPaginatedResponse {
      * Collection of alternate travel answers for attendees.
      */
     @JsonProperty("data")
-    private List<AlternateTravelDetailJson> data;
+    private List<AlternateTravelDetail> data;
 
     @JsonCreator
     public AlternateTravelPaginatedResponse(
             @JsonProperty("paging") @Nonnull AlternateTravelPaginatedResponsePaging paging,
-            @JsonProperty("data") @Nonnull List<AlternateTravelDetailJson> data) {
+            @JsonProperty("data") @Nonnull List<AlternateTravelDetail> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -50,7 +50,7 @@ public class AlternateTravelPaginatedResponse {
     /**
      * Collection of alternate travel answers for attendees.
      */
-    public List<AlternateTravelDetailJson> data() {
+    public List<AlternateTravelDetail> data() {
         return this.data;
     }
 
@@ -69,7 +69,7 @@ public class AlternateTravelPaginatedResponse {
     /**
      * Collection of alternate travel answers for attendees.
      */
-    public AlternateTravelPaginatedResponse withData(@Nonnull List<AlternateTravelDetailJson> data) {
+    public AlternateTravelPaginatedResponse withData(@Nonnull List<AlternateTravelDetail> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -101,7 +101,7 @@ public class AlternateTravelPaginatedResponse {
 
         private AlternateTravelPaginatedResponsePaging paging;
 
-        private List<AlternateTravelDetailJson> data;
+        private List<AlternateTravelDetail> data;
 
         private Builder() {
             // force use of static builder() method
@@ -118,7 +118,7 @@ public class AlternateTravelPaginatedResponse {
         /**
          * Collection of alternate travel answers for attendees.
          */
-        public Builder data(@Nonnull List<AlternateTravelDetailJson> data) {
+        public Builder data(@Nonnull List<AlternateTravelDetail> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

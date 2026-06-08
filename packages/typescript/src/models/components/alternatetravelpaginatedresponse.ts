@@ -8,13 +8,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AlternateTravelDetailJson,
-  AlternateTravelDetailJson$inboundSchema,
-} from "./alternatetraveldetailjson.js";
+  AlternateTravelDetail,
+  AlternateTravelDetail$inboundSchema,
+} from "./alternatetraveldetail.js";
 import {
-  PaginationLinksJson,
-  PaginationLinksJson$inboundSchema,
-} from "./paginationlinksjson.js";
+  PaginationLinks,
+  PaginationLinks$inboundSchema,
+} from "./paginationlinks.js";
 
 /**
  * Represents pagination information for the list of results.
@@ -43,7 +43,7 @@ export type AlternateTravelPaginatedResponsePaging = {
   /**
    * Represents pagination links for navigating between pages of data.
    */
-  links: PaginationLinksJson;
+  links: PaginationLinks;
 };
 
 /**
@@ -57,7 +57,7 @@ export type AlternateTravelPaginatedResponse = {
   /**
    * Collection of alternate travel answers for attendees.
    */
-  data: Array<AlternateTravelDetailJson>;
+  data: Array<AlternateTravelDetail>;
 };
 
 /** @internal */
@@ -71,7 +71,7 @@ export const AlternateTravelPaginatedResponsePaging$inboundSchema: z.ZodType<
   currentToken: z.string().optional(),
   limit: z.number().int().optional(),
   totalCount: z.number().int().optional(),
-  _links: PaginationLinksJson$inboundSchema,
+  _links: PaginationLinks$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
     "_links": "links",
@@ -96,7 +96,7 @@ export const AlternateTravelPaginatedResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   paging: z.lazy(() => AlternateTravelPaginatedResponsePaging$inboundSchema),
-  data: z.array(AlternateTravelDetailJson$inboundSchema),
+  data: z.array(AlternateTravelDetail$inboundSchema),
 });
 
 export function alternateTravelPaginatedResponseFromJSON(

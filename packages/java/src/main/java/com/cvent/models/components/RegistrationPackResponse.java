@@ -28,7 +28,7 @@ public class RegistrationPackResponse {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -45,7 +45,7 @@ public class RegistrationPackResponse {
     @JsonCreator
     public RegistrationPackResponse(
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("capacities") @Nonnull List<ExistingCapacity> capacities) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
@@ -66,7 +66,7 @@ public class RegistrationPackResponse {
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -99,7 +99,7 @@ public class RegistrationPackResponse {
     /**
      * The Associated Event.
      */
-    public RegistrationPackResponse withEvent(@Nonnull Event1 event) {
+    public RegistrationPackResponse withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -159,7 +159,7 @@ public class RegistrationPackResponse {
 
         private String id;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -180,7 +180,7 @@ public class RegistrationPackResponse {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

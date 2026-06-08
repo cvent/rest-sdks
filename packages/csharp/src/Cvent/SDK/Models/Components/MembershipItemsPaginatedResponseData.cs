@@ -85,30 +85,30 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public AnniversaryMembershipItemJson? AnniversaryMembershipItemJson { get; set; }
+        public Anniversary? Anniversary { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public CalendarMembershipItemJson? CalendarMembershipItemJson { get; set; }
+        public Calendar? Calendar { get; set; }
 
         public MembershipItemsPaginatedResponseDataType Type { get; set; }
 
-        public static MembershipItemsPaginatedResponseData CreateAnniversary(AnniversaryMembershipItemJson anniversary)
+        public static MembershipItemsPaginatedResponseData CreateAnniversary(Anniversary anniversary)
         {
             MembershipItemsPaginatedResponseDataType typ = MembershipItemsPaginatedResponseDataType.Anniversary;
             string typStr = MembershipItemsPaginatedResponseDataType.Anniversary.ToString();
             anniversary.RenewalType = typStr;
             MembershipItemsPaginatedResponseData res = new MembershipItemsPaginatedResponseData(typ);
-            res.AnniversaryMembershipItemJson = anniversary;
+            res.Anniversary = anniversary;
             return res;
         }
 
-        public static MembershipItemsPaginatedResponseData CreateCalendar(CalendarMembershipItemJson calendar)
+        public static MembershipItemsPaginatedResponseData CreateCalendar(Calendar calendar)
         {
             MembershipItemsPaginatedResponseDataType typ = MembershipItemsPaginatedResponseDataType.Calendar;
             string typStr = MembershipItemsPaginatedResponseDataType.Calendar.ToString();
             calendar.RenewalType = typStr;
             MembershipItemsPaginatedResponseData res = new MembershipItemsPaginatedResponseData(typ);
-            res.CalendarMembershipItemJson = calendar;
+            res.Calendar = calendar;
             return res;
         }
 
@@ -129,13 +129,13 @@ namespace Cvent.SDK.Models.Components
                 string discriminator = jo.GetValue("renewalType")?.ToString() ?? throw new ArgumentNullException("Could not find discriminator field.");
                 if (discriminator == MembershipItemsPaginatedResponseDataType.Anniversary.ToString())
                 {
-                    AnniversaryMembershipItemJson anniversaryMembershipItemJSON = ResponseBodyDeserializer.DeserializeNotNull<AnniversaryMembershipItemJson>(jo.ToString());
-                    return CreateAnniversary(anniversaryMembershipItemJSON);
+                    Anniversary anniversary = ResponseBodyDeserializer.DeserializeNotNull<Anniversary>(jo.ToString());
+                    return CreateAnniversary(anniversary);
                 }
                 if (discriminator == MembershipItemsPaginatedResponseDataType.Calendar.ToString())
                 {
-                    CalendarMembershipItemJson calendarMembershipItemJSON = ResponseBodyDeserializer.DeserializeNotNull<CalendarMembershipItemJson>(jo.ToString());
-                    return CreateCalendar(calendarMembershipItemJSON);
+                    Calendar calendar = ResponseBodyDeserializer.DeserializeNotNull<Calendar>(jo.ToString());
+                    return CreateCalendar(calendar);
                 }
 
                 throw new InvalidOperationException("Could not deserialize into any supported types.");
@@ -150,15 +150,15 @@ namespace Cvent.SDK.Models.Components
 
                 MembershipItemsPaginatedResponseData res = (MembershipItemsPaginatedResponseData)value;
 
-                if (res.AnniversaryMembershipItemJson != null)
+                if (res.Anniversary != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.AnniversaryMembershipItemJson));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.Anniversary));
                     return;
                 }
 
-                if (res.CalendarMembershipItemJson != null)
+                if (res.Calendar != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.CalendarMembershipItemJson));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.Calendar));
                     return;
                 }
             }

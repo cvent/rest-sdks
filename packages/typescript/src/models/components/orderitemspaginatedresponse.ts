@@ -6,8 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { OrderItemJson, OrderItemJson$inboundSchema } from "./orderitemjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import {
+  OrderItemResponse,
+  OrderItemResponse$inboundSchema,
+} from "./orderitemresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to list of order items. This includes the paging object as well.
@@ -16,11 +19,11 @@ export type OrderItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of order items.
    */
-  data: Array<OrderItemJson>;
+  data: Array<OrderItemResponse>;
 };
 
 /** @internal */
@@ -29,8 +32,8 @@ export const OrderItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(OrderItemJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(OrderItemResponse$inboundSchema),
 });
 
 export function orderItemsPaginatedResponseFromJSON(

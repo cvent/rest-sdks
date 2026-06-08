@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.HotelReservationDetail;
+import com.cvent.models.components.HotelReservationDetail2;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class GetHotelRequestsResponse implements Response {
     /**
      * Successfully retrieved the hotel request detail.
      */
-    private HotelReservationDetail hotelReservationDetail;
+    private HotelReservationDetail2 hotelReservationDetail;
 
     @JsonCreator
     public GetHotelRequestsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable HotelReservationDetail hotelReservationDetail) {
+            @Nullable HotelReservationDetail2 hotelReservationDetail) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class GetHotelRequestsResponse implements Response {
     /**
      * Successfully retrieved the hotel request detail.
      */
-    public Optional<HotelReservationDetail> hotelReservationDetail() {
+    public Optional<HotelReservationDetail2> hotelReservationDetail() {
         return Optional.ofNullable(this.hotelReservationDetail);
     }
 
@@ -115,7 +115,7 @@ public class GetHotelRequestsResponse implements Response {
      * Successfully retrieved the hotel request detail.
      */
     public GetHotelRequestsResponse withHotelReservationDetail(
-            @Nullable HotelReservationDetail hotelReservationDetail) {
+            @Nullable HotelReservationDetail2 hotelReservationDetail) {
         this.hotelReservationDetail = hotelReservationDetail;
         return this;
     }
@@ -163,7 +163,7 @@ public class GetHotelRequestsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private HotelReservationDetail hotelReservationDetail;
+        private HotelReservationDetail2 hotelReservationDetail;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class GetHotelRequestsResponse implements Response {
         /**
          * Successfully retrieved the hotel request detail.
          */
-        public Builder hotelReservationDetail(@Nullable HotelReservationDetail hotelReservationDetail) {
+        public Builder hotelReservationDetail(@Nullable HotelReservationDetail2 hotelReservationDetail) {
             this.hotelReservationDetail = hotelReservationDetail;
             return this;
         }

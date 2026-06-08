@@ -31,7 +31,7 @@ public class AttendeeLinkBulkResponseItemJsonData {
                 TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static AttendeeLinkBulkResponseItemJsonData of(ErrorResponse value) {
+    public static AttendeeLinkBulkResponseItemJsonData of(ErrorResponse1 value) {
         Utils.checkNotNull(value, "value");
         return new AttendeeLinkBulkResponseItemJsonData(
                 TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
@@ -41,7 +41,7 @@ public class AttendeeLinkBulkResponseItemJsonData {
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ExistingAttendeeLink}</li>
-     * <li>{@code com.cvent.models.components.ErrorResponse}</li>
+     * <li>{@code com.cvent.models.components.ErrorResponse1}</li>
      * </ul>
      *
      * <p>Use {@code instanceof} to determine what type is returned. For example:
@@ -84,7 +84,7 @@ public class AttendeeLinkBulkResponseItemJsonData {
                     AttendeeLinkBulkResponseItemJsonData.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<ExistingAttendeeLink>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse>() {}, JsonShape.DEFAULT));
+                    TypeReferenceWithShape.of(new TypeReference<ErrorResponse1>() {}, JsonShape.DEFAULT));
         }
     }
 

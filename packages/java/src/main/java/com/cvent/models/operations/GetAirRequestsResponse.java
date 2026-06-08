@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.AirReservationDetail;
+import com.cvent.models.components.AirReservationDetail2;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class GetAirRequestsResponse implements Response {
     /**
      * Successfully retrieved the air request detail.
      */
-    private AirReservationDetail airReservationDetail;
+    private AirReservationDetail2 airReservationDetail;
 
     @JsonCreator
     public GetAirRequestsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable AirReservationDetail airReservationDetail) {
+            @Nullable AirReservationDetail2 airReservationDetail) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class GetAirRequestsResponse implements Response {
     /**
      * Successfully retrieved the air request detail.
      */
-    public Optional<AirReservationDetail> airReservationDetail() {
+    public Optional<AirReservationDetail2> airReservationDetail() {
         return Optional.ofNullable(this.airReservationDetail);
     }
 
@@ -114,7 +114,7 @@ public class GetAirRequestsResponse implements Response {
     /**
      * Successfully retrieved the air request detail.
      */
-    public GetAirRequestsResponse withAirReservationDetail(@Nullable AirReservationDetail airReservationDetail) {
+    public GetAirRequestsResponse withAirReservationDetail(@Nullable AirReservationDetail2 airReservationDetail) {
         this.airReservationDetail = airReservationDetail;
         return this;
     }
@@ -162,7 +162,7 @@ public class GetAirRequestsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private AirReservationDetail airReservationDetail;
+        private AirReservationDetail2 airReservationDetail;
 
         private Builder() {
             // force use of static builder() method
@@ -195,7 +195,7 @@ public class GetAirRequestsResponse implements Response {
         /**
          * Successfully retrieved the air request detail.
          */
-        public Builder airReservationDetail(@Nullable AirReservationDetail airReservationDetail) {
+        public Builder airReservationDetail(@Nullable AirReservationDetail2 airReservationDetail) {
             this.airReservationDetail = airReservationDetail;
             return this;
         }

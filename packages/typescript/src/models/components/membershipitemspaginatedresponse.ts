@@ -6,19 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AnniversaryMembershipItemJson,
-  AnniversaryMembershipItemJson$inboundSchema,
-} from "./anniversarymembershipitemjson.js";
-import {
-  CalendarMembershipItemJson,
-  CalendarMembershipItemJson$inboundSchema,
-} from "./calendarmembershipitemjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Anniversary, Anniversary$inboundSchema } from "./anniversary.js";
+import { Calendar, Calendar$inboundSchema } from "./calendar.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
-export type MembershipItemsPaginatedResponseData =
-  | AnniversaryMembershipItemJson
-  | CalendarMembershipItemJson;
+export type MembershipItemsPaginatedResponseData = Anniversary | Calendar;
 
 /**
  * A paginated response of membership items.
@@ -27,11 +19,11 @@ export type MembershipItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of membership items.
    */
-  data: Array<AnniversaryMembershipItemJson | CalendarMembershipItemJson>;
+  data: Array<Anniversary | Calendar>;
 };
 
 /** @internal */
@@ -39,10 +31,7 @@ export const MembershipItemsPaginatedResponseData$inboundSchema: z.ZodType<
   MembershipItemsPaginatedResponseData,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  AnniversaryMembershipItemJson$inboundSchema,
-  CalendarMembershipItemJson$inboundSchema,
-]);
+> = z.union([Anniversary$inboundSchema, Calendar$inboundSchema]);
 
 export function membershipItemsPaginatedResponseDataFromJSON(
   jsonString: string,
@@ -61,13 +50,8 @@ export const MembershipItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(
-    z.union([
-      AnniversaryMembershipItemJson$inboundSchema,
-      CalendarMembershipItemJson$inboundSchema,
-    ]),
-  ),
+  paging: Paging$inboundSchema,
+  data: z.array(z.union([Anniversary$inboundSchema, Calendar$inboundSchema])),
 });
 
 export function membershipItemsPaginatedResponseFromJSON(

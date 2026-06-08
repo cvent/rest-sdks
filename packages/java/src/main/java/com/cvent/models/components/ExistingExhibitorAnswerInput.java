@@ -22,13 +22,13 @@ public class ExistingExhibitorAnswerInput {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("question")
-    private Uuid1 question;
+    private Uuid question;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -44,8 +44,8 @@ public class ExistingExhibitorAnswerInput {
 
     @JsonCreator
     public ExistingExhibitorAnswerInput(
-            @JsonProperty("question") @Nonnull Uuid1 question,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("question") @Nonnull Uuid question,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("answers") @Nonnull List<Answer2> answers) {
         this.question = Optional.ofNullable(question)
@@ -60,14 +60,14 @@ public class ExistingExhibitorAnswerInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Uuid1 question() {
+    public Uuid question() {
         return this.question;
     }
 
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -92,7 +92,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingExhibitorAnswerInput withQuestion(@Nonnull Uuid1 question) {
+    public ExistingExhibitorAnswerInput withQuestion(@Nonnull Uuid question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -100,7 +100,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswerInput withEvent(@Nonnull Event1 event) {
+    public ExistingExhibitorAnswerInput withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -158,9 +158,9 @@ public class ExistingExhibitorAnswerInput {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Uuid1 question;
+        private Uuid question;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -173,7 +173,7 @@ public class ExistingExhibitorAnswerInput {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nonnull Uuid1 question) {
+        public Builder question(@Nonnull Uuid question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }
@@ -181,7 +181,7 @@ public class ExistingExhibitorAnswerInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

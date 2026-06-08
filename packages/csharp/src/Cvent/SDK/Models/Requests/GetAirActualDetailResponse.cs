@@ -24,6 +24,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved the air actual details.
         /// </summary>
-        public AirActualDetail? AirActualDetail { get; set; }
+        public AirActualDetail2? AirActualDetail { get; set; }
     }
 }

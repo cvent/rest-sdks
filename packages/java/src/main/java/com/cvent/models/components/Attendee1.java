@@ -80,7 +80,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private AttendeeContactInfoJson contact;
+    private AttendeeContactInfo contact;
 
     /**
      * True indicates the attendee checked in to the event.
@@ -126,28 +126,28 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("registrationPath")
-    private LookupJson registrationPath;
+    private Lookup registrationPath;
 
     /**
      * A Named object
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitationList")
-    private IdNameJson invitationList;
+    private NamedObject invitationList;
 
     /**
      * Web links for an attendee.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("webLinks")
-    private AttendeeWebLinksJson webLinks;
+    private AttendeeWebLinks webLinks;
 
     /**
      * Lookup response object
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("registrationType")
-    private LookupJson registrationType;
+    private Lookup registrationType;
 
     /**
      * The reference ID of an attendee. A planner determined string used to track which link attendee's
@@ -162,7 +162,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("externalReferences")
-    private List<ExternalReferenceJson> externalReferences;
+    private List<ExternalReference> externalReferences;
 
     /**
      * A planner created note for an attendee, used to track details about the attendee.
@@ -198,14 +198,14 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("group")
-    private AttendeeGroupJson group;
+    private AttendeeGroup group;
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("administrator")
-    private UuidJson administrator;
+    private Uuid administrator;
 
     /**
      * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
@@ -226,7 +226,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AttendeeStatusJson status;
+    private AttendeeStatus status;
 
     /**
      * The ISO 8601 zoned date time when attendee was registered.
@@ -255,7 +255,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invitedBy")
-    private AttendeeInvitedByJson invitedBy;
+    private AttendeeInvitedBy1 invitedBy;
 
     /**
      * Represents the method by which an attendee registered for the event.
@@ -284,7 +284,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responseMethod")
-    private AttendeeResponseMethodJson responseMethod;
+    private AttendeeResponseMethod1 responseMethod;
 
     /**
      * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom
@@ -295,14 +295,14 @@ public class Attendee1 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
     @Deprecated
-    private List<CustomField> questions;
+    private List<CustomFieldSchema> questions;
 
     /**
      * The list of answers to the registration questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("answers")
-    private List<AttendeeAnswerJson> answers;
+    private List<AttendeeAnswer> answers;
 
     /**
      * Contains details related to the attendee's admission item.
@@ -317,7 +317,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("visibility")
-    private AttendeeVisibilityJson visibility;
+    private AttendeeVisibility visibility;
 
     /**
      * The attendee's biographical writeup.
@@ -384,7 +384,7 @@ public class Attendee1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointmentGroups")
-    private List<AppointmentGroupJson> appointmentGroups;
+    private List<AppointmentGroup> appointmentGroups;
 
     /**
      * The amount of credit associated with the attendee.
@@ -402,35 +402,35 @@ public class Attendee1 {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("event") @Nullable AttendeeEvent event,
             @JsonProperty("confirmationNumber") @Nullable String confirmationNumber,
-            @JsonProperty("contact") @Nullable AttendeeContactInfoJson contact,
+            @JsonProperty("contact") @Nullable AttendeeContactInfo contact,
             @JsonProperty("checkedIn") @Nullable Boolean checkedIn,
             @JsonProperty("checkin") @Nullable OffsetDateTime checkin,
             @JsonProperty("checkIn") @Nullable OffsetDateTime checkIn,
             @JsonProperty("checkOut") @Nullable OffsetDateTime checkOut,
             @JsonProperty("duration") @Nullable Long duration,
-            @JsonProperty("registrationPath") @Nullable LookupJson registrationPath,
-            @JsonProperty("invitationList") @Nullable IdNameJson invitationList,
-            @JsonProperty("webLinks") @Nullable AttendeeWebLinksJson webLinks,
-            @JsonProperty("registrationType") @Nullable LookupJson registrationType,
+            @JsonProperty("registrationPath") @Nullable Lookup registrationPath,
+            @JsonProperty("invitationList") @Nullable NamedObject invitationList,
+            @JsonProperty("webLinks") @Nullable AttendeeWebLinks webLinks,
+            @JsonProperty("registrationType") @Nullable Lookup registrationType,
             @JsonProperty("referenceId") @Nullable String referenceId,
-            @JsonProperty("externalReferences") @Nullable List<ExternalReferenceJson> externalReferences,
+            @JsonProperty("externalReferences") @Nullable List<ExternalReference> externalReferences,
             @JsonProperty("note") @Nullable String note,
             @JsonProperty("guest") @Nullable Boolean guest,
             @JsonProperty("deletedGuest") @Nullable Boolean deletedGuest,
             @JsonProperty("primaryId") @Nullable String primaryId,
-            @JsonProperty("group") @Nullable AttendeeGroupJson group,
-            @JsonProperty("administrator") @Nullable UuidJson administrator,
+            @JsonProperty("group") @Nullable AttendeeGroup group,
+            @JsonProperty("administrator") @Nullable Uuid administrator,
             @JsonProperty("unsubscribed") @Nullable Boolean unsubscribed,
-            @JsonProperty("status") @Nullable AttendeeStatusJson status,
+            @JsonProperty("status") @Nullable AttendeeStatus status,
             @JsonProperty("registeredAt") @Nullable OffsetDateTime registeredAt,
             @JsonProperty("registrationLastModified") @Nullable OffsetDateTime registrationLastModified,
             @JsonProperty("registrationCancelledAt") @Nullable OffsetDateTime registrationCancelledAt,
-            @JsonProperty("invitedBy") @Nullable AttendeeInvitedByJson invitedBy,
-            @JsonProperty("responseMethod") @Nullable AttendeeResponseMethodJson responseMethod,
-            @JsonProperty("questions") @Nullable List<CustomField> questions,
-            @JsonProperty("answers") @Nullable List<AttendeeAnswerJson> answers,
+            @JsonProperty("invitedBy") @Nullable AttendeeInvitedBy1 invitedBy,
+            @JsonProperty("responseMethod") @Nullable AttendeeResponseMethod1 responseMethod,
+            @JsonProperty("questions") @Nullable List<CustomFieldSchema> questions,
+            @JsonProperty("answers") @Nullable List<AttendeeAnswer> answers,
             @JsonProperty("admissionItem") @Nullable AttendeeLookup admissionItem,
-            @JsonProperty("visibility") @Nullable AttendeeVisibilityJson visibility,
+            @JsonProperty("visibility") @Nullable AttendeeVisibility visibility,
             @JsonProperty("bio") @Nullable String bio,
             @JsonProperty("showPopupNotification") @Nullable Boolean showPopupNotification,
             @JsonProperty("websiteUrl") @Nullable String websiteUrl,
@@ -438,7 +438,7 @@ public class Attendee1 {
             @JsonProperty("allowAppointmentPushNotifications") @Nullable Boolean allowAppointmentPushNotifications,
             @JsonProperty("testRecord") @Nullable Boolean testRecord,
             @JsonProperty("attendeeLastModified") @Nullable OffsetDateTime attendeeLastModified,
-            @JsonProperty("appointmentGroups") @Nullable List<AppointmentGroupJson> appointmentGroups,
+            @JsonProperty("appointmentGroups") @Nullable List<AppointmentGroup> appointmentGroups,
             @JsonProperty("credit") @Nullable Double credit) {
         this.created = created;
         this.createdBy = createdBy;
@@ -589,7 +589,7 @@ public class Attendee1 {
     /**
      * Information about attendee contact added to an event.
      */
-    public Optional<AttendeeContactInfoJson> contact() {
+    public Optional<AttendeeContactInfo> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -635,28 +635,28 @@ public class Attendee1 {
     /**
      * Lookup response object
      */
-    public Optional<LookupJson> registrationPath() {
+    public Optional<Lookup> registrationPath() {
         return Optional.ofNullable(this.registrationPath);
     }
 
     /**
      * A Named object
      */
-    public Optional<IdNameJson> invitationList() {
+    public Optional<NamedObject> invitationList() {
         return Optional.ofNullable(this.invitationList);
     }
 
     /**
      * Web links for an attendee.
      */
-    public Optional<AttendeeWebLinksJson> webLinks() {
+    public Optional<AttendeeWebLinks> webLinks() {
         return Optional.ofNullable(this.webLinks);
     }
 
     /**
      * Lookup response object
      */
-    public Optional<LookupJson> registrationType() {
+    public Optional<Lookup> registrationType() {
         return Optional.ofNullable(this.registrationType);
     }
 
@@ -671,7 +671,7 @@ public class Attendee1 {
     /**
      * The details of an attendee in an external systems.
      */
-    public Optional<List<ExternalReferenceJson>> externalReferences() {
+    public Optional<List<ExternalReference>> externalReferences() {
         return Optional.ofNullable(this.externalReferences);
     }
 
@@ -707,14 +707,14 @@ public class Attendee1 {
     /**
      * An attendee group.
      */
-    public Optional<AttendeeGroupJson> group() {
+    public Optional<AttendeeGroup> group() {
         return Optional.ofNullable(this.group);
     }
 
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<UuidJson> administrator() {
+    public Optional<Uuid> administrator() {
         return Optional.ofNullable(this.administrator);
     }
 
@@ -735,7 +735,7 @@ public class Attendee1 {
     /**
      * This is used to denote the status of an attendee.
      */
-    public Optional<AttendeeStatusJson> status() {
+    public Optional<AttendeeStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -764,7 +764,7 @@ public class Attendee1 {
     /**
      * Method by which the attendee was invited to the event.
      */
-    public Optional<AttendeeInvitedByJson> invitedBy() {
+    public Optional<AttendeeInvitedBy1> invitedBy() {
         return Optional.ofNullable(this.invitedBy);
     }
 
@@ -793,7 +793,7 @@ public class Attendee1 {
      *
      * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
      */
-    public Optional<AttendeeResponseMethodJson> responseMethod() {
+    public Optional<AttendeeResponseMethod1> responseMethod() {
         return Optional.ofNullable(this.responseMethod);
     }
 
@@ -804,14 +804,14 @@ public class Attendee1 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Optional<List<CustomField>> questions() {
+    public Optional<List<CustomFieldSchema>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
     /**
      * The list of answers to the registration questions.
      */
-    public Optional<List<AttendeeAnswerJson>> answers() {
+    public Optional<List<AttendeeAnswer>> answers() {
         return Optional.ofNullable(this.answers);
     }
 
@@ -826,7 +826,7 @@ public class Attendee1 {
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
      */
-    public Optional<AttendeeVisibilityJson> visibility() {
+    public Optional<AttendeeVisibility> visibility() {
         return Optional.ofNullable(this.visibility);
     }
 
@@ -893,7 +893,7 @@ public class Attendee1 {
      * List of appointment groups associated with attendee. These control permissions and visibility in
      * appointments associated with the event.
      */
-    public Optional<List<AppointmentGroupJson>> appointmentGroups() {
+    public Optional<List<AppointmentGroup>> appointmentGroups() {
         return Optional.ofNullable(this.appointmentGroups);
     }
 
@@ -968,7 +968,7 @@ public class Attendee1 {
     /**
      * Information about attendee contact added to an event.
      */
-    public Attendee1 withContact(@Nullable AttendeeContactInfoJson contact) {
+    public Attendee1 withContact(@Nullable AttendeeContactInfo contact) {
         this.contact = contact;
         return this;
     }
@@ -1020,7 +1020,7 @@ public class Attendee1 {
     /**
      * Lookup response object
      */
-    public Attendee1 withRegistrationPath(@Nullable LookupJson registrationPath) {
+    public Attendee1 withRegistrationPath(@Nullable Lookup registrationPath) {
         this.registrationPath = registrationPath;
         return this;
     }
@@ -1028,7 +1028,7 @@ public class Attendee1 {
     /**
      * A Named object
      */
-    public Attendee1 withInvitationList(@Nullable IdNameJson invitationList) {
+    public Attendee1 withInvitationList(@Nullable NamedObject invitationList) {
         this.invitationList = invitationList;
         return this;
     }
@@ -1036,7 +1036,7 @@ public class Attendee1 {
     /**
      * Web links for an attendee.
      */
-    public Attendee1 withWebLinks(@Nullable AttendeeWebLinksJson webLinks) {
+    public Attendee1 withWebLinks(@Nullable AttendeeWebLinks webLinks) {
         this.webLinks = webLinks;
         return this;
     }
@@ -1044,7 +1044,7 @@ public class Attendee1 {
     /**
      * Lookup response object
      */
-    public Attendee1 withRegistrationType(@Nullable LookupJson registrationType) {
+    public Attendee1 withRegistrationType(@Nullable Lookup registrationType) {
         this.registrationType = registrationType;
         return this;
     }
@@ -1061,7 +1061,7 @@ public class Attendee1 {
     /**
      * The details of an attendee in an external systems.
      */
-    public Attendee1 withExternalReferences(@Nullable List<ExternalReferenceJson> externalReferences) {
+    public Attendee1 withExternalReferences(@Nullable List<ExternalReference> externalReferences) {
         this.externalReferences = externalReferences;
         return this;
     }
@@ -1102,7 +1102,7 @@ public class Attendee1 {
     /**
      * An attendee group.
      */
-    public Attendee1 withGroup(@Nullable AttendeeGroupJson group) {
+    public Attendee1 withGroup(@Nullable AttendeeGroup group) {
         this.group = group;
         return this;
     }
@@ -1110,7 +1110,7 @@ public class Attendee1 {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Attendee1 withAdministrator(@Nullable UuidJson administrator) {
+    public Attendee1 withAdministrator(@Nullable Uuid administrator) {
         this.administrator = administrator;
         return this;
     }
@@ -1133,7 +1133,7 @@ public class Attendee1 {
     /**
      * This is used to denote the status of an attendee.
      */
-    public Attendee1 withStatus(@Nullable AttendeeStatusJson status) {
+    public Attendee1 withStatus(@Nullable AttendeeStatus status) {
         this.status = status;
         return this;
     }
@@ -1166,7 +1166,7 @@ public class Attendee1 {
     /**
      * Method by which the attendee was invited to the event.
      */
-    public Attendee1 withInvitedBy(@Nullable AttendeeInvitedByJson invitedBy) {
+    public Attendee1 withInvitedBy(@Nullable AttendeeInvitedBy1 invitedBy) {
         this.invitedBy = invitedBy;
         return this;
     }
@@ -1196,7 +1196,7 @@ public class Attendee1 {
      *
      * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
      */
-    public Attendee1 withResponseMethod(@Nullable AttendeeResponseMethodJson responseMethod) {
+    public Attendee1 withResponseMethod(@Nullable AttendeeResponseMethod1 responseMethod) {
         this.responseMethod = responseMethod;
         return this;
     }
@@ -1208,7 +1208,7 @@ public class Attendee1 {
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @Deprecated
-    public Attendee1 withQuestions(@Nullable List<CustomField> questions) {
+    public Attendee1 withQuestions(@Nullable List<CustomFieldSchema> questions) {
         this.questions = questions;
         return this;
     }
@@ -1216,7 +1216,7 @@ public class Attendee1 {
     /**
      * The list of answers to the registration questions.
      */
-    public Attendee1 withAnswers(@Nullable List<AttendeeAnswerJson> answers) {
+    public Attendee1 withAnswers(@Nullable List<AttendeeAnswer> answers) {
         this.answers = answers;
         return this;
     }
@@ -1233,7 +1233,7 @@ public class Attendee1 {
      * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
      * visible. Public: Their profile is visible.
      */
-    public Attendee1 withVisibility(@Nullable AttendeeVisibilityJson visibility) {
+    public Attendee1 withVisibility(@Nullable AttendeeVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -1308,7 +1308,7 @@ public class Attendee1 {
      * List of appointment groups associated with attendee. These control permissions and visibility in
      * appointments associated with the event.
      */
-    public Attendee1 withAppointmentGroups(@Nullable List<AppointmentGroupJson> appointmentGroups) {
+    public Attendee1 withAppointmentGroups(@Nullable List<AppointmentGroup> appointmentGroups) {
         this.appointmentGroups = appointmentGroups;
         return this;
     }
@@ -1540,7 +1540,7 @@ public class Attendee1 {
 
         private String confirmationNumber;
 
-        private AttendeeContactInfoJson contact;
+        private AttendeeContactInfo contact;
 
         private Boolean checkedIn;
 
@@ -1553,17 +1553,17 @@ public class Attendee1 {
 
         private Long duration;
 
-        private LookupJson registrationPath;
+        private Lookup registrationPath;
 
-        private IdNameJson invitationList;
+        private NamedObject invitationList;
 
-        private AttendeeWebLinksJson webLinks;
+        private AttendeeWebLinks webLinks;
 
-        private LookupJson registrationType;
+        private Lookup registrationType;
 
         private String referenceId;
 
-        private List<ExternalReferenceJson> externalReferences;
+        private List<ExternalReference> externalReferences;
 
         private String note;
 
@@ -1573,14 +1573,14 @@ public class Attendee1 {
 
         private String primaryId;
 
-        private AttendeeGroupJson group;
+        private AttendeeGroup group;
 
-        private UuidJson administrator;
+        private Uuid administrator;
 
         @Deprecated
         private Boolean unsubscribed;
 
-        private AttendeeStatusJson status;
+        private AttendeeStatus status;
 
         private OffsetDateTime registeredAt;
 
@@ -1588,18 +1588,18 @@ public class Attendee1 {
 
         private OffsetDateTime registrationCancelledAt;
 
-        private AttendeeInvitedByJson invitedBy;
+        private AttendeeInvitedBy1 invitedBy;
 
-        private AttendeeResponseMethodJson responseMethod;
+        private AttendeeResponseMethod1 responseMethod;
 
         @Deprecated
-        private List<CustomField> questions;
+        private List<CustomFieldSchema> questions;
 
-        private List<AttendeeAnswerJson> answers;
+        private List<AttendeeAnswer> answers;
 
         private AttendeeLookup admissionItem;
 
-        private AttendeeVisibilityJson visibility;
+        private AttendeeVisibility visibility;
 
         private String bio;
 
@@ -1616,7 +1616,7 @@ public class Attendee1 {
 
         private OffsetDateTime attendeeLastModified;
 
-        private List<AppointmentGroupJson> appointmentGroups;
+        private List<AppointmentGroup> appointmentGroups;
 
         private Double credit;
 
@@ -1684,7 +1684,7 @@ public class Attendee1 {
         /**
          * Information about attendee contact added to an event.
          */
-        public Builder contact(@Nullable AttendeeContactInfoJson contact) {
+        public Builder contact(@Nullable AttendeeContactInfo contact) {
             this.contact = contact;
             return this;
         }
@@ -1736,7 +1736,7 @@ public class Attendee1 {
         /**
          * Lookup response object
          */
-        public Builder registrationPath(@Nullable LookupJson registrationPath) {
+        public Builder registrationPath(@Nullable Lookup registrationPath) {
             this.registrationPath = registrationPath;
             return this;
         }
@@ -1744,7 +1744,7 @@ public class Attendee1 {
         /**
          * A Named object
          */
-        public Builder invitationList(@Nullable IdNameJson invitationList) {
+        public Builder invitationList(@Nullable NamedObject invitationList) {
             this.invitationList = invitationList;
             return this;
         }
@@ -1752,7 +1752,7 @@ public class Attendee1 {
         /**
          * Web links for an attendee.
          */
-        public Builder webLinks(@Nullable AttendeeWebLinksJson webLinks) {
+        public Builder webLinks(@Nullable AttendeeWebLinks webLinks) {
             this.webLinks = webLinks;
             return this;
         }
@@ -1760,7 +1760,7 @@ public class Attendee1 {
         /**
          * Lookup response object
          */
-        public Builder registrationType(@Nullable LookupJson registrationType) {
+        public Builder registrationType(@Nullable Lookup registrationType) {
             this.registrationType = registrationType;
             return this;
         }
@@ -1777,7 +1777,7 @@ public class Attendee1 {
         /**
          * The details of an attendee in an external systems.
          */
-        public Builder externalReferences(@Nullable List<ExternalReferenceJson> externalReferences) {
+        public Builder externalReferences(@Nullable List<ExternalReference> externalReferences) {
             this.externalReferences = externalReferences;
             return this;
         }
@@ -1818,7 +1818,7 @@ public class Attendee1 {
         /**
          * An attendee group.
          */
-        public Builder group(@Nullable AttendeeGroupJson group) {
+        public Builder group(@Nullable AttendeeGroup group) {
             this.group = group;
             return this;
         }
@@ -1826,7 +1826,7 @@ public class Attendee1 {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder administrator(@Nullable UuidJson administrator) {
+        public Builder administrator(@Nullable Uuid administrator) {
             this.administrator = administrator;
             return this;
         }
@@ -1849,7 +1849,7 @@ public class Attendee1 {
         /**
          * This is used to denote the status of an attendee.
          */
-        public Builder status(@Nullable AttendeeStatusJson status) {
+        public Builder status(@Nullable AttendeeStatus status) {
             this.status = status;
             return this;
         }
@@ -1882,7 +1882,7 @@ public class Attendee1 {
         /**
          * Method by which the attendee was invited to the event.
          */
-        public Builder invitedBy(@Nullable AttendeeInvitedByJson invitedBy) {
+        public Builder invitedBy(@Nullable AttendeeInvitedBy1 invitedBy) {
             this.invitedBy = invitedBy;
             return this;
         }
@@ -1912,7 +1912,7 @@ public class Attendee1 {
          *
          * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
          */
-        public Builder responseMethod(@Nullable AttendeeResponseMethodJson responseMethod) {
+        public Builder responseMethod(@Nullable AttendeeResponseMethod1 responseMethod) {
             this.responseMethod = responseMethod;
             return this;
         }
@@ -1924,7 +1924,7 @@ public class Attendee1 {
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
         @Deprecated
-        public Builder questions(@Nullable List<CustomField> questions) {
+        public Builder questions(@Nullable List<CustomFieldSchema> questions) {
             this.questions = questions;
             return this;
         }
@@ -1932,7 +1932,7 @@ public class Attendee1 {
         /**
          * The list of answers to the registration questions.
          */
-        public Builder answers(@Nullable List<AttendeeAnswerJson> answers) {
+        public Builder answers(@Nullable List<AttendeeAnswer> answers) {
             this.answers = answers;
             return this;
         }
@@ -1949,7 +1949,7 @@ public class Attendee1 {
          * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
          * visible. Public: Their profile is visible.
          */
-        public Builder visibility(@Nullable AttendeeVisibilityJson visibility) {
+        public Builder visibility(@Nullable AttendeeVisibility visibility) {
             this.visibility = visibility;
             return this;
         }
@@ -2024,7 +2024,7 @@ public class Attendee1 {
          * List of appointment groups associated with attendee. These control permissions and visibility in
          * appointments associated with the event.
          */
-        public Builder appointmentGroups(@Nullable List<AppointmentGroupJson> appointmentGroups) {
+        public Builder appointmentGroups(@Nullable List<AppointmentGroup> appointmentGroups) {
             this.appointmentGroups = appointmentGroups;
             return this;
         }

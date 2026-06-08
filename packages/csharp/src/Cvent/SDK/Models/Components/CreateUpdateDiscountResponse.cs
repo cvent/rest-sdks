@@ -91,7 +91,7 @@ namespace Cvent.SDK.Models.Components
         public CreateUpdateDiscountCodeResponse? CreateUpdateDiscountCodeResponse { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ExistingVolumeDiscountJson? ExistingVolumeDiscountJson { get; set; }
+        public ExistingVolumeDiscount? ExistingVolumeDiscount { get; set; }
 
         public CreateUpdateDiscountResponseType Type { get; set; }
 
@@ -105,13 +105,13 @@ namespace Cvent.SDK.Models.Components
             return res;
         }
 
-        public static CreateUpdateDiscountResponse CreateVolumeDiscount(ExistingVolumeDiscountJson volumeDiscount)
+        public static CreateUpdateDiscountResponse CreateVolumeDiscount(ExistingVolumeDiscount volumeDiscount)
         {
             CreateUpdateDiscountResponseType typ = CreateUpdateDiscountResponseType.VolumeDiscount;
             string typStr = CreateUpdateDiscountResponseType.VolumeDiscount.ToString();
-            volumeDiscount.Type = ExistingVolumeDiscountJsonTypeExtension.ToEnum(CreateUpdateDiscountResponseType.VolumeDiscount.ToString());
+            volumeDiscount.Type = ExistingVolumeDiscountTypeExtension.ToEnum(CreateUpdateDiscountResponseType.VolumeDiscount.ToString());
             CreateUpdateDiscountResponse res = new CreateUpdateDiscountResponse(typ);
-            res.ExistingVolumeDiscountJson = volumeDiscount;
+            res.ExistingVolumeDiscount = volumeDiscount;
             return res;
         }
 
@@ -137,8 +137,8 @@ namespace Cvent.SDK.Models.Components
                 }
                 if (discriminator == CreateUpdateDiscountResponseType.VolumeDiscount.ToString())
                 {
-                    ExistingVolumeDiscountJson existingVolumeDiscountJSON = ResponseBodyDeserializer.DeserializeNotNull<ExistingVolumeDiscountJson>(jo.ToString());
-                    return CreateVolumeDiscount(existingVolumeDiscountJSON);
+                    ExistingVolumeDiscount existingVolumeDiscount = ResponseBodyDeserializer.DeserializeNotNull<ExistingVolumeDiscount>(jo.ToString());
+                    return CreateVolumeDiscount(existingVolumeDiscount);
                 }
 
                 throw new InvalidOperationException("Could not deserialize into any supported types.");
@@ -159,9 +159,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.ExistingVolumeDiscountJson != null)
+                if (res.ExistingVolumeDiscount != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingVolumeDiscountJson));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingVolumeDiscount));
                     return;
                 }
             }

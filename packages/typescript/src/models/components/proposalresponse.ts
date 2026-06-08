@@ -58,9 +58,9 @@ import {
   SupplierSummaryJson$inboundSchema,
 } from "./suppliersummaryjson.js";
 import {
-  TransactionJson1,
-  TransactionJson1$inboundSchema,
-} from "./transactionjson1.js";
+  TransactionJson,
+  TransactionJson$inboundSchema,
+} from "./transactionjson.js";
 
 /**
  * CancelledReason
@@ -226,7 +226,7 @@ export type ProposalResponse = {
   /**
    * The latest transaction that took place on a given proposal
    */
-  transaction?: TransactionJson1 | undefined;
+  transaction?: TransactionJson | undefined;
   /**
    * The unique ID of the proposal.
    */
@@ -318,7 +318,7 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   contacts: z.array(ContactJson1$inboundSchema).optional(),
   plannerContacts: z.array(ContactJson1$inboundSchema).optional(),
   meetingRoom: MeetingRoomJson$inboundSchema.optional(),
-  transaction: TransactionJson1$inboundSchema.optional(),
+  transaction: TransactionJson$inboundSchema.optional(),
   id: z.string(),
   proposalCode: z.string(),
   status: ProposalStatusJson$inboundSchema.default("NOT_SENT"),

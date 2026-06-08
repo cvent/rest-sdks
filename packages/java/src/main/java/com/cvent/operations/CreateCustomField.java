@@ -9,10 +9,10 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.CustomField2;
+import com.cvent.models.components.CustomField3;
 import com.cvent.models.components.ExistingCustomField;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateCustomFieldResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -129,13 +129,13 @@ public class CreateCustomField {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<CustomField2, CreateCustomFieldResponse> {
+    public static class Sync extends Base implements RequestOperation<CustomField3, CreateCustomFieldResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(CustomField2 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField2>() {});
+        private HttpRequest onBuildRequest(CustomField3 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField3>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -151,7 +151,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(CustomField2 request) {
+        public HttpResponse<InputStream> doRequest(CustomField3 request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -196,7 +196,7 @@ public class CreateCustomField {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -215,7 +215,7 @@ public class CreateCustomField {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    CustomField2, com.cvent.models.operations.async.CreateCustomFieldResponse> {
+                    CustomField3, com.cvent.models.operations.async.CreateCustomFieldResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -227,8 +227,8 @@ public class CreateCustomField {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(CustomField2 request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<CustomField2>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(CustomField3 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<CustomField3>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -241,7 +241,7 @@ public class CreateCustomField {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField2 request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(CustomField3 request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)
@@ -285,7 +285,7 @@ public class CreateCustomField {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

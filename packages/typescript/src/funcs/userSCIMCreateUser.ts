@@ -40,7 +40,7 @@ export function userSCIMCreateUser(
 ): APIPromise<
   Result<
     components.User,
-    | errors.ErrorResponseJson20
+    | errors.ErrorResponseJson17
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -66,7 +66,7 @@ async function $do(
   [
     Result<
       components.User,
-      | errors.ErrorResponseJson20
+      | errors.ErrorResponseJson17
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -159,7 +159,7 @@ async function $do(
 
   const [result] = await M.match<
     components.User,
-    | errors.ErrorResponseJson20
+    | errors.ErrorResponseJson17
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -172,7 +172,7 @@ async function $do(
     M.json(201, components.User$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 409, 429],
-      errors.ErrorResponseJson20$inboundSchema,
+      errors.ErrorResponseJson17$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

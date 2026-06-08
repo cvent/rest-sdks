@@ -43,7 +43,7 @@ export function eventsCreateEventAsync(
 ): APIPromise<
   Result<
     operations.CreateEventAsyncResponse,
-    | errors.ErrorResponse
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -69,7 +69,7 @@ async function $do(
   [
     Result<
       operations.CreateEventAsyncResponse,
-      | errors.ErrorResponse
+      | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -160,7 +160,7 @@ async function $do(
 
   const [result] = await M.match<
     operations.CreateEventAsyncResponse,
-    | errors.ErrorResponse
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -174,7 +174,7 @@ async function $do(
       hdrs: true,
       key: "Result",
     }),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse$inboundSchema),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

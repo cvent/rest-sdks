@@ -65,7 +65,7 @@ public class Payment {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private PaymentTypeJson1 type;
+    private PaymentTypeJson type;
 
     @JsonCreator
     public Payment(
@@ -75,7 +75,7 @@ public class Payment {
             @JsonProperty("amount") double amount,
             @JsonProperty("date") @Nonnull LocalDate date,
             @JsonProperty("note") @Nullable String note,
-            @JsonProperty("type") @Nullable PaymentTypeJson1 type) {
+            @JsonProperty("type") @Nullable PaymentTypeJson type) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.referenceNumber = referenceNumber;
         this.currency = Optional.ofNullable(currency)
@@ -136,7 +136,7 @@ public class Payment {
     /**
      * Denotes the method of payment.
      */
-    public Optional<PaymentTypeJson1> type() {
+    public Optional<PaymentTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -196,7 +196,7 @@ public class Payment {
     /**
      * Denotes the method of payment.
      */
-    public Payment withType(@Nullable PaymentTypeJson1 type) {
+    public Payment withType(@Nullable PaymentTypeJson type) {
         this.type = type;
         return this;
     }
@@ -259,7 +259,7 @@ public class Payment {
 
         private String note;
 
-        private PaymentTypeJson1 type;
+        private PaymentTypeJson type;
 
         private Builder() {
             // force use of static builder() method
@@ -317,7 +317,7 @@ public class Payment {
         /**
          * Denotes the method of payment.
          */
-        public Builder type(@Nullable PaymentTypeJson1 type) {
+        public Builder type(@Nullable PaymentTypeJson type) {
             this.type = type;
             return this;
         }

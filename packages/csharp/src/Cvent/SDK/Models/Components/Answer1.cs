@@ -34,6 +34,6 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the related entity. Contains only the ID of the related entity.
         /// </summary>
         [JsonProperty("choice")]
-        public Uuid1? Choice { get; set; }
+        public Uuid? Choice { get; set; }
     }
 }

@@ -64,19 +64,19 @@ public class SessionSegment {
      * The related event object.
      */
     @JsonProperty("event")
-    private EventLiteJson1 event;
+    private EventId event;
 
     /**
      * The related session object.
      */
     @JsonProperty("session")
-    private SessionLiteJson1 session;
+    private Session1 session;
 
     /**
      * The audience segment associated with the session.
      */
     @JsonProperty("segment")
-    private SegmentLiteJson segment;
+    private Segment segment;
 
     /**
      * True indicates the session segment is active.
@@ -92,9 +92,9 @@ public class SessionSegment {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nonnull EventLiteJson1 event,
-            @JsonProperty("session") @Nonnull SessionLiteJson1 session,
-            @JsonProperty("segment") @Nonnull SegmentLiteJson segment,
+            @JsonProperty("event") @Nonnull EventId event,
+            @JsonProperty("session") @Nonnull Session1 session,
+            @JsonProperty("segment") @Nonnull Segment segment,
             @JsonProperty("active") @Nullable Boolean active) {
         this.created = created;
         this.createdBy = createdBy;
@@ -109,8 +109,7 @@ public class SessionSegment {
         this.active = Optional.ofNullable(active).orElse(Builder._SINGLETON_VALUE_Active.value());
     }
 
-    public SessionSegment(
-            @Nonnull EventLiteJson1 event, @Nonnull SessionLiteJson1 session, @Nonnull SegmentLiteJson segment) {
+    public SessionSegment(@Nonnull EventId event, @Nonnull Session1 session, @Nonnull Segment segment) {
         this(null, null, null, null, null, event, session, segment, null);
     }
 
@@ -152,21 +151,21 @@ public class SessionSegment {
     /**
      * The related event object.
      */
-    public EventLiteJson1 event() {
+    public EventId event() {
         return this.event;
     }
 
     /**
      * The related session object.
      */
-    public SessionLiteJson1 session() {
+    public Session1 session() {
         return this.session;
     }
 
     /**
      * The audience segment associated with the session.
      */
-    public SegmentLiteJson segment() {
+    public Segment segment() {
         return this.segment;
     }
 
@@ -224,7 +223,7 @@ public class SessionSegment {
     /**
      * The related event object.
      */
-    public SessionSegment withEvent(@Nonnull EventLiteJson1 event) {
+    public SessionSegment withEvent(@Nonnull EventId event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -232,7 +231,7 @@ public class SessionSegment {
     /**
      * The related session object.
      */
-    public SessionSegment withSession(@Nonnull SessionLiteJson1 session) {
+    public SessionSegment withSession(@Nonnull Session1 session) {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
@@ -240,7 +239,7 @@ public class SessionSegment {
     /**
      * The audience segment associated with the session.
      */
-    public SessionSegment withSegment(@Nonnull SegmentLiteJson segment) {
+    public SessionSegment withSegment(@Nonnull Segment segment) {
         this.segment = Utils.checkNotNull(segment, "segment");
         return this;
     }
@@ -316,11 +315,11 @@ public class SessionSegment {
 
         private String id;
 
-        private EventLiteJson1 event;
+        private EventId event;
 
-        private SessionLiteJson1 session;
+        private Session1 session;
 
-        private SegmentLiteJson segment;
+        private Segment segment;
 
         private Boolean active;
 
@@ -371,7 +370,7 @@ public class SessionSegment {
         /**
          * The related event object.
          */
-        public Builder event(@Nonnull EventLiteJson1 event) {
+        public Builder event(@Nonnull EventId event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -379,7 +378,7 @@ public class SessionSegment {
         /**
          * The related session object.
          */
-        public Builder session(@Nonnull SessionLiteJson1 session) {
+        public Builder session(@Nonnull Session1 session) {
             this.session = Utils.checkNotNull(session, "session");
             return this;
         }
@@ -387,7 +386,7 @@ public class SessionSegment {
         /**
          * The audience segment associated with the session.
          */
-        public Builder segment(@Nonnull SegmentLiteJson segment) {
+        public Builder segment(@Nonnull Segment segment) {
             this.segment = Utils.checkNotNull(segment, "segment");
             return this;
         }

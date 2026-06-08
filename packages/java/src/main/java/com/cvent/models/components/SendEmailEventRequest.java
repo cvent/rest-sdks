@@ -22,7 +22,7 @@ public class SendEmailEventRequest {
      * Details of the event.
      */
     @JsonProperty("event")
-    private EventJson9 event;
+    private EventJson8 event;
 
     /**
      * Details of an email to be send.
@@ -45,7 +45,7 @@ public class SendEmailEventRequest {
 
     @JsonCreator
     public SendEmailEventRequest(
-            @JsonProperty("event") @Nonnull EventJson9 event,
+            @JsonProperty("event") @Nonnull EventJson8 event,
             @JsonProperty("email") @Nonnull EmailJson2 email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendees") @Nonnull List<String> attendees) {
@@ -59,7 +59,7 @@ public class SendEmailEventRequest {
     /**
      * Details of the event.
      */
-    public EventJson9 event() {
+    public EventJson8 event() {
         return this.event;
     }
 
@@ -92,7 +92,7 @@ public class SendEmailEventRequest {
     /**
      * Details of the event.
      */
-    public SendEmailEventRequest withEvent(@Nonnull EventJson9 event) {
+    public SendEmailEventRequest withEvent(@Nonnull EventJson8 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -159,7 +159,7 @@ public class SendEmailEventRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson9 event;
+        private EventJson8 event;
 
         private EmailJson2 email;
 
@@ -174,7 +174,7 @@ public class SendEmailEventRequest {
         /**
          * Details of the event.
          */
-        public Builder event(@Nonnull EventJson9 event) {
+        public Builder event(@Nonnull EventJson8 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

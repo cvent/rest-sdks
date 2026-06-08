@@ -7,7 +7,7 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson5, AddressJson5$inboundSchema } from "./addressjson5.js";
+import { AddressJson4, AddressJson4$inboundSchema } from "./addressjson4.js";
 import { EmailJson1, EmailJson1$inboundSchema } from "./emailjson1.js";
 import { GroupJson, GroupJson$inboundSchema } from "./groupjson.js";
 import { MetaJson, MetaJson$inboundSchema } from "./metajson.js";
@@ -61,7 +61,7 @@ export type UserJson = {
   /**
    * The address of the user. The user can have only one address. <br> If multiple addresses are provided, only one is accepted and rest are ignored. One address is selected based on the following sequence of criteria: primary, work type, first in the sequence
    */
-  addresses?: Array<AddressJson5> | undefined;
+  addresses?: Array<AddressJson4> | undefined;
   /**
    * The type of the user.
    */
@@ -103,7 +103,7 @@ export const UserJson$inboundSchema: z.ZodType<
   emails: z.array(EmailJson1$inboundSchema),
   title: z.string().optional(),
   phoneNumbers: z.array(PhoneNumberJson1$inboundSchema).optional(),
-  addresses: z.array(AddressJson5$inboundSchema).optional(),
+  addresses: z.array(AddressJson4$inboundSchema).optional(),
   userType: UserTypeJson$inboundSchema,
   timezone: z.string().default("America/New_York"),
   locale: z.string(),

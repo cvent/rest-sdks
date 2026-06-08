@@ -12,7 +12,7 @@ import {
   AdditionalChoice$inboundSchema,
 } from "./additionalchoice.js";
 import { Choice, Choice$inboundSchema } from "./choice.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -60,7 +60,7 @@ export type LeadQualificationQuestion = {
   /**
    * The Associated Event.
    */
-  event?: Event1 | undefined;
+  event?: Event21 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -114,7 +114,7 @@ export const LeadQualificationQuestion$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: Event1$inboundSchema.optional(),
+  event: Event21$inboundSchema.optional(),
   exhibitor: Exhibitor$inboundSchema.optional(),
   type: LeadQualificationQuestionType$inboundSchema.optional(),
   code: z.string().optional(),

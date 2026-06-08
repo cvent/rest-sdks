@@ -36,12 +36,12 @@ import { Result } from "../types/fp.js";
  */
 export function attendeesCreateAttendee(
   client: CventSDKCore,
-  request: Array<components.AttendeeAddJson>,
+  request: Array<components.AttendeeAdd>,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    Array<components.AttendeeAddBulkItem>,
-    | errors.ErrorResponse
+    Array<components.AttendeeInvitesBulkResponseItem>,
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -61,13 +61,13 @@ export function attendeesCreateAttendee(
 
 async function $do(
   client: CventSDKCore,
-  request: Array<components.AttendeeAddJson>,
+  request: Array<components.AttendeeAdd>,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      Array<components.AttendeeAddBulkItem>,
-      | errors.ErrorResponse
+      Array<components.AttendeeInvitesBulkResponseItem>,
+      | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -82,7 +82,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => z.array(components.AttendeeAddJson$outboundSchema).parse(value),
+    (value) => z.array(components.AttendeeAdd$outboundSchema).parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -157,8 +157,8 @@ async function $do(
   };
 
   const [result] = await M.match<
-    Array<components.AttendeeAddBulkItem>,
-    | errors.ErrorResponse
+    Array<components.AttendeeInvitesBulkResponseItem>,
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -168,8 +168,11 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(207, z.array(components.AttendeeAddBulkItem$inboundSchema)),
-    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse$inboundSchema),
+    M.json(
+      207,
+      z.array(components.AttendeeInvitesBulkResponseItem$inboundSchema),
+    ),
+    M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

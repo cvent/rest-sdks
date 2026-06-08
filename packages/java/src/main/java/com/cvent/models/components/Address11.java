@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -16,22 +17,29 @@ import java.util.Optional;
 /**
  * Address11
  *
- * <p>An object representing an address with various properties.
+ * <p>Address details
  */
 public class Address11 {
     /**
-     * The first line of an address
+     * The first line of an address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address1")
     private String address1;
 
     /**
-     * The second line of an address
+     * The second line of an address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address2")
     private String address2;
+
+    /**
+     * The third line of an address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("address3")
+    private String address3;
 
     /**
      * The name of the city.
@@ -41,6 +49,20 @@ public class Address11 {
     private String city;
 
     /**
+     * ISO 3166 two-letter (alpha-2) country code.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("countryCode")
+    private String countryCode;
+
+    /**
+     * Postal code (also known as zipcode) of the address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("postalCode")
+    private String postalCode;
+
+    /**
      * The name of the state/province/region of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -48,51 +70,82 @@ public class Address11 {
     private String region;
 
     /**
-     * postal code (also known as zipcode) of the address
+     * The abbreviation of the state/province/region of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("postalCode")
-    private String postalCode;
+    @JsonProperty("regionCode")
+    private String regionCode;
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
     private String country;
 
+    /**
+     * The geo latitude of the address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("latitude")
+    private Long latitude;
+
+    /**
+     * The geo longitude of the address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("longitude")
+    private Long longitude;
+
     @JsonCreator
     public Address11(
             @JsonProperty("address1") @Nullable String address1,
             @JsonProperty("address2") @Nullable String address2,
+            @JsonProperty("address3") @Nullable String address3,
             @JsonProperty("city") @Nullable String city,
-            @JsonProperty("region") @Nullable String region,
+            @JsonProperty("countryCode") @Nullable String countryCode,
             @JsonProperty("postalCode") @Nullable String postalCode,
-            @JsonProperty("country") @Nullable String country) {
+            @JsonProperty("region") @Nullable String region,
+            @JsonProperty("regionCode") @Nullable String regionCode,
+            @JsonProperty("country") @Nullable String country,
+            @JsonProperty("latitude") @Nullable Long latitude,
+            @JsonProperty("longitude") @Nullable Long longitude) {
         this.address1 = address1;
         this.address2 = address2;
+        this.address3 = address3;
         this.city = city;
-        this.region = region;
+        this.countryCode = countryCode;
         this.postalCode = postalCode;
+        this.region = region;
+        this.regionCode = regionCode;
         this.country = country;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Address11() {
-        this(null, null, null, null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
-     * The first line of an address
+     * The first line of an address.
      */
     public Optional<String> address1() {
         return Optional.ofNullable(this.address1);
     }
 
     /**
-     * The second line of an address
+     * The second line of an address.
      */
     public Optional<String> address2() {
         return Optional.ofNullable(this.address2);
+    }
+
+    /**
+     * The third line of an address.
+     */
+    public Optional<String> address3() {
+        return Optional.ofNullable(this.address3);
     }
 
     /**
@@ -103,6 +156,20 @@ public class Address11 {
     }
 
     /**
+     * ISO 3166 two-letter (alpha-2) country code.
+     */
+    public Optional<String> countryCode() {
+        return Optional.ofNullable(this.countryCode);
+    }
+
+    /**
+     * Postal code (also known as zipcode) of the address.
+     */
+    public Optional<String> postalCode() {
+        return Optional.ofNullable(this.postalCode);
+    }
+
+    /**
      * The name of the state/province/region of the address.
      */
     public Optional<String> region() {
@@ -110,17 +177,31 @@ public class Address11 {
     }
 
     /**
-     * postal code (also known as zipcode) of the address
+     * The abbreviation of the state/province/region of the address.
      */
-    public Optional<String> postalCode() {
-        return Optional.ofNullable(this.postalCode);
+    public Optional<String> regionCode() {
+        return Optional.ofNullable(this.regionCode);
     }
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country of the address.
      */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
+    }
+
+    /**
+     * The geo latitude of the address.
+     */
+    public Optional<Long> latitude() {
+        return Optional.ofNullable(this.latitude);
+    }
+
+    /**
+     * The geo longitude of the address.
+     */
+    public Optional<Long> longitude() {
+        return Optional.ofNullable(this.longitude);
     }
 
     public static Builder builder() {
@@ -128,7 +209,7 @@ public class Address11 {
     }
 
     /**
-     * The first line of an address
+     * The first line of an address.
      */
     public Address11 withAddress1(@Nullable String address1) {
         this.address1 = address1;
@@ -136,10 +217,18 @@ public class Address11 {
     }
 
     /**
-     * The second line of an address
+     * The second line of an address.
      */
     public Address11 withAddress2(@Nullable String address2) {
         this.address2 = address2;
+        return this;
+    }
+
+    /**
+     * The third line of an address.
+     */
+    public Address11 withAddress3(@Nullable String address3) {
+        this.address3 = address3;
         return this;
     }
 
@@ -152,6 +241,22 @@ public class Address11 {
     }
 
     /**
+     * ISO 3166 two-letter (alpha-2) country code.
+     */
+    public Address11 withCountryCode(@Nullable String countryCode) {
+        this.countryCode = countryCode;
+        return this;
+    }
+
+    /**
+     * Postal code (also known as zipcode) of the address.
+     */
+    public Address11 withPostalCode(@Nullable String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    /**
      * The name of the state/province/region of the address.
      */
     public Address11 withRegion(@Nullable String region) {
@@ -160,18 +265,34 @@ public class Address11 {
     }
 
     /**
-     * postal code (also known as zipcode) of the address
+     * The abbreviation of the state/province/region of the address.
      */
-    public Address11 withPostalCode(@Nullable String postalCode) {
-        this.postalCode = postalCode;
+    public Address11 withRegionCode(@Nullable String regionCode) {
+        this.regionCode = regionCode;
         return this;
     }
 
     /**
-     * Name of the country for example, 'United States'
+     * Name of the country of the address.
      */
     public Address11 withCountry(@Nullable String country) {
         this.country = country;
+        return this;
+    }
+
+    /**
+     * The geo latitude of the address.
+     */
+    public Address11 withLatitude(@Nullable Long latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    /**
+     * The geo longitude of the address.
+     */
+    public Address11 withLongitude(@Nullable Long longitude) {
+        this.longitude = longitude;
         return this;
     }
 
@@ -186,15 +307,31 @@ public class Address11 {
         Address11 other = (Address11) o;
         return Utils.enhancedDeepEquals(this.address1, other.address1)
                 && Utils.enhancedDeepEquals(this.address2, other.address2)
+                && Utils.enhancedDeepEquals(this.address3, other.address3)
                 && Utils.enhancedDeepEquals(this.city, other.city)
-                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
                 && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
-                && Utils.enhancedDeepEquals(this.country, other.country);
+                && Utils.enhancedDeepEquals(this.region, other.region)
+                && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.latitude, other.latitude)
+                && Utils.enhancedDeepEquals(this.longitude, other.longitude);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(address1, address2, city, region, postalCode, country);
+        return Utils.enhancedHash(
+                address1,
+                address2,
+                address3,
+                city,
+                countryCode,
+                postalCode,
+                region,
+                regionCode,
+                country,
+                latitude,
+                longitude);
     }
 
     @Override
@@ -205,14 +342,24 @@ public class Address11 {
                 address1,
                 "address2",
                 address2,
+                "address3",
+                address3,
                 "city",
                 city,
-                "region",
-                region,
+                "countryCode",
+                countryCode,
                 "postalCode",
                 postalCode,
+                "region",
+                region,
+                "regionCode",
+                regionCode,
                 "country",
-                country);
+                country,
+                "latitude",
+                latitude,
+                "longitude",
+                longitude);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -222,20 +369,30 @@ public class Address11 {
 
         private String address2;
 
+        private String address3;
+
         private String city;
 
-        private String region;
+        private String countryCode;
 
         private String postalCode;
 
+        private String region;
+
+        private String regionCode;
+
         private String country;
+
+        private Long latitude;
+
+        private Long longitude;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The first line of an address
+         * The first line of an address.
          */
         public Builder address1(@Nullable String address1) {
             this.address1 = address1;
@@ -243,10 +400,18 @@ public class Address11 {
         }
 
         /**
-         * The second line of an address
+         * The second line of an address.
          */
         public Builder address2(@Nullable String address2) {
             this.address2 = address2;
+            return this;
+        }
+
+        /**
+         * The third line of an address.
+         */
+        public Builder address3(@Nullable String address3) {
+            this.address3 = address3;
             return this;
         }
 
@@ -259,6 +424,22 @@ public class Address11 {
         }
 
         /**
+         * ISO 3166 two-letter (alpha-2) country code.
+         */
+        public Builder countryCode(@Nullable String countryCode) {
+            this.countryCode = countryCode;
+            return this;
+        }
+
+        /**
+         * Postal code (also known as zipcode) of the address.
+         */
+        public Builder postalCode(@Nullable String postalCode) {
+            this.postalCode = postalCode;
+            return this;
+        }
+
+        /**
          * The name of the state/province/region of the address.
          */
         public Builder region(@Nullable String region) {
@@ -267,23 +448,50 @@ public class Address11 {
         }
 
         /**
-         * postal code (also known as zipcode) of the address
+         * The abbreviation of the state/province/region of the address.
          */
-        public Builder postalCode(@Nullable String postalCode) {
-            this.postalCode = postalCode;
+        public Builder regionCode(@Nullable String regionCode) {
+            this.regionCode = regionCode;
             return this;
         }
 
         /**
-         * Name of the country for example, 'United States'
+         * Name of the country of the address.
          */
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
 
+        /**
+         * The geo latitude of the address.
+         */
+        public Builder latitude(@Nullable Long latitude) {
+            this.latitude = latitude;
+            return this;
+        }
+
+        /**
+         * The geo longitude of the address.
+         */
+        public Builder longitude(@Nullable Long longitude) {
+            this.longitude = longitude;
+            return this;
+        }
+
         public Address11 build() {
-            return new Address11(address1, address2, city, region, postalCode, country);
+            return new Address11(
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    countryCode,
+                    postalCode,
+                    region,
+                    regionCode,
+                    country,
+                    latitude,
+                    longitude);
         }
     }
 }

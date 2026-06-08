@@ -55,7 +55,7 @@ namespace Cvent.SDK.Models.Components
         public EventTypeJson0? Type { get; set; }
 
         /// <summary>
-        /// Space area divisions.
+        /// Space area divisons.
         /// </summary>
         [JsonProperty("totalMeetingSpaceRequired")]
         public SpaceAreaJson0? TotalMeetingSpaceRequired { get; set; }
@@ -97,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         public string? ReferenceNumber { get; set; }
 
         /// <summary>
-        /// Space area divisions.
+        /// Space area divisons.
         /// </summary>
         [JsonProperty("largestMeetingSpaceRequired")]
         public SpaceAreaJson0? LargestMeetingSpaceRequired { get; set; }

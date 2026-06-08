@@ -66,7 +66,7 @@ public class PaymentResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private PaymentTypeJson1 type;
+    private PaymentTypeJson type;
 
     /**
      * The ISO 8601 zoned date and time when the budget item was last modified.
@@ -103,7 +103,7 @@ public class PaymentResponse {
             @JsonProperty("amount") double amount,
             @JsonProperty("date") @Nonnull LocalDate date,
             @JsonProperty("note") @Nullable String note,
-            @JsonProperty("type") @Nullable PaymentTypeJson1 type,
+            @JsonProperty("type") @Nullable PaymentTypeJson type,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("budgetVersion") @Nullable PaymentResponseBudgetVersion budgetVersion,
@@ -177,7 +177,7 @@ public class PaymentResponse {
     /**
      * Denotes the method of payment.
      */
-    public Optional<PaymentTypeJson1> type() {
+    public Optional<PaymentTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -265,7 +265,7 @@ public class PaymentResponse {
     /**
      * Denotes the method of payment.
      */
-    public PaymentResponse withType(@Nullable PaymentTypeJson1 type) {
+    public PaymentResponse withType(@Nullable PaymentTypeJson type) {
         this.type = type;
         return this;
     }
@@ -373,7 +373,7 @@ public class PaymentResponse {
 
         private String note;
 
-        private PaymentTypeJson1 type;
+        private PaymentTypeJson type;
 
         private OffsetDateTime lastModified;
 
@@ -439,7 +439,7 @@ public class PaymentResponse {
         /**
          * Denotes the method of payment.
          */
-        public Builder type(@Nullable PaymentTypeJson1 type) {
+        public Builder type(@Nullable PaymentTypeJson type) {
             this.type = type;
             return this;
         }

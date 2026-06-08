@@ -442,6 +442,7 @@ run();
 * [listRegistrationPaths](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
 * [listRegistrationTypes](docs/sdks/events/README.md#listregistrationtypes) - List Registration Types
 * [updateRegistrationType](docs/sdks/events/README.md#updateregistrationtype) - Update Event Registration Type
+* [listTaxes](docs/sdks/events/README.md#listtaxes) - List Taxes
 * [getTransactions](docs/sdks/events/README.md#gettransactions) - List Transactions
 * [postTransactions](docs/sdks/events/README.md#posttransactions) - Create Transactions
 * [getTransactionItems](docs/sdks/events/README.md#gettransactionitems) - List Transaction Items
@@ -998,6 +999,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsListSessionsAttendance`](docs/sdks/events/README.md#listsessionsattendance) - Session Attendance
 - [`eventsListSessionsEnrollment`](docs/sdks/events/README.md#listsessionsenrollment) - List Session Registrants
 - [`eventsListSessionsEnrollmentPostFilter`](docs/sdks/events/README.md#listsessionsenrollmentpostfilter) - List Session Registrants
+- [`eventsListTaxes`](docs/sdks/events/README.md#listtaxes) - List Taxes
 - [`eventsPlusHubGetHubMembers`](docs/sdks/eventsplushub/README.md#gethubmembers) - Get Events+ Hub Members
 - [`eventsPlusHubListHubs`](docs/sdks/eventsplushub/README.md#listhubs) - List Events+ Hubs
 - [`eventsPostTransactions`](docs/sdks/events/README.md#posttransactions) - Create Transactions
@@ -1478,7 +1480,7 @@ async function run() {
       console.log(error.headers);
 
       // Depending on the method different errors may be thrown
-      if (error instanceof errors.ErrorResponse) {
+      if (error instanceof errors.ErrorResponse1) {
         console.log(error.data$.code); // number
         console.log(error.data$.message); // string
         console.log(error.data$.target); // string
@@ -1495,9 +1497,9 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`CventSDKError`](./src/models/errors/cventsdkerror.ts): The base class for HTTP error responses.
-  * [`ErrorResponse`](./src/models/errors/errorresponse.ts): Represents an error response with additional details of cascading error messages. *
+  * [`ErrorResponse1`](./src/models/errors/errorresponse1.ts): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common errors (9)</summary>
+<details><summary>Less common errors (10)</summary>
 
 <br />
 
@@ -1510,9 +1512,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson20`](./src/models/errors/errorresponsejson20.ts): The error response. Applicable to 11 of 444 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 444 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 444 methods.*
+* [`ErrorResponseJson17`](./src/models/errors/errorresponsejson17.ts): The error response. Applicable to 11 of 445 methods.*
+* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): Represents an error response with additional details of cascading error messages. Applicable to 6 of 445 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 445 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 445 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  DonationItemJson1,
-  DonationItemJson1$inboundSchema,
-} from "./donationitemjson1.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { DonationItem1, DonationItem1$inboundSchema } from "./donationitem1.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * A paginated response of donation items objects.
@@ -19,11 +16,11 @@ export type DonationItemsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of donation items.
    */
-  data: Array<DonationItemJson1>;
+  data: Array<DonationItem1>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const DonationItemsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(DonationItemJson1$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(DonationItem1$inboundSchema),
 });
 
 export function donationItemsPaginatedResponseFromJSON(

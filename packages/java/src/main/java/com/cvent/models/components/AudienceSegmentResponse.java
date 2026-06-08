@@ -56,7 +56,7 @@ public class AudienceSegmentResponse {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson2 event;
+    private EventJson1 event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -98,7 +98,7 @@ public class AudienceSegmentResponse {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull EventJson2 event,
+            @JsonProperty("event") @Nonnull EventJson1 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("id") @Nullable String id,
@@ -116,7 +116,7 @@ public class AudienceSegmentResponse {
         this.deleted = Optional.ofNullable(deleted).orElse(Builder._SINGLETON_VALUE_Deleted.value());
     }
 
-    public AudienceSegmentResponse(@Nonnull EventJson2 event, @Nonnull String name) {
+    public AudienceSegmentResponse(@Nonnull EventJson1 event, @Nonnull String name) {
         this(null, null, null, null, event, name, null, null, null, null);
     }
 
@@ -151,7 +151,7 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public EventJson2 event() {
+    public EventJson1 event() {
         return this.event;
     }
 
@@ -229,7 +229,7 @@ public class AudienceSegmentResponse {
     /**
      * ID of the event.
      */
-    public AudienceSegmentResponse withEvent(@Nonnull EventJson2 event) {
+    public AudienceSegmentResponse withEvent(@Nonnull EventJson1 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -338,7 +338,7 @@ public class AudienceSegmentResponse {
 
         private String lastModifiedBy;
 
-        private EventJson2 event;
+        private EventJson1 event;
 
         private String name;
 
@@ -389,7 +389,7 @@ public class AudienceSegmentResponse {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson2 event) {
+        public Builder event(@Nonnull EventJson1 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

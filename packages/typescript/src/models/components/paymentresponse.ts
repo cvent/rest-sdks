@@ -8,9 +8,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PaymentTypeJson1,
-  PaymentTypeJson1$inboundSchema,
-} from "./paymenttypejson1.js";
+  PaymentTypeJson,
+  PaymentTypeJson$inboundSchema,
+} from "./paymenttypejson.js";
 
 /**
  * This is the budget version where this payment was made.
@@ -63,7 +63,7 @@ export type PaymentResponse = {
   /**
    * Denotes the method of payment.
    */
-  type?: PaymentTypeJson1 | undefined;
+  type?: PaymentTypeJson | undefined;
   /**
    * The ISO 8601 zoned date and time when the budget item was last modified.
    */
@@ -132,7 +132,7 @@ export const PaymentResponse$inboundSchema: z.ZodType<
   amount: z.number(),
   date: z.string().transform(v => new RFCDate(v)),
   note: z.string().optional(),
-  type: PaymentTypeJson1$inboundSchema.optional(),
+  type: PaymentTypeJson$inboundSchema.optional(),
   lastModified: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),

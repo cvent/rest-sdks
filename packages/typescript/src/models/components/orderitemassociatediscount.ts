@@ -3,21 +3,13 @@
  */
 
 import * as z from "zod/v3";
+import { Event2, Event2$Outbound, Event2$outboundSchema } from "./event2.js";
+import { Order, Order$Outbound, Order$outboundSchema } from "./order.js";
 import {
-  EventJson,
-  EventJson$Outbound,
-  EventJson$outboundSchema,
-} from "./eventjson.js";
-import {
-  OrderItemJson0,
-  OrderItemJson0$Outbound,
-  OrderItemJson0$outboundSchema,
-} from "./orderitemjson0.js";
-import {
-  OrderJson,
-  OrderJson$Outbound,
-  OrderJson$outboundSchema,
-} from "./orderjson.js";
+  OrderItem,
+  OrderItem$Outbound,
+  OrderItem$outboundSchema,
+} from "./orderitem.js";
 
 /**
  * Details for order item update while associating a discount code
@@ -26,15 +18,15 @@ export type OrderItemAssociateDiscount = {
   /**
    * The reference to the event. Contains only the ID of the event.
    */
-  event: EventJson;
+  event: Event2;
   /**
    * Represents an order. Contains only the ID of the order.
    */
-  order: OrderJson;
+  order: Order;
   /**
    * Represents an order item. Contains only the ID of the order item.
    */
-  item: OrderItemJson0;
+  item: OrderItem;
   /**
    * New order amount for the charge order item.
    */
@@ -43,9 +35,9 @@ export type OrderItemAssociateDiscount = {
 
 /** @internal */
 export type OrderItemAssociateDiscount$Outbound = {
-  event: EventJson$Outbound;
-  order: OrderJson$Outbound;
-  item: OrderItemJson0$Outbound;
+  event: Event2$Outbound;
+  order: Order$Outbound;
+  item: OrderItem$Outbound;
   amountOrdered: number;
 };
 
@@ -55,9 +47,9 @@ export const OrderItemAssociateDiscount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrderItemAssociateDiscount
 > = z.object({
-  event: EventJson$outboundSchema,
-  order: OrderJson$outboundSchema,
-  item: OrderItemJson0$outboundSchema,
+  event: Event2$outboundSchema,
+  order: Order$outboundSchema,
+  item: OrderItem$outboundSchema,
   amountOrdered: z.number(),
 });
 

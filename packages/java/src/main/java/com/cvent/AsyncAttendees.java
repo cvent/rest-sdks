@@ -5,7 +5,7 @@ package com.cvent;
 
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
-import com.cvent.models.components.AttendeeAddJson;
+import com.cvent.models.components.AttendeeAdd;
 import com.cvent.models.operations.GetAttendeeByIdRequest;
 import com.cvent.models.operations.GetBadgeRequest;
 import com.cvent.models.operations.GetBadgesPostFiltersRequest;
@@ -156,7 +156,7 @@ public class AsyncAttendees {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<CreateAttendeeResponse>} - The async response
      */
-    public CompletableFuture<CreateAttendeeResponse> createAttendee(@Nonnull List<AttendeeAddJson> request) {
+    public CompletableFuture<CreateAttendeeResponse> createAttendee(@Nonnull List<AttendeeAdd> request) {
         return createAttendee(request, null);
     }
 
@@ -172,8 +172,8 @@ public class AsyncAttendees {
      * @return {@code CompletableFuture<CreateAttendeeResponse>} - The async response
      */
     public CompletableFuture<CreateAttendeeResponse> createAttendee(
-            @Nonnull List<AttendeeAddJson> request, @Nullable Options options) {
-        AsyncRequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> operation =
+            @Nonnull List<AttendeeAdd> request, @Nullable Options options) {
+        AsyncRequestOperation<List<AttendeeAdd>, CreateAttendeeResponse> operation =
                 new CreateAttendee.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

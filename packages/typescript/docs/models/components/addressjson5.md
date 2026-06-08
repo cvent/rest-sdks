@@ -1,6 +1,6 @@
 # AddressJson5
 
-Address
+Address details.
 
 ## Example Usage
 
@@ -8,24 +8,26 @@ Address
 import { AddressJson5 } from "@cvent/sdk/models/components";
 
 let value: AddressJson5 = {
-  type: "work",
-  streetAddress: "100 Universal City Plaza",
-  locality: "Hollywood",
-  region: "CA",
-  postalCode: "91608",
-  country: "USA",
-  primary: true,
+  address1: "717 N Harwood St",
+  address2: "Suite 2800",
+  city: "Dallas",
+  region: "Texas",
+  regionCode: "TX",
+  postalCode: "75201",
+  country: "United States",
+  countryCode: "US",
 };
 ```
 
 ## Fields
 
-| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `type`                                                                     | [components.AddressTypeJson1](../../models/components/addresstypejson1.md) | :heavy_check_mark:                                                         | The type of the address.                                                   | work                                                                       |
-| `streetAddress`                                                            | *string*                                                                   | :heavy_minus_sign:                                                         | The street address of the user.                                            | 100 Universal City Plaza                                                   |
-| `locality`                                                                 | *string*                                                                   | :heavy_minus_sign:                                                         | The locality/city of the user.                                             | Hollywood                                                                  |
-| `region`                                                                   | *string*                                                                   | :heavy_minus_sign:                                                         | The region/state/province of the user.                                     | CA                                                                         |
-| `postalCode`                                                               | *string*                                                                   | :heavy_minus_sign:                                                         | Postal code (also known as zipcode) of the user.                           | 91608                                                                      |
-| `country`                                                                  | *string*                                                                   | :heavy_minus_sign:                                                         | The country of the user.                                                   | USA                                                                        |
-| `primary`                                                                  | *boolean*                                                                  | :heavy_minus_sign:                                                         | True indicates the address is primary.                                     | true                                                                       |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | 717 N Harwood St               |
+| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Suite 2800                     |
+| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Dallas                         |
+| `region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
+| `regionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
+| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 75201                          |
+| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States                  |
+| `countryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

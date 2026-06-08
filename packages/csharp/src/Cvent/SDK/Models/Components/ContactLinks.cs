@@ -14,7 +14,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
+    /// Collection of social media links for the contact.
     /// </summary>
     public class ContactLinks
     {
@@ -37,9 +37,9 @@ namespace Cvent.SDK.Models.Components
         public Link? LinkedInUrl { get; set; }
 
         /// <summary>
-        /// Represents a link to a related resource.
+        /// Reference to a profile picture.
         /// </summary>
-        [JsonProperty("instagramUrl")]
-        public Link? InstagramUrl { get; set; }
+        [JsonProperty("profilePicture")]
+        public ContactLinksLink? ProfilePicture { get; set; }
     }
 }

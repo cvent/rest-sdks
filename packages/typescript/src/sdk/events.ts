@@ -43,6 +43,7 @@ import { eventsListRegistrationTypes } from "../funcs/eventsListRegistrationType
 import { eventsListSessionsAttendance } from "../funcs/eventsListSessionsAttendance.js";
 import { eventsListSessionsEnrollment } from "../funcs/eventsListSessionsEnrollment.js";
 import { eventsListSessionsEnrollmentPostFilter } from "../funcs/eventsListSessionsEnrollmentPostFilter.js";
+import { eventsListTaxes } from "../funcs/eventsListTaxes.js";
 import { eventsPostTransactions } from "../funcs/eventsPostTransactions.js";
 import { eventsSendEventEmails } from "../funcs/eventsSendEventEmails.js";
 import { eventsSessionCheckIn } from "../funcs/eventsSessionCheckIn.js";
@@ -292,7 +293,7 @@ export class Events extends ClientSDK {
   async getEventById(
     request: operations.GetEventByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Event> {
+  ): Promise<components.Event1> {
     return unwrapAsync(eventsGetEventById(
       this,
       request,
@@ -389,7 +390,7 @@ export class Events extends ClientSDK {
   async answerEventCustomField(
     request: operations.AnswerEventCustomFieldRequest,
     options?: RequestOptions,
-  ): Promise<components.CustomField1> {
+  ): Promise<components.CustomField2> {
     return unwrapAsync(eventsAnswerEventCustomField(
       this,
       request,
@@ -724,6 +725,23 @@ export class Events extends ClientSDK {
   }
 
   /**
+   * List Taxes
+   *
+   * @remarks
+   * Gets a paginated list of taxes for an event. A tax is an event-level pricing configuration applied to products such as admission items, sessions, and other billable items.
+   */
+  async listTaxes(
+    request: operations.ListTaxesRequest,
+    options?: RequestOptions,
+  ): Promise<PageIterator<operations.ListTaxesResponse, { cursor: string }>> {
+    return unwrapResultIterator(eventsListTaxes(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * List Transactions
    *
    * @remarks
@@ -961,7 +979,7 @@ export class Events extends ClientSDK {
   async sessionCheckIn(
     request: operations.SessionCheckInRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItemJson1>> {
+  ): Promise<Array<components.AttendeeAddBulkItemJson>> {
     return unwrapAsync(eventsSessionCheckIn(
       this,
       request,
@@ -980,7 +998,7 @@ export class Events extends ClientSDK {
   async updateSessionCheckIn(
     request: operations.UpdateSessionCheckInRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.AttendeeAddBulkItemJson1>> {
+  ): Promise<Array<components.AttendeeAddBulkItemJson>> {
     return unwrapAsync(eventsUpdateSessionCheckIn(
       this,
       request,

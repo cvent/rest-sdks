@@ -56,7 +56,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -91,7 +91,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("appointment")
-    private Appointment appointment;
+    private Appointment1 appointment;
 
     /**
      * The title of the lead
@@ -246,12 +246,12 @@ public class Lead {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable Event1 event,
+            @JsonProperty("event") @Nullable Event21 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("attendee") @Nullable Attendee12 attendee,
             @JsonProperty("boothStaff") @Nullable BoothStaff boothStaff,
             @JsonProperty("device") @Nullable Device device,
-            @JsonProperty("appointment") @Nullable Appointment appointment,
+            @JsonProperty("appointment") @Nullable Appointment1 appointment,
             @JsonProperty("title") @Nullable String title,
             @JsonProperty("firstName") @Nullable String firstName,
             @JsonProperty("lastName") @Nullable String lastName,
@@ -372,7 +372,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Optional<Event1> event() {
+    public Optional<Event21> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -407,7 +407,7 @@ public class Lead {
     /**
      * A JSON schema representing the structure of an appointment object.
      */
-    public Optional<Appointment> appointment() {
+    public Optional<Appointment1> appointment() {
         return Optional.ofNullable(this.appointment);
     }
 
@@ -597,7 +597,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Lead withEvent(@Nullable Event1 event) {
+    public Lead withEvent(@Nullable Event21 event) {
         this.event = event;
         return this;
     }
@@ -637,7 +637,7 @@ public class Lead {
     /**
      * A JSON schema representing the structure of an appointment object.
      */
-    public Lead withAppointment(@Nullable Appointment appointment) {
+    public Lead withAppointment(@Nullable Appointment1 appointment) {
         this.appointment = appointment;
         return this;
     }
@@ -967,7 +967,7 @@ public class Lead {
 
         private String lastModifiedBy;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -977,7 +977,7 @@ public class Lead {
 
         private Device device;
 
-        private Appointment appointment;
+        private Appointment1 appointment;
 
         private String title;
 
@@ -1060,7 +1060,7 @@ public class Lead {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event1 event) {
+        public Builder event(@Nullable Event21 event) {
             this.event = event;
             return this;
         }
@@ -1100,7 +1100,7 @@ public class Lead {
         /**
          * A JSON schema representing the structure of an appointment object.
          */
-        public Builder appointment(@Nullable Appointment appointment) {
+        public Builder appointment(@Nullable Appointment1 appointment) {
             this.appointment = appointment;
             return this;
         }

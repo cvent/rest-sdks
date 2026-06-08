@@ -24,6 +24,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved the hotel request detail.
         /// </summary>
-        public HotelReservationDetail? HotelReservationDetail { get; set; }
+        public HotelReservationDetail2? HotelReservationDetail { get; set; }
     }
 }

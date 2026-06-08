@@ -41,7 +41,7 @@ export function webcastsUpdateWebcast(
 ): APIPromise<
   Result<
     components.ExistingWebcast,
-    | errors.ErrorResponse
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -67,7 +67,7 @@ async function $do(
   [
     Result<
       components.ExistingWebcast,
-      | errors.ErrorResponse
+      | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -167,7 +167,7 @@ async function $do(
 
   const [result] = await M.match<
     components.ExistingWebcast,
-    | errors.ErrorResponse
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -180,7 +180,7 @@ async function $do(
     M.json(200, components.ExistingWebcast$inboundSchema),
     M.jsonErr(
       [400, 401, 403, 404, 409, 429],
-      errors.ErrorResponse$inboundSchema,
+      errors.ErrorResponse1$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

@@ -11,7 +11,8 @@ import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.components.BulkJob;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.RunBulkJobRequest;
 import com.cvent.models.operations.RunBulkJobResponse;
 import com.cvent.utils.AsyncRetries;
@@ -184,9 +185,16 @@ public class RunBulkJob {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "409", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "409")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
+                } else {
+                    throw APIException.from("Unexpected content-type received: " + contentType, response);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    throw ErrorResponse2.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -273,9 +281,16 @@ public class RunBulkJob {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }
             }
-            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "409", "429")) {
+            if (Utils.statusCodeMatches(response.statusCode(), "409")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                } else {
+                    return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
+                }
+            }
+            if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "404", "429")) {
+                if (Utils.contentTypeMatches(contentType, "application/json")) {
+                    return ErrorResponse2.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

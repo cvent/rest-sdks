@@ -36,7 +36,7 @@ public class ChatMessage {
      * Attendee details
      */
     @JsonProperty("attendee")
-    private AttendeeJson2 attendee;
+    private AttendeeJson attendee;
 
     /**
      * Chat message details such as the ID of this message
@@ -69,7 +69,7 @@ public class ChatMessage {
     public ChatMessage(
             @JsonProperty("actionType") @Nonnull ChatActionTypeJson actionType,
             @JsonProperty("chatType") @Nonnull ChatTypeJson chatType,
-            @JsonProperty("attendee") @Nonnull AttendeeJson2 attendee,
+            @JsonProperty("attendee") @Nonnull AttendeeJson attendee,
             @JsonProperty("message") @Nonnull ChatMessageDetailsJson message,
             @JsonProperty("parentMessage") @Nullable ChatMessageDetailsJson parentMessage,
             @JsonProperty("reaction") @Nullable ChatReactionJson reaction,
@@ -90,7 +90,7 @@ public class ChatMessage {
     public ChatMessage(
             @Nonnull ChatActionTypeJson actionType,
             @Nonnull ChatTypeJson chatType,
-            @Nonnull AttendeeJson2 attendee,
+            @Nonnull AttendeeJson attendee,
             @Nonnull ChatMessageDetailsJson message) {
         this(actionType, chatType, attendee, message, null, null, null);
     }
@@ -112,7 +112,7 @@ public class ChatMessage {
     /**
      * Attendee details
      */
-    public AttendeeJson2 attendee() {
+    public AttendeeJson attendee() {
         return this.attendee;
     }
 
@@ -167,7 +167,7 @@ public class ChatMessage {
     /**
      * Attendee details
      */
-    public ChatMessage withAttendee(@Nonnull AttendeeJson2 attendee) {
+    public ChatMessage withAttendee(@Nonnull AttendeeJson attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -254,7 +254,7 @@ public class ChatMessage {
 
         private ChatTypeJson chatType;
 
-        private AttendeeJson2 attendee;
+        private AttendeeJson attendee;
 
         private ChatMessageDetailsJson message;
 
@@ -287,7 +287,7 @@ public class ChatMessage {
         /**
          * Attendee details
          */
-        public Builder attendee(@Nonnull AttendeeJson2 attendee) {
+        public Builder attendee(@Nonnull AttendeeJson attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }

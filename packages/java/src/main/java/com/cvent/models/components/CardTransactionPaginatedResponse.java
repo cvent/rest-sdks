@@ -28,12 +28,12 @@ public class CardTransactionPaginatedResponse {
      * Collection of virtual card transaction.
      */
     @JsonProperty("data")
-    private List<CardTransactionJson1> data;
+    private List<CardTransactionJson> data;
 
     @JsonCreator
     public CardTransactionPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<CardTransactionJson1> data) {
+            @JsonProperty("data") @Nonnull List<CardTransactionJson> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -49,7 +49,7 @@ public class CardTransactionPaginatedResponse {
     /**
      * Collection of virtual card transaction.
      */
-    public List<CardTransactionJson1> data() {
+    public List<CardTransactionJson> data() {
         return this.data;
     }
 
@@ -68,7 +68,7 @@ public class CardTransactionPaginatedResponse {
     /**
      * Collection of virtual card transaction.
      */
-    public CardTransactionPaginatedResponse withData(@Nonnull List<CardTransactionJson1> data) {
+    public CardTransactionPaginatedResponse withData(@Nonnull List<CardTransactionJson> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -100,7 +100,7 @@ public class CardTransactionPaginatedResponse {
 
         private PagingJson paging;
 
-        private List<CardTransactionJson1> data;
+        private List<CardTransactionJson> data;
 
         private Builder() {
             // force use of static builder() method
@@ -117,7 +117,7 @@ public class CardTransactionPaginatedResponse {
         /**
          * Collection of virtual card transaction.
          */
-        public Builder data(@Nonnull List<CardTransactionJson1> data) {
+        public Builder data(@Nonnull List<CardTransactionJson> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

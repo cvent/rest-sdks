@@ -22,18 +22,17 @@ public class OrderDetailsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of order details.
      */
     @JsonProperty("data")
-    private List<OrderDetailJson> data;
+    private List<OrderDetail> data;
 
     @JsonCreator
     public OrderDetailsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<OrderDetailJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<OrderDetail> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class OrderDetailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of order details.
      */
-    public List<OrderDetailJson> data() {
+    public List<OrderDetail> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class OrderDetailsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public OrderDetailsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public OrderDetailsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class OrderDetailsPaginatedResponse {
     /**
      * Collection of order details.
      */
-    public OrderDetailsPaginatedResponse withData(@Nonnull List<OrderDetailJson> data) {
+    public OrderDetailsPaginatedResponse withData(@Nonnull List<OrderDetail> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class OrderDetailsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<OrderDetailJson> data;
+        private List<OrderDetail> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class OrderDetailsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class OrderDetailsPaginatedResponse {
         /**
          * Collection of order details.
          */
-        public Builder data(@Nonnull List<OrderDetailJson> data) {
+        public Builder data(@Nonnull List<OrderDetail> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

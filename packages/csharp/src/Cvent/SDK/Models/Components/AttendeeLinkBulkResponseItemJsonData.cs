@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static AttendeeLinkBulkResponseItemJsonDataType ErrorResponse
+        public static AttendeeLinkBulkResponseItemJsonDataType ErrorResponse1
         {
             get {
-                return new AttendeeLinkBulkResponseItemJsonDataType("error-response");
+                return new AttendeeLinkBulkResponseItemJsonDataType("error-response_1");
             }
         }
 
@@ -55,8 +55,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "existing-attendee-link":
                     return ExistingAttendeeLink;
-                case "error-response":
-                    return ErrorResponse;
+                case "error-response_1":
+                    return ErrorResponse1;
                 default:
                     throw new ArgumentException("Invalid value for AttendeeLinkBulkResponseItemJsonDataType");
             }
@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Components
         public ExistingAttendeeLink? ExistingAttendeeLink { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Models.Components.ErrorResponse? ErrorResponse { get; set; }
+        public Models.Components.ErrorResponse1? ErrorResponse1 { get; set; }
 
         public AttendeeLinkBulkResponseItemJsonDataType Type { get; set; }
         public static AttendeeLinkBulkResponseItemJsonData CreateExistingAttendeeLink(ExistingAttendeeLink existingAttendeeLink)
@@ -99,12 +99,12 @@ namespace Cvent.SDK.Models.Components
             res.ExistingAttendeeLink = existingAttendeeLink;
             return res;
         }
-        public static AttendeeLinkBulkResponseItemJsonData CreateErrorResponse(Models.Components.ErrorResponse errorResponse)
+        public static AttendeeLinkBulkResponseItemJsonData CreateErrorResponse1(Models.Components.ErrorResponse1 errorResponse1)
         {
-            AttendeeLinkBulkResponseItemJsonDataType typ = AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse;
+            AttendeeLinkBulkResponseItemJsonDataType typ = AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse1;
 
             AttendeeLinkBulkResponseItemJsonData res = new AttendeeLinkBulkResponseItemJsonData(typ);
-            res.ErrorResponse = errorResponse;
+            res.ErrorResponse1 = errorResponse1;
             return res;
         }
 
@@ -126,13 +126,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse) {
-                        ErrorResponse = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse>(json)
+                    return new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse1) {
+                        ErrorResponse1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse1>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse), new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse), "ErrorResponse"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse1), new AttendeeLinkBulkResponseItemJsonData(AttendeeLinkBulkResponseItemJsonDataType.ErrorResponse1), "ErrorResponse1"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -200,9 +200,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.ErrorResponse != null)
+                if (res.ErrorResponse1 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse1));
                     return;
                 }
             }

@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * Attendee2
  *
- * <p>The associated Attendee.
+ * <p>The reference to the attendee. Contains only the ID of the attendee.
  */
 public class Attendee2 {
     /**
-     * Attendee id
+     * Unique identifier of the primary invitee for the current attendee's registration.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Attendee2 {
     }
 
     /**
-     * Attendee id
+     * Unique identifier of the primary invitee for the current attendee's registration.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Attendee2 {
     }
 
     /**
-     * Attendee id
+     * Unique identifier of the primary invitee for the current attendee's registration.
      */
     public Attendee2 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Attendee2 {
         }
 
         /**
-         * Attendee id
+         * Unique identifier of the primary invitee for the current attendee's registration.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

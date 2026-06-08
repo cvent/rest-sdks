@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.Event;
+import com.cvent.models.components.Event1;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class GetEventByIdResponse implements Response {
     /**
      * Successfully retrieved the event.
      */
-    private Event event;
+    private Event1 event;
 
     @JsonCreator
     public GetEventByIdResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable Event event) {
+            @Nullable Event1 event) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class GetEventByIdResponse implements Response {
     /**
      * Successfully retrieved the event.
      */
-    public Optional<Event> event() {
+    public Optional<Event1> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -114,7 +114,7 @@ public class GetEventByIdResponse implements Response {
     /**
      * Successfully retrieved the event.
      */
-    public GetEventByIdResponse withEvent(@Nullable Event event) {
+    public GetEventByIdResponse withEvent(@Nullable Event1 event) {
         this.event = event;
         return this;
     }
@@ -162,7 +162,7 @@ public class GetEventByIdResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private Event event;
+        private Event1 event;
 
         private Builder() {
             // force use of static builder() method
@@ -195,7 +195,7 @@ public class GetEventByIdResponse implements Response {
         /**
          * Successfully retrieved the event.
          */
-        public Builder event(@Nullable Event event) {
+        public Builder event(@Nullable Event1 event) {
             this.event = event;
             return this;
         }

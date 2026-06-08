@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Attendee(s) were successfully added to the event.
         /// </summary>
-        public List<AttendeeAddBulkItem>? AttendeeAddBulkResponse { get; set; }
+        public List<AttendeeInvitesBulkResponseItem>? AttendeeAddBulkResponse { get; set; }
     }
 }

@@ -23,7 +23,7 @@ public class CreateUpdateDiscountResponseTypeIdResolver extends GenericTypeIdRes
 
     private void initializeTypeMap() {
         registerType("DISCOUNT_CODE", CreateUpdateDiscountCodeResponse.class);
-        registerType("VOLUME_DISCOUNT", ExistingVolumeDiscountJson.class);
+        registerType("VOLUME_DISCOUNT", ExistingVolumeDiscount.class);
     }
 
     @Override

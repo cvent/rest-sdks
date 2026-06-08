@@ -22,17 +22,17 @@ public class ProgramItemPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of Session Program Items.
      */
     @JsonProperty("data")
-    private List<ProgramItem> data;
+    private List<ProgramItem1> data;
 
     @JsonCreator
     public ProgramItemPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<ProgramItem> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<ProgramItem1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -41,14 +41,14 @@ public class ProgramItemPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of Session Program Items.
      */
-    public List<ProgramItem> data() {
+    public List<ProgramItem1> data() {
         return this.data;
     }
 
@@ -59,7 +59,7 @@ public class ProgramItemPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ProgramItemPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public ProgramItemPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -67,7 +67,7 @@ public class ProgramItemPaginatedResponse {
     /**
      * Collection of Session Program Items.
      */
-    public ProgramItemPaginatedResponse withData(@Nonnull List<ProgramItem> data) {
+    public ProgramItemPaginatedResponse withData(@Nonnull List<ProgramItem1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -97,9 +97,9 @@ public class ProgramItemPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ProgramItem> data;
+        private List<ProgramItem1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -108,7 +108,7 @@ public class ProgramItemPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -116,7 +116,7 @@ public class ProgramItemPaginatedResponse {
         /**
          * Collection of Session Program Items.
          */
-        public Builder data(@Nonnull List<ProgramItem> data) {
+        public Builder data(@Nonnull List<ProgramItem1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

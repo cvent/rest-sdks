@@ -46,7 +46,7 @@ export function eventTravelGetHousingReservationRequests(
   PageIterator<
     Result<
       operations.GetHousingReservationRequestsResponse,
-      | errors.ErrorResponse
+      | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
       | ConnectionError
@@ -75,7 +75,7 @@ async function $do(
     PageIterator<
       Result<
         operations.GetHousingReservationRequestsResponse,
-        | errors.ErrorResponse
+        | errors.ErrorResponse1
         | CventSDKError
         | ResponseValidationError
         | ConnectionError
@@ -188,7 +188,7 @@ async function $do(
 
   const [result, raw] = await M.match<
     operations.GetHousingReservationRequestsResponse,
-    | errors.ErrorResponse
+    | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
     | ConnectionError
@@ -203,7 +203,7 @@ async function $do(
       operations.GetHousingReservationRequestsResponse$inboundSchema,
       { key: "Result" },
     ),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
@@ -221,7 +221,7 @@ async function $do(
     next: Paginator<
       Result<
         operations.GetHousingReservationRequestsResponse,
-        | errors.ErrorResponse
+        | errors.ErrorResponse1
         | CventSDKError
         | ResponseValidationError
         | ConnectionError

@@ -10,7 +10,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.errors.SegmentsErrorResponse;
 import com.cvent.models.operations.AssociateAttendeeToSegmentRequest;
 import com.cvent.models.operations.AssociateAttendeeToSegmentResponse;
@@ -195,7 +195,7 @@ public class AssociateAttendeeToSegment {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -290,7 +290,7 @@ public class AssociateAttendeeToSegment {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "422", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

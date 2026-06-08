@@ -12,7 +12,7 @@ import {
 } from "./additionalchoicejson1.js";
 import { CategoryJson2, CategoryJson2$inboundSchema } from "./categoryjson2.js";
 import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
-import { FieldJson3, FieldJson3$inboundSchema } from "./fieldjson3.js";
+import { FieldJson2, FieldJson2$inboundSchema } from "./fieldjson2.js";
 import {
   QuestionTypeJson2,
   QuestionTypeJson2$inboundSchema,
@@ -98,7 +98,7 @@ export type StandardSurveyQuestionJson = {
   /**
    * List of fields for form/matrix questions
    */
-  fields?: Array<FieldJson3> | undefined;
+  fields?: Array<FieldJson2> | undefined;
   /**
    * Max possible score
    */
@@ -143,7 +143,7 @@ export const StandardSurveyQuestionJson$inboundSchema: z.ZodType<
   otherAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
   comments: z.string().optional(),
   required: z.boolean().default(false),
-  fields: z.array(FieldJson3$inboundSchema).optional(),
+  fields: z.array(FieldJson2$inboundSchema).optional(),
   maxScore: z.number().optional(),
   totalSum: z.number().int().optional(),
   survey: UuidJson$inboundSchema.optional(),

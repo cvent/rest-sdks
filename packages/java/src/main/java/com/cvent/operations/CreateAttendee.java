@@ -9,10 +9,10 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.AttendeeAddBulkItem;
-import com.cvent.models.components.AttendeeAddJson;
+import com.cvent.models.components.AttendeeAdd;
+import com.cvent.models.components.AttendeeInvitesBulkResponseItem;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponse;
+import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.CreateAttendeeResponse;
 import com.cvent.utils.AsyncRetries;
 import com.cvent.utils.BackoffStrategy;
@@ -129,13 +129,13 @@ public class CreateAttendee {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<List<AttendeeAddJson>, CreateAttendeeResponse> {
+    public static class Sync extends Base implements RequestOperation<List<AttendeeAdd>, CreateAttendeeResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(List<AttendeeAddJson> request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<List<AttendeeAddJson>>() {});
+        private HttpRequest onBuildRequest(List<AttendeeAdd> request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<List<AttendeeAdd>>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -151,7 +151,7 @@ public class CreateAttendee {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(List<AttendeeAddJson> request) {
+        public HttpResponse<InputStream> doRequest(List<AttendeeAdd> request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -189,14 +189,14 @@ public class CreateAttendee {
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withAttendeeAddBulkResponse(
-                            Utils.unmarshal(response, new TypeReference<List<AttendeeAddBulkItem>>() {}));
+                            Utils.unmarshal(response, new TypeReference<List<AttendeeInvitesBulkResponseItem>>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponse.from(response);
+                    throw ErrorResponse1.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -215,7 +215,7 @@ public class CreateAttendee {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    List<AttendeeAddJson>, com.cvent.models.operations.async.CreateAttendeeResponse> {
+                    List<AttendeeAdd>, com.cvent.models.operations.async.CreateAttendeeResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -227,8 +227,8 @@ public class CreateAttendee {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(List<AttendeeAddJson> request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<List<AttendeeAddJson>>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(List<AttendeeAdd> request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<List<AttendeeAdd>>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -241,7 +241,7 @@ public class CreateAttendee {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(List<AttendeeAddJson> request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(List<AttendeeAdd> request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)
@@ -277,7 +277,7 @@ public class CreateAttendee {
 
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<List<AttendeeAddBulkItem>>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<List<AttendeeInvitesBulkResponseItem>>() {})
                             .thenApply(res::withAttendeeAddBulkResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
@@ -285,7 +285,7 @@ public class CreateAttendee {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "400", "401", "403", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponse.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponse1.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

@@ -23,12 +23,12 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination information for a collection of resources.
         /// </summary>
         [JsonProperty("paging")]
-        public PagingJson Paging { get; set; } = default!;
+        public Paging Paging { get; set; } = default!;
 
         /// <summary>
         /// Collection of reservation request details for attendees.
         /// </summary>
         [JsonProperty("data")]
-        public List<ReservationRequestResponseJson> Data { get; set; } = default!;
+        public List<HousingReservationResponse> Data { get; set; } = default!;
     }
 }

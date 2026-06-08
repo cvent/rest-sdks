@@ -63,7 +63,7 @@ public class AlternateTravelPaginatedResponsePaging {
      * Represents pagination links for navigating between pages of data.
      */
     @JsonProperty("_links")
-    private PaginationLinksJson links;
+    private PaginationLinks links;
 
     @JsonCreator
     public AlternateTravelPaginatedResponsePaging(
@@ -72,7 +72,7 @@ public class AlternateTravelPaginatedResponsePaging {
             @JsonProperty("currentToken") @Nullable String currentToken,
             @JsonProperty("limit") @Nullable Long limit,
             @JsonProperty("totalCount") @Nullable Long totalCount,
-            @JsonProperty("_links") @Nonnull PaginationLinksJson links) {
+            @JsonProperty("_links") @Nonnull PaginationLinks links) {
         this.previousToken = previousToken;
         this.nextToken = nextToken;
         this.currentToken = currentToken;
@@ -81,7 +81,7 @@ public class AlternateTravelPaginatedResponsePaging {
         this.links = Optional.ofNullable(links).orElseThrow(() -> new IllegalArgumentException("links cannot be null"));
     }
 
-    public AlternateTravelPaginatedResponsePaging(@Nonnull PaginationLinksJson links) {
+    public AlternateTravelPaginatedResponsePaging(@Nonnull PaginationLinks links) {
         this(null, null, null, null, null, links);
     }
 
@@ -126,7 +126,7 @@ public class AlternateTravelPaginatedResponsePaging {
     /**
      * Represents pagination links for navigating between pages of data.
      */
-    public PaginationLinksJson links() {
+    public PaginationLinks links() {
         return this.links;
     }
 
@@ -180,7 +180,7 @@ public class AlternateTravelPaginatedResponsePaging {
     /**
      * Represents pagination links for navigating between pages of data.
      */
-    public AlternateTravelPaginatedResponsePaging withLinks(@Nonnull PaginationLinksJson links) {
+    public AlternateTravelPaginatedResponsePaging withLinks(@Nonnull PaginationLinks links) {
         this.links = Utils.checkNotNull(links, "links");
         return this;
     }
@@ -238,7 +238,7 @@ public class AlternateTravelPaginatedResponsePaging {
 
         private Long totalCount;
 
-        private PaginationLinksJson links;
+        private PaginationLinks links;
 
         private Builder() {
             // force use of static builder() method
@@ -290,7 +290,7 @@ public class AlternateTravelPaginatedResponsePaging {
         /**
          * Represents pagination links for navigating between pages of data.
          */
-        public Builder links(@Nonnull PaginationLinksJson links) {
+        public Builder links(@Nonnull PaginationLinks links) {
             this.links = Utils.checkNotNull(links, "links");
             return this;
         }

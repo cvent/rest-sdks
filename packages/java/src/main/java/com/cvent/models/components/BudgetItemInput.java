@@ -81,7 +81,7 @@ public class BudgetItemInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generalLedger")
-    private GeneralLedgerJson1Input generalLedger;
+    private GeneralLedgerJsonInput generalLedger;
 
     /**
      * Budget cost avoidance information.
@@ -169,7 +169,7 @@ public class BudgetItemInput {
             @JsonProperty("status") @Nonnull BudgetStatusJson status,
             @JsonProperty("vendor") @Nullable BudgetVendorJsonInput vendor,
             @JsonProperty("date") @Nonnull OffsetDateTime date,
-            @JsonProperty("generalLedger") @Nullable GeneralLedgerJson1Input generalLedger,
+            @JsonProperty("generalLedger") @Nullable GeneralLedgerJsonInput generalLedger,
             @JsonProperty("costAvoidance") @Nullable BudgetCostAvoidanceJson costAvoidance,
             @JsonProperty("costIncludesTaxGratuity") boolean costIncludesTaxGratuity,
             @JsonProperty("calculateTaxOnGratuity") boolean calculateTaxOnGratuity,
@@ -304,7 +304,7 @@ public class BudgetItemInput {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public Optional<GeneralLedgerJson1Input> generalLedger() {
+    public Optional<GeneralLedgerJsonInput> generalLedger() {
         return Optional.ofNullable(this.generalLedger);
     }
 
@@ -462,7 +462,7 @@ public class BudgetItemInput {
     /**
      * This is used to denote the general ledger code associated with budget.
      */
-    public BudgetItemInput withGeneralLedger(@Nullable GeneralLedgerJson1Input generalLedger) {
+    public BudgetItemInput withGeneralLedger(@Nullable GeneralLedgerJsonInput generalLedger) {
         this.generalLedger = generalLedger;
         return this;
     }
@@ -681,7 +681,7 @@ public class BudgetItemInput {
 
         private OffsetDateTime date;
 
-        private GeneralLedgerJson1Input generalLedger;
+        private GeneralLedgerJsonInput generalLedger;
 
         private BudgetCostAvoidanceJson costAvoidance;
 
@@ -778,7 +778,7 @@ public class BudgetItemInput {
         /**
          * This is used to denote the general ledger code associated with budget.
          */
-        public Builder generalLedger(@Nullable GeneralLedgerJson1Input generalLedger) {
+        public Builder generalLedger(@Nullable GeneralLedgerJsonInput generalLedger) {
             this.generalLedger = generalLedger;
             return this;
         }

@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `components.AnniversaryMembershipItemJson`
+### `components.Anniversary`
 
 ```typescript
-const value: components.AnniversaryMembershipItemJson = {
+const value: components.Anniversary = {
   registrantInformation: "Registrant Note.",
   id: "976d53c7-e7d6-43b0-9b6e-5422d59c54b1",
   type: "Gold Membership",
@@ -38,10 +38,10 @@ const value: components.AnniversaryMembershipItemJson = {
 };
 ```
 
-### `components.CalendarMembershipItemJson`
+### `components.Calendar`
 
 ```typescript
-const value: components.CalendarMembershipItemJson = {
+const value: components.Calendar = {
   registrantInformation: "Registrant Note.",
   id: "976d53c7-e7d6-43b0-9b6e-5422d59c54b1",
   type: "Gold Membership",

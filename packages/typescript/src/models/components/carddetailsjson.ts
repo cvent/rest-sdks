@@ -10,7 +10,7 @@ import {
   CardStatusJson,
   CardStatusJson$inboundSchema,
 } from "./cardstatusjson.js";
-import { CardTypeJson1, CardTypeJson1$inboundSchema } from "./cardtypejson1.js";
+import { CardTypeJson, CardTypeJson$inboundSchema } from "./cardtypejson.js";
 import {
   ReportingFieldJson,
   ReportingFieldJson$inboundSchema,
@@ -49,7 +49,7 @@ export type CardDetailsJson = {
   /**
    * This is used to denote the card type for a card.
    */
-  type?: CardTypeJson1 | undefined;
+  type?: CardTypeJson | undefined;
   /**
    * This is used to denote the card status for a card.
    */
@@ -143,7 +143,7 @@ export const CardDetailsJson$inboundSchema: z.ZodType<
   id: z.string().optional(),
   first6: z.string().optional(),
   last4: z.string().optional(),
-  type: CardTypeJson1$inboundSchema.optional(),
+  type: CardTypeJson$inboundSchema.optional(),
   status: CardStatusJson$inboundSchema.optional(),
   issuer: z.string().optional(),
   spendLimit: z.number().optional(),

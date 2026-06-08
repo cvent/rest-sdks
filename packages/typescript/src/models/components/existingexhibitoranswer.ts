@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Answer2, Answer2$inboundSchema } from "./answer2.js";
-import { Event1, Event1$inboundSchema } from "./event1.js";
+import { Event21, Event21$inboundSchema } from "./event21.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
-import { Uuid1, Uuid1$inboundSchema } from "./uuid1.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
  * Existing Exhibitor Answer schema
@@ -34,11 +34,11 @@ export type ExistingExhibitorAnswer = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  question: Uuid1;
+  question: Uuid;
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * The Associated Exhibitor.
    */
@@ -66,8 +66,8 @@ export const ExistingExhibitorAnswer$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  question: Uuid1$inboundSchema,
-  event: Event1$inboundSchema,
+  question: Uuid$inboundSchema,
+  event: Event21$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
   answers: z.array(Answer2$inboundSchema),
   id: z.string(),

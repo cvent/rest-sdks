@@ -3,7 +3,11 @@
  */
 
 import * as z from "zod/v3";
-import { Event1, Event1$Outbound, Event1$outboundSchema } from "./event1.js";
+import {
+  Event21,
+  Event21$Outbound,
+  Event21$outboundSchema,
+} from "./event21.js";
 import {
   Exhibitor,
   Exhibitor$Outbound,
@@ -17,7 +21,7 @@ export type FileInput = {
   /**
    * The Associated Event.
    */
-  event: Event1;
+  event: Event21;
   /**
    * The Associated Exhibitor.
    */
@@ -38,7 +42,7 @@ export type FileInput = {
 
 /** @internal */
 export type FileInput$Outbound = {
-  event: Event1$Outbound;
+  event: Event21$Outbound;
   exhibitor: Exhibitor$Outbound;
   displayName: string;
   hidden: boolean;
@@ -51,7 +55,7 @@ export const FileInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FileInput
 > = z.object({
-  event: Event1$outboundSchema,
+  event: Event21$outboundSchema,
   exhibitor: Exhibitor$outboundSchema,
   displayName: z.string(),
   hidden: z.boolean().default(false),

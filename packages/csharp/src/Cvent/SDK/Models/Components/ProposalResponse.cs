@@ -176,7 +176,7 @@ namespace Cvent.SDK.Models.Components
         /// The latest transaction that took place on a given proposal.
         /// </summary>
         [JsonProperty("transaction")]
-        public TransactionJson1? Transaction { get; set; }
+        public TransactionJson? Transaction { get; set; }
 
         /// <summary>
         /// The unique ID of the proposal.

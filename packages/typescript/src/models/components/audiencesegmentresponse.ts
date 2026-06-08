@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventJson2, EventJson2$inboundSchema } from "./eventjson2.js";
+import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
 import {
   ExistingAudienceSegmentCreationTypeJson,
   ExistingAudienceSegmentCreationTypeJson$inboundSchema,
@@ -35,7 +35,7 @@ export type AudienceSegmentResponse = {
   /**
    * ID of the event.
    */
-  event: EventJson2;
+  event: EventJson1;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -71,7 +71,7 @@ export const AudienceSegmentResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson2$inboundSchema,
+  event: EventJson1$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   id: z.string().optional(),

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson4, AddressJson4$inboundSchema } from "./addressjson4.js";
+import { AddressJson3, AddressJson3$inboundSchema } from "./addressjson3.js";
 import {
   PropertyExternalCodeJson,
   PropertyExternalCodeJson$inboundSchema,
@@ -83,7 +83,7 @@ export type Property = {
   /**
    * A physical address.
    */
-  address?: AddressJson4 | undefined;
+  address?: AddressJson3 | undefined;
   /**
    * Collection of external codes for a property. This includes GDS nd other codes used to identify a property in external systems.
    */
@@ -148,7 +148,7 @@ export const Property$inboundSchema: z.ZodType<
   code: z.string().optional(),
   deleted: z.boolean().default(false),
   currencyCode: z.string().default("USD"),
-  address: AddressJson4$inboundSchema.optional(),
+  address: AddressJson3$inboundSchema.optional(),
   externalCodes: z.array(PropertyExternalCodeJson$inboundSchema).optional(),
 });
 

@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Space area divisions.
+ * Space area divisons.
  */
 export const SpaceAreaJson0 = {
   LessThanOneThousandSqFt: "LESS_THAN_ONE_THOUSAND_SQ_FT",
@@ -85,7 +85,7 @@ export const SpaceAreaJson0 = {
   GreaterThanTenThousandSqMtr: "GREATER_THAN_TEN_THOUSAND_SQ_MTR",
 } as const;
 /**
- * Space area divisions.
+ * Space area divisons.
  */
 export type SpaceAreaJson0 = ClosedEnum<typeof SpaceAreaJson0>;
 

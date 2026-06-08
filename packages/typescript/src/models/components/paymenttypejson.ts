@@ -6,17 +6,59 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
+ * Denotes the method of payment.
  */
 export const PaymentTypeJson = {
-  Authorization: "Authorization",
-  OnlineCharge: "Online Charge",
-  OnlineRefund: "Online Refund",
-  OfflineCharge: "Offline Charge",
-  OfflineRefund: "Offline Refund",
+  Airplus: "AIRPLUS",
+  AmericanExpress: "AMERICAN_EXPRESS",
+  Aurora: "AURORA",
+  Aurore: "AURORE",
+  AuthorizeNetSim: "AUTHORIZE_NET_SIM",
+  BankTransfer: "BANK_TRANSFER",
+  Bcmc: "BCMC",
+  Billy: "BILLY",
+  Cash: "CASH",
+  Cb: "CB",
+  Check: "CHECK",
+  Cofinoga: "COFINOGA",
+  CorporateCard: "CORPORATE_CARD",
+  Credit: "CREDIT",
+  CybersourceHostedOrderPage: "CYBERSOURCE_HOSTED_ORDER_PAGE",
+  CybersourceSecureAcceptance: "CYBERSOURCE_SECURE_ACCEPTANCE",
+  Dankort: "DANKORT",
+  DinersClub: "DINERS_CLUB",
+  DirectBill: "DIRECT_BILL",
+  Discover: "DISCOVER",
+  EurocardMastercard: "EUROCARD_MASTERCARD",
+  Invoice: "INVOICE",
+  Jcb: "JCB",
+  Laser: "LASER",
+  Maestro: "MAESTRO",
+  Maestrouk: "MAESTROUK",
+  Mastercard: "MASTERCARD",
+  MastercardDebit: "MASTERCARD_DEBIT",
+  MoneyOrder: "MONEY_ORDER",
+  Netreserve: "NETRESERVE",
+  Other: "OTHER",
+  Other2: "OTHER_2",
+  Other3: "OTHER_3",
+  PayGov: "PAY_GOV",
+  PaymentCredits: "PAYMENT_CREDITS",
+  Paypal: "PAYPAL",
+  PCard: "P_CARD",
+  Privilege: "PRIVILEGE",
+  PurchaseOrder: "PURCHASE_ORDER",
+  Solo: "SOLO",
+  Touchnet: "TOUCHNET",
+  Uatp: "UATP",
+  Unionpay: "UNIONPAY",
+  Visa: "VISA",
+  VisaDebit: "VISA_DEBIT",
+  VisaElectron: "VISA_ELECTRON",
+  Wpm: "WPM",
 } as const;
 /**
- * Denotes the type of payment made by an attendee. Authorization: Online payment that has been approved by the cardholder's bank but has not been executed. Online Charge: Online payment recieved in Cvent. Online Refund: Online refund to attendee processed in Cvent. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency.
+ * Denotes the method of payment.
  */
 export type PaymentTypeJson = ClosedEnum<typeof PaymentTypeJson>;
 
@@ -24,3 +66,7 @@ export type PaymentTypeJson = ClosedEnum<typeof PaymentTypeJson>;
 export const PaymentTypeJson$inboundSchema: z.ZodNativeEnum<
   typeof PaymentTypeJson
 > = z.nativeEnum(PaymentTypeJson);
+/** @internal */
+export const PaymentTypeJson$outboundSchema: z.ZodNativeEnum<
+  typeof PaymentTypeJson
+> = PaymentTypeJson$inboundSchema;

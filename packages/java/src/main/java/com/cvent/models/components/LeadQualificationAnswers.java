@@ -61,14 +61,14 @@ public class LeadQualificationAnswers {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("question")
-    private Uuid1 question;
+    private Uuid question;
 
     /**
      * The Associated Event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -98,8 +98,8 @@ public class LeadQualificationAnswers {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("question") @Nullable Uuid1 question,
-            @JsonProperty("event") @Nullable Event1 event,
+            @JsonProperty("question") @Nullable Uuid question,
+            @JsonProperty("event") @Nullable Event21 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("lead") @Nullable Lead2 lead,
             @JsonProperty("answers") @Nullable List<Answer1> answers) {
@@ -157,14 +157,14 @@ public class LeadQualificationAnswers {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Optional<Uuid1> question() {
+    public Optional<Uuid> question() {
         return Optional.ofNullable(this.question);
     }
 
     /**
      * The Associated Event.
      */
-    public Optional<Event1> event() {
+    public Optional<Event21> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -236,7 +236,7 @@ public class LeadQualificationAnswers {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public LeadQualificationAnswers withQuestion(@Nullable Uuid1 question) {
+    public LeadQualificationAnswers withQuestion(@Nullable Uuid question) {
         this.question = question;
         return this;
     }
@@ -244,7 +244,7 @@ public class LeadQualificationAnswers {
     /**
      * The Associated Event.
      */
-    public LeadQualificationAnswers withEvent(@Nullable Event1 event) {
+    public LeadQualificationAnswers withEvent(@Nullable Event21 event) {
         this.event = event;
         return this;
     }
@@ -339,9 +339,9 @@ public class LeadQualificationAnswers {
 
         private String id;
 
-        private Uuid1 question;
+        private Uuid question;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -396,7 +396,7 @@ public class LeadQualificationAnswers {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nullable Uuid1 question) {
+        public Builder question(@Nullable Uuid question) {
             this.question = question;
             return this;
         }
@@ -404,7 +404,7 @@ public class LeadQualificationAnswers {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event1 event) {
+        public Builder event(@Nullable Event21 event) {
             this.event = event;
             return this;
         }

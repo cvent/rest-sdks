@@ -418,6 +418,7 @@ var res = await sdk.Authentication.Oauth2TokenAsync(
 * [ListRegistrationPaths](docs/sdks/events/README.md#listregistrationpaths) - List Registration Paths
 * [ListRegistrationTypes](docs/sdks/events/README.md#listregistrationtypes) - List Registration Types
 * [UpdateRegistrationType](docs/sdks/events/README.md#updateregistrationtype) - Update Event Registration Type
+* [ListTaxes](docs/sdks/events/README.md#listtaxes) - List Taxes
 * [GetTransactions](docs/sdks/events/README.md#gettransactions) - List Transactions
 * [PostTransactions](docs/sdks/events/README.md#posttransactions) - Create Transactions
 * [GetTransactionItems](docs/sdks/events/README.md#gettransactionitems) - List Transaction Items
@@ -952,10 +953,10 @@ catch (CventSDKException ex) // all SDK exceptions inherit from CventSDKExceptio
     var statusCode = (int)response.StatusCode;
     var responseBody = ex.Body;
 
-    if (ex is Models.Errors.ErrorResponse) // different exceptions may be thrown depending on the method
+    if (ex is Models.Errors.ErrorResponse1) // different exceptions may be thrown depending on the method
     {
         // Check error data fields
-        Models.Errors.ErrorResponsePayload payload = ex.Payload;
+        Models.Errors.ErrorResponse1Payload payload = ex.Payload;
         long Code = payload.Code;
         string Message = payload.Message;
         // ...
@@ -977,16 +978,17 @@ catch (System.Net.Http.HttpRequestException ex)
 
 **Primary exceptions:**
 * [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs): The base class for HTTP error responses.
-  * [`ErrorResponse`](./src/Cvent/SDK/Models/Errors/ErrorResponse.cs): Represents an error response with additional details of cascading error messages. *
+  * [`ErrorResponse1`](./src/Cvent/SDK/Models/Errors/ErrorResponse1.cs): Represents an error response with additional details of cascading error messages. *
 
-<details><summary>Less common exceptions (5)</summary>
+<details><summary>Less common exceptions (6)</summary>
 
 * [`System.Net.Http.HttpRequestException`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httprequestexception): Network connectivity error. For more details about the underlying cause, inspect the `ex.InnerException`.
 
 * Inheriting from [`CventSDKException`](./src/Cvent/SDK/Models/Errors/CventSDKException.cs):
-  * [`ErrorResponseJson20`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson20.cs): The error response. Applicable to 11 of 444 methods.*
-  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 444 methods.*
-  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 444 methods.*
+  * [`ErrorResponseJson17`](./src/Cvent/SDK/Models/Errors/ErrorResponseJson17.cs): The error response. Applicable to 11 of 445 methods.*
+  * [`ErrorResponse2`](./src/Cvent/SDK/Models/Errors/ErrorResponse2.cs): Represents an error response with additional details of cascading error messages. Applicable to 6 of 445 methods.*
+  * [`SegmentsErrorResponse`](./src/Cvent/SDK/Models/Errors/SegmentsErrorResponse.cs): Segments error response details. Status code `400`. Applicable to 2 of 445 methods.*
+  * [`BadRequestException`](./src/Cvent/SDK/Models/Errors/BadRequestException.cs): A bad token response. Status code `400`. Applicable to 1 of 445 methods.*
   * [`ResponseValidationError`](./src/Cvent/SDK/Models/Errors/ResponseValidationError.cs): Thrown when the response data could not be deserialized into the expected type.
 </details>
 

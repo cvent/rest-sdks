@@ -49,7 +49,7 @@ export type RfpEventJson = {
    */
   type?: EventTypeJson0 | undefined;
   /**
-   * Space area divisions.
+   * Space area divisons.
    */
   totalMeetingSpaceRequired?: SpaceAreaJson0 | undefined;
   /**
@@ -77,7 +77,7 @@ export type RfpEventJson = {
    */
   referenceNumber?: string | undefined;
   /**
-   * Space area divisions.
+   * Space area divisons.
    */
   largestMeetingSpaceRequired?: SpaceAreaJson0 | undefined;
   /**

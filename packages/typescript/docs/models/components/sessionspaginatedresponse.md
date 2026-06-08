@@ -70,7 +70,9 @@ let value: SessionsPaginatedResponse = {
       virtualCapacityUnlimited: false,
       waitlistCapacityVirtual: 150,
       featured: true,
-      group: "b0cd3bac-0565-4593-be6e-5333753a6c25",
+      group: {
+        id: "b0cd3bac-0565-4593-be6e-5333753a6c25",
+      },
       admissionItems: [
         "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
       ],
@@ -83,7 +85,7 @@ let value: SessionsPaginatedResponse = {
       dataTagCode: "Optional Session",
       customFields: [
         {
-          id: "8cbf1ce9-c677-4dcf-9fbe-5c465eaf5ee1",
+          id: "83a71a44-67ee-4908-8cd1-7dd6c5fdc88f",
           name: "What is your favorite color?",
           value: [
             "Choice C",
@@ -108,5 +110,5 @@ let value: SessionsPaginatedResponse = {
 
 | Field                                                            | Type                                                             | Required                                                         | Description                                                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `paging`                                                         | [components.PagingJson](../../models/components/pagingjson.md)   | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
 | `data`                                                           | [components.Session](../../models/components/session.md)[]       | :heavy_check_mark:                                               | Collection of sessions.                                          |

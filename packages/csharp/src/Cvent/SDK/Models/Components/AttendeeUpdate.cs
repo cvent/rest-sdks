@@ -66,13 +66,13 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
         /// </summary>
         [JsonProperty("visibility")]
-        public AttendeeVisibilityJson? Visibility { get; set; }
+        public AttendeeVisibility? Visibility { get; set; }
 
         /// <summary>
         /// The list of answers to the attendee's registration questions.
         /// </summary>
         [JsonProperty("answers")]
-        public List<AttendeeAnswerJson>? Answers { get; set; }
+        public List<AttendeeAnswer>? Answers { get; set; }
 
         /// <summary>
         /// True indicates a confirmation email should be sent to the attendee. Cancelled attendees will not receive emails as a result of this field. If this field is left blank, the event settings for confirmation emails will apply.
@@ -84,7 +84,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the status of an attendee to be updated. No Response: The attendee was added to an invitation list but hasn't taken any action. Accepted: The attendee is registered for the event. Cancelled: The attendee's registration for the event is cancelled. Visited: The attendee visited the event's webpage but didn't finish registration. Declined: The attendee declined to attend the event. Pending Approval: When registration approval is enabled, this status indicates the attendee is still waiting to be approved by the planner. Denied Approval: When registration approval is enabled, this status indicates the attendee has been denied approval by the planner. &lt;br&gt;The following status transitions are supported by this API:&lt;br&gt; * No Response -&gt; Visited &lt;br&gt; * No Response -&gt; Accepted &lt;br&gt; * No Response -&gt; Declined &lt;br&gt; * No Response -&gt; Pending Approval &lt;br&gt; * Cancelled -&gt; Accepted &lt;br&gt; * Cancelled -&gt; Pending Approval &lt;br&gt; * Visited -&gt; Accepted &lt;br&gt; * Visited -&gt; Pending Approval &lt;br&gt; * Declined -&gt; Accepted &lt;br&gt; * Declined -&gt; Pending Approval &lt;br&gt; * Accepted -&gt; Cancelled &lt;br&gt; * Pending Approval -&gt; Accepted &lt;br&gt; * Pending Approval -&gt; Denied Approval &lt;br&gt; * Denied Approval -&gt; Pending Approval.
         /// </summary>
         [JsonProperty("status")]
-        public AttendeeUpdateStatusJson? Status { get; set; } = Cvent.SDK.Models.Components.AttendeeUpdateStatusJson.NoResponse;
+        public AttendeeUpdateStatus? Status { get; set; } = Cvent.SDK.Models.Components.AttendeeUpdateStatus.NoResponse;
 
         /// <summary>
         /// The attendee's registration type.
@@ -97,13 +97,13 @@ namespace Cvent.SDK.Models.Components
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("invitedBy")]
-        public DeprecatedAttendeeInvitedByJson? InvitedBy { get; set; }
+        public AttendeeInvitedBy? InvitedBy { get; set; }
 
         /// <summary>
         /// Method by which attendee registered for the event. Note: This field is deprecated. Previous documentation incorrectly listed support for this feature.
         /// </summary>
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
         [JsonProperty("responseMethod")]
-        public DeprecatedAttendeeResponseMethodJson? ResponseMethod { get; set; }
+        public AttendeeResponseMethod? ResponseMethod { get; set; }
     }
 }

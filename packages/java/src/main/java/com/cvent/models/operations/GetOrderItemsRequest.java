@@ -51,27 +51,24 @@ public class GetOrderItemsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * order.id (eq|ne)
-     * * product.id (eq|ne)
-     * * product.type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | attendee.id  | `eq`, `ne`                         |
+     * | event.id     | `eq`, `ne`                         |
+     * | order.id     | `eq`, `ne`                         |
+     * | product.id   | `eq`, `ne`                         |
+     * | product.type | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -145,27 +142,24 @@ public class GetOrderItemsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * order.id (eq|ne)
-     * * product.id (eq|ne)
-     * * product.type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | attendee.id  | `eq`, `ne`                         |
+     * | event.id     | `eq`, `ne`                         |
+     * | order.id     | `eq`, `ne`                         |
+     * | product.id   | `eq`, `ne`                         |
+     * | product.type | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -228,27 +222,24 @@ public class GetOrderItemsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * There are six comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * attendee.id (eq|ne)
-     * * event.id (eq|ne)
-     * * order.id (eq|ne)
-     * * product.id (eq|ne)
-     * * product.type (eq|ne)
-     * * created (eq|ne|lt|le|gt|ge)
-     * * lastModified (eq|ne|lt|le|gt|ge)
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following operators are available:
+     * <p>| Field        | Operators                          |
+     * |--------------|------------------------------------|
+     * | id           | `eq`, `ne`                         |
+     * | attendee.id  | `eq`, `ne`                         |
+     * | event.id     | `eq`, `ne`                         |
+     * | order.id     | `eq`, `ne`                         |
+     * | product.id   | `eq`, `ne`                         |
+     * | product.type | `eq`, `ne`                         |
+     * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -373,27 +364,24 @@ public class GetOrderItemsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators. The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * There are six comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>The following fields are filterable:
-         * * id (eq|ne)
-         * * attendee.id (eq|ne)
-         * * event.id (eq|ne)
-         * * order.id (eq|ne)
-         * * product.id (eq|ne)
-         * * product.type (eq|ne)
-         * * created (eq|ne|lt|le|gt|ge)
-         * * lastModified (eq|ne|lt|le|gt|ge)
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following operators are available:
+         * <p>| Field        | Operators                          |
+         * |--------------|------------------------------------|
+         * | id           | `eq`, `ne`                         |
+         * | attendee.id  | `eq`, `ne`                         |
+         * | event.id     | `eq`, `ne`                         |
+         * | order.id     | `eq`, `ne`                         |
+         * | product.id   | `eq`, `ne`                         |
+         * | product.type | `eq`, `ne`                         |
+         * | created      | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | lastModified | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         *
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

@@ -24,18 +24,18 @@ public class ReservationRequestPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of reservation request details for attendees.
      */
     @JsonProperty("data")
-    private List<ReservationRequestResponseJson> data;
+    private List<HousingReservationResponse> data;
 
     @JsonCreator
     public ReservationRequestPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<ReservationRequestResponseJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<HousingReservationResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -44,14 +44,14 @@ public class ReservationRequestPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of reservation request details for attendees.
      */
-    public List<ReservationRequestResponseJson> data() {
+    public List<HousingReservationResponse> data() {
         return this.data;
     }
 
@@ -62,7 +62,7 @@ public class ReservationRequestPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ReservationRequestPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public ReservationRequestPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -70,7 +70,7 @@ public class ReservationRequestPaginatedResponse {
     /**
      * Collection of reservation request details for attendees.
      */
-    public ReservationRequestPaginatedResponse withData(@Nonnull List<ReservationRequestResponseJson> data) {
+    public ReservationRequestPaginatedResponse withData(@Nonnull List<HousingReservationResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -100,9 +100,9 @@ public class ReservationRequestPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ReservationRequestResponseJson> data;
+        private List<HousingReservationResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -111,7 +111,7 @@ public class ReservationRequestPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -119,7 +119,7 @@ public class ReservationRequestPaginatedResponse {
         /**
          * Collection of reservation request details for attendees.
          */
-        public Builder data(@Nonnull List<ReservationRequestResponseJson> data) {
+        public Builder data(@Nonnull List<HousingReservationResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

@@ -85,30 +85,30 @@ namespace Cvent.SDK.Models.Components
         }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ExistingDiscountCodeJson? ExistingDiscountCodeJson { get; set; }
+        public ExistingDiscountCode? ExistingDiscountCode { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public ExistingVolumeDiscountJson? ExistingVolumeDiscountJson { get; set; }
+        public ExistingVolumeDiscount? ExistingVolumeDiscount { get; set; }
 
         public ExistingDiscountPaginatedResponseDataType Type { get; set; }
 
-        public static ExistingDiscountPaginatedResponseData CreateDiscountCode(ExistingDiscountCodeJson discountCode)
+        public static ExistingDiscountPaginatedResponseData CreateDiscountCode(ExistingDiscountCode discountCode)
         {
             ExistingDiscountPaginatedResponseDataType typ = ExistingDiscountPaginatedResponseDataType.DiscountCode;
             string typStr = ExistingDiscountPaginatedResponseDataType.DiscountCode.ToString();
-            discountCode.Type = ExistingDiscountCodeJsonTypeExtension.ToEnum(ExistingDiscountPaginatedResponseDataType.DiscountCode.ToString());
+            discountCode.Type = ExistingDiscountCodeTypeExtension.ToEnum(ExistingDiscountPaginatedResponseDataType.DiscountCode.ToString());
             ExistingDiscountPaginatedResponseData res = new ExistingDiscountPaginatedResponseData(typ);
-            res.ExistingDiscountCodeJson = discountCode;
+            res.ExistingDiscountCode = discountCode;
             return res;
         }
 
-        public static ExistingDiscountPaginatedResponseData CreateVolumeDiscount(ExistingVolumeDiscountJson volumeDiscount)
+        public static ExistingDiscountPaginatedResponseData CreateVolumeDiscount(ExistingVolumeDiscount volumeDiscount)
         {
             ExistingDiscountPaginatedResponseDataType typ = ExistingDiscountPaginatedResponseDataType.VolumeDiscount;
             string typStr = ExistingDiscountPaginatedResponseDataType.VolumeDiscount.ToString();
-            volumeDiscount.Type = ExistingVolumeDiscountJsonTypeExtension.ToEnum(ExistingDiscountPaginatedResponseDataType.VolumeDiscount.ToString());
+            volumeDiscount.Type = ExistingVolumeDiscountTypeExtension.ToEnum(ExistingDiscountPaginatedResponseDataType.VolumeDiscount.ToString());
             ExistingDiscountPaginatedResponseData res = new ExistingDiscountPaginatedResponseData(typ);
-            res.ExistingVolumeDiscountJson = volumeDiscount;
+            res.ExistingVolumeDiscount = volumeDiscount;
             return res;
         }
 
@@ -129,13 +129,13 @@ namespace Cvent.SDK.Models.Components
                 string discriminator = jo.GetValue("type")?.ToString() ?? throw new ArgumentNullException("Could not find discriminator field.");
                 if (discriminator == ExistingDiscountPaginatedResponseDataType.DiscountCode.ToString())
                 {
-                    ExistingDiscountCodeJson existingDiscountCodeJSON = ResponseBodyDeserializer.DeserializeNotNull<ExistingDiscountCodeJson>(jo.ToString());
-                    return CreateDiscountCode(existingDiscountCodeJSON);
+                    ExistingDiscountCode existingDiscountCode = ResponseBodyDeserializer.DeserializeNotNull<ExistingDiscountCode>(jo.ToString());
+                    return CreateDiscountCode(existingDiscountCode);
                 }
                 if (discriminator == ExistingDiscountPaginatedResponseDataType.VolumeDiscount.ToString())
                 {
-                    ExistingVolumeDiscountJson existingVolumeDiscountJSON = ResponseBodyDeserializer.DeserializeNotNull<ExistingVolumeDiscountJson>(jo.ToString());
-                    return CreateVolumeDiscount(existingVolumeDiscountJSON);
+                    ExistingVolumeDiscount existingVolumeDiscount = ResponseBodyDeserializer.DeserializeNotNull<ExistingVolumeDiscount>(jo.ToString());
+                    return CreateVolumeDiscount(existingVolumeDiscount);
                 }
 
                 throw new InvalidOperationException("Could not deserialize into any supported types.");
@@ -150,15 +150,15 @@ namespace Cvent.SDK.Models.Components
 
                 ExistingDiscountPaginatedResponseData res = (ExistingDiscountPaginatedResponseData)value;
 
-                if (res.ExistingDiscountCodeJson != null)
+                if (res.ExistingDiscountCode != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingDiscountCodeJson));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingDiscountCode));
                     return;
                 }
 
-                if (res.ExistingVolumeDiscountJson != null)
+                if (res.ExistingVolumeDiscount != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingVolumeDiscountJson));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ExistingVolumeDiscount));
                     return;
                 }
             }

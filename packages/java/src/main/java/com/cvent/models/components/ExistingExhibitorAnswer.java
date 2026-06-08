@@ -54,13 +54,13 @@ public class ExistingExhibitorAnswer {
      * The reference to the related entity. Contains only the ID of the related entity.
      */
     @JsonProperty("question")
-    private Uuid1 question;
+    private Uuid question;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event1 event;
+    private Event21 event;
 
     /**
      * The Associated Exhibitor.
@@ -86,8 +86,8 @@ public class ExistingExhibitorAnswer {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("question") @Nonnull Uuid1 question,
-            @JsonProperty("event") @Nonnull Event1 event,
+            @JsonProperty("question") @Nonnull Uuid question,
+            @JsonProperty("event") @Nonnull Event21 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("answers") @Nonnull List<Answer2> answers,
             @JsonProperty("id") @Nonnull String id) {
@@ -106,8 +106,8 @@ public class ExistingExhibitorAnswer {
     }
 
     public ExistingExhibitorAnswer(
-            @Nonnull Uuid1 question,
-            @Nonnull Event1 event,
+            @Nonnull Uuid question,
+            @Nonnull Event21 event,
             @Nonnull Exhibitor exhibitor,
             @Nonnull List<Answer2> answers,
             @Nonnull String id) {
@@ -145,14 +145,14 @@ public class ExistingExhibitorAnswer {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public Uuid1 question() {
+    public Uuid question() {
         return this.question;
     }
 
     /**
      * The Associated Event.
      */
-    public Event1 event() {
+    public Event21 event() {
         return this.event;
     }
 
@@ -216,7 +216,7 @@ public class ExistingExhibitorAnswer {
     /**
      * The reference to the related entity. Contains only the ID of the related entity.
      */
-    public ExistingExhibitorAnswer withQuestion(@Nonnull Uuid1 question) {
+    public ExistingExhibitorAnswer withQuestion(@Nonnull Uuid question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -224,7 +224,7 @@ public class ExistingExhibitorAnswer {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswer withEvent(@Nonnull Event1 event) {
+    public ExistingExhibitorAnswer withEvent(@Nonnull Event21 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -314,9 +314,9 @@ public class ExistingExhibitorAnswer {
 
         private String lastModifiedBy;
 
-        private Uuid1 question;
+        private Uuid question;
 
-        private Event1 event;
+        private Event21 event;
 
         private Exhibitor exhibitor;
 
@@ -363,7 +363,7 @@ public class ExistingExhibitorAnswer {
         /**
          * The reference to the related entity. Contains only the ID of the related entity.
          */
-        public Builder question(@Nonnull Uuid1 question) {
+        public Builder question(@Nonnull Uuid question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }
@@ -371,7 +371,7 @@ public class ExistingExhibitorAnswer {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event1 event) {
+        public Builder event(@Nonnull Event21 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

@@ -612,6 +612,11 @@ public final class OAuth2Scopes {
         EventSpeakersWrite("event/speakers:write"),
 
         /**
+         * Allows the reading of taxes.
+         */
+        EventTaxesRead("event/taxes:read"),
+
+        /**
          * Allows the reading of transactions
          */
         EventTransactionsRead("event/transactions:read"),
@@ -1667,6 +1672,11 @@ public final class OAuth2Scopes {
          * Allows the creation of a speaker in an event
          */
         EventSpeakersWrite("event/speakers:write"),
+
+        /**
+         * Allows the reading of taxes.
+         */
+        EventTaxesRead("event/taxes:read"),
 
         /**
          * Allows the reading of transactions

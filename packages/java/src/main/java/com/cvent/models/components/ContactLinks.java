@@ -16,7 +16,7 @@ import java.util.Optional;
 /**
  * ContactLinks
  *
- * <p>A JSON schema representing contact links, including Twitter, Facebook, and LinkedIn URLs.
+ * <p>Collection of social media links for the contact.
  */
 public class ContactLinks {
     /**
@@ -41,22 +41,22 @@ public class ContactLinks {
     private Link linkedInUrl;
 
     /**
-     * Represents a link to a related resource.
+     * Reference to a profile picture.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("instagramUrl")
-    private Link instagramUrl;
+    @JsonProperty("profilePicture")
+    private ContactLinksLink profilePicture;
 
     @JsonCreator
     public ContactLinks(
             @JsonProperty("twitterUrl") @Nullable Link twitterUrl,
             @JsonProperty("facebookUrl") @Nullable Link facebookUrl,
             @JsonProperty("linkedInUrl") @Nullable Link linkedInUrl,
-            @JsonProperty("instagramUrl") @Nullable Link instagramUrl) {
+            @JsonProperty("profilePicture") @Nullable ContactLinksLink profilePicture) {
         this.twitterUrl = twitterUrl;
         this.facebookUrl = facebookUrl;
         this.linkedInUrl = linkedInUrl;
-        this.instagramUrl = instagramUrl;
+        this.profilePicture = profilePicture;
     }
 
     public ContactLinks() {
@@ -85,10 +85,10 @@ public class ContactLinks {
     }
 
     /**
-     * Represents a link to a related resource.
+     * Reference to a profile picture.
      */
-    public Optional<Link> instagramUrl() {
-        return Optional.ofNullable(this.instagramUrl);
+    public Optional<ContactLinksLink> profilePicture() {
+        return Optional.ofNullable(this.profilePicture);
     }
 
     public static Builder builder() {
@@ -120,10 +120,10 @@ public class ContactLinks {
     }
 
     /**
-     * Represents a link to a related resource.
+     * Reference to a profile picture.
      */
-    public ContactLinks withInstagramUrl(@Nullable Link instagramUrl) {
-        this.instagramUrl = instagramUrl;
+    public ContactLinks withProfilePicture(@Nullable ContactLinksLink profilePicture) {
+        this.profilePicture = profilePicture;
         return this;
     }
 
@@ -139,12 +139,12 @@ public class ContactLinks {
         return Utils.enhancedDeepEquals(this.twitterUrl, other.twitterUrl)
                 && Utils.enhancedDeepEquals(this.facebookUrl, other.facebookUrl)
                 && Utils.enhancedDeepEquals(this.linkedInUrl, other.linkedInUrl)
-                && Utils.enhancedDeepEquals(this.instagramUrl, other.instagramUrl);
+                && Utils.enhancedDeepEquals(this.profilePicture, other.profilePicture);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(twitterUrl, facebookUrl, linkedInUrl, instagramUrl);
+        return Utils.enhancedHash(twitterUrl, facebookUrl, linkedInUrl, profilePicture);
     }
 
     @Override
@@ -157,8 +157,8 @@ public class ContactLinks {
                 facebookUrl,
                 "linkedInUrl",
                 linkedInUrl,
-                "instagramUrl",
-                instagramUrl);
+                "profilePicture",
+                profilePicture);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -170,7 +170,7 @@ public class ContactLinks {
 
         private Link linkedInUrl;
 
-        private Link instagramUrl;
+        private ContactLinksLink profilePicture;
 
         private Builder() {
             // force use of static builder() method
@@ -201,15 +201,15 @@ public class ContactLinks {
         }
 
         /**
-         * Represents a link to a related resource.
+         * Reference to a profile picture.
          */
-        public Builder instagramUrl(@Nullable Link instagramUrl) {
-            this.instagramUrl = instagramUrl;
+        public Builder profilePicture(@Nullable ContactLinksLink profilePicture) {
+            this.profilePicture = profilePicture;
             return this;
         }
 
         public ContactLinks build() {
-            return new ContactLinks(twitterUrl, facebookUrl, linkedInUrl, instagramUrl);
+            return new ContactLinks(twitterUrl, facebookUrl, linkedInUrl, profilePicture);
         }
     }
 }

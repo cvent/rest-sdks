@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.AirActualDetail;
+import com.cvent.models.components.AirActualDetail2;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class GetAirActualDetailResponse implements Response {
     /**
      * Successfully retrieved the air actual details.
      */
-    private AirActualDetail airActualDetail;
+    private AirActualDetail2 airActualDetail;
 
     @JsonCreator
     public GetAirActualDetailResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable AirActualDetail airActualDetail) {
+            @Nullable AirActualDetail2 airActualDetail) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class GetAirActualDetailResponse implements Response {
     /**
      * Successfully retrieved the air actual details.
      */
-    public Optional<AirActualDetail> airActualDetail() {
+    public Optional<AirActualDetail2> airActualDetail() {
         return Optional.ofNullable(this.airActualDetail);
     }
 
@@ -114,7 +114,7 @@ public class GetAirActualDetailResponse implements Response {
     /**
      * Successfully retrieved the air actual details.
      */
-    public GetAirActualDetailResponse withAirActualDetail(@Nullable AirActualDetail airActualDetail) {
+    public GetAirActualDetailResponse withAirActualDetail(@Nullable AirActualDetail2 airActualDetail) {
         this.airActualDetail = airActualDetail;
         return this;
     }
@@ -162,7 +162,7 @@ public class GetAirActualDetailResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private AirActualDetail airActualDetail;
+        private AirActualDetail2 airActualDetail;
 
         private Builder() {
             // force use of static builder() method
@@ -195,7 +195,7 @@ public class GetAirActualDetailResponse implements Response {
         /**
          * Successfully retrieved the air actual details.
          */
-        public Builder airActualDetail(@Nullable AirActualDetail airActualDetail) {
+        public Builder airActualDetail(@Nullable AirActualDetail2 airActualDetail) {
             this.airActualDetail = airActualDetail;
             return this;
         }

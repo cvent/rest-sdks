@@ -13,38 +13,26 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// This is used to denote the general ledger detail in an order item.
+    /// This is used to denote the general ledger code associated with budget.
     /// </summary>
     public class GeneralLedgerJson
     {
         /// <summary>
-        /// A unique identifier for the general ledger.
+        /// A string that has to be a format matching the industry standard uuid.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// This denotes the name of the general ledger.
-        /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
-
-        /// <summary>
-        /// This denotes the code of the general ledger.
+        /// General Ledger Code.
         /// </summary>
         [JsonProperty("code")]
         public string? Code { get; set; }
 
         /// <summary>
-        /// This denotes the description of the general ledger.
+        /// Name of the General Ledger.
         /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
-
-        /// <summary>
-        /// This denotes the percentage allocation of the general ledger code for an order item.
-        /// </summary>
-        [JsonProperty("allocationPercentage")]
-        public double? AllocationPercentage { get; set; }
+        [JsonProperty("name")]
+        public string? Name { get; set; }
     }
 }

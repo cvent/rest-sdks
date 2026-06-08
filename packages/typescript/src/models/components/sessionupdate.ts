@@ -5,24 +5,20 @@
 import * as z from "zod/v3";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  IdNameJson,
-  IdNameJson$Outbound,
-  IdNameJson$outboundSchema,
-} from "./idnamejson.js";
+  LocationInput,
+  LocationInput$Outbound,
+  LocationInput$outboundSchema,
+} from "./locationinput.js";
 import {
-  LocationJson2Input,
-  LocationJson2Input$Outbound,
-  LocationJson2Input$outboundSchema,
-} from "./locationjson2input.js";
+  NamedObject,
+  NamedObject$Outbound,
+  NamedObject$outboundSchema,
+} from "./namedobject.js";
 import {
-  SessionStatusJson,
-  SessionStatusJson$outboundSchema,
-} from "./sessionstatusjson.js";
-import {
-  UuidJson,
-  UuidJson$Outbound,
-  UuidJson$outboundSchema,
-} from "./uuidjson.js";
+  SessionStatus,
+  SessionStatus$outboundSchema,
+} from "./sessionstatus.js";
+import { Uuid, Uuid$Outbound, Uuid$outboundSchema } from "./uuid.js";
 
 /**
  * Lookup response object
@@ -45,13 +41,23 @@ export type SessionUpdateLookup = {
 };
 
 /**
+ * The session group, if the session belongs to one.
+ */
+export type SessionUpdateGroup = {
+  /**
+   * The ID of the session group, if the session belongs to one.
+   */
+  id?: string | undefined;
+};
+
+/**
  * Used to update a session.
  */
 export type SessionUpdate = {
   /**
    * The reference to the related entity. Contains only the ID of the related entity.
    */
-  event: UuidJson;
+  event: Uuid;
   /**
    * Title of the session. For example, Keynote Session.
    */
@@ -63,12 +69,12 @@ export type SessionUpdate = {
   /**
    * A Named object
    */
-  category?: IdNameJson | undefined;
+  category?: NamedObject | undefined;
   type?: SessionUpdateLookup | undefined;
   /**
    * Used to denote a locations name and abbreviation.
    */
-  location?: LocationJson2Input | undefined;
+  location?: LocationInput | undefined;
   /**
    * Detailed description of the session. HTML is supported, but only a limited set of elements and attributes are allowed. Use of HTML will count towards the character limit. Planners are responsible for confirming the visual output of HTML content.
    *
@@ -93,7 +99,7 @@ export type SessionUpdate = {
   /**
    * This is used to denote the status of a session.
    */
-  status: SessionStatusJson;
+  status: SessionStatus;
   /**
    * The ISO 8601 formatted date when the session registration automatically opens.
    */
@@ -143,9 +149,9 @@ export type SessionUpdate = {
    */
   featured?: boolean | undefined;
   /**
-   * The id of the session group, if the session belongs to one
+   * The session group, if the session belongs to one.
    */
-  group?: string | undefined;
+  group?: SessionUpdateGroup | undefined;
   /**
    * The ids of the admission items, if the session is included with any.
    */
@@ -203,13 +209,35 @@ export function sessionUpdateLookupToJSON(
 }
 
 /** @internal */
+export type SessionUpdateGroup$Outbound = {
+  id?: string | undefined;
+};
+
+/** @internal */
+export const SessionUpdateGroup$outboundSchema: z.ZodType<
+  SessionUpdateGroup$Outbound,
+  z.ZodTypeDef,
+  SessionUpdateGroup
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function sessionUpdateGroupToJSON(
+  sessionUpdateGroup: SessionUpdateGroup,
+): string {
+  return JSON.stringify(
+    SessionUpdateGroup$outboundSchema.parse(sessionUpdateGroup),
+  );
+}
+
+/** @internal */
 export type SessionUpdate$Outbound = {
-  event: UuidJson$Outbound;
+  event: Uuid$Outbound;
   title: string;
   code?: string | undefined;
-  category?: IdNameJson$Outbound | undefined;
+  category?: NamedObject$Outbound | undefined;
   type?: SessionUpdateLookup$Outbound | undefined;
-  location?: LocationJson2Input$Outbound | undefined;
+  location?: LocationInput$Outbound | undefined;
   description?: string | undefined;
   start: string;
   end: string;
@@ -226,7 +254,7 @@ export type SessionUpdate$Outbound = {
   waitlistCapacityVirtual?: number | undefined;
   displayOnAgenda: boolean;
   featured?: boolean | undefined;
-  group?: string | undefined;
+  group?: SessionUpdateGroup$Outbound | undefined;
   admissionItems?: Array<string> | undefined;
   openForRegistration?: boolean | undefined;
   openForAttendeeHub?: boolean | undefined;
@@ -242,16 +270,16 @@ export const SessionUpdate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SessionUpdate
 > = z.object({
-  event: UuidJson$outboundSchema,
+  event: Uuid$outboundSchema,
   title: z.string(),
   code: z.string().optional(),
-  category: IdNameJson$outboundSchema.optional(),
+  category: NamedObject$outboundSchema.optional(),
   type: z.lazy(() => SessionUpdateLookup$outboundSchema).optional(),
-  location: LocationJson2Input$outboundSchema.optional(),
+  location: LocationInput$outboundSchema.optional(),
   description: z.string().optional(),
   start: z.date().transform(v => v.toISOString()),
   end: z.date().transform(v => v.toISOString()),
-  status: SessionStatusJson$outboundSchema,
+  status: SessionStatus$outboundSchema,
   automaticallyOpensOn: z.instanceof(RFCDate).transform(v => v.toString())
     .optional(),
   automaticallyClosesOn: z.instanceof(RFCDate).transform(v => v.toString())
@@ -266,7 +294,7 @@ export const SessionUpdate$outboundSchema: z.ZodType<
   waitlistCapacityVirtual: z.number().int().optional(),
   displayOnAgenda: z.boolean().default(true),
   featured: z.boolean().optional(),
-  group: z.string().optional(),
+  group: z.lazy(() => SessionUpdateGroup$outboundSchema).optional(),
   admissionItems: z.array(z.string()).optional(),
   openForRegistration: z.boolean().optional(),
   openForAttendeeHub: z.boolean().optional(),
