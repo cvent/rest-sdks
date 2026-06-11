@@ -1,0 +1,82 @@
+name: PR Build Check
+
+# Runs a compile/build check for all SDK languages on every pull request.
+# Jobs run in parallel and do not rely on Speakeasy-derived workflows.
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-typescript:
+    name: Build TypeScript SDK
+    runs-on: ubuntu-22.04-medium-arm64
+    defaults:
+      run:
+        working-directory: packages/typescript
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
+        with:
+          node-version: "22.x"
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+  build-java:
+    name: Build Java SDK
+    runs-on: ubuntu-22.04-medium-arm64
+    defaults:
+      run:
+        working-directory: packages/java
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Setup Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        with:
+          distribution: "corretto"
+          java-version: "11"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e
+        with:
+          gradle-version: "8.14"
+
+      - name: Build
+        run: ./gradlew build --no-daemon
+
+  build-csharp:
+    name: Build C# SDK
+    runs-on: ubuntu-22.04-medium-arm64
+    defaults:
+      run:
+        working-directory: packages/csharp
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@9a946fdbd5fb07b82b2f5a4466058b876ab72bb2
+        with:
+          dotnet-version: "8.x"
+
+      - name: Build
+        run: dotnet build -c Release
