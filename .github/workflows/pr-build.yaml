@@ -28,7 +28,7 @@ jobs:
           node-version: "24.x"
 
       - name: Cache npm dependencies
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('packages/typescript/package-lock.json') }}
@@ -85,7 +85,7 @@ jobs:
           dotnet-version: "8.x"
 
       - name: Cache NuGet packages
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('packages/csharp/**/*.csproj') }}
