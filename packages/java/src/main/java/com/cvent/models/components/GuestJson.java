@@ -110,7 +110,7 @@ public class GuestJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
-    private AddressJson2 homeAddress;
+    private AddressJson homeAddress;
 
     /**
      * Payment information.
@@ -133,7 +133,7 @@ public class GuestJson {
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("homePhone") @Nullable String homePhone,
             @JsonProperty("workPhone") @Nullable String workPhone,
-            @JsonProperty("homeAddress") @Nullable AddressJson2 homeAddress,
+            @JsonProperty("homeAddress") @Nullable AddressJson homeAddress,
             @JsonProperty("paymentInfo") @Nullable PaymentInfoJson paymentInfo) {
         this.arrival = arrival;
         this.departure = departure;
@@ -244,7 +244,7 @@ public class GuestJson {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public Optional<AddressJson2> homeAddress() {
+    public Optional<AddressJson> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
@@ -359,7 +359,7 @@ public class GuestJson {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public GuestJson withHomeAddress(@Nullable AddressJson2 homeAddress) {
+    public GuestJson withHomeAddress(@Nullable AddressJson homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
@@ -477,7 +477,7 @@ public class GuestJson {
 
         private String workPhone;
 
-        private AddressJson2 homeAddress;
+        private AddressJson homeAddress;
 
         private PaymentInfoJson paymentInfo;
 
@@ -585,7 +585,7 @@ public class GuestJson {
          * Address details. Required to create/update a guest's reservation if the hotel/event requires an
          * address in reservations.
          */
-        public Builder homeAddress(@Nullable AddressJson2 homeAddress) {
+        public Builder homeAddress(@Nullable AddressJson homeAddress) {
             this.homeAddress = homeAddress;
             return this;
         }

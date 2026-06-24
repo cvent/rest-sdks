@@ -10,9 +10,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomFieldJson3,
-  CustomFieldJson3$inboundSchema,
-} from "./customfieldjson3.js";
+  CustomFieldJson2,
+  CustomFieldJson2$inboundSchema,
+} from "./customfieldjson2.js";
 import { LinkJson, LinkJson$inboundSchema } from "./linkjson.js";
 import { OptoutByJson, OptoutByJson$inboundSchema } from "./optoutbyjson.js";
 
@@ -387,7 +387,7 @@ export type StakeholderJson = {
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
    */
-  customFields?: Array<CustomFieldJson3> | undefined;
+  customFields?: Array<CustomFieldJson2> | undefined;
   /**
    * This is an ID for the contact in an external system. NOTE: This value is expected to be unique for each contact within an account. Consider adding the external system name as part of the ID.
    *
@@ -629,7 +629,7 @@ export const StakeholderJson$inboundSchema: z.ZodType<
   homeAddress: z.lazy(() => StakeholderJsonHomeAddressAddress$inboundSchema)
     .optional(),
   homeFax: z.string().optional(),
-  customFields: z.array(CustomFieldJson3$inboundSchema).optional(),
+  customFields: z.array(CustomFieldJson2$inboundSchema).optional(),
   sourceId: z.string().optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

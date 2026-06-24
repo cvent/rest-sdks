@@ -8,9 +8,9 @@ import {
   EventFormatJson$outboundSchema,
 } from "./eventformatjson.js";
 import {
-  EventTypeJson1,
-  EventTypeJson1$outboundSchema,
-} from "./eventtypejson1.js";
+  EventTypeJson,
+  EventTypeJson$outboundSchema,
+} from "./eventtypejson.js";
 import {
   PlannerJson2Input,
   PlannerJson2Input$Outbound,
@@ -89,7 +89,7 @@ export type EventUpdateInput = {
   /**
    * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
    */
-  type: EventTypeJson1;
+  type: EventTypeJson;
 };
 
 /** @internal */
@@ -133,7 +133,7 @@ export const EventUpdateInput$outboundSchema: z.ZodType<
   languages: z.array(z.string()),
   capacity: z.number().int().optional(),
   planners: z.array(PlannerJson2Input$outboundSchema),
-  type: EventTypeJson1$outboundSchema,
+  type: EventTypeJson$outboundSchema,
 });
 
 export function eventUpdateInputToJSON(

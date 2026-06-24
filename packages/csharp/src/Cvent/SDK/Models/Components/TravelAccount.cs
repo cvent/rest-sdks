@@ -60,7 +60,7 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the travel account type.
         /// </summary>
         [JsonProperty("type")]
-        public TravelAccountTypeJson? Type { get; set; }
+        public TravelAccountType? Type { get; set; }
 
         /// <summary>
         /// Is this a certified travel account?
@@ -72,6 +72,6 @@ namespace Cvent.SDK.Models.Components
         /// List of addresses associated with the travel account.
         /// </summary>
         [JsonProperty("addresses")]
-        public List<AddressJson5>? Addresses { get; set; }
+        public List<Address6>? Addresses { get; set; }
     }
 }

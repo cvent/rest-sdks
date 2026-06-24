@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoice,
-  AdditionalChoice$inboundSchema,
-} from "./additionalchoice.js";
+  AdditionalChoice1,
+  AdditionalChoice1$inboundSchema,
+} from "./additionalchoice1.js";
 import { BaseChoice, BaseChoice$inboundSchema } from "./basechoice.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import {
   ExhibitorAnswerFormat,
   ExhibitorAnswerFormat$inboundSchema,
@@ -48,7 +48,7 @@ export type ExistingExhibitorQuestion = {
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
   /**
    * The actual text of the exhibitor question.
    */
@@ -72,11 +72,11 @@ export type ExistingExhibitorQuestion = {
   /**
    * Contains text of additional choice
    */
-  notApplicableAnswer?: AdditionalChoice | undefined;
+  notApplicableAnswer?: AdditionalChoice1 | undefined;
   /**
    * Contains text of additional choice
    */
-  otherAnswer?: AdditionalChoice | undefined;
+  otherAnswer?: AdditionalChoice1 | undefined;
   /**
    * Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.
    */
@@ -112,14 +112,14 @@ export const ExistingExhibitorQuestion$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event21$inboundSchema,
+  event: Event3$inboundSchema,
   text: z.string(),
   code: z.string().optional(),
   type: ExhibitorQuestionType$inboundSchema,
   required: z.boolean(),
   choices: z.array(BaseChoice$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoice$inboundSchema.optional(),
-  otherAnswer: AdditionalChoice$inboundSchema.optional(),
+  notApplicableAnswer: AdditionalChoice1$inboundSchema.optional(),
+  otherAnswer: AdditionalChoice1$inboundSchema.optional(),
   answerFormat: ExhibitorAnswerFormat$inboundSchema.optional(),
   answerLimits: ExhibitorAnswerLimits$inboundSchema.optional(),
   defaultToCurrentDate: z.boolean().optional(),

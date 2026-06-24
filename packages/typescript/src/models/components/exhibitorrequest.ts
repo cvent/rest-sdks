@@ -4,20 +4,16 @@
 
 import * as z from "zod/v3";
 import {
-  Address2,
-  Address2$Outbound,
-  Address2$outboundSchema,
-} from "./address2.js";
+  Address4,
+  Address4$Outbound,
+  Address4$outboundSchema,
+} from "./address4.js";
 import {
   ContactLinks1,
   ContactLinks1$Outbound,
   ContactLinks1$outboundSchema,
 } from "./contactlinks1.js";
-import {
-  Event21,
-  Event21$Outbound,
-  Event21$outboundSchema,
-} from "./event21.js";
+import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
 import {
   SponsorshipLevel,
   SponsorshipLevel$Outbound,
@@ -31,7 +27,7 @@ export type ExhibitorRequest = {
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -55,7 +51,7 @@ export type ExhibitorRequest = {
   /**
    * An object representing an address with various properties.
    */
-  address?: Address2 | undefined;
+  address?: Address4 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -104,13 +100,13 @@ export type ExhibitorRequest = {
 
 /** @internal */
 export type ExhibitorRequest$Outbound = {
-  event: Event21$Outbound;
+  event: Event3$Outbound;
   name: string;
   description?: string | undefined;
   code?: string | undefined;
   sourceId?: string | undefined;
   location?: string | undefined;
-  address?: Address2$Outbound | undefined;
+  address?: Address4$Outbound | undefined;
   email?: string | undefined;
   mobilePhone?: string | undefined;
   workPhone?: string | undefined;
@@ -130,13 +126,13 @@ export const ExhibitorRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ExhibitorRequest
 > = z.object({
-  event: Event21$outboundSchema,
+  event: Event3$outboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: Address2$outboundSchema.optional(),
+  address: Address4$outboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),

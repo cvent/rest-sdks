@@ -58,7 +58,7 @@ public class ExistingExhibitorQuestion {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * The actual text of the exhibitor question.
@@ -103,14 +103,14 @@ public class ExistingExhibitorQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoice notApplicableAnswer;
+    private AdditionalChoice1 notApplicableAnswer;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoice otherAnswer;
+    private AdditionalChoice1 otherAnswer;
 
     /**
      * Specifies the format for displaying answers based on the question type. For SingleChoice questions,
@@ -157,14 +157,14 @@ public class ExistingExhibitorQuestion {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nonnull Event21 event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("text") @Nonnull String text,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nonnull ExhibitorQuestionType type,
             @JsonProperty("required") boolean required,
             @JsonProperty("choices") @Nullable List<BaseChoice> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoice otherAnswer,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice1 notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoice1 otherAnswer,
             @JsonProperty("answerFormat") @Nullable ExhibitorAnswerFormat answerFormat,
             @JsonProperty("answerLimits") @Nullable ExhibitorAnswerLimits answerLimits,
             @JsonProperty("defaultToCurrentDate") @Nullable Boolean defaultToCurrentDate,
@@ -190,7 +190,7 @@ public class ExistingExhibitorQuestion {
     }
 
     public ExistingExhibitorQuestion(
-            @Nonnull Event21 event,
+            @Nonnull Event3 event,
             @Nonnull String text,
             @Nonnull ExhibitorQuestionType type,
             boolean required,
@@ -229,7 +229,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public Event21 event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -277,14 +277,14 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoice> notApplicableAnswer() {
+    public Optional<AdditionalChoice1> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoice> otherAnswer() {
+    public Optional<AdditionalChoice1> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -367,7 +367,7 @@ public class ExistingExhibitorQuestion {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorQuestion withEvent(@Nonnull Event21 event) {
+    public ExistingExhibitorQuestion withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -421,7 +421,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
+    public ExistingExhibitorQuestion withNotApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -429,7 +429,7 @@ public class ExistingExhibitorQuestion {
     /**
      * Contains text of additional choice
      */
-    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoice otherAnswer) {
+    public ExistingExhibitorQuestion withOtherAnswer(@Nullable AdditionalChoice1 otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -580,7 +580,7 @@ public class ExistingExhibitorQuestion {
 
         private String lastModifiedBy;
 
-        private Event21 event;
+        private Event3 event;
 
         private String text;
 
@@ -592,9 +592,9 @@ public class ExistingExhibitorQuestion {
 
         private List<BaseChoice> choices;
 
-        private AdditionalChoice notApplicableAnswer;
+        private AdditionalChoice1 notApplicableAnswer;
 
-        private AdditionalChoice otherAnswer;
+        private AdditionalChoice1 otherAnswer;
 
         private ExhibitorAnswerFormat answerFormat;
 
@@ -645,7 +645,7 @@ public class ExistingExhibitorQuestion {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event21 event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -699,7 +699,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -707,7 +707,7 @@ public class ExistingExhibitorQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoice otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoice1 otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }

@@ -1,0 +1,14 @@
+# RoomBlock
+
+Contains details related to room allotment for a day.
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `id`                                                                            | *Optional\<String>*                                                             | :heavy_minus_sign:                                                              | Unique identifier for the room block.                                           | 1f6193da-e12b-4638-b1e2-13dd60d0adeb                                            |
+| `date`                                                                          | [LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html) | :heavy_minus_sign:                                                              | The ISO 8601 date when the rooms are required.                                  | 2025-10-13                                                                      |
+| `dayNumber`                                                                     | *Optional\<Long>*                                                               | :heavy_minus_sign:                                                              | Counter for day number.                                                         | 3                                                                               |
+| `totalRooms`                                                                    | *Optional\<Long>*                                                               | :heavy_minus_sign:                                                              | Total number of rooms required for the day.                                     | 24                                                                              |
+| `details`                                                                       | List\<[RoomBlockDetails](../../models/components/RoomBlockDetails.md)>          | :heavy_minus_sign:                                                              | Contains detail of quantity required for each room type.                        |                                                                                 |

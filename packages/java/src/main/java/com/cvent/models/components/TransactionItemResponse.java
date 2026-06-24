@@ -83,7 +83,7 @@ public class TransactionItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee attendee;
 
     /**
      * This is used to denote the product details in an order item
@@ -130,7 +130,7 @@ public class TransactionItemResponse {
             @JsonProperty("uniqueId") @Nullable String uniqueId,
             @JsonProperty("transaction") @Nullable TransactionId transaction,
             @JsonProperty("event") @Nullable Event2 event,
-            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("product") @Nullable ProductOrderItem product,
             @JsonProperty("orderItem") @Nullable OrderItemRef orderItem,
             @JsonProperty("name") @Nullable String name,
@@ -216,7 +216,7 @@ public class TransactionItemResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<Attendee2> attendee() {
+    public Optional<Attendee> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -327,7 +327,7 @@ public class TransactionItemResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public TransactionItemResponse withAttendee(@Nullable Attendee2 attendee) {
+    public TransactionItemResponse withAttendee(@Nullable Attendee attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -469,7 +469,7 @@ public class TransactionItemResponse {
 
         private Event2 event;
 
-        private Attendee2 attendee;
+        private Attendee attendee;
 
         private ProductOrderItem product;
 
@@ -553,7 +553,7 @@ public class TransactionItemResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable Attendee2 attendee) {
+        public Builder attendee(@Nullable Attendee attendee) {
             this.attendee = attendee;
             return this;
         }

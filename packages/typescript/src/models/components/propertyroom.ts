@@ -11,9 +11,9 @@ import {
   PropertyRoomExternalCodeJson$inboundSchema,
 } from "./propertyroomexternalcodejson.js";
 import {
-  RoomBedTypeJson1,
-  RoomBedTypeJson1$inboundSchema,
-} from "./roombedtypejson1.js";
+  RoomBedTypeJson,
+  RoomBedTypeJson$inboundSchema,
+} from "./roombedtypejson.js";
 
 /**
  * The property that the room belongs to.
@@ -68,7 +68,7 @@ export type PropertyRoom = {
   /**
    * Code representing the bed type.
    */
-  bedTypeCode?: RoomBedTypeJson1 | undefined;
+  bedTypeCode?: RoomBedTypeJson | undefined;
   /**
    * The number of beds in the room.
    */
@@ -124,7 +124,7 @@ export const PropertyRoom$inboundSchema: z.ZodType<
   code: z.string().optional(),
   property: z.lazy(() => PropertyRoomProperty$inboundSchema).optional(),
   deleted: z.boolean().default(false),
-  bedTypeCode: RoomBedTypeJson1$inboundSchema.optional(),
+  bedTypeCode: RoomBedTypeJson$inboundSchema.optional(),
   numberOfBeds: z.number().int().optional(),
   capacity: z.number().int().optional(),
   description: z.string().optional(),

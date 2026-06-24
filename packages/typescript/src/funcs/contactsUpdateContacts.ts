@@ -41,7 +41,7 @@ export function contactsUpdateContacts(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    Array<components.ContactBulkItemJson>,
+    Array<components.ContactBulkResponseItem>,
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -67,7 +67,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      Array<components.ContactBulkItemJson>,
+      Array<components.ContactBulkResponseItem>,
       | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
@@ -158,7 +158,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    Array<components.ContactBulkItemJson>,
+    Array<components.ContactBulkResponseItem>,
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -169,7 +169,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(207, z.array(components.ContactBulkItemJson$inboundSchema)),
+    M.json(207, z.array(components.ContactBulkResponseItem$inboundSchema)),
     M.jsonErr([400, 401, 403, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

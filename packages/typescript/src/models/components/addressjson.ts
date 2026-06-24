@@ -8,45 +8,41 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Contact address details.
+ * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
  */
 export type AddressJson = {
   /**
-   * The first line of an address.
+   * Address line 1.
    */
   address1?: string | undefined;
   /**
-   * The second line of an address.
+   * Address line 2.
    */
   address2?: string | undefined;
   /**
-   * The third line of an address.
-   */
-  address3?: string | undefined;
-  /**
-   * The name of the city.
+   * City name.
    */
   city?: string | undefined;
   /**
-   * ISO 3166 two-letter (alpha-2) country code.
-   */
-  countryCode?: string | undefined;
-  /**
-   * Postal code (also known as zipcode) of the address.
-   */
-  postalCode?: string | undefined;
-  /**
-   * The name of the state/province/region of the address.
+   * Region name.
    */
   region?: string | undefined;
   /**
-   * The abbreviation of the state/province/region of the address.
+   * Region code.
    */
   regionCode?: string | undefined;
   /**
-   * Name of the country of the address.
+   * Postal code.
+   */
+  postalCode?: string | undefined;
+  /**
+   * Country name.
    */
   country?: string | undefined;
+  /**
+   * ISO 3166 alpha-2 country code.
+   */
+  countryCode?: string | undefined;
 };
 
 /** @internal */
@@ -57,15 +53,44 @@ export const AddressJson$inboundSchema: z.ZodType<
 > = z.object({
   address1: z.string().optional(),
   address2: z.string().optional(),
-  address3: z.string().optional(),
   city: z.string().optional(),
-  countryCode: z.string().optional(),
-  postalCode: z.string().optional(),
   region: z.string().optional(),
   regionCode: z.string().optional(),
+  postalCode: z.string().optional(),
   country: z.string().optional(),
+  countryCode: z.string().optional(),
+});
+/** @internal */
+export type AddressJson$Outbound = {
+  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  region?: string | undefined;
+  regionCode?: string | undefined;
+  postalCode?: string | undefined;
+  country?: string | undefined;
+  countryCode?: string | undefined;
+};
+
+/** @internal */
+export const AddressJson$outboundSchema: z.ZodType<
+  AddressJson$Outbound,
+  z.ZodTypeDef,
+  AddressJson
+> = z.object({
+  address1: z.string().optional(),
+  address2: z.string().optional(),
+  city: z.string().optional(),
+  region: z.string().optional(),
+  regionCode: z.string().optional(),
+  postalCode: z.string().optional(),
+  country: z.string().optional(),
+  countryCode: z.string().optional(),
 });
 
+export function addressJsonToJSON(addressJson: AddressJson): string {
+  return JSON.stringify(AddressJson$outboundSchema.parse(addressJson));
+}
 export function addressJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<AddressJson, SDKValidationError> {

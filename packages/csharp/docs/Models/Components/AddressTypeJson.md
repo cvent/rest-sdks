@@ -1,13 +1,13 @@
 # AddressTypeJson
 
-The type of address.
+The type of the address.
 
 ## Example Usage
 
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = AddressTypeJson.Home;
+var value = AddressTypeJson.Work;
 ```
 
 
@@ -15,5 +15,5 @@ var value = AddressTypeJson.Home;
 
 | Name   | Value  |
 | ------ | ------ |
-| `Home` | Home   |
-| `Work` | Work   |
+| `Work` | work   |
+| `Home` | home   |

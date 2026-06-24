@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  RfpInternalDocumentJson0,
-  RfpInternalDocumentJson0$inboundSchema,
-} from "./rfpinternaldocumentjson0.js";
+  RfpInternalDocument,
+  RfpInternalDocument$inboundSchema,
+} from "./rfpinternaldocument.js";
 
 /**
  * Paginated list of internal documents attached to an RFP.
@@ -19,11 +19,11 @@ export type PaginatedInternalDocuments = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of internal documents linked to an RFP.
    */
-  data?: Array<RfpInternalDocumentJson0> | undefined;
+  data?: Array<RfpInternalDocument> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const PaginatedInternalDocuments$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(RfpInternalDocumentJson0$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(RfpInternalDocument$inboundSchema).optional(),
 });
 
 export function paginatedInternalDocumentsFromJSON(

@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// Additional details of cascading error messages.
         /// </summary>
         [JsonProperty("details")]
-        public List<ZeroAllOf1>? Details { get; set; }
+        public List<ErrorResponseBase>? Details { get; set; }
     }
 }

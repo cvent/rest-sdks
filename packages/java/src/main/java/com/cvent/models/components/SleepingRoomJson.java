@@ -32,7 +32,7 @@ public class SleepingRoomJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proposalDateType")
-    private DateTypeJson1 proposalDateType;
+    private DateTypeJson proposalDateType;
 
     /**
      * The check in date for attendees.
@@ -134,7 +134,7 @@ public class SleepingRoomJson {
 
     @JsonCreator
     public SleepingRoomJson(
-            @JsonProperty("proposalDateType") @Nullable DateTypeJson1 proposalDateType,
+            @JsonProperty("proposalDateType") @Nullable DateTypeJson proposalDateType,
             @JsonProperty("checkInDate") @Nullable LocalDate checkInDate,
             @JsonProperty("checkOutDate") @Nullable LocalDate checkOutDate,
             @JsonProperty("peakRoomNights") @Nullable Long peakRoomNights,
@@ -176,7 +176,7 @@ public class SleepingRoomJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public Optional<DateTypeJson1> proposalDateType() {
+    public Optional<DateTypeJson> proposalDateType() {
         return Optional.ofNullable(this.proposalDateType);
     }
 
@@ -287,7 +287,7 @@ public class SleepingRoomJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public SleepingRoomJson withProposalDateType(@Nullable DateTypeJson1 proposalDateType) {
+    public SleepingRoomJson withProposalDateType(@Nullable DateTypeJson proposalDateType) {
         this.proposalDateType = proposalDateType;
         return this;
     }
@@ -489,7 +489,7 @@ public class SleepingRoomJson {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private DateTypeJson1 proposalDateType;
+        private DateTypeJson proposalDateType;
 
         private LocalDate checkInDate;
 
@@ -528,7 +528,7 @@ public class SleepingRoomJson {
          * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
          * so on).
          */
-        public Builder proposalDateType(@Nullable DateTypeJson1 proposalDateType) {
+        public Builder proposalDateType(@Nullable DateTypeJson proposalDateType) {
             this.proposalDateType = proposalDateType;
             return this;
         }
@@ -664,7 +664,7 @@ public class SleepingRoomJson {
                     sleepingRoomBlocks);
         }
 
-        private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_ProposalDateType =
-                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
+        private static final LazySingletonValue<DateTypeJson> _SINGLETON_VALUE_ProposalDateType =
+                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson>() {});
     }
 }

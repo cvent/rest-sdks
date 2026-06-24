@@ -78,37 +78,37 @@ namespace Cvent.SDK.Models.Components
         /// Question Type.
         /// </summary>
         [JsonProperty("type")]
-        public QuestionTypeJson2? Type { get; set; }
+        public QuestionTypeJson1? Type { get; set; }
 
         /// <summary>
         /// List of choices for the question.
         /// </summary>
         [JsonProperty("choices")]
-        public List<ChoiceJson2>? Choices { get; set; }
+        public List<ChoiceJson1>? Choices { get; set; }
 
         /// <summary>
         /// List of categories for the question.
         /// </summary>
         [JsonProperty("categories")]
-        public List<CategoryJson2>? Categories { get; set; }
+        public List<CategoryJson1>? Categories { get; set; }
 
         /// <summary>
         /// List of sub categories for matrix side-by-side questions.
         /// </summary>
         [JsonProperty("subCategories")]
-        public List<TextFieldJson1>? SubCategories { get; set; }
+        public List<TextFieldJson>? SubCategories { get; set; }
 
         /// <summary>
         /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoiceJson1? NotApplicableAnswer { get; set; }
+        public AdditionalChoiceJson? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
-        public AdditionalChoiceJson1? OtherAnswer { get; set; }
+        public AdditionalChoiceJson? OtherAnswer { get; set; }
 
         /// <summary>
         /// Text Value of Comments Input box placeholder.
@@ -126,7 +126,7 @@ namespace Cvent.SDK.Models.Components
         /// List of fields for form/matrix questions.
         /// </summary>
         [JsonProperty("fields")]
-        public List<FieldJson2>? Fields { get; set; }
+        public List<FieldJson>? Fields { get; set; }
 
         /// <summary>
         /// Max possible score.

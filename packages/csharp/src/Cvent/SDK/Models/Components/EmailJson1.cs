@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The type of the email.
         /// </summary>
         [JsonProperty("type")]
-        public EmailTypeJson1? Type { get; set; } = Cvent.SDK.Models.Components.EmailTypeJson1.Work;
+        public EmailTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.EmailTypeJson.Work;
 
         /// <summary>
         /// The email of the user.

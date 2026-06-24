@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
-import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.util.List;
@@ -19,11 +18,11 @@ import java.util.Optional;
 /**
  * CustomFieldJson1
  *
- * <p>A Custom Field
+ * <p>A survey custom field.
  */
 public class CustomFieldJson1 {
     /**
-     * The unique ID representing this custom field.
+     * The unique id representing this custom field.
      */
     @JsonProperty("id")
     private String id;
@@ -36,45 +35,43 @@ public class CustomFieldJson1 {
     private String name;
 
     /**
-     * The type of data collected by a custom field.
+     * Code to uniquely identify custom field.
      */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("code")
+    private String code;
+
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     private CustomFieldJson1CustomFieldType type;
 
     /**
-     * The set of answers or possible answers to a question.
+     * The set of values or possible values to a custom field.
      */
-    @JsonProperty("value")
-    private List<String> value;
-
-    /**
-     * The order of this question in the bigger list of questions.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("order")
-    private Long order;
+    @JsonProperty("values")
+    private List<String> values;
 
     @JsonCreator
     public CustomFieldJson1(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nullable String name,
+            @JsonProperty("code") @Nullable String code,
             @JsonProperty("type") @Nullable CustomFieldJson1CustomFieldType type,
-            @JsonProperty("value") @Nonnull List<String> value,
-            @JsonProperty("order") @Nullable Long order) {
+            @JsonProperty("values") @Nonnull List<String> values) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.name = name;
+        this.code = code;
         this.type = type;
-        this.value = Optional.ofNullable(value).orElseThrow(() -> new IllegalArgumentException("value cannot be null"));
-        this.order = order;
+        this.values =
+                Optional.ofNullable(values).orElseThrow(() -> new IllegalArgumentException("values cannot be null"));
     }
 
-    public CustomFieldJson1(@Nonnull String id, @Nonnull List<String> value) {
-        this(id, null, null, value, null);
+    public CustomFieldJson1(@Nonnull String id, @Nonnull List<String> values) {
+        this(id, null, null, null, values);
     }
 
     /**
-     * The unique ID representing this custom field.
+     * The unique id representing this custom field.
      */
     public String id() {
         return this.id;
@@ -88,24 +85,21 @@ public class CustomFieldJson1 {
     }
 
     /**
-     * The type of data collected by a custom field.
+     * Code to uniquely identify custom field.
      */
+    public Optional<String> code() {
+        return Optional.ofNullable(this.code);
+    }
+
     public Optional<CustomFieldJson1CustomFieldType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
-     * The set of answers or possible answers to a question.
+     * The set of values or possible values to a custom field.
      */
-    public List<String> value() {
-        return this.value;
-    }
-
-    /**
-     * The order of this question in the bigger list of questions.
-     */
-    public Optional<Long> order() {
-        return Optional.ofNullable(this.order);
+    public List<String> values() {
+        return this.values;
     }
 
     public static Builder builder() {
@@ -113,7 +107,7 @@ public class CustomFieldJson1 {
     }
 
     /**
-     * The unique ID representing this custom field.
+     * The unique id representing this custom field.
      */
     public CustomFieldJson1 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -129,26 +123,23 @@ public class CustomFieldJson1 {
     }
 
     /**
-     * The type of data collected by a custom field.
+     * Code to uniquely identify custom field.
      */
+    public CustomFieldJson1 withCode(@Nullable String code) {
+        this.code = code;
+        return this;
+    }
+
     public CustomFieldJson1 withType(@Nullable CustomFieldJson1CustomFieldType type) {
         this.type = type;
         return this;
     }
 
     /**
-     * The set of answers or possible answers to a question.
+     * The set of values or possible values to a custom field.
      */
-    public CustomFieldJson1 withValue(@Nonnull List<String> value) {
-        this.value = Utils.checkNotNull(value, "value");
-        return this;
-    }
-
-    /**
-     * The order of this question in the bigger list of questions.
-     */
-    public CustomFieldJson1 withOrder(@Nullable Long order) {
-        this.order = order;
+    public CustomFieldJson1 withValues(@Nonnull List<String> values) {
+        this.values = Utils.checkNotNull(values, "values");
         return this;
     }
 
@@ -163,20 +154,20 @@ public class CustomFieldJson1 {
         CustomFieldJson1 other = (CustomFieldJson1) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.code, other.code)
                 && Utils.enhancedDeepEquals(this.type, other.type)
-                && Utils.enhancedDeepEquals(this.value, other.value)
-                && Utils.enhancedDeepEquals(this.order, other.order);
+                && Utils.enhancedDeepEquals(this.values, other.values);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, name, type, value, order);
+        return Utils.enhancedHash(id, name, code, type, values);
     }
 
     @Override
     public String toString() {
         return Utils.toString(
-                CustomFieldJson1.class, "id", id, "name", name, "type", type, "value", value, "order", order);
+                CustomFieldJson1.class, "id", id, "name", name, "code", code, "type", type, "values", values);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -186,18 +177,18 @@ public class CustomFieldJson1 {
 
         private String name;
 
+        private String code;
+
         private CustomFieldJson1CustomFieldType type;
 
-        private List<String> value;
-
-        private Long order;
+        private List<String> values;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique ID representing this custom field.
+         * The unique id representing this custom field.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");
@@ -213,31 +204,28 @@ public class CustomFieldJson1 {
         }
 
         /**
-         * The type of data collected by a custom field.
+         * Code to uniquely identify custom field.
          */
+        public Builder code(@Nullable String code) {
+            this.code = code;
+            return this;
+        }
+
         public Builder type(@Nullable CustomFieldJson1CustomFieldType type) {
             this.type = type;
             return this;
         }
 
         /**
-         * The set of answers or possible answers to a question.
+         * The set of values or possible values to a custom field.
          */
-        public Builder value(@Nonnull List<String> value) {
-            this.value = Utils.checkNotNull(value, "value");
-            return this;
-        }
-
-        /**
-         * The order of this question in the bigger list of questions.
-         */
-        public Builder order(@Nullable Long order) {
-            this.order = order;
+        public Builder values(@Nonnull List<String> values) {
+            this.values = Utils.checkNotNull(values, "values");
             return this;
         }
 
         public CustomFieldJson1 build() {
-            return new CustomFieldJson1(id, name, type, value, order);
+            return new CustomFieldJson1(id, name, code, type, values);
         }
     }
 }

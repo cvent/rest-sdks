@@ -1,0 +1,11 @@
+# VoucherCapacity
+
+Represents the capacity details for a voucher, including the total allowed redemptions and the number already redeemed.
+
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                | Example                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `total`                                                                                                    | *long*                                                                                                     | :heavy_check_mark:                                                                                         | The maximum number of times the voucher can be redeemed. Default value of -1 indicates unlimited capacity. | 100                                                                                                        |
+| `redeemedCount`                                                                                            | *long*                                                                                                     | :heavy_check_mark:                                                                                         | The number of times the voucher has already been redeemed.                                                 | 42                                                                                                         |

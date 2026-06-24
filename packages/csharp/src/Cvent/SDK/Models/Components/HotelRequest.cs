@@ -246,7 +246,7 @@ namespace Cvent.SDK.Models.Components
         /// Address of the hotel.
         /// </summary>
         [JsonProperty("hotelAddress")]
-        public Address3? HotelAddress { get; set; }
+        public Address5? HotelAddress { get; set; }
 
         /// <summary>
         /// Collection of hotel room rates the requester has taken.

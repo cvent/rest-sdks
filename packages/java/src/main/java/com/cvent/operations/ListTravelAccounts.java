@@ -86,7 +86,8 @@ public class ListTravelAccounts {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "ListTravelAccounts",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-accounts:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-accounts:read", "business-travel/travel-accounts:read")),
                     securitySource());
         }
 
@@ -95,7 +96,8 @@ public class ListTravelAccounts {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "ListTravelAccounts",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-accounts:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-accounts:read", "business-travel/travel-accounts:read")),
                     securitySource());
         }
 
@@ -104,7 +106,8 @@ public class ListTravelAccounts {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "ListTravelAccounts",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-accounts:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-accounts:read", "business-travel/travel-accounts:read")),
                     securitySource());
         }
 

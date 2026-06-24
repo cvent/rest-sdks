@@ -56,7 +56,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * The Associated Exhibitor.
@@ -70,7 +70,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee12 attendee;
+    private Attendee13 attendee;
 
     /**
      * A JSON schema representing Booth Staff entity
@@ -140,7 +140,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
-    private Address12 homeAddress;
+    private Address11 homeAddress;
 
     /**
      * Home phone number of the lead
@@ -154,7 +154,7 @@ public class Lead {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
-    private Address12 workAddress;
+    private Address11 workAddress;
 
     /**
      * Work Phone number of the lead
@@ -246,9 +246,9 @@ public class Lead {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("event") @Nullable Event21 event,
+            @JsonProperty("event") @Nullable Event3 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
-            @JsonProperty("attendee") @Nullable Attendee12 attendee,
+            @JsonProperty("attendee") @Nullable Attendee13 attendee,
             @JsonProperty("boothStaff") @Nullable BoothStaff boothStaff,
             @JsonProperty("device") @Nullable Device device,
             @JsonProperty("appointment") @Nullable Appointment1 appointment,
@@ -258,9 +258,9 @@ public class Lead {
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("company") @Nullable String company,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
-            @JsonProperty("homeAddress") @Nullable Address12 homeAddress,
+            @JsonProperty("homeAddress") @Nullable Address11 homeAddress,
             @JsonProperty("homePhone") @Nullable String homePhone,
-            @JsonProperty("workAddress") @Nullable Address12 workAddress,
+            @JsonProperty("workAddress") @Nullable Address11 workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("type") @Nullable LeadType type,
             @JsonProperty("application") @Nullable Application application,
@@ -372,7 +372,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Optional<Event21> event() {
+    public Optional<Event3> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -386,7 +386,7 @@ public class Lead {
     /**
      * A JSON schema representing the Attendee object
      */
-    public Optional<Attendee12> attendee() {
+    public Optional<Attendee13> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -456,7 +456,7 @@ public class Lead {
     /**
      * Schema for address information
      */
-    public Optional<Address12> homeAddress() {
+    public Optional<Address11> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
@@ -470,7 +470,7 @@ public class Lead {
     /**
      * Schema for address information
      */
-    public Optional<Address12> workAddress() {
+    public Optional<Address11> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
@@ -597,7 +597,7 @@ public class Lead {
     /**
      * The Associated Event.
      */
-    public Lead withEvent(@Nullable Event21 event) {
+    public Lead withEvent(@Nullable Event3 event) {
         this.event = event;
         return this;
     }
@@ -613,7 +613,7 @@ public class Lead {
     /**
      * A JSON schema representing the Attendee object
      */
-    public Lead withAttendee(@Nullable Attendee12 attendee) {
+    public Lead withAttendee(@Nullable Attendee13 attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -693,7 +693,7 @@ public class Lead {
     /**
      * Schema for address information
      */
-    public Lead withHomeAddress(@Nullable Address12 homeAddress) {
+    public Lead withHomeAddress(@Nullable Address11 homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
@@ -709,7 +709,7 @@ public class Lead {
     /**
      * Schema for address information
      */
-    public Lead withWorkAddress(@Nullable Address12 workAddress) {
+    public Lead withWorkAddress(@Nullable Address11 workAddress) {
         this.workAddress = workAddress;
         return this;
     }
@@ -967,11 +967,11 @@ public class Lead {
 
         private String lastModifiedBy;
 
-        private Event21 event;
+        private Event3 event;
 
         private Exhibitor exhibitor;
 
-        private Attendee12 attendee;
+        private Attendee13 attendee;
 
         private BoothStaff boothStaff;
 
@@ -991,11 +991,11 @@ public class Lead {
 
         private String mobilePhone;
 
-        private Address12 homeAddress;
+        private Address11 homeAddress;
 
         private String homePhone;
 
-        private Address12 workAddress;
+        private Address11 workAddress;
 
         private String workPhone;
 
@@ -1060,7 +1060,7 @@ public class Lead {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event21 event) {
+        public Builder event(@Nullable Event3 event) {
             this.event = event;
             return this;
         }
@@ -1076,7 +1076,7 @@ public class Lead {
         /**
          * A JSON schema representing the Attendee object
          */
-        public Builder attendee(@Nullable Attendee12 attendee) {
+        public Builder attendee(@Nullable Attendee13 attendee) {
             this.attendee = attendee;
             return this;
         }
@@ -1156,7 +1156,7 @@ public class Lead {
         /**
          * Schema for address information
          */
-        public Builder homeAddress(@Nullable Address12 homeAddress) {
+        public Builder homeAddress(@Nullable Address11 homeAddress) {
             this.homeAddress = homeAddress;
             return this;
         }
@@ -1172,7 +1172,7 @@ public class Lead {
         /**
          * Schema for address information
          */
-        public Builder workAddress(@Nullable Address12 workAddress) {
+        public Builder workAddress(@Nullable Address11 workAddress) {
             this.workAddress = workAddress;
             return this;
         }

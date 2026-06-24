@@ -41,7 +41,7 @@ public class RfpGuestRooms {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("occupancies")
-    private List<GuestRoomOccupancyPerRoomTypeJson> occupancies;
+    private List<GuestRoomOccupancyPerRoomType> occupancies;
 
     /**
      * The ISO 8601 check-in date.
@@ -55,7 +55,7 @@ public class RfpGuestRooms {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("roomBlocks")
-    private List<RoomBlockJson> roomBlocks;
+    private List<RoomBlock> roomBlocks;
 
     /**
      * Additional Info (if any).
@@ -68,9 +68,9 @@ public class RfpGuestRooms {
     public RfpGuestRooms(
             @JsonProperty("totalRooms") @Nullable Long totalRooms,
             @JsonProperty("peakRooms") @Nullable Long peakRooms,
-            @JsonProperty("occupancies") @Nullable List<GuestRoomOccupancyPerRoomTypeJson> occupancies,
+            @JsonProperty("occupancies") @Nullable List<GuestRoomOccupancyPerRoomType> occupancies,
             @JsonProperty("checkInDate") @Nullable LocalDate checkInDate,
-            @JsonProperty("roomBlocks") @Nullable List<RoomBlockJson> roomBlocks,
+            @JsonProperty("roomBlocks") @Nullable List<RoomBlock> roomBlocks,
             @JsonProperty("additionalInformation") @Nullable String additionalInformation) {
         this.totalRooms = totalRooms;
         this.peakRooms = peakRooms;
@@ -101,7 +101,7 @@ public class RfpGuestRooms {
     /**
      * Occupancies for every room type.
      */
-    public Optional<List<GuestRoomOccupancyPerRoomTypeJson>> occupancies() {
+    public Optional<List<GuestRoomOccupancyPerRoomType>> occupancies() {
         return Optional.ofNullable(this.occupancies);
     }
 
@@ -115,7 +115,7 @@ public class RfpGuestRooms {
     /**
      * List of room blocks required.
      */
-    public Optional<List<RoomBlockJson>> roomBlocks() {
+    public Optional<List<RoomBlock>> roomBlocks() {
         return Optional.ofNullable(this.roomBlocks);
     }
 
@@ -149,7 +149,7 @@ public class RfpGuestRooms {
     /**
      * Occupancies for every room type.
      */
-    public RfpGuestRooms withOccupancies(@Nullable List<GuestRoomOccupancyPerRoomTypeJson> occupancies) {
+    public RfpGuestRooms withOccupancies(@Nullable List<GuestRoomOccupancyPerRoomType> occupancies) {
         this.occupancies = occupancies;
         return this;
     }
@@ -165,7 +165,7 @@ public class RfpGuestRooms {
     /**
      * List of room blocks required.
      */
-    public RfpGuestRooms withRoomBlocks(@Nullable List<RoomBlockJson> roomBlocks) {
+    public RfpGuestRooms withRoomBlocks(@Nullable List<RoomBlock> roomBlocks) {
         this.roomBlocks = roomBlocks;
         return this;
     }
@@ -225,11 +225,11 @@ public class RfpGuestRooms {
 
         private Long peakRooms;
 
-        private List<GuestRoomOccupancyPerRoomTypeJson> occupancies;
+        private List<GuestRoomOccupancyPerRoomType> occupancies;
 
         private LocalDate checkInDate;
 
-        private List<RoomBlockJson> roomBlocks;
+        private List<RoomBlock> roomBlocks;
 
         private String additionalInformation;
 
@@ -256,7 +256,7 @@ public class RfpGuestRooms {
         /**
          * Occupancies for every room type.
          */
-        public Builder occupancies(@Nullable List<GuestRoomOccupancyPerRoomTypeJson> occupancies) {
+        public Builder occupancies(@Nullable List<GuestRoomOccupancyPerRoomType> occupancies) {
             this.occupancies = occupancies;
             return this;
         }
@@ -272,7 +272,7 @@ public class RfpGuestRooms {
         /**
          * List of room blocks required.
          */
-        public Builder roomBlocks(@Nullable List<RoomBlockJson> roomBlocks) {
+        public Builder roomBlocks(@Nullable List<RoomBlock> roomBlocks) {
             this.roomBlocks = roomBlocks;
             return this;
         }

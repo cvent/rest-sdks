@@ -94,42 +94,42 @@ public class StandardSurveyQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private QuestionTypeJson2 type;
+    private QuestionTypeJson1 type;
 
     /**
      * List of choices for the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson2> choices;
+    private List<ChoiceJson1> choices;
 
     /**
      * List of categories for the question.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("categories")
-    private List<CategoryJson2> categories;
+    private List<CategoryJson1> categories;
 
     /**
      * List of sub categories for matrix side-by-side questions
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subCategories")
-    private List<TextFieldJson1> subCategories;
+    private List<TextFieldJson> subCategories;
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson1 notApplicableAnswer;
+    private AdditionalChoiceJson notApplicableAnswer;
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson1 otherAnswer;
+    private AdditionalChoiceJson otherAnswer;
 
     /**
      * Text Value of Comments Input box placeholder
@@ -150,7 +150,7 @@ public class StandardSurveyQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fields")
-    private List<FieldJson2> fields;
+    private List<FieldJson> fields;
 
     /**
      * Max possible score
@@ -191,15 +191,15 @@ public class StandardSurveyQuestionJson {
             @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("htmlText") @Nullable String htmlText,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("type") @Nullable QuestionTypeJson2 type,
-            @JsonProperty("choices") @Nullable List<ChoiceJson2> choices,
-            @JsonProperty("categories") @Nullable List<CategoryJson2> categories,
-            @JsonProperty("subCategories") @Nullable List<TextFieldJson1> subCategories,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson1 notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson1 otherAnswer,
+            @JsonProperty("type") @Nullable QuestionTypeJson1 type,
+            @JsonProperty("choices") @Nullable List<ChoiceJson1> choices,
+            @JsonProperty("categories") @Nullable List<CategoryJson1> categories,
+            @JsonProperty("subCategories") @Nullable List<TextFieldJson> subCategories,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
             @JsonProperty("comments") @Nullable String comments,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("fields") @Nullable List<FieldJson2> fields,
+            @JsonProperty("fields") @Nullable List<FieldJson> fields,
             @JsonProperty("maxScore") @Nullable Double maxScore,
             @JsonProperty("totalSum") @Nullable Long totalSum,
             @JsonProperty("survey") @Nullable UuidJson survey,
@@ -320,42 +320,42 @@ public class StandardSurveyQuestionJson {
     /**
      * Question Type.
      */
-    public Optional<QuestionTypeJson2> type() {
+    public Optional<QuestionTypeJson1> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * List of choices for the question.
      */
-    public Optional<List<ChoiceJson2>> choices() {
+    public Optional<List<ChoiceJson1>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
      * List of categories for the question.
      */
-    public Optional<List<CategoryJson2>> categories() {
+    public Optional<List<CategoryJson1>> categories() {
         return Optional.ofNullable(this.categories);
     }
 
     /**
      * List of sub categories for matrix side-by-side questions
      */
-    public Optional<List<TextFieldJson1>> subCategories() {
+    public Optional<List<TextFieldJson>> subCategories() {
         return Optional.ofNullable(this.subCategories);
     }
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson1> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson1> otherAnswer() {
+    public Optional<AdditionalChoiceJson> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
@@ -376,7 +376,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of fields for form/matrix questions
      */
-    public Optional<List<FieldJson2>> fields() {
+    public Optional<List<FieldJson>> fields() {
         return Optional.ofNullable(this.fields);
     }
 
@@ -487,7 +487,7 @@ public class StandardSurveyQuestionJson {
     /**
      * Question Type.
      */
-    public StandardSurveyQuestionJson withType(@Nullable QuestionTypeJson2 type) {
+    public StandardSurveyQuestionJson withType(@Nullable QuestionTypeJson1 type) {
         this.type = type;
         return this;
     }
@@ -495,7 +495,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of choices for the question.
      */
-    public StandardSurveyQuestionJson withChoices(@Nullable List<ChoiceJson2> choices) {
+    public StandardSurveyQuestionJson withChoices(@Nullable List<ChoiceJson1> choices) {
         this.choices = choices;
         return this;
     }
@@ -503,7 +503,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of categories for the question.
      */
-    public StandardSurveyQuestionJson withCategories(@Nullable List<CategoryJson2> categories) {
+    public StandardSurveyQuestionJson withCategories(@Nullable List<CategoryJson1> categories) {
         this.categories = categories;
         return this;
     }
@@ -511,7 +511,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of sub categories for matrix side-by-side questions
      */
-    public StandardSurveyQuestionJson withSubCategories(@Nullable List<TextFieldJson1> subCategories) {
+    public StandardSurveyQuestionJson withSubCategories(@Nullable List<TextFieldJson> subCategories) {
         this.subCategories = subCategories;
         return this;
     }
@@ -519,7 +519,7 @@ public class StandardSurveyQuestionJson {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public StandardSurveyQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+    public StandardSurveyQuestionJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -527,7 +527,7 @@ public class StandardSurveyQuestionJson {
     /**
      * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public StandardSurveyQuestionJson withOtherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
+    public StandardSurveyQuestionJson withOtherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
@@ -551,7 +551,7 @@ public class StandardSurveyQuestionJson {
     /**
      * List of fields for form/matrix questions
      */
-    public StandardSurveyQuestionJson withFields(@Nullable List<FieldJson2> fields) {
+    public StandardSurveyQuestionJson withFields(@Nullable List<FieldJson> fields) {
         this.fields = fields;
         return this;
     }
@@ -719,23 +719,23 @@ public class StandardSurveyQuestionJson {
 
         private String code;
 
-        private QuestionTypeJson2 type;
+        private QuestionTypeJson1 type;
 
-        private List<ChoiceJson2> choices;
+        private List<ChoiceJson1> choices;
 
-        private List<CategoryJson2> categories;
+        private List<CategoryJson1> categories;
 
-        private List<TextFieldJson1> subCategories;
+        private List<TextFieldJson> subCategories;
 
-        private AdditionalChoiceJson1 notApplicableAnswer;
+        private AdditionalChoiceJson notApplicableAnswer;
 
-        private AdditionalChoiceJson1 otherAnswer;
+        private AdditionalChoiceJson otherAnswer;
 
         private String comments;
 
         private Boolean required;
 
-        private List<FieldJson2> fields;
+        private List<FieldJson> fields;
 
         private Double maxScore;
 
@@ -824,7 +824,7 @@ public class StandardSurveyQuestionJson {
         /**
          * Question Type.
          */
-        public Builder type(@Nullable QuestionTypeJson2 type) {
+        public Builder type(@Nullable QuestionTypeJson1 type) {
             this.type = type;
             return this;
         }
@@ -832,7 +832,7 @@ public class StandardSurveyQuestionJson {
         /**
          * List of choices for the question.
          */
-        public Builder choices(@Nullable List<ChoiceJson2> choices) {
+        public Builder choices(@Nullable List<ChoiceJson1> choices) {
             this.choices = choices;
             return this;
         }
@@ -840,7 +840,7 @@ public class StandardSurveyQuestionJson {
         /**
          * List of categories for the question.
          */
-        public Builder categories(@Nullable List<CategoryJson2> categories) {
+        public Builder categories(@Nullable List<CategoryJson1> categories) {
             this.categories = categories;
             return this;
         }
@@ -848,7 +848,7 @@ public class StandardSurveyQuestionJson {
         /**
          * List of sub categories for matrix side-by-side questions
          */
-        public Builder subCategories(@Nullable List<TextFieldJson1> subCategories) {
+        public Builder subCategories(@Nullable List<TextFieldJson> subCategories) {
             this.subCategories = subCategories;
             return this;
         }
@@ -856,7 +856,7 @@ public class StandardSurveyQuestionJson {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson1 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -864,7 +864,7 @@ public class StandardSurveyQuestionJson {
         /**
          * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson1 otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }
@@ -888,7 +888,7 @@ public class StandardSurveyQuestionJson {
         /**
          * List of fields for form/matrix questions
          */
-        public Builder fields(@Nullable List<FieldJson2> fields) {
+        public Builder fields(@Nullable List<FieldJson> fields) {
             this.fields = fields;
             return this;
         }

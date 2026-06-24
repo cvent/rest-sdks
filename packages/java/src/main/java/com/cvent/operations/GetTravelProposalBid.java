@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.TravelProposalBid;
+import com.cvent.models.components.TravelProposalBid2;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.GetTravelProposalBidRequest;
@@ -182,7 +182,7 @@ public class GetTravelProposalBid {
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withTravelProposalBid(
-                            Utils.unmarshal(response, new TypeReference<TravelProposalBid>() {}));
+                            Utils.unmarshal(response, new TypeReference<TravelProposalBid2>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -270,7 +270,7 @@ public class GetTravelProposalBid {
 
             if (Utils.statusCodeMatches(response.statusCode(), "200")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<TravelProposalBid>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<TravelProposalBid2>() {})
                             .thenApply(res::withTravelProposalBid);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);

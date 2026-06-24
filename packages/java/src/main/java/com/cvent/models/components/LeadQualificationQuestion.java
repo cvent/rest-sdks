@@ -62,7 +62,7 @@ public class LeadQualificationQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * The Associated Exhibitor.
@@ -90,21 +90,21 @@ public class LeadQualificationQuestion {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<Choice> choices;
+    private List<Choice1> choices;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoice notApplicableAnswer;
+    private AdditionalChoice1 notApplicableAnswer;
 
     /**
      * Contains text of additional choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswers")
-    private AdditionalChoice otherAnswers;
+    private AdditionalChoice1 otherAnswers;
 
     /**
      * A boolean indicating whether the question is mandatory or not
@@ -127,13 +127,13 @@ public class LeadQualificationQuestion {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nullable Event21 event,
+            @JsonProperty("event") @Nullable Event3 event,
             @JsonProperty("exhibitor") @Nullable Exhibitor exhibitor,
             @JsonProperty("type") @Nullable LeadQualificationQuestionType type,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("choices") @Nullable List<Choice> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice notApplicableAnswer,
-            @JsonProperty("otherAnswers") @Nullable AdditionalChoice otherAnswers,
+            @JsonProperty("choices") @Nullable List<Choice1> choices,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoice1 notApplicableAnswer,
+            @JsonProperty("otherAnswers") @Nullable AdditionalChoice1 otherAnswers,
             @JsonProperty("required") @Nullable Boolean required,
             @JsonProperty("text") @Nullable String text) {
         this.created = created;
@@ -194,7 +194,7 @@ public class LeadQualificationQuestion {
     /**
      * The Associated Event.
      */
-    public Optional<Event21> event() {
+    public Optional<Event3> event() {
         return Optional.ofNullable(this.event);
     }
 
@@ -222,21 +222,21 @@ public class LeadQualificationQuestion {
     /**
      * List of available choices for the question
      */
-    public Optional<List<Choice>> choices() {
+    public Optional<List<Choice1>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoice> notApplicableAnswer() {
+    public Optional<AdditionalChoice1> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
      * Contains text of additional choice
      */
-    public Optional<AdditionalChoice> otherAnswers() {
+    public Optional<AdditionalChoice1> otherAnswers() {
         return Optional.ofNullable(this.otherAnswers);
     }
 
@@ -301,7 +301,7 @@ public class LeadQualificationQuestion {
     /**
      * The Associated Event.
      */
-    public LeadQualificationQuestion withEvent(@Nullable Event21 event) {
+    public LeadQualificationQuestion withEvent(@Nullable Event3 event) {
         this.event = event;
         return this;
     }
@@ -333,7 +333,7 @@ public class LeadQualificationQuestion {
     /**
      * List of available choices for the question
      */
-    public LeadQualificationQuestion withChoices(@Nullable List<Choice> choices) {
+    public LeadQualificationQuestion withChoices(@Nullable List<Choice1> choices) {
         this.choices = choices;
         return this;
     }
@@ -341,7 +341,7 @@ public class LeadQualificationQuestion {
     /**
      * Contains text of additional choice
      */
-    public LeadQualificationQuestion withNotApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
+    public LeadQualificationQuestion withNotApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
@@ -349,7 +349,7 @@ public class LeadQualificationQuestion {
     /**
      * Contains text of additional choice
      */
-    public LeadQualificationQuestion withOtherAnswers(@Nullable AdditionalChoice otherAnswers) {
+    public LeadQualificationQuestion withOtherAnswers(@Nullable AdditionalChoice1 otherAnswers) {
         this.otherAnswers = otherAnswers;
         return this;
     }
@@ -461,7 +461,7 @@ public class LeadQualificationQuestion {
 
         private String id;
 
-        private Event21 event;
+        private Event3 event;
 
         private Exhibitor exhibitor;
 
@@ -469,11 +469,11 @@ public class LeadQualificationQuestion {
 
         private String code;
 
-        private List<Choice> choices;
+        private List<Choice1> choices;
 
-        private AdditionalChoice notApplicableAnswer;
+        private AdditionalChoice1 notApplicableAnswer;
 
-        private AdditionalChoice otherAnswers;
+        private AdditionalChoice1 otherAnswers;
 
         private Boolean required;
 
@@ -526,7 +526,7 @@ public class LeadQualificationQuestion {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nullable Event21 event) {
+        public Builder event(@Nullable Event3 event) {
             this.event = event;
             return this;
         }
@@ -558,7 +558,7 @@ public class LeadQualificationQuestion {
         /**
          * List of available choices for the question
          */
-        public Builder choices(@Nullable List<Choice> choices) {
+        public Builder choices(@Nullable List<Choice1> choices) {
             this.choices = choices;
             return this;
         }
@@ -566,7 +566,7 @@ public class LeadQualificationQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoice notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoice1 notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
@@ -574,7 +574,7 @@ public class LeadQualificationQuestion {
         /**
          * Contains text of additional choice
          */
-        public Builder otherAnswers(@Nullable AdditionalChoice otherAnswers) {
+        public Builder otherAnswers(@Nullable AdditionalChoice1 otherAnswers) {
             this.otherAnswers = otherAnswers;
             return this;
         }

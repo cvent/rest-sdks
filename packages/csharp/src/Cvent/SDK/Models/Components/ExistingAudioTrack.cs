@@ -47,13 +47,13 @@ namespace Cvent.SDK.Models.Components
         /// Video that this asset was created with.
         /// </summary>
         [JsonProperty("video")]
-        public VideoAssetIdJson Video { get; set; } = default!;
+        public VideoAssetID Video { get; set; } = default!;
 
         /// <summary>
         /// Denotes the file format of the audio track.
         /// </summary>
         [JsonProperty("type")]
-        public AudioTrackTypeJson Type { get; set; } = default!;
+        public AudioTrackType Type { get; set; } = default!;
 
         /// <summary>
         /// IETF language tag for the audio track.
@@ -65,7 +65,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
         /// </summary>
         [JsonProperty("variant")]
-        public AudioTrackVariantJson? Variant { get; set; } = Cvent.SDK.Models.Components.AudioTrackVariantJson.Alternate;
+        public AudioTrackVariant? Variant { get; set; } = Cvent.SDK.Models.Components.AudioTrackVariant.Alternate;
 
         /// <summary>
         /// True indicates this is the default audio track.
@@ -83,7 +83,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
         /// </summary>
         [JsonProperty("status")]
-        public AudioTrackStatusJson? Status { get; set; }
+        public AudioTrackStatus? Status { get; set; }
 
         /// <summary>
         /// The identifier of an audio track.
@@ -95,6 +95,6 @@ namespace Cvent.SDK.Models.Components
         /// A URL associated with the asset.
         /// </summary>
         [JsonProperty("url")]
-        public AssetLocationJson? Url { get; set; }
+        public AssetLocation? Url { get; set; }
     }
 }

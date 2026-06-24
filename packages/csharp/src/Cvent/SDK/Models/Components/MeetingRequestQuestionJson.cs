@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the type of data collected by a question.
         /// </summary>
         [JsonProperty("type")]
-        public QuestionTypeJson1? Type { get; set; }
+        public QuestionTypeJson? Type { get; set; }
 
         /// <summary>
         /// An array of non-null answers to the question. The format of each item depends on the question `type`.<br/>

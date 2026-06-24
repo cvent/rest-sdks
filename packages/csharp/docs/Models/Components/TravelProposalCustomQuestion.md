@@ -1,0 +1,11 @@
+# TravelProposalCustomQuestion
+
+Represents custom question associated with a travel proposal.
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Question`                                                                                              | [TravelProposalCustomQuestionQuestion](../../Models/Components/TravelProposalCustomQuestionQuestion.md) | :heavy_minus_sign:                                                                                      | Travel account that the proposal is responding to.                                                      |                                                                                                         |
+| `Answer`                                                                                                | *string*                                                                                                | :heavy_minus_sign:                                                                                      | Hotel's answer to the program's custom question.                                                        | No.                                                                                                     |

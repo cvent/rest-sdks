@@ -41,6 +41,7 @@ export function audienceSegmentsCreateAudienceSegment(
   Result<
     components.ExistingAudienceSegment,
     | errors.SegmentsErrorResponse
+    | errors.ErrorResponse2
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -68,6 +69,7 @@ async function $do(
     Result<
       components.ExistingAudienceSegment,
       | errors.SegmentsErrorResponse
+      | errors.ErrorResponse2
       | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
@@ -160,6 +162,7 @@ async function $do(
   const [result] = await M.match<
     components.ExistingAudienceSegment,
     | errors.SegmentsErrorResponse
+    | errors.ErrorResponse2
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -172,7 +175,8 @@ async function $do(
   >(
     M.json(201, components.ExistingAudienceSegment$inboundSchema),
     M.jsonErr(400, errors.SegmentsErrorResponse$inboundSchema),
-    M.jsonErr([401, 403, 422, 429], errors.ErrorResponse1$inboundSchema),
+    M.jsonErr(422, errors.ErrorResponse2$inboundSchema),
+    M.jsonErr([401, 403, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

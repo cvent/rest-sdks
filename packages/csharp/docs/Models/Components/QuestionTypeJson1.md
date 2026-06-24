@@ -1,36 +1,35 @@
 # QuestionTypeJson1
 
-Denotes the type of data collected by a question.
+Question Type.
 
 ## Example Usage
 
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = QuestionTypeJson1.AutoIncrement;
+var value = QuestionTypeJson1.SingleChoice;
 ```
 
 
 ## Values
 
-| Name                       | Value                      |
-| -------------------------- | -------------------------- |
-| `AutoIncrement`            | AutoIncrement              |
-| `BudgetEstimates`          | BudgetEstimates            |
-| `ConsentQuestion`          | ConsentQuestion            |
-| `Country`                  | Country                    |
-| `Currency`                 | Currency                   |
-| `Decimal`                  | Decimal                    |
-| `Date`                     | Date                       |
-| `DateTime`                 | DateTime                   |
-| `Email`                    | Email                      |
-| `FileUpload`               | FileUpload                 |
-| `FreeText`                 | FreeText                   |
-| `General`                  | General                    |
-| `Number`                   | Number                     |
-| `MeetingRoomRequirements`  | MeetingRoomRequirements    |
-| `MultiSelect`              | MultiSelect                |
-| `SingleSelect`             | SingleSelect               |
-| `SleepingRoomRequirements` | SleepingRoomRequirements   |
-| `USPhoneNumber`            | USPhoneNumber              |
-| `Unknown`                  | Unknown                    |
+| Name                 | Value                |
+| -------------------- | -------------------- |
+| `SingleChoice`       | SingleChoice         |
+| `MultiChoice`        | MultiChoice          |
+| `MatrixSingleChoice` | MatrixSingleChoice   |
+| `MatrixMultiChoice`  | MatrixMultiChoice    |
+| `MatrixSideBySide`   | MatrixSideBySide     |
+| `MatrixSpreadSheet`  | MatrixSpreadSheet    |
+| `DateTime`           | DateTime             |
+| `Number`             | Number               |
+| `Text`               | Text                 |
+| `CommentBox`         | CommentBox           |
+| `Form`               | Form                 |
+| `RankOrder`          | RankOrder            |
+| `FileUpload`         | FileUpload           |
+| `NetPromoter`        | NetPromoter          |
+| `Rating`             | Rating               |
+| `MatrixRating`       | MatrixRating         |
+| `NumberAllocation`   | NumberAllocation     |
+| `LargeChoices`       | LargeChoices         |

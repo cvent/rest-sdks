@@ -39,6 +39,6 @@ namespace Cvent.SDK.Models.Components
         /// Question details.
         /// </summary>
         [JsonProperty("question")]
-        public QuestionJson1 Question { get; set; } = default!;
+        public QuestionJson Question { get; set; } = default!;
     }
 }

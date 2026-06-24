@@ -248,13 +248,13 @@ var sdk = new CventSDK(security: new Security() {
 CreateTextTrackRequest req = new CreateTextTrackRequest() {
     VideoId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     VideoTextTrack = new VideoTextTrack() {
-        Video = new VideoAssetIdJson() {
+        Video = new VideoAssetID() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
         Label = "English",
         Language = "en-US",
-        Kind = VideoTextTrackKindJson.Subtitles,
-        Status = VideoTextTrackStatusJson.Started,
+        Kind = VideoTextTrackKind.Subtitles,
+        Status = VideoTextTrackStatus.Started,
     },
 };
 
@@ -354,13 +354,13 @@ UpdateTextTrackRequest req = new UpdateTextTrackRequest() {
     VideoId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     TextTrackId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     ExistingVideoTextTrack = new ExistingVideoTextTrackInput() {
-        Video = new VideoAssetIdJson() {
+        Video = new VideoAssetID() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
         Label = "English",
         Language = "en-US",
-        Kind = VideoTextTrackKindJson.Subtitles,
-        Status = VideoTextTrackStatusJson.Started,
+        Kind = VideoTextTrackKind.Subtitles,
+        Status = VideoTextTrackStatus.Started,
         ErrorMessage = "Input file was empty",
     },
 };

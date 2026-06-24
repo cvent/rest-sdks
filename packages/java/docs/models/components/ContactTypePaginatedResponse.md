@@ -5,7 +5,7 @@ The response from a request to get the list of contact types. This includes the 
 
 ## Fields
 
-| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `paging`                                                             | [PagingJson](../../models/components/PagingJson.md)                  | :heavy_check_mark:                                                   | Represents pagination information for a collection of resources.     |
-| `data`                                                               | List\<[ContactTypeJson](../../models/components/ContactTypeJson.md)> | :heavy_check_mark:                                                   | Collection of contact types.                                         |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [Paging](../../models/components/Paging.md)                      | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | List\<[ContactType](../../models/components/ContactType.md)>     | :heavy_check_mark:                                               | Collection of contact types.                                     |

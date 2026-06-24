@@ -33,25 +33,28 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// Filters are used to narrow the results returned and support a combination of logical and comparison<br/>
-        /// operators.<br/>
+        /// Filters narrow results returned based on the criteria you supply.<br/>
         /// <br/>
-        /// The filter adheres to the pattern `filter='field' comparisonType 'value'`.<br/>
+        /// Filters follow the pattern `filter='field' operator 'value'`.<br/>
         /// <br/>
-        /// These are the comparison types that can be used in filter expressions:<br/>
-        /// - equals to: eq<br/>
-        /// - match any of the values in the list: in<br/>
+        /// The following comparison operators are supported:<br/>
+        /// - `eq`: equals to<br/>
+        /// - `in`: match any of the values in the list<br/>
         /// <br/>
-        /// The following operators can be used:<br/>
-        /// - or<br/>
+        /// The following fields are supported:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        ///   * `channel.id` (eq/in)<br/>
+        /// | Field            | Operators                          |<br/>
+        /// |------------------|------------------------------------|<br/>
+        /// | channel.id       | `eq`, `in`                         |<br/>
         /// <br/>
-        /// Examples:<br/>
-        /// - Filter channel IDs:<br/>
-        ///   * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac', 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`<br/>
-        ///   * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq 'production_group_616241fd-e97d-48c5-8c4b-4b926f50e8c3'`
+        /// The following logical operators are supported for combining filters:<br/>
+        /// - `or`<br/>
+        /// <br/>
+        /// **Examples:**<br/>
+        /// <br/>
+        /// Filter channel IDs:<br/>
+        /// * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac', 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`<br/>
+        /// * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq 'production_group_616241fd-e97d-48c5-8c4b-4b926f50e8c3'`
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]
         public string Filter { get; set; } = default!;

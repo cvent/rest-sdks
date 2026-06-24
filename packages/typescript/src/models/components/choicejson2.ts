@@ -8,25 +8,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A survey choice.
+ * This is used to denote the choice of custom field.
  */
 export type ChoiceJson2 = {
   /**
-   * Text field ID.
+   * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
    */
   id?: string | undefined;
   /**
-   * text Value of the Field
+   * The text for the custom field choice.
    */
-  text?: string | undefined;
-  /**
-   * Reporting value of the Category, Its like a custom abbreviation
-   */
-  shortText?: string | undefined;
-  /**
-   * Label of choice
-   */
-  label?: string | undefined;
+  text: string;
 };
 
 /** @internal */
@@ -36,9 +28,7 @@ export const ChoiceJson2$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  text: z.string().optional(),
-  shortText: z.string().optional(),
-  label: z.string().optional(),
+  text: z.string(),
 });
 
 export function choiceJson2FromJSON(

@@ -8,19 +8,23 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * A schema representing a choice object
+ * A question choice.
  */
 export type Choice = {
   /**
-   * Unique identifier for the choice
+   * Text field ID.
    */
   id?: string | undefined;
   /**
-   * Text value of the field
+   * Text value of the field. Displays to users in the UI.
    */
   text?: string | undefined;
   /**
-   * Label of choice
+   * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+   */
+  shortText?: string | undefined;
+  /**
+   * Label of choice.
    */
   label?: string | undefined;
 };
@@ -30,6 +34,7 @@ export const Choice$inboundSchema: z.ZodType<Choice, z.ZodTypeDef, unknown> = z
   .object({
     id: z.string().optional(),
     text: z.string().optional(),
+    shortText: z.string().optional(),
     label: z.string().optional(),
   });
 

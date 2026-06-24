@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event21? Event { get; set; }
+        public Event3? Event { get; set; }
 
         /// <summary>
         /// The Associated Exhibitor.
@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// A JSON schema representing the Attendee object.
         /// </summary>
         [JsonProperty("attendee")]
-        public Attendee12? Attendee { get; set; }
+        public Attendee13? Attendee { get; set; }
 
         /// <summary>
         /// A JSON schema representing Booth Staff entity.
@@ -119,7 +119,7 @@ namespace Cvent.SDK.Models.Components
         /// Schema for address information.
         /// </summary>
         [JsonProperty("homeAddress")]
-        public Address12? HomeAddress { get; set; }
+        public Address11? HomeAddress { get; set; }
 
         /// <summary>
         /// Home phone number of the lead.
@@ -131,7 +131,7 @@ namespace Cvent.SDK.Models.Components
         /// Schema for address information.
         /// </summary>
         [JsonProperty("workAddress")]
-        public Address12? WorkAddress { get; set; }
+        public Address11? WorkAddress { get; set; }
 
         /// <summary>
         /// Work Phone number of the lead.

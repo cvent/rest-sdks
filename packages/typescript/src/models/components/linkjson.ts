@@ -25,23 +25,7 @@ export const LinkJson$inboundSchema: z.ZodType<
 > = z.object({
   href: z.string(),
 });
-/** @internal */
-export type LinkJson$Outbound = {
-  href: string;
-};
 
-/** @internal */
-export const LinkJson$outboundSchema: z.ZodType<
-  LinkJson$Outbound,
-  z.ZodTypeDef,
-  LinkJson
-> = z.object({
-  href: z.string(),
-});
-
-export function linkJsonToJSON(linkJson: LinkJson): string {
-  return JSON.stringify(LinkJson$outboundSchema.parse(linkJson));
-}
 export function linkJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<LinkJson, SDKValidationError> {

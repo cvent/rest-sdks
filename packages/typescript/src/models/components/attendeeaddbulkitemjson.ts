@@ -7,18 +7,18 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ErrorResponse1,
-  ErrorResponse1$inboundSchema,
-} from "./errorresponse1.js";
+  ErrorResponse2,
+  ErrorResponse2$inboundSchema,
+} from "./errorresponse2.js";
 import { ZeroOneOf2, ZeroOneOf2$inboundSchema } from "./zerooneof2.js";
 
-export type AttendeeAddBulkItemJsonData = ErrorResponse1 | ZeroOneOf2;
+export type AttendeeAddBulkItemJsonData = ErrorResponse2 | ZeroOneOf2;
 
 /**
  * This entity is used to represent a single item that is returned as part of a bulk request call.
  */
 export type AttendeeAddBulkItemJson = {
-  data: ErrorResponse1 | ZeroOneOf2;
+  data: ErrorResponse2 | ZeroOneOf2;
   /**
    * http status code representing processing status of a single item
    */
@@ -38,7 +38,7 @@ export const AttendeeAddBulkItemJsonData$inboundSchema: z.ZodType<
   AttendeeAddBulkItemJsonData,
   z.ZodTypeDef,
   unknown
-> = z.union([ErrorResponse1$inboundSchema, ZeroOneOf2$inboundSchema]);
+> = z.union([ErrorResponse2$inboundSchema, ZeroOneOf2$inboundSchema]);
 
 export function attendeeAddBulkItemJsonDataFromJSON(
   jsonString: string,
@@ -56,7 +56,7 @@ export const AttendeeAddBulkItemJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.union([ErrorResponse1$inboundSchema, ZeroOneOf2$inboundSchema]),
+  data: z.union([ErrorResponse2$inboundSchema, ZeroOneOf2$inboundSchema]),
   status: z.number().int(),
   message: z.string().optional(),
   request: z.record(z.any()).optional(),

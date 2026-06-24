@@ -86,7 +86,7 @@ public class ContactGroup {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private ContactGroupTypeJson type;
+    private ContactGroupType type;
 
     /**
      * Moved to internalNote in the DistributionListInfo object. The note field only applies to
@@ -105,7 +105,7 @@ public class ContactGroup {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("distributionListInfo")
-    private DistributionListInfoJson distributionListInfo;
+    private DistributionListInfo distributionListInfo;
 
     @JsonCreator
     public ContactGroup(
@@ -117,9 +117,9 @@ public class ContactGroup {
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("shortDescription") @Nullable String shortDescription,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("type") @Nullable ContactGroupTypeJson type,
+            @JsonProperty("type") @Nullable ContactGroupType type,
             @JsonProperty("note") @Nullable String note,
-            @JsonProperty("distributionListInfo") @Nullable DistributionListInfoJson distributionListInfo) {
+            @JsonProperty("distributionListInfo") @Nullable DistributionListInfo distributionListInfo) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -199,7 +199,7 @@ public class ContactGroup {
      *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
-    public Optional<ContactGroupTypeJson> type() {
+    public Optional<ContactGroupType> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -218,7 +218,7 @@ public class ContactGroup {
      * Model representing a distribution list info. Only required if the contact group type is
      * DISTRIBUTION_LIST.
      */
-    public Optional<DistributionListInfoJson> distributionListInfo() {
+    public Optional<DistributionListInfo> distributionListInfo() {
         return Optional.ofNullable(this.distributionListInfo);
     }
 
@@ -296,7 +296,7 @@ public class ContactGroup {
      *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
-    public ContactGroup withType(@Nullable ContactGroupTypeJson type) {
+    public ContactGroup withType(@Nullable ContactGroupType type) {
         this.type = type;
         return this;
     }
@@ -317,7 +317,7 @@ public class ContactGroup {
      * Model representing a distribution list info. Only required if the contact group type is
      * DISTRIBUTION_LIST.
      */
-    public ContactGroup withDistributionListInfo(@Nullable DistributionListInfoJson distributionListInfo) {
+    public ContactGroup withDistributionListInfo(@Nullable DistributionListInfo distributionListInfo) {
         this.distributionListInfo = distributionListInfo;
         return this;
     }
@@ -407,12 +407,12 @@ public class ContactGroup {
 
         private String description;
 
-        private ContactGroupTypeJson type;
+        private ContactGroupType type;
 
         @Deprecated
         private String note;
 
-        private DistributionListInfoJson distributionListInfo;
+        private DistributionListInfo distributionListInfo;
 
         private Builder() {
             // force use of static builder() method
@@ -488,7 +488,7 @@ public class ContactGroup {
          *
          * <p>`STANDARD` is a multi-purpose group for organizing contacts.
          */
-        public Builder type(@Nullable ContactGroupTypeJson type) {
+        public Builder type(@Nullable ContactGroupType type) {
             this.type = type;
             return this;
         }
@@ -509,7 +509,7 @@ public class ContactGroup {
          * Model representing a distribution list info. Only required if the contact group type is
          * DISTRIBUTION_LIST.
          */
-        public Builder distributionListInfo(@Nullable DistributionListInfoJson distributionListInfo) {
+        public Builder distributionListInfo(@Nullable DistributionListInfo distributionListInfo) {
             this.distributionListInfo = distributionListInfo;
             return this;
         }
@@ -529,7 +529,7 @@ public class ContactGroup {
                     distributionListInfo);
         }
 
-        private static final LazySingletonValue<ContactGroupTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"STANDARD\"", new TypeReference<ContactGroupTypeJson>() {});
+        private static final LazySingletonValue<ContactGroupType> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"STANDARD\"", new TypeReference<ContactGroupType>() {});
     }
 }

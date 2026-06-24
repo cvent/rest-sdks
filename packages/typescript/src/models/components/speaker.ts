@@ -4,15 +4,15 @@
 
 import * as z from "zod/v3";
 import {
-  CategoryIdNameJson,
-  CategoryIdNameJson$Outbound,
-  CategoryIdNameJson$outboundSchema,
-} from "./categoryidnamejson.js";
+  ContactLinksInput,
+  ContactLinksInput$Outbound,
+  ContactLinksInput$outboundSchema,
+} from "./contactlinksinput.js";
 import {
-  ContactLinksJsonInput,
-  ContactLinksJsonInput$Outbound,
-  ContactLinksJsonInput$outboundSchema,
-} from "./contactlinksjsoninput.js";
+  SpeakerCategory1,
+  SpeakerCategory1$Outbound,
+  SpeakerCategory1$outboundSchema,
+} from "./speakercategory1.js";
 
 /**
  * The event the speaker is linked to.
@@ -67,11 +67,11 @@ export type Speaker = {
   /**
    * A defined speaker category.
    */
-  category?: CategoryIdNameJson | undefined;
+  category?: SpeakerCategory1 | undefined;
   /**
    * Collection of social media links for the contact.
    */
-  links?: ContactLinksJsonInput | undefined;
+  links?: ContactLinksInput | undefined;
   /**
    * Indicates if a given speaker should be displayed on Event Website
    */
@@ -123,8 +123,8 @@ export type Speaker$Outbound = {
   designation?: string | undefined;
   company?: string | undefined;
   title?: string | undefined;
-  category?: CategoryIdNameJson$Outbound | undefined;
-  links?: ContactLinksJsonInput$Outbound | undefined;
+  category?: SpeakerCategory1$Outbound | undefined;
+  links?: ContactLinksInput$Outbound | undefined;
   visibility: boolean;
   biography?: string | undefined;
   internalNote?: string | undefined;
@@ -147,8 +147,8 @@ export const Speaker$outboundSchema: z.ZodType<
   designation: z.string().optional(),
   company: z.string().optional(),
   title: z.string().optional(),
-  category: CategoryIdNameJson$outboundSchema.optional(),
-  links: ContactLinksJsonInput$outboundSchema.optional(),
+  category: SpeakerCategory1$outboundSchema.optional(),
+  links: ContactLinksInput$outboundSchema.optional(),
   visibility: z.boolean().default(true),
   biography: z.string().optional(),
   internalNote: z.string().optional(),

@@ -4,14 +4,14 @@
 
 import * as z from "zod/v3";
 import {
-  ContactGroupTypeJson,
-  ContactGroupTypeJson$outboundSchema,
-} from "./contactgrouptypejson.js";
+  ContactGroupType,
+  ContactGroupType$outboundSchema,
+} from "./contactgrouptype.js";
 import {
-  DistributionListInfoJsonInput,
-  DistributionListInfoJsonInput$Outbound,
-  DistributionListInfoJsonInput$outboundSchema,
-} from "./distributionlistinfojsoninput.js";
+  DistributionListInfoInput,
+  DistributionListInfoInput$Outbound,
+  DistributionListInfoInput$outboundSchema,
+} from "./distributionlistinfoinput.js";
 
 /**
  * A group of contacts.
@@ -32,7 +32,7 @@ export type ContactGroupInput = {
   /**
    * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events. `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to. `STANDARD` is a multi-purpose group for organizing contacts.
    */
-  type?: ContactGroupTypeJson | undefined;
+  type?: ContactGroupType | undefined;
   /**
    * Moved to internalNote in the DistributionListInfo object. The note field only applies to Distribution List.
    *
@@ -42,7 +42,7 @@ export type ContactGroupInput = {
   /**
    * Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
    */
-  distributionListInfo?: DistributionListInfoJsonInput | undefined;
+  distributionListInfo?: DistributionListInfoInput | undefined;
 };
 
 /** @internal */
@@ -52,7 +52,7 @@ export type ContactGroupInput$Outbound = {
   description?: string | undefined;
   type: string;
   note?: string | undefined;
-  distributionListInfo?: DistributionListInfoJsonInput$Outbound | undefined;
+  distributionListInfo?: DistributionListInfoInput$Outbound | undefined;
 };
 
 /** @internal */
@@ -64,9 +64,9 @@ export const ContactGroupInput$outboundSchema: z.ZodType<
   name: z.string(),
   shortDescription: z.string().optional(),
   description: z.string().optional(),
-  type: ContactGroupTypeJson$outboundSchema.default("STANDARD"),
+  type: ContactGroupType$outboundSchema.default("STANDARD"),
   note: z.string().optional(),
-  distributionListInfo: DistributionListInfoJsonInput$outboundSchema.optional(),
+  distributionListInfo: DistributionListInfoInput$outboundSchema.optional(),
 });
 
 export function contactGroupInputToJSON(

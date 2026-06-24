@@ -86,7 +86,7 @@ public class HousingEventHotel {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private AddressJson2 address;
+    private AddressJson address;
 
     @JsonCreator
     public HousingEventHotel(
@@ -99,7 +99,7 @@ public class HousingEventHotel {
             @JsonProperty("proximity") @Nullable ProximityJson proximity,
             @JsonProperty("amenities") @Nullable List<String> amenities,
             @JsonProperty("rating") @Nullable HotelRatingJson rating,
-            @JsonProperty("address") @Nullable AddressJson2 address) {
+            @JsonProperty("address") @Nullable AddressJson address) {
         this.id = id;
         this.housingEvent = Optional.ofNullable(housingEvent)
                 .orElseThrow(() -> new IllegalArgumentException("housingEvent cannot be null"));
@@ -186,7 +186,7 @@ public class HousingEventHotel {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public Optional<AddressJson2> address() {
+    public Optional<AddressJson> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -270,7 +270,7 @@ public class HousingEventHotel {
      * Address details. Required to create/update a guest's reservation if the hotel/event requires an
      * address in reservations.
      */
-    public HousingEventHotel withAddress(@Nullable AddressJson2 address) {
+    public HousingEventHotel withAddress(@Nullable AddressJson address) {
         this.address = address;
         return this;
     }
@@ -349,7 +349,7 @@ public class HousingEventHotel {
 
         private HotelRatingJson rating;
 
-        private AddressJson2 address;
+        private AddressJson address;
 
         private Builder() {
             // force use of static builder() method
@@ -431,7 +431,7 @@ public class HousingEventHotel {
          * Address details. Required to create/update a guest's reservation if the hotel/event requires an
          * address in reservations.
          */
-        public Builder address(@Nullable AddressJson2 address) {
+        public Builder address(@Nullable AddressJson address) {
             this.address = address;
             return this;
         }

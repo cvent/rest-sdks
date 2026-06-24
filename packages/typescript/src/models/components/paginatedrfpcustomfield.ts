@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
 import {
-  RfpCustomFieldJson,
-  RfpCustomFieldJson$inboundSchema,
-} from "./rfpcustomfieldjson.js";
+  CustomFieldAnswers,
+  CustomFieldAnswers$inboundSchema,
+} from "./customfieldanswers.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * Paginated list of RFP custom fields associated to a RFP.
@@ -19,11 +19,11 @@ export type PaginatedRfpCustomField = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of RFP custom fields linked to an RFP.
    */
-  data?: Array<RfpCustomFieldJson> | undefined;
+  data?: Array<CustomFieldAnswers> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const PaginatedRfpCustomField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(RfpCustomFieldJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(CustomFieldAnswers$inboundSchema).optional(),
 });
 
 export function paginatedRfpCustomFieldFromJSON(

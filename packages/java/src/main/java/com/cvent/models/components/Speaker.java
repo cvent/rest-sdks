@@ -89,14 +89,14 @@ public class Speaker {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("category")
-    private CategoryIdNameJson category;
+    private SpeakerCategory1 category;
 
     /**
      * Collection of social media links for the contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("links")
-    private ContactLinksJsonInput links;
+    private ContactLinksInput links;
 
     /**
      * Indicates if a given speaker should be displayed on Event Website
@@ -148,8 +148,8 @@ public class Speaker {
             @JsonProperty("designation") @Nullable String designation,
             @JsonProperty("company") @Nullable String company,
             @JsonProperty("title") @Nullable String title,
-            @JsonProperty("category") @Nullable CategoryIdNameJson category,
-            @JsonProperty("links") @Nullable ContactLinksJsonInput links,
+            @JsonProperty("category") @Nullable SpeakerCategory1 category,
+            @JsonProperty("links") @Nullable ContactLinksInput links,
             @JsonProperty("visibility") @Nullable Boolean visibility,
             @JsonProperty("biography") @Nullable String biography,
             @JsonProperty("internalNote") @Nullable String internalNote,
@@ -245,14 +245,14 @@ public class Speaker {
     /**
      * A defined speaker category.
      */
-    public Optional<CategoryIdNameJson> category() {
+    public Optional<SpeakerCategory1> category() {
         return Optional.ofNullable(this.category);
     }
 
     /**
      * Collection of social media links for the contact.
      */
-    public Optional<ContactLinksJsonInput> links() {
+    public Optional<ContactLinksInput> links() {
         return Optional.ofNullable(this.links);
     }
 
@@ -374,7 +374,7 @@ public class Speaker {
     /**
      * A defined speaker category.
      */
-    public Speaker withCategory(@Nullable CategoryIdNameJson category) {
+    public Speaker withCategory(@Nullable SpeakerCategory1 category) {
         this.category = category;
         return this;
     }
@@ -382,7 +382,7 @@ public class Speaker {
     /**
      * Collection of social media links for the contact.
      */
-    public Speaker withLinks(@Nullable ContactLinksJsonInput links) {
+    public Speaker withLinks(@Nullable ContactLinksInput links) {
         this.links = links;
         return this;
     }
@@ -538,9 +538,9 @@ public class Speaker {
 
         private String title;
 
-        private CategoryIdNameJson category;
+        private SpeakerCategory1 category;
 
-        private ContactLinksJsonInput links;
+        private ContactLinksInput links;
 
         private Boolean visibility;
 
@@ -631,7 +631,7 @@ public class Speaker {
         /**
          * A defined speaker category.
          */
-        public Builder category(@Nullable CategoryIdNameJson category) {
+        public Builder category(@Nullable SpeakerCategory1 category) {
             this.category = category;
             return this;
         }
@@ -639,7 +639,7 @@ public class Speaker {
         /**
          * Collection of social media links for the contact.
          */
-        public Builder links(@Nullable ContactLinksJsonInput links) {
+        public Builder links(@Nullable ContactLinksInput links) {
             this.links = links;
             return this;
         }

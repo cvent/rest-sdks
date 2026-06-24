@@ -15,10 +15,10 @@ const value: components.ZeroOneOf1 = {
 };
 ```
 
-### `components.OneOneOf`
+### `components.One`
 
 ```typescript
-const value: components.OneOneOf = {
+const value: components.One = {
   from: new Date("2021-01-02T02:00:00Z"),
   to: new Date("2021-02-02T02:00:00Z"),
   format: "DateOnlyMonthFirst",

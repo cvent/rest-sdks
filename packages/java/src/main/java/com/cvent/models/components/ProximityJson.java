@@ -24,7 +24,7 @@ public class ProximityJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("distance")
-    private DistanceJson1 distance;
+    private DistanceJson distance;
 
     /**
      * Message shown on map.
@@ -35,7 +35,7 @@ public class ProximityJson {
 
     @JsonCreator
     public ProximityJson(
-            @JsonProperty("distance") @Nullable DistanceJson1 distance,
+            @JsonProperty("distance") @Nullable DistanceJson distance,
             @JsonProperty("mapMessage") @Nullable String mapMessage) {
         this.distance = distance;
         this.mapMessage = mapMessage;
@@ -48,7 +48,7 @@ public class ProximityJson {
     /**
      * Distance information.
      */
-    public Optional<DistanceJson1> distance() {
+    public Optional<DistanceJson> distance() {
         return Optional.ofNullable(this.distance);
     }
 
@@ -66,7 +66,7 @@ public class ProximityJson {
     /**
      * Distance information.
      */
-    public ProximityJson withDistance(@Nullable DistanceJson1 distance) {
+    public ProximityJson withDistance(@Nullable DistanceJson distance) {
         this.distance = distance;
         return this;
     }
@@ -105,7 +105,7 @@ public class ProximityJson {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private DistanceJson1 distance;
+        private DistanceJson distance;
 
         private String mapMessage;
 
@@ -116,7 +116,7 @@ public class ProximityJson {
         /**
          * Distance information.
          */
-        public Builder distance(@Nullable DistanceJson1 distance) {
+        public Builder distance(@Nullable DistanceJson distance) {
             this.distance = distance;
             return this;
         }

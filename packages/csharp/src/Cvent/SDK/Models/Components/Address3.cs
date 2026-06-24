@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Address of the hotel.
+    /// Address details.
     /// </summary>
     public class Address3
     {
@@ -66,9 +66,21 @@ namespace Cvent.SDK.Models.Components
         public string? RegionCode { get; set; }
 
         /// <summary>
-        /// Name of the country.
+        /// Name of the country of the address.
         /// </summary>
         [JsonProperty("country")]
         public string? Country { get; set; }
+
+        /// <summary>
+        /// The geo latitude of the address.
+        /// </summary>
+        [JsonProperty("latitude")]
+        public long? Latitude { get; set; }
+
+        /// <summary>
+        /// The geo longitude of the address.
+        /// </summary>
+        [JsonProperty("longitude")]
+        public long? Longitude { get; set; }
     }
 }

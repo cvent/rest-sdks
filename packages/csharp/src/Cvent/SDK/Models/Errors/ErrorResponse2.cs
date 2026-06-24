@@ -40,7 +40,7 @@ namespace Cvent.SDK.Models.Errors
         /// Additional details of cascading error messages.
         /// </summary>
         [JsonProperty("details")]
-        public List<ErrorResponseBase>? Details { get; set; }
+        public List<ZeroAllOf1>? Details { get; set; }
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ namespace Cvent.SDK.Models.Errors
         public string? Target { get; set; }
 
         [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible. Use ErrorResponse2.Payload.Details instead.")]
-        public List<ErrorResponseBase>? Details { get; set; }
+        public List<ZeroAllOf1>? Details { get; set; }
 
         private static string ErrorMessage(ErrorResponse2Payload payload, string body)
         {

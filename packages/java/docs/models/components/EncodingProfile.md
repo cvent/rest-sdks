@@ -1,0 +1,19 @@
+# EncodingProfile
+
+Denotes the profile to use when encoding the video. Planner profile is for encoding high-quality event content, like session videos. Attendee profile is for encoding lower-quality content intended to go on attendee profiles and social feeds in the event.
+
+## Example Usage
+
+```java
+import com.cvent.models.components.EncodingProfile;
+
+EncodingProfile value = EncodingProfile.PLANNER;
+```
+
+
+## Values
+
+| Name       | Value      |
+| ---------- | ---------- |
+| `PLANNER`  | Planner    |
+| `ATTENDEE` | Attendee   |

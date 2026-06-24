@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { AnswerJson1, AnswerJson1$inboundSchema } from "./answerjson1.js";
-import { QuestionJson3, QuestionJson3$inboundSchema } from "./questionjson3.js";
+import { QuestionJson2, QuestionJson2$inboundSchema } from "./questionjson2.js";
 
 /**
  * A Question response.
@@ -16,7 +16,7 @@ export type QuestionResponseJson = {
   /**
    * The question that was answered.
    */
-  question?: QuestionJson3 | undefined;
+  question?: QuestionJson2 | undefined;
   /**
    * List of answers.
    */
@@ -29,7 +29,7 @@ export const QuestionResponseJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  question: QuestionJson3$inboundSchema.optional(),
+  question: QuestionJson2$inboundSchema.optional(),
   answers: z.array(AnswerJson1$inboundSchema).optional(),
 });
 

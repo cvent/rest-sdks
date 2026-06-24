@@ -1,6 +1,6 @@
 # Address3
 
-Address of the hotel.
+Address details
 
 
 ## Fields
@@ -15,4 +15,6 @@ Address of the hotel.
 | `postalCode`                                                  | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the address.           | 78727                                                         |
 | `region`                                                      | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
 | `regionCode`                                                  | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
-| `country`                                                     | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Name of the country.                                          | United States of America                                      |
+| `country`                                                     | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Name of the country of the address.                           | United States of America                                      |
+| `latitude`                                                    | *Optional\<Long>*                                             | :heavy_minus_sign:                                            | The geo latitude of the address.                              | 30                                                            |
+| `longitude`                                                   | *Optional\<Long>*                                             | :heavy_minus_sign:                                            | The geo longitude of the address.                             | -97                                                           |

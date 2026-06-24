@@ -8,25 +8,25 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  TravelProgramFormatTypeJson,
-  TravelProgramFormatTypeJson$inboundSchema,
-} from "./travelprogramformattypejson.js";
+  TravelProgramFormatType,
+  TravelProgramFormatType$inboundSchema,
+} from "./travelprogramformattype.js";
 import {
-  TravelProgramQuestionJson,
-  TravelProgramQuestionJson$inboundSchema,
-} from "./travelprogramquestionjson.js";
+  TravelProgramQuestion1,
+  TravelProgramQuestion1$inboundSchema,
+} from "./travelprogramquestion1.js";
 import {
-  TravelProgramStatusJson,
-  TravelProgramStatusJson$inboundSchema,
-} from "./travelprogramstatusjson.js";
+  TravelProgramStatus,
+  TravelProgramStatus$inboundSchema,
+} from "./travelprogramstatus.js";
 import {
-  TravelProgramStayTypeJson,
-  TravelProgramStayTypeJson$inboundSchema,
-} from "./travelprogramstaytypejson.js";
+  TravelProgramStayType,
+  TravelProgramStayType$inboundSchema,
+} from "./travelprogramstaytype.js";
 import {
-  TravelProgramTypeJson,
-  TravelProgramTypeJson$inboundSchema,
-} from "./travelprogramtypejson.js";
+  TravelProgramType,
+  TravelProgramType$inboundSchema,
+} from "./travelprogramtype.js";
 
 /**
  * Travel account that the program belongs to.
@@ -73,15 +73,15 @@ export type TravelProgram = {
   /**
    * Code representing the travel program type.
    */
-  type?: TravelProgramTypeJson | undefined;
+  type?: TravelProgramType | undefined;
   /**
    * Code representing the format of the travel program.
    */
-  format?: TravelProgramFormatTypeJson | undefined;
+  format?: TravelProgramFormatType | undefined;
   /**
    * Code representing the status of the travel program.
    */
-  status?: TravelProgramStatusJson | undefined;
+  status?: TravelProgramStatus | undefined;
   /**
    * Travel account that the program belongs to.
    */
@@ -89,7 +89,7 @@ export type TravelProgram = {
   /**
    * Code representing the stay types requested by the program.  Programs can accept daily only, or daily and extended stay proposals.
    */
-  stayType?: TravelProgramStayTypeJson | undefined;
+  stayType?: TravelProgramStayType | undefined;
   /**
    * The ISO 8601 formatted start date (in GMT) of the travel program.
    */
@@ -109,7 +109,7 @@ export type TravelProgram = {
   /**
    * A list of program specific questions for the supplier to answer as part of their proposal.
    */
-  questions?: Array<TravelProgramQuestionJson> | undefined;
+  questions?: Array<TravelProgramQuestion1> | undefined;
 };
 
 /** @internal */
@@ -147,17 +147,17 @@ export const TravelProgram$inboundSchema: z.ZodType<
   id: z.string().optional(),
   name: z.string().optional(),
   contractPeriod: z.number().int().optional(),
-  type: TravelProgramTypeJson$inboundSchema.optional(),
-  format: TravelProgramFormatTypeJson$inboundSchema.optional(),
-  status: TravelProgramStatusJson$inboundSchema.optional(),
+  type: TravelProgramType$inboundSchema.optional(),
+  format: TravelProgramFormatType$inboundSchema.optional(),
+  status: TravelProgramStatus$inboundSchema.optional(),
   travelAccount: z.lazy(() => TravelProgramTravelAccount$inboundSchema)
     .optional(),
-  stayType: TravelProgramStayTypeJson$inboundSchema.optional(),
+  stayType: TravelProgramStayType$inboundSchema.optional(),
   startDate: z.string().transform(v => new RFCDate(v)).optional(),
   endDate: z.string().transform(v => new RFCDate(v)).optional(),
   dueDate: z.string().transform(v => new RFCDate(v)).optional(),
   closeoutDate: z.string().transform(v => new RFCDate(v)).optional(),
-  questions: z.array(TravelProgramQuestionJson$inboundSchema).optional(),
+  questions: z.array(TravelProgramQuestion1$inboundSchema).optional(),
 });
 
 export function travelProgramFromJSON(

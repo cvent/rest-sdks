@@ -125,7 +125,7 @@ public class StandardSurveyJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomFieldJson2> customFields;
+    private List<CustomFieldJson1> customFields;
 
     @JsonCreator
     public StandardSurveyJson(
@@ -143,7 +143,7 @@ public class StandardSurveyJson {
             @JsonProperty("responseCount") @Nullable Long responseCount,
             @JsonProperty("status") @Nullable SurveyStatusJson status,
             @JsonProperty("archiveAfter") @Nullable OffsetDateTime archiveAfter,
-            @JsonProperty("customFields") @Nullable List<CustomFieldJson2> customFields) {
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson1> customFields) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -266,7 +266,7 @@ public class StandardSurveyJson {
     /**
      * Collection of survey custom fields.
      */
-    public Optional<List<CustomFieldJson2>> customFields() {
+    public Optional<List<CustomFieldJson1>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -389,7 +389,7 @@ public class StandardSurveyJson {
     /**
      * Collection of survey custom fields.
      */
-    public StandardSurveyJson withCustomFields(@Nullable List<CustomFieldJson2> customFields) {
+    public StandardSurveyJson withCustomFields(@Nullable List<CustomFieldJson1> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -507,7 +507,7 @@ public class StandardSurveyJson {
 
         private OffsetDateTime archiveAfter;
 
-        private List<CustomFieldJson2> customFields;
+        private List<CustomFieldJson1> customFields;
 
         private Builder() {
             // force use of static builder() method
@@ -628,7 +628,7 @@ public class StandardSurveyJson {
         /**
          * Collection of survey custom fields.
          */
-        public Builder customFields(@Nullable List<CustomFieldJson2> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson1> customFields) {
             this.customFields = customFields;
             return this;
         }

@@ -153,7 +153,7 @@ export class Speakers extends ClientSDK {
    * @see {@link #oauth2-auth-code-planner-admin} - More about OAuth2 authorization code support for administrators
    */
   async addSpeakerCategory(
-    request: components.SpeakerCategory,
+    request: components.SpeakerCategory2,
     options?: RequestOptions,
   ): Promise<components.ExistingSpeakerCategory> {
     return unwrapAsync(speakersAddSpeakerCategory(

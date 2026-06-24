@@ -157,7 +157,7 @@ public class Application {
         CreateExhibitorCategoryRequest req = CreateExhibitorCategoryRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -235,7 +235,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorCategoryId("534a465b-b4cb-471d-9498-4bf3917ad8bf")
                 .exhibitorCategoryRequest(ExhibitorCategoryRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Automobile")
@@ -875,7 +875,7 @@ public class Application {
         CreateExhibitorRequest req = CreateExhibitorRequest.builder()
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -883,7 +883,7 @@ public class Application {
                     .code("abc123")
                     .sourceId("software")
                     .location("Taj Mahal")
-                    .address(Address2.builder()
+                    .address(Address4.builder()
                         .address1("Cvent Inc.")
                         .address2("4001 West Parmer Lane")
                         .city("Austin")
@@ -1054,7 +1054,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .exhibitorRequest(ExhibitorRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .name("Potterfield Harry")
@@ -1062,7 +1062,7 @@ public class Application {
                     .code("abc123")
                     .sourceId("software")
                     .location("Taj Mahal")
-                    .address(Address2.builder()
+                    .address(Address4.builder()
                         .address1("Cvent Inc.")
                         .address2("4001 West Parmer Lane")
                         .city("Austin")
@@ -1449,7 +1449,7 @@ public class Application {
                             .question(Uuid.builder()
                                 .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                                 .build())
-                            .event(Event21.builder()
+                            .event(Event3.builder()
                                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                                 .build())
                             .exhibitor(Exhibitor.builder()
@@ -1792,6 +1792,7 @@ package hello.world;
 import com.cvent.CventSDK;
 import com.cvent.models.components.*;
 import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.PostRegistrationPackRequest;
 import com.cvent.models.operations.PostRegistrationPackResponse;
 import java.lang.Exception;
@@ -1799,7 +1800,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse2, ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -1816,7 +1817,7 @@ public class Application {
                 .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(Exhibitor.builder()
@@ -1857,7 +1858,8 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 400, 401, 403, 404, 409, 429 | application/json             |
+| models/errors/ErrorResponse2 | 409                          | application/json             |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getExhibitorRegistrationPacks
@@ -2044,7 +2046,7 @@ public class Application {
                 .exhibitorId("4888db54-db22-11eb-8d19-0242ac130003")
                 .registrationPackId("50f4f0df-0c2d-4e6b-8e68-e1413b6917f5")
                 .registrationPackRequest(RegistrationPackRequest.builder()
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .exhibitor(Exhibitor.builder()
@@ -2105,6 +2107,7 @@ import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
 import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.DeleteRegistrationPackRequest;
 import com.cvent.models.operations.DeleteRegistrationPackResponse;
 import java.lang.Exception;
@@ -2112,7 +2115,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse2, ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -2154,7 +2157,8 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 401, 403, 404, 409, 429      | application/json             |
+| models/errors/ErrorResponse2 | 409                          | application/json             |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getSponsorshipLevels

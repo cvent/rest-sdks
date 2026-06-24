@@ -1,17 +1,17 @@
 # AddressTypeJson
 
-The type of address.
+The type of the address.
 
 ## Example Usage
 
 ```typescript
 import { AddressTypeJson } from "@cvent/sdk/models/components";
 
-let value: AddressTypeJson = "Home";
+let value: AddressTypeJson = "work";
 ```
 
 ## Values
 
 ```typescript
-"Home" | "Work"
+"work" | "home"
 ```

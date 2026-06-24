@@ -13,5 +13,5 @@ let value: ExistingDurationType = "API";
 ## Values
 
 ```typescript
-"RFID" | "OA" | "EDIT" | "LIVE" | "ON_DEMAND" | "API"
+"RFID" | "OA" | "EDIT" | "LIVE" | "ON_DEMAND" | "API" | "MANUAL" | "IMPORT" | "EVENTAPP"
 ```

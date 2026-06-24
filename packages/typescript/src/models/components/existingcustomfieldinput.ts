@@ -8,18 +8,14 @@ import {
   CustomFieldCategoryJson$outboundSchema,
 } from "./customfieldcategoryjson.js";
 import {
-  CustomFieldTypeJson1,
-  CustomFieldTypeJson1$outboundSchema,
-} from "./customfieldtypejson1.js";
+  CustomFieldTypeJson,
+  CustomFieldTypeJson$outboundSchema,
+} from "./customfieldtypejson.js";
 import {
   DisplayInDataTagJson,
   DisplayInDataTagJson$outboundSchema,
 } from "./displayindatatagjson.js";
-import {
-  OneOneOf,
-  OneOneOf$Outbound,
-  OneOneOf$outboundSchema,
-} from "./oneoneof.js";
+import { One, One$Outbound, One$outboundSchema } from "./one.js";
 import {
   PageVisibilityJson,
   PageVisibilityJson$Outbound,
@@ -42,7 +38,7 @@ import {
  */
 export type ExistingCustomFieldDetailsInput =
   | ZeroOneOf1
-  | OneOneOf
+  | One
   | Two
   | ThreeInput;
 
@@ -69,11 +65,11 @@ export type ExistingCustomFieldInput = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson1;
+  type: CustomFieldTypeJson;
   /**
    * Type-specific details of the custom-field.
    */
-  details?: ZeroOneOf1 | OneOneOf | Two | ThreeInput | undefined;
+  details?: ZeroOneOf1 | One | Two | ThreeInput | undefined;
   /**
    * The help text of the custom field.
    */
@@ -111,7 +107,7 @@ export type ExistingCustomFieldInput = {
 /** @internal */
 export type ExistingCustomFieldDetailsInput$Outbound =
   | ZeroOneOf1$Outbound
-  | OneOneOf$Outbound
+  | One$Outbound
   | Two$Outbound
   | ThreeInput$Outbound;
 
@@ -122,7 +118,7 @@ export const ExistingCustomFieldDetailsInput$outboundSchema: z.ZodType<
   ExistingCustomFieldDetailsInput
 > = z.union([
   ZeroOneOf1$outboundSchema,
-  OneOneOf$outboundSchema,
+  One$outboundSchema,
   Two$outboundSchema,
   ThreeInput$outboundSchema,
 ]);
@@ -146,7 +142,7 @@ export type ExistingCustomFieldInput$Outbound = {
   type: string;
   details?:
     | ZeroOneOf1$Outbound
-    | OneOneOf$Outbound
+    | One$Outbound
     | Two$Outbound
     | ThreeInput$Outbound
     | undefined;
@@ -170,10 +166,10 @@ export const ExistingCustomFieldInput$outboundSchema: z.ZodType<
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson1$outboundSchema,
+  type: CustomFieldTypeJson$outboundSchema,
   details: z.union([
     ZeroOneOf1$outboundSchema,
-    OneOneOf$outboundSchema,
+    One$outboundSchema,
     Two$outboundSchema,
     ThreeInput$outboundSchema,
   ]).optional(),

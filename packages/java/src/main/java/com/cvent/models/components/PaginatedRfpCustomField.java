@@ -25,19 +25,19 @@ public class PaginatedRfpCustomField {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of RFP custom fields linked to an RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RfpCustomFieldJson> data;
+    private List<CustomFieldAnswers> data;
 
     @JsonCreator
     public PaginatedRfpCustomField(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<RfpCustomFieldJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<CustomFieldAnswers> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class PaginatedRfpCustomField {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of RFP custom fields linked to an RFP.
      */
-    public Optional<List<RfpCustomFieldJson>> data() {
+    public Optional<List<CustomFieldAnswers>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class PaginatedRfpCustomField {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedRfpCustomField withPaging(@Nullable PagingJson paging) {
+    public PaginatedRfpCustomField withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class PaginatedRfpCustomField {
     /**
      * List of RFP custom fields linked to an RFP.
      */
-    public PaginatedRfpCustomField withData(@Nullable List<RfpCustomFieldJson> data) {
+    public PaginatedRfpCustomField withData(@Nullable List<CustomFieldAnswers> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class PaginatedRfpCustomField {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RfpCustomFieldJson> data;
+        private List<CustomFieldAnswers> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class PaginatedRfpCustomField {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class PaginatedRfpCustomField {
         /**
          * List of RFP custom fields linked to an RFP.
          */
-        public Builder data(@Nullable List<RfpCustomFieldJson> data) {
+        public Builder data(@Nullable List<CustomFieldAnswers> data) {
             this.data = data;
             return this;
         }

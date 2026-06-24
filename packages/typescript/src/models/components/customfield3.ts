@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  ChoiceJson3Input,
-  ChoiceJson3Input$Outbound,
-  ChoiceJson3Input$outboundSchema,
-} from "./choicejson3input.js";
+  ChoiceJson2Input,
+  ChoiceJson2Input$Outbound,
+  ChoiceJson2Input$outboundSchema,
+} from "./choicejson2input.js";
 import {
   ChoicesDisplayTypeJson,
   ChoicesDisplayTypeJson$outboundSchema,
@@ -17,9 +17,9 @@ import {
   CustomFieldCategoryJson$outboundSchema,
 } from "./customfieldcategoryjson.js";
 import {
-  CustomFieldTypeJson1,
-  CustomFieldTypeJson1$outboundSchema,
-} from "./customfieldtypejson1.js";
+  CustomFieldTypeJson,
+  CustomFieldTypeJson$outboundSchema,
+} from "./customfieldtypejson.js";
 import {
   DateTimeDisplayFormatJson,
   DateTimeDisplayFormatJson$outboundSchema,
@@ -41,7 +41,7 @@ export type Choices = {
   /**
    * Choices of custom fields.
    */
-  choices?: Array<ChoiceJson3Input> | undefined;
+  choices?: Array<ChoiceJson2Input> | undefined;
   /**
    * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
    */
@@ -138,7 +138,7 @@ export type CustomField3 = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson1;
+  type: CustomFieldTypeJson;
   /**
    * Type-specific details of the custom-field.
    */
@@ -180,7 +180,7 @@ export type CustomField3 = {
 
 /** @internal */
 export type Choices$Outbound = {
-  choices?: Array<ChoiceJson3Input$Outbound> | undefined;
+  choices?: Array<ChoiceJson2Input$Outbound> | undefined;
   displayType?: string | undefined;
 };
 
@@ -190,7 +190,7 @@ export const Choices$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Choices
 > = z.object({
-  choices: z.array(ChoiceJson3Input$outboundSchema).optional(),
+  choices: z.array(ChoiceJson2Input$outboundSchema).optional(),
   displayType: ChoicesDisplayTypeJson$outboundSchema.optional(),
 });
 
@@ -337,7 +337,7 @@ export const CustomField3$outboundSchema: z.ZodType<
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson1$outboundSchema,
+  type: CustomFieldTypeJson$outboundSchema,
   details: z.union([
     z.lazy(() => OpenEndedOneLine$outboundSchema),
     z.lazy(() => OpenEndedDateTime$outboundSchema),

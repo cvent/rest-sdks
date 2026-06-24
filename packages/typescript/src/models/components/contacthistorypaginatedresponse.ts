@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ContactHistoryJson,
-  ContactHistoryJson$inboundSchema,
-} from "./contacthistoryjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  ContactHistory,
+  ContactHistory$inboundSchema,
+} from "./contacthistory.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response of a request to get the change history for a specific contact.
@@ -19,11 +19,11 @@ export type ContactHistoryPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Collection of change histories for a specific contact.
    */
-  data?: Array<ContactHistoryJson> | undefined;
+  data?: Array<ContactHistory> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const ContactHistoryPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(ContactHistoryJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(ContactHistory$inboundSchema).optional(),
 });
 
 export function contactHistoryPaginatedResponseFromJSON(

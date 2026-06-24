@@ -47,13 +47,13 @@ namespace Cvent.SDK.Models.Components
         /// Event ID Information.
         /// </summary>
         [JsonProperty("event")]
-        public EventJson2? Event { get; set; }
+        public EventJson1? Event { get; set; }
 
         /// <summary>
         /// RFP ID Information.
         /// </summary>
         [JsonProperty("rfp")]
-        public RfpIdJson1? Rfp { get; set; }
+        public RfpIdJson? Rfp { get; set; }
 
         /// <summary>
         /// Budget Version ID Information.

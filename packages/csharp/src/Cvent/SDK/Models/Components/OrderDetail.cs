@@ -60,7 +60,7 @@ namespace Cvent.SDK.Models.Components
         /// The reference to the attendee. Contains only the ID of the attendee.
         /// </summary>
         [JsonProperty("attendee")]
-        public Attendee2? Attendee { get; set; }
+        public Attendee? Attendee { get; set; }
 
         /// <summary>
         /// Order number for this order.

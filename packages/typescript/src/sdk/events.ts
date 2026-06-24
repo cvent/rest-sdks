@@ -33,6 +33,9 @@ import { eventsListDonationItems } from "../funcs/eventsListDonationItems.js";
 import { eventsListDonationItemsPostFilter } from "../funcs/eventsListDonationItemsPostFilter.js";
 import { eventsListEventEmails } from "../funcs/eventsListEventEmails.js";
 import { eventsListEventUserGroups } from "../funcs/eventsListEventUserGroups.js";
+import { eventsListEventVoucherAttendees } from "../funcs/eventsListEventVoucherAttendees.js";
+import { eventsListEventVouchers } from "../funcs/eventsListEventVouchers.js";
+import { eventsListEventVouchersPostFilter } from "../funcs/eventsListEventVouchersPostFilter.js";
 import { eventsListFeeItems } from "../funcs/eventsListFeeItems.js";
 import { eventsListMembershipItems } from "../funcs/eventsListMembershipItems.js";
 import { eventsListMembershipItemsPostFilter } from "../funcs/eventsListMembershipItemsPostFilter.js";
@@ -855,6 +858,69 @@ export class Events extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(eventsDisassociateEventUserGroup(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Event Vouchers
+   *
+   * @remarks
+   * Retrieves a paginated list of vouchers set up for a specific event.
+   */
+  async listEventVouchers(
+    request: operations.ListEventVouchersRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<operations.ListEventVouchersResponse, { cursor: string }>
+  > {
+    return unwrapResultIterator(eventsListEventVouchers(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Event Vouchers (Filter)
+   *
+   * @remarks
+   * Retrieves a paginated list of vouchers configured for an event using a filter provided in the body of the request.
+   */
+  async listEventVouchersPostFilter(
+    request: operations.ListEventVouchersPostFilterRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<
+      operations.ListEventVouchersPostFilterResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(eventsListEventVouchersPostFilter(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List Voucher Attendees
+   *
+   * @remarks
+   * Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+   */
+  async listEventVoucherAttendees(
+    request: operations.ListEventVoucherAttendeesRequest,
+    options?: RequestOptions,
+  ): Promise<
+    PageIterator<
+      operations.ListEventVoucherAttendeesResponse,
+      { cursor: string }
+    >
+  > {
+    return unwrapResultIterator(eventsListEventVoucherAttendees(
       this,
       request,
       options,

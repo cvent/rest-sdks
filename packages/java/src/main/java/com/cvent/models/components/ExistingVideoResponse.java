@@ -93,14 +93,14 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("thumbnail")
-    private VideoThumbnailJson thumbnail;
+    private VideoThumbnail thumbnail;
 
     /**
      * Video thumbnail
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("generatedThumbnail")
-    private VideoThumbnailJson generatedThumbnail;
+    private VideoThumbnail generatedThumbnail;
 
     /**
      * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and
@@ -115,14 +115,14 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private VideoStatusJson status;
+    private VideoStatus status;
 
     /**
      * Source of video.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("source")
-    private VideoSourceJson source;
+    private VideoSource source;
 
     /**
      * A list of tags associated with this video. This feature is a developer extensability framework to
@@ -137,7 +137,7 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private VideoTypeJson type;
+    private VideoType type;
 
     /**
      * Event video asset was created with. This field has been deprecated. Use events instead.
@@ -166,7 +166,7 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hlsInputsWithClips")
-    private List<HlsInputWithClipsJson> hlsInputsWithClips;
+    private List<HlsInputWithClips> hlsInputsWithClips;
 
     /**
      * Recording details of video to be transcoded
@@ -182,7 +182,7 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("encodingProfile")
-    private EncodingProfileJson encodingProfile;
+    private EncodingProfile encodingProfile;
 
     /**
      * The identifier of a video.
@@ -195,7 +195,7 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("url")
-    private AssetLocationJson url;
+    private AssetLocation url;
 
     /**
      * File size in bytes for the video asset.
@@ -251,14 +251,14 @@ public class ExistingVideoResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("errors")
-    private List<VideoErrorJson> errors;
+    private List<VideoError> errors;
 
     /**
      * This is used to denote the warnings for a video entity.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("warnings")
-    private List<VideoWarningJson> warnings;
+    private List<VideoWarning> warnings;
 
     @JsonCreator
     public ExistingVideoResponse(
@@ -271,19 +271,19 @@ public class ExistingVideoResponse {
             @JsonProperty("filename") @Nullable String filename,
             @JsonProperty("events") @Nullable List<String> events,
             @JsonProperty("duration") @Nullable Long duration,
-            @JsonProperty("thumbnail") @Nullable VideoThumbnailJson thumbnail,
-            @JsonProperty("generatedThumbnail") @Nullable VideoThumbnailJson generatedThumbnail,
-            @JsonProperty("status") @Nullable VideoStatusJson status,
-            @JsonProperty("source") @Nullable VideoSourceJson source,
+            @JsonProperty("thumbnail") @Nullable VideoThumbnail thumbnail,
+            @JsonProperty("generatedThumbnail") @Nullable VideoThumbnail generatedThumbnail,
+            @JsonProperty("status") @Nullable VideoStatus status,
+            @JsonProperty("source") @Nullable VideoSource source,
             @JsonProperty("tags") @Nullable List<String> tags,
-            @JsonProperty("type") @Nullable VideoTypeJson type,
+            @JsonProperty("type") @Nullable VideoType type,
             @JsonProperty("event") @Nullable ExistingVideoResponseUUID event,
             @JsonProperty("hlsInputs") @Nullable List<String> hlsInputs,
-            @JsonProperty("hlsInputsWithClips") @Nullable List<HlsInputWithClipsJson> hlsInputsWithClips,
+            @JsonProperty("hlsInputsWithClips") @Nullable List<HlsInputWithClips> hlsInputsWithClips,
             @JsonProperty("recording") @Nullable RecordingDetails recording,
-            @JsonProperty("encodingProfile") @Nullable EncodingProfileJson encodingProfile,
+            @JsonProperty("encodingProfile") @Nullable EncodingProfile encodingProfile,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("url") @Nullable AssetLocationJson url,
+            @JsonProperty("url") @Nullable AssetLocation url,
             @JsonProperty("size") @Nullable Long size,
             @JsonProperty("sessions") @Nullable List<String> sessions,
             @JsonProperty("exhibitors") @Nullable List<String> exhibitors,
@@ -291,8 +291,8 @@ public class ExistingVideoResponse {
             @JsonProperty("uploadStarted") @Nullable OffsetDateTime uploadStarted,
             @JsonProperty("uploadCompleted") @Nullable OffsetDateTime uploadCompleted,
             @JsonProperty("parent") @Nullable String parent,
-            @JsonProperty("errors") @Nullable List<VideoErrorJson> errors,
-            @JsonProperty("warnings") @Nullable List<VideoWarningJson> warnings) {
+            @JsonProperty("errors") @Nullable List<VideoError> errors,
+            @JsonProperty("warnings") @Nullable List<VideoWarning> warnings) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -428,14 +428,14 @@ public class ExistingVideoResponse {
     /**
      * Video thumbnail
      */
-    public Optional<VideoThumbnailJson> thumbnail() {
+    public Optional<VideoThumbnail> thumbnail() {
         return Optional.ofNullable(this.thumbnail);
     }
 
     /**
      * Video thumbnail
      */
-    public Optional<VideoThumbnailJson> generatedThumbnail() {
+    public Optional<VideoThumbnail> generatedThumbnail() {
         return Optional.ofNullable(this.generatedThumbnail);
     }
 
@@ -450,14 +450,14 @@ public class ExistingVideoResponse {
      * <p>Error indicates there was a problem processing the video. Available indicates the video is available
      * for use.
      */
-    public Optional<VideoStatusJson> status() {
+    public Optional<VideoStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
      * Source of video.
      */
-    public Optional<VideoSourceJson> source() {
+    public Optional<VideoSource> source() {
         return Optional.ofNullable(this.source);
     }
 
@@ -472,7 +472,7 @@ public class ExistingVideoResponse {
     /**
      * This is used to denote type of a video
      */
-    public Optional<VideoTypeJson> type() {
+    public Optional<VideoType> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -501,7 +501,7 @@ public class ExistingVideoResponse {
      * A list of input object locations &amp; clip information for HTTP Live Streaming (HLS) recordings.
      * Used to trim &amp; stitch all inputs together to form a new video.
      */
-    public Optional<List<HlsInputWithClipsJson>> hlsInputsWithClips() {
+    public Optional<List<HlsInputWithClips>> hlsInputsWithClips() {
         return Optional.ofNullable(this.hlsInputsWithClips);
     }
 
@@ -517,7 +517,7 @@ public class ExistingVideoResponse {
      * event content, like session videos. Attendee profile is for encoding lower-quality content intended
      * to go on attendee profiles and social feeds in the event.
      */
-    public Optional<EncodingProfileJson> encodingProfile() {
+    public Optional<EncodingProfile> encodingProfile() {
         return Optional.ofNullable(this.encodingProfile);
     }
 
@@ -531,7 +531,7 @@ public class ExistingVideoResponse {
     /**
      * A URL associated with the asset.
      */
-    public Optional<AssetLocationJson> url() {
+    public Optional<AssetLocation> url() {
         return Optional.ofNullable(this.url);
     }
 
@@ -587,14 +587,14 @@ public class ExistingVideoResponse {
     /**
      * This is used to denote the errors for a video entity.
      */
-    public Optional<List<VideoErrorJson>> errors() {
+    public Optional<List<VideoError>> errors() {
         return Optional.ofNullable(this.errors);
     }
 
     /**
      * This is used to denote the warnings for a video entity.
      */
-    public Optional<List<VideoWarningJson>> warnings() {
+    public Optional<List<VideoWarning>> warnings() {
         return Optional.ofNullable(this.warnings);
     }
 
@@ -677,7 +677,7 @@ public class ExistingVideoResponse {
     /**
      * Video thumbnail
      */
-    public ExistingVideoResponse withThumbnail(@Nullable VideoThumbnailJson thumbnail) {
+    public ExistingVideoResponse withThumbnail(@Nullable VideoThumbnail thumbnail) {
         this.thumbnail = thumbnail;
         return this;
     }
@@ -685,7 +685,7 @@ public class ExistingVideoResponse {
     /**
      * Video thumbnail
      */
-    public ExistingVideoResponse withGeneratedThumbnail(@Nullable VideoThumbnailJson generatedThumbnail) {
+    public ExistingVideoResponse withGeneratedThumbnail(@Nullable VideoThumbnail generatedThumbnail) {
         this.generatedThumbnail = generatedThumbnail;
         return this;
     }
@@ -701,7 +701,7 @@ public class ExistingVideoResponse {
      * <p>Error indicates there was a problem processing the video. Available indicates the video is available
      * for use.
      */
-    public ExistingVideoResponse withStatus(@Nullable VideoStatusJson status) {
+    public ExistingVideoResponse withStatus(@Nullable VideoStatus status) {
         this.status = status;
         return this;
     }
@@ -709,7 +709,7 @@ public class ExistingVideoResponse {
     /**
      * Source of video.
      */
-    public ExistingVideoResponse withSource(@Nullable VideoSourceJson source) {
+    public ExistingVideoResponse withSource(@Nullable VideoSource source) {
         this.source = source;
         return this;
     }
@@ -726,7 +726,7 @@ public class ExistingVideoResponse {
     /**
      * This is used to denote type of a video
      */
-    public ExistingVideoResponse withType(@Nullable VideoTypeJson type) {
+    public ExistingVideoResponse withType(@Nullable VideoType type) {
         this.type = type;
         return this;
     }
@@ -758,7 +758,7 @@ public class ExistingVideoResponse {
      * A list of input object locations &amp; clip information for HTTP Live Streaming (HLS) recordings.
      * Used to trim &amp; stitch all inputs together to form a new video.
      */
-    public ExistingVideoResponse withHlsInputsWithClips(@Nullable List<HlsInputWithClipsJson> hlsInputsWithClips) {
+    public ExistingVideoResponse withHlsInputsWithClips(@Nullable List<HlsInputWithClips> hlsInputsWithClips) {
         this.hlsInputsWithClips = hlsInputsWithClips;
         return this;
     }
@@ -776,7 +776,7 @@ public class ExistingVideoResponse {
      * event content, like session videos. Attendee profile is for encoding lower-quality content intended
      * to go on attendee profiles and social feeds in the event.
      */
-    public ExistingVideoResponse withEncodingProfile(@Nullable EncodingProfileJson encodingProfile) {
+    public ExistingVideoResponse withEncodingProfile(@Nullable EncodingProfile encodingProfile) {
         this.encodingProfile = encodingProfile;
         return this;
     }
@@ -792,7 +792,7 @@ public class ExistingVideoResponse {
     /**
      * A URL associated with the asset.
      */
-    public ExistingVideoResponse withUrl(@Nullable AssetLocationJson url) {
+    public ExistingVideoResponse withUrl(@Nullable AssetLocation url) {
         this.url = url;
         return this;
     }
@@ -856,7 +856,7 @@ public class ExistingVideoResponse {
     /**
      * This is used to denote the errors for a video entity.
      */
-    public ExistingVideoResponse withErrors(@Nullable List<VideoErrorJson> errors) {
+    public ExistingVideoResponse withErrors(@Nullable List<VideoError> errors) {
         this.errors = errors;
         return this;
     }
@@ -864,7 +864,7 @@ public class ExistingVideoResponse {
     /**
      * This is used to denote the warnings for a video entity.
      */
-    public ExistingVideoResponse withWarnings(@Nullable List<VideoWarningJson> warnings) {
+    public ExistingVideoResponse withWarnings(@Nullable List<VideoWarning> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -1036,17 +1036,17 @@ public class ExistingVideoResponse {
 
         private Long duration;
 
-        private VideoThumbnailJson thumbnail;
+        private VideoThumbnail thumbnail;
 
-        private VideoThumbnailJson generatedThumbnail;
+        private VideoThumbnail generatedThumbnail;
 
-        private VideoStatusJson status;
+        private VideoStatus status;
 
-        private VideoSourceJson source;
+        private VideoSource source;
 
         private List<String> tags;
 
-        private VideoTypeJson type;
+        private VideoType type;
 
         @Deprecated
         private ExistingVideoResponseUUID event;
@@ -1054,15 +1054,15 @@ public class ExistingVideoResponse {
         @Deprecated
         private List<String> hlsInputs;
 
-        private List<HlsInputWithClipsJson> hlsInputsWithClips;
+        private List<HlsInputWithClips> hlsInputsWithClips;
 
         private RecordingDetails recording;
 
-        private EncodingProfileJson encodingProfile;
+        private EncodingProfile encodingProfile;
 
         private String id;
 
-        private AssetLocationJson url;
+        private AssetLocation url;
 
         private Long size;
 
@@ -1078,9 +1078,9 @@ public class ExistingVideoResponse {
 
         private String parent;
 
-        private List<VideoErrorJson> errors;
+        private List<VideoError> errors;
 
-        private List<VideoWarningJson> warnings;
+        private List<VideoWarning> warnings;
 
         private Builder() {
             // force use of static builder() method
@@ -1161,7 +1161,7 @@ public class ExistingVideoResponse {
         /**
          * Video thumbnail
          */
-        public Builder thumbnail(@Nullable VideoThumbnailJson thumbnail) {
+        public Builder thumbnail(@Nullable VideoThumbnail thumbnail) {
             this.thumbnail = thumbnail;
             return this;
         }
@@ -1169,7 +1169,7 @@ public class ExistingVideoResponse {
         /**
          * Video thumbnail
          */
-        public Builder generatedThumbnail(@Nullable VideoThumbnailJson generatedThumbnail) {
+        public Builder generatedThumbnail(@Nullable VideoThumbnail generatedThumbnail) {
             this.generatedThumbnail = generatedThumbnail;
             return this;
         }
@@ -1185,7 +1185,7 @@ public class ExistingVideoResponse {
          * <p>Error indicates there was a problem processing the video. Available indicates the video is available
          * for use.
          */
-        public Builder status(@Nullable VideoStatusJson status) {
+        public Builder status(@Nullable VideoStatus status) {
             this.status = status;
             return this;
         }
@@ -1193,7 +1193,7 @@ public class ExistingVideoResponse {
         /**
          * Source of video.
          */
-        public Builder source(@Nullable VideoSourceJson source) {
+        public Builder source(@Nullable VideoSource source) {
             this.source = source;
             return this;
         }
@@ -1210,7 +1210,7 @@ public class ExistingVideoResponse {
         /**
          * This is used to denote type of a video
          */
-        public Builder type(@Nullable VideoTypeJson type) {
+        public Builder type(@Nullable VideoType type) {
             this.type = type;
             return this;
         }
@@ -1242,7 +1242,7 @@ public class ExistingVideoResponse {
          * A list of input object locations &amp; clip information for HTTP Live Streaming (HLS) recordings.
          * Used to trim &amp; stitch all inputs together to form a new video.
          */
-        public Builder hlsInputsWithClips(@Nullable List<HlsInputWithClipsJson> hlsInputsWithClips) {
+        public Builder hlsInputsWithClips(@Nullable List<HlsInputWithClips> hlsInputsWithClips) {
             this.hlsInputsWithClips = hlsInputsWithClips;
             return this;
         }
@@ -1260,7 +1260,7 @@ public class ExistingVideoResponse {
          * event content, like session videos. Attendee profile is for encoding lower-quality content intended
          * to go on attendee profiles and social feeds in the event.
          */
-        public Builder encodingProfile(@Nullable EncodingProfileJson encodingProfile) {
+        public Builder encodingProfile(@Nullable EncodingProfile encodingProfile) {
             this.encodingProfile = encodingProfile;
             return this;
         }
@@ -1276,7 +1276,7 @@ public class ExistingVideoResponse {
         /**
          * A URL associated with the asset.
          */
-        public Builder url(@Nullable AssetLocationJson url) {
+        public Builder url(@Nullable AssetLocation url) {
             this.url = url;
             return this;
         }
@@ -1340,7 +1340,7 @@ public class ExistingVideoResponse {
         /**
          * This is used to denote the errors for a video entity.
          */
-        public Builder errors(@Nullable List<VideoErrorJson> errors) {
+        public Builder errors(@Nullable List<VideoError> errors) {
             this.errors = errors;
             return this;
         }
@@ -1348,7 +1348,7 @@ public class ExistingVideoResponse {
         /**
          * This is used to denote the warnings for a video entity.
          */
-        public Builder warnings(@Nullable List<VideoWarningJson> warnings) {
+        public Builder warnings(@Nullable List<VideoWarning> warnings) {
             this.warnings = warnings;
             return this;
         }
@@ -1388,7 +1388,7 @@ public class ExistingVideoResponse {
                     warnings);
         }
 
-        private static final LazySingletonValue<EncodingProfileJson> _SINGLETON_VALUE_EncodingProfile =
-                new LazySingletonValue<>("encodingProfile", "\"Planner\"", new TypeReference<EncodingProfileJson>() {});
+        private static final LazySingletonValue<EncodingProfile> _SINGLETON_VALUE_EncodingProfile =
+                new LazySingletonValue<>("encodingProfile", "\"Planner\"", new TypeReference<EncodingProfile>() {});
     }
 }

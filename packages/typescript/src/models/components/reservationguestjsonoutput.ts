@@ -9,11 +9,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AddressJson2,
-  AddressJson2$inboundSchema,
-  AddressJson2$Outbound,
-  AddressJson2$outboundSchema,
-} from "./addressjson2.js";
+  AddressJson,
+  AddressJson$inboundSchema,
+  AddressJson$Outbound,
+  AddressJson$outboundSchema,
+} from "./addressjson.js";
 import {
   ReservationPaymentInfoJsonInput,
   ReservationPaymentInfoJsonInput$Outbound,
@@ -91,7 +91,7 @@ export type ReservationGuestJsonOutput = {
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  homeAddress?: AddressJson2 | undefined;
+  homeAddress?: AddressJson | undefined;
   /**
    * Payment information.
    */
@@ -165,7 +165,7 @@ export type ReservationGuestJsonInput = {
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  homeAddress?: AddressJson2 | undefined;
+  homeAddress?: AddressJson | undefined;
   /**
    * Payment information.
    */
@@ -211,7 +211,7 @@ export const ReservationGuestJsonOutput$inboundSchema: z.ZodType<
   email: z.string(),
   homePhone: z.string().optional(),
   workPhone: z.string().optional(),
-  homeAddress: AddressJson2$inboundSchema.optional(),
+  homeAddress: AddressJson$inboundSchema.optional(),
   paymentInfo: ReservationPaymentInfoJsonOutput$inboundSchema.optional(),
   ageQualifyingCode: AgeQualifyingCode$inboundSchema.default(10),
   primary: z.boolean().default(false),
@@ -242,7 +242,7 @@ export type ReservationGuestJsonInput$Outbound = {
   email: string;
   homePhone?: string | undefined;
   workPhone?: string | undefined;
-  homeAddress?: AddressJson2$Outbound | undefined;
+  homeAddress?: AddressJson$Outbound | undefined;
   paymentInfo?: ReservationPaymentInfoJsonInput$Outbound | undefined;
   ageQualifyingCode: number;
   primary: boolean;
@@ -267,7 +267,7 @@ export const ReservationGuestJsonInput$outboundSchema: z.ZodType<
   email: z.string(),
   homePhone: z.string().optional(),
   workPhone: z.string().optional(),
-  homeAddress: AddressJson2$outboundSchema.optional(),
+  homeAddress: AddressJson$outboundSchema.optional(),
   paymentInfo: ReservationPaymentInfoJsonInput$outboundSchema.optional(),
   ageQualifyingCode: AgeQualifyingCode$outboundSchema.default(10),
   primary: z.boolean().default(false),

@@ -9,38 +9,36 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
-    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// A category of items.
+    /// A survey category.
     /// </summary>
     public class CategoryJson1
     {
         /// <summary>
-        /// The category type.
+        /// Text field ID.
         /// </summary>
-        [JsonProperty("type")]
-        public string? Type { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
 
         /// <summary>
-        /// The name of the category.
+        /// text Value of the Field.
         /// </summary>
-        [JsonProperty("name")]
-        public string? Name { get; set; }
+        [JsonProperty("text")]
+        public string? Text { get; set; }
 
         /// <summary>
-        /// Total cost for all items within this category.
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
-        [JsonProperty("totalCost")]
-        public double? TotalCost { get; set; }
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
 
         /// <summary>
-        /// List of items in this category.
+        /// is the category mandatory for answer.
         /// </summary>
-        [JsonProperty("items")]
-        public List<ItemJson>? Items { get; set; }
+        [JsonProperty("required")]
+        public bool? Required { get; set; } = false;
     }
 }

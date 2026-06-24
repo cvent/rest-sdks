@@ -331,10 +331,10 @@ AssociateBoothStaffRequest req = new AssociateBoothStaffRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     BoothStaffRequest = new BoothStaffRequest() {
-        Attendee = new Attendee11() {
+        Attendee = new Attendee12() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {

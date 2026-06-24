@@ -72,7 +72,7 @@ namespace Cvent.SDK.Models.Components
         /// The status of the proposal.
         /// </summary>
         [JsonProperty("status")]
-        public ProposalStatusTypeJson? Status { get; set; }
+        public ProposalStatusType? Status { get; set; }
 
         /// <summary>
         /// True indicates the proposal is deleted.
@@ -84,19 +84,19 @@ namespace Cvent.SDK.Models.Components
         /// The rate review status of the proposal.
         /// </summary>
         [JsonProperty("rateReviewStatus")]
-        public RateReviewStatusTypeJson? RateReviewStatus { get; set; }
+        public RateReviewStatusType? RateReviewStatus { get; set; }
 
         /// <summary>
         /// Business type.
         /// </summary>
         [JsonProperty("businessType")]
-        public BusinessTypeJson? BusinessType { get; set; }
+        public BusinessType? BusinessType { get; set; }
 
         /// <summary>
         /// Proposal format.
         /// </summary>
         [JsonProperty("format")]
-        public FormatTypeJson? Format { get; set; }
+        public FormatType? Format { get; set; }
 
         /// <summary>
         /// True indicates the documents been read by the supply-side.
@@ -150,24 +150,24 @@ namespace Cvent.SDK.Models.Components
         /// Collection of bid IDs attached to the proposal.
         /// </summary>
         [JsonProperty("bids")]
-        public List<TravelProposalBidIdJson>? Bids { get; set; }
+        public List<TravelProposalBid1>? Bids { get; set; }
 
         /// <summary>
         /// Collection of custom questions.
         /// </summary>
         [JsonProperty("customQuestionAnswers")]
-        public List<CustomQuestionAnswerJson0>? CustomQuestionAnswers { get; set; }
+        public List<TravelProposalCustomQuestion>? CustomQuestionAnswers { get; set; }
 
         /// <summary>
         /// Group and meeting information.
         /// </summary>
         [JsonProperty("groupAndMeeting")]
-        public TravelGroupAndMeetingJson? GroupAndMeeting { get; set; }
+        public TravelProposalGroupAndMeeting? GroupAndMeeting { get; set; }
 
         /// <summary>
         /// Represent proposal disposition details.
         /// </summary>
         [JsonProperty("proposalDisposition")]
-        public TravelProposalDispositionJson? ProposalDisposition { get; set; }
+        public TravelProposalDisposition? ProposalDisposition { get; set; }
     }
 }

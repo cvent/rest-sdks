@@ -87,7 +87,7 @@ public class TravelProposal {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private ProposalStatusTypeJson status;
+    private ProposalStatusType status;
 
     /**
      * True indicates the proposal is deleted.
@@ -101,21 +101,21 @@ public class TravelProposal {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rateReviewStatus")
-    private RateReviewStatusTypeJson rateReviewStatus;
+    private RateReviewStatusType rateReviewStatus;
 
     /**
      * Business type.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("businessType")
-    private BusinessTypeJson businessType;
+    private BusinessType businessType;
 
     /**
      * Proposal format.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("format")
-    private FormatTypeJson format;
+    private FormatType format;
 
     /**
      * True indicates the documents been read by the supply-side.
@@ -179,28 +179,28 @@ public class TravelProposal {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bids")
-    private List<TravelProposalBidIdJson> bids;
+    private List<TravelProposalBid1> bids;
 
     /**
      * Collection of custom questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customQuestionAnswers")
-    private List<CustomQuestionAnswerJson0> customQuestionAnswers;
+    private List<TravelProposalCustomQuestion> customQuestionAnswers;
 
     /**
      * Group and meeting information.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("groupAndMeeting")
-    private TravelGroupAndMeetingJson groupAndMeeting;
+    private TravelProposalGroupAndMeeting groupAndMeeting;
 
     /**
      * Represent proposal disposition details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proposalDisposition")
-    private TravelProposalDispositionJson proposalDisposition;
+    private TravelProposalDisposition proposalDisposition;
 
     @JsonCreator
     public TravelProposal(
@@ -212,11 +212,11 @@ public class TravelProposal {
             @JsonProperty("supplierProperty") @Nullable SupplierProperty supplierProperty,
             @JsonProperty("travelProgram") @Nullable TravelProposalTravelProgram travelProgram,
             @JsonProperty("contractPeriod") @Nullable Long contractPeriod,
-            @JsonProperty("status") @Nullable ProposalStatusTypeJson status,
+            @JsonProperty("status") @Nullable ProposalStatusType status,
             @JsonProperty("deleted") @Nullable Boolean deleted,
-            @JsonProperty("rateReviewStatus") @Nullable RateReviewStatusTypeJson rateReviewStatus,
-            @JsonProperty("businessType") @Nullable BusinessTypeJson businessType,
-            @JsonProperty("format") @Nullable FormatTypeJson format,
+            @JsonProperty("rateReviewStatus") @Nullable RateReviewStatusType rateReviewStatus,
+            @JsonProperty("businessType") @Nullable BusinessType businessType,
+            @JsonProperty("format") @Nullable FormatType format,
             @JsonProperty("documentRead") @Nullable Boolean documentRead,
             @JsonProperty("rejectReasonCode") @Nullable String rejectReasonCode,
             @JsonProperty("rejectComment") @Nullable String rejectComment,
@@ -225,10 +225,10 @@ public class TravelProposal {
             @JsonProperty("negotiationDueDate") @Nullable OffsetDateTime negotiationDueDate,
             @JsonProperty("roomNightConsumption") @Nullable Long roomNightConsumption,
             @JsonProperty("draft") @Nullable Boolean draft,
-            @JsonProperty("bids") @Nullable List<TravelProposalBidIdJson> bids,
-            @JsonProperty("customQuestionAnswers") @Nullable List<CustomQuestionAnswerJson0> customQuestionAnswers,
-            @JsonProperty("groupAndMeeting") @Nullable TravelGroupAndMeetingJson groupAndMeeting,
-            @JsonProperty("proposalDisposition") @Nullable TravelProposalDispositionJson proposalDisposition) {
+            @JsonProperty("bids") @Nullable List<TravelProposalBid1> bids,
+            @JsonProperty("customQuestionAnswers") @Nullable List<TravelProposalCustomQuestion> customQuestionAnswers,
+            @JsonProperty("groupAndMeeting") @Nullable TravelProposalGroupAndMeeting groupAndMeeting,
+            @JsonProperty("proposalDisposition") @Nullable TravelProposalDisposition proposalDisposition) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -344,7 +344,7 @@ public class TravelProposal {
     /**
      * The status of the proposal
      */
-    public Optional<ProposalStatusTypeJson> status() {
+    public Optional<ProposalStatusType> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -358,21 +358,21 @@ public class TravelProposal {
     /**
      * The rate review status of the proposal
      */
-    public Optional<RateReviewStatusTypeJson> rateReviewStatus() {
+    public Optional<RateReviewStatusType> rateReviewStatus() {
         return Optional.ofNullable(this.rateReviewStatus);
     }
 
     /**
      * Business type.
      */
-    public Optional<BusinessTypeJson> businessType() {
+    public Optional<BusinessType> businessType() {
         return Optional.ofNullable(this.businessType);
     }
 
     /**
      * Proposal format.
      */
-    public Optional<FormatTypeJson> format() {
+    public Optional<FormatType> format() {
         return Optional.ofNullable(this.format);
     }
 
@@ -436,28 +436,28 @@ public class TravelProposal {
     /**
      * Collection of bid IDs attached to the proposal.
      */
-    public Optional<List<TravelProposalBidIdJson>> bids() {
+    public Optional<List<TravelProposalBid1>> bids() {
         return Optional.ofNullable(this.bids);
     }
 
     /**
      * Collection of custom questions.
      */
-    public Optional<List<CustomQuestionAnswerJson0>> customQuestionAnswers() {
+    public Optional<List<TravelProposalCustomQuestion>> customQuestionAnswers() {
         return Optional.ofNullable(this.customQuestionAnswers);
     }
 
     /**
      * Group and meeting information.
      */
-    public Optional<TravelGroupAndMeetingJson> groupAndMeeting() {
+    public Optional<TravelProposalGroupAndMeeting> groupAndMeeting() {
         return Optional.ofNullable(this.groupAndMeeting);
     }
 
     /**
      * Represent proposal disposition details.
      */
-    public Optional<TravelProposalDispositionJson> proposalDisposition() {
+    public Optional<TravelProposalDisposition> proposalDisposition() {
         return Optional.ofNullable(this.proposalDisposition);
     }
 
@@ -532,7 +532,7 @@ public class TravelProposal {
     /**
      * The status of the proposal
      */
-    public TravelProposal withStatus(@Nullable ProposalStatusTypeJson status) {
+    public TravelProposal withStatus(@Nullable ProposalStatusType status) {
         this.status = status;
         return this;
     }
@@ -548,7 +548,7 @@ public class TravelProposal {
     /**
      * The rate review status of the proposal
      */
-    public TravelProposal withRateReviewStatus(@Nullable RateReviewStatusTypeJson rateReviewStatus) {
+    public TravelProposal withRateReviewStatus(@Nullable RateReviewStatusType rateReviewStatus) {
         this.rateReviewStatus = rateReviewStatus;
         return this;
     }
@@ -556,7 +556,7 @@ public class TravelProposal {
     /**
      * Business type.
      */
-    public TravelProposal withBusinessType(@Nullable BusinessTypeJson businessType) {
+    public TravelProposal withBusinessType(@Nullable BusinessType businessType) {
         this.businessType = businessType;
         return this;
     }
@@ -564,7 +564,7 @@ public class TravelProposal {
     /**
      * Proposal format.
      */
-    public TravelProposal withFormat(@Nullable FormatTypeJson format) {
+    public TravelProposal withFormat(@Nullable FormatType format) {
         this.format = format;
         return this;
     }
@@ -637,7 +637,7 @@ public class TravelProposal {
     /**
      * Collection of bid IDs attached to the proposal.
      */
-    public TravelProposal withBids(@Nullable List<TravelProposalBidIdJson> bids) {
+    public TravelProposal withBids(@Nullable List<TravelProposalBid1> bids) {
         this.bids = bids;
         return this;
     }
@@ -645,7 +645,8 @@ public class TravelProposal {
     /**
      * Collection of custom questions.
      */
-    public TravelProposal withCustomQuestionAnswers(@Nullable List<CustomQuestionAnswerJson0> customQuestionAnswers) {
+    public TravelProposal withCustomQuestionAnswers(
+            @Nullable List<TravelProposalCustomQuestion> customQuestionAnswers) {
         this.customQuestionAnswers = customQuestionAnswers;
         return this;
     }
@@ -653,7 +654,7 @@ public class TravelProposal {
     /**
      * Group and meeting information.
      */
-    public TravelProposal withGroupAndMeeting(@Nullable TravelGroupAndMeetingJson groupAndMeeting) {
+    public TravelProposal withGroupAndMeeting(@Nullable TravelProposalGroupAndMeeting groupAndMeeting) {
         this.groupAndMeeting = groupAndMeeting;
         return this;
     }
@@ -661,7 +662,7 @@ public class TravelProposal {
     /**
      * Represent proposal disposition details.
      */
-    public TravelProposal withProposalDisposition(@Nullable TravelProposalDispositionJson proposalDisposition) {
+    public TravelProposal withProposalDisposition(@Nullable TravelProposalDisposition proposalDisposition) {
         this.proposalDisposition = proposalDisposition;
         return this;
     }
@@ -807,15 +808,15 @@ public class TravelProposal {
 
         private Long contractPeriod;
 
-        private ProposalStatusTypeJson status;
+        private ProposalStatusType status;
 
         private Boolean deleted;
 
-        private RateReviewStatusTypeJson rateReviewStatus;
+        private RateReviewStatusType rateReviewStatus;
 
-        private BusinessTypeJson businessType;
+        private BusinessType businessType;
 
-        private FormatTypeJson format;
+        private FormatType format;
 
         private Boolean documentRead;
 
@@ -833,13 +834,13 @@ public class TravelProposal {
 
         private Boolean draft;
 
-        private List<TravelProposalBidIdJson> bids;
+        private List<TravelProposalBid1> bids;
 
-        private List<CustomQuestionAnswerJson0> customQuestionAnswers;
+        private List<TravelProposalCustomQuestion> customQuestionAnswers;
 
-        private TravelGroupAndMeetingJson groupAndMeeting;
+        private TravelProposalGroupAndMeeting groupAndMeeting;
 
-        private TravelProposalDispositionJson proposalDisposition;
+        private TravelProposalDisposition proposalDisposition;
 
         private Builder() {
             // force use of static builder() method
@@ -912,7 +913,7 @@ public class TravelProposal {
         /**
          * The status of the proposal
          */
-        public Builder status(@Nullable ProposalStatusTypeJson status) {
+        public Builder status(@Nullable ProposalStatusType status) {
             this.status = status;
             return this;
         }
@@ -928,7 +929,7 @@ public class TravelProposal {
         /**
          * The rate review status of the proposal
          */
-        public Builder rateReviewStatus(@Nullable RateReviewStatusTypeJson rateReviewStatus) {
+        public Builder rateReviewStatus(@Nullable RateReviewStatusType rateReviewStatus) {
             this.rateReviewStatus = rateReviewStatus;
             return this;
         }
@@ -936,7 +937,7 @@ public class TravelProposal {
         /**
          * Business type.
          */
-        public Builder businessType(@Nullable BusinessTypeJson businessType) {
+        public Builder businessType(@Nullable BusinessType businessType) {
             this.businessType = businessType;
             return this;
         }
@@ -944,7 +945,7 @@ public class TravelProposal {
         /**
          * Proposal format.
          */
-        public Builder format(@Nullable FormatTypeJson format) {
+        public Builder format(@Nullable FormatType format) {
             this.format = format;
             return this;
         }
@@ -1017,7 +1018,7 @@ public class TravelProposal {
         /**
          * Collection of bid IDs attached to the proposal.
          */
-        public Builder bids(@Nullable List<TravelProposalBidIdJson> bids) {
+        public Builder bids(@Nullable List<TravelProposalBid1> bids) {
             this.bids = bids;
             return this;
         }
@@ -1025,7 +1026,7 @@ public class TravelProposal {
         /**
          * Collection of custom questions.
          */
-        public Builder customQuestionAnswers(@Nullable List<CustomQuestionAnswerJson0> customQuestionAnswers) {
+        public Builder customQuestionAnswers(@Nullable List<TravelProposalCustomQuestion> customQuestionAnswers) {
             this.customQuestionAnswers = customQuestionAnswers;
             return this;
         }
@@ -1033,7 +1034,7 @@ public class TravelProposal {
         /**
          * Group and meeting information.
          */
-        public Builder groupAndMeeting(@Nullable TravelGroupAndMeetingJson groupAndMeeting) {
+        public Builder groupAndMeeting(@Nullable TravelProposalGroupAndMeeting groupAndMeeting) {
             this.groupAndMeeting = groupAndMeeting;
             return this;
         }
@@ -1041,7 +1042,7 @@ public class TravelProposal {
         /**
          * Represent proposal disposition details.
          */
-        public Builder proposalDisposition(@Nullable TravelProposalDispositionJson proposalDisposition) {
+        public Builder proposalDisposition(@Nullable TravelProposalDisposition proposalDisposition) {
             this.proposalDisposition = proposalDisposition;
             return this;
         }

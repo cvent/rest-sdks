@@ -9,7 +9,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
-import com.cvent.models.components.ContactBulkItemJson;
+import com.cvent.models.components.ContactBulkResponseItem;
 import com.cvent.models.components.ContactUpdate;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse1;
@@ -189,7 +189,7 @@ public class UpdateContacts {
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
                     return res.withContactBulkResponse(
-                            Utils.unmarshal(response, new TypeReference<List<ContactBulkItemJson>>() {}));
+                            Utils.unmarshal(response, new TypeReference<List<ContactBulkResponseItem>>() {}));
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -277,7 +277,7 @@ public class UpdateContacts {
 
             if (Utils.statusCodeMatches(response.statusCode(), "207")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return Utils.unmarshalAsync(response, new TypeReference<List<ContactBulkItemJson>>() {})
+                    return Utils.unmarshalAsync(response, new TypeReference<List<ContactBulkResponseItem>>() {})
                             .thenApply(res::withContactBulkResponse);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);

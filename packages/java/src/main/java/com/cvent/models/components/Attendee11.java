@@ -5,34 +5,903 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
+import java.lang.Boolean;
+import java.lang.Deprecated;
+import java.lang.Double;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Attendee11
  *
- * <p>The associated Attendee.
+ * <p>An event attendee.
  */
 public class Attendee11 {
     /**
-     * Attendee id
+     * The ISO 8601 zoned date time when this record was created.
      */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("created")
+    private OffsetDateTime created;
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("createdBy")
+    private String createdBy;
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModified")
+    private OffsetDateTime lastModified;
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("lastModifiedBy")
+    private String lastModifiedBy;
+
+    /**
+     * The ID of attendee in the given event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
+    /**
+     * The attendee's associated event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("event")
+    private Attendee1Event event;
+
+    /**
+     * The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon
+     * registration for the event. Serves as proof of registration.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("confirmationNumber")
+    private String confirmationNumber;
+
+    /**
+     * Information about attendee contact added to an event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("contact")
+    private AttendeeContactInfo contact;
+
+    /**
+     * True indicates the attendee checked in to the event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("checkedIn")
+    private Boolean checkedIn;
+
+    /**
+     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
+     * the `checkIn` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("checkin")
+    @Deprecated
+    private OffsetDateTime checkin;
+
+    /**
+     * The ISO 8601 zoned date time when attendee was checked in to an event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("checkIn")
+    private OffsetDateTime checkIn;
+
+    /**
+     * The ISO 8601 zoned date time when attendee checked out from an event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("checkOut")
+    private OffsetDateTime checkOut;
+
+    /**
+     * The duration, in milliseconds, the attendee was present at the event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("duration")
+    private Long duration;
+
+    /**
+     * Lookup response object
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("registrationPath")
+    private Lookup registrationPath;
+
+    /**
+     * A Named object
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("invitationList")
+    private NamedObject invitationList;
+
+    /**
+     * Web links for an attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("webLinks")
+    private AttendeeWebLinks webLinks;
+
+    /**
+     * Lookup response object
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("registrationType")
+    private Lookup registrationType;
+
+    /**
+     * The reference ID of an attendee. A planner determined string used to track which link attendee's
+     * used to reach the event registration.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("referenceId")
+    private String referenceId;
+
+    /**
+     * The details of an attendee in an external systems.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("externalReferences")
+    private List<ExternalReference> externalReferences;
+
+    /**
+     * A planner created note for an attendee, used to track details about the attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("note")
+    private String note;
+
+    /**
+     * True indicates the attendee is a guest of another attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("guest")
+    private Boolean guest;
+
+    /**
+     * True indicates this attendee is a deleted guest.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("deletedGuest")
+    private Boolean deletedGuest;
+
+    /**
+     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
+     * attendee is a guest.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("primaryId")
+    private String primaryId;
+
+    /**
+     * An attendee group.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("group")
+    private AttendeeGroup group;
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("administrator")
+    private Uuid administrator;
+
+    /**
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("unsubscribed")
+    @Deprecated
+    private Boolean unsubscribed;
+
+    /**
+     * This is used to denote the status of an attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("status")
+    private AttendeeStatus status;
+
+    /**
+     * The ISO 8601 zoned date time when attendee was registered.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("registeredAt")
+    private OffsetDateTime registeredAt;
+
+    /**
+     * The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when
+     * there are changes to the registration, such as adding or removing products.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("registrationLastModified")
+    private OffsetDateTime registrationLastModified;
+
+    /**
+     * The ISO 8601 zoned date time when attendee registration was cancelled.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("registrationCancelledAt")
+    private OffsetDateTime registrationCancelledAt;
+
+    /**
+     * Method by which the attendee was invited to the event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("invitedBy")
+    private AttendeeInvitedBy1 invitedBy;
+
+    /**
+     * Represents the method by which an attendee registered for the event.
+     *
+     * <p>- Administrator Responded: The invitee was registered by another contact acting as their
+     * administrator.
+     * - API-Responded: The invitee was registered through a custom process configured via an API
+     * integration.
+     * - Appointments Event Website: The invitee registered via an appointments event website.
+     * - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.
+     * - External Registration: The attendee was registered through an external integration, such as
+     * Marketo.
+     * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
+     * - Historical Import: The invitee's registration was imported into the event as historical data.
+     * - Imported: The invitee's registration was imported into the event.
+     * - No Response: The invitee has not registered.
+     * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
+     * - Planner-Imported: An account user imported the invitee's registration into the event.
+     * - Planner-Responded: An account user registered the invitee from the Cvent back-end or the
+     * planner-side of the OnArrival app.
+     * - Post Event: The invitee was registered by an account user after the event's end date or while the
+     * event was in Completed status.
+     * - Self-Responded: The invitee registered themselves through a weblink or invitation.
+     *
+     * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("responseMethod")
+    private AttendeeResponseMethod1 responseMethod;
+
+    /**
+     * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom
+     * contact fields can be found in the 'contact' model, `customFields` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("questions")
+    @Deprecated
+    private List<CustomFieldSchema> questions;
+
+    /**
+     * The list of answers to the registration questions.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("answers")
+    private List<AttendeeAnswer> answers;
+
+    /**
+     * Contains details related to the attendee's admission item.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("admissionItem")
+    private Attendee1Lookup admissionItem;
+
+    /**
+     * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
+     * visible. Public: Their profile is visible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("visibility")
+    private AttendeeVisibility visibility;
+
+    /**
+     * The attendee's biographical writeup.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("bio")
+    private String bio;
+
+    /**
+     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
+     * `allowPushNotification` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("showPopupNotification")
+    @Deprecated
+    private Boolean showPopupNotification;
+
+    /**
+     * An attendee's website URL, appears on their profile.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("websiteUrl")
+    private String websiteUrl;
+
+    /**
+     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
+     * other event activities in the Attendee Hub app.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("allowPushNotifications")
+    private Boolean allowPushNotifications;
+
+    /**
+     * True indicaites attendee will recieve push notifications for appointments related activities in the
+     * Attendee Hub app.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("allowAppointmentPushNotifications")
+    private Boolean allowAppointmentPushNotifications;
+
+    /**
+     * True indicates this attendee record was created as part of a test scenario.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("testRecord")
+    private Boolean testRecord;
+
+    /**
+     * The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified.
+     * Updates to the attendee's contact properties do not update this field. This field is updated when
+     * planners or attendees make changes to the attendee record, such as flagging as a participant.
+     *
+     * <p>It is not updated for registration or product changes.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("attendeeLastModified")
+    private OffsetDateTime attendeeLastModified;
+
+    /**
+     * List of appointment groups associated with attendee. These control permissions and visibility in
+     * appointments associated with the event.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("appointmentGroups")
+    private List<AppointmentGroup> appointmentGroups;
+
+    /**
+     * The amount of credit associated with the attendee.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("credit")
+    private Double credit;
+
     @JsonCreator
-    public Attendee11(@JsonProperty("id") @Nonnull String id) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
+    public Attendee11(
+            @JsonProperty("created") @Nullable OffsetDateTime created,
+            @JsonProperty("createdBy") @Nullable String createdBy,
+            @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
+            @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
+            @JsonProperty("id") @Nullable String id,
+            @JsonProperty("event") @Nullable Attendee1Event event,
+            @JsonProperty("confirmationNumber") @Nullable String confirmationNumber,
+            @JsonProperty("contact") @Nullable AttendeeContactInfo contact,
+            @JsonProperty("checkedIn") @Nullable Boolean checkedIn,
+            @JsonProperty("checkin") @Nullable OffsetDateTime checkin,
+            @JsonProperty("checkIn") @Nullable OffsetDateTime checkIn,
+            @JsonProperty("checkOut") @Nullable OffsetDateTime checkOut,
+            @JsonProperty("duration") @Nullable Long duration,
+            @JsonProperty("registrationPath") @Nullable Lookup registrationPath,
+            @JsonProperty("invitationList") @Nullable NamedObject invitationList,
+            @JsonProperty("webLinks") @Nullable AttendeeWebLinks webLinks,
+            @JsonProperty("registrationType") @Nullable Lookup registrationType,
+            @JsonProperty("referenceId") @Nullable String referenceId,
+            @JsonProperty("externalReferences") @Nullable List<ExternalReference> externalReferences,
+            @JsonProperty("note") @Nullable String note,
+            @JsonProperty("guest") @Nullable Boolean guest,
+            @JsonProperty("deletedGuest") @Nullable Boolean deletedGuest,
+            @JsonProperty("primaryId") @Nullable String primaryId,
+            @JsonProperty("group") @Nullable AttendeeGroup group,
+            @JsonProperty("administrator") @Nullable Uuid administrator,
+            @JsonProperty("unsubscribed") @Nullable Boolean unsubscribed,
+            @JsonProperty("status") @Nullable AttendeeStatus status,
+            @JsonProperty("registeredAt") @Nullable OffsetDateTime registeredAt,
+            @JsonProperty("registrationLastModified") @Nullable OffsetDateTime registrationLastModified,
+            @JsonProperty("registrationCancelledAt") @Nullable OffsetDateTime registrationCancelledAt,
+            @JsonProperty("invitedBy") @Nullable AttendeeInvitedBy1 invitedBy,
+            @JsonProperty("responseMethod") @Nullable AttendeeResponseMethod1 responseMethod,
+            @JsonProperty("questions") @Nullable List<CustomFieldSchema> questions,
+            @JsonProperty("answers") @Nullable List<AttendeeAnswer> answers,
+            @JsonProperty("admissionItem") @Nullable Attendee1Lookup admissionItem,
+            @JsonProperty("visibility") @Nullable AttendeeVisibility visibility,
+            @JsonProperty("bio") @Nullable String bio,
+            @JsonProperty("showPopupNotification") @Nullable Boolean showPopupNotification,
+            @JsonProperty("websiteUrl") @Nullable String websiteUrl,
+            @JsonProperty("allowPushNotifications") @Nullable Boolean allowPushNotifications,
+            @JsonProperty("allowAppointmentPushNotifications") @Nullable Boolean allowAppointmentPushNotifications,
+            @JsonProperty("testRecord") @Nullable Boolean testRecord,
+            @JsonProperty("attendeeLastModified") @Nullable OffsetDateTime attendeeLastModified,
+            @JsonProperty("appointmentGroups") @Nullable List<AppointmentGroup> appointmentGroups,
+            @JsonProperty("credit") @Nullable Double credit) {
+        this.created = created;
+        this.createdBy = createdBy;
+        this.lastModified = lastModified;
+        this.lastModifiedBy = lastModifiedBy;
+        this.id = id;
+        this.event = event;
+        this.confirmationNumber = confirmationNumber;
+        this.contact = contact;
+        this.checkedIn = checkedIn;
+        this.checkin = checkin;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.duration = duration;
+        this.registrationPath = registrationPath;
+        this.invitationList = invitationList;
+        this.webLinks = webLinks;
+        this.registrationType = registrationType;
+        this.referenceId = referenceId;
+        this.externalReferences = externalReferences;
+        this.note = note;
+        this.guest = guest;
+        this.deletedGuest = deletedGuest;
+        this.primaryId = primaryId;
+        this.group = group;
+        this.administrator = administrator;
+        this.unsubscribed = unsubscribed;
+        this.status = status;
+        this.registeredAt = registeredAt;
+        this.registrationLastModified = registrationLastModified;
+        this.registrationCancelledAt = registrationCancelledAt;
+        this.invitedBy = invitedBy;
+        this.responseMethod = responseMethod;
+        this.questions = questions;
+        this.answers = answers;
+        this.admissionItem = admissionItem;
+        this.visibility = visibility;
+        this.bio = bio;
+        this.showPopupNotification = showPopupNotification;
+        this.websiteUrl = websiteUrl;
+        this.allowPushNotifications = allowPushNotifications;
+        this.allowAppointmentPushNotifications = allowAppointmentPushNotifications;
+        this.testRecord = testRecord;
+        this.attendeeLastModified = attendeeLastModified;
+        this.appointmentGroups = appointmentGroups;
+        this.credit = credit;
+    }
+
+    public Attendee11() {
+        this(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
     }
 
     /**
-     * Attendee id
+     * The ISO 8601 zoned date time when this record was created.
      */
-    public String id() {
-        return this.id;
+    public Optional<OffsetDateTime> created() {
+        return Optional.ofNullable(this.created);
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Optional<String> createdBy() {
+        return Optional.ofNullable(this.createdBy);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Optional<OffsetDateTime> lastModified() {
+        return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Optional<String> lastModifiedBy() {
+        return Optional.ofNullable(this.lastModifiedBy);
+    }
+
+    /**
+     * The ID of attendee in the given event.
+     */
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
+    /**
+     * The attendee's associated event.
+     */
+    public Optional<Attendee1Event> event() {
+        return Optional.ofNullable(this.event);
+    }
+
+    /**
+     * The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon
+     * registration for the event. Serves as proof of registration.
+     */
+    public Optional<String> confirmationNumber() {
+        return Optional.ofNullable(this.confirmationNumber);
+    }
+
+    /**
+     * Information about attendee contact added to an event.
+     */
+    public Optional<AttendeeContactInfo> contact() {
+        return Optional.ofNullable(this.contact);
+    }
+
+    /**
+     * True indicates the attendee checked in to the event.
+     */
+    public Optional<Boolean> checkedIn() {
+        return Optional.ofNullable(this.checkedIn);
+    }
+
+    /**
+     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
+     * the `checkIn` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Optional<OffsetDateTime> checkin() {
+        return Optional.ofNullable(this.checkin);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee was checked in to an event.
+     */
+    public Optional<OffsetDateTime> checkIn() {
+        return Optional.ofNullable(this.checkIn);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee checked out from an event.
+     */
+    public Optional<OffsetDateTime> checkOut() {
+        return Optional.ofNullable(this.checkOut);
+    }
+
+    /**
+     * The duration, in milliseconds, the attendee was present at the event.
+     */
+    public Optional<Long> duration() {
+        return Optional.ofNullable(this.duration);
+    }
+
+    /**
+     * Lookup response object
+     */
+    public Optional<Lookup> registrationPath() {
+        return Optional.ofNullable(this.registrationPath);
+    }
+
+    /**
+     * A Named object
+     */
+    public Optional<NamedObject> invitationList() {
+        return Optional.ofNullable(this.invitationList);
+    }
+
+    /**
+     * Web links for an attendee.
+     */
+    public Optional<AttendeeWebLinks> webLinks() {
+        return Optional.ofNullable(this.webLinks);
+    }
+
+    /**
+     * Lookup response object
+     */
+    public Optional<Lookup> registrationType() {
+        return Optional.ofNullable(this.registrationType);
+    }
+
+    /**
+     * The reference ID of an attendee. A planner determined string used to track which link attendee's
+     * used to reach the event registration.
+     */
+    public Optional<String> referenceId() {
+        return Optional.ofNullable(this.referenceId);
+    }
+
+    /**
+     * The details of an attendee in an external systems.
+     */
+    public Optional<List<ExternalReference>> externalReferences() {
+        return Optional.ofNullable(this.externalReferences);
+    }
+
+    /**
+     * A planner created note for an attendee, used to track details about the attendee.
+     */
+    public Optional<String> note() {
+        return Optional.ofNullable(this.note);
+    }
+
+    /**
+     * True indicates the attendee is a guest of another attendee.
+     */
+    public Optional<Boolean> guest() {
+        return Optional.ofNullable(this.guest);
+    }
+
+    /**
+     * True indicates this attendee is a deleted guest.
+     */
+    public Optional<Boolean> deletedGuest() {
+        return Optional.ofNullable(this.deletedGuest);
+    }
+
+    /**
+     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
+     * attendee is a guest.
+     */
+    public Optional<String> primaryId() {
+        return Optional.ofNullable(this.primaryId);
+    }
+
+    /**
+     * An attendee group.
+     */
+    public Optional<AttendeeGroup> group() {
+        return Optional.ofNullable(this.group);
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Optional<Uuid> administrator() {
+        return Optional.ofNullable(this.administrator);
+    }
+
+    /**
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Optional<Boolean> unsubscribed() {
+        return Optional.ofNullable(this.unsubscribed);
+    }
+
+    /**
+     * This is used to denote the status of an attendee.
+     */
+    public Optional<AttendeeStatus> status() {
+        return Optional.ofNullable(this.status);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee was registered.
+     */
+    public Optional<OffsetDateTime> registeredAt() {
+        return Optional.ofNullable(this.registeredAt);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when
+     * there are changes to the registration, such as adding or removing products.
+     */
+    public Optional<OffsetDateTime> registrationLastModified() {
+        return Optional.ofNullable(this.registrationLastModified);
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee registration was cancelled.
+     */
+    public Optional<OffsetDateTime> registrationCancelledAt() {
+        return Optional.ofNullable(this.registrationCancelledAt);
+    }
+
+    /**
+     * Method by which the attendee was invited to the event.
+     */
+    public Optional<AttendeeInvitedBy1> invitedBy() {
+        return Optional.ofNullable(this.invitedBy);
+    }
+
+    /**
+     * Represents the method by which an attendee registered for the event.
+     *
+     * <p>- Administrator Responded: The invitee was registered by another contact acting as their
+     * administrator.
+     * - API-Responded: The invitee was registered through a custom process configured via an API
+     * integration.
+     * - Appointments Event Website: The invitee registered via an appointments event website.
+     * - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.
+     * - External Registration: The attendee was registered through an external integration, such as
+     * Marketo.
+     * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
+     * - Historical Import: The invitee's registration was imported into the event as historical data.
+     * - Imported: The invitee's registration was imported into the event.
+     * - No Response: The invitee has not registered.
+     * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
+     * - Planner-Imported: An account user imported the invitee's registration into the event.
+     * - Planner-Responded: An account user registered the invitee from the Cvent back-end or the
+     * planner-side of the OnArrival app.
+     * - Post Event: The invitee was registered by an account user after the event's end date or while the
+     * event was in Completed status.
+     * - Self-Responded: The invitee registered themselves through a weblink or invitation.
+     *
+     * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
+     */
+    public Optional<AttendeeResponseMethod1> responseMethod() {
+        return Optional.ofNullable(this.responseMethod);
+    }
+
+    /**
+     * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom
+     * contact fields can be found in the 'contact' model, `customFields` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Optional<List<CustomFieldSchema>> questions() {
+        return Optional.ofNullable(this.questions);
+    }
+
+    /**
+     * The list of answers to the registration questions.
+     */
+    public Optional<List<AttendeeAnswer>> answers() {
+        return Optional.ofNullable(this.answers);
+    }
+
+    /**
+     * Contains details related to the attendee's admission item.
+     */
+    public Optional<Attendee1Lookup> admissionItem() {
+        return Optional.ofNullable(this.admissionItem);
+    }
+
+    /**
+     * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
+     * visible. Public: Their profile is visible.
+     */
+    public Optional<AttendeeVisibility> visibility() {
+        return Optional.ofNullable(this.visibility);
+    }
+
+    /**
+     * The attendee's biographical writeup.
+     */
+    public Optional<String> bio() {
+        return Optional.ofNullable(this.bio);
+    }
+
+    /**
+     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
+     * `allowPushNotification` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Optional<Boolean> showPopupNotification() {
+        return Optional.ofNullable(this.showPopupNotification);
+    }
+
+    /**
+     * An attendee's website URL, appears on their profile.
+     */
+    public Optional<String> websiteUrl() {
+        return Optional.ofNullable(this.websiteUrl);
+    }
+
+    /**
+     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
+     * other event activities in the Attendee Hub app.
+     */
+    public Optional<Boolean> allowPushNotifications() {
+        return Optional.ofNullable(this.allowPushNotifications);
+    }
+
+    /**
+     * True indicaites attendee will recieve push notifications for appointments related activities in the
+     * Attendee Hub app.
+     */
+    public Optional<Boolean> allowAppointmentPushNotifications() {
+        return Optional.ofNullable(this.allowAppointmentPushNotifications);
+    }
+
+    /**
+     * True indicates this attendee record was created as part of a test scenario.
+     */
+    public Optional<Boolean> testRecord() {
+        return Optional.ofNullable(this.testRecord);
+    }
+
+    /**
+     * The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified.
+     * Updates to the attendee's contact properties do not update this field. This field is updated when
+     * planners or attendees make changes to the attendee record, such as flagging as a participant.
+     *
+     * <p>It is not updated for registration or product changes.
+     */
+    public Optional<OffsetDateTime> attendeeLastModified() {
+        return Optional.ofNullable(this.attendeeLastModified);
+    }
+
+    /**
+     * List of appointment groups associated with attendee. These control permissions and visibility in
+     * appointments associated with the event.
+     */
+    public Optional<List<AppointmentGroup>> appointmentGroups() {
+        return Optional.ofNullable(this.appointmentGroups);
+    }
+
+    /**
+     * The amount of credit associated with the attendee.
+     */
+    public Optional<Double> credit() {
+        return Optional.ofNullable(this.credit);
     }
 
     public static Builder builder() {
@@ -40,10 +909,415 @@ public class Attendee11 {
     }
 
     /**
-     * Attendee id
+     * The ISO 8601 zoned date time when this record was created.
      */
-    public Attendee11 withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
+    public Attendee11 withCreated(@Nullable OffsetDateTime created) {
+        this.created = created;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that created this record.
+     */
+    public Attendee11 withCreatedBy(@Nullable String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when this record was updated.
+     */
+    public Attendee11 withLastModified(@Nullable OffsetDateTime lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+    /**
+     * The identifier of the user that last updated this record.
+     */
+    public Attendee11 withLastModifiedBy(@Nullable String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+        return this;
+    }
+
+    /**
+     * The ID of attendee in the given event.
+     */
+    public Attendee11 withId(@Nullable String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * The attendee's associated event.
+     */
+    public Attendee11 withEvent(@Nullable Attendee1Event event) {
+        this.event = event;
+        return this;
+    }
+
+    /**
+     * The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon
+     * registration for the event. Serves as proof of registration.
+     */
+    public Attendee11 withConfirmationNumber(@Nullable String confirmationNumber) {
+        this.confirmationNumber = confirmationNumber;
+        return this;
+    }
+
+    /**
+     * Information about attendee contact added to an event.
+     */
+    public Attendee11 withContact(@Nullable AttendeeContactInfo contact) {
+        this.contact = contact;
+        return this;
+    }
+
+    /**
+     * True indicates the attendee checked in to the event.
+     */
+    public Attendee11 withCheckedIn(@Nullable Boolean checkedIn) {
+        this.checkedIn = checkedIn;
+        return this;
+    }
+
+    /**
+     * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
+     * the `checkIn` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Attendee11 withCheckin(@Nullable OffsetDateTime checkin) {
+        this.checkin = checkin;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee was checked in to an event.
+     */
+    public Attendee11 withCheckIn(@Nullable OffsetDateTime checkIn) {
+        this.checkIn = checkIn;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee checked out from an event.
+     */
+    public Attendee11 withCheckOut(@Nullable OffsetDateTime checkOut) {
+        this.checkOut = checkOut;
+        return this;
+    }
+
+    /**
+     * The duration, in milliseconds, the attendee was present at the event.
+     */
+    public Attendee11 withDuration(@Nullable Long duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    /**
+     * Lookup response object
+     */
+    public Attendee11 withRegistrationPath(@Nullable Lookup registrationPath) {
+        this.registrationPath = registrationPath;
+        return this;
+    }
+
+    /**
+     * A Named object
+     */
+    public Attendee11 withInvitationList(@Nullable NamedObject invitationList) {
+        this.invitationList = invitationList;
+        return this;
+    }
+
+    /**
+     * Web links for an attendee.
+     */
+    public Attendee11 withWebLinks(@Nullable AttendeeWebLinks webLinks) {
+        this.webLinks = webLinks;
+        return this;
+    }
+
+    /**
+     * Lookup response object
+     */
+    public Attendee11 withRegistrationType(@Nullable Lookup registrationType) {
+        this.registrationType = registrationType;
+        return this;
+    }
+
+    /**
+     * The reference ID of an attendee. A planner determined string used to track which link attendee's
+     * used to reach the event registration.
+     */
+    public Attendee11 withReferenceId(@Nullable String referenceId) {
+        this.referenceId = referenceId;
+        return this;
+    }
+
+    /**
+     * The details of an attendee in an external systems.
+     */
+    public Attendee11 withExternalReferences(@Nullable List<ExternalReference> externalReferences) {
+        this.externalReferences = externalReferences;
+        return this;
+    }
+
+    /**
+     * A planner created note for an attendee, used to track details about the attendee.
+     */
+    public Attendee11 withNote(@Nullable String note) {
+        this.note = note;
+        return this;
+    }
+
+    /**
+     * True indicates the attendee is a guest of another attendee.
+     */
+    public Attendee11 withGuest(@Nullable Boolean guest) {
+        this.guest = guest;
+        return this;
+    }
+
+    /**
+     * True indicates this attendee is a deleted guest.
+     */
+    public Attendee11 withDeletedGuest(@Nullable Boolean deletedGuest) {
+        this.deletedGuest = deletedGuest;
+        return this;
+    }
+
+    /**
+     * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
+     * attendee is a guest.
+     */
+    public Attendee11 withPrimaryId(@Nullable String primaryId) {
+        this.primaryId = primaryId;
+        return this;
+    }
+
+    /**
+     * An attendee group.
+     */
+    public Attendee11 withGroup(@Nullable AttendeeGroup group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * The reference to the related entity. Contains only the ID of the related entity.
+     */
+    public Attendee11 withAdministrator(@Nullable Uuid administrator) {
+        this.administrator = administrator;
+        return this;
+    }
+
+    /**
+     * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+     * receive emails triggered by their own actions (like registration modification). This field has been
+     * deprecated.
+     *
+     * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Attendee11 withUnsubscribed(@Nullable Boolean unsubscribed) {
+        this.unsubscribed = unsubscribed;
+        return this;
+    }
+
+    /**
+     * This is used to denote the status of an attendee.
+     */
+    public Attendee11 withStatus(@Nullable AttendeeStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee was registered.
+     */
+    public Attendee11 withRegisteredAt(@Nullable OffsetDateTime registeredAt) {
+        this.registeredAt = registeredAt;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when
+     * there are changes to the registration, such as adding or removing products.
+     */
+    public Attendee11 withRegistrationLastModified(@Nullable OffsetDateTime registrationLastModified) {
+        this.registrationLastModified = registrationLastModified;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date time when attendee registration was cancelled.
+     */
+    public Attendee11 withRegistrationCancelledAt(@Nullable OffsetDateTime registrationCancelledAt) {
+        this.registrationCancelledAt = registrationCancelledAt;
+        return this;
+    }
+
+    /**
+     * Method by which the attendee was invited to the event.
+     */
+    public Attendee11 withInvitedBy(@Nullable AttendeeInvitedBy1 invitedBy) {
+        this.invitedBy = invitedBy;
+        return this;
+    }
+
+    /**
+     * Represents the method by which an attendee registered for the event.
+     *
+     * <p>- Administrator Responded: The invitee was registered by another contact acting as their
+     * administrator.
+     * - API-Responded: The invitee was registered through a custom process configured via an API
+     * integration.
+     * - Appointments Event Website: The invitee registered via an appointments event website.
+     * - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.
+     * - External Registration: The attendee was registered through an external integration, such as
+     * Marketo.
+     * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
+     * - Historical Import: The invitee's registration was imported into the event as historical data.
+     * - Imported: The invitee's registration was imported into the event.
+     * - No Response: The invitee has not registered.
+     * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
+     * - Planner-Imported: An account user imported the invitee's registration into the event.
+     * - Planner-Responded: An account user registered the invitee from the Cvent back-end or the
+     * planner-side of the OnArrival app.
+     * - Post Event: The invitee was registered by an account user after the event's end date or while the
+     * event was in Completed status.
+     * - Self-Responded: The invitee registered themselves through a weblink or invitation.
+     *
+     * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
+     */
+    public Attendee11 withResponseMethod(@Nullable AttendeeResponseMethod1 responseMethod) {
+        this.responseMethod = responseMethod;
+        return this;
+    }
+
+    /**
+     * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom
+     * contact fields can be found in the 'contact' model, `customFields` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Attendee11 withQuestions(@Nullable List<CustomFieldSchema> questions) {
+        this.questions = questions;
+        return this;
+    }
+
+    /**
+     * The list of answers to the registration questions.
+     */
+    public Attendee11 withAnswers(@Nullable List<AttendeeAnswer> answers) {
+        this.answers = answers;
+        return this;
+    }
+
+    /**
+     * Contains details related to the attendee's admission item.
+     */
+    public Attendee11 withAdmissionItem(@Nullable Attendee1Lookup admissionItem) {
+        this.admissionItem = admissionItem;
+        return this;
+    }
+
+    /**
+     * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
+     * visible. Public: Their profile is visible.
+     */
+    public Attendee11 withVisibility(@Nullable AttendeeVisibility visibility) {
+        this.visibility = visibility;
+        return this;
+    }
+
+    /**
+     * The attendee's biographical writeup.
+     */
+    public Attendee11 withBio(@Nullable String bio) {
+        this.bio = bio;
+        return this;
+    }
+
+    /**
+     * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
+     * `allowPushNotification` field instead.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
+    @Deprecated
+    public Attendee11 withShowPopupNotification(@Nullable Boolean showPopupNotification) {
+        this.showPopupNotification = showPopupNotification;
+        return this;
+    }
+
+    /**
+     * An attendee's website URL, appears on their profile.
+     */
+    public Attendee11 withWebsiteUrl(@Nullable String websiteUrl) {
+        this.websiteUrl = websiteUrl;
+        return this;
+    }
+
+    /**
+     * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
+     * other event activities in the Attendee Hub app.
+     */
+    public Attendee11 withAllowPushNotifications(@Nullable Boolean allowPushNotifications) {
+        this.allowPushNotifications = allowPushNotifications;
+        return this;
+    }
+
+    /**
+     * True indicaites attendee will recieve push notifications for appointments related activities in the
+     * Attendee Hub app.
+     */
+    public Attendee11 withAllowAppointmentPushNotifications(@Nullable Boolean allowAppointmentPushNotifications) {
+        this.allowAppointmentPushNotifications = allowAppointmentPushNotifications;
+        return this;
+    }
+
+    /**
+     * True indicates this attendee record was created as part of a test scenario.
+     */
+    public Attendee11 withTestRecord(@Nullable Boolean testRecord) {
+        this.testRecord = testRecord;
+        return this;
+    }
+
+    /**
+     * The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified.
+     * Updates to the attendee's contact properties do not update this field. This field is updated when
+     * planners or attendees make changes to the attendee record, such as flagging as a participant.
+     *
+     * <p>It is not updated for registration or product changes.
+     */
+    public Attendee11 withAttendeeLastModified(@Nullable OffsetDateTime attendeeLastModified) {
+        this.attendeeLastModified = attendeeLastModified;
+        return this;
+    }
+
+    /**
+     * List of appointment groups associated with attendee. These control permissions and visibility in
+     * appointments associated with the event.
+     */
+    public Attendee11 withAppointmentGroups(@Nullable List<AppointmentGroup> appointmentGroups) {
+        this.appointmentGroups = appointmentGroups;
+        return this;
+    }
+
+    /**
+     * The amount of credit associated with the attendee.
+     */
+    public Attendee11 withCredit(@Nullable Double credit) {
+        this.credit = credit;
         return this;
     }
 
@@ -56,38 +1330,760 @@ public class Attendee11 {
             return false;
         }
         Attendee11 other = (Attendee11) o;
-        return Utils.enhancedDeepEquals(this.id, other.id);
+        return Utils.enhancedDeepEquals(this.created, other.created)
+                && Utils.enhancedDeepEquals(this.createdBy, other.createdBy)
+                && Utils.enhancedDeepEquals(this.lastModified, other.lastModified)
+                && Utils.enhancedDeepEquals(this.lastModifiedBy, other.lastModifiedBy)
+                && Utils.enhancedDeepEquals(this.id, other.id)
+                && Utils.enhancedDeepEquals(this.event, other.event)
+                && Utils.enhancedDeepEquals(this.confirmationNumber, other.confirmationNumber)
+                && Utils.enhancedDeepEquals(this.contact, other.contact)
+                && Utils.enhancedDeepEquals(this.checkedIn, other.checkedIn)
+                && Utils.enhancedDeepEquals(this.checkin, other.checkin)
+                && Utils.enhancedDeepEquals(this.checkIn, other.checkIn)
+                && Utils.enhancedDeepEquals(this.checkOut, other.checkOut)
+                && Utils.enhancedDeepEquals(this.duration, other.duration)
+                && Utils.enhancedDeepEquals(this.registrationPath, other.registrationPath)
+                && Utils.enhancedDeepEquals(this.invitationList, other.invitationList)
+                && Utils.enhancedDeepEquals(this.webLinks, other.webLinks)
+                && Utils.enhancedDeepEquals(this.registrationType, other.registrationType)
+                && Utils.enhancedDeepEquals(this.referenceId, other.referenceId)
+                && Utils.enhancedDeepEquals(this.externalReferences, other.externalReferences)
+                && Utils.enhancedDeepEquals(this.note, other.note)
+                && Utils.enhancedDeepEquals(this.guest, other.guest)
+                && Utils.enhancedDeepEquals(this.deletedGuest, other.deletedGuest)
+                && Utils.enhancedDeepEquals(this.primaryId, other.primaryId)
+                && Utils.enhancedDeepEquals(this.group, other.group)
+                && Utils.enhancedDeepEquals(this.administrator, other.administrator)
+                && Utils.enhancedDeepEquals(this.unsubscribed, other.unsubscribed)
+                && Utils.enhancedDeepEquals(this.status, other.status)
+                && Utils.enhancedDeepEquals(this.registeredAt, other.registeredAt)
+                && Utils.enhancedDeepEquals(this.registrationLastModified, other.registrationLastModified)
+                && Utils.enhancedDeepEquals(this.registrationCancelledAt, other.registrationCancelledAt)
+                && Utils.enhancedDeepEquals(this.invitedBy, other.invitedBy)
+                && Utils.enhancedDeepEquals(this.responseMethod, other.responseMethod)
+                && Utils.enhancedDeepEquals(this.questions, other.questions)
+                && Utils.enhancedDeepEquals(this.answers, other.answers)
+                && Utils.enhancedDeepEquals(this.admissionItem, other.admissionItem)
+                && Utils.enhancedDeepEquals(this.visibility, other.visibility)
+                && Utils.enhancedDeepEquals(this.bio, other.bio)
+                && Utils.enhancedDeepEquals(this.showPopupNotification, other.showPopupNotification)
+                && Utils.enhancedDeepEquals(this.websiteUrl, other.websiteUrl)
+                && Utils.enhancedDeepEquals(this.allowPushNotifications, other.allowPushNotifications)
+                && Utils.enhancedDeepEquals(this.allowAppointmentPushNotifications, other.allowAppointmentPushNotifications)
+                && Utils.enhancedDeepEquals(this.testRecord, other.testRecord)
+                && Utils.enhancedDeepEquals(this.attendeeLastModified, other.attendeeLastModified)
+                && Utils.enhancedDeepEquals(this.appointmentGroups, other.appointmentGroups)
+                && Utils.enhancedDeepEquals(this.credit, other.credit);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id);
+        return Utils.enhancedHash(
+                created,
+                createdBy,
+                lastModified,
+                lastModifiedBy,
+                id,
+                event,
+                confirmationNumber,
+                contact,
+                checkedIn,
+                checkin,
+                checkIn,
+                checkOut,
+                duration,
+                registrationPath,
+                invitationList,
+                webLinks,
+                registrationType,
+                referenceId,
+                externalReferences,
+                note,
+                guest,
+                deletedGuest,
+                primaryId,
+                group,
+                administrator,
+                unsubscribed,
+                status,
+                registeredAt,
+                registrationLastModified,
+                registrationCancelledAt,
+                invitedBy,
+                responseMethod,
+                questions,
+                answers,
+                admissionItem,
+                visibility,
+                bio,
+                showPopupNotification,
+                websiteUrl,
+                allowPushNotifications,
+                allowAppointmentPushNotifications,
+                testRecord,
+                attendeeLastModified,
+                appointmentGroups,
+                credit);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Attendee11.class, "id", id);
+        return Utils.toString(
+                Attendee11.class,
+                "created",
+                created,
+                "createdBy",
+                createdBy,
+                "lastModified",
+                lastModified,
+                "lastModifiedBy",
+                lastModifiedBy,
+                "id",
+                id,
+                "event",
+                event,
+                "confirmationNumber",
+                confirmationNumber,
+                "contact",
+                contact,
+                "checkedIn",
+                checkedIn,
+                "checkin",
+                checkin,
+                "checkIn",
+                checkIn,
+                "checkOut",
+                checkOut,
+                "duration",
+                duration,
+                "registrationPath",
+                registrationPath,
+                "invitationList",
+                invitationList,
+                "webLinks",
+                webLinks,
+                "registrationType",
+                registrationType,
+                "referenceId",
+                referenceId,
+                "externalReferences",
+                externalReferences,
+                "note",
+                note,
+                "guest",
+                guest,
+                "deletedGuest",
+                deletedGuest,
+                "primaryId",
+                primaryId,
+                "group",
+                group,
+                "administrator",
+                administrator,
+                "unsubscribed",
+                unsubscribed,
+                "status",
+                status,
+                "registeredAt",
+                registeredAt,
+                "registrationLastModified",
+                registrationLastModified,
+                "registrationCancelledAt",
+                registrationCancelledAt,
+                "invitedBy",
+                invitedBy,
+                "responseMethod",
+                responseMethod,
+                "questions",
+                questions,
+                "answers",
+                answers,
+                "admissionItem",
+                admissionItem,
+                "visibility",
+                visibility,
+                "bio",
+                bio,
+                "showPopupNotification",
+                showPopupNotification,
+                "websiteUrl",
+                websiteUrl,
+                "allowPushNotifications",
+                allowPushNotifications,
+                "allowAppointmentPushNotifications",
+                allowAppointmentPushNotifications,
+                "testRecord",
+                testRecord,
+                "attendeeLastModified",
+                attendeeLastModified,
+                "appointmentGroups",
+                appointmentGroups,
+                "credit",
+                credit);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
+        private OffsetDateTime created;
+
+        private String createdBy;
+
+        private OffsetDateTime lastModified;
+
+        private String lastModifiedBy;
+
         private String id;
+
+        private Attendee1Event event;
+
+        private String confirmationNumber;
+
+        private AttendeeContactInfo contact;
+
+        private Boolean checkedIn;
+
+        @Deprecated
+        private OffsetDateTime checkin;
+
+        private OffsetDateTime checkIn;
+
+        private OffsetDateTime checkOut;
+
+        private Long duration;
+
+        private Lookup registrationPath;
+
+        private NamedObject invitationList;
+
+        private AttendeeWebLinks webLinks;
+
+        private Lookup registrationType;
+
+        private String referenceId;
+
+        private List<ExternalReference> externalReferences;
+
+        private String note;
+
+        private Boolean guest;
+
+        private Boolean deletedGuest;
+
+        private String primaryId;
+
+        private AttendeeGroup group;
+
+        private Uuid administrator;
+
+        @Deprecated
+        private Boolean unsubscribed;
+
+        private AttendeeStatus status;
+
+        private OffsetDateTime registeredAt;
+
+        private OffsetDateTime registrationLastModified;
+
+        private OffsetDateTime registrationCancelledAt;
+
+        private AttendeeInvitedBy1 invitedBy;
+
+        private AttendeeResponseMethod1 responseMethod;
+
+        @Deprecated
+        private List<CustomFieldSchema> questions;
+
+        private List<AttendeeAnswer> answers;
+
+        private Attendee1Lookup admissionItem;
+
+        private AttendeeVisibility visibility;
+
+        private String bio;
+
+        @Deprecated
+        private Boolean showPopupNotification;
+
+        private String websiteUrl;
+
+        private Boolean allowPushNotifications;
+
+        private Boolean allowAppointmentPushNotifications;
+
+        private Boolean testRecord;
+
+        private OffsetDateTime attendeeLastModified;
+
+        private List<AppointmentGroup> appointmentGroups;
+
+        private Double credit;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Attendee id
+         * The ISO 8601 zoned date time when this record was created.
          */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
+        public Builder created(@Nullable OffsetDateTime created) {
+            this.created = created;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that created this record.
+         */
+        public Builder createdBy(@Nullable String createdBy) {
+            this.createdBy = createdBy;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when this record was updated.
+         */
+        public Builder lastModified(@Nullable OffsetDateTime lastModified) {
+            this.lastModified = lastModified;
+            return this;
+        }
+
+        /**
+         * The identifier of the user that last updated this record.
+         */
+        public Builder lastModifiedBy(@Nullable String lastModifiedBy) {
+            this.lastModifiedBy = lastModifiedBy;
+            return this;
+        }
+
+        /**
+         * The ID of attendee in the given event.
+         */
+        public Builder id(@Nullable String id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * The attendee's associated event.
+         */
+        public Builder event(@Nullable Attendee1Event event) {
+            this.event = event;
+            return this;
+        }
+
+        /**
+         * The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon
+         * registration for the event. Serves as proof of registration.
+         */
+        public Builder confirmationNumber(@Nullable String confirmationNumber) {
+            this.confirmationNumber = confirmationNumber;
+            return this;
+        }
+
+        /**
+         * Information about attendee contact added to an event.
+         */
+        public Builder contact(@Nullable AttendeeContactInfo contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        /**
+         * True indicates the attendee checked in to the event.
+         */
+        public Builder checkedIn(@Nullable Boolean checkedIn) {
+            this.checkedIn = checkedIn;
+            return this;
+        }
+
+        /**
+         * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use
+         * the `checkIn` field instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         */
+        @Deprecated
+        public Builder checkin(@Nullable OffsetDateTime checkin) {
+            this.checkin = checkin;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when attendee was checked in to an event.
+         */
+        public Builder checkIn(@Nullable OffsetDateTime checkIn) {
+            this.checkIn = checkIn;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when attendee checked out from an event.
+         */
+        public Builder checkOut(@Nullable OffsetDateTime checkOut) {
+            this.checkOut = checkOut;
+            return this;
+        }
+
+        /**
+         * The duration, in milliseconds, the attendee was present at the event.
+         */
+        public Builder duration(@Nullable Long duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        /**
+         * Lookup response object
+         */
+        public Builder registrationPath(@Nullable Lookup registrationPath) {
+            this.registrationPath = registrationPath;
+            return this;
+        }
+
+        /**
+         * A Named object
+         */
+        public Builder invitationList(@Nullable NamedObject invitationList) {
+            this.invitationList = invitationList;
+            return this;
+        }
+
+        /**
+         * Web links for an attendee.
+         */
+        public Builder webLinks(@Nullable AttendeeWebLinks webLinks) {
+            this.webLinks = webLinks;
+            return this;
+        }
+
+        /**
+         * Lookup response object
+         */
+        public Builder registrationType(@Nullable Lookup registrationType) {
+            this.registrationType = registrationType;
+            return this;
+        }
+
+        /**
+         * The reference ID of an attendee. A planner determined string used to track which link attendee's
+         * used to reach the event registration.
+         */
+        public Builder referenceId(@Nullable String referenceId) {
+            this.referenceId = referenceId;
+            return this;
+        }
+
+        /**
+         * The details of an attendee in an external systems.
+         */
+        public Builder externalReferences(@Nullable List<ExternalReference> externalReferences) {
+            this.externalReferences = externalReferences;
+            return this;
+        }
+
+        /**
+         * A planner created note for an attendee, used to track details about the attendee.
+         */
+        public Builder note(@Nullable String note) {
+            this.note = note;
+            return this;
+        }
+
+        /**
+         * True indicates the attendee is a guest of another attendee.
+         */
+        public Builder guest(@Nullable Boolean guest) {
+            this.guest = guest;
+            return this;
+        }
+
+        /**
+         * True indicates this attendee is a deleted guest.
+         */
+        public Builder deletedGuest(@Nullable Boolean deletedGuest) {
+            this.deletedGuest = deletedGuest;
+            return this;
+        }
+
+        /**
+         * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this
+         * attendee is a guest.
+         */
+        public Builder primaryId(@Nullable String primaryId) {
+            this.primaryId = primaryId;
+            return this;
+        }
+
+        /**
+         * An attendee group.
+         */
+        public Builder group(@Nullable AttendeeGroup group) {
+            this.group = group;
+            return this;
+        }
+
+        /**
+         * The reference to the related entity. Contains only the ID of the related entity.
+         */
+        public Builder administrator(@Nullable Uuid administrator) {
+            this.administrator = administrator;
+            return this;
+        }
+
+        /**
+         * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still
+         * receive emails triggered by their own actions (like registration modification). This field has been
+         * deprecated.
+         *
+         * <p>Please use PUT /attendees/{id}/email-subscriptions instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         */
+        @Deprecated
+        public Builder unsubscribed(@Nullable Boolean unsubscribed) {
+            this.unsubscribed = unsubscribed;
+            return this;
+        }
+
+        /**
+         * This is used to denote the status of an attendee.
+         */
+        public Builder status(@Nullable AttendeeStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when attendee was registered.
+         */
+        public Builder registeredAt(@Nullable OffsetDateTime registeredAt) {
+            this.registeredAt = registeredAt;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when
+         * there are changes to the registration, such as adding or removing products.
+         */
+        public Builder registrationLastModified(@Nullable OffsetDateTime registrationLastModified) {
+            this.registrationLastModified = registrationLastModified;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date time when attendee registration was cancelled.
+         */
+        public Builder registrationCancelledAt(@Nullable OffsetDateTime registrationCancelledAt) {
+            this.registrationCancelledAt = registrationCancelledAt;
+            return this;
+        }
+
+        /**
+         * Method by which the attendee was invited to the event.
+         */
+        public Builder invitedBy(@Nullable AttendeeInvitedBy1 invitedBy) {
+            this.invitedBy = invitedBy;
+            return this;
+        }
+
+        /**
+         * Represents the method by which an attendee registered for the event.
+         *
+         * <p>- Administrator Responded: The invitee was registered by another contact acting as their
+         * administrator.
+         * - API-Responded: The invitee was registered through a custom process configured via an API
+         * integration.
+         * - Appointments Event Website: The invitee registered via an appointments event website.
+         * - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.
+         * - External Registration: The attendee was registered through an external integration, such as
+         * Marketo.
+         * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
+         * - Historical Import: The invitee's registration was imported into the event as historical data.
+         * - Imported: The invitee's registration was imported into the event.
+         * - No Response: The invitee has not registered.
+         * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
+         * - Planner-Imported: An account user imported the invitee's registration into the event.
+         * - Planner-Responded: An account user registered the invitee from the Cvent back-end or the
+         * planner-side of the OnArrival app.
+         * - Post Event: The invitee was registered by an account user after the event's end date or while the
+         * event was in Completed status.
+         * - Self-Responded: The invitee registered themselves through a weblink or invitation.
+         *
+         * <p>Note: The responseMethod can only be set if the invitee's status is No Response.
+         */
+        public Builder responseMethod(@Nullable AttendeeResponseMethod1 responseMethod) {
+            this.responseMethod = responseMethod;
+            return this;
+        }
+
+        /**
+         * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom
+         * contact fields can be found in the 'contact' model, `customFields` field instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         */
+        @Deprecated
+        public Builder questions(@Nullable List<CustomFieldSchema> questions) {
+            this.questions = questions;
+            return this;
+        }
+
+        /**
+         * The list of answers to the registration questions.
+         */
+        public Builder answers(@Nullable List<AttendeeAnswer> answers) {
+            this.answers = answers;
+            return this;
+        }
+
+        /**
+         * Contains details related to the attendee's admission item.
+         */
+        public Builder admissionItem(@Nullable Attendee1Lookup admissionItem) {
+            this.admissionItem = admissionItem;
+            return this;
+        }
+
+        /**
+         * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not
+         * visible. Public: Their profile is visible.
+         */
+        public Builder visibility(@Nullable AttendeeVisibility visibility) {
+            this.visibility = visibility;
+            return this;
+        }
+
+        /**
+         * The attendee's biographical writeup.
+         */
+        public Builder bio(@Nullable String bio) {
+            this.bio = bio;
+            return this;
+        }
+
+        /**
+         * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use
+         * `allowPushNotification` field instead.
+         *
+         * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+         */
+        @Deprecated
+        public Builder showPopupNotification(@Nullable Boolean showPopupNotification) {
+            this.showPopupNotification = showPopupNotification;
+            return this;
+        }
+
+        /**
+         * An attendee's website URL, appears on their profile.
+         */
+        public Builder websiteUrl(@Nullable String websiteUrl) {
+            this.websiteUrl = websiteUrl;
+            return this;
+        }
+
+        /**
+         * True indicates attendee will recieve push notifications for session-schedule changes, promotions and
+         * other event activities in the Attendee Hub app.
+         */
+        public Builder allowPushNotifications(@Nullable Boolean allowPushNotifications) {
+            this.allowPushNotifications = allowPushNotifications;
+            return this;
+        }
+
+        /**
+         * True indicaites attendee will recieve push notifications for appointments related activities in the
+         * Attendee Hub app.
+         */
+        public Builder allowAppointmentPushNotifications(@Nullable Boolean allowAppointmentPushNotifications) {
+            this.allowAppointmentPushNotifications = allowAppointmentPushNotifications;
+            return this;
+        }
+
+        /**
+         * True indicates this attendee record was created as part of a test scenario.
+         */
+        public Builder testRecord(@Nullable Boolean testRecord) {
+            this.testRecord = testRecord;
+            return this;
+        }
+
+        /**
+         * The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified.
+         * Updates to the attendee's contact properties do not update this field. This field is updated when
+         * planners or attendees make changes to the attendee record, such as flagging as a participant.
+         *
+         * <p>It is not updated for registration or product changes.
+         */
+        public Builder attendeeLastModified(@Nullable OffsetDateTime attendeeLastModified) {
+            this.attendeeLastModified = attendeeLastModified;
+            return this;
+        }
+
+        /**
+         * List of appointment groups associated with attendee. These control permissions and visibility in
+         * appointments associated with the event.
+         */
+        public Builder appointmentGroups(@Nullable List<AppointmentGroup> appointmentGroups) {
+            this.appointmentGroups = appointmentGroups;
+            return this;
+        }
+
+        /**
+         * The amount of credit associated with the attendee.
+         */
+        public Builder credit(@Nullable Double credit) {
+            this.credit = credit;
             return this;
         }
 
         public Attendee11 build() {
-            return new Attendee11(id);
+            return new Attendee11(
+                    created,
+                    createdBy,
+                    lastModified,
+                    lastModifiedBy,
+                    id,
+                    event,
+                    confirmationNumber,
+                    contact,
+                    checkedIn,
+                    checkin,
+                    checkIn,
+                    checkOut,
+                    duration,
+                    registrationPath,
+                    invitationList,
+                    webLinks,
+                    registrationType,
+                    referenceId,
+                    externalReferences,
+                    note,
+                    guest,
+                    deletedGuest,
+                    primaryId,
+                    group,
+                    administrator,
+                    unsubscribed,
+                    status,
+                    registeredAt,
+                    registrationLastModified,
+                    registrationCancelledAt,
+                    invitedBy,
+                    responseMethod,
+                    questions,
+                    answers,
+                    admissionItem,
+                    visibility,
+                    bio,
+                    showPopupNotification,
+                    websiteUrl,
+                    allowPushNotifications,
+                    allowAppointmentPushNotifications,
+                    testRecord,
+                    attendeeLastModified,
+                    appointmentGroups,
+                    credit);
         }
     }
 }

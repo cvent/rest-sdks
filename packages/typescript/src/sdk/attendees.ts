@@ -114,7 +114,7 @@ export class Attendees extends ClientSDK {
   async getAttendeeById(
     request: operations.GetAttendeeByIdRequest,
     options?: RequestOptions,
-  ): Promise<components.Attendee1> {
+  ): Promise<components.Attendee11> {
     return unwrapAsync(attendeesGetAttendeeById(
       this,
       request,
@@ -133,7 +133,7 @@ export class Attendees extends ClientSDK {
   async updateAttendee(
     request: operations.UpdateAttendeeRequest,
     options?: RequestOptions,
-  ): Promise<components.Attendee1> {
+  ): Promise<components.Attendee11> {
     return unwrapAsync(attendeesUpdateAttendee(
       this,
       request,

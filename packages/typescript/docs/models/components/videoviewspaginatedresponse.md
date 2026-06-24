@@ -45,7 +45,7 @@ let value: VideoViewsPaginatedResponse = {
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `paging`                                                               | [components.PagingJson](../../models/components/pagingjson.md)         | :heavy_minus_sign:                                                     | Represents pagination information for a collection of resources.       |
-| `data`                                                                 | [components.VideoViewJson](../../models/components/videoviewjson.md)[] | :heavy_minus_sign:                                                     | List of unique video views.                                            |
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `paging`                                                         | [components.Paging](../../models/components/paging.md)           | :heavy_minus_sign:                                               | Represents pagination information for a collection of resources. |
+| `data`                                                           | [components.VideoView](../../models/components/videoview.md)[]   | :heavy_minus_sign:                                               | List of unique video views.                                      |

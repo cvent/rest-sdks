@@ -6,10 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Attendee11, Attendee11$inboundSchema } from "./attendee11.js";
+import { Attendee12, Attendee12$inboundSchema } from "./attendee12.js";
 import { BadgeStatus, BadgeStatus$inboundSchema } from "./badgestatus.js";
 import { BadgeType, BadgeType$inboundSchema } from "./badgetype.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 
 /**
  * A JSON Schema for Badge object.
@@ -46,11 +46,11 @@ export type Badge = {
   /**
    * The associated Attendee.
    */
-  attendee: Attendee11;
+  attendee: Attendee12;
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
 };
 
 /** @internal */
@@ -66,8 +66,8 @@ export const Badge$inboundSchema: z.ZodType<Badge, z.ZodTypeDef, unknown> = z
     id: z.string(),
     status: BadgeStatus$inboundSchema,
     type: BadgeType$inboundSchema,
-    attendee: Attendee11$inboundSchema,
-    event: Event21$inboundSchema,
+    attendee: Attendee12$inboundSchema,
+    event: Event3$inboundSchema,
   });
 
 export function badgeFromJSON(

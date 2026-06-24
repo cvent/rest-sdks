@@ -3,249 +3,37 @@
  */
 package com.cvent.models.components;
 
-import com.cvent.utils.Utils;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
-import java.lang.Boolean;
-import java.lang.Override;
+import com.fasterxml.jackson.annotation.JsonValue;
 import java.lang.String;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
  * ContactTypeJson
  *
- * <p>This entity represents a contact type at contact level.
+ * <p>The contact types used for the proposal.
  */
-public class ContactTypeJson {
-    /**
-     * The ID of the contact type.
-     */
-    @JsonProperty("id")
-    private String id;
+public enum ContactTypeJson {
+    PRIMARY("PRIMARY"),
+    SECONDARY("SECONDARY");
 
-    /**
-     * The contact type code. Must be unique in the account.
-     */
-    @JsonProperty("code")
-    private String code;
+    @JsonValue
+    private final String value;
 
-    /**
-     * Name of the contact type.
-     */
-    @JsonProperty("name")
-    private String name;
-
-    /**
-     * Description of the contact type.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("description")
-    private String description;
-
-    /**
-     * Indicates whether the contact type is active.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("active")
-    private Boolean active;
-
-    @JsonCreator
-    public ContactTypeJson(
-            @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("code") @Nonnull String code,
-            @JsonProperty("name") @Nonnull String name,
-            @JsonProperty("description") @Nullable String description,
-            @JsonProperty("active") @Nullable Boolean active) {
-        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
-        this.code = Optional.ofNullable(code).orElseThrow(() -> new IllegalArgumentException("code cannot be null"));
-        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
-        this.description = description;
-        this.active = active;
+    ContactTypeJson(String value) {
+        this.value = value;
     }
 
-    public ContactTypeJson(@Nonnull String id, @Nonnull String code, @Nonnull String name) {
-        this(id, code, name, null, null);
+    public String value() {
+        return value;
     }
 
-    /**
-     * The ID of the contact type.
-     */
-    public String id() {
-        return this.id;
-    }
-
-    /**
-     * The contact type code. Must be unique in the account.
-     */
-    public String code() {
-        return this.code;
-    }
-
-    /**
-     * Name of the contact type.
-     */
-    public String name() {
-        return this.name;
-    }
-
-    /**
-     * Description of the contact type.
-     */
-    public Optional<String> description() {
-        return Optional.ofNullable(this.description);
-    }
-
-    /**
-     * Indicates whether the contact type is active.
-     */
-    public Optional<Boolean> active() {
-        return Optional.ofNullable(this.active);
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    /**
-     * The ID of the contact type.
-     */
-    public ContactTypeJson withId(@Nonnull String id) {
-        this.id = Utils.checkNotNull(id, "id");
-        return this;
-    }
-
-    /**
-     * The contact type code. Must be unique in the account.
-     */
-    public ContactTypeJson withCode(@Nonnull String code) {
-        this.code = Utils.checkNotNull(code, "code");
-        return this;
-    }
-
-    /**
-     * Name of the contact type.
-     */
-    public ContactTypeJson withName(@Nonnull String name) {
-        this.name = Utils.checkNotNull(name, "name");
-        return this;
-    }
-
-    /**
-     * Description of the contact type.
-     */
-    public ContactTypeJson withDescription(@Nullable String description) {
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Indicates whether the contact type is active.
-     */
-    public ContactTypeJson withActive(@Nullable Boolean active) {
-        this.active = active;
-        return this;
-    }
-
-    @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
-            return true;
+    public static Optional<ContactTypeJson> fromValue(String value) {
+        for (ContactTypeJson o : ContactTypeJson.values()) {
+            if (Objects.deepEquals(o.value, value)) {
+                return Optional.of(o);
+            }
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ContactTypeJson other = (ContactTypeJson) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.code, other.code)
-                && Utils.enhancedDeepEquals(this.name, other.name)
-                && Utils.enhancedDeepEquals(this.description, other.description)
-                && Utils.enhancedDeepEquals(this.active, other.active);
-    }
-
-    @Override
-    public int hashCode() {
-        return Utils.enhancedHash(id, code, name, description, active);
-    }
-
-    @Override
-    public String toString() {
-        return Utils.toString(
-                ContactTypeJson.class,
-                "id",
-                id,
-                "code",
-                code,
-                "name",
-                name,
-                "description",
-                description,
-                "active",
-                active);
-    }
-
-    @SuppressWarnings("UnusedReturnValue")
-    public static final class Builder {
-
-        private String id;
-
-        private String code;
-
-        private String name;
-
-        private String description;
-
-        private Boolean active;
-
-        private Builder() {
-            // force use of static builder() method
-        }
-
-        /**
-         * The ID of the contact type.
-         */
-        public Builder id(@Nonnull String id) {
-            this.id = Utils.checkNotNull(id, "id");
-            return this;
-        }
-
-        /**
-         * The contact type code. Must be unique in the account.
-         */
-        public Builder code(@Nonnull String code) {
-            this.code = Utils.checkNotNull(code, "code");
-            return this;
-        }
-
-        /**
-         * Name of the contact type.
-         */
-        public Builder name(@Nonnull String name) {
-            this.name = Utils.checkNotNull(name, "name");
-            return this;
-        }
-
-        /**
-         * Description of the contact type.
-         */
-        public Builder description(@Nullable String description) {
-            this.description = description;
-            return this;
-        }
-
-        /**
-         * Indicates whether the contact type is active.
-         */
-        public Builder active(@Nullable Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-        public ContactTypeJson build() {
-            return new ContactTypeJson(id, code, name, description, active);
-        }
+        return Optional.empty();
     }
 }

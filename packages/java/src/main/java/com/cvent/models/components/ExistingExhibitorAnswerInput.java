@@ -28,7 +28,7 @@ public class ExistingExhibitorAnswerInput {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * The Associated Exhibitor.
@@ -45,7 +45,7 @@ public class ExistingExhibitorAnswerInput {
     @JsonCreator
     public ExistingExhibitorAnswerInput(
             @JsonProperty("question") @Nonnull Uuid question,
-            @JsonProperty("event") @Nonnull Event21 event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("answers") @Nonnull List<Answer2> answers) {
         this.question = Optional.ofNullable(question)
@@ -67,7 +67,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * The Associated Event.
      */
-    public Event21 event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -100,7 +100,7 @@ public class ExistingExhibitorAnswerInput {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswerInput withEvent(@Nonnull Event21 event) {
+    public ExistingExhibitorAnswerInput withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -160,7 +160,7 @@ public class ExistingExhibitorAnswerInput {
 
         private Uuid question;
 
-        private Event21 event;
+        private Event3 event;
 
         private Exhibitor exhibitor;
 
@@ -181,7 +181,7 @@ public class ExistingExhibitorAnswerInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event21 event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

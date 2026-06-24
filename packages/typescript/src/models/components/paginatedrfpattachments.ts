@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import {
-  RfpAttachmentJson,
-  RfpAttachmentJson$inboundSchema,
-} from "./rfpattachmentjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { RfpAttachment, RfpAttachment$inboundSchema } from "./rfpattachment.js";
 
 /**
  * Paginated list of RFP attachments.
@@ -19,11 +16,11 @@ export type PaginatedRfpAttachments = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * List of attachments added on an RFP.
    */
-  data: Array<RfpAttachmentJson>;
+  data: Array<RfpAttachment>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const PaginatedRfpAttachments$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(RfpAttachmentJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(RfpAttachment$inboundSchema),
 });
 
 export function paginatedRfpAttachmentsFromJSON(

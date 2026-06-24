@@ -8,31 +8,22 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
+import { Address, Address$inboundSchema } from "./address.js";
+import { AddressType, AddressType$inboundSchema } from "./addresstype.js";
 import {
-  AddressTypeJson,
-  AddressTypeJson$inboundSchema,
-} from "./addresstypejson.js";
+  AttendeeContactType,
+  AttendeeContactType$inboundSchema,
+} from "./attendeecontacttype.js";
+import { Compliance, Compliance$inboundSchema } from "./compliance.js";
+import { ContactLinks, ContactLinks$inboundSchema } from "./contactlinks.js";
 import {
-  AttendeeContactTypeJson,
-  AttendeeContactTypeJson$inboundSchema,
-} from "./attendeecontacttypejson.js";
-import {
-  ComplianceJson,
-  ComplianceJson$inboundSchema,
-} from "./compliancejson.js";
-import {
-  ContactLinksJson,
-  ContactLinksJson$inboundSchema,
-} from "./contactlinksjson.js";
+  ContactMembership,
+  ContactMembership$inboundSchema,
+} from "./contactmembership.js";
+import { ContactOptOut, ContactOptOut$inboundSchema } from "./contactoptout.js";
 import { CustomField, CustomField$inboundSchema } from "./customfield.js";
-import { GenderJson, GenderJson$inboundSchema } from "./genderjson.js";
-import {
-  MembershipJson,
-  MembershipJson$inboundSchema,
-} from "./membershipjson.js";
-import { OptOutJson, OptOutJson$inboundSchema } from "./optoutjson.js";
-import { PassportJson, PassportJson$inboundSchema } from "./passportjson.js";
+import { Gender, Gender$inboundSchema } from "./gender.js";
+import { Passport, Passport$inboundSchema } from "./passport.js";
 
 /**
  * Event ID
@@ -91,7 +82,7 @@ export type Contact = {
   /**
    * The gender of the contact.
    */
-  gender?: GenderJson | undefined;
+  gender?: Gender | undefined;
   /**
    * The company/organization the contact belongs to.
    */
@@ -107,19 +98,19 @@ export type Contact = {
   /**
    * Contains details related to the attendee's contact type.
    */
-  type?: AttendeeContactTypeJson | undefined;
+  type?: AttendeeContactType | undefined;
   /**
    * Contact Membership information
    */
-  membership?: MembershipJson | undefined;
+  membership?: ContactMembership | undefined;
   /**
    * The type of address.
    */
-  primaryAddressType?: AddressTypeJson | undefined;
+  primaryAddressType?: AddressType | undefined;
   /**
    * Contact address details.
    */
-  homeAddress?: AddressJson | undefined;
+  homeAddress?: Address | undefined;
   /**
    * The phone number of the contact at their place of residence.
    */
@@ -131,7 +122,7 @@ export type Contact = {
   /**
    * Contact address details.
    */
-  workAddress?: AddressJson | undefined;
+  workAddress?: Address | undefined;
   /**
    * The phone number of the contact at their place of work.
    */
@@ -155,7 +146,7 @@ export type Contact = {
   /**
    * Detail related to compliance with the contact's privacy rights under various legislation.
    */
-  compliance?: Array<ComplianceJson> | undefined;
+  compliance?: Array<Compliance> | undefined;
   /**
    * Denotes what is traditionally a title of an individual.
    */
@@ -175,7 +166,7 @@ export type Contact = {
   /**
    * Details of an opt-out for a Contact.
    */
-  optOut?: OptOutJson | undefined;
+  optOut?: ContactOptOut | undefined;
   /**
    * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
    */
@@ -183,7 +174,7 @@ export type Contact = {
   /**
    * Collection of social media links for the contact.
    */
-  links?: ContactLinksJson | undefined;
+  links?: ContactLinks | undefined;
   /**
    * The date of birth of the contact.
    *
@@ -205,7 +196,7 @@ export type Contact = {
   /**
    * This entity represents a contact's passport information.
    */
-  passport?: PassportJson | undefined;
+  passport?: Passport | undefined;
   /**
    * The social security number of the contact.
    *
@@ -287,33 +278,33 @@ export const Contact$inboundSchema: z.ZodType<Contact, z.ZodTypeDef, unknown> =
     nickname: z.string().optional(),
     email: z.string().optional(),
     ccEmail: z.string().optional(),
-    gender: GenderJson$inboundSchema.optional(),
+    gender: Gender$inboundSchema.optional(),
     company: z.string().optional(),
     designation: z.string().optional(),
     title: z.string().optional(),
-    type: AttendeeContactTypeJson$inboundSchema.optional(),
-    membership: MembershipJson$inboundSchema.optional(),
-    primaryAddressType: AddressTypeJson$inboundSchema.optional(),
-    homeAddress: AddressJson$inboundSchema.optional(),
+    type: AttendeeContactType$inboundSchema.optional(),
+    membership: ContactMembership$inboundSchema.optional(),
+    primaryAddressType: AddressType$inboundSchema.optional(),
+    homeAddress: Address$inboundSchema.optional(),
     homePhone: z.string().optional(),
     homeFax: z.string().optional(),
-    workAddress: AddressJson$inboundSchema.optional(),
+    workAddress: Address$inboundSchema.optional(),
     workPhone: z.string().optional(),
     workFax: z.string().optional(),
     customFields: z.array(CustomField$inboundSchema).optional(),
     sourceId: z.string().optional(),
     mobilePhone: z.string().optional(),
-    compliance: z.array(ComplianceJson$inboundSchema).optional(),
+    compliance: z.array(Compliance$inboundSchema).optional(),
     prefix: z.string().optional(),
     pager: z.string().optional(),
     deleted: z.boolean().default(false),
     purged: z.boolean().default(false),
-    optOut: OptOutJson$inboundSchema.optional(),
+    optOut: ContactOptOut$inboundSchema.optional(),
     npi: z.string().optional(),
-    _links: ContactLinksJson$inboundSchema.optional(),
+    _links: ContactLinks$inboundSchema.optional(),
     dateOfBirth: z.string().transform(v => new RFCDate(v)).optional(),
     passportNumber: z.string().optional(),
-    passport: PassportJson$inboundSchema.optional(),
+    passport: Passport$inboundSchema.optional(),
     socialSecurityNumber: z.string().optional(),
     nationalIdentificationNumber: z.string().optional(),
     headline: z.string().optional(),

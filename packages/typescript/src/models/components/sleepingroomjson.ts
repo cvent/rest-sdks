@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  DateTypeJson1,
-  DateTypeJson1$inboundSchema,
-  DateTypeJson1$outboundSchema,
-} from "./datetypejson1.js";
+  DateTypeJson,
+  DateTypeJson$inboundSchema,
+  DateTypeJson$outboundSchema,
+} from "./datetypejson.js";
 import {
   SleepingRoomBlockJson,
   SleepingRoomBlockJson$inboundSchema,
@@ -26,7 +26,7 @@ export type SleepingRoomJson = {
   /**
    * The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
    */
-  proposalDateType?: DateTypeJson1 | undefined;
+  proposalDateType?: DateTypeJson | undefined;
   /**
    * The check in date for attendees.
    */
@@ -91,7 +91,7 @@ export const SleepingRoomJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  proposalDateType: DateTypeJson1$inboundSchema.default("PREFERRED"),
+  proposalDateType: DateTypeJson$inboundSchema.default("PREFERRED"),
   checkInDate: z.string().transform(v => new RFCDate(v)).optional(),
   checkOutDate: z.string().transform(v => new RFCDate(v)).optional(),
   peakRoomNights: z.number().int().optional(),
@@ -132,7 +132,7 @@ export const SleepingRoomJson$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SleepingRoomJson
 > = z.object({
-  proposalDateType: DateTypeJson1$outboundSchema.default("PREFERRED"),
+  proposalDateType: DateTypeJson$outboundSchema.default("PREFERRED"),
   checkInDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   checkOutDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   peakRoomNights: z.number().int().optional(),

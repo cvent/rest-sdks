@@ -101,13 +101,13 @@ namespace Cvent.SDK.Models.Components
         /// A defined speaker category.
         /// </summary>
         [JsonProperty("category")]
-        public CategoryIdNameJson? Category { get; set; }
+        public SpeakerCategory1? Category { get; set; }
 
         /// <summary>
         /// Collection of social media links for the contact.
         /// </summary>
         [JsonProperty("links")]
-        public ContactLinksJson? Links { get; set; }
+        public ContactLinks? Links { get; set; }
 
         /// <summary>
         /// Indicates if a given speaker should be displayed on Event Website.

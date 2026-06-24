@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson5, AddressJson5$inboundSchema } from "./addressjson5.js";
+import { Address6, Address6$inboundSchema } from "./address6.js";
 import {
-  TravelAccountTypeJson,
-  TravelAccountTypeJson$inboundSchema,
-} from "./travelaccounttypejson.js";
+  TravelAccountType,
+  TravelAccountType$inboundSchema,
+} from "./travelaccounttype.js";
 
 /**
  * Travel account details.
@@ -43,7 +43,7 @@ export type TravelAccount = {
   /**
    * Code representing the travel account type.
    */
-  type?: TravelAccountTypeJson | undefined;
+  type?: TravelAccountType | undefined;
   /**
    * Is this a certified travel account?
    */
@@ -51,7 +51,7 @@ export type TravelAccount = {
   /**
    * List of addresses associated with the travel account.
    */
-  addresses?: Array<AddressJson5> | undefined;
+  addresses?: Array<Address6> | undefined;
 };
 
 /** @internal */
@@ -69,9 +69,9 @@ export const TravelAccount$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   name: z.string().optional(),
-  type: TravelAccountTypeJson$inboundSchema.optional(),
+  type: TravelAccountType$inboundSchema.optional(),
   certified: z.boolean().optional(),
-  addresses: z.array(AddressJson5$inboundSchema).optional(),
+  addresses: z.array(Address6$inboundSchema).optional(),
 });
 
 export function travelAccountFromJSON(

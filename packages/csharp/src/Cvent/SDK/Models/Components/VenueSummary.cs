@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an event.
         /// </summary>
         [JsonProperty("type")]
-        public SupplierTypeJson1? Type { get; set; } = Cvent.SDK.Models.Components.SupplierTypeJson1.Venue;
+        public SupplierTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.SupplierTypeJson.Venue;
 
         /// <summary>
         /// The unique ID of the venue.

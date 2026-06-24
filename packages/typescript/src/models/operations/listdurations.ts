@@ -50,37 +50,30 @@ export type ListDurationsRequest = {
    */
   sort?: string | undefined;
   /**
-   * A filter string passed in the body of the request, narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * There are eight comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
-   *   * starts with: sw
-   *   * contains a value: contains
-   *   * includes value(s): in
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * id (eq|ne)
-   *   * event.id (eq|ne|in)
-   *   * session.id (eq|ne|in)
-   *   * attendee.id (eq|ne|in)
-   *   * type (contains|eq|ne|in)
-   *   * deleted (eq|ne)
-   *   * firstSeen (eq|ne|lt|le|gt|ge)
-   *   * lastSeen (eq|ne|lt|le|gt|ge)
-   *   * duration (eq|ne|lt|le|gt|ge)
-   *   * created (eq|ne|lt|le|gt|ge)
+   * | Field       | Operators                          |
+   * |-------------|------------------------------------|
+   * | id          | `eq`, `ne`                         |
+   * | event.id    | `eq`, `ne`, `in`                   |
+   * | session.id  | `eq`, `ne`, `in`                   |
+   * | attendee.id | `eq`, `ne`, `in`                   |
+   * | type        | `contains`, `eq`, `ne`, `in`       |
+   * | deleted     | `eq`, `ne`                         |
+   * | firstSeen   | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   * | lastSeen    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   * | duration    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+   * | created     | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
    *
-   * The following operators are available:
-   *   * and
-   *   * or
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
 };

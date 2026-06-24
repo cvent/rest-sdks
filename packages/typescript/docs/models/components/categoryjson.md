@@ -1,6 +1,6 @@
 # CategoryJson
 
-A question category.
+A category of items.
 
 ## Example Usage
 
@@ -8,18 +8,26 @@ A question category.
 import { CategoryJson } from "@cvent/sdk/models/components";
 
 let value: CategoryJson = {
-  text:
-    "Are you spending any significant time offsite and need transportation?",
-  shortText: "Needs offsite transportation?",
-  required: true,
+  type: "AVProduction",
+  name: "Audio Video Production",
+  totalCost: 10000.99,
+  items: [
+    {
+      itemId: "AC-127-3B",
+      name: "Earphones",
+      quantity: 20,
+      totalCost: 10000.99,
+      notes: "This item is very popular.",
+    },
+  ],
 };
 ```
 
 ## Fields
 
-| Field                                                                                                                         | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   | Example                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                          | *string*                                                                                                                      | :heavy_minus_sign:                                                                                                            | Text field ID.                                                                                                                |                                                                                                                               |
-| `text`                                                                                                                        | *string*                                                                                                                      | :heavy_minus_sign:                                                                                                            | Text value of the field. Displays to users in the UI.                                                                         | Are you spending any significant time offsite and need transportation?                                                        |
-| `shortText`                                                                                                                   | *string*                                                                                                                      | :heavy_minus_sign:                                                                                                            | Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports. | Needs offsite transportation?                                                                                                 |
-| `required`                                                                                                                    | *boolean*                                                                                                                     | :heavy_minus_sign:                                                                                                            | True indicates the category is mandatory for answer.                                                                          | true                                                                                                                          |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `type`                                                       | *string*                                                     | :heavy_minus_sign:                                           | The category type.                                           | AVProduction                                                 |
+| `name`                                                       | *string*                                                     | :heavy_minus_sign:                                           | The name of the category.                                    | Audio Video Production                                       |
+| `totalCost`                                                  | *number*                                                     | :heavy_minus_sign:                                           | Total cost for all items within this category.               | 10000.99                                                     |
+| `items`                                                      | [components.ItemJson](../../models/components/itemjson.md)[] | :heavy_minus_sign:                                           | List of items in this category.                              |                                                              |

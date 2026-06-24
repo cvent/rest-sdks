@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nullable;
+import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -16,7 +17,7 @@ import java.util.Optional;
 /**
  * Address3
  *
- * <p>Address of the hotel.
+ * <p>Address details
  */
 public class Address3 {
     /**
@@ -76,11 +77,25 @@ public class Address3 {
     private String regionCode;
 
     /**
-     * Name of the country.
+     * Name of the country of the address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
     private String country;
+
+    /**
+     * The geo latitude of the address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("latitude")
+    private Long latitude;
+
+    /**
+     * The geo longitude of the address.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("longitude")
+    private Long longitude;
 
     @JsonCreator
     public Address3(
@@ -92,7 +107,9 @@ public class Address3 {
             @JsonProperty("postalCode") @Nullable String postalCode,
             @JsonProperty("region") @Nullable String region,
             @JsonProperty("regionCode") @Nullable String regionCode,
-            @JsonProperty("country") @Nullable String country) {
+            @JsonProperty("country") @Nullable String country,
+            @JsonProperty("latitude") @Nullable Long latitude,
+            @JsonProperty("longitude") @Nullable Long longitude) {
         this.address1 = address1;
         this.address2 = address2;
         this.address3 = address3;
@@ -102,10 +119,12 @@ public class Address3 {
         this.region = region;
         this.regionCode = regionCode;
         this.country = country;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Address3() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**
@@ -165,10 +184,24 @@ public class Address3 {
     }
 
     /**
-     * Name of the country.
+     * Name of the country of the address.
      */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
+    }
+
+    /**
+     * The geo latitude of the address.
+     */
+    public Optional<Long> latitude() {
+        return Optional.ofNullable(this.latitude);
+    }
+
+    /**
+     * The geo longitude of the address.
+     */
+    public Optional<Long> longitude() {
+        return Optional.ofNullable(this.longitude);
     }
 
     public static Builder builder() {
@@ -240,10 +273,26 @@ public class Address3 {
     }
 
     /**
-     * Name of the country.
+     * Name of the country of the address.
      */
     public Address3 withCountry(@Nullable String country) {
         this.country = country;
+        return this;
+    }
+
+    /**
+     * The geo latitude of the address.
+     */
+    public Address3 withLatitude(@Nullable Long latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    /**
+     * The geo longitude of the address.
+     */
+    public Address3 withLongitude(@Nullable Long longitude) {
+        this.longitude = longitude;
         return this;
     }
 
@@ -264,13 +313,25 @@ public class Address3 {
                 && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
                 && Utils.enhancedDeepEquals(this.region, other.region)
                 && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
-                && Utils.enhancedDeepEquals(this.country, other.country);
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.latitude, other.latitude)
+                && Utils.enhancedDeepEquals(this.longitude, other.longitude);
     }
 
     @Override
     public int hashCode() {
         return Utils.enhancedHash(
-                address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+                address1,
+                address2,
+                address3,
+                city,
+                countryCode,
+                postalCode,
+                region,
+                regionCode,
+                country,
+                latitude,
+                longitude);
     }
 
     @Override
@@ -294,7 +355,11 @@ public class Address3 {
                 "regionCode",
                 regionCode,
                 "country",
-                country);
+                country,
+                "latitude",
+                latitude,
+                "longitude",
+                longitude);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -317,6 +382,10 @@ public class Address3 {
         private String regionCode;
 
         private String country;
+
+        private Long latitude;
+
+        private Long longitude;
 
         private Builder() {
             // force use of static builder() method
@@ -387,16 +456,42 @@ public class Address3 {
         }
 
         /**
-         * Name of the country.
+         * Name of the country of the address.
          */
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
 
+        /**
+         * The geo latitude of the address.
+         */
+        public Builder latitude(@Nullable Long latitude) {
+            this.latitude = latitude;
+            return this;
+        }
+
+        /**
+         * The geo longitude of the address.
+         */
+        public Builder longitude(@Nullable Long longitude) {
+            this.longitude = longitude;
+            return this;
+        }
+
         public Address3 build() {
             return new Address3(
-                    address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+                    address1,
+                    address2,
+                    address3,
+                    city,
+                    countryCode,
+                    postalCode,
+                    region,
+                    regionCode,
+                    country,
+                    latitude,
+                    longitude);
         }
     }
 }

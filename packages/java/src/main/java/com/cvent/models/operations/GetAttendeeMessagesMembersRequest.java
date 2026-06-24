@@ -36,23 +36,26 @@ public class GetAttendeeMessagesMembersRequest {
     private String token;
 
     /**
-     * Filters are used to narrow the results returned and support a combination of logical and comparison
-     * operators.
+     * Filters narrow results returned based on the criteria you supply.
      *
-     * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
+     * <p>Filters follow the pattern `filter='field' operator 'value'`.
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * - equals to: eq
-     * - match any of the values in the list: in
+     * <p>The following comparison operators are supported:
+     * - `eq`: equals to
+     * - `in`: match any of the values in the list
      *
-     * <p>The following operators can be used:
-     * - or
+     * <p>The following fields are supported:
      *
-     * <p>The following fields are filterable:
-     * * `channel.id` (eq/in)
+     * <p>| Field            | Operators                          |
+     * |------------------|------------------------------------|
+     * | channel.id       | `eq`, `in`                         |
      *
-     * <p>Examples:
-     * - Filter channel IDs:
+     * <p>The following logical operators are supported for combining filters:
+     * - `or`
+     *
+     * <p>**Examples:**
+     *
+     * <p>Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
      * 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`
      * * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq
@@ -99,23 +102,26 @@ public class GetAttendeeMessagesMembersRequest {
     }
 
     /**
-     * Filters are used to narrow the results returned and support a combination of logical and comparison
-     * operators.
+     * Filters narrow results returned based on the criteria you supply.
      *
-     * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
+     * <p>Filters follow the pattern `filter='field' operator 'value'`.
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * - equals to: eq
-     * - match any of the values in the list: in
+     * <p>The following comparison operators are supported:
+     * - `eq`: equals to
+     * - `in`: match any of the values in the list
      *
-     * <p>The following operators can be used:
-     * - or
+     * <p>The following fields are supported:
      *
-     * <p>The following fields are filterable:
-     * * `channel.id` (eq/in)
+     * <p>| Field            | Operators                          |
+     * |------------------|------------------------------------|
+     * | channel.id       | `eq`, `in`                         |
      *
-     * <p>Examples:
-     * - Filter channel IDs:
+     * <p>The following logical operators are supported for combining filters:
+     * - `or`
+     *
+     * <p>**Examples:**
+     *
+     * <p>Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
      * 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`
      * * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq
@@ -155,23 +161,26 @@ public class GetAttendeeMessagesMembersRequest {
     }
 
     /**
-     * Filters are used to narrow the results returned and support a combination of logical and comparison
-     * operators.
+     * Filters narrow results returned based on the criteria you supply.
      *
-     * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
+     * <p>Filters follow the pattern `filter='field' operator 'value'`.
      *
-     * <p>These are the comparison types that can be used in filter expressions:
-     * - equals to: eq
-     * - match any of the values in the list: in
+     * <p>The following comparison operators are supported:
+     * - `eq`: equals to
+     * - `in`: match any of the values in the list
      *
-     * <p>The following operators can be used:
-     * - or
+     * <p>The following fields are supported:
      *
-     * <p>The following fields are filterable:
-     * * `channel.id` (eq/in)
+     * <p>| Field            | Operators                          |
+     * |------------------|------------------------------------|
+     * | channel.id       | `eq`, `in`                         |
      *
-     * <p>Examples:
-     * - Filter channel IDs:
+     * <p>The following logical operators are supported for combining filters:
+     * - `or`
+     *
+     * <p>**Examples:**
+     *
+     * <p>Filter channel IDs:
      * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
      * 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`
      * * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq
@@ -257,23 +266,26 @@ public class GetAttendeeMessagesMembersRequest {
         }
 
         /**
-         * Filters are used to narrow the results returned and support a combination of logical and comparison
-         * operators.
+         * Filters narrow results returned based on the criteria you supply.
          *
-         * <p>The filter adheres to the pattern `filter='field' comparisonType 'value'`.
+         * <p>Filters follow the pattern `filter='field' operator 'value'`.
          *
-         * <p>These are the comparison types that can be used in filter expressions:
-         * - equals to: eq
-         * - match any of the values in the list: in
+         * <p>The following comparison operators are supported:
+         * - `eq`: equals to
+         * - `in`: match any of the values in the list
          *
-         * <p>The following operators can be used:
-         * - or
+         * <p>The following fields are supported:
          *
-         * <p>The following fields are filterable:
-         * * `channel.id` (eq/in)
+         * <p>| Field            | Operators                          |
+         * |------------------|------------------------------------|
+         * | channel.id       | `eq`, `in`                         |
          *
-         * <p>Examples:
-         * - Filter channel IDs:
+         * <p>The following logical operators are supported for combining filters:
+         * - `or`
+         *
+         * <p>**Examples:**
+         *
+         * <p>Filter channel IDs:
          * * `filter=channel.id in ('production_group_0cb93bab-32d2-4f82-b430-e1911f2348ac',
          * 'production_group_f6dfb98a-c734-487c-97e1-7c7a09a9125f')`
          * * `filter=channel.id eq 'production_attendee_616241fd-e97d-48c5-8c4b-4b926f50e8c3' or channel.id eq

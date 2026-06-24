@@ -2497,14 +2497,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    List<ContactBulkItemJson> obj;
+                    List<ContactBulkResponseItem> obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkItemJson>>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkResponseItem>>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkResponseItem>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateContactsResponse() {
@@ -2676,14 +2676,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    List<ContactBulkItemJson> obj;
+                    List<ContactBulkResponseItem> obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkItemJson>>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkResponseItem>>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkResponseItem>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new PatchContactsResponse() {
@@ -2850,14 +2850,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    List<ContactBulkItemJson> obj;
+                    List<ContactBulkResponseItem> obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkItemJson>>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<List<ContactBulkResponseItem>>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkItemJson>.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into List<ContactBulkResponseItem>.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new CreateContactsResponse() {

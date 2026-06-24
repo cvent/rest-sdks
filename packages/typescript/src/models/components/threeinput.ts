@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  ChoiceJson3Input,
-  ChoiceJson3Input$Outbound,
-  ChoiceJson3Input$outboundSchema,
-} from "./choicejson3input.js";
+  ChoiceJson2Input,
+  ChoiceJson2Input$Outbound,
+  ChoiceJson2Input$outboundSchema,
+} from "./choicejson2input.js";
 import {
   ChoicesDisplayTypeJson,
   ChoicesDisplayTypeJson$outboundSchema,
@@ -20,7 +20,7 @@ export type ThreeInput = {
   /**
    * Choices of custom fields.
    */
-  choices?: Array<ChoiceJson3Input> | undefined;
+  choices?: Array<ChoiceJson2Input> | undefined;
   /**
    * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
    */
@@ -29,7 +29,7 @@ export type ThreeInput = {
 
 /** @internal */
 export type ThreeInput$Outbound = {
-  choices?: Array<ChoiceJson3Input$Outbound> | undefined;
+  choices?: Array<ChoiceJson2Input$Outbound> | undefined;
   displayType?: string | undefined;
 };
 
@@ -39,7 +39,7 @@ export const ThreeInput$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ThreeInput
 > = z.object({
-  choices: z.array(ChoiceJson3Input$outboundSchema).optional(),
+  choices: z.array(ChoiceJson2Input$outboundSchema).optional(),
   displayType: ChoicesDisplayTypeJson$outboundSchema.optional(),
 });
 

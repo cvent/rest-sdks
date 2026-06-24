@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { Attendee, Attendee$inboundSchema } from "./attendee.js";
 import { Event2, Event2$inboundSchema } from "./event2.js";
 import { OrderItemRef, OrderItemRef$inboundSchema } from "./orderitemref.js";
 import {
@@ -54,7 +54,7 @@ export type TransactionItemResponse = {
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: Attendee2 | undefined;
+  attendee?: Attendee | undefined;
   /**
    * This is used to denote the product details in an order item
    */
@@ -94,7 +94,7 @@ export const TransactionItemResponse$inboundSchema: z.ZodType<
   uniqueId: z.string().optional(),
   transaction: TransactionId$inboundSchema.optional(),
   event: Event2$inboundSchema.optional(),
-  attendee: Attendee2$inboundSchema.optional(),
+  attendee: Attendee$inboundSchema.optional(),
   product: ProductOrderItem$inboundSchema.optional(),
   orderItem: OrderItemRef$inboundSchema.optional(),
   name: z.string().optional(),

@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  TravelProposalBid,
-  TravelProposalBid$inboundSchema,
-} from "./travelproposalbid.js";
+  TravelProposalBid2,
+  TravelProposalBid2$inboundSchema,
+} from "./travelproposalbid2.js";
 
 /**
  * A paginated list of travel proposals.
@@ -19,11 +19,11 @@ export type TravelProposalBidPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * Paginated list of business transient proposal bids.
    */
-  data?: Array<TravelProposalBid> | undefined;
+  data?: Array<TravelProposalBid2> | undefined;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const TravelProposalBidPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(TravelProposalBid$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(TravelProposalBid2$inboundSchema).optional(),
 });
 
 export function travelProposalBidPaginatedResponseFromJSON(

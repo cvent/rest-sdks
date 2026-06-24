@@ -25,7 +25,7 @@ public class TravelProgramPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of travel programs and their related details.
@@ -36,8 +36,7 @@ public class TravelProgramPaginatedResponse {
 
     @JsonCreator
     public TravelProgramPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<TravelProgram> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<TravelProgram> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,7 +48,7 @@ public class TravelProgramPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
@@ -67,7 +66,7 @@ public class TravelProgramPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public TravelProgramPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public TravelProgramPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -105,7 +104,7 @@ public class TravelProgramPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<TravelProgram> data;
 
@@ -116,7 +115,7 @@ public class TravelProgramPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }

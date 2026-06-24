@@ -28,7 +28,7 @@ public class EmailJson1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private EmailTypeJson1 type;
+    private EmailTypeJson type;
 
     /**
      * The email of the user.
@@ -45,7 +45,7 @@ public class EmailJson1 {
 
     @JsonCreator
     public EmailJson1(
-            @JsonProperty("type") @Nullable EmailTypeJson1 type,
+            @JsonProperty("type") @Nullable EmailTypeJson type,
             @JsonProperty("value") @Nonnull String value,
             @JsonProperty("primary") @Nullable Boolean primary) {
         this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
@@ -60,7 +60,7 @@ public class EmailJson1 {
     /**
      * The type of the email.
      */
-    public Optional<EmailTypeJson1> type() {
+    public Optional<EmailTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -85,7 +85,7 @@ public class EmailJson1 {
     /**
      * The type of the email.
      */
-    public EmailJson1 withType(@Nullable EmailTypeJson1 type) {
+    public EmailJson1 withType(@Nullable EmailTypeJson type) {
         this.type = type;
         return this;
     }
@@ -133,7 +133,7 @@ public class EmailJson1 {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EmailTypeJson1 type;
+        private EmailTypeJson type;
 
         private String value;
 
@@ -146,7 +146,7 @@ public class EmailJson1 {
         /**
          * The type of the email.
          */
-        public Builder type(@Nullable EmailTypeJson1 type) {
+        public Builder type(@Nullable EmailTypeJson type) {
             this.type = type;
             return this;
         }
@@ -171,8 +171,8 @@ public class EmailJson1 {
             return new EmailJson1(type, value, primary);
         }
 
-        private static final LazySingletonValue<EmailTypeJson1> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"work\"", new TypeReference<EmailTypeJson1>() {});
+        private static final LazySingletonValue<EmailTypeJson> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"work\"", new TypeReference<EmailTypeJson>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Primary =
                 new LazySingletonValue<>("primary", "false", new TypeReference<Boolean>() {});

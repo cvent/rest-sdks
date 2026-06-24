@@ -11,14 +11,14 @@ import {
   CustomFieldCategoryJson$inboundSchema,
 } from "./customfieldcategoryjson.js";
 import {
-  CustomFieldTypeJson1,
-  CustomFieldTypeJson1$inboundSchema,
-} from "./customfieldtypejson1.js";
+  CustomFieldTypeJson,
+  CustomFieldTypeJson$inboundSchema,
+} from "./customfieldtypejson.js";
 import {
   DisplayInDataTagJson,
   DisplayInDataTagJson$inboundSchema,
 } from "./displayindatatagjson.js";
-import { OneOneOf, OneOneOf$inboundSchema } from "./oneoneof.js";
+import { One, One$inboundSchema } from "./one.js";
 import {
   PageVisibilityJson,
   PageVisibilityJson$inboundSchema,
@@ -30,7 +30,7 @@ import { ZeroOneOf1, ZeroOneOf1$inboundSchema } from "./zerooneof1.js";
 /**
  * Type-specific details of the custom-field.
  */
-export type ExistingCustomFieldDetails = ZeroOneOf1 | OneOneOf | Two | Three;
+export type ExistingCustomFieldDetails = ZeroOneOf1 | One | Two | Three;
 
 /**
  * This is used to denote an existing custom field.
@@ -71,11 +71,11 @@ export type ExistingCustomField = {
   /**
    * This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
    */
-  type: CustomFieldTypeJson1;
+  type: CustomFieldTypeJson;
   /**
    * Type-specific details of the custom-field.
    */
-  details?: ZeroOneOf1 | OneOneOf | Two | Three | undefined;
+  details?: ZeroOneOf1 | One | Two | Three | undefined;
   /**
    * The order of the custom field on the display page.
    */
@@ -121,7 +121,7 @@ export const ExistingCustomFieldDetails$inboundSchema: z.ZodType<
   unknown
 > = z.union([
   ZeroOneOf1$inboundSchema,
-  OneOneOf$inboundSchema,
+  One$inboundSchema,
   Two$inboundSchema,
   Three$inboundSchema,
 ]);
@@ -153,10 +153,10 @@ export const ExistingCustomField$inboundSchema: z.ZodType<
   name: z.string(),
   code: z.string(),
   required: z.boolean().default(true),
-  type: CustomFieldTypeJson1$inboundSchema,
+  type: CustomFieldTypeJson$inboundSchema,
   details: z.union([
     ZeroOneOf1$inboundSchema,
-    OneOneOf$inboundSchema,
+    One$inboundSchema,
     Two$inboundSchema,
     Three$inboundSchema,
   ]).optional(),

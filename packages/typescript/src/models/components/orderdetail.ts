@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { Attendee, Attendee$inboundSchema } from "./attendee.js";
 import {
   DiscountDetail,
   DiscountDetail$inboundSchema,
@@ -45,7 +45,7 @@ export type OrderDetail = {
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: Attendee2 | undefined;
+  attendee?: Attendee | undefined;
   /**
    * Order number for this order
    */
@@ -107,7 +107,7 @@ export const OrderDetail$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   event: Event2$inboundSchema.optional(),
-  attendee: Attendee2$inboundSchema.optional(),
+  attendee: Attendee$inboundSchema.optional(),
   number: z.string().optional(),
   cancelled: z.boolean().optional(),
   type: OrderType$inboundSchema.optional(),

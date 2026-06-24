@@ -146,6 +146,14 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    */
   | "budget/transactions:write"
   /**
+   * Allows the reading of BT Bid data
+   */
+  | "business-transient/bids:read"
+  /**
+   * Allows the reading of BT Proposal data
+   */
+  | "business-transient/proposals:read"
+  /**
    * Allows the reading of communication compliance
    */
   | "compliance/communications:read"
@@ -509,6 +517,10 @@ export type OAuth2AuthorizationCodeOAuth2Scope =
    * Allows the creation/updating of video data.
    */
   | "event/videos:write"
+  /**
+   * Allows reading of event vouchers and their associated attendees.
+   */
+  | "event/vouchers:read"
   /**
    * Allows the deletion of webcast
    */
@@ -982,6 +994,18 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    */
   | "business-transient/travel-supplier-accounts:read"
   /**
+   * Allows the reading of business travel account data.
+   */
+  | "business-travel/travel-accounts:read"
+  /**
+   * Allows the reading of business travel program question data.
+   */
+  | "business-travel/travel-program-questions:read"
+  /**
+   * Allows the reading of business travel program data.
+   */
+  | "business-travel/travel-programs:read"
+  /**
    * Allows the reading of communication compliance
    */
   | "compliance/communications:read"
@@ -1345,6 +1369,10 @@ export type OAuth2ClientCredentialsOAuth2Scope =
    * Allows the creation/updating of video data.
    */
   | "event/videos:write"
+  /**
+   * Allows reading of event vouchers.
+   */
+  | "event/vouchers:read"
   /**
    * Allows the deletion of webcast
    */

@@ -6,7 +6,7 @@ package com.cvent.models.operations;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.SpeakerCategory;
+import com.cvent.models.components.SpeakerCategory2;
 import com.cvent.operations.AddSpeakerCategory;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -18,7 +18,7 @@ import jakarta.annotation.Nullable;
 public class AddSpeakerCategoryRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private SpeakerCategory request;
+    private SpeakerCategory2 request;
     private final Options.Builder optionsBuilder;
 
     public AddSpeakerCategoryRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -31,12 +31,12 @@ public class AddSpeakerCategoryRequestBuilder {
         return this;
     }
 
-    public AddSpeakerCategoryRequestBuilder request(@Nonnull SpeakerCategory request) {
+    public AddSpeakerCategoryRequestBuilder request(@Nonnull SpeakerCategory2 request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private SpeakerCategory _buildRequest() {
+    private SpeakerCategory2 _buildRequest() {
         return this.request;
     }
 
@@ -54,7 +54,7 @@ public class AddSpeakerCategoryRequestBuilder {
      */
     public AddSpeakerCategoryResponse call() {
         Options options = optionsBuilder.build();
-        RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+        RequestOperation<SpeakerCategory2, AddSpeakerCategoryResponse> operation =
                 new AddSpeakerCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(this._buildRequest()));
     }

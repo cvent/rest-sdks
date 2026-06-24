@@ -150,7 +150,7 @@ UpdateExhibitorFileRequest req = new UpdateExhibitorFileRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     FileId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     File = new FileInput() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -180,7 +180,8 @@ var res = await sdk.ExhibitorContent.UpdateExhibitorFileAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DisassociateExhibitorFile
@@ -314,7 +315,7 @@ CreateExhibitorWeblinkRequest req = new CreateExhibitorWeblinkRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     Weblink = new Weblink() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -345,7 +346,8 @@ var res = await sdk.ExhibitorContent.CreateExhibitorWeblinkAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetExhibitorWeblink
@@ -429,7 +431,7 @@ UpdateExhibitorWeblinkRequest req = new UpdateExhibitorWeblinkRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     WeblinkId = "4d44b9e4-8c1a-403d-a20a-0b981f539935",
     Weblink = new Weblink() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -460,7 +462,8 @@ var res = await sdk.ExhibitorContent.UpdateExhibitorWeblinkAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteExhibitorWeblink

@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CategoryJson1,
-  CategoryJson1$inboundSchema,
-  CategoryJson1$Outbound,
-  CategoryJson1$outboundSchema,
-} from "./categoryjson1.js";
+  CategoryJson,
+  CategoryJson$inboundSchema,
+  CategoryJson$Outbound,
+  CategoryJson$outboundSchema,
+} from "./categoryjson.js";
 
 /**
  * Category items cost. DEPRECATED - This field is deprecated. Only applied to proposals made by vendors, and the vendor marketplace is sunset.
@@ -30,7 +30,7 @@ export type CategoryItemsCostJson = {
   /**
    * List of categories.
    */
-  categories?: Array<CategoryJson1> | undefined;
+  categories?: Array<CategoryJson> | undefined;
 };
 
 /** @internal */
@@ -41,13 +41,13 @@ export const CategoryItemsCostJson$inboundSchema: z.ZodType<
 > = z.object({
   notes: z.string().optional(),
   totalCost: z.number().optional(),
-  categories: z.array(CategoryJson1$inboundSchema).optional(),
+  categories: z.array(CategoryJson$inboundSchema).optional(),
 });
 /** @internal */
 export type CategoryItemsCostJson$Outbound = {
   notes?: string | undefined;
   totalCost?: number | undefined;
-  categories?: Array<CategoryJson1$Outbound> | undefined;
+  categories?: Array<CategoryJson$Outbound> | undefined;
 };
 
 /** @internal */
@@ -58,7 +58,7 @@ export const CategoryItemsCostJson$outboundSchema: z.ZodType<
 > = z.object({
   notes: z.string().optional(),
   totalCost: z.number().optional(),
-  categories: z.array(CategoryJson1$outboundSchema).optional(),
+  categories: z.array(CategoryJson$outboundSchema).optional(),
 });
 
 export function categoryItemsCostJsonToJSON(

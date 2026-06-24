@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of questions for surveys.
         /// </summary>
         [JsonProperty("data")]
-        public List<QuestionJson2> Data { get; set; } = default!;
+        public List<QuestionJson1> Data { get; set; } = default!;
     }
 }

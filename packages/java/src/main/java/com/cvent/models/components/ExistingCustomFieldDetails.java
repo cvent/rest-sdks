@@ -35,7 +35,7 @@ public class ExistingCustomFieldDetails {
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
 
-    public static ExistingCustomFieldDetails of(OneOneOf value) {
+    public static ExistingCustomFieldDetails of(One value) {
         Utils.checkNotNull(value, "value");
         return new ExistingCustomFieldDetails(TypedObject.of(value, JsonShape.DEFAULT, new TypeReference<>() {}));
     }
@@ -54,7 +54,7 @@ public class ExistingCustomFieldDetails {
      * Returns an instance of one of these types:
      * <ul>
      * <li>{@code com.cvent.models.components.ZeroOneOf1}</li>
-     * <li>{@code com.cvent.models.components.OneOneOf}</li>
+     * <li>{@code com.cvent.models.components.One}</li>
      * <li>{@code com.cvent.models.components.Two}</li>
      * <li>{@code com.cvent.models.components.Three}</li>
      * </ul>
@@ -99,7 +99,7 @@ public class ExistingCustomFieldDetails {
                     ExistingCustomFieldDetails.class,
                     false,
                     TypeReferenceWithShape.of(new TypeReference<ZeroOneOf1>() {}, JsonShape.DEFAULT),
-                    TypeReferenceWithShape.of(new TypeReference<OneOneOf>() {}, JsonShape.DEFAULT),
+                    TypeReferenceWithShape.of(new TypeReference<One>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<Two>() {}, JsonShape.DEFAULT),
                     TypeReferenceWithShape.of(new TypeReference<Three>() {}, JsonShape.DEFAULT));
         }

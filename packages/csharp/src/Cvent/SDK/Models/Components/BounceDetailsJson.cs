@@ -77,7 +77,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the type of the email.
         /// </summary>
         [JsonProperty("emailType")]
-        public EmailTypeJson3? EmailType { get; set; }
+        public EmailTypeJson1? EmailType { get; set; }
 
         /// <summary>
         /// Unique ID of the email.

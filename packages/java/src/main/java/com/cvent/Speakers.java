@@ -6,7 +6,7 @@ package com.cvent;
 import static com.cvent.operations.Operations.RequestOperation;
 
 import com.cvent.models.components.Speaker;
-import com.cvent.models.components.SpeakerCategory;
+import com.cvent.models.components.SpeakerCategory2;
 import com.cvent.models.operations.AddSpeakerCategoryRequestBuilder;
 import com.cvent.models.operations.AddSpeakerCategoryResponse;
 import com.cvent.models.operations.AddSpeakerDocRequest;
@@ -398,7 +398,7 @@ public class Speakers {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory request) {
+    public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory2 request) {
         return addSpeakerCategory(request, null);
     }
 
@@ -414,8 +414,8 @@ public class Speakers {
      * @return The response from the API call
      * @throws RuntimeException subclass if the API call fails
      */
-    public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory request, @Nullable Options options) {
-        RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+    public AddSpeakerCategoryResponse addSpeakerCategory(@Nonnull SpeakerCategory2 request, @Nullable Options options) {
+        RequestOperation<SpeakerCategory2, AddSpeakerCategoryResponse> operation =
                 new AddSpeakerCategory.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }

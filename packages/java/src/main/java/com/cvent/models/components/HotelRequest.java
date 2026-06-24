@@ -294,7 +294,7 @@ public class HotelRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hotelAddress")
-    private Address3 hotelAddress;
+    private Address5 hotelAddress;
 
     /**
      * Collection of hotel room rates the requester has taken.
@@ -349,7 +349,7 @@ public class HotelRequest {
             @JsonProperty("latestShoulderDate") @Nullable OffsetDateTime latestShoulderDate,
             @JsonProperty("roomTaxBillingExceptions") @Nullable String roomTaxBillingExceptions,
             @JsonProperty("incidentalBillingExceptions") @Nullable String incidentalBillingExceptions,
-            @JsonProperty("hotelAddress") @Nullable Address3 hotelAddress,
+            @JsonProperty("hotelAddress") @Nullable Address5 hotelAddress,
             @JsonProperty("hotelRoomRates") @Nullable List<HotelRoomRate> hotelRoomRates,
             @JsonProperty("hotelRequestAnswers") @Nullable List<AttendeeAnswer1> hotelRequestAnswers) {
         this.created = created;
@@ -706,7 +706,7 @@ public class HotelRequest {
     /**
      * Address of the hotel.
      */
-    public Optional<Address3> hotelAddress() {
+    public Optional<Address5> hotelAddress() {
         return Optional.ofNullable(this.hotelAddress);
     }
 
@@ -1033,7 +1033,7 @@ public class HotelRequest {
     /**
      * Address of the hotel.
      */
-    public HotelRequest withHotelAddress(@Nullable Address3 hotelAddress) {
+    public HotelRequest withHotelAddress(@Nullable Address5 hotelAddress) {
         this.hotelAddress = hotelAddress;
         return this;
     }
@@ -1313,7 +1313,7 @@ public class HotelRequest {
 
         private String incidentalBillingExceptions;
 
-        private Address3 hotelAddress;
+        private Address5 hotelAddress;
 
         private List<HotelRoomRate> hotelRoomRates;
 
@@ -1628,7 +1628,7 @@ public class HotelRequest {
         /**
          * Address of the hotel.
          */
-        public Builder hotelAddress(@Nullable Address3 hotelAddress) {
+        public Builder hotelAddress(@Nullable Address5 hotelAddress) {
             this.hotelAddress = hotelAddress;
             return this;
         }

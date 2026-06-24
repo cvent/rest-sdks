@@ -32,28 +32,28 @@ public class Compliance {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("complianceScope")
-    private ComplianceComplianceScope complianceScope;
+    private ComplianceScope complianceScope;
 
     /**
      * Action to take for a compliance request.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("action")
-    private ComplianceAction action;
+    private Action action;
 
     /**
      * Denotes how the compliance request was created.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("createdBy")
-    private ComplianceCreatedBy createdBy;
+    private CreatedBy createdBy;
 
     @JsonCreator
     public Compliance(
             @JsonProperty("creationTime") @Nullable OffsetDateTime creationTime,
-            @JsonProperty("complianceScope") @Nullable ComplianceComplianceScope complianceScope,
-            @JsonProperty("action") @Nullable ComplianceAction action,
-            @JsonProperty("createdBy") @Nullable ComplianceCreatedBy createdBy) {
+            @JsonProperty("complianceScope") @Nullable ComplianceScope complianceScope,
+            @JsonProperty("action") @Nullable Action action,
+            @JsonProperty("createdBy") @Nullable CreatedBy createdBy) {
         this.creationTime = creationTime;
         this.complianceScope = complianceScope;
         this.action = action;
@@ -74,21 +74,21 @@ public class Compliance {
     /**
      * Scope of privacy compliance.
      */
-    public Optional<ComplianceComplianceScope> complianceScope() {
+    public Optional<ComplianceScope> complianceScope() {
         return Optional.ofNullable(this.complianceScope);
     }
 
     /**
      * Action to take for a compliance request.
      */
-    public Optional<ComplianceAction> action() {
+    public Optional<Action> action() {
         return Optional.ofNullable(this.action);
     }
 
     /**
      * Denotes how the compliance request was created.
      */
-    public Optional<ComplianceCreatedBy> createdBy() {
+    public Optional<CreatedBy> createdBy() {
         return Optional.ofNullable(this.createdBy);
     }
 
@@ -107,7 +107,7 @@ public class Compliance {
     /**
      * Scope of privacy compliance.
      */
-    public Compliance withComplianceScope(@Nullable ComplianceComplianceScope complianceScope) {
+    public Compliance withComplianceScope(@Nullable ComplianceScope complianceScope) {
         this.complianceScope = complianceScope;
         return this;
     }
@@ -115,7 +115,7 @@ public class Compliance {
     /**
      * Action to take for a compliance request.
      */
-    public Compliance withAction(@Nullable ComplianceAction action) {
+    public Compliance withAction(@Nullable Action action) {
         this.action = action;
         return this;
     }
@@ -123,7 +123,7 @@ public class Compliance {
     /**
      * Denotes how the compliance request was created.
      */
-    public Compliance withCreatedBy(@Nullable ComplianceCreatedBy createdBy) {
+    public Compliance withCreatedBy(@Nullable CreatedBy createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -167,11 +167,11 @@ public class Compliance {
 
         private OffsetDateTime creationTime;
 
-        private ComplianceComplianceScope complianceScope;
+        private ComplianceScope complianceScope;
 
-        private ComplianceAction action;
+        private Action action;
 
-        private ComplianceCreatedBy createdBy;
+        private CreatedBy createdBy;
 
         private Builder() {
             // force use of static builder() method
@@ -188,7 +188,7 @@ public class Compliance {
         /**
          * Scope of privacy compliance.
          */
-        public Builder complianceScope(@Nullable ComplianceComplianceScope complianceScope) {
+        public Builder complianceScope(@Nullable ComplianceScope complianceScope) {
             this.complianceScope = complianceScope;
             return this;
         }
@@ -196,7 +196,7 @@ public class Compliance {
         /**
          * Action to take for a compliance request.
          */
-        public Builder action(@Nullable ComplianceAction action) {
+        public Builder action(@Nullable Action action) {
             this.action = action;
             return this;
         }
@@ -204,7 +204,7 @@ public class Compliance {
         /**
          * Denotes how the compliance request was created.
          */
-        public Builder createdBy(@Nullable ComplianceCreatedBy createdBy) {
+        public Builder createdBy(@Nullable CreatedBy createdBy) {
             this.createdBy = createdBy;
             return this;
         }

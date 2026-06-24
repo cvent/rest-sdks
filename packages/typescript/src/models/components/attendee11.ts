@@ -6,16 +6,331 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AppointmentGroup,
+  AppointmentGroup$inboundSchema,
+} from "./appointmentgroup.js";
+import {
+  AttendeeAnswer,
+  AttendeeAnswer$inboundSchema,
+} from "./attendeeanswer.js";
+import {
+  AttendeeContactInfo,
+  AttendeeContactInfo$inboundSchema,
+} from "./attendeecontactinfo.js";
+import { AttendeeGroup, AttendeeGroup$inboundSchema } from "./attendeegroup.js";
+import {
+  AttendeeInvitedBy1,
+  AttendeeInvitedBy1$inboundSchema,
+} from "./attendeeinvitedby1.js";
+import {
+  AttendeeResponseMethod1,
+  AttendeeResponseMethod1$inboundSchema,
+} from "./attendeeresponsemethod1.js";
+import {
+  AttendeeStatus,
+  AttendeeStatus$inboundSchema,
+} from "./attendeestatus.js";
+import {
+  AttendeeVisibility,
+  AttendeeVisibility$inboundSchema,
+} from "./attendeevisibility.js";
+import {
+  AttendeeWebLinks,
+  AttendeeWebLinks$inboundSchema,
+} from "./attendeeweblinks.js";
+import {
+  CustomFieldSchema,
+  CustomFieldSchema$inboundSchema,
+} from "./customfieldschema.js";
+import {
+  ExternalReference,
+  ExternalReference$inboundSchema,
+} from "./externalreference.js";
+import { Lookup, Lookup$inboundSchema } from "./lookup.js";
+import { NamedObject, NamedObject$inboundSchema } from "./namedobject.js";
+import { Uuid, Uuid$inboundSchema } from "./uuid.js";
 
 /**
- * The associated Attendee.
+ * The attendee's associated event.
+ */
+export type Attendee1Event = {
+  /**
+   * The event ID.
+   */
+  id?: string | undefined;
+};
+
+/**
+ * Contains details related to the attendee's admission item.
+ */
+export type Attendee1Lookup = {
+  /**
+   * A string that has to be a format matching the industry standard uuid
+   */
+  id?: string | undefined;
+  /**
+   * Code / Abbreviation of the lookup item.
+   */
+  code?: string | undefined;
+  /**
+   * Name of the lookup item.
+   */
+  name?: string | undefined;
+};
+
+/**
+ * An event attendee.
  */
 export type Attendee11 = {
   /**
-   * Attendee id
+   * The ISO 8601 zoned date time when this record was created.
    */
-  id: string;
+  created?: Date | undefined;
+  /**
+   * The identifier of the user that created this record.
+   */
+  createdBy?: string | undefined;
+  /**
+   * The ISO 8601 zoned date time when this record was updated.
+   */
+  lastModified?: Date | undefined;
+  /**
+   * The identifier of the user that last updated this record.
+   */
+  lastModifiedBy?: string | undefined;
+  /**
+   * The ID of attendee in the given event.
+   */
+  id?: string | undefined;
+  /**
+   * The attendee's associated event.
+   */
+  event?: Attendee1Event | undefined;
+  /**
+   * The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon registration for the event. Serves as proof of registration.
+   */
+  confirmationNumber?: string | undefined;
+  /**
+   * Information about attendee contact added to an event.
+   */
+  contact?: AttendeeContactInfo | undefined;
+  /**
+   * True indicates the attendee checked in to the event.
+   */
+  checkedIn?: boolean | undefined;
+  /**
+   * The date time when attendee was checked in to an event. Note: this field is deprecated. Please use the `checkIn` field instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  checkin?: Date | undefined;
+  /**
+   * The ISO 8601 zoned date time when attendee was checked in to an event.
+   */
+  checkIn?: Date | undefined;
+  /**
+   * The ISO 8601 zoned date time when attendee checked out from an event.
+   */
+  checkOut?: Date | undefined;
+  /**
+   * The duration, in milliseconds, the attendee was present at the event.
+   */
+  duration?: number | undefined;
+  /**
+   * Lookup response object
+   */
+  registrationPath?: Lookup | undefined;
+  /**
+   * A Named object
+   */
+  invitationList?: NamedObject | undefined;
+  /**
+   * Web links for an attendee.
+   */
+  webLinks?: AttendeeWebLinks | undefined;
+  /**
+   * Lookup response object
+   */
+  registrationType?: Lookup | undefined;
+  /**
+   * The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+   */
+  referenceId?: string | undefined;
+  /**
+   * The details of an attendee in an external systems.
+   */
+  externalReferences?: Array<ExternalReference> | undefined;
+  /**
+   * A planner created note for an attendee, used to track details about the attendee.
+   */
+  note?: string | undefined;
+  /**
+   * True indicates the attendee is a guest of another attendee.
+   */
+  guest?: boolean | undefined;
+  /**
+   * True indicates this attendee is a deleted guest.
+   */
+  deletedGuest?: boolean | undefined;
+  /**
+   * The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+   */
+  primaryId?: string | undefined;
+  /**
+   * An attendee group.
+   */
+  group?: AttendeeGroup | undefined;
+  /**
+   * The reference to the related entity. Contains only the ID of the related entity.
+   */
+  administrator?: Uuid | undefined;
+  /**
+   * DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  unsubscribed?: boolean | undefined;
+  /**
+   * This is used to denote the status of an attendee.
+   */
+  status?: AttendeeStatus | undefined;
+  /**
+   * The ISO 8601 zoned date time when attendee was registered.
+   */
+  registeredAt?: Date | undefined;
+  /**
+   * The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when there are changes to the registration, such as adding or removing products.
+   */
+  registrationLastModified?: Date | undefined;
+  /**
+   * The ISO 8601 zoned date time when attendee registration was cancelled.
+   */
+  registrationCancelledAt?: Date | undefined;
+  /**
+   * Method by which the attendee was invited to the event.
+   */
+  invitedBy?: AttendeeInvitedBy1 | undefined;
+  /**
+   * Represents the method by which an attendee registered for the event.
+   *
+   * @remarks
+   *
+   * - Administrator Responded: The invitee was registered by another contact acting as their administrator.
+   * - API-Responded: The invitee was registered through a custom process configured via an API integration.
+   * - Appointments Event Website: The invitee registered via an appointments event website.
+   * - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.
+   * - External Registration: The attendee was registered through an external integration, such as Marketo.
+   * - Group Leader Responded: The invitee was registered by a group leader and added to a group.
+   * - Historical Import: The invitee's registration was imported into the event as historical data.
+   * - Imported: The invitee's registration was imported into the event.
+   * - No Response: The invitee has not registered.
+   * - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.
+   * - Planner-Imported: An account user imported the invitee's registration into the event.
+   * - Planner-Responded: An account user registered the invitee from the Cvent back-end or the planner-side of the OnArrival app.
+   * - Post Event: The invitee was registered by an account user after the event's end date or while the event was in Completed status.
+   * - Self-Responded: The invitee registered themselves through a weblink or invitation.
+   *
+   * Note: The responseMethod can only be set if the invitee's status is No Response.
+   */
+  responseMethod?: AttendeeResponseMethod1 | undefined;
+  /**
+   * A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  questions?: Array<CustomFieldSchema> | undefined;
+  /**
+   * The list of answers to the registration questions.
+   */
+  answers?: Array<AttendeeAnswer> | undefined;
+  /**
+   * Contains details related to the attendee's admission item.
+   */
+  admissionItem?: Attendee1Lookup | undefined;
+  /**
+   * Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
+   */
+  visibility?: AttendeeVisibility | undefined;
+  /**
+   * The attendee's biographical writeup.
+   */
+  bio?: string | undefined;
+  /**
+   * Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use `allowPushNotification` field instead.
+   *
+   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+   */
+  showPopupNotification?: boolean | undefined;
+  /**
+   * An attendee's website URL, appears on their profile.
+   */
+  websiteUrl?: string | undefined;
+  /**
+   * True indicates attendee will recieve push notifications for session-schedule changes, promotions and other event activities in the Attendee Hub app.
+   */
+  allowPushNotifications?: boolean | undefined;
+  /**
+   * True indicaites attendee will recieve push notifications for appointments related activities in the Attendee Hub app.
+   */
+  allowAppointmentPushNotifications?: boolean | undefined;
+  /**
+   * True indicates this attendee record was created as part of a test scenario.
+   */
+  testRecord?: boolean | undefined;
+  /**
+   * The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified. Updates to the attendee's contact properties do not update this field. This field is updated when planners or attendees make changes to the attendee record, such as flagging as a participant. It is not updated for registration or product changes.
+   */
+  attendeeLastModified?: Date | undefined;
+  /**
+   * List of appointment groups associated with attendee. These control permissions and visibility in appointments associated with the event.
+   */
+  appointmentGroups?: Array<AppointmentGroup> | undefined;
+  /**
+   * The amount of credit associated with the attendee.
+   */
+  credit?: number | undefined;
 };
+
+/** @internal */
+export const Attendee1Event$inboundSchema: z.ZodType<
+  Attendee1Event,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+});
+
+export function attendee1EventFromJSON(
+  jsonString: string,
+): SafeParseResult<Attendee1Event, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Attendee1Event$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Attendee1Event' from JSON`,
+  );
+}
+
+/** @internal */
+export const Attendee1Lookup$inboundSchema: z.ZodType<
+  Attendee1Lookup,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string().optional(),
+  code: z.string().optional(),
+  name: z.string().optional(),
+});
+
+export function attendee1LookupFromJSON(
+  jsonString: string,
+): SafeParseResult<Attendee1Lookup, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Attendee1Lookup$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Attendee1Lookup' from JSON`,
+  );
+}
 
 /** @internal */
 export const Attendee11$inboundSchema: z.ZodType<
@@ -23,25 +338,67 @@ export const Attendee11$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
+  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  createdBy: z.string().optional(),
+  lastModified: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  lastModifiedBy: z.string().optional(),
+  id: z.string().optional(),
+  event: z.lazy(() => Attendee1Event$inboundSchema).optional(),
+  confirmationNumber: z.string().optional(),
+  contact: AttendeeContactInfo$inboundSchema.optional(),
+  checkedIn: z.boolean().optional(),
+  checkin: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  checkIn: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  checkOut: z.string().datetime({ offset: true }).transform(v => new Date(v))
+    .optional(),
+  duration: z.number().int().optional(),
+  registrationPath: Lookup$inboundSchema.optional(),
+  invitationList: NamedObject$inboundSchema.optional(),
+  webLinks: AttendeeWebLinks$inboundSchema.optional(),
+  registrationType: Lookup$inboundSchema.optional(),
+  referenceId: z.string().optional(),
+  externalReferences: z.array(ExternalReference$inboundSchema).optional(),
+  note: z.string().optional(),
+  guest: z.boolean().optional(),
+  deletedGuest: z.boolean().optional(),
+  primaryId: z.string().optional(),
+  group: AttendeeGroup$inboundSchema.optional(),
+  administrator: Uuid$inboundSchema.optional(),
+  unsubscribed: z.boolean().optional(),
+  status: AttendeeStatus$inboundSchema.optional(),
+  registeredAt: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  registrationLastModified: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  registrationCancelledAt: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  invitedBy: AttendeeInvitedBy1$inboundSchema.optional(),
+  responseMethod: AttendeeResponseMethod1$inboundSchema.optional(),
+  questions: z.array(CustomFieldSchema$inboundSchema).optional(),
+  answers: z.array(AttendeeAnswer$inboundSchema).optional(),
+  admissionItem: z.lazy(() => Attendee1Lookup$inboundSchema).optional(),
+  visibility: AttendeeVisibility$inboundSchema.optional(),
+  bio: z.string().optional(),
+  showPopupNotification: z.boolean().optional(),
+  websiteUrl: z.string().optional(),
+  allowPushNotifications: z.boolean().optional(),
+  allowAppointmentPushNotifications: z.boolean().optional(),
+  testRecord: z.boolean().optional(),
+  attendeeLastModified: z.string().datetime({ offset: true }).transform(v =>
+    new Date(v)
+  ).optional(),
+  appointmentGroups: z.array(AppointmentGroup$inboundSchema).optional(),
+  credit: z.number().optional(),
 });
-/** @internal */
-export type Attendee11$Outbound = {
-  id: string;
-};
 
-/** @internal */
-export const Attendee11$outboundSchema: z.ZodType<
-  Attendee11$Outbound,
-  z.ZodTypeDef,
-  Attendee11
-> = z.object({
-  id: z.string(),
-});
-
-export function attendee11ToJSON(attendee11: Attendee11): string {
-  return JSON.stringify(Attendee11$outboundSchema.parse(attendee11));
-}
 export function attendee11FromJSON(
   jsonString: string,
 ): SafeParseResult<Attendee11, SDKValidationError> {

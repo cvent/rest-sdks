@@ -13,21 +13,27 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A schema representing a choice object.
+    /// A question choice.
     /// </summary>
     public class Choice
     {
         /// <summary>
-        /// Unique identifier for the choice.
+        /// Text field ID.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Text value of the field.
+        /// Text value of the field. Displays to users in the UI.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
+
+        /// <summary>
+        /// Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+        /// </summary>
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
 
         /// <summary>
         /// Label of choice.

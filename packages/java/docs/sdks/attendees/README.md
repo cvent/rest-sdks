@@ -393,8 +393,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.attendee().isPresent()) {
-            System.out.println(res.attendee().get());
+        if (res.attendee1().isPresent()) {
+            System.out.println(res.attendee1().get());
         }
     }
 }
@@ -491,8 +491,8 @@ public class Application {
                 .request(req)
                 .call();
 
-        if (res.attendee().isPresent()) {
-            System.out.println(res.attendee().get());
+        if (res.attendee1().isPresent()) {
+            System.out.println(res.attendee1().get());
         }
     }
 }
@@ -704,10 +704,10 @@ public class Application {
                     .id("abc123")
                     .status(BadgeStatus.ACTIVE)
                     .type(BadgeType.EPC)
-                    .attendee(Attendee11.builder()
+                    .attendee(Attendee12.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .build())
@@ -927,10 +927,10 @@ public class Application {
                     .id("abc123")
                     .status(BadgeStatus.ACTIVE)
                     .type(BadgeType.EPC)
-                    .attendee(Attendee11.builder()
+                    .attendee(Attendee12.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .build())
-                    .event(Event21.builder()
+                    .event(Event3.builder()
                         .id("3db28cfc-db22-11eb-8d19-0242ac130003")
                         .build())
                     .build())

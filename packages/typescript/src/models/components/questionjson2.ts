@@ -6,115 +6,23 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AdditionalChoiceJson1,
-  AdditionalChoiceJson1$inboundSchema,
-} from "./additionalchoicejson1.js";
-import { CategoryJson2, CategoryJson2$inboundSchema } from "./categoryjson2.js";
-import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
-import { FieldJson2, FieldJson2$inboundSchema } from "./fieldjson2.js";
-import {
-  QuestionTypeJson2,
-  QuestionTypeJson2$inboundSchema,
-} from "./questiontypejson2.js";
-import {
-  TextFieldJson1,
-  TextFieldJson1$inboundSchema,
-} from "./textfieldjson1.js";
-import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
- * A survey question.
+ * The question that was answered.
  */
 export type QuestionJson2 = {
   /**
-   * The ISO 8601 zoned date time when this record was created.
-   */
-  created?: Date | undefined;
-  /**
-   * The identifier of the user that created this record.
-   */
-  createdBy?: string | undefined;
-  /**
-   * The ISO 8601 zoned date time when this record was updated.
-   */
-  lastModified?: Date | undefined;
-  /**
-   * The identifier of the user that last updated this record.
-   */
-  lastModifiedBy?: string | undefined;
-  /**
-   * Text field ID.
+   * The unique identifier of the question.
    */
   id?: string | undefined;
   /**
-   * text Value of the Field
+   * Question text.
    */
   text?: string | undefined;
   /**
-   * Reporting value of the Category, Its like a custom abbreviation
-   */
-  shortText?: string | undefined;
-  /**
-   * Html of the question
-   */
-  htmlText?: string | undefined;
-  /**
-   * Question Code
+   * Question code.
    */
   code?: string | undefined;
-  /**
-   * Question Type.
-   */
-  type?: QuestionTypeJson2 | undefined;
-  /**
-   * List of choices for the question.
-   */
-  choices?: Array<ChoiceJson2> | undefined;
-  /**
-   * List of categories for the question.
-   */
-  categories?: Array<CategoryJson2> | undefined;
-  /**
-   * List of sub categories for matrix side-by-side questions
-   */
-  subCategories?: Array<TextFieldJson1> | undefined;
-  /**
-   * Contains text of additional choice i.e N/A choice or otherAnswer choice
-   */
-  notApplicableAnswer?: AdditionalChoiceJson1 | undefined;
-  /**
-   * Contains text of additional choice i.e N/A choice or otherAnswer choice
-   */
-  otherAnswer?: AdditionalChoiceJson1 | undefined;
-  /**
-   * Text Value of Comments Input box placeholder
-   */
-  comments?: string | undefined;
-  /**
-   * Is this a mandatory question
-   */
-  required: boolean;
-  /**
-   * List of fields for form/matrix questions
-   */
-  fields?: Array<FieldJson2> | undefined;
-  /**
-   * Max possible score
-   */
-  maxScore?: number | undefined;
-  /**
-   * Total configured sum of all choices for number allocation question
-   */
-  totalSum?: number | undefined;
-  /**
-   * The reference to the related entity. Contains only the ID of the related entity.
-   */
-  survey?: UuidJson | undefined;
-  /**
-   * The reference to the related entity. Contains only the ID of the related entity.
-   */
-  chapter?: UuidJson | undefined;
 };
 
 /** @internal */
@@ -123,31 +31,9 @@ export const QuestionJson2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  created: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  createdBy: z.string().optional(),
-  lastModified: z.string().datetime({ offset: true }).transform(v =>
-    new Date(v)
-  ).optional(),
-  lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   text: z.string().optional(),
-  shortText: z.string().optional(),
-  htmlText: z.string().optional(),
   code: z.string().optional(),
-  type: QuestionTypeJson2$inboundSchema.optional(),
-  choices: z.array(ChoiceJson2$inboundSchema).optional(),
-  categories: z.array(CategoryJson2$inboundSchema).optional(),
-  subCategories: z.array(TextFieldJson1$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson1$inboundSchema.optional(),
-  comments: z.string().optional(),
-  required: z.boolean().default(false),
-  fields: z.array(FieldJson2$inboundSchema).optional(),
-  maxScore: z.number().optional(),
-  totalSum: z.number().int().optional(),
-  survey: UuidJson$inboundSchema.optional(),
-  chapter: UuidJson$inboundSchema.optional(),
 });
 
 export function questionJson2FromJSON(

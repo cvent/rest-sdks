@@ -60,25 +60,25 @@ public class SpeakerProgramItem {
      * The unique identifier of an event.
      */
     @JsonProperty("event")
-    private EventLiteJson event;
+    private EventLite event;
 
     /**
      * The unique identifier of a session.
      */
     @JsonProperty("session")
-    private SessionLiteJson session;
+    private SessionLite session;
 
     /**
      * The unique identifier of a speaker.
      */
     @JsonProperty("speaker")
-    private SpeakerLiteJson speaker;
+    private SpeakerLite speaker;
 
     /**
      * The unique identifier of a program item.
      */
     @JsonProperty("programItem")
-    private ProgramItemLiteJson programItem;
+    private ProgramItemLite programItem;
 
     @JsonCreator
     public SpeakerProgramItem(
@@ -87,10 +87,10 @@ public class SpeakerProgramItem {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("event") @Nonnull EventLiteJson event,
-            @JsonProperty("session") @Nonnull SessionLiteJson session,
-            @JsonProperty("speaker") @Nonnull SpeakerLiteJson speaker,
-            @JsonProperty("programItem") @Nonnull ProgramItemLiteJson programItem) {
+            @JsonProperty("event") @Nonnull EventLite event,
+            @JsonProperty("session") @Nonnull SessionLite session,
+            @JsonProperty("speaker") @Nonnull SpeakerLite speaker,
+            @JsonProperty("programItem") @Nonnull ProgramItemLite programItem) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -106,10 +106,10 @@ public class SpeakerProgramItem {
     }
 
     public SpeakerProgramItem(
-            @Nonnull EventLiteJson event,
-            @Nonnull SessionLiteJson session,
-            @Nonnull SpeakerLiteJson speaker,
-            @Nonnull ProgramItemLiteJson programItem) {
+            @Nonnull EventLite event,
+            @Nonnull SessionLite session,
+            @Nonnull SpeakerLite speaker,
+            @Nonnull ProgramItemLite programItem) {
         this(null, null, null, null, null, event, session, speaker, programItem);
     }
 
@@ -151,28 +151,28 @@ public class SpeakerProgramItem {
     /**
      * The unique identifier of an event.
      */
-    public EventLiteJson event() {
+    public EventLite event() {
         return this.event;
     }
 
     /**
      * The unique identifier of a session.
      */
-    public SessionLiteJson session() {
+    public SessionLite session() {
         return this.session;
     }
 
     /**
      * The unique identifier of a speaker.
      */
-    public SpeakerLiteJson speaker() {
+    public SpeakerLite speaker() {
         return this.speaker;
     }
 
     /**
      * The unique identifier of a program item.
      */
-    public ProgramItemLiteJson programItem() {
+    public ProgramItemLite programItem() {
         return this.programItem;
     }
 
@@ -223,7 +223,7 @@ public class SpeakerProgramItem {
     /**
      * The unique identifier of an event.
      */
-    public SpeakerProgramItem withEvent(@Nonnull EventLiteJson event) {
+    public SpeakerProgramItem withEvent(@Nonnull EventLite event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -231,7 +231,7 @@ public class SpeakerProgramItem {
     /**
      * The unique identifier of a session.
      */
-    public SpeakerProgramItem withSession(@Nonnull SessionLiteJson session) {
+    public SpeakerProgramItem withSession(@Nonnull SessionLite session) {
         this.session = Utils.checkNotNull(session, "session");
         return this;
     }
@@ -239,7 +239,7 @@ public class SpeakerProgramItem {
     /**
      * The unique identifier of a speaker.
      */
-    public SpeakerProgramItem withSpeaker(@Nonnull SpeakerLiteJson speaker) {
+    public SpeakerProgramItem withSpeaker(@Nonnull SpeakerLite speaker) {
         this.speaker = Utils.checkNotNull(speaker, "speaker");
         return this;
     }
@@ -247,7 +247,7 @@ public class SpeakerProgramItem {
     /**
      * The unique identifier of a program item.
      */
-    public SpeakerProgramItem withProgramItem(@Nonnull ProgramItemLiteJson programItem) {
+    public SpeakerProgramItem withProgramItem(@Nonnull ProgramItemLite programItem) {
         this.programItem = Utils.checkNotNull(programItem, "programItem");
         return this;
     }
@@ -315,13 +315,13 @@ public class SpeakerProgramItem {
 
         private String id;
 
-        private EventLiteJson event;
+        private EventLite event;
 
-        private SessionLiteJson session;
+        private SessionLite session;
 
-        private SpeakerLiteJson speaker;
+        private SpeakerLite speaker;
 
-        private ProgramItemLiteJson programItem;
+        private ProgramItemLite programItem;
 
         private Builder() {
             // force use of static builder() method
@@ -370,7 +370,7 @@ public class SpeakerProgramItem {
         /**
          * The unique identifier of an event.
          */
-        public Builder event(@Nonnull EventLiteJson event) {
+        public Builder event(@Nonnull EventLite event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -378,7 +378,7 @@ public class SpeakerProgramItem {
         /**
          * The unique identifier of a session.
          */
-        public Builder session(@Nonnull SessionLiteJson session) {
+        public Builder session(@Nonnull SessionLite session) {
             this.session = Utils.checkNotNull(session, "session");
             return this;
         }
@@ -386,7 +386,7 @@ public class SpeakerProgramItem {
         /**
          * The unique identifier of a speaker.
          */
-        public Builder speaker(@Nonnull SpeakerLiteJson speaker) {
+        public Builder speaker(@Nonnull SpeakerLite speaker) {
             this.speaker = Utils.checkNotNull(speaker, "speaker");
             return this;
         }
@@ -394,7 +394,7 @@ public class SpeakerProgramItem {
         /**
          * The unique identifier of a program item.
          */
-        public Builder programItem(@Nonnull ProgramItemLiteJson programItem) {
+        public Builder programItem(@Nonnull ProgramItemLite programItem) {
             this.programItem = Utils.checkNotNull(programItem, "programItem");
             return this;
         }

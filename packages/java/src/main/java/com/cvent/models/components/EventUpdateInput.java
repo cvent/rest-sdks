@@ -133,7 +133,7 @@ public class EventUpdateInput {
      * Essentials.
      */
     @JsonProperty("type")
-    private EventTypeJson1 type;
+    private EventTypeJson type;
 
     @JsonCreator
     public EventUpdateInput(
@@ -152,7 +152,7 @@ public class EventUpdateInput {
             @JsonProperty("languages") @Nonnull List<String> languages,
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("planners") @Nonnull List<PlannerJson2Input> planners,
-            @JsonProperty("type") @Nonnull EventTypeJson1 type) {
+            @JsonProperty("type") @Nonnull EventTypeJson type) {
         this.title = Optional.ofNullable(title).orElseThrow(() -> new IllegalArgumentException("title cannot be null"));
         this.format =
                 Optional.ofNullable(format).orElseThrow(() -> new IllegalArgumentException("format cannot be null"));
@@ -181,7 +181,7 @@ public class EventUpdateInput {
             @Nonnull String timezone,
             @Nonnull List<String> languages,
             @Nonnull List<PlannerJson2Input> planners,
-            @Nonnull EventTypeJson1 type) {
+            @Nonnull EventTypeJson type) {
         this(
                 title,
                 format,
@@ -314,7 +314,7 @@ public class EventUpdateInput {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventTypeJson1 type() {
+    public EventTypeJson type() {
         return this.type;
     }
 
@@ -450,7 +450,7 @@ public class EventUpdateInput {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventUpdateInput withType(@Nonnull EventTypeJson1 type) {
+    public EventUpdateInput withType(@Nonnull EventTypeJson type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -574,7 +574,7 @@ public class EventUpdateInput {
 
         private List<PlannerJson2Input> planners;
 
-        private EventTypeJson1 type;
+        private EventTypeJson type;
 
         private Builder() {
             // force use of static builder() method
@@ -708,7 +708,7 @@ public class EventUpdateInput {
          * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
          * Essentials.
          */
-        public Builder type(@Nonnull EventTypeJson1 type) {
+        public Builder type(@Nonnull EventTypeJson type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

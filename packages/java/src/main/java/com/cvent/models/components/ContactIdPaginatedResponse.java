@@ -23,17 +23,17 @@ public class ContactIdPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of contact ids.
      */
     @JsonProperty("data")
-    private List<IdJson> data;
+    private List<IdOnlyEntity> data;
 
     @JsonCreator
     public ContactIdPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging, @JsonProperty("data") @Nonnull List<IdJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<IdOnlyEntity> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class ContactIdPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of contact ids.
      */
-    public List<IdJson> data() {
+    public List<IdOnlyEntity> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class ContactIdPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ContactIdPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public ContactIdPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class ContactIdPaginatedResponse {
     /**
      * Collection of contact ids.
      */
-    public ContactIdPaginatedResponse withData(@Nonnull List<IdJson> data) {
+    public ContactIdPaginatedResponse withData(@Nonnull List<IdOnlyEntity> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class ContactIdPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<IdJson> data;
+        private List<IdOnlyEntity> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class ContactIdPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class ContactIdPaginatedResponse {
         /**
          * Collection of contact ids.
          */
-        public Builder data(@Nonnull List<IdJson> data) {
+        public Builder data(@Nonnull List<IdOnlyEntity> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

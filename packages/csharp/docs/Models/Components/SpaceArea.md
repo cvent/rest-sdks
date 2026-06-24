@@ -1,0 +1,91 @@
+# SpaceArea
+
+Space area divisons.
+
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = SpaceArea.LessThanOneThousandSqFt;
+```
+
+
+## Values
+
+| Name                                    | Value                                   |
+| --------------------------------------- | --------------------------------------- |
+| `LessThanOneThousandSqFt`               | LESS_THAN_ONE_THOUSAND_SQ_FT            |
+| `OneThousandSqFt`                       | ONE_THOUSAND_SQ_FT                      |
+| `TwoThousandSqFt`                       | TWO_THOUSAND_SQ_FT                      |
+| `ThreeThousandSqFt`                     | THREE_THOUSAND_SQ_FT                    |
+| `FourThousandSqFt`                      | FOUR_THOUSAND_SQ_FT                     |
+| `FiveThousandSqFt`                      | FIVE_THOUSAND_SQ_FT                     |
+| `SixThousandSqFt`                       | SIX_THOUSAND_SQ_FT                      |
+| `SevenThousandSqFt`                     | SEVEN_THOUSAND_SQ_FT                    |
+| `EightThousandSqFt`                     | EIGHT_THOUSAND_SQ_FT                    |
+| `NineThousandSqFt`                      | NINE_THOUSAND_SQ_FT                     |
+| `TenThousandSqFt`                       | TEN_THOUSAND_SQ_FT                      |
+| `ElevenThousandSqFt`                    | ELEVEN_THOUSAND_SQ_FT                   |
+| `TwelveThousandSqFt`                    | TWELVE_THOUSAND_SQ_FT                   |
+| `ThirteenThousandSqFt`                  | THIRTEEN_THOUSAND_SQ_FT                 |
+| `FourteenThousandSqFt`                  | FOURTEEN_THOUSAND_SQ_FT                 |
+| `FifteenThousandSqFt`                   | FIFTEEN_THOUSAND_SQ_FT                  |
+| `SixteenThousandSqFt`                   | SIXTEEN_THOUSAND_SQ_FT                  |
+| `SeventeenThousandSqFt`                 | SEVENTEEN_THOUSAND_SQ_FT                |
+| `EighteenThousandSqFt`                  | EIGHTEEN_THOUSAND_SQ_FT                 |
+| `NineteenThousandSqFt`                  | NINETEEN_THOUSAND_SQ_FT                 |
+| `TwentyThousandSqFt`                    | TWENTY_THOUSAND_SQ_FT                   |
+| `TwentyFiveThousandSqFt`                | TWENTY_FIVE_THOUSAND_SQ_FT              |
+| `ThirtyThousandSqFt`                    | THIRTY_THOUSAND_SQ_FT                   |
+| `ThirtyFiveThousandSqFt`                | THIRTY_FIVE_THOUSAND_SQ_FT              |
+| `FortyThousandSqFt`                     | FORTY_THOUSAND_SQ_FT                    |
+| `FortyFiveThousandSqFt`                 | FORTY_FIVE_THOUSAND_SQ_FT               |
+| `FiftyThousandSqFt`                     | FIFTY_THOUSAND_SQ_FT                    |
+| `FiftyFiveThousandSqFt`                 | FIFTY_FIVE_THOUSAND_SQ_FT               |
+| `SixtyThousandSqFt`                     | SIXTY_THOUSAND_SQ_FT                    |
+| `SixtyFiveThousandSqFt`                 | SIXTY_FIVE_THOUSAND_SQ_FT               |
+| `SeventyThousandSqFt`                   | SEVENTY_THOUSAND_SQ_FT                  |
+| `SeventyFiveThousandSqFt`               | SEVENTY_FIVE_THOUSAND_SQ_FT             |
+| `EightyThousandSqFt`                    | EIGHTY_THOUSAND_SQ_FT                   |
+| `EightyFiveThousandSqFt`                | EIGHTY_FIVE_THOUSAND_SQ_FT              |
+| `NinetyThousandSqFt`                    | NINETY_THOUSAND_SQ_FT                   |
+| `OneHundredThousandSqFt`                | ONE_HUNDRED_THOUSAND_SQ_FT              |
+| `GreaterThanOneHundredThousandSqFt`     | GREATER_THAN_ONE_HUNDRED_THOUSAND_SQ_FT |
+| `LessThanOneHundredSqMtr`               | LESS_THAN_ONE_HUNDRED_SQ_MTR            |
+| `OneHundredSqMtr`                       | ONE_HUNDRED_SQ_MTR                      |
+| `TwoHundredSqMtr`                       | TWO_HUNDRED_SQ_MTR                      |
+| `ThreeHundredSqMtr`                     | THREE_HUNDRED_SQ_MTR                    |
+| `FourHundredSqMtr`                      | FOUR_HUNDRED_SQ_MTR                     |
+| `FiveHundredSqMtr`                      | FIVE_HUNDRED_SQ_MTR                     |
+| `SixHundredSqMtr`                       | SIX_HUNDRED_SQ_MTR                      |
+| `SevenHundredSqMtr`                     | SEVEN_HUNDRED_SQ_MTR                    |
+| `EightHundredSqMtr`                     | EIGHT_HUNDRED_SQ_MTR                    |
+| `NineHundredSqMtr`                      | NINE_HUNDRED_SQ_MTR                     |
+| `OneThousandSqMtr`                      | ONE_THOUSAND_SQ_MTR                     |
+| `ElevenHundredSqMtr`                    | ELEVEN_HUNDRED_SQ_MTR                   |
+| `TwelveHundredSqMtr`                    | TWELVE_HUNDRED_SQ_MTR                   |
+| `ThirteenHundredSqMtr`                  | THIRTEEN_HUNDRED_SQ_MTR                 |
+| `FourteenHundredSqMtr`                  | FOURTEEN_HUNDRED_SQ_MTR                 |
+| `FifteenHundredSqMtr`                   | FIFTEEN_HUNDRED_SQ_MTR                  |
+| `SixteenHundredSqMtr`                   | SIXTEEN_HUNDRED_SQ_MTR                  |
+| `SeventeenHundredSqMtr`                 | SEVENTEEN_HUNDRED_SQ_MTR                |
+| `EighteenHundredSqMtr`                  | EIGHTEEN_HUNDRED_SQ_MTR                 |
+| `NineteenHundredSqMtr`                  | NINETEEN_HUNDRED_SQ_MTR                 |
+| `TwoThousandSqMtr`                      | TWO_THOUSAND_SQ_MTR                     |
+| `TwentyFiveHundredSqMtr`                | TWENTY_FIVE_HUNDRED_SQ_MTR              |
+| `ThreeThousandSqMtr`                    | THREE_THOUSAND_SQ_MTR                   |
+| `ThirtyFiveHundredSqMtr`                | THIRTY_FIVE_HUNDRED_SQ_MTR              |
+| `FourThousandSqMtr`                     | FOUR_THOUSAND_SQ_MTR                    |
+| `FortyFiveHundredSqMtr`                 | FORTY_FIVE_HUNDRED_SQ_MTR               |
+| `FiveThousandSqMtr`                     | FIVE_THOUSAND_SQ_MTR                    |
+| `FiftyFiveHundredSqMtr`                 | FIFTY_FIVE_HUNDRED_SQ_MTR               |
+| `SixThousandSqMtr`                      | SIX_THOUSAND_SQ_MTR                     |
+| `SixtyFiveHundredSqMtr`                 | SIXTY_FIVE_HUNDRED_SQ_MTR               |
+| `SevenThousandSqMtr`                    | SEVEN_THOUSAND_SQ_MTR                   |
+| `SeventyFiveHundredSqMtr`               | SEVENTY_FIVE_HUNDRED_SQ_MTR             |
+| `EightThousandSqMtr`                    | EIGHT_THOUSAND_SQ_MTR                   |
+| `EightyFiveHundredSqMtr`                | EIGHTY_FIVE_HUNDRED_SQ_MTR              |
+| `NineThousandSqMtr`                     | NINE_THOUSAND_SQ_MTR                    |
+| `TenThousandSqMtr`                      | TEN_THOUSAND_SQ_MTR                     |
+| `GreaterThanTenThousandSqMtr`           | GREATER_THAN_TEN_THOUSAND_SQ_MTR        |

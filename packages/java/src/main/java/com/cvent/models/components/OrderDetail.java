@@ -70,7 +70,7 @@ public class OrderDetail {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee attendee;
 
     /**
      * Order number for this order
@@ -157,7 +157,7 @@ public class OrderDetail {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("event") @Nullable Event2 event,
-            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("number") @Nullable String number,
             @JsonProperty("cancelled") @Nullable Boolean cancelled,
             @JsonProperty("type") @Nullable OrderType type,
@@ -256,7 +256,7 @@ public class OrderDetail {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<Attendee2> attendee() {
+    public Optional<Attendee> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -392,7 +392,7 @@ public class OrderDetail {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public OrderDetail withAttendee(@Nullable Attendee2 attendee) {
+    public OrderDetail withAttendee(@Nullable Attendee attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -594,7 +594,7 @@ public class OrderDetail {
 
         private Event2 event;
 
-        private Attendee2 attendee;
+        private Attendee attendee;
 
         private String number;
 
@@ -673,7 +673,7 @@ public class OrderDetail {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable Attendee2 attendee) {
+        public Builder attendee(@Nullable Attendee attendee) {
             this.attendee = attendee;
             return this;
         }

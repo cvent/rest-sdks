@@ -1,0 +1,12 @@
+# CancellationDetails
+
+Information about cancellation of RFP.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `DateTime`                                                                            | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | The ISO 8601 date time (in UTC) when RFP was cancelled.                               | 2021-01-13T14:06:20.080Z                                                              |
+| `Reason`                                                                              | [CancelledReason1](../../Models/Components/CancelledReason1.md)                       | :heavy_minus_sign:                                                                    | Reason for cancelling the RFP.                                                        |                                                                                       |
+| `Comments`                                                                            | *string*                                                                              | :heavy_minus_sign:                                                                    | Additional comments while cancelling the RFP.                                         | I am cancelling my event, postponing to Q4.                                           |

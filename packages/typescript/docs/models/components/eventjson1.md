@@ -1,6 +1,6 @@
 # EventJson1
 
-ID of the event.
+Event ID Information.
 
 ## Example Usage
 
@@ -8,7 +8,7 @@ ID of the event.
 import { EventJson1 } from "@cvent/sdk/models/components";
 
 let value: EventJson1 = {
-  id: "103097a4-143d-11e5-9f99-d0a637ee0032",
+  id: "3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329",
 };
 ```
 
@@ -16,4 +16,4 @@ let value: EventJson1 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | UUID of the event.                   | 103097a4-143d-11e5-9f99-d0a637ee0032 |
+| `id`                                 | *string*                             | :heavy_minus_sign:                   | Identifier of a particular Event.    | 3d808ee8-94f8-4f3a-9ad1-6b23f4e4c329 |

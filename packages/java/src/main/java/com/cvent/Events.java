@@ -99,6 +99,15 @@ import com.cvent.models.operations.ListEventEmailsResponse;
 import com.cvent.models.operations.ListEventUserGroupsRequest;
 import com.cvent.models.operations.ListEventUserGroupsRequestBuilder;
 import com.cvent.models.operations.ListEventUserGroupsResponse;
+import com.cvent.models.operations.ListEventVoucherAttendeesRequest;
+import com.cvent.models.operations.ListEventVoucherAttendeesRequestBuilder;
+import com.cvent.models.operations.ListEventVoucherAttendeesResponse;
+import com.cvent.models.operations.ListEventVouchersPostFilterRequest;
+import com.cvent.models.operations.ListEventVouchersPostFilterRequestBuilder;
+import com.cvent.models.operations.ListEventVouchersPostFilterResponse;
+import com.cvent.models.operations.ListEventVouchersRequest;
+import com.cvent.models.operations.ListEventVouchersRequestBuilder;
+import com.cvent.models.operations.ListEventVouchersResponse;
 import com.cvent.models.operations.ListFeeItemsRequest;
 import com.cvent.models.operations.ListFeeItemsRequestBuilder;
 import com.cvent.models.operations.ListFeeItemsResponse;
@@ -183,6 +192,9 @@ import com.cvent.operations.ListDonationItems;
 import com.cvent.operations.ListDonationItemsPostFilter;
 import com.cvent.operations.ListEventEmails;
 import com.cvent.operations.ListEventUserGroups;
+import com.cvent.operations.ListEventVoucherAttendees;
+import com.cvent.operations.ListEventVouchers;
+import com.cvent.operations.ListEventVouchersPostFilter;
 import com.cvent.operations.ListFeeItems;
 import com.cvent.operations.ListMembershipItems;
 import com.cvent.operations.ListMembershipItemsPostFilter;
@@ -2118,6 +2130,134 @@ public class Events {
             @Nonnull DisassociateEventUserGroupRequest request, @Nullable Options options) {
         RequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation =
                 new DisassociateEventUserGroup.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @return The call builder
+     */
+    public ListEventVouchersRequestBuilder listEventVouchers() {
+        return new ListEventVouchersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVouchersResponse listEventVouchers(@Nonnull ListEventVouchersRequest request) {
+        return listEventVouchers(request, null);
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVouchersResponse listEventVouchers(
+            @Nonnull ListEventVouchersRequest request, @Nullable Options options) {
+        RequestOperation<ListEventVouchersRequest, ListEventVouchersResponse> operation =
+                new ListEventVouchers.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @return The call builder
+     */
+    public ListEventVouchersPostFilterRequestBuilder listEventVouchersPostFilter() {
+        return new ListEventVouchersPostFilterRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVouchersPostFilterResponse listEventVouchersPostFilter(
+            @Nonnull ListEventVouchersPostFilterRequest request) {
+        return listEventVouchersPostFilter(request, null);
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVouchersPostFilterResponse listEventVouchersPostFilter(
+            @Nonnull ListEventVouchersPostFilterRequest request, @Nullable Options options) {
+        RequestOperation<ListEventVouchersPostFilterRequest, ListEventVouchersPostFilterResponse> operation =
+                new ListEventVouchersPostFilter.Sync(sdkConfiguration, options, _headers);
+        return operation.handleResponse(operation.doRequest(request));
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @return The call builder
+     */
+    public ListEventVoucherAttendeesRequestBuilder listEventVoucherAttendees() {
+        return new ListEventVoucherAttendeesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVoucherAttendeesResponse listEventVoucherAttendees(
+            @Nonnull ListEventVoucherAttendeesRequest request) {
+        return listEventVoucherAttendees(request, null);
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return The response from the API call
+     * @throws RuntimeException subclass if the API call fails
+     */
+    public ListEventVoucherAttendeesResponse listEventVoucherAttendees(
+            @Nonnull ListEventVoucherAttendeesRequest request, @Nullable Options options) {
+        RequestOperation<ListEventVoucherAttendeesRequest, ListEventVoucherAttendeesResponse> operation =
+                new ListEventVoucherAttendees.Sync(sdkConfiguration, options, _headers);
         return operation.handleResponse(operation.doRequest(request));
     }
 

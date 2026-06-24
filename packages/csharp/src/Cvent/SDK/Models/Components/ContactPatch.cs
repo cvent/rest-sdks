@@ -74,13 +74,13 @@ namespace Cvent.SDK.Models.Components
         /// Contains details related to the attendee's contact type.
         /// </summary>
         [JsonProperty("type")]
-        public AttendeeContactTypeJsonInput? Type { get; set; }
+        public AttendeeContactTypeInput? Type { get; set; }
 
         /// <summary>
         /// The type of address.
         /// </summary>
         [JsonProperty("primaryAddressType")]
-        public AddressTypeJson? PrimaryAddressType { get; set; }
+        public AddressType? PrimaryAddressType { get; set; }
 
         [JsonProperty("homeAddress")]
         public HomeAddress? HomeAddress { get; set; }
@@ -98,7 +98,7 @@ namespace Cvent.SDK.Models.Components
         /// Contact address details.
         /// </summary>
         [JsonProperty("workAddress")]
-        public AddressJsonInput? WorkAddress { get; set; }
+        public AddressInput? WorkAddress { get; set; }
 
         /// <summary>
         /// The phone number of the contact at their place of work.
@@ -140,7 +140,7 @@ namespace Cvent.SDK.Models.Components
         /// Details of an opt-out for a Contact.
         /// </summary>
         [JsonProperty("optOut")]
-        public OptOutJsonInput? OptOut { get; set; }
+        public ContactOptOutInput? OptOut { get; set; }
 
         /// <summary>
         /// Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
@@ -167,7 +167,7 @@ namespace Cvent.SDK.Models.Components
         /// This entity represents a contact's passport information.
         /// </summary>
         [JsonProperty("passport")]
-        public PassportJsonInput? Passport { get; set; }
+        public PassportInput? Passport { get; set; }
 
         [JsonProperty("socialSecurityNumber")]
         public object? SocialSecurityNumber { get; set; }

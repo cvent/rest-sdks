@@ -25,19 +25,19 @@ public class QuestionsPaginatedResponse1 {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of Questions.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<QuestionWithProgramIdJson> data;
+    private List<TravelProgramQuestion> data;
 
     @JsonCreator
     public QuestionsPaginatedResponse1(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<QuestionWithProgramIdJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<TravelProgramQuestion> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class QuestionsPaginatedResponse1 {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of Questions.
      */
-    public Optional<List<QuestionWithProgramIdJson>> data() {
+    public Optional<List<TravelProgramQuestion>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class QuestionsPaginatedResponse1 {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public QuestionsPaginatedResponse1 withPaging(@Nullable PagingJson paging) {
+    public QuestionsPaginatedResponse1 withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class QuestionsPaginatedResponse1 {
     /**
      * Collection of Questions.
      */
-    public QuestionsPaginatedResponse1 withData(@Nullable List<QuestionWithProgramIdJson> data) {
+    public QuestionsPaginatedResponse1 withData(@Nullable List<TravelProgramQuestion> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class QuestionsPaginatedResponse1 {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<QuestionWithProgramIdJson> data;
+        private List<TravelProgramQuestion> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class QuestionsPaginatedResponse1 {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class QuestionsPaginatedResponse1 {
         /**
          * Collection of Questions.
          */
-        public Builder data(@Nullable List<QuestionWithProgramIdJson> data) {
+        public Builder data(@Nullable List<TravelProgramQuestion> data) {
             this.data = data;
             return this;
         }

@@ -23,12 +23,12 @@ namespace Cvent.SDK.Models.Components
         /// Represents pagination information for a collection of resources.
         /// </summary>
         [JsonProperty("paging")]
-        public PagingJson Paging { get; set; } = default!;
+        public Paging Paging { get; set; } = default!;
 
         /// <summary>
         /// List of RFP suppliers.
         /// </summary>
         [JsonProperty("data")]
-        public List<RfpSupplierJson> Data { get; set; } = default!;
+        public List<RfpSupplier> Data { get; set; } = default!;
     }
 }

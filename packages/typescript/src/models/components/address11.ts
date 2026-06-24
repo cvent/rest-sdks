@@ -8,33 +8,21 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Address details
+ * Schema for address information
  */
 export type Address11 = {
   /**
-   * The first line of an address.
+   * The first line of an address
    */
   address1?: string | undefined;
   /**
-   * The second line of an address.
+   * The second line of an address
    */
   address2?: string | undefined;
-  /**
-   * The third line of an address.
-   */
-  address3?: string | undefined;
   /**
    * The name of the city.
    */
   city?: string | undefined;
-  /**
-   * ISO 3166 two-letter (alpha-2) country code.
-   */
-  countryCode?: string | undefined;
-  /**
-   * Postal code (also known as zipcode) of the address.
-   */
-  postalCode?: string | undefined;
   /**
    * The name of the state/province/region of the address.
    */
@@ -44,17 +32,17 @@ export type Address11 = {
    */
   regionCode?: string | undefined;
   /**
-   * Name of the country of the address.
+   * postal code (also known as zipcode) of the address
+   */
+  postalCode?: string | undefined;
+  /**
+   * Name of the country for example, 'United States'
    */
   country?: string | undefined;
   /**
-   * The geo latitude of the address.
+   * ISO 3166 two-letter (alpha-2) country code
    */
-  latitude?: number | undefined;
-  /**
-   * The geo longitude of the address.
-   */
-  longitude?: number | undefined;
+  countryCode?: string | undefined;
 };
 
 /** @internal */
@@ -65,15 +53,12 @@ export const Address11$inboundSchema: z.ZodType<
 > = z.object({
   address1: z.string().optional(),
   address2: z.string().optional(),
-  address3: z.string().optional(),
   city: z.string().optional(),
-  countryCode: z.string().optional(),
-  postalCode: z.string().optional(),
   region: z.string().optional(),
   regionCode: z.string().optional(),
+  postalCode: z.string().optional(),
   country: z.string().optional(),
-  latitude: z.number().int().optional(),
-  longitude: z.number().int().optional(),
+  countryCode: z.string().optional(),
 });
 
 export function address11FromJSON(

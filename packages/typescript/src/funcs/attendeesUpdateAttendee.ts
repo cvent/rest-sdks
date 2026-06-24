@@ -40,7 +40,7 @@ export function attendeesUpdateAttendee(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    components.Attendee1,
+    components.Attendee11,
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      components.Attendee1,
+      components.Attendee11,
       | errors.ErrorResponse1
       | CventSDKError
       | ResponseValidationError
@@ -166,7 +166,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    components.Attendee1,
+    components.Attendee11,
     | errors.ErrorResponse1
     | CventSDKError
     | ResponseValidationError
@@ -177,7 +177,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, components.Attendee1$inboundSchema),
+    M.json(200, components.Attendee11$inboundSchema),
     M.jsonErr([400, 401, 403, 404, 429], errors.ErrorResponse1$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

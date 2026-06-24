@@ -1198,14 +1198,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Attendee1 obj;
+                    Attendee11 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee1>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee11>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Attendee1.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Attendee11.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new GetAttendeeByIdResponse() {
@@ -1214,7 +1214,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Attendee = obj;
+                    response.Attendee1 = obj;
                     return response;
                 }
 
@@ -1371,14 +1371,14 @@ namespace Cvent.SDK
                 if (Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-                    Attendee1 obj;
+                    Attendee11 obj;
                     try
                     {
-                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee1>(httpResponseBody, NullValueHandling.Ignore);
+                        obj = ResponseBodyDeserializer.DeserializeNotNull<Attendee11>(httpResponseBody, NullValueHandling.Ignore);
                     }
                     catch (Exception ex)
                     {
-                        throw new ResponseValidationException("Failed to deserialize response body into Attendee1.", httpRequest, httpResponse, httpResponseBody, ex);
+                        throw new ResponseValidationException("Failed to deserialize response body into Attendee11.", httpRequest, httpResponse, httpResponseBody, ex);
                     }
 
                     var response = new UpdateAttendeeResponse() {
@@ -1387,7 +1387,7 @@ namespace Cvent.SDK
                             Request = httpRequest
                         }
                     };
-                    response.Attendee = obj;
+                    response.Attendee1 = obj;
                     return response;
                 }
 

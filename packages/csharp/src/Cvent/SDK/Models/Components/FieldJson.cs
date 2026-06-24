@@ -15,7 +15,7 @@ namespace Cvent.SDK.Models.Components
     using System.Collections.Generic;
 
     /// <summary>
-    /// A question field.
+    /// A survey field.
     /// </summary>
     public class FieldJson
     {
@@ -26,19 +26,19 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Text value of the field. Displays to users in the UI.
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
         [JsonProperty("shortText")]
         public string? ShortText { get; set; }
 
         /// <summary>
-        /// Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`: Data is one or more options from a list. `Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is free-text input.
+        /// Field Type.
         /// </summary>
         [JsonProperty("type")]
         public FieldTypeJson? Type { get; set; }
@@ -47,22 +47,22 @@ namespace Cvent.SDK.Models.Components
         /// List of choices for this field.
         /// </summary>
         [JsonProperty("choices")]
-        public List<ChoiceJson>? Choices { get; set; }
+        public List<ChoiceJson1>? Choices { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoiceJson2? NotApplicableAnswer { get; set; }
+        public AdditionalChoiceJson? NotApplicableAnswer { get; set; }
 
         /// <summary>
-        /// Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
-        public AdditionalChoiceJson2? OtherAnswer { get; set; }
+        public AdditionalChoiceJson? OtherAnswer { get; set; }
 
         /// <summary>
-        /// True indicates this is a mandatory question field.
+        /// Is this a mandatory field.
         /// </summary>
         [JsonProperty("required")]
         public bool? Required { get; set; } = false;

@@ -16,25 +16,33 @@ import java.util.Optional;
 /**
  * Choice
  *
- * <p>A schema representing a choice object
+ * <p>A question choice.
  */
 public class Choice {
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * Text value of the field
+     * Text value of the field. Displays to users in the UI.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Label of choice
+     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
+     * the question in reports.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("shortText")
+    private String shortText;
+
+    /**
+     * Label of choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("label")
@@ -44,32 +52,42 @@ public class Choice {
     public Choice(
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("text") @Nullable String text,
+            @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("label") @Nullable String label) {
         this.id = id;
         this.text = text;
+        this.shortText = shortText;
         this.label = label;
     }
 
     public Choice() {
-        this(null, null, null);
+        this(null, null, null, null);
     }
 
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * Text value of the field
+     * Text value of the field. Displays to users in the UI.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Label of choice
+     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
+     * the question in reports.
+     */
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
+    }
+
+    /**
+     * Label of choice.
      */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
@@ -80,7 +98,7 @@ public class Choice {
     }
 
     /**
-     * Unique identifier for the choice
+     * Text field ID.
      */
     public Choice withId(@Nullable String id) {
         this.id = id;
@@ -88,7 +106,7 @@ public class Choice {
     }
 
     /**
-     * Text value of the field
+     * Text value of the field. Displays to users in the UI.
      */
     public Choice withText(@Nullable String text) {
         this.text = text;
@@ -96,7 +114,16 @@ public class Choice {
     }
 
     /**
-     * Label of choice
+     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
+     * the question in reports.
+     */
+    public Choice withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
+        return this;
+    }
+
+    /**
+     * Label of choice.
      */
     public Choice withLabel(@Nullable String label) {
         this.label = label;
@@ -114,17 +141,18 @@ public class Choice {
         Choice other = (Choice) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
                 && Utils.enhancedDeepEquals(this.text, other.text)
+                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
                 && Utils.enhancedDeepEquals(this.label, other.label);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, label);
+        return Utils.enhancedHash(id, text, shortText, label);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(Choice.class, "id", id, "text", text, "label", label);
+        return Utils.toString(Choice.class, "id", id, "text", text, "shortText", shortText, "label", label);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -134,6 +162,8 @@ public class Choice {
 
         private String text;
 
+        private String shortText;
+
         private String label;
 
         private Builder() {
@@ -141,7 +171,7 @@ public class Choice {
         }
 
         /**
-         * Unique identifier for the choice
+         * Text field ID.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -149,7 +179,7 @@ public class Choice {
         }
 
         /**
-         * Text value of the field
+         * Text value of the field. Displays to users in the UI.
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -157,7 +187,16 @@ public class Choice {
         }
 
         /**
-         * Label of choice
+         * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
+         * the question in reports.
+         */
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
+            return this;
+        }
+
+        /**
+         * Label of choice.
          */
         public Builder label(@Nullable String label) {
             this.label = label;
@@ -165,7 +204,7 @@ public class Choice {
         }
 
         public Choice build() {
-            return new Choice(id, text, label);
+            return new Choice(id, text, shortText, label);
         }
     }
 }

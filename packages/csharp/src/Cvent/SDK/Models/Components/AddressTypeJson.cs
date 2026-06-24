@@ -14,12 +14,12 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The type of address.
+    /// The type of the address.
     /// </summary>
     public enum AddressTypeJson
     {
-        [JsonProperty("Home")] Home,
-        [JsonProperty("Work")] Work,
+        [JsonProperty("work")] Work,
+        [JsonProperty("home")] Home,
     }
 
     public static class AddressTypeJsonExtension

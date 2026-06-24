@@ -40,22 +40,24 @@ namespace Cvent.SDK.Models.Requests
         public string? Token { get; set; }
 
         /// <summary>
-        /// A filter query string narrows search results and supports the combination of logical and comparison operators.<br/>
-        /// The filter adheres to the pattern filter='field' comparisonType 'value'.<br/>
-        /// The filter query supports maximum three fields in filter expression.<br/>
+        /// Use filter query parameters to limit results<br/>
+        /// to data that matches your criteria. See<br/>
+        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
-        /// There is one comparison type that can be used in filter expressions:<br/>
-        /// * equal: eq<br/>
+        /// Supported fields and operators are listed below:<br/>
         /// <br/>
-        /// The following fields are filterable:<br/>
-        /// * contact.id (eq)<br/>
-        /// * solution (eq)<br/>
-        /// * device.type (eq) [deprecated]<br/>
-        /// * device.operatingSystem (eq) [deprecated]<br/>
-        /// * video.id (eq)<br/>
-        /// * type (eq)<br/>
+        /// | Field                  | Operators | Notes      |<br/>
+        /// |------------------------|-----------|------------|<br/>
+        /// | contact.id             | `eq`      |            |<br/>
+        /// | solution               | `eq`      |            |<br/>
+        /// | device.type            | `eq`      | deprecated |<br/>
+        /// | device.operatingSystem | `eq`      | deprecated |<br/>
+        /// | video.id               | `eq`      |            |<br/>
+        /// | type                   | `eq`      |            |<br/>
         /// <br/>
-        /// The following operators are available:<br/>
+        /// The filter query supports maximum three fields in a filter expression.<br/>
+        /// <br/>
+        /// The following logical operators are supported for combining filters:<br/>
         /// * and.
         /// </summary>
         [SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")]

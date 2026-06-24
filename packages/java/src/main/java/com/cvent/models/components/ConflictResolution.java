@@ -28,7 +28,7 @@ public class ConflictResolution {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("events")
-    private List<EventContactIdJson> events;
+    private List<EventContactId> events;
 
     /**
      * For each survey (designated by survey id), choose a contact id whose linked respondent will be
@@ -37,7 +37,7 @@ public class ConflictResolution {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("surveys")
-    private List<SurveyContactIdJson> surveys;
+    private List<SurveyContactId> surveys;
 
     /**
      * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact
@@ -52,14 +52,14 @@ public class ConflictResolution {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contactFields")
-    private List<ContactMergeFieldJson> contactFields;
+    private List<ContactMergeField> contactFields;
 
     @JsonCreator
     public ConflictResolution(
-            @JsonProperty("events") @Nullable List<EventContactIdJson> events,
-            @JsonProperty("surveys") @Nullable List<SurveyContactIdJson> surveys,
+            @JsonProperty("events") @Nullable List<EventContactId> events,
+            @JsonProperty("surveys") @Nullable List<SurveyContactId> surveys,
             @JsonProperty("relatedContacts") @Nullable String relatedContacts,
-            @JsonProperty("contactFields") @Nullable List<ContactMergeFieldJson> contactFields) {
+            @JsonProperty("contactFields") @Nullable List<ContactMergeField> contactFields) {
         this.events = events;
         this.surveys = surveys;
         this.relatedContacts = relatedContacts;
@@ -75,7 +75,7 @@ public class ConflictResolution {
      * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
      * in a single event.
      */
-    public Optional<List<EventContactIdJson>> events() {
+    public Optional<List<EventContactId>> events() {
         return Optional.ofNullable(this.events);
     }
 
@@ -84,7 +84,7 @@ public class ConflictResolution {
      * associated with the resulting merged contact. Use whenever at least two contacts exist as
      * respondents in a single survey.
      */
-    public Optional<List<SurveyContactIdJson>> surveys() {
+    public Optional<List<SurveyContactId>> surveys() {
         return Optional.ofNullable(this.surveys);
     }
 
@@ -99,7 +99,7 @@ public class ConflictResolution {
     /**
      * Specify which contact to use values from for any contact field.
      */
-    public Optional<List<ContactMergeFieldJson>> contactFields() {
+    public Optional<List<ContactMergeField>> contactFields() {
         return Optional.ofNullable(this.contactFields);
     }
 
@@ -112,7 +112,7 @@ public class ConflictResolution {
      * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
      * in a single event.
      */
-    public ConflictResolution withEvents(@Nullable List<EventContactIdJson> events) {
+    public ConflictResolution withEvents(@Nullable List<EventContactId> events) {
         this.events = events;
         return this;
     }
@@ -122,7 +122,7 @@ public class ConflictResolution {
      * associated with the resulting merged contact. Use whenever at least two contacts exist as
      * respondents in a single survey.
      */
-    public ConflictResolution withSurveys(@Nullable List<SurveyContactIdJson> surveys) {
+    public ConflictResolution withSurveys(@Nullable List<SurveyContactId> surveys) {
         this.surveys = surveys;
         return this;
     }
@@ -139,7 +139,7 @@ public class ConflictResolution {
     /**
      * Specify which contact to use values from for any contact field.
      */
-    public ConflictResolution withContactFields(@Nullable List<ContactMergeFieldJson> contactFields) {
+    public ConflictResolution withContactFields(@Nullable List<ContactMergeField> contactFields) {
         this.contactFields = contactFields;
         return this;
     }
@@ -181,13 +181,13 @@ public class ConflictResolution {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<EventContactIdJson> events;
+        private List<EventContactId> events;
 
-        private List<SurveyContactIdJson> surveys;
+        private List<SurveyContactId> surveys;
 
         private String relatedContacts;
 
-        private List<ContactMergeFieldJson> contactFields;
+        private List<ContactMergeField> contactFields;
 
         private Builder() {
             // force use of static builder() method
@@ -198,7 +198,7 @@ public class ConflictResolution {
          * associated with the resulting merged contact. Use whenever at least two contacts exist as attendees
          * in a single event.
          */
-        public Builder events(@Nullable List<EventContactIdJson> events) {
+        public Builder events(@Nullable List<EventContactId> events) {
             this.events = events;
             return this;
         }
@@ -208,7 +208,7 @@ public class ConflictResolution {
          * associated with the resulting merged contact. Use whenever at least two contacts exist as
          * respondents in a single survey.
          */
-        public Builder surveys(@Nullable List<SurveyContactIdJson> surveys) {
+        public Builder surveys(@Nullable List<SurveyContactId> surveys) {
             this.surveys = surveys;
             return this;
         }
@@ -225,7 +225,7 @@ public class ConflictResolution {
         /**
          * Specify which contact to use values from for any contact field.
          */
-        public Builder contactFields(@Nullable List<ContactMergeFieldJson> contactFields) {
+        public Builder contactFields(@Nullable List<ContactMergeField> contactFields) {
             this.contactFields = contactFields;
             return this;
         }

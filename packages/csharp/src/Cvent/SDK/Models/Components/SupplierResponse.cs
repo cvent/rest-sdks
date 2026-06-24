@@ -29,7 +29,7 @@ namespace Cvent.SDK.Models.Components
         /// Reason given for a response to an RFP.
         /// </summary>
         [JsonProperty("reason")]
-        public RfpResponseReasonJson? Reason { get; set; }
+        public RfpResponseReason? Reason { get; set; }
 
         /// <summary>
         /// Comment for the response reason.

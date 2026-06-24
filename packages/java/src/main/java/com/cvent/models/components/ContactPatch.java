@@ -88,14 +88,14 @@ public class ContactPatch {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private AttendeeContactTypeJsonInput type;
+    private AttendeeContactTypeInput type;
 
     /**
      * The type of address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("primaryAddressType")
-    private AddressTypeJson primaryAddressType;
+    private AddressType primaryAddressType;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
@@ -117,7 +117,7 @@ public class ContactPatch {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
-    private AddressJsonInput workAddress;
+    private AddressInput workAddress;
 
     /**
      * The phone number of the contact at their place of work.
@@ -167,7 +167,7 @@ public class ContactPatch {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("optOut")
-    private OptOutJsonInput optOut;
+    private ContactOptOutInput optOut;
 
     /**
      * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for
@@ -204,7 +204,7 @@ public class ContactPatch {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("passport")
-    private PassportJsonInput passport;
+    private PassportInput passport;
 
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("socialSecurityNumber")
@@ -266,24 +266,24 @@ public class ContactPatch {
             @JsonProperty("company") @Nullable Object company,
             @JsonProperty("designation") @Nullable String designation,
             @JsonProperty("title") @Nullable Object title,
-            @JsonProperty("type") @Nullable AttendeeContactTypeJsonInput type,
-            @JsonProperty("primaryAddressType") @Nullable AddressTypeJson primaryAddressType,
+            @JsonProperty("type") @Nullable AttendeeContactTypeInput type,
+            @JsonProperty("primaryAddressType") @Nullable AddressType primaryAddressType,
             @JsonProperty("homeAddress") @Nullable HomeAddress homeAddress,
             @JsonProperty("homePhone") @Nullable Object homePhone,
             @JsonProperty("homeFax") @Nullable String homeFax,
-            @JsonProperty("workAddress") @Nullable AddressJsonInput workAddress,
+            @JsonProperty("workAddress") @Nullable AddressInput workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("prefix") @Nullable String prefix,
             @JsonProperty("pager") @Nullable String pager,
-            @JsonProperty("optOut") @Nullable OptOutJsonInput optOut,
+            @JsonProperty("optOut") @Nullable ContactOptOutInput optOut,
             @JsonProperty("npi") @Nullable String npi,
             @JsonProperty("_links") @Nullable ContactPatchLinks links,
             @JsonProperty("dateOfBirth") @Nullable Object dateOfBirth,
             @JsonProperty("passportNumber") @Nullable String passportNumber,
-            @JsonProperty("passport") @Nullable PassportJsonInput passport,
+            @JsonProperty("passport") @Nullable PassportInput passport,
             @JsonProperty("socialSecurityNumber") @Nullable Object socialSecurityNumber,
             @JsonProperty("nationalIdentificationNumber") @Nullable String nationalIdentificationNumber,
             @JsonProperty("headline") @Nullable String headline,
@@ -431,14 +431,14 @@ public class ContactPatch {
     /**
      * Contains details related to the attendee's contact type.
      */
-    public Optional<AttendeeContactTypeJsonInput> type() {
+    public Optional<AttendeeContactTypeInput> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * The type of address.
      */
-    public Optional<AddressTypeJson> primaryAddressType() {
+    public Optional<AddressType> primaryAddressType() {
         return Optional.ofNullable(this.primaryAddressType);
     }
 
@@ -460,7 +460,7 @@ public class ContactPatch {
     /**
      * Contact address details.
      */
-    public Optional<AddressJsonInput> workAddress() {
+    public Optional<AddressInput> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
@@ -510,7 +510,7 @@ public class ContactPatch {
     /**
      * Details of an opt-out for a Contact.
      */
-    public Optional<OptOutJsonInput> optOut() {
+    public Optional<ContactOptOutInput> optOut() {
         return Optional.ofNullable(this.optOut);
     }
 
@@ -547,7 +547,7 @@ public class ContactPatch {
     /**
      * This entity represents a contact's passport information.
      */
-    public Optional<PassportJsonInput> passport() {
+    public Optional<PassportInput> passport() {
         return Optional.ofNullable(this.passport);
     }
 
@@ -678,7 +678,7 @@ public class ContactPatch {
     /**
      * Contains details related to the attendee's contact type.
      */
-    public ContactPatch withType(@Nullable AttendeeContactTypeJsonInput type) {
+    public ContactPatch withType(@Nullable AttendeeContactTypeInput type) {
         this.type = type;
         return this;
     }
@@ -686,7 +686,7 @@ public class ContactPatch {
     /**
      * The type of address.
      */
-    public ContactPatch withPrimaryAddressType(@Nullable AddressTypeJson primaryAddressType) {
+    public ContactPatch withPrimaryAddressType(@Nullable AddressType primaryAddressType) {
         this.primaryAddressType = primaryAddressType;
         return this;
     }
@@ -712,7 +712,7 @@ public class ContactPatch {
     /**
      * Contact address details.
      */
-    public ContactPatch withWorkAddress(@Nullable AddressJsonInput workAddress) {
+    public ContactPatch withWorkAddress(@Nullable AddressInput workAddress) {
         this.workAddress = workAddress;
         return this;
     }
@@ -769,7 +769,7 @@ public class ContactPatch {
     /**
      * Details of an opt-out for a Contact.
      */
-    public ContactPatch withOptOut(@Nullable OptOutJsonInput optOut) {
+    public ContactPatch withOptOut(@Nullable ContactOptOutInput optOut) {
         this.optOut = optOut;
         return this;
     }
@@ -811,7 +811,7 @@ public class ContactPatch {
     /**
      * This entity represents a contact's passport information.
      */
-    public ContactPatch withPassport(@Nullable PassportJsonInput passport) {
+    public ContactPatch withPassport(@Nullable PassportInput passport) {
         this.passport = passport;
         return this;
     }
@@ -1057,9 +1057,9 @@ public class ContactPatch {
 
         private Object title;
 
-        private AttendeeContactTypeJsonInput type;
+        private AttendeeContactTypeInput type;
 
-        private AddressTypeJson primaryAddressType;
+        private AddressType primaryAddressType;
 
         private HomeAddress homeAddress;
 
@@ -1067,7 +1067,7 @@ public class ContactPatch {
 
         private String homeFax;
 
-        private AddressJsonInput workAddress;
+        private AddressInput workAddress;
 
         private String workPhone;
 
@@ -1081,7 +1081,7 @@ public class ContactPatch {
 
         private String pager;
 
-        private OptOutJsonInput optOut;
+        private ContactOptOutInput optOut;
 
         private String npi;
 
@@ -1092,7 +1092,7 @@ public class ContactPatch {
         @Deprecated
         private String passportNumber;
 
-        private PassportJsonInput passport;
+        private PassportInput passport;
 
         private Object socialSecurityNumber;
 
@@ -1186,7 +1186,7 @@ public class ContactPatch {
         /**
          * Contains details related to the attendee's contact type.
          */
-        public Builder type(@Nullable AttendeeContactTypeJsonInput type) {
+        public Builder type(@Nullable AttendeeContactTypeInput type) {
             this.type = type;
             return this;
         }
@@ -1194,7 +1194,7 @@ public class ContactPatch {
         /**
          * The type of address.
          */
-        public Builder primaryAddressType(@Nullable AddressTypeJson primaryAddressType) {
+        public Builder primaryAddressType(@Nullable AddressType primaryAddressType) {
             this.primaryAddressType = primaryAddressType;
             return this;
         }
@@ -1220,7 +1220,7 @@ public class ContactPatch {
         /**
          * Contact address details.
          */
-        public Builder workAddress(@Nullable AddressJsonInput workAddress) {
+        public Builder workAddress(@Nullable AddressInput workAddress) {
             this.workAddress = workAddress;
             return this;
         }
@@ -1277,7 +1277,7 @@ public class ContactPatch {
         /**
          * Details of an opt-out for a Contact.
          */
-        public Builder optOut(@Nullable OptOutJsonInput optOut) {
+        public Builder optOut(@Nullable ContactOptOutInput optOut) {
             this.optOut = optOut;
             return this;
         }
@@ -1319,7 +1319,7 @@ public class ContactPatch {
         /**
          * This entity represents a contact's passport information.
          */
-        public Builder passport(@Nullable PassportJsonInput passport) {
+        public Builder passport(@Nullable PassportInput passport) {
             this.passport = passport;
             return this;
         }

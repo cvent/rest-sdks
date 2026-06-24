@@ -6,10 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ErrorResponseBase,
-  ErrorResponseBase$inboundSchema,
-} from "./errorresponsebase.js";
+import { ZeroAllOf1, ZeroAllOf1$inboundSchema } from "./zeroallof1.js";
 
 /**
  * Represents an error response with additional details of cascading error messages.
@@ -30,7 +27,7 @@ export type ErrorResponse2 = {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<ErrorResponseBase> | undefined;
+  details?: Array<ZeroAllOf1> | undefined;
 };
 
 /** @internal */
@@ -42,7 +39,7 @@ export const ErrorResponse2$inboundSchema: z.ZodType<
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),
-  details: z.array(ErrorResponseBase$inboundSchema).optional(),
+  details: z.array(ZeroAllOf1$inboundSchema).optional(),
 });
 
 export function errorResponse2FromJSON(

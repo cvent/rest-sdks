@@ -28,6 +28,6 @@ namespace Cvent.SDK.Models.Components
         /// Represents lead source section details, which is a sub area of source generating the RFP.
         /// </summary>
         [JsonProperty("section")]
-        public LeadSourceSectionJson? Section { get; set; }
+        public LeadSourceSection? Section { get; set; }
     }
 }

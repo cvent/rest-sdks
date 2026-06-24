@@ -10,7 +10,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.components.ExistingSpeakerCategory;
-import com.cvent.models.components.SpeakerCategory;
+import com.cvent.models.components.SpeakerCategory2;
 import com.cvent.models.errors.APIException;
 import com.cvent.models.errors.ErrorResponse1;
 import com.cvent.models.operations.AddSpeakerCategoryResponse;
@@ -129,13 +129,13 @@ public class AddSpeakerCategory {
         }
     }
 
-    public static class Sync extends Base implements RequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> {
+    public static class Sync extends Base implements RequestOperation<SpeakerCategory2, AddSpeakerCategoryResponse> {
         public Sync(@Nonnull SDKConfiguration sdkConfiguration, @Nullable Options options, Headers _headers) {
             super(sdkConfiguration, options, _headers);
         }
 
-        private HttpRequest onBuildRequest(SpeakerCategory request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<SpeakerCategory>() {});
+        private HttpRequest onBuildRequest(SpeakerCategory2 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<SpeakerCategory2>() {});
             return sdkConfiguration.hooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -151,7 +151,7 @@ public class AddSpeakerCategory {
         }
 
         @Override
-        public HttpResponse<InputStream> doRequest(SpeakerCategory request) {
+        public HttpResponse<InputStream> doRequest(SpeakerCategory2 request) {
             Retries retries = Retries.builder()
                     .action(() -> {
                         HttpRequest r;
@@ -215,7 +215,7 @@ public class AddSpeakerCategory {
 
     public static class Async extends Base
             implements AsyncRequestOperation<
-                    SpeakerCategory, com.cvent.models.operations.async.AddSpeakerCategoryResponse> {
+                    SpeakerCategory2, com.cvent.models.operations.async.AddSpeakerCategoryResponse> {
         private final ScheduledExecutorService retryScheduler;
 
         public Async(
@@ -227,8 +227,8 @@ public class AddSpeakerCategory {
             this.retryScheduler = retryScheduler;
         }
 
-        private CompletableFuture<HttpRequest> onBuildRequest(SpeakerCategory request) throws Exception {
-            HttpRequest req = buildRequest(request, new TypeReference<SpeakerCategory>() {});
+        private CompletableFuture<HttpRequest> onBuildRequest(SpeakerCategory2 request) throws Exception {
+            HttpRequest req = buildRequest(request, new TypeReference<SpeakerCategory2>() {});
             return this.sdkConfiguration.asyncHooks().beforeRequest(createBeforeRequestContext(), req);
         }
 
@@ -241,7 +241,7 @@ public class AddSpeakerCategory {
         }
 
         @Override
-        public CompletableFuture<HttpResponse<Blob>> doRequest(SpeakerCategory request) {
+        public CompletableFuture<HttpResponse<Blob>> doRequest(SpeakerCategory2 request) {
             AsyncRetries retries = AsyncRetries.builder()
                     .retryConfig(retryConfig)
                     .statusCodes(retryStatusCodes)

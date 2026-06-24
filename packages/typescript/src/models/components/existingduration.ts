@@ -19,6 +19,9 @@ export const ExistingDurationType = {
   Live: "LIVE",
   OnDemand: "ON_DEMAND",
   Api: "API",
+  Manual: "MANUAL",
+  Import: "IMPORT",
+  Eventapp: "EVENTAPP",
 } as const;
 /**
  * Describes how the duration was obtained.

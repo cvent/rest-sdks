@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { AddressJson2, AddressJson2$inboundSchema } from "./addressjson2.js";
+import { AddressJson, AddressJson$inboundSchema } from "./addressjson.js";
 import {
   HotelRatingJson,
   HotelRatingJson$inboundSchema,
@@ -61,7 +61,7 @@ export type HousingEventHotel = {
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  address?: AddressJson2 | undefined;
+  address?: AddressJson | undefined;
 };
 
 /** @internal */
@@ -79,7 +79,7 @@ export const HousingEventHotel$inboundSchema: z.ZodType<
   proximity: ProximityJson$inboundSchema.optional(),
   amenities: z.array(z.string()).optional(),
   rating: HotelRatingJson$inboundSchema.optional(),
-  address: AddressJson2$inboundSchema.optional(),
+  address: AddressJson$inboundSchema.optional(),
 });
 
 export function housingEventHotelFromJSON(

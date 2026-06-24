@@ -38,13 +38,13 @@ public class SessionQaMessage {
      * Question details
      */
     @JsonProperty("question")
-    private QuestionJson1 question;
+    private QuestionJson question;
 
     @JsonCreator
     public SessionQaMessage(
             @JsonProperty("actionType") @Nonnull SessionQaActionTypeJson actionType,
             @JsonProperty("attendee") @Nonnull AttendeeJson attendee,
-            @JsonProperty("question") @Nonnull QuestionJson1 question) {
+            @JsonProperty("question") @Nonnull QuestionJson question) {
         this.actionType = Optional.ofNullable(actionType)
                 .orElseThrow(() -> new IllegalArgumentException("actionType cannot be null"));
         this.attendee = Optional.ofNullable(attendee)
@@ -75,7 +75,7 @@ public class SessionQaMessage {
     /**
      * Question details
      */
-    public QuestionJson1 question() {
+    public QuestionJson question() {
         return this.question;
     }
 
@@ -107,7 +107,7 @@ public class SessionQaMessage {
     /**
      * Question details
      */
-    public SessionQaMessage withQuestion(@Nonnull QuestionJson1 question) {
+    public SessionQaMessage withQuestion(@Nonnull QuestionJson question) {
         this.question = Utils.checkNotNull(question, "question");
         return this;
     }
@@ -144,7 +144,7 @@ public class SessionQaMessage {
 
         private AttendeeJson attendee;
 
-        private QuestionJson1 question;
+        private QuestionJson question;
 
         private Builder() {
             // force use of static builder() method
@@ -174,7 +174,7 @@ public class SessionQaMessage {
         /**
          * Question details
          */
-        public Builder question(@Nonnull QuestionJson1 question) {
+        public Builder question(@Nonnull QuestionJson question) {
             this.question = Utils.checkNotNull(question, "question");
             return this;
         }

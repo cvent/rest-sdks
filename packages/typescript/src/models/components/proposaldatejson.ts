@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  DateTypeJson1,
-  DateTypeJson1$inboundSchema,
-  DateTypeJson1$outboundSchema,
-} from "./datetypejson1.js";
+  DateTypeJson,
+  DateTypeJson$inboundSchema,
+  DateTypeJson$outboundSchema,
+} from "./datetypejson.js";
 
 /**
  * The proposal date.
@@ -20,7 +20,7 @@ export type ProposalDateJson = {
   /**
    * The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
    */
-  dateType?: DateTypeJson1 | undefined;
+  dateType?: DateTypeJson | undefined;
   /**
    * The start date of the event.
    */
@@ -37,7 +37,7 @@ export const ProposalDateJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  dateType: DateTypeJson1$inboundSchema.default("PREFERRED"),
+  dateType: DateTypeJson$inboundSchema.default("PREFERRED"),
   startDate: z.string().transform(v => new RFCDate(v)).optional(),
   endDate: z.string().transform(v => new RFCDate(v)).optional(),
 });
@@ -54,7 +54,7 @@ export const ProposalDateJson$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ProposalDateJson
 > = z.object({
-  dateType: DateTypeJson1$outboundSchema.default("PREFERRED"),
+  dateType: DateTypeJson$outboundSchema.default("PREFERRED"),
   startDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
 });

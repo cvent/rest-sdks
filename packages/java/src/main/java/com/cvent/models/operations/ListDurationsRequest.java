@@ -63,34 +63,26 @@ public class ListDurationsRequest {
     private String sort;
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * event.id (eq|ne|in)
-     * * session.id (eq|ne|in)
-     * * attendee.id (eq|ne|in)
-     * * type (contains|eq|ne|in)
-     * * deleted (eq|ne)
-     * * firstSeen (eq|ne|lt|le|gt|ge)
-     * * lastSeen (eq|ne|lt|le|gt|ge)
-     * * duration (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
+     * <p>| Field       | Operators                          |
+     * |-------------|------------------------------------|
+     * | id          | `eq`, `ne`                         |
+     * | event.id    | `eq`, `ne`, `in`                   |
+     * | session.id  | `eq`, `ne`, `in`                   |
+     * | attendee.id | `eq`, `ne`, `in`                   |
+     * | type        | `contains`, `eq`, `ne`, `in`       |
+     * | deleted     | `eq`, `ne`                         |
+     * | firstSeen   | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastSeen    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | duration    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | created     | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -169,34 +161,26 @@ public class ListDurationsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * event.id (eq|ne|in)
-     * * session.id (eq|ne|in)
-     * * attendee.id (eq|ne|in)
-     * * type (contains|eq|ne|in)
-     * * deleted (eq|ne)
-     * * firstSeen (eq|ne|lt|le|gt|ge)
-     * * lastSeen (eq|ne|lt|le|gt|ge)
-     * * duration (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
+     * <p>| Field       | Operators                          |
+     * |-------------|------------------------------------|
+     * | id          | `eq`, `ne`                         |
+     * | event.id    | `eq`, `ne`, `in`                   |
+     * | session.id  | `eq`, `ne`, `in`                   |
+     * | attendee.id | `eq`, `ne`, `in`                   |
+     * | type        | `contains`, `eq`, `ne`, `in`       |
+     * | deleted     | `eq`, `ne`                         |
+     * | firstSeen   | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastSeen    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | duration    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | created     | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -265,34 +249,26 @@ public class ListDurationsRequest {
     }
 
     /**
-     * A filter string passed in the body of the request, narrows search results and supports the
-     * combination of logical and comparison operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There are eight comparison types that can be used in filter expressions:
-     * * equal: eq
-     * * not equal: ne
-     * * greater than: gt
-     * * greater or equal: ge
-     * * less than: lt
-     * * less than or equal: le
-     * * starts with: sw
-     * * contains a value: contains
-     * * includes value(s): in
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * id (eq|ne)
-     * * event.id (eq|ne|in)
-     * * session.id (eq|ne|in)
-     * * attendee.id (eq|ne|in)
-     * * type (contains|eq|ne|in)
-     * * deleted (eq|ne)
-     * * firstSeen (eq|ne|lt|le|gt|ge)
-     * * lastSeen (eq|ne|lt|le|gt|ge)
-     * * duration (eq|ne|lt|le|gt|ge)
-     * * created (eq|ne|lt|le|gt|ge)
+     * <p>| Field       | Operators                          |
+     * |-------------|------------------------------------|
+     * | id          | `eq`, `ne`                         |
+     * | event.id    | `eq`, `ne`, `in`                   |
+     * | session.id  | `eq`, `ne`, `in`                   |
+     * | attendee.id | `eq`, `ne`, `in`                   |
+     * | type        | `contains`, `eq`, `ne`, `in`       |
+     * | deleted     | `eq`, `ne`                         |
+     * | firstSeen   | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | lastSeen    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | duration    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+     * | created     | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
      *
-     * <p>The following operators are available:
+     * <p>The following logical operators are supported for combining filters:
      * * and
      * * or
      */
@@ -417,34 +393,26 @@ public class ListDurationsRequest {
         }
 
         /**
-         * A filter string passed in the body of the request, narrows search results and supports the
-         * combination of logical and comparison operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There are eight comparison types that can be used in filter expressions:
-         * * equal: eq
-         * * not equal: ne
-         * * greater than: gt
-         * * greater or equal: ge
-         * * less than: lt
-         * * less than or equal: le
-         * * starts with: sw
-         * * contains a value: contains
-         * * includes value(s): in
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * id (eq|ne)
-         * * event.id (eq|ne|in)
-         * * session.id (eq|ne|in)
-         * * attendee.id (eq|ne|in)
-         * * type (contains|eq|ne|in)
-         * * deleted (eq|ne)
-         * * firstSeen (eq|ne|lt|le|gt|ge)
-         * * lastSeen (eq|ne|lt|le|gt|ge)
-         * * duration (eq|ne|lt|le|gt|ge)
-         * * created (eq|ne|lt|le|gt|ge)
+         * <p>| Field       | Operators                          |
+         * |-------------|------------------------------------|
+         * | id          | `eq`, `ne`                         |
+         * | event.id    | `eq`, `ne`, `in`                   |
+         * | session.id  | `eq`, `ne`, `in`                   |
+         * | attendee.id | `eq`, `ne`, `in`                   |
+         * | type        | `contains`, `eq`, `ne`, `in`       |
+         * | deleted     | `eq`, `ne`                         |
+         * | firstSeen   | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | lastSeen    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | duration    | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
+         * | created     | `eq`, `ne`, `lt`, `le`, `gt`, `ge` |
          *
-         * <p>The following operators are available:
+         * <p>The following logical operators are supported for combining filters:
          * * and
          * * or
          */

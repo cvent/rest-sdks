@@ -120,7 +120,7 @@ public class ProposalResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currencyCode")
-    private CurrencyJson1 currencyCode;
+    private CurrencyJson2 currencyCode;
 
     /**
      * True indicates this is a commissionable bid.
@@ -194,14 +194,14 @@ public class ProposalResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contacts")
-    private List<ContactJson1> contacts;
+    private List<ContactJson> contacts;
 
     /**
      * List of all planner contacts.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plannerContacts")
-    private List<ContactJson1> plannerContacts;
+    private List<ContactJson> plannerContacts;
 
     /**
      * The meeting room.
@@ -278,7 +278,7 @@ public class ProposalResponse {
             @JsonProperty("statusSummary") @Nullable StatusSummaryJson statusSummary,
             @JsonProperty("introduction") @Nullable String introduction,
             @JsonProperty("billingContractualResponse") @Nullable String billingContractualResponse,
-            @JsonProperty("currencyCode") @Nullable CurrencyJson1 currencyCode,
+            @JsonProperty("currencyCode") @Nullable CurrencyJson2 currencyCode,
             @JsonProperty("commissionableBid") @Nullable Boolean commissionableBid,
             @JsonProperty("commissionRate") @Nullable Double commissionRate,
             @JsonProperty("name") @Nullable String name,
@@ -288,8 +288,8 @@ public class ProposalResponse {
             @JsonProperty("categoryItemsCost") @Nullable CategoryItemsCostJson categoryItemsCost,
             @JsonProperty("aggregatedCost") @Nullable AggregatedCostJson aggregatedCost,
             @JsonProperty("estimatedCost") @Nullable EstimatedCostJson estimatedCost,
-            @JsonProperty("contacts") @Nullable List<ContactJson1> contacts,
-            @JsonProperty("plannerContacts") @Nullable List<ContactJson1> plannerContacts,
+            @JsonProperty("contacts") @Nullable List<ContactJson> contacts,
+            @JsonProperty("plannerContacts") @Nullable List<ContactJson> plannerContacts,
             @JsonProperty("meetingRoom") @Nullable MeetingRoomJson meetingRoom,
             @JsonProperty("transaction") @Nullable TransactionJson transaction,
             @JsonProperty("id") @Nonnull String id,
@@ -463,7 +463,7 @@ public class ProposalResponse {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public Optional<CurrencyJson1> currencyCode() {
+    public Optional<CurrencyJson2> currencyCode() {
         return Optional.ofNullable(this.currencyCode);
     }
 
@@ -537,14 +537,14 @@ public class ProposalResponse {
     /**
      * List of all contacts.
      */
-    public Optional<List<ContactJson1>> contacts() {
+    public Optional<List<ContactJson>> contacts() {
         return Optional.ofNullable(this.contacts);
     }
 
     /**
      * List of all planner contacts.
      */
-    public Optional<List<ContactJson1>> plannerContacts() {
+    public Optional<List<ContactJson>> plannerContacts() {
         return Optional.ofNullable(this.plannerContacts);
     }
 
@@ -719,7 +719,7 @@ public class ProposalResponse {
     /**
      * The ISO 4217 standard format currency code used for RFPs.
      */
-    public ProposalResponse withCurrencyCode(@Nullable CurrencyJson1 currencyCode) {
+    public ProposalResponse withCurrencyCode(@Nullable CurrencyJson2 currencyCode) {
         this.currencyCode = currencyCode;
         return this;
     }
@@ -803,7 +803,7 @@ public class ProposalResponse {
     /**
      * List of all contacts.
      */
-    public ProposalResponse withContacts(@Nullable List<ContactJson1> contacts) {
+    public ProposalResponse withContacts(@Nullable List<ContactJson> contacts) {
         this.contacts = contacts;
         return this;
     }
@@ -811,7 +811,7 @@ public class ProposalResponse {
     /**
      * List of all planner contacts.
      */
-    public ProposalResponse withPlannerContacts(@Nullable List<ContactJson1> plannerContacts) {
+    public ProposalResponse withPlannerContacts(@Nullable List<ContactJson> plannerContacts) {
         this.plannerContacts = plannerContacts;
         return this;
     }
@@ -1071,7 +1071,7 @@ public class ProposalResponse {
         @Deprecated
         private String billingContractualResponse;
 
-        private CurrencyJson1 currencyCode;
+        private CurrencyJson2 currencyCode;
 
         private Boolean commissionableBid;
 
@@ -1092,9 +1092,9 @@ public class ProposalResponse {
 
         private EstimatedCostJson estimatedCost;
 
-        private List<ContactJson1> contacts;
+        private List<ContactJson> contacts;
 
-        private List<ContactJson1> plannerContacts;
+        private List<ContactJson> plannerContacts;
 
         private MeetingRoomJson meetingRoom;
 
@@ -1221,7 +1221,7 @@ public class ProposalResponse {
         /**
          * The ISO 4217 standard format currency code used for RFPs.
          */
-        public Builder currencyCode(@Nullable CurrencyJson1 currencyCode) {
+        public Builder currencyCode(@Nullable CurrencyJson2 currencyCode) {
             this.currencyCode = currencyCode;
             return this;
         }
@@ -1305,7 +1305,7 @@ public class ProposalResponse {
         /**
          * List of all contacts.
          */
-        public Builder contacts(@Nullable List<ContactJson1> contacts) {
+        public Builder contacts(@Nullable List<ContactJson> contacts) {
             this.contacts = contacts;
             return this;
         }
@@ -1313,7 +1313,7 @@ public class ProposalResponse {
         /**
          * List of all planner contacts.
          */
-        public Builder plannerContacts(@Nullable List<ContactJson1> plannerContacts) {
+        public Builder plannerContacts(@Nullable List<ContactJson> plannerContacts) {
             this.plannerContacts = plannerContacts;
             return this;
         }

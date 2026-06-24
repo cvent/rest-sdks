@@ -96,6 +96,6 @@ namespace Cvent.SDK.Models.Components
         /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
         /// </summary>
         [JsonProperty("type")]
-        public EventTypeJson1 Type { get; set; } = default!;
+        public EventTypeJson Type { get; set; } = default!;
     }
 }

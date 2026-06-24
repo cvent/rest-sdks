@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { VideoViewJson, VideoViewJson$inboundSchema } from "./videoviewjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { VideoView, VideoView$inboundSchema } from "./videoview.js";
 
 /**
  * Paginated list of video views.
@@ -16,11 +16,11 @@ export type VideoViewsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of unique video views.
    */
-  data?: Array<VideoViewJson> | undefined;
+  data?: Array<VideoView> | undefined;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const VideoViewsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(VideoViewJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(VideoView$inboundSchema).optional(),
 });
 
 export function videoViewsPaginatedResponseFromJSON(

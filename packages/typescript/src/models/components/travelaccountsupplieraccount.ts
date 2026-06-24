@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ManagementLevelTypeJson1,
-  ManagementLevelTypeJson1$inboundSchema,
-} from "./managementleveltypejson1.js";
+  ManagementLevelType1,
+  ManagementLevelType1$inboundSchema,
+} from "./managementleveltype1.js";
 
 /**
  * The travel account that the supplier account is associated with.
@@ -36,7 +36,7 @@ export type TravelAccountSupplierAccount = {
   /**
    * The management level of the travel account.  Defined by the supply-side.
    */
-  managementLevel?: ManagementLevelTypeJson1 | undefined;
+  managementLevel?: ManagementLevelType1 | undefined;
   /**
    * Is this account active for the supplier's hotels.
    */
@@ -90,7 +90,7 @@ export const TravelAccountSupplierAccount$inboundSchema: z.ZodType<
     TravelAccountSupplierAccountTravelAccount$inboundSchema
   ).optional(),
   name: z.string().optional(),
-  managementLevel: ManagementLevelTypeJson1$inboundSchema.optional(),
+  managementLevel: ManagementLevelType1$inboundSchema.optional(),
   active: z.boolean().optional(),
   crmId: z.string().optional(),
   chainDefinedId: z.string().optional(),

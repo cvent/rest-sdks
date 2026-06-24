@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Attendee11, Attendee11$inboundSchema } from "./attendee11.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Attendee12, Attendee12$inboundSchema } from "./attendee12.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -33,11 +33,11 @@ export type BoothStaffResponse = {
   /**
    * The associated Attendee.
    */
-  attendee: Attendee11;
+  attendee: Attendee12;
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
   /**
    * The Associated Exhibitor.
    */
@@ -61,8 +61,8 @@ export const BoothStaffResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  attendee: Attendee11$inboundSchema,
-  event: Event21$inboundSchema,
+  attendee: Attendee12$inboundSchema,
+  event: Event3$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
   id: z.string().optional(),
 });

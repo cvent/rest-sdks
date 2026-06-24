@@ -790,7 +790,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 Email = "guest@cvent.com",
                 HomePhone = "(231)-213-1222",
                 WorkPhone = "(231)-213-1222",
-                HomeAddress = new AddressJson2() {
+                HomeAddress = new AddressJson() {
                     Address1 = "West St. 1",
                     Address2 = "Apt. 16",
                     City = "Austin",
@@ -802,7 +802,7 @@ UpdateReservationRequestRequest req = new UpdateReservationRequestRequest() {
                 },
                 PaymentInfo = new PaymentInfoJson() {
                     FullName = "Gustav Schultz",
-                    Address = new AddressJson2() {
+                    Address = new AddressJson() {
                         Address1 = "West St. 1",
                         Address2 = "Apt. 16",
                         City = "Austin",
@@ -875,7 +875,8 @@ var res = await sdk.Housing.UpdateReservationRequestAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 400                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## CancelReservationRequest
@@ -922,7 +923,8 @@ var res = await sdk.Housing.CancelReservationRequestAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 400                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## LinkReservation

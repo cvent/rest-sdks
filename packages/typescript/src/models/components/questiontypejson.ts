@@ -6,34 +6,31 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * The type of question. See [this article](https://support.cvent.com/s/communityarticle/Survey-Adding-Questions) for details on each enum.
+ * Denotes the type of data collected by a question.
  */
 export const QuestionTypeJson = {
-  CommentBox: "CommentBox",
+  AutoIncrement: "AutoIncrement",
+  BudgetEstimates: "BudgetEstimates",
+  ConsentQuestion: "ConsentQuestion",
+  Country: "Country",
+  Currency: "Currency",
+  Decimal: "Decimal",
+  Date: "Date",
   DateTime: "DateTime",
+  Email: "Email",
   FileUpload: "FileUpload",
-  Form: "Form",
-  LargeChoices: "LargeChoices",
-  MatrixMultiChoice: "MatrixMultiChoice",
-  MatrixRating: "MatrixRating",
-  MatrixSideBySide: "MatrixSideBySide",
-  MatrixSingleChoice: "MatrixSingleChoice",
-  MatrixSpreadSheet: "MatrixSpreadSheet",
-  MultiChoice: "MultiChoice",
-  NetPromoter: "NetPromoter",
+  FreeText: "FreeText",
+  General: "General",
   Number: "Number",
-  NumberAllocation: "NumberAllocation",
-  OpenEndedDateTime: "OpenEndedDateTime",
-  OpenEndedNumeric: "OpenEndedNumeric",
-  OpenEndedTextCommentBox: "OpenEndedTextCommentBox",
-  OpenEndedTextOneLine: "OpenEndedTextOneLine",
-  RankOrder: "RankOrder",
-  Rating: "Rating",
-  SingleChoice: "SingleChoice",
-  Text: "Text",
+  MeetingRoomRequirements: "MeetingRoomRequirements",
+  MultiSelect: "MultiSelect",
+  SingleSelect: "SingleSelect",
+  SleepingRoomRequirements: "SleepingRoomRequirements",
+  USPhoneNumber: "USPhoneNumber",
+  Unknown: "Unknown",
 } as const;
 /**
- * The type of question. See [this article](https://support.cvent.com/s/communityarticle/Survey-Adding-Questions) for details on each enum.
+ * Denotes the type of data collected by a question.
  */
 export type QuestionTypeJson = ClosedEnum<typeof QuestionTypeJson>;
 

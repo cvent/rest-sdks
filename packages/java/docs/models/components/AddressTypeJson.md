@@ -1,13 +1,13 @@
 # AddressTypeJson
 
-The type of address.
+The type of the address.
 
 ## Example Usage
 
 ```java
 import com.cvent.models.components.AddressTypeJson;
 
-AddressTypeJson value = AddressTypeJson.HOME;
+AddressTypeJson value = AddressTypeJson.WORK;
 ```
 
 
@@ -15,5 +15,5 @@ AddressTypeJson value = AddressTypeJson.HOME;
 
 | Name   | Value  |
 | ------ | ------ |
-| `HOME` | Home   |
-| `WORK` | Work   |
+| `WORK` | work   |
+| `HOME` | home   |

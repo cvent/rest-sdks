@@ -29,6 +29,6 @@ namespace Cvent.SDK.Models.Requests
         /// List of contacts to be created. Up to **10 contacts** can be created per call.
         /// </summary>
         [SpeakeasyMetadata("request:mediaType=application/json")]
-        public List<ContactCreateRequestJson> RequestBody { get; set; } = default!;
+        public List<ContactCreate> RequestBody { get; set; } = default!;
     }
 }

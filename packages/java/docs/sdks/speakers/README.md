@@ -179,6 +179,7 @@ import com.cvent.CventSDK;
 import com.cvent.models.components.SchemeOAuth2ClientCredentials;
 import com.cvent.models.components.Security;
 import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.errors.ErrorResponse2;
 import com.cvent.models.operations.CreateSessionProgramSpeakerRequest;
 import com.cvent.models.operations.CreateSessionProgramSpeakerResponse;
 import java.lang.Exception;
@@ -186,7 +187,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) throws ErrorResponse1, Exception {
+    public static void main(String[] args) throws ErrorResponse2, ErrorResponse1, Exception {
 
         CventSDK sdk = CventSDK.builder()
                 .security(Security.builder()
@@ -229,7 +230,8 @@ public class Application {
 
 | Error Type                   | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
-| models/errors/ErrorResponse1 | 401, 403, 404, 409, 429      | application/json             |
+| models/errors/ErrorResponse2 | 409                          | application/json             |
+| models/errors/ErrorResponse1 | 401, 403, 404, 429           | application/json             |
 | models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
 
 ## getSessionProgramSpeaker
@@ -470,7 +472,7 @@ public class Application {
                     .build())
             .build();
 
-        SpeakerCategory req = SpeakerCategory.builder()
+        SpeakerCategory2 req = SpeakerCategory2.builder()
                 .name("Presenters")
                 .build();
 
@@ -487,9 +489,9 @@ public class Application {
 
 ### Parameters
 
-| Parameter                                                 | Type                                                      | Required                                                  | Description                                               |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `request`                                                 | [SpeakerCategory](../../models/shared/SpeakerCategory.md) | :heavy_check_mark:                                        | The request object to use for the request.                |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `request`                                                   | [SpeakerCategory2](../../models/shared/SpeakerCategory2.md) | :heavy_check_mark:                                          | The request object to use for the request.                  |
 
 ### Response
 
@@ -620,18 +622,18 @@ public class Application {
                 .designation("PhD")
                 .company("Cvent")
                 .title("Lead Engineer")
-                .category(CategoryIdNameJson.builder()
+                .category(SpeakerCategory1.builder()
                     .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                     .name("Presenters")
                     .build())
-                .links(ContactLinksJsonInput.builder()
-                    .twitterUrl(LinkJson.builder()
+                .links(ContactLinksInput.builder()
+                    .twitterUrl(Link.builder()
                         .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                         .build())
-                    .facebookUrl(LinkJson.builder()
+                    .facebookUrl(Link.builder()
                         .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                         .build())
-                    .linkedInUrl(LinkJson.builder()
+                    .linkedInUrl(Link.builder()
                         .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                         .build())
                     .build())
@@ -792,18 +794,18 @@ public class Application {
                     .designation("PhD")
                     .company("Cvent")
                     .title("Lead Engineer")
-                    .category(CategoryIdNameJson.builder()
+                    .category(SpeakerCategory1.builder()
                         .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
                         .name("Presenters")
                         .build())
-                    .links(ContactLinksJsonInput.builder()
-                        .twitterUrl(LinkJson.builder()
+                    .links(ContactLinksInput.builder()
+                        .twitterUrl(Link.builder()
                             .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                             .build())
-                        .facebookUrl(LinkJson.builder()
+                        .facebookUrl(Link.builder()
                             .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                             .build())
-                        .linkedInUrl(LinkJson.builder()
+                        .linkedInUrl(Link.builder()
                             .href("?token=90c5f062-76ad-4ea4-aa53-00eb698d9262")
                             .build())
                         .build())

@@ -32,7 +32,7 @@ namespace Cvent.SDK.Models.Components
         /// FAILED - The obfuscation request failed due to an error.
         /// </summary>
         [JsonProperty("status")]
-        public ContactObfuscationStatusTypeJson? Status { get; set; }
+        public ContactObfuscationStatusType? Status { get; set; }
 
         /// <summary>
         /// The obfuscation job identifier.
@@ -44,6 +44,6 @@ namespace Cvent.SDK.Models.Components
         /// A contact id.
         /// </summary>
         [JsonProperty("contact")]
-        public ContactIdJson? Contact { get; set; }
+        public ContactId? Contact { get; set; }
     }
 }

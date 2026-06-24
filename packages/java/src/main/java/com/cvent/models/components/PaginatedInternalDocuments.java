@@ -25,19 +25,19 @@ public class PaginatedInternalDocuments {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of internal documents linked to an RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RfpInternalDocumentJson0> data;
+    private List<RfpInternalDocument> data;
 
     @JsonCreator
     public PaginatedInternalDocuments(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<RfpInternalDocumentJson0> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<RfpInternalDocument> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class PaginatedInternalDocuments {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of internal documents linked to an RFP.
      */
-    public Optional<List<RfpInternalDocumentJson0>> data() {
+    public Optional<List<RfpInternalDocument>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class PaginatedInternalDocuments {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedInternalDocuments withPaging(@Nullable PagingJson paging) {
+    public PaginatedInternalDocuments withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class PaginatedInternalDocuments {
     /**
      * List of internal documents linked to an RFP.
      */
-    public PaginatedInternalDocuments withData(@Nullable List<RfpInternalDocumentJson0> data) {
+    public PaginatedInternalDocuments withData(@Nullable List<RfpInternalDocument> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class PaginatedInternalDocuments {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RfpInternalDocumentJson0> data;
+        private List<RfpInternalDocument> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class PaginatedInternalDocuments {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class PaginatedInternalDocuments {
         /**
          * List of internal documents linked to an RFP.
          */
-        public Builder data(@Nullable List<RfpInternalDocumentJson0> data) {
+        public Builder data(@Nullable List<RfpInternalDocument> data) {
             this.data = data;
             return this;
         }

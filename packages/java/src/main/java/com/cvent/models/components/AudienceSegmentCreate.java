@@ -26,7 +26,7 @@ public class AudienceSegmentCreate {
      * ID of the event.
      */
     @JsonProperty("event")
-    private EventJson1 event;
+    private EventJson event;
 
     /**
      * Name of the audience segment. Must be unique in the event where the segment exists.
@@ -50,7 +50,7 @@ public class AudienceSegmentCreate {
 
     @JsonCreator
     public AudienceSegmentCreate(
-            @JsonProperty("event") @Nonnull EventJson1 event,
+            @JsonProperty("event") @Nonnull EventJson event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("creationType") @Nullable AudienceSegmentCreationTypeJson creationType) {
@@ -60,14 +60,14 @@ public class AudienceSegmentCreate {
         this.creationType = Optional.ofNullable(creationType).orElse(Builder._SINGLETON_VALUE_CreationType.value());
     }
 
-    public AudienceSegmentCreate(@Nonnull EventJson1 event, @Nonnull String name) {
+    public AudienceSegmentCreate(@Nonnull EventJson event, @Nonnull String name) {
         this(event, name, null, null);
     }
 
     /**
      * ID of the event.
      */
-    public EventJson1 event() {
+    public EventJson event() {
         return this.event;
     }
 
@@ -99,7 +99,7 @@ public class AudienceSegmentCreate {
     /**
      * ID of the event.
      */
-    public AudienceSegmentCreate withEvent(@Nonnull EventJson1 event) {
+    public AudienceSegmentCreate withEvent(@Nonnull EventJson event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -165,7 +165,7 @@ public class AudienceSegmentCreate {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private EventJson1 event;
+        private EventJson event;
 
         private String name;
 
@@ -180,7 +180,7 @@ public class AudienceSegmentCreate {
         /**
          * ID of the event.
          */
-        public Builder event(@Nonnull EventJson1 event) {
+        public Builder event(@Nonnull EventJson event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

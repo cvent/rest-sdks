@@ -79,14 +79,14 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateRequirements")
-    private DateRequirementsJson0 dateRequirements;
+    private DateRequirements1 dateRequirements;
 
     /**
      * RFP event details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfpEvent")
-    private RfpEventJson rfpEvent;
+    private RfpEvent rfpEvent;
 
     /**
      * The ISO 8601 date representing the start date of agenda.
@@ -100,14 +100,14 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ContactJson0 contact;
+    private Contact1 contact;
 
     /**
      * Details of organization which is hosting the event.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("rfpEventOrganization")
-    private RfpEventOrganizationJson rfpEventOrganization;
+    private EventOrganization1 rfpEventOrganization;
 
     /**
      * Decision factors based on which RFP will be awarded. These can be price, location, or quality of
@@ -143,7 +143,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billingDetails")
-    private BillingDetailsJson0 billingDetails;
+    private BillingDetails1 billingDetails;
 
     /**
      * Internal note for planners. This note is not shared with suppliers.
@@ -160,25 +160,29 @@ public class Rfp {
     private String currencyCode;
 
     /**
-     * Measurement unit.
+     * Unit of measurement for area or space.
+     *
+     * <p>Values:
+     * - `SQUARE_FEET` — Square Feet
+     * - `SQUARE_METERS` — Square Meters
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("measurementUnit")
-    private MeasurementUnitJson0 measurementUnit;
+    private MeasurementUnit measurementUnit;
 
     /**
      * This contains cost items which are marked as required for suppliers in the RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("requiredCostItems")
-    private List<OfferingCostTypeJson0> requiredCostItems;
+    private List<OfferingCostType1> requiredCostItems;
 
     /**
      * This contains cost items which are marked as not needed for suppliers in the RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("hiddenCostItems")
-    private List<OfferingCostTypeJson0> hiddenCostItems;
+    private List<OfferingCostType1> hiddenCostItems;
 
     /**
      * True indicates suppliers added on the RFP should be allowed to forward the RFP.
@@ -207,7 +211,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notificationRecipients")
-    private List<RecipientInfoJson0> notificationRecipients;
+    private List<RecipientInfo> notificationRecipients;
 
     /**
      * True indicates award details can be shared with other suppliers added in RFP.
@@ -221,7 +225,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("leadSource")
-    private LeadSourceJson leadSource;
+    private LeadSource leadSource;
 
     /**
      * Unique identifier for RFPs originating from outside Cvent network provided by source system where
@@ -259,7 +263,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("weddingDetails")
-    private WeddingDetailsJson0 weddingDetails;
+    private WeddingDetails1 weddingDetails;
 
     /**
      * True indicates catering is required.
@@ -276,7 +280,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("packagePricingPreference")
-    private PackagePricingPreferenceJson packagePricingPreference;
+    private PackagePricingPreference packagePricingPreference;
 
     /**
      * True indicates RFP was created with fee transparency enabled.
@@ -303,14 +307,14 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private RfpStatusJson0 status;
+    private RfpStatus1 status;
 
     /**
      * RFP types based on event requirements.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private RfpTypeJson0 type;
+    private RfpType1 type;
 
     /**
      * Details of the user who approved the RFP.
@@ -339,7 +343,7 @@ public class Rfp {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("cancellationDetails")
-    private CancellationDetailsJson cancellationDetails;
+    private CancellationDetails cancellationDetails;
 
     /**
      * The ISO 8601 date time (in UTC) when RFP was last sent.
@@ -408,44 +412,44 @@ public class Rfp {
             @JsonProperty("needsMeetingSpace") boolean needsMeetingSpace,
             @JsonProperty("needsGuestRooms") boolean needsGuestRooms,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("dateRequirements") @Nullable DateRequirementsJson0 dateRequirements,
-            @JsonProperty("rfpEvent") @Nullable RfpEventJson rfpEvent,
+            @JsonProperty("dateRequirements") @Nullable DateRequirements1 dateRequirements,
+            @JsonProperty("rfpEvent") @Nullable RfpEvent rfpEvent,
             @JsonProperty("agendaStartDate") @Nullable LocalDate agendaStartDate,
-            @JsonProperty("contact") @Nullable ContactJson0 contact,
-            @JsonProperty("rfpEventOrganization") @Nullable RfpEventOrganizationJson rfpEventOrganization,
+            @JsonProperty("contact") @Nullable Contact1 contact,
+            @JsonProperty("rfpEventOrganization") @Nullable EventOrganization1 rfpEventOrganization,
             @JsonProperty("decisionFactors") @Nullable String decisionFactors,
             @JsonProperty("citywideEvent") @Nullable Boolean citywideEvent,
             @JsonProperty("responseDueDate") @Nullable LocalDate responseDueDate,
             @JsonProperty("decisionDate") @Nullable LocalDate decisionDate,
-            @JsonProperty("billingDetails") @Nullable BillingDetailsJson0 billingDetails,
+            @JsonProperty("billingDetails") @Nullable BillingDetails1 billingDetails,
             @JsonProperty("internalNote") @Nullable String internalNote,
             @JsonProperty("currencyCode") @Nullable String currencyCode,
-            @JsonProperty("measurementUnit") @Nullable MeasurementUnitJson0 measurementUnit,
-            @JsonProperty("requiredCostItems") @Nullable List<OfferingCostTypeJson0> requiredCostItems,
-            @JsonProperty("hiddenCostItems") @Nullable List<OfferingCostTypeJson0> hiddenCostItems,
+            @JsonProperty("measurementUnit") @Nullable MeasurementUnit measurementUnit,
+            @JsonProperty("requiredCostItems") @Nullable List<OfferingCostType1> requiredCostItems,
+            @JsonProperty("hiddenCostItems") @Nullable List<OfferingCostType1> hiddenCostItems,
             @JsonProperty("forwardable") @Nullable Boolean forwardable,
             @JsonProperty("cvbForwardLimit") @Nullable Long cvbForwardLimit,
             @JsonProperty("allowEmailNotifications") @Nullable Boolean allowEmailNotifications,
-            @JsonProperty("notificationRecipients") @Nullable List<RecipientInfoJson0> notificationRecipients,
+            @JsonProperty("notificationRecipients") @Nullable List<RecipientInfo> notificationRecipients,
             @JsonProperty("shareAwardDetails") @Nullable Boolean shareAwardDetails,
-            @JsonProperty("leadSource") @Nullable LeadSourceJson leadSource,
+            @JsonProperty("leadSource") @Nullable LeadSource leadSource,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("showcaseEnabled") @Nullable Boolean showcaseEnabled,
             @JsonProperty("autoAddToShowcaseEnabled") @Nullable Boolean autoAddToShowcaseEnabled,
             @JsonProperty("destinationExpertsRequiredOnProposal") @Nullable
                     Boolean destinationExpertsRequiredOnProposal,
-            @JsonProperty("weddingDetails") @Nullable WeddingDetailsJson0 weddingDetails,
+            @JsonProperty("weddingDetails") @Nullable WeddingDetails1 weddingDetails,
             @JsonProperty("needsCatering") @Nullable Boolean needsCatering,
-            @JsonProperty("packagePricingPreference") @Nullable PackagePricingPreferenceJson packagePricingPreference,
+            @JsonProperty("packagePricingPreference") @Nullable PackagePricingPreference packagePricingPreference,
             @JsonProperty("feeTransparencyEnabled") @Nullable Boolean feeTransparencyEnabled,
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("code") @Nullable String code,
-            @JsonProperty("status") @Nullable RfpStatusJson0 status,
-            @JsonProperty("type") @Nullable RfpTypeJson0 type,
+            @JsonProperty("status") @Nullable RfpStatus1 status,
+            @JsonProperty("type") @Nullable RfpType1 type,
             @JsonProperty("approvedBy") @Nullable String approvedBy,
             @JsonProperty("approvedDateTime") @Nullable OffsetDateTime approvedDateTime,
             @JsonProperty("approved") @Nullable Boolean approved,
-            @JsonProperty("cancellationDetails") @Nullable CancellationDetailsJson cancellationDetails,
+            @JsonProperty("cancellationDetails") @Nullable CancellationDetails cancellationDetails,
             @JsonProperty("lastSentDateTime") @Nullable OffsetDateTime lastSentDateTime,
             @JsonProperty("originalSentDateTime") @Nullable OffsetDateTime originalSentDateTime,
             @JsonProperty("sentVenueCount") @Nullable Long sentVenueCount,
@@ -620,14 +624,14 @@ public class Rfp {
     /**
      * Date requirements for the event.
      */
-    public Optional<DateRequirementsJson0> dateRequirements() {
+    public Optional<DateRequirements1> dateRequirements() {
         return Optional.ofNullable(this.dateRequirements);
     }
 
     /**
      * RFP event details.
      */
-    public Optional<RfpEventJson> rfpEvent() {
+    public Optional<RfpEvent> rfpEvent() {
         return Optional.ofNullable(this.rfpEvent);
     }
 
@@ -641,14 +645,14 @@ public class Rfp {
     /**
      * Contact details of planner.
      */
-    public Optional<ContactJson0> contact() {
+    public Optional<Contact1> contact() {
         return Optional.ofNullable(this.contact);
     }
 
     /**
      * Details of organization which is hosting the event.
      */
-    public Optional<RfpEventOrganizationJson> rfpEventOrganization() {
+    public Optional<EventOrganization1> rfpEventOrganization() {
         return Optional.ofNullable(this.rfpEventOrganization);
     }
 
@@ -684,7 +688,7 @@ public class Rfp {
     /**
      * Billing details for RFP.
      */
-    public Optional<BillingDetailsJson0> billingDetails() {
+    public Optional<BillingDetails1> billingDetails() {
         return Optional.ofNullable(this.billingDetails);
     }
 
@@ -703,23 +707,27 @@ public class Rfp {
     }
 
     /**
-     * Measurement unit.
+     * Unit of measurement for area or space.
+     *
+     * <p>Values:
+     * - `SQUARE_FEET` — Square Feet
+     * - `SQUARE_METERS` — Square Meters
      */
-    public Optional<MeasurementUnitJson0> measurementUnit() {
+    public Optional<MeasurementUnit> measurementUnit() {
         return Optional.ofNullable(this.measurementUnit);
     }
 
     /**
      * This contains cost items which are marked as required for suppliers in the RFP.
      */
-    public Optional<List<OfferingCostTypeJson0>> requiredCostItems() {
+    public Optional<List<OfferingCostType1>> requiredCostItems() {
         return Optional.ofNullable(this.requiredCostItems);
     }
 
     /**
      * This contains cost items which are marked as not needed for suppliers in the RFP.
      */
-    public Optional<List<OfferingCostTypeJson0>> hiddenCostItems() {
+    public Optional<List<OfferingCostType1>> hiddenCostItems() {
         return Optional.ofNullable(this.hiddenCostItems);
     }
 
@@ -748,7 +756,7 @@ public class Rfp {
      * This contains recipients who would get notified every time a new response is received back from the
      * suppliers
      */
-    public Optional<List<RecipientInfoJson0>> notificationRecipients() {
+    public Optional<List<RecipientInfo>> notificationRecipients() {
         return Optional.ofNullable(this.notificationRecipients);
     }
 
@@ -762,7 +770,7 @@ public class Rfp {
     /**
      * Lead source details.
      */
-    public Optional<LeadSourceJson> leadSource() {
+    public Optional<LeadSource> leadSource() {
         return Optional.ofNullable(this.leadSource);
     }
 
@@ -800,7 +808,7 @@ public class Rfp {
     /**
      * Wedding details.
      */
-    public Optional<WeddingDetailsJson0> weddingDetails() {
+    public Optional<WeddingDetails1> weddingDetails() {
         return Optional.ofNullable(this.weddingDetails);
     }
 
@@ -817,7 +825,7 @@ public class Rfp {
      * mandatory to provide pricing preference, and REQUIRED means package information is mandatory to be
      * provided by supplier.
      */
-    public Optional<PackagePricingPreferenceJson> packagePricingPreference() {
+    public Optional<PackagePricingPreference> packagePricingPreference() {
         return Optional.ofNullable(this.packagePricingPreference);
     }
 
@@ -845,14 +853,14 @@ public class Rfp {
     /**
      * Represents state of the RFP.
      */
-    public Optional<RfpStatusJson0> status() {
+    public Optional<RfpStatus1> status() {
         return Optional.ofNullable(this.status);
     }
 
     /**
      * RFP types based on event requirements.
      */
-    public Optional<RfpTypeJson0> type() {
+    public Optional<RfpType1> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -881,7 +889,7 @@ public class Rfp {
     /**
      * Information about cancellation of RFP.
      */
-    public Optional<CancellationDetailsJson> cancellationDetails() {
+    public Optional<CancellationDetails> cancellationDetails() {
         return Optional.ofNullable(this.cancellationDetails);
     }
 
@@ -1006,7 +1014,7 @@ public class Rfp {
     /**
      * Date requirements for the event.
      */
-    public Rfp withDateRequirements(@Nullable DateRequirementsJson0 dateRequirements) {
+    public Rfp withDateRequirements(@Nullable DateRequirements1 dateRequirements) {
         this.dateRequirements = dateRequirements;
         return this;
     }
@@ -1014,7 +1022,7 @@ public class Rfp {
     /**
      * RFP event details.
      */
-    public Rfp withRfpEvent(@Nullable RfpEventJson rfpEvent) {
+    public Rfp withRfpEvent(@Nullable RfpEvent rfpEvent) {
         this.rfpEvent = rfpEvent;
         return this;
     }
@@ -1030,7 +1038,7 @@ public class Rfp {
     /**
      * Contact details of planner.
      */
-    public Rfp withContact(@Nullable ContactJson0 contact) {
+    public Rfp withContact(@Nullable Contact1 contact) {
         this.contact = contact;
         return this;
     }
@@ -1038,7 +1046,7 @@ public class Rfp {
     /**
      * Details of organization which is hosting the event.
      */
-    public Rfp withRfpEventOrganization(@Nullable RfpEventOrganizationJson rfpEventOrganization) {
+    public Rfp withRfpEventOrganization(@Nullable EventOrganization1 rfpEventOrganization) {
         this.rfpEventOrganization = rfpEventOrganization;
         return this;
     }
@@ -1079,7 +1087,7 @@ public class Rfp {
     /**
      * Billing details for RFP.
      */
-    public Rfp withBillingDetails(@Nullable BillingDetailsJson0 billingDetails) {
+    public Rfp withBillingDetails(@Nullable BillingDetails1 billingDetails) {
         this.billingDetails = billingDetails;
         return this;
     }
@@ -1101,9 +1109,13 @@ public class Rfp {
     }
 
     /**
-     * Measurement unit.
+     * Unit of measurement for area or space.
+     *
+     * <p>Values:
+     * - `SQUARE_FEET` — Square Feet
+     * - `SQUARE_METERS` — Square Meters
      */
-    public Rfp withMeasurementUnit(@Nullable MeasurementUnitJson0 measurementUnit) {
+    public Rfp withMeasurementUnit(@Nullable MeasurementUnit measurementUnit) {
         this.measurementUnit = measurementUnit;
         return this;
     }
@@ -1111,7 +1123,7 @@ public class Rfp {
     /**
      * This contains cost items which are marked as required for suppliers in the RFP.
      */
-    public Rfp withRequiredCostItems(@Nullable List<OfferingCostTypeJson0> requiredCostItems) {
+    public Rfp withRequiredCostItems(@Nullable List<OfferingCostType1> requiredCostItems) {
         this.requiredCostItems = requiredCostItems;
         return this;
     }
@@ -1119,7 +1131,7 @@ public class Rfp {
     /**
      * This contains cost items which are marked as not needed for suppliers in the RFP.
      */
-    public Rfp withHiddenCostItems(@Nullable List<OfferingCostTypeJson0> hiddenCostItems) {
+    public Rfp withHiddenCostItems(@Nullable List<OfferingCostType1> hiddenCostItems) {
         this.hiddenCostItems = hiddenCostItems;
         return this;
     }
@@ -1152,7 +1164,7 @@ public class Rfp {
      * This contains recipients who would get notified every time a new response is received back from the
      * suppliers
      */
-    public Rfp withNotificationRecipients(@Nullable List<RecipientInfoJson0> notificationRecipients) {
+    public Rfp withNotificationRecipients(@Nullable List<RecipientInfo> notificationRecipients) {
         this.notificationRecipients = notificationRecipients;
         return this;
     }
@@ -1168,7 +1180,7 @@ public class Rfp {
     /**
      * Lead source details.
      */
-    public Rfp withLeadSource(@Nullable LeadSourceJson leadSource) {
+    public Rfp withLeadSource(@Nullable LeadSource leadSource) {
         this.leadSource = leadSource;
         return this;
     }
@@ -1211,7 +1223,7 @@ public class Rfp {
     /**
      * Wedding details.
      */
-    public Rfp withWeddingDetails(@Nullable WeddingDetailsJson0 weddingDetails) {
+    public Rfp withWeddingDetails(@Nullable WeddingDetails1 weddingDetails) {
         this.weddingDetails = weddingDetails;
         return this;
     }
@@ -1230,7 +1242,7 @@ public class Rfp {
      * mandatory to provide pricing preference, and REQUIRED means package information is mandatory to be
      * provided by supplier.
      */
-    public Rfp withPackagePricingPreference(@Nullable PackagePricingPreferenceJson packagePricingPreference) {
+    public Rfp withPackagePricingPreference(@Nullable PackagePricingPreference packagePricingPreference) {
         this.packagePricingPreference = packagePricingPreference;
         return this;
     }
@@ -1262,7 +1274,7 @@ public class Rfp {
     /**
      * Represents state of the RFP.
      */
-    public Rfp withStatus(@Nullable RfpStatusJson0 status) {
+    public Rfp withStatus(@Nullable RfpStatus1 status) {
         this.status = status;
         return this;
     }
@@ -1270,7 +1282,7 @@ public class Rfp {
     /**
      * RFP types based on event requirements.
      */
-    public Rfp withType(@Nullable RfpTypeJson0 type) {
+    public Rfp withType(@Nullable RfpType1 type) {
         this.type = type;
         return this;
     }
@@ -1303,7 +1315,7 @@ public class Rfp {
     /**
      * Information about cancellation of RFP.
      */
-    public Rfp withCancellationDetails(@Nullable CancellationDetailsJson cancellationDetails) {
+    public Rfp withCancellationDetails(@Nullable CancellationDetails cancellationDetails) {
         this.cancellationDetails = cancellationDetails;
         return this;
     }
@@ -1621,15 +1633,15 @@ public class Rfp {
 
         private String description;
 
-        private DateRequirementsJson0 dateRequirements;
+        private DateRequirements1 dateRequirements;
 
-        private RfpEventJson rfpEvent;
+        private RfpEvent rfpEvent;
 
         private LocalDate agendaStartDate;
 
-        private ContactJson0 contact;
+        private Contact1 contact;
 
-        private RfpEventOrganizationJson rfpEventOrganization;
+        private EventOrganization1 rfpEventOrganization;
 
         private String decisionFactors;
 
@@ -1639,17 +1651,17 @@ public class Rfp {
 
         private LocalDate decisionDate;
 
-        private BillingDetailsJson0 billingDetails;
+        private BillingDetails1 billingDetails;
 
         private String internalNote;
 
         private String currencyCode;
 
-        private MeasurementUnitJson0 measurementUnit;
+        private MeasurementUnit measurementUnit;
 
-        private List<OfferingCostTypeJson0> requiredCostItems;
+        private List<OfferingCostType1> requiredCostItems;
 
-        private List<OfferingCostTypeJson0> hiddenCostItems;
+        private List<OfferingCostType1> hiddenCostItems;
 
         private Boolean forwardable;
 
@@ -1657,11 +1669,11 @@ public class Rfp {
 
         private Boolean allowEmailNotifications;
 
-        private List<RecipientInfoJson0> notificationRecipients;
+        private List<RecipientInfo> notificationRecipients;
 
         private Boolean shareAwardDetails;
 
-        private LeadSourceJson leadSource;
+        private LeadSource leadSource;
 
         private String sourceId;
 
@@ -1671,11 +1683,11 @@ public class Rfp {
 
         private Boolean destinationExpertsRequiredOnProposal;
 
-        private WeddingDetailsJson0 weddingDetails;
+        private WeddingDetails1 weddingDetails;
 
         private Boolean needsCatering;
 
-        private PackagePricingPreferenceJson packagePricingPreference;
+        private PackagePricingPreference packagePricingPreference;
 
         private Boolean feeTransparencyEnabled;
 
@@ -1683,9 +1695,9 @@ public class Rfp {
 
         private String code;
 
-        private RfpStatusJson0 status;
+        private RfpStatus1 status;
 
-        private RfpTypeJson0 type;
+        private RfpType1 type;
 
         private String approvedBy;
 
@@ -1693,7 +1705,7 @@ public class Rfp {
 
         private Boolean approved;
 
-        private CancellationDetailsJson cancellationDetails;
+        private CancellationDetails cancellationDetails;
 
         private OffsetDateTime lastSentDateTime;
 
@@ -1774,7 +1786,7 @@ public class Rfp {
         /**
          * Date requirements for the event.
          */
-        public Builder dateRequirements(@Nullable DateRequirementsJson0 dateRequirements) {
+        public Builder dateRequirements(@Nullable DateRequirements1 dateRequirements) {
             this.dateRequirements = dateRequirements;
             return this;
         }
@@ -1782,7 +1794,7 @@ public class Rfp {
         /**
          * RFP event details.
          */
-        public Builder rfpEvent(@Nullable RfpEventJson rfpEvent) {
+        public Builder rfpEvent(@Nullable RfpEvent rfpEvent) {
             this.rfpEvent = rfpEvent;
             return this;
         }
@@ -1798,7 +1810,7 @@ public class Rfp {
         /**
          * Contact details of planner.
          */
-        public Builder contact(@Nullable ContactJson0 contact) {
+        public Builder contact(@Nullable Contact1 contact) {
             this.contact = contact;
             return this;
         }
@@ -1806,7 +1818,7 @@ public class Rfp {
         /**
          * Details of organization which is hosting the event.
          */
-        public Builder rfpEventOrganization(@Nullable RfpEventOrganizationJson rfpEventOrganization) {
+        public Builder rfpEventOrganization(@Nullable EventOrganization1 rfpEventOrganization) {
             this.rfpEventOrganization = rfpEventOrganization;
             return this;
         }
@@ -1847,7 +1859,7 @@ public class Rfp {
         /**
          * Billing details for RFP.
          */
-        public Builder billingDetails(@Nullable BillingDetailsJson0 billingDetails) {
+        public Builder billingDetails(@Nullable BillingDetails1 billingDetails) {
             this.billingDetails = billingDetails;
             return this;
         }
@@ -1869,9 +1881,13 @@ public class Rfp {
         }
 
         /**
-         * Measurement unit.
+         * Unit of measurement for area or space.
+         *
+         * <p>Values:
+         * - `SQUARE_FEET` — Square Feet
+         * - `SQUARE_METERS` — Square Meters
          */
-        public Builder measurementUnit(@Nullable MeasurementUnitJson0 measurementUnit) {
+        public Builder measurementUnit(@Nullable MeasurementUnit measurementUnit) {
             this.measurementUnit = measurementUnit;
             return this;
         }
@@ -1879,7 +1895,7 @@ public class Rfp {
         /**
          * This contains cost items which are marked as required for suppliers in the RFP.
          */
-        public Builder requiredCostItems(@Nullable List<OfferingCostTypeJson0> requiredCostItems) {
+        public Builder requiredCostItems(@Nullable List<OfferingCostType1> requiredCostItems) {
             this.requiredCostItems = requiredCostItems;
             return this;
         }
@@ -1887,7 +1903,7 @@ public class Rfp {
         /**
          * This contains cost items which are marked as not needed for suppliers in the RFP.
          */
-        public Builder hiddenCostItems(@Nullable List<OfferingCostTypeJson0> hiddenCostItems) {
+        public Builder hiddenCostItems(@Nullable List<OfferingCostType1> hiddenCostItems) {
             this.hiddenCostItems = hiddenCostItems;
             return this;
         }
@@ -1920,7 +1936,7 @@ public class Rfp {
          * This contains recipients who would get notified every time a new response is received back from the
          * suppliers
          */
-        public Builder notificationRecipients(@Nullable List<RecipientInfoJson0> notificationRecipients) {
+        public Builder notificationRecipients(@Nullable List<RecipientInfo> notificationRecipients) {
             this.notificationRecipients = notificationRecipients;
             return this;
         }
@@ -1936,7 +1952,7 @@ public class Rfp {
         /**
          * Lead source details.
          */
-        public Builder leadSource(@Nullable LeadSourceJson leadSource) {
+        public Builder leadSource(@Nullable LeadSource leadSource) {
             this.leadSource = leadSource;
             return this;
         }
@@ -1979,7 +1995,7 @@ public class Rfp {
         /**
          * Wedding details.
          */
-        public Builder weddingDetails(@Nullable WeddingDetailsJson0 weddingDetails) {
+        public Builder weddingDetails(@Nullable WeddingDetails1 weddingDetails) {
             this.weddingDetails = weddingDetails;
             return this;
         }
@@ -1998,7 +2014,7 @@ public class Rfp {
          * mandatory to provide pricing preference, and REQUIRED means package information is mandatory to be
          * provided by supplier.
          */
-        public Builder packagePricingPreference(@Nullable PackagePricingPreferenceJson packagePricingPreference) {
+        public Builder packagePricingPreference(@Nullable PackagePricingPreference packagePricingPreference) {
             this.packagePricingPreference = packagePricingPreference;
             return this;
         }
@@ -2030,7 +2046,7 @@ public class Rfp {
         /**
          * Represents state of the RFP.
          */
-        public Builder status(@Nullable RfpStatusJson0 status) {
+        public Builder status(@Nullable RfpStatus1 status) {
             this.status = status;
             return this;
         }
@@ -2038,7 +2054,7 @@ public class Rfp {
         /**
          * RFP types based on event requirements.
          */
-        public Builder type(@Nullable RfpTypeJson0 type) {
+        public Builder type(@Nullable RfpType1 type) {
             this.type = type;
             return this;
         }
@@ -2071,7 +2087,7 @@ public class Rfp {
         /**
          * Information about cancellation of RFP.
          */
-        public Builder cancellationDetails(@Nullable CancellationDetailsJson cancellationDetails) {
+        public Builder cancellationDetails(@Nullable CancellationDetails cancellationDetails) {
             this.cancellationDetails = cancellationDetails;
             return this;
         }
@@ -2201,9 +2217,9 @@ public class Rfp {
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_NeedsCatering =
                 new LazySingletonValue<>("needsCatering", "false", new TypeReference<Boolean>() {});
 
-        private static final LazySingletonValue<PackagePricingPreferenceJson> _SINGLETON_VALUE_PackagePricingPreference =
+        private static final LazySingletonValue<PackagePricingPreference> _SINGLETON_VALUE_PackagePricingPreference =
                 new LazySingletonValue<>(
-                        "packagePricingPreference", "\"NO_PREFERENCE\"", new TypeReference<PackagePricingPreferenceJson>() {});
+                        "packagePricingPreference", "\"NO_PREFERENCE\"", new TypeReference<PackagePricingPreference>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_FeeTransparencyEnabled =
                 new LazySingletonValue<>("feeTransparencyEnabled", "false", new TypeReference<Boolean>() {});

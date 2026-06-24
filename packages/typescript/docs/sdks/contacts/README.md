@@ -1091,7 +1091,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ContactBulkItemJson[]](../../models/.md)\>**
+**Promise\<[components.ContactBulkResponseItem[]](../../models/.md)\>**
 
 ### Errors
 
@@ -1269,7 +1269,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ContactBulkItemJson[]](../../models/.md)\>**
+**Promise\<[components.ContactBulkResponseItem[]](../../models/.md)\>**
 
 ### Errors
 
@@ -1500,7 +1500,7 @@ run();
 
 ### Response
 
-**Promise\<[components.ContactBulkItemJson[]](../../models/.md)\>**
+**Promise\<[components.ContactBulkResponseItem[]](../../models/.md)\>**
 
 ### Errors
 

@@ -6,7 +6,7 @@ package com.cvent.models.operations.async;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.SDKConfiguration;
-import com.cvent.models.components.SpeakerCategory;
+import com.cvent.models.components.SpeakerCategory2;
 import com.cvent.operations.AddSpeakerCategory;
 import com.cvent.utils.Headers;
 import com.cvent.utils.Options;
@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 public class AddSpeakerCategoryRequestBuilder {
     private final SDKConfiguration sdkConfiguration;
     private final Headers _headers = new Headers();
-    private SpeakerCategory request;
+    private SpeakerCategory2 request;
     private final Options.Builder optionsBuilder;
 
     public AddSpeakerCategoryRequestBuilder(SDKConfiguration sdkConfiguration) {
@@ -32,12 +32,12 @@ public class AddSpeakerCategoryRequestBuilder {
         return this;
     }
 
-    public AddSpeakerCategoryRequestBuilder request(@Nonnull SpeakerCategory request) {
+    public AddSpeakerCategoryRequestBuilder request(@Nonnull SpeakerCategory2 request) {
         this.request = Utils.checkNotNull(request, "request");
         return this;
     }
 
-    private SpeakerCategory _buildRequest() {
+    private SpeakerCategory2 _buildRequest() {
         return this.request;
     }
 
@@ -55,7 +55,7 @@ public class AddSpeakerCategoryRequestBuilder {
      */
     public CompletableFuture<AddSpeakerCategoryResponse> call() {
         Options options = optionsBuilder.build();
-        AsyncRequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+        AsyncRequestOperation<SpeakerCategory2, AddSpeakerCategoryResponse> operation =
                 new AddSpeakerCategory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(this._buildRequest()).thenCompose(operation::handleResponse);
     }

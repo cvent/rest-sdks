@@ -6,38 +6,32 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { BusinessType, BusinessType$inboundSchema } from "./businesstype.js";
+import { FormatType, FormatType$inboundSchema } from "./formattype.js";
 import {
-  BusinessTypeJson,
-  BusinessTypeJson$inboundSchema,
-} from "./businesstypejson.js";
+  ProposalStatusType,
+  ProposalStatusType$inboundSchema,
+} from "./proposalstatustype.js";
 import {
-  CustomQuestionAnswerJson0,
-  CustomQuestionAnswerJson0$inboundSchema,
-} from "./customquestionanswerjson0.js";
+  RateReviewStatusType,
+  RateReviewStatusType$inboundSchema,
+} from "./ratereviewstatustype.js";
 import {
-  FormatTypeJson,
-  FormatTypeJson$inboundSchema,
-} from "./formattypejson.js";
+  TravelProposalBid1,
+  TravelProposalBid1$inboundSchema,
+} from "./travelproposalbid1.js";
 import {
-  ProposalStatusTypeJson,
-  ProposalStatusTypeJson$inboundSchema,
-} from "./proposalstatustypejson.js";
+  TravelProposalCustomQuestion,
+  TravelProposalCustomQuestion$inboundSchema,
+} from "./travelproposalcustomquestion.js";
 import {
-  RateReviewStatusTypeJson,
-  RateReviewStatusTypeJson$inboundSchema,
-} from "./ratereviewstatustypejson.js";
+  TravelProposalDisposition,
+  TravelProposalDisposition$inboundSchema,
+} from "./travelproposaldisposition.js";
 import {
-  TravelGroupAndMeetingJson,
-  TravelGroupAndMeetingJson$inboundSchema,
-} from "./travelgroupandmeetingjson.js";
-import {
-  TravelProposalBidIdJson,
-  TravelProposalBidIdJson$inboundSchema,
-} from "./travelproposalbididjson.js";
-import {
-  TravelProposalDispositionJson,
-  TravelProposalDispositionJson$inboundSchema,
-} from "./travelproposaldispositionjson.js";
+  TravelProposalGroupAndMeeting,
+  TravelProposalGroupAndMeeting$inboundSchema,
+} from "./travelproposalgroupandmeeting.js";
 
 /**
  * Supplier property that the proposal is tied to.
@@ -98,7 +92,7 @@ export type TravelProposal = {
   /**
    * The status of the proposal
    */
-  status?: ProposalStatusTypeJson | undefined;
+  status?: ProposalStatusType | undefined;
   /**
    * True indicates the proposal is deleted.
    */
@@ -106,15 +100,15 @@ export type TravelProposal = {
   /**
    * The rate review status of the proposal
    */
-  rateReviewStatus?: RateReviewStatusTypeJson | undefined;
+  rateReviewStatus?: RateReviewStatusType | undefined;
   /**
    * Business type.
    */
-  businessType?: BusinessTypeJson | undefined;
+  businessType?: BusinessType | undefined;
   /**
    * Proposal format.
    */
-  format?: FormatTypeJson | undefined;
+  format?: FormatType | undefined;
   /**
    * True indicates the documents been read by the supply-side.
    */
@@ -150,19 +144,19 @@ export type TravelProposal = {
   /**
    * Collection of bid IDs attached to the proposal.
    */
-  bids?: Array<TravelProposalBidIdJson> | undefined;
+  bids?: Array<TravelProposalBid1> | undefined;
   /**
    * Collection of custom questions.
    */
-  customQuestionAnswers?: Array<CustomQuestionAnswerJson0> | undefined;
+  customQuestionAnswers?: Array<TravelProposalCustomQuestion> | undefined;
   /**
    * Group and meeting information.
    */
-  groupAndMeeting?: TravelGroupAndMeetingJson | undefined;
+  groupAndMeeting?: TravelProposalGroupAndMeeting | undefined;
   /**
    * Represent proposal disposition details.
    */
-  proposalDisposition?: TravelProposalDispositionJson | undefined;
+  proposalDisposition?: TravelProposalDisposition | undefined;
 };
 
 /** @internal */
@@ -221,11 +215,11 @@ export const TravelProposal$inboundSchema: z.ZodType<
   travelProgram: z.lazy(() => TravelProposalTravelProgram$inboundSchema)
     .optional(),
   contractPeriod: z.number().int().optional(),
-  status: ProposalStatusTypeJson$inboundSchema.optional(),
+  status: ProposalStatusType$inboundSchema.optional(),
   deleted: z.boolean().default(false),
-  rateReviewStatus: RateReviewStatusTypeJson$inboundSchema.optional(),
-  businessType: BusinessTypeJson$inboundSchema.optional(),
-  format: FormatTypeJson$inboundSchema.optional(),
+  rateReviewStatus: RateReviewStatusType$inboundSchema.optional(),
+  businessType: BusinessType$inboundSchema.optional(),
+  format: FormatType$inboundSchema.optional(),
   documentRead: z.boolean().default(false),
   rejectReasonCode: z.string().optional(),
   rejectComment: z.string().optional(),
@@ -237,11 +231,11 @@ export const TravelProposal$inboundSchema: z.ZodType<
   ).optional(),
   roomNightConsumption: z.number().int().optional(),
   draft: z.boolean().optional(),
-  bids: z.array(TravelProposalBidIdJson$inboundSchema).optional(),
-  customQuestionAnswers: z.array(CustomQuestionAnswerJson0$inboundSchema)
+  bids: z.array(TravelProposalBid1$inboundSchema).optional(),
+  customQuestionAnswers: z.array(TravelProposalCustomQuestion$inboundSchema)
     .optional(),
-  groupAndMeeting: TravelGroupAndMeetingJson$inboundSchema.optional(),
-  proposalDisposition: TravelProposalDispositionJson$inboundSchema.optional(),
+  groupAndMeeting: TravelProposalGroupAndMeeting$inboundSchema.optional(),
+  proposalDisposition: TravelProposalDisposition$inboundSchema.optional(),
 });
 
 export function travelProposalFromJSON(

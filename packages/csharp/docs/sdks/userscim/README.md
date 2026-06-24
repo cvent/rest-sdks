@@ -63,7 +63,7 @@ var res = await sdk.UserSCIM.GetUserGroupsAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 429                          | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 429                          | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetResourceTypes
@@ -102,7 +102,7 @@ var res = await sdk.UserSCIM.GetResourceTypesAsync();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 401, 403, 429                               | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 401, 403, 429                               | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetResourceType
@@ -152,7 +152,7 @@ var res = await sdk.UserSCIM.GetResourceTypeAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 404, 429                     | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 404, 429                     | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetSchemas
@@ -191,7 +191,7 @@ var res = await sdk.UserSCIM.GetSchemasAsync();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 401, 403, 429                               | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 401, 403, 429                               | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetSchema
@@ -241,7 +241,7 @@ var res = await sdk.UserSCIM.GetSchemaAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 404, 429                     | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 404, 429                     | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetServiceProviderConfig
@@ -280,7 +280,7 @@ var res = await sdk.UserSCIM.GetServiceProviderConfigAsync();
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 401, 403, 429                               | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 401, 403, 429                               | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## CreateUser
@@ -323,9 +323,9 @@ UserInput req = new UserInput() {
             Value = "+911234567890",
         },
     },
-    Addresses = new List<AddressJson4>() {
-        new AddressJson4() {
-            Type = AddressTypeJson1.Work,
+    Addresses = new List<AddressJson2>() {
+        new AddressJson2() {
+            Type = AddressTypeJson.Work,
             StreetAddress = "100 Universal City Plaza",
             Locality = "Hollywood",
             Region = "CA",
@@ -365,7 +365,7 @@ var res = await sdk.UserSCIM.CreateUserAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 409, 429                     | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 409, 429                     | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## ListUsers
@@ -415,7 +415,7 @@ var res = await sdk.UserSCIM.ListUsersAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 429                          | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 429                          | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## GetUser
@@ -465,7 +465,7 @@ var res = await sdk.UserSCIM.GetUserAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 404, 429                     | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 404, 429                     | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## UpdateUser
@@ -511,9 +511,9 @@ UpdateUserRequest req = new UpdateUserRequest() {
                 Value = "+911234567890",
             },
         },
-        Addresses = new List<AddressJson4>() {
-            new AddressJson4() {
-                Type = AddressTypeJson1.Work,
+        Addresses = new List<AddressJson2>() {
+            new AddressJson2() {
+                Type = AddressTypeJson.Work,
                 StreetAddress = "100 Universal City Plaza",
                 Locality = "Hollywood",
                 Region = "CA",
@@ -559,7 +559,7 @@ var res = await sdk.UserSCIM.UpdateUserAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 400, 401, 403, 404, 429                     | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 400, 401, 403, 404, 429                     | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |
 
 ## DeleteUser
@@ -609,5 +609,5 @@ var res = await sdk.UserSCIM.DeleteUserAsync(req);
 
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponseJson17 | 401, 403, 404, 429                          | application/json                            |
+| Cvent.SDK.Models.Errors.ErrorResponseJson12 | 401, 403, 404, 429                          | application/json                            |
 | Cvent.SDK.Models.Errors.APIException        | 4XX, 5XX                                    | \*/\*                                       |

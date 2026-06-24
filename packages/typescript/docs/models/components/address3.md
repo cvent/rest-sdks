@@ -1,6 +1,6 @@
 # Address3
 
-Address of the hotel.
+Address details
 
 ## Example Usage
 
@@ -17,6 +17,8 @@ let value: Address3 = {
   region: "Texas",
   regionCode: "TX",
   country: "United States of America",
+  latitude: 30,
+  longitude: -97,
 };
 ```
 
@@ -32,4 +34,6 @@ let value: Address3 = {
 | `postalCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the address.           | 78727                                                         |
 | `region`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
 | `regionCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
-| `country`                                                     | *string*                                                      | :heavy_minus_sign:                                            | Name of the country.                                          | United States of America                                      |
+| `country`                                                     | *string*                                                      | :heavy_minus_sign:                                            | Name of the country of the address.                           | United States of America                                      |
+| `latitude`                                                    | *number*                                                      | :heavy_minus_sign:                                            | The geo latitude of the address.                              | 30                                                            |
+| `longitude`                                                   | *number*                                                      | :heavy_minus_sign:                                            | The geo longitude of the address.                             | -97                                                           |

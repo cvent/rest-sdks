@@ -46,6 +46,9 @@ Events are used to collect registrations and allow attendees to select their sch
 * [listEventUserGroups](#listeventusergroups) - List Event User Groups
 * [associateEventUserGroup](#associateeventusergroup) - Associate User Group to Event
 * [disassociateEventUserGroup](#disassociateeventusergroup) - Disassociate Group from Event
+* [listEventVouchers](#listeventvouchers) - List Event Vouchers
+* [listEventVouchersPostFilter](#listeventvoucherspostfilter) - List Event Vouchers (Filter)
+* [listEventVoucherAttendees](#listeventvoucherattendees) - List Voucher Attendees
 * [updateQuantityItemRegistrationForAttendee](#updatequantityitemregistrationforattendee) - Update Quantity Item
 * [listSessionsAttendance](#listsessionsattendance) - Session Attendance
 * [listSessionsEnrollment](#listsessionsenrollment) - List Session Registrants
@@ -4222,6 +4225,313 @@ run();
 ### Response
 
 **Promise\<void\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## listEventVouchers
+
+Retrieves a paginated list of vouchers set up for a specific event.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listEventVouchers" method="get" path="/events/{id}/vouchers" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.events.listEventVouchers({
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    before: new Date("2017-01-02T02:00:00Z"),
+    after: new Date("2017-01-02T02:00:00Z"),
+    sort: "code:ASC",
+    filter: "id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { eventsListEventVouchers } from "@cvent/sdk/funcs/eventsListEventVouchers.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await eventsListEventVouchers(cventSDK, {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    before: new Date("2017-01-02T02:00:00Z"),
+    after: new Date("2017-01-02T02:00:00Z"),
+    sort: "code:ASC",
+    filter: "id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("eventsListEventVouchers failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEventVouchersRequest](../../models/operations/listeventvouchersrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListEventVouchersResponse](../../models/operations/listeventvouchersresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## listEventVouchersPostFilter
+
+Retrieves a paginated list of vouchers configured for an event using a filter provided in the body of the request.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listEventVouchersPostFilter" method="post" path="/events/{id}/vouchers/filter" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.events.listEventVouchersPostFilter({
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    before: new Date("2017-01-02T02:00:00Z"),
+    after: new Date("2017-01-02T02:00:00Z"),
+    sort: "code:ASC",
+    filter: {
+      filter: "id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')",
+    },
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { eventsListEventVouchersPostFilter } from "@cvent/sdk/funcs/eventsListEventVouchersPostFilter.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await eventsListEventVouchersPostFilter(cventSDK, {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+    before: new Date("2017-01-02T02:00:00Z"),
+    after: new Date("2017-01-02T02:00:00Z"),
+    sort: "code:ASC",
+    filter: {
+      filter: "id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("eventsListEventVouchersPostFilter failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEventVouchersPostFilterRequest](../../models/operations/listeventvoucherspostfilterrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListEventVouchersPostFilterResponse](../../models/operations/listeventvoucherspostfilterresponse.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorResponse1   | 400, 401, 403, 404, 429 | application/json        |
+| errors.APIError         | 4XX, 5XX                | \*/\*                   |
+
+## listEventVoucherAttendees
+
+Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="listEventVoucherAttendees" method="get" path="/events/{id}/vouchers/{voucherId}/attendees" -->
+```typescript
+import { CventSDK } from "@cvent/sdk";
+
+const cventSDK = new CventSDK({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const result = await cventSDK.events.listEventVoucherAttendees({
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    voucherId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+  });
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CventSDKCore } from "@cvent/sdk/core.js";
+import { eventsListEventVoucherAttendees } from "@cvent/sdk/funcs/eventsListEventVoucherAttendees.js";
+
+// Use `CventSDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const cventSDK = new CventSDKCore({
+  security: {
+    oAuth2ClientCredentials: {
+      clientID: process.env["CVENTSDK_CLIENT_ID"] ?? "",
+      clientSecret: process.env["CVENTSDK_CLIENT_SECRET"] ?? "",
+      tokenURL: process.env["CVENTSDK_TOKEN_URL"] ?? "",
+      scopes: process.env["CVENTSDK_SCOPES"] ?? "",
+    },
+  },
+});
+
+async function run() {
+  const res = await eventsListEventVoucherAttendees(cventSDK, {
+    id: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    voucherId: "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
+    token: "0e28af57-511f-47ab-ae46-46cd1ca51a1a",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    for await (const page of result) {
+    console.log(page);
+  }
+  } else {
+    console.log("eventsListEventVoucherAttendees failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEventVoucherAttendeesRequest](../../models/operations/listeventvoucherattendeesrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.ListEventVoucherAttendeesResponse](../../models/operations/listeventvoucherattendeesresponse.md)\>**
 
 ### Errors
 

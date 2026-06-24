@@ -1,10 +1,10 @@
 # EventJson6
 
-An event reference used in attendee insights to identify the event context for engagement data
+Details of the event.
 
 
 ## Fields
 
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `Id`                                                                        | *string*                                                                    | :heavy_check_mark:                                                          | A unique identifier (UUID) for the event where the engagement score applies | 04cb6ae2-0dc3-487b-953e-86d6abbdf7d3                                        |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `Id`                                 | *string*                             | :heavy_check_mark:                   | The unique ID of the event.          | a150f1ee-6c54-4b01-90e6-d701748f0851 |

@@ -34,7 +34,7 @@ namespace Cvent.SDK.Models.Components
         /// The management level of the travel account.  Defined by the supply-side.
         /// </summary>
         [JsonProperty("managementLevel")]
-        public ManagementLevelTypeJson1? ManagementLevel { get; set; }
+        public ManagementLevelType1? ManagementLevel { get; set; }
 
         /// <summary>
         /// Is this account active for the supplier's hotels.

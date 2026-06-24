@@ -9,18 +9,306 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// The associated Attendee.
+    /// An event attendee.
     /// </summary>
     public class Attendee11
     {
         /// <summary>
-        /// Attendee id.
+        /// The ISO 8601 zoned date time when this record was created.
+        /// </summary>
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that created this record.
+        /// </summary>
+        [JsonProperty("createdBy")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [JsonProperty("lastModified")]
+        public DateTime? LastModified { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that last updated this record.
+        /// </summary>
+        [JsonProperty("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The ID of attendee in the given event.
         /// </summary>
         [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// The attendee's associated event.
+        /// </summary>
+        [JsonProperty("event")]
+        public Attendee1Event? Event { get; set; }
+
+        /// <summary>
+        /// The confirmation number is a code unique to each attendee. Cvent assigns one to the attendee upon registration for the event. Serves as proof of registration.
+        /// </summary>
+        [JsonProperty("confirmationNumber")]
+        public string? ConfirmationNumber { get; set; }
+
+        /// <summary>
+        /// Information about attendee contact added to an event.
+        /// </summary>
+        [JsonProperty("contact")]
+        public AttendeeContactInfo? Contact { get; set; }
+
+        /// <summary>
+        /// True indicates the attendee checked in to the event.
+        /// </summary>
+        [JsonProperty("checkedIn")]
+        public bool? CheckedIn { get; set; }
+
+        /// <summary>
+        /// The date time when attendee was checked in to an event. Note: this field is deprecated. Please use the `checkIn` field instead.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("checkin")]
+        public DateTime? Checkin { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when attendee was checked in to an event.
+        /// </summary>
+        [JsonProperty("checkIn")]
+        public DateTime? CheckIn { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when attendee checked out from an event.
+        /// </summary>
+        [JsonProperty("checkOut")]
+        public DateTime? CheckOut { get; set; }
+
+        /// <summary>
+        /// The duration, in milliseconds, the attendee was present at the event.
+        /// </summary>
+        [JsonProperty("duration")]
+        public long? Duration { get; set; }
+
+        /// <summary>
+        /// Lookup response object.
+        /// </summary>
+        [JsonProperty("registrationPath")]
+        public Lookup? RegistrationPath { get; set; }
+
+        /// <summary>
+        /// A Named object.
+        /// </summary>
+        [JsonProperty("invitationList")]
+        public NamedObject? InvitationList { get; set; }
+
+        /// <summary>
+        /// Web links for an attendee.
+        /// </summary>
+        [JsonProperty("webLinks")]
+        public AttendeeWebLinks? WebLinks { get; set; }
+
+        /// <summary>
+        /// Lookup response object.
+        /// </summary>
+        [JsonProperty("registrationType")]
+        public Lookup? RegistrationType { get; set; }
+
+        /// <summary>
+        /// The reference ID of an attendee. A planner determined string used to track which link attendee's used to reach the event registration.
+        /// </summary>
+        [JsonProperty("referenceId")]
+        public string? ReferenceId { get; set; }
+
+        /// <summary>
+        /// The details of an attendee in an external systems.
+        /// </summary>
+        [JsonProperty("externalReferences")]
+        public List<ExternalReference>? ExternalReferences { get; set; }
+
+        /// <summary>
+        /// A planner created note for an attendee, used to track details about the attendee.
+        /// </summary>
+        [JsonProperty("note")]
+        public string? Note { get; set; }
+
+        /// <summary>
+        /// True indicates the attendee is a guest of another attendee.
+        /// </summary>
+        [JsonProperty("guest")]
+        public bool? Guest { get; set; }
+
+        /// <summary>
+        /// True indicates this attendee is a deleted guest.
+        /// </summary>
+        [JsonProperty("deletedGuest")]
+        public bool? DeletedGuest { get; set; }
+
+        /// <summary>
+        /// The ID of the primary attendee to whom this guest attendee is associated. Only applicable if this attendee is a guest.
+        /// </summary>
+        [JsonProperty("primaryId")]
+        public string? PrimaryId { get; set; }
+
+        /// <summary>
+        /// An attendee group.
+        /// </summary>
+        [JsonProperty("group")]
+        public AttendeeGroup? Group { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("administrator")]
+        public Uuid? Administrator { get; set; }
+
+        /// <summary>
+        /// DEPRECATED: True indicates this attendee is unsubscribed from this event's emails. They'll still receive emails triggered by their own actions (like registration modification). This field has been deprecated. Please use PUT /attendees/{id}/email-subscriptions instead.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("unsubscribed")]
+        public bool? Unsubscribed { get; set; }
+
+        /// <summary>
+        /// This is used to denote the status of an attendee.
+        /// </summary>
+        [JsonProperty("status")]
+        public AttendeeStatus? Status { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when attendee was registered.
+        /// </summary>
+        [JsonProperty("registeredAt")]
+        public DateTime? RegisteredAt { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when attendee's registration was modified. This field is updated when there are changes to the registration, such as adding or removing products.
+        /// </summary>
+        [JsonProperty("registrationLastModified")]
+        public DateTime? RegistrationLastModified { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when attendee registration was cancelled.
+        /// </summary>
+        [JsonProperty("registrationCancelledAt")]
+        public DateTime? RegistrationCancelledAt { get; set; }
+
+        /// <summary>
+        /// Method by which the attendee was invited to the event.
+        /// </summary>
+        [JsonProperty("invitedBy")]
+        public AttendeeInvitedBy1? InvitedBy { get; set; }
+
+        /// <summary>
+        /// Represents the method by which an attendee registered for the event.<br/>
+        /// <br/>
+        /// - Administrator Responded: The invitee was registered by another contact acting as their administrator.<br/>
+        /// - API-Responded: The invitee was registered through a custom process configured via an API integration.<br/>
+        /// - Appointments Event Website: The invitee registered via an appointments event website.<br/>
+        /// - Cvent Salesforce App: The invitee registered through an action in the Cvent Salesforce App.<br/>
+        /// - External Registration: The attendee was registered through an external integration, such as Marketo.<br/>
+        /// - Group Leader Responded: The invitee was registered by a group leader and added to a group.<br/>
+        /// - Historical Import: The invitee's registration was imported into the event as historical data.<br/>
+        /// - Imported: The invitee's registration was imported into the event.<br/>
+        /// - No Response: The invitee has not registered.<br/>
+        /// - On-site Responded: The invitee registered onsite using OnArrival's Kiosk Mode.<br/>
+        /// - Planner-Imported: An account user imported the invitee's registration into the event.<br/>
+        /// - Planner-Responded: An account user registered the invitee from the Cvent back-end or the planner-side of the OnArrival app.<br/>
+        /// - Post Event: The invitee was registered by an account user after the event's end date or while the event was in Completed status.<br/>
+        /// - Self-Responded: The invitee registered themselves through a weblink or invitation.<br/>
+        /// <br/>
+        /// Note: The responseMethod can only be set if the invitee's status is No Response.
+        /// </summary>
+        [JsonProperty("responseMethod")]
+        public AttendeeResponseMethod1? ResponseMethod { get; set; }
+
+        /// <summary>
+        /// A list of answers to contact custom fields. Note: This field is deprecated. Answers to custom contact fields can be found in the 'contact' model, `customFields` field instead.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("questions")]
+        public List<CustomFieldSchema>? Questions { get; set; }
+
+        /// <summary>
+        /// The list of answers to the registration questions.
+        /// </summary>
+        [JsonProperty("answers")]
+        public List<AttendeeAnswer>? Answers { get; set; }
+
+        /// <summary>
+        /// Contains details related to the attendee's admission item.
+        /// </summary>
+        [JsonProperty("admissionItem")]
+        public Attendee1Lookup? AdmissionItem { get; set; }
+
+        /// <summary>
+        /// Denotes the visibility of the attendee profile to other attendees. Private: Their profile is not visible. Public: Their profile is visible.
+        /// </summary>
+        [JsonProperty("visibility")]
+        public AttendeeVisibility? Visibility { get; set; }
+
+        /// <summary>
+        /// The attendee's biographical writeup.
+        /// </summary>
+        [JsonProperty("bio")]
+        public string? Bio { get; set; }
+
+        /// <summary>
+        /// Notification setting in the Attendee Hub app or website. Note: This field is deprecated. Use `allowPushNotification` field instead.
+        /// </summary>
+        [Obsolete("This field will be removed in a future release, please migrate away from it as soon as possible")]
+        [JsonProperty("showPopupNotification")]
+        public bool? ShowPopupNotification { get; set; }
+
+        /// <summary>
+        /// An attendee's website URL, appears on their profile.
+        /// </summary>
+        [JsonProperty("websiteUrl")]
+        public string? WebsiteUrl { get; set; }
+
+        /// <summary>
+        /// True indicates attendee will recieve push notifications for session-schedule changes, promotions and other event activities in the Attendee Hub app.
+        /// </summary>
+        [JsonProperty("allowPushNotifications")]
+        public bool? AllowPushNotifications { get; set; }
+
+        /// <summary>
+        /// True indicaites attendee will recieve push notifications for appointments related activities in the Attendee Hub app.
+        /// </summary>
+        [JsonProperty("allowAppointmentPushNotifications")]
+        public bool? AllowAppointmentPushNotifications { get; set; }
+
+        /// <summary>
+        /// True indicates this attendee record was created as part of a test scenario.
+        /// </summary>
+        [JsonProperty("testRecord")]
+        public bool? TestRecord { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date-time indicates when the attendee's non-contact properties were modified. Updates to the attendee's contact properties do not update this field. This field is updated when planners or attendees make changes to the attendee record, such as flagging as a participant. It is not updated for registration or product changes.
+        /// </summary>
+        [JsonProperty("attendeeLastModified")]
+        public DateTime? AttendeeLastModified { get; set; }
+
+        /// <summary>
+        /// List of appointment groups associated with attendee. These control permissions and visibility in appointments associated with the event.
+        /// </summary>
+        [JsonProperty("appointmentGroups")]
+        public List<AppointmentGroup>? AppointmentGroups { get; set; }
+
+        /// <summary>
+        /// The amount of credit associated with the attendee.
+        /// </summary>
+        [JsonProperty("credit")]
+        public double? Credit { get; set; }
     }
 }

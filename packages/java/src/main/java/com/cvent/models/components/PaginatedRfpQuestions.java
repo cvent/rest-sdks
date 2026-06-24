@@ -25,19 +25,18 @@ public class PaginatedRfpQuestions {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of questions associated to an RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RfpQuestionJson> data;
+    private List<RfpQuestion> data;
 
     @JsonCreator
     public PaginatedRfpQuestions(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<RfpQuestionJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<RfpQuestion> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +48,14 @@ public class PaginatedRfpQuestions {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of questions associated to an RFP.
      */
-    public Optional<List<RfpQuestionJson>> data() {
+    public Optional<List<RfpQuestion>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +66,7 @@ public class PaginatedRfpQuestions {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedRfpQuestions withPaging(@Nullable PagingJson paging) {
+    public PaginatedRfpQuestions withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +74,7 @@ public class PaginatedRfpQuestions {
     /**
      * List of questions associated to an RFP.
      */
-    public PaginatedRfpQuestions withData(@Nullable List<RfpQuestionJson> data) {
+    public PaginatedRfpQuestions withData(@Nullable List<RfpQuestion> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +104,9 @@ public class PaginatedRfpQuestions {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RfpQuestionJson> data;
+        private List<RfpQuestion> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +115,7 @@ public class PaginatedRfpQuestions {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +123,7 @@ public class PaginatedRfpQuestions {
         /**
          * List of questions associated to an RFP.
          */
-        public Builder data(@Nullable List<RfpQuestionJson> data) {
+        public Builder data(@Nullable List<RfpQuestion> data) {
             this.data = data;
             return this;
         }

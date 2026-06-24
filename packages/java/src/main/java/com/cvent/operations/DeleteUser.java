@@ -10,7 +10,7 @@ import static com.cvent.utils.Exceptions.unchecked;
 import com.cvent.SDKConfiguration;
 import com.cvent.SecuritySource;
 import com.cvent.models.errors.APIException;
-import com.cvent.models.errors.ErrorResponseJson17;
+import com.cvent.models.errors.ErrorResponseJson12;
 import com.cvent.models.operations.DeleteUserRequest;
 import com.cvent.models.operations.DeleteUserResponse;
 import com.cvent.utils.AsyncRetries;
@@ -180,7 +180,7 @@ public class DeleteUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    throw ErrorResponseJson17.from(response);
+                    throw ErrorResponseJson12.from(response);
                 } else {
                     throw APIException.from("Unexpected content-type received: " + contentType, response);
                 }
@@ -264,7 +264,7 @@ public class DeleteUser {
             }
             if (Utils.statusCodeMatches(response.statusCode(), "401", "403", "404", "429")) {
                 if (Utils.contentTypeMatches(contentType, "application/json")) {
-                    return ErrorResponseJson17.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
+                    return ErrorResponseJson12.fromAsync(response).thenCompose(CompletableFuture::failedFuture);
                 } else {
                     return Utils.createAsyncApiError(response, "Unexpected content-type received: " + contentType);
                 }

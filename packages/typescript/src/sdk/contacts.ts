@@ -253,7 +253,7 @@ export class Contacts extends ClientSDK {
   async updateContacts(
     request: Array<components.ContactUpdate>,
     options?: RequestOptions,
-  ): Promise<Array<components.ContactBulkItemJson>> {
+  ): Promise<Array<components.ContactBulkResponseItem>> {
     return unwrapAsync(contactsUpdateContacts(
       this,
       request,
@@ -278,7 +278,7 @@ export class Contacts extends ClientSDK {
   async patchContacts(
     request: Array<components.ContactPatch>,
     options?: RequestOptions,
-  ): Promise<Array<components.ContactBulkItemJson>> {
+  ): Promise<Array<components.ContactBulkResponseItem>> {
     return unwrapAsync(contactsPatchContacts(
       this,
       request,
@@ -298,7 +298,7 @@ export class Contacts extends ClientSDK {
   async createContacts(
     request: operations.CreateContactsRequest,
     options?: RequestOptions,
-  ): Promise<Array<components.ContactBulkItemJson>> {
+  ): Promise<Array<components.ContactBulkResponseItem>> {
     return unwrapAsync(contactsCreateContacts(
       this,
       request,

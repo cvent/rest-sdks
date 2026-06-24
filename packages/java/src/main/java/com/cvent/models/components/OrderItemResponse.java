@@ -78,7 +78,7 @@ public class OrderItemResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee attendee;
 
     /**
      * Indicates if an attendee is a guest
@@ -201,7 +201,7 @@ public class OrderItemResponse {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("order") @Nullable OrderRef order,
             @JsonProperty("event") @Nullable Event2 event,
-            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("guest") @Nullable Boolean guest,
             @JsonProperty("guestDetail") @Nullable Guest guestDetail,
             @JsonProperty("product") @Nullable ProductOrderItem product,
@@ -324,7 +324,7 @@ public class OrderItemResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<Attendee2> attendee() {
+    public Optional<Attendee> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -503,7 +503,7 @@ public class OrderItemResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public OrderItemResponse withAttendee(@Nullable Attendee2 attendee) {
+    public OrderItemResponse withAttendee(@Nullable Attendee attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -771,7 +771,7 @@ public class OrderItemResponse {
 
         private Event2 event;
 
-        private Attendee2 attendee;
+        private Attendee attendee;
 
         private Boolean guest;
 
@@ -868,7 +868,7 @@ public class OrderItemResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable Attendee2 attendee) {
+        public Builder attendee(@Nullable Attendee attendee) {
             this.attendee = attendee;
             return this;
         }

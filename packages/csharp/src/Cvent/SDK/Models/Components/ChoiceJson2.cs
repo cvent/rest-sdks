@@ -13,32 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A survey choice.
+    /// This is used to denote the choice of custom field.
     /// </summary>
     public class ChoiceJson2
     {
         /// <summary>
-        /// Text field ID.
+        /// The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call, this choice text will be replaced with the text supplied, and a new choice ID is created.
         /// </summary>
         [JsonProperty("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// text Value of the Field.
+        /// The text for the custom field choice.
         /// </summary>
         [JsonProperty("text")]
-        public string? Text { get; set; }
-
-        /// <summary>
-        /// Reporting value of the Category, Its like a custom abbreviation.
-        /// </summary>
-        [JsonProperty("shortText")]
-        public string? ShortText { get; set; }
-
-        /// <summary>
-        /// Label of choice.
-        /// </summary>
-        [JsonProperty("label")]
-        public string? Label { get; set; }
+        public string Text { get; set; } = default!;
     }
 }

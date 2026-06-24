@@ -46,6 +46,9 @@ Events are used to collect registrations and allow attendees to select their sch
 * [listEventUserGroups](#listeventusergroups) - List Event User Groups
 * [associateEventUserGroup](#associateeventusergroup) - Associate User Group to Event
 * [disassociateEventUserGroup](#disassociateeventusergroup) - Disassociate Group from Event
+* [listEventVouchers](#listeventvouchers) - List Event Vouchers
+* [listEventVouchersPostFilter](#listeventvoucherspostfilter) - List Event Vouchers (Filter)
+* [listEventVoucherAttendees](#listeventvoucherattendees) - List Voucher Attendees
 * [updateQuantityItemRegistrationForAttendee](#updatequantityitemregistrationforattendee) - Update Quantity Item
 * [listSessionsAttendance](#listsessionsattendance) - Session Attendance
 * [listSessionsEnrollment](#listsessionsenrollment) - List Session Registrants
@@ -477,7 +480,7 @@ public class Application {
                         .title("Event Planner")
                         .email("hsmith@example.com")
                         .build()))
-                .type(EventTypeJson1.CONFERENCE)
+                .type(EventTypeJson.CONFERENCE)
                 .description("Cvent annual user conference.")
                 .start(OffsetDateTime.parse("2020-02-03T13:00:00.000Z"))
                 .end(OffsetDateTime.parse("2020-02-07T17:00:00.000Z"))
@@ -699,7 +702,7 @@ public class Application {
             .build();
 
         SendEmailEventRequest req = SendEmailEventRequest.builder()
-                .event(EventJson8.builder()
+                .event(EventJson6.builder()
                     .id("a150f1ee-6c54-4b01-90e6-d701748f0851")
                     .build())
                 .email(EmailJson2.builder()
@@ -998,7 +1001,7 @@ public class Application {
                     .languages(List.of(
                         "en-US"))
                     .planners(List.of())
-                    .type(EventTypeJson1.CONFERENCE)
+                    .type(EventTypeJson.CONFERENCE)
                     .description("Cvent annual user conference.")
                     .start(OffsetDateTime.parse("2020-02-03T13:00:00.000Z"))
                     .end(OffsetDateTime.parse("2020-02-07T17:00:00.000Z"))
@@ -2700,7 +2703,7 @@ public class Application {
                     .event(Event2.builder()
                         .id("4a0e8d1f-8fd6-4ebe-977a-602b4a1f9c56")
                         .build())
-                    .attendee(Attendee2.builder()
+                    .attendee(Attendee.builder()
                         .id("5b0e8d1f-8fd6-4ebe-977a-602b4a1f9c43")
                         .build())
                     .batchNumber("112021-0017")
@@ -3017,6 +3020,222 @@ public class Application {
 ### Response
 
 **[DisassociateEventUserGroupResponse](../../models/operations/DisassociateEventUserGroupResponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+
+## listEventVouchers
+
+Retrieves a paginated list of vouchers set up for a specific event.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listEventVouchers" method="get" path="/events/{id}/vouchers" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.operations.ListEventVouchersRequest;
+import com.cvent.models.operations.ListEventVouchersResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse1, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListEventVouchersRequest req = ListEventVouchersRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .sort("code:ASC")
+                .filter("id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')")
+                .build();
+
+
+        sdk.events().listEventVouchers()
+                .callAsStream()
+                .forEach((ListEventVouchersResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `request`                                                                       | [ListEventVouchersRequest](../../models/operations/ListEventVouchersRequest.md) | :heavy_check_mark:                                                              | The request object to use for the request.                                      |
+
+### Response
+
+**[ListEventVouchersResponse](../../models/operations/ListEventVouchersResponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+
+## listEventVouchersPostFilter
+
+Retrieves a paginated list of vouchers configured for an event using a filter provided in the body of the request.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listEventVouchersPostFilter" method="post" path="/events/{id}/vouchers/filter" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.*;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.operations.ListEventVouchersPostFilterRequest;
+import com.cvent.models.operations.ListEventVouchersPostFilterResponse;
+import java.lang.Exception;
+import java.time.OffsetDateTime;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse1, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListEventVouchersPostFilterRequest req = ListEventVouchersPostFilterRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .before(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .after(OffsetDateTime.parse("2017-01-02T02:00:00Z"))
+                .sort("code:ASC")
+                .filter(Filter.builder()
+                    .filter("id in ('1800c9bd-b5f4-438a-a92c-ea1f59553a5c', '2900d8ce-c6f5-449b-b03d-fb2f60664b6d')")
+                    .build())
+                .build();
+
+
+        sdk.events().listEventVouchersPostFilter()
+                .callAsStream()
+                .forEach((ListEventVouchersPostFilterResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `request`                                                                                           | [ListEventVouchersPostFilterRequest](../../models/operations/ListEventVouchersPostFilterRequest.md) | :heavy_check_mark:                                                                                  | The request object to use for the request.                                                          |
+
+### Response
+
+**[ListEventVouchersPostFilterResponse](../../models/operations/ListEventVouchersPostFilterResponse.md)**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| models/errors/ErrorResponse1 | 400, 401, 403, 404, 429      | application/json             |
+| models/errors/APIException   | 4XX, 5XX                     | \*/\*                        |
+
+## listEventVoucherAttendees
+
+Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="java" operationID="listEventVoucherAttendees" method="get" path="/events/{id}/vouchers/{voucherId}/attendees" -->
+```java
+package hello.world;
+
+import com.cvent.CventSDK;
+import com.cvent.models.components.SchemeOAuth2ClientCredentials;
+import com.cvent.models.components.Security;
+import com.cvent.models.errors.ErrorResponse1;
+import com.cvent.models.operations.ListEventVoucherAttendeesRequest;
+import com.cvent.models.operations.ListEventVoucherAttendeesResponse;
+import java.lang.Exception;
+import java.util.List;
+
+public class Application {
+
+    public static void main(String[] args) throws ErrorResponse1, Exception {
+
+        CventSDK sdk = CventSDK.builder()
+                .security(Security.builder()
+                    .oAuth2ClientCredentials(SchemeOAuth2ClientCredentials.builder()
+                        .clientID("<id>")
+                        .clientSecret("<value>")
+                        .tokenURL("https://api-platform.cvent.com/ea/oauth2/token")
+                        .scopes(List.of(System.getenv().getOrDefault("SCOPES", "")))
+                        .build())
+                    .build())
+            .build();
+
+        ListEventVoucherAttendeesRequest req = ListEventVoucherAttendeesRequest.builder()
+                .id("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .voucherId("04ca6ae2-0dc3-487b-953e-86d6abbdf7d3")
+                .token("0e28af57-511f-47ab-ae46-46cd1ca51a1a")
+                .build();
+
+
+        sdk.events().listEventVoucherAttendees()
+                .callAsStream()
+                .forEach((ListEventVoucherAttendeesResponse item) -> {
+                   // handle page
+                });
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `request`                                                                                       | [ListEventVoucherAttendeesRequest](../../models/operations/ListEventVoucherAttendeesRequest.md) | :heavy_check_mark:                                                                              | The request object to use for the request.                                                      |
+
+### Response
+
+**[ListEventVoucherAttendeesResponse](../../models/operations/ListEventVoucherAttendeesResponse.md)**
 
 ### Errors
 

@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event21 Event { get; set; } = default!;
+        public Event3 Event { get; set; } = default!;
 
         /// <summary>
         /// The actual text of the exhibitor question.
@@ -84,13 +84,13 @@ namespace Cvent.SDK.Models.Components
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoice? NotApplicableAnswer { get; set; }
+        public AdditionalChoice1? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswer")]
-        public AdditionalChoice? OtherAnswer { get; set; }
+        public AdditionalChoice1? OtherAnswer { get; set; }
 
         /// <summary>
         /// Specifies the format for displaying answers based on the question type. For SingleChoice questions, choose between 'Dropdown' or 'RadioButton'. For OpenEndedTextOneLine questions, select 'General', 'EmailAddress', or 'PhoneNumber'. For OpenEndedDateTime questions, use 'DateAndTime' or 'Date'.

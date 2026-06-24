@@ -4,10 +4,10 @@
 
 import * as z from "zod/v3";
 import {
-  Attendee2,
-  Attendee2$Outbound,
-  Attendee2$outboundSchema,
-} from "./attendee2.js";
+  Attendee,
+  Attendee$Outbound,
+  Attendee$outboundSchema,
+} from "./attendee.js";
 import { Event2, Event2$Outbound, Event2$outboundSchema } from "./event2.js";
 import {
   PaymentMethod,
@@ -31,7 +31,7 @@ export type CreateTransactionResponseInput = {
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: Attendee2 | undefined;
+  attendee?: Attendee | undefined;
   /**
    * Denotes the type of transaction you're creating. Offline Charge: The transaction is a payment made to the attendee's order electronically in another system of record, or paid in physical currency. To create an offline charge, the attendee must have a balance owing. Offline Refund: The transaction is a refund issued to the attendee electronically in another system of record, or paid in physical currency. To create an offline refund, the attendee must have a balance due.
    */
@@ -69,7 +69,7 @@ export type CreateTransactionResponseInput = {
 /** @internal */
 export type CreateTransactionResponseInput$Outbound = {
   event?: Event2$Outbound | undefined;
-  attendee?: Attendee2$Outbound | undefined;
+  attendee?: Attendee$Outbound | undefined;
   paymentType: string;
   paymentMethod: string;
   date: string;
@@ -87,7 +87,7 @@ export const CreateTransactionResponseInput$outboundSchema: z.ZodType<
   CreateTransactionResponseInput
 > = z.object({
   event: Event2$outboundSchema.optional(),
-  attendee: Attendee2$outboundSchema.optional(),
+  attendee: Attendee$outboundSchema.optional(),
   paymentType: PaymentType$outboundSchema,
   paymentMethod: PaymentMethod$outboundSchema,
   date: z.date().transform(v => v.toISOString()),

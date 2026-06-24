@@ -1,0 +1,13 @@
+# DateRequirements1
+
+Date requirements for the event.
+
+
+## Fields
+
+| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `Mode`                                                                                                        | [RfpDateMode](../../Models/Components/RfpDateMode.md)                                                         | :heavy_check_mark:                                                                                            | RfpDateMode                                                                                                   |
+| `AlternateDates`                                                                                              | List<[Dates1](../../Models/Components/Dates1.md)>                                                             | :heavy_minus_sign:                                                                                            | List of dates for the event. Can be used to provide set of alternate event dates when mode is ALTERNATE_DATE. |
+| `Pattern`                                                                                                     | [DatePattern1](../../Models/Components/DatePattern1.md)                                                       | :heavy_minus_sign:                                                                                            | Date pattern for days on which event can occur. Used when dateMode is DATE_PATTERN.                           |
+| `AvailabilityRangeRequired`                                                                                   | *bool*                                                                                                        | :heavy_minus_sign:                                                                                            | True indicates that the event requires a range of availability dates.                                         |

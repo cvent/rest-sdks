@@ -8,11 +8,11 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoice,
-  AdditionalChoice$inboundSchema,
-} from "./additionalchoice.js";
-import { Choice, Choice$inboundSchema } from "./choice.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+  AdditionalChoice1,
+  AdditionalChoice1$inboundSchema,
+} from "./additionalchoice1.js";
+import { Choice1, Choice1$inboundSchema } from "./choice1.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -60,7 +60,7 @@ export type LeadQualificationQuestion = {
   /**
    * The Associated Event.
    */
-  event?: Event21 | undefined;
+  event?: Event3 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -76,15 +76,15 @@ export type LeadQualificationQuestion = {
   /**
    * List of available choices for the question
    */
-  choices?: Array<Choice> | undefined;
+  choices?: Array<Choice1> | undefined;
   /**
    * Contains text of additional choice
    */
-  notApplicableAnswer?: AdditionalChoice | undefined;
+  notApplicableAnswer?: AdditionalChoice1 | undefined;
   /**
    * Contains text of additional choice
    */
-  otherAnswers?: AdditionalChoice | undefined;
+  otherAnswers?: AdditionalChoice1 | undefined;
   /**
    * A boolean indicating whether the question is mandatory or not
    */
@@ -114,13 +114,13 @@ export const LeadQualificationQuestion$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: Event21$inboundSchema.optional(),
+  event: Event3$inboundSchema.optional(),
   exhibitor: Exhibitor$inboundSchema.optional(),
   type: LeadQualificationQuestionType$inboundSchema.optional(),
   code: z.string().optional(),
-  choices: z.array(Choice$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoice$inboundSchema.optional(),
-  otherAnswers: AdditionalChoice$inboundSchema.optional(),
+  choices: z.array(Choice1$inboundSchema).optional(),
+  notApplicableAnswer: AdditionalChoice1$inboundSchema.optional(),
+  otherAnswers: AdditionalChoice1$inboundSchema.optional(),
   required: z.boolean().optional(),
   text: z.string().optional(),
 });

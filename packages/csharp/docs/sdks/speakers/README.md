@@ -183,7 +183,8 @@ var res = await sdk.Speakers.CreateSessionProgramSpeakerAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 409, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetSessionProgramSpeaker
@@ -362,7 +363,7 @@ var sdk = new CventSDK(security: new Security() {
     },
 });
 
-SpeakerCategory req = new SpeakerCategory() {
+SpeakerCategory2 req = new SpeakerCategory2() {
     Name = "Presenters",
 };
 
@@ -373,9 +374,9 @@ var res = await sdk.Speakers.AddSpeakerCategoryAsync(req);
 
 ### Parameters
 
-| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `request`                                                     | [SpeakerCategory](../../Models/Components/SpeakerCategory.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
+| Parameter                                                       | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `request`                                                       | [SpeakerCategory2](../../Models/Components/SpeakerCategory2.md) | :heavy_check_mark:                                              | The request object to use for the request.                      |
 
 ### Response
 
@@ -479,18 +480,18 @@ Speaker req = new Speaker() {
     Designation = "PhD",
     Company = "Cvent",
     Title = "Lead Engineer",
-    Category = new CategoryIdNameJson() {
+    Category = new SpeakerCategory1() {
         Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         Name = "Presenters",
     },
-    Links = new ContactLinksJsonInput() {
-        TwitterUrl = new LinkJson() {
+    Links = new ContactLinksInput() {
+        TwitterUrl = new Link() {
             Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
         },
-        FacebookUrl = new LinkJson() {
+        FacebookUrl = new Link() {
             Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
         },
-        LinkedInUrl = new LinkJson() {
+        LinkedInUrl = new Link() {
             Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
         },
     },
@@ -619,18 +620,18 @@ UpdateSpeakerRequest req = new UpdateSpeakerRequest() {
         Designation = "PhD",
         Company = "Cvent",
         Title = "Lead Engineer",
-        Category = new CategoryIdNameJson() {
+        Category = new SpeakerCategory1() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
             Name = "Presenters",
         },
-        Links = new ContactLinksJsonInput() {
-            TwitterUrl = new LinkJson() {
+        Links = new ContactLinksInput() {
+            TwitterUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            FacebookUrl = new LinkJson() {
+            FacebookUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            LinkedInUrl = new LinkJson() {
+            LinkedInUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
         },

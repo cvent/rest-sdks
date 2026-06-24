@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Attendee2, Attendee2$inboundSchema } from "./attendee2.js";
+import { Attendee, Attendee$inboundSchema } from "./attendee.js";
 import { Event2, Event2$inboundSchema } from "./event2.js";
 import { Order, Order$inboundSchema } from "./order.js";
 import { PaymentMethod, PaymentMethod$inboundSchema } from "./paymentmethod.js";
@@ -47,7 +47,7 @@ export type CreateTransactionResponse = {
   /**
    * The reference to the attendee. Contains only the ID of the attendee.
    */
-  attendee?: Attendee2 | undefined;
+  attendee?: Attendee | undefined;
   /**
    * This denotes the order IDs corresponding to this transaction.
    */
@@ -113,7 +113,7 @@ export const CreateTransactionResponse$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   event: Event2$inboundSchema.optional(),
-  attendee: Attendee2$inboundSchema.optional(),
+  attendee: Attendee$inboundSchema.optional(),
   orders: z.array(Order$inboundSchema).optional(),
   journalNumber: z.string().optional(),
   paymentType: PaymentType$inboundSchema,

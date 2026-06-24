@@ -78,25 +78,25 @@ namespace Cvent.SDK.Models.Components
         /// Video thumbnail.
         /// </summary>
         [JsonProperty("thumbnail")]
-        public VideoThumbnailJson? Thumbnail { get; set; }
+        public VideoThumbnail? Thumbnail { get; set; }
 
         /// <summary>
         /// Video thumbnail.
         /// </summary>
         [JsonProperty("generatedThumbnail")]
-        public VideoThumbnailJson? GeneratedThumbnail { get; set; }
+        public VideoThumbnail? GeneratedThumbnail { get; set; }
 
         /// <summary>
         /// Denotes the status of a video. Started indicates the request to upload in the API was submitted, and the URL to upload to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the video. Available indicates the video is available for use.
         /// </summary>
         [JsonProperty("status")]
-        public VideoStatusJson? Status { get; set; }
+        public VideoStatus? Status { get; set; }
 
         /// <summary>
         /// Source of video.
         /// </summary>
         [JsonProperty("source")]
-        public VideoSourceJson? Source { get; set; }
+        public VideoSource? Source { get; set; }
 
         /// <summary>
         /// A list of tags associated with this video.  This feature is a developer extensability framework to add data to videos.
@@ -108,7 +108,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote type of a video.
         /// </summary>
         [JsonProperty("type")]
-        public VideoTypeJson? Type { get; set; }
+        public VideoType? Type { get; set; }
 
         /// <summary>
         /// Event video asset was created with. This field has been deprecated. Use events instead.
@@ -128,7 +128,7 @@ namespace Cvent.SDK.Models.Components
         /// A list of input object locations &amp; clip information for HTTP Live Streaming (HLS) recordings. Used to trim &amp; stitch all inputs together to form a new video.
         /// </summary>
         [JsonProperty("hlsInputsWithClips")]
-        public List<HlsInputWithClipsJson>? HlsInputsWithClips { get; set; }
+        public List<HlsInputWithClips>? HlsInputsWithClips { get; set; }
 
         /// <summary>
         /// Recording details of video to be transcoded.
@@ -140,7 +140,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the profile to use when encoding the video. Planner profile is for encoding high-quality event content, like session videos. Attendee profile is for encoding lower-quality content intended to go on attendee profiles and social feeds in the event.
         /// </summary>
         [JsonProperty("encodingProfile")]
-        public EncodingProfileJson? EncodingProfile { get; set; } = Cvent.SDK.Models.Components.EncodingProfileJson.Planner;
+        public EncodingProfile? EncodingProfile { get; set; } = Cvent.SDK.Models.Components.EncodingProfile.Planner;
 
         /// <summary>
         /// The identifier of a video.
@@ -152,7 +152,7 @@ namespace Cvent.SDK.Models.Components
         /// A URL associated with the asset.
         /// </summary>
         [JsonProperty("url")]
-        public AssetLocationJson? Url { get; set; }
+        public AssetLocation? Url { get; set; }
 
         /// <summary>
         /// File size in bytes for the video asset.
@@ -200,12 +200,12 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the errors for a video entity.
         /// </summary>
         [JsonProperty("errors")]
-        public List<VideoErrorJson>? Errors { get; set; }
+        public List<VideoError>? Errors { get; set; }
 
         /// <summary>
         /// This is used to denote the warnings for a video entity.
         /// </summary>
         [JsonProperty("warnings")]
-        public List<VideoWarningJson>? Warnings { get; set; }
+        public List<VideoWarning>? Warnings { get; set; }
     }
 }

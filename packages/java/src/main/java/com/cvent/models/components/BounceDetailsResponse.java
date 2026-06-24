@@ -22,7 +22,7 @@ public class BounceDetailsResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingNoTotalCountJson2 paging;
+    private PagingNoTotalCountJson paging;
 
     /**
      * Bounce details.
@@ -32,7 +32,7 @@ public class BounceDetailsResponse {
 
     @JsonCreator
     public BounceDetailsResponse(
-            @JsonProperty("paging") @Nonnull PagingNoTotalCountJson2 paging,
+            @JsonProperty("paging") @Nonnull PagingNoTotalCountJson paging,
             @JsonProperty("data") @Nonnull List<BounceDetailsJson> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
@@ -42,7 +42,7 @@ public class BounceDetailsResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingNoTotalCountJson2 paging() {
+    public PagingNoTotalCountJson paging() {
         return this.paging;
     }
 
@@ -60,7 +60,7 @@ public class BounceDetailsResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public BounceDetailsResponse withPaging(@Nonnull PagingNoTotalCountJson2 paging) {
+    public BounceDetailsResponse withPaging(@Nonnull PagingNoTotalCountJson paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -98,7 +98,7 @@ public class BounceDetailsResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingNoTotalCountJson2 paging;
+        private PagingNoTotalCountJson paging;
 
         private List<BounceDetailsJson> data;
 
@@ -109,7 +109,7 @@ public class BounceDetailsResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingNoTotalCountJson2 paging) {
+        public Builder paging(@Nonnull PagingNoTotalCountJson paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

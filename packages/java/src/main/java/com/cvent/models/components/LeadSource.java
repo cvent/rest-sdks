@@ -32,11 +32,11 @@ public class LeadSource {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("section")
-    private LeadSourceSectionJson section;
+    private LeadSourceSection section;
 
     @JsonCreator
     public LeadSource(
-            @JsonProperty("id") @Nullable String id, @JsonProperty("section") @Nullable LeadSourceSectionJson section) {
+            @JsonProperty("id") @Nullable String id, @JsonProperty("section") @Nullable LeadSourceSection section) {
         this.id = id;
         this.section = section;
     }
@@ -56,7 +56,7 @@ public class LeadSource {
     /**
      * Represents lead source section details, which is a sub area of source generating the RFP.
      */
-    public Optional<LeadSourceSectionJson> section() {
+    public Optional<LeadSourceSection> section() {
         return Optional.ofNullable(this.section);
     }
 
@@ -76,7 +76,7 @@ public class LeadSource {
     /**
      * Represents lead source section details, which is a sub area of source generating the RFP.
      */
-    public LeadSource withSection(@Nullable LeadSourceSectionJson section) {
+    public LeadSource withSection(@Nullable LeadSourceSection section) {
         this.section = section;
         return this;
     }
@@ -108,7 +108,7 @@ public class LeadSource {
 
         private String id;
 
-        private LeadSourceSectionJson section;
+        private LeadSourceSection section;
 
         private Builder() {
             // force use of static builder() method
@@ -126,7 +126,7 @@ public class LeadSource {
         /**
          * Represents lead source section details, which is a sub area of source generating the RFP.
          */
-        public Builder section(@Nullable LeadSourceSectionJson section) {
+        public Builder section(@Nullable LeadSourceSection section) {
             this.section = section;
             return this;
         }

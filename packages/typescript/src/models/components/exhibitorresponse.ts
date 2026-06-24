@@ -6,9 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address2, Address2$inboundSchema } from "./address2.js";
+import { Address4, Address4$inboundSchema } from "./address4.js";
 import { ContactLinks1, ContactLinks1$inboundSchema } from "./contactlinks1.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import {
   SponsorshipLevel,
   SponsorshipLevel$inboundSchema,
@@ -37,7 +37,7 @@ export type ExhibitorResponse = {
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
   /**
    * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
    */
@@ -61,7 +61,7 @@ export type ExhibitorResponse = {
   /**
    * An object representing an address with various properties.
    */
-  address?: Address2 | undefined;
+  address?: Address4 | undefined;
   /**
    * Email address of the exhibitor
    */
@@ -141,13 +141,13 @@ export const ExhibitorResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event21$inboundSchema,
+  event: Event3$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   code: z.string().optional(),
   sourceId: z.string().optional(),
   location: z.string().optional(),
-  address: Address2$inboundSchema.optional(),
+  address: Address4$inboundSchema.optional(),
   email: z.string().optional(),
   mobilePhone: z.string().optional(),
   workPhone: z.string().optional(),

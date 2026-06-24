@@ -34,7 +34,7 @@ public class ContactObfuscationStatus {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private ContactObfuscationStatusTypeJson status;
+    private ContactObfuscationStatusType status;
 
     /**
      * The obfuscation job identifier.
@@ -48,13 +48,13 @@ public class ContactObfuscationStatus {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("contact")
-    private ContactIdJson contact;
+    private ContactId contact;
 
     @JsonCreator
     public ContactObfuscationStatus(
-            @JsonProperty("status") @Nullable ContactObfuscationStatusTypeJson status,
+            @JsonProperty("status") @Nullable ContactObfuscationStatusType status,
             @JsonProperty("obfuscateId") @Nullable String obfuscateId,
-            @JsonProperty("contact") @Nullable ContactIdJson contact) {
+            @JsonProperty("contact") @Nullable ContactId contact) {
         this.status = status;
         this.obfuscateId = obfuscateId;
         this.contact = contact;
@@ -77,7 +77,7 @@ public class ContactObfuscationStatus {
      *
      * <p>FAILED - The obfuscation request failed due to an error.
      */
-    public Optional<ContactObfuscationStatusTypeJson> status() {
+    public Optional<ContactObfuscationStatusType> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -91,7 +91,7 @@ public class ContactObfuscationStatus {
     /**
      * A contact id.
      */
-    public Optional<ContactIdJson> contact() {
+    public Optional<ContactId> contact() {
         return Optional.ofNullable(this.contact);
     }
 
@@ -112,7 +112,7 @@ public class ContactObfuscationStatus {
      *
      * <p>FAILED - The obfuscation request failed due to an error.
      */
-    public ContactObfuscationStatus withStatus(@Nullable ContactObfuscationStatusTypeJson status) {
+    public ContactObfuscationStatus withStatus(@Nullable ContactObfuscationStatusType status) {
         this.status = status;
         return this;
     }
@@ -128,7 +128,7 @@ public class ContactObfuscationStatus {
     /**
      * A contact id.
      */
-    public ContactObfuscationStatus withContact(@Nullable ContactIdJson contact) {
+    public ContactObfuscationStatus withContact(@Nullable ContactId contact) {
         this.contact = contact;
         return this;
     }
@@ -161,11 +161,11 @@ public class ContactObfuscationStatus {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private ContactObfuscationStatusTypeJson status;
+        private ContactObfuscationStatusType status;
 
         private String obfuscateId;
 
-        private ContactIdJson contact;
+        private ContactId contact;
 
         private Builder() {
             // force use of static builder() method
@@ -184,7 +184,7 @@ public class ContactObfuscationStatus {
          *
          * <p>FAILED - The obfuscation request failed due to an error.
          */
-        public Builder status(@Nullable ContactObfuscationStatusTypeJson status) {
+        public Builder status(@Nullable ContactObfuscationStatusType status) {
             this.status = status;
             return this;
         }
@@ -200,7 +200,7 @@ public class ContactObfuscationStatus {
         /**
          * A contact id.
          */
-        public Builder contact(@Nullable ContactIdJson contact) {
+        public Builder contact(@Nullable ContactId contact) {
             this.contact = contact;
             return this;
         }

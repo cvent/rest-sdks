@@ -7,12 +7,12 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { Address12, Address12$inboundSchema } from "./address12.js";
+import { Address11, Address11$inboundSchema } from "./address11.js";
 import { Appointment1, Appointment1$inboundSchema } from "./appointment1.js";
-import { Attendee12, Attendee12$inboundSchema } from "./attendee12.js";
+import { Attendee13, Attendee13$inboundSchema } from "./attendee13.js";
 import { BoothStaff, BoothStaff$inboundSchema } from "./boothstaff.js";
 import { Device, Device$inboundSchema } from "./device.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 
 /**
@@ -100,7 +100,7 @@ export type Lead = {
   /**
    * The Associated Event.
    */
-  event?: Event21 | undefined;
+  event?: Event3 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -108,7 +108,7 @@ export type Lead = {
   /**
    * A JSON schema representing the Attendee object
    */
-  attendee?: Attendee12 | undefined;
+  attendee?: Attendee13 | undefined;
   /**
    * A JSON schema representing Booth Staff entity
    */
@@ -148,7 +148,7 @@ export type Lead = {
   /**
    * Schema for address information
    */
-  homeAddress?: Address12 | undefined;
+  homeAddress?: Address11 | undefined;
   /**
    * Home phone number of the lead
    */
@@ -156,7 +156,7 @@ export type Lead = {
   /**
    * Schema for address information
    */
-  workAddress?: Address12 | undefined;
+  workAddress?: Address11 | undefined;
   /**
    * Work Phone number of the lead
    */
@@ -251,9 +251,9 @@ export const Lead$inboundSchema: z.ZodType<Lead, z.ZodTypeDef, unknown> = z
       new Date(v)
     ).optional(),
     lastModifiedBy: z.string().optional(),
-    event: Event21$inboundSchema.optional(),
+    event: Event3$inboundSchema.optional(),
     exhibitor: Exhibitor$inboundSchema.optional(),
-    attendee: Attendee12$inboundSchema.optional(),
+    attendee: Attendee13$inboundSchema.optional(),
     boothStaff: BoothStaff$inboundSchema.optional(),
     device: Device$inboundSchema.optional(),
     appointment: Appointment1$inboundSchema.optional(),
@@ -263,9 +263,9 @@ export const Lead$inboundSchema: z.ZodType<Lead, z.ZodTypeDef, unknown> = z
     email: z.string().optional(),
     company: z.string().optional(),
     mobilePhone: z.string().optional(),
-    homeAddress: Address12$inboundSchema.optional(),
+    homeAddress: Address11$inboundSchema.optional(),
     homePhone: z.string().optional(),
-    workAddress: Address12$inboundSchema.optional(),
+    workAddress: Address11$inboundSchema.optional(),
     workPhone: z.string().optional(),
     type: LeadType$inboundSchema.default("leadcapture"),
     application: Application$inboundSchema.default("leadcapture"),

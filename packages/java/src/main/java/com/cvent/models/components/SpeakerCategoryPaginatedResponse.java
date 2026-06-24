@@ -23,7 +23,7 @@ public class SpeakerCategoryPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of speaker categories.
@@ -33,7 +33,7 @@ public class SpeakerCategoryPaginatedResponse {
 
     @JsonCreator
     public SpeakerCategoryPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
+            @JsonProperty("paging") @Nonnull Paging paging,
             @JsonProperty("data") @Nonnull List<ExistingSpeakerCategory> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
@@ -43,7 +43,7 @@ public class SpeakerCategoryPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
@@ -61,7 +61,7 @@ public class SpeakerCategoryPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public SpeakerCategoryPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public SpeakerCategoryPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -99,7 +99,7 @@ public class SpeakerCategoryPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
         private List<ExistingSpeakerCategory> data;
 
@@ -110,7 +110,7 @@ public class SpeakerCategoryPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }

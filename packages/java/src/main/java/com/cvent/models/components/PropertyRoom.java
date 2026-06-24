@@ -93,7 +93,7 @@ public class PropertyRoom {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bedTypeCode")
-    private RoomBedTypeJson1 bedTypeCode;
+    private RoomBedTypeJson bedTypeCode;
 
     /**
      * The number of beds in the room.
@@ -135,7 +135,7 @@ public class PropertyRoom {
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("property") @Nullable PropertyRoomProperty property,
             @JsonProperty("deleted") @Nullable Boolean deleted,
-            @JsonProperty("bedTypeCode") @Nullable RoomBedTypeJson1 bedTypeCode,
+            @JsonProperty("bedTypeCode") @Nullable RoomBedTypeJson bedTypeCode,
             @JsonProperty("numberOfBeds") @Nullable Long numberOfBeds,
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("description") @Nullable String description,
@@ -226,7 +226,7 @@ public class PropertyRoom {
     /**
      * Code representing the bed type.
      */
-    public Optional<RoomBedTypeJson1> bedTypeCode() {
+    public Optional<RoomBedTypeJson> bedTypeCode() {
         return Optional.ofNullable(this.bedTypeCode);
     }
 
@@ -338,7 +338,7 @@ public class PropertyRoom {
     /**
      * Code representing the bed type.
      */
-    public PropertyRoom withBedTypeCode(@Nullable RoomBedTypeJson1 bedTypeCode) {
+    public PropertyRoom withBedTypeCode(@Nullable RoomBedTypeJson bedTypeCode) {
         this.bedTypeCode = bedTypeCode;
         return this;
     }
@@ -475,7 +475,7 @@ public class PropertyRoom {
 
         private Boolean deleted;
 
-        private RoomBedTypeJson1 bedTypeCode;
+        private RoomBedTypeJson bedTypeCode;
 
         private Long numberOfBeds;
 
@@ -564,7 +564,7 @@ public class PropertyRoom {
         /**
          * Code representing the bed type.
          */
-        public Builder bedTypeCode(@Nullable RoomBedTypeJson1 bedTypeCode) {
+        public Builder bedTypeCode(@Nullable RoomBedTypeJson bedTypeCode) {
             this.bedTypeCode = bedTypeCode;
             return this;
         }

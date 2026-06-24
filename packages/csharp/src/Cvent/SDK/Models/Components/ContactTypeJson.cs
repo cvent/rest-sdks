@@ -11,40 +11,47 @@ namespace Cvent.SDK.Models.Components
 {
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
 
     /// <summary>
-    /// This entity represents a contact type at contact level.
+    /// The contact types used for the proposal.
     /// </summary>
-    public class ContactTypeJson
+    public enum ContactTypeJson
     {
-        /// <summary>
-        /// The ID of the contact type.
-        /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("PRIMARY")] Primary,
+        [JsonProperty("SECONDARY")] Secondary,
+    }
 
-        /// <summary>
-        /// The contact type code. Must be unique in the account.
-        /// </summary>
-        [JsonProperty("code")]
-        public string Code { get; set; } = default!;
+    public static class ContactTypeJsonExtension
+    {
+        public static string Value(this ContactTypeJson value)
+        {
+            return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString()) [0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
+        }
 
-        /// <summary>
-        /// Name of the contact type.
-        /// </summary>
-        [JsonProperty("name")]
-        public string Name { get; set; } = default!;
+        public static ContactTypeJson ToEnum(this string value)
+        {
+            foreach (var field in typeof(ContactTypeJson).GetFields())
+            {
+                var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
+                if (attributes.Length == 0)
+                {
+                    continue;
+                }
 
-        /// <summary>
-        /// Description of the contact type.
-        /// </summary>
-        [JsonProperty("description")]
-        public string? Description { get; set; }
+                var attribute = attributes[0] as JsonPropertyAttribute;
+                if (attribute != null && attribute.PropertyName == value)
+                {
+                    var enumVal = field.GetValue(null);
 
-        /// <summary>
-        /// Indicates whether the contact type is active.
-        /// </summary>
-        [JsonProperty("active")]
-        public bool? Active { get; set; }
+                    if (enumVal is ContactTypeJson)
+                    {
+                        return (ContactTypeJson)enumVal;
+                    }
+                }
+            }
+
+            throw new Exception($"Unknown value {value} for enum ContactTypeJson");
+        }
     }
 }

@@ -45,13 +45,13 @@ public class CategoryItemsCostJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("categories")
-    private List<CategoryJson1> categories;
+    private List<CategoryJson> categories;
 
     @JsonCreator
     public CategoryItemsCostJson(
             @JsonProperty("notes") @Nullable String notes,
             @JsonProperty("totalCost") @Nullable Double totalCost,
-            @JsonProperty("categories") @Nullable List<CategoryJson1> categories) {
+            @JsonProperty("categories") @Nullable List<CategoryJson> categories) {
         this.notes = notes;
         this.totalCost = totalCost;
         this.categories = categories;
@@ -78,7 +78,7 @@ public class CategoryItemsCostJson {
     /**
      * List of categories.
      */
-    public Optional<List<CategoryJson1>> categories() {
+    public Optional<List<CategoryJson>> categories() {
         return Optional.ofNullable(this.categories);
     }
 
@@ -105,7 +105,7 @@ public class CategoryItemsCostJson {
     /**
      * List of categories.
      */
-    public CategoryItemsCostJson withCategories(@Nullable List<CategoryJson1> categories) {
+    public CategoryItemsCostJson withCategories(@Nullable List<CategoryJson> categories) {
         this.categories = categories;
         return this;
     }
@@ -142,7 +142,7 @@ public class CategoryItemsCostJson {
 
         private Double totalCost;
 
-        private List<CategoryJson1> categories;
+        private List<CategoryJson> categories;
 
         private Builder() {
             // force use of static builder() method
@@ -167,7 +167,7 @@ public class CategoryItemsCostJson {
         /**
          * List of categories.
          */
-        public Builder categories(@Nullable List<CategoryJson1> categories) {
+        public Builder categories(@Nullable List<CategoryJson> categories) {
             this.categories = categories;
             return this;
         }

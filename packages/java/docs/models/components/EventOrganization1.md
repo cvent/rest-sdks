@@ -1,0 +1,16 @@
+# EventOrganization1
+
+Details of organization which is hosting the event.
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `organization`                                                     | [Optional\<Organization>](../../models/components/Organization.md) | :heavy_minus_sign:                                                 | Organization details.                                              |                                                                    |
+| `confidentialProfile`                                              | *Optional\<Boolean>*                                               | :heavy_minus_sign:                                                 | True indicates organization profile has to be kept confidential.   |                                                                    |
+| `industry`                                                         | [Optional\<Industry1>](../../models/components/Industry1.md)       | :heavy_minus_sign:                                                 | Industry                                                           |                                                                    |
+| `name`                                                             | *String*                                                           | :heavy_check_mark:                                                 | Name of the organization hosting the event.                        | Cvent Inc.                                                         |
+| `type`                                                             | [OrganizationType1](../../models/components/OrganizationType1.md)  | :heavy_check_mark:                                                 | Organization type.                                                 |                                                                    |
+| `address`                                                          | [Optional\<Address1>](../../models/components/Address1.md)         | :heavy_minus_sign:                                                 | Address details.                                                   |                                                                    |
+| `eventsPerYear`                                                    | *Optional\<Long>*                                                  | :heavy_minus_sign:                                                 | Number of events per year.                                         | 450                                                                |

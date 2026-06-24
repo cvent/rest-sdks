@@ -231,7 +231,7 @@ public class EventUpdate {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customFields")
-    private List<CustomFieldJson3> customFields;
+    private List<CustomFieldJson2> customFields;
 
     /**
      * The category to which this event belongs (no longer supported).
@@ -248,7 +248,7 @@ public class EventUpdate {
      * Essentials.
      */
     @JsonProperty("type")
-    private EventTypeJson1 type;
+    private EventTypeJson type;
 
     /**
      * Represents the links associated with an event.
@@ -322,9 +322,9 @@ public class EventUpdate {
             @JsonProperty("capacity") @Nullable Long capacity,
             @JsonProperty("planners") @Nonnull List<PlannerJson2> planners,
             @JsonProperty("stakeholders") @Nullable List<StakeholderJson> stakeholders,
-            @JsonProperty("customFields") @Nullable List<CustomFieldJson3> customFields,
+            @JsonProperty("customFields") @Nullable List<CustomFieldJson2> customFields,
             @JsonProperty("category") @Nullable EventUpdateLookup category,
-            @JsonProperty("type") @Nonnull EventTypeJson1 type,
+            @JsonProperty("type") @Nonnull EventTypeJson type,
             @JsonProperty("_links") @Nullable EventLinksJson links,
             @JsonProperty("created") @Nullable OffsetDateTime created,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
@@ -380,7 +380,7 @@ public class EventUpdate {
             @Nonnull String timezone,
             @Nonnull List<String> languages,
             @Nonnull List<PlannerJson2> planners,
-            @Nonnull EventTypeJson1 type) {
+            @Nonnull EventTypeJson type) {
         this(
                 null,
                 title,
@@ -630,7 +630,7 @@ public class EventUpdate {
     /**
      * Collection of custom fields.
      */
-    public Optional<List<CustomFieldJson3>> customFields() {
+    public Optional<List<CustomFieldJson2>> customFields() {
         return Optional.ofNullable(this.customFields);
     }
 
@@ -648,7 +648,7 @@ public class EventUpdate {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventTypeJson1 type() {
+    public EventTypeJson type() {
         return this.type;
     }
 
@@ -935,7 +935,7 @@ public class EventUpdate {
     /**
      * Collection of custom fields.
      */
-    public EventUpdate withCustomFields(@Nullable List<CustomFieldJson3> customFields) {
+    public EventUpdate withCustomFields(@Nullable List<CustomFieldJson2> customFields) {
         this.customFields = customFields;
         return this;
     }
@@ -955,7 +955,7 @@ public class EventUpdate {
      * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
      * Essentials.
      */
-    public EventUpdate withType(@Nonnull EventTypeJson1 type) {
+    public EventUpdate withType(@Nonnull EventTypeJson type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -1238,12 +1238,12 @@ public class EventUpdate {
 
         private List<StakeholderJson> stakeholders;
 
-        private List<CustomFieldJson3> customFields;
+        private List<CustomFieldJson2> customFields;
 
         @Deprecated
         private EventUpdateLookup category;
 
-        private EventTypeJson1 type;
+        private EventTypeJson type;
 
         private EventLinksJson links;
 
@@ -1498,7 +1498,7 @@ public class EventUpdate {
         /**
          * Collection of custom fields.
          */
-        public Builder customFields(@Nullable List<CustomFieldJson3> customFields) {
+        public Builder customFields(@Nullable List<CustomFieldJson2> customFields) {
             this.customFields = customFields;
             return this;
         }
@@ -1518,7 +1518,7 @@ public class EventUpdate {
          * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent
          * Essentials.
          */
-        public Builder type(@Nonnull EventTypeJson1 type) {
+        public Builder type(@Nonnull EventTypeJson type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }

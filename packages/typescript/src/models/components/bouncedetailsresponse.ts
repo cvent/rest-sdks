@@ -11,9 +11,9 @@ import {
   BounceDetailsJson$inboundSchema,
 } from "./bouncedetailsjson.js";
 import {
-  PagingNoTotalCountJson2,
-  PagingNoTotalCountJson2$inboundSchema,
-} from "./pagingnototalcountjson2.js";
+  PagingNoTotalCountJson,
+  PagingNoTotalCountJson$inboundSchema,
+} from "./pagingnototalcountjson.js";
 
 /**
  * The response from a request to get the bounce details of an email. This includes paging object
@@ -22,7 +22,7 @@ export type BounceDetailsResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingNoTotalCountJson2;
+  paging: PagingNoTotalCountJson;
   /**
    * Bounce details.
    */
@@ -35,7 +35,7 @@ export const BounceDetailsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingNoTotalCountJson2$inboundSchema,
+  paging: PagingNoTotalCountJson$inboundSchema,
   data: z.array(BounceDetailsJson$inboundSchema),
 });
 

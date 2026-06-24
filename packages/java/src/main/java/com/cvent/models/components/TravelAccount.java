@@ -69,7 +69,7 @@ public class TravelAccount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private TravelAccountTypeJson type;
+    private TravelAccountType type;
 
     /**
      * Is this a certified travel account?
@@ -83,7 +83,7 @@ public class TravelAccount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<AddressJson5> addresses;
+    private List<Address6> addresses;
 
     @JsonCreator
     public TravelAccount(
@@ -93,9 +93,9 @@ public class TravelAccount {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("type") @Nullable TravelAccountTypeJson type,
+            @JsonProperty("type") @Nullable TravelAccountType type,
             @JsonProperty("certified") @Nullable Boolean certified,
-            @JsonProperty("addresses") @Nullable List<AddressJson5> addresses) {
+            @JsonProperty("addresses") @Nullable List<Address6> addresses) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -156,7 +156,7 @@ public class TravelAccount {
     /**
      * Code representing the travel account type.
      */
-    public Optional<TravelAccountTypeJson> type() {
+    public Optional<TravelAccountType> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -170,7 +170,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public Optional<List<AddressJson5>> addresses() {
+    public Optional<List<Address6>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
@@ -229,7 +229,7 @@ public class TravelAccount {
     /**
      * Code representing the travel account type.
      */
-    public TravelAccount withType(@Nullable TravelAccountTypeJson type) {
+    public TravelAccount withType(@Nullable TravelAccountType type) {
         this.type = type;
         return this;
     }
@@ -245,7 +245,7 @@ public class TravelAccount {
     /**
      * List of addresses associated with the travel account.
      */
-    public TravelAccount withAddresses(@Nullable List<AddressJson5> addresses) {
+    public TravelAccount withAddresses(@Nullable List<Address6> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -315,11 +315,11 @@ public class TravelAccount {
 
         private String name;
 
-        private TravelAccountTypeJson type;
+        private TravelAccountType type;
 
         private Boolean certified;
 
-        private List<AddressJson5> addresses;
+        private List<Address6> addresses;
 
         private Builder() {
             // force use of static builder() method
@@ -376,7 +376,7 @@ public class TravelAccount {
         /**
          * Code representing the travel account type.
          */
-        public Builder type(@Nullable TravelAccountTypeJson type) {
+        public Builder type(@Nullable TravelAccountType type) {
             this.type = type;
             return this;
         }
@@ -392,7 +392,7 @@ public class TravelAccount {
         /**
          * List of addresses associated with the travel account.
          */
-        public Builder addresses(@Nullable List<AddressJson5> addresses) {
+        public Builder addresses(@Nullable List<Address6> addresses) {
             this.addresses = addresses;
             return this;
         }

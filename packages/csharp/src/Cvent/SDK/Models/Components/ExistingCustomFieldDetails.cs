@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static ExistingCustomFieldDetailsType OneOneOf
+        public static ExistingCustomFieldDetailsType One
         {
             get {
-                return new ExistingCustomFieldDetailsType("1_OneOf");
+                return new ExistingCustomFieldDetailsType("1");
             }
         }
 
@@ -69,8 +69,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "0_OneOf_1":
                     return ZeroOneOf1;
-                case "1_OneOf":
-                    return OneOneOf;
+                case "1":
+                    return One;
                 case "2":
                     return Two;
                 case "3":
@@ -109,7 +109,7 @@ namespace Cvent.SDK.Models.Components
         public ZeroOneOf1? ZeroOneOf1 { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public OneOneOf? OneOneOf { get; set; }
+        public One? One { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
         public Two? Two { get; set; }
@@ -126,12 +126,12 @@ namespace Cvent.SDK.Models.Components
             res.ZeroOneOf1 = zeroOneOf1;
             return res;
         }
-        public static ExistingCustomFieldDetails CreateOneOneOf(OneOneOf oneOneOf)
+        public static ExistingCustomFieldDetails CreateOne(One one)
         {
-            ExistingCustomFieldDetailsType typ = ExistingCustomFieldDetailsType.OneOneOf;
+            ExistingCustomFieldDetailsType typ = ExistingCustomFieldDetailsType.One;
 
             ExistingCustomFieldDetails res = new ExistingCustomFieldDetails(typ);
-            res.OneOneOf = oneOneOf;
+            res.One = one;
             return res;
         }
         public static ExistingCustomFieldDetails CreateTwo(Two two)
@@ -226,13 +226,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new ExistingCustomFieldDetails(ExistingCustomFieldDetailsType.OneOneOf) {
-                        OneOneOf = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<OneOneOf>(json)
+                    return new ExistingCustomFieldDetails(ExistingCustomFieldDetailsType.One) {
+                        One = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<One>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(OneOneOf), new ExistingCustomFieldDetails(ExistingCustomFieldDetailsType.OneOneOf), "OneOneOf"));
+                    fallbackCandidates.Add((typeof(One), new ExistingCustomFieldDetails(ExistingCustomFieldDetailsType.One), "One"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -281,9 +281,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.OneOneOf != null)
+                if (res.One != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.OneOneOf));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.One));
                     return;
                 }
 

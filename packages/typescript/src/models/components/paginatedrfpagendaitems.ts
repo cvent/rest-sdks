@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import {
-  RfpAgendaItemJson,
-  RfpAgendaItemJson$inboundSchema,
-} from "./rfpagendaitemjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { RfpAgendaItem, RfpAgendaItem$inboundSchema } from "./rfpagendaitem.js";
 
 /**
  * Paginated list of agenda items associated with an RFP.
@@ -19,11 +16,11 @@ export type PaginatedRfpAgendaItems = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging?: PagingJson | undefined;
+  paging?: Paging | undefined;
   /**
    * List of agenda items associated with an RFP.
    */
-  data?: Array<RfpAgendaItemJson> | undefined;
+  data?: Array<RfpAgendaItem> | undefined;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const PaginatedRfpAgendaItems$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema.optional(),
-  data: z.array(RfpAgendaItemJson$inboundSchema).optional(),
+  paging: Paging$inboundSchema.optional(),
+  data: z.array(RfpAgendaItem$inboundSchema).optional(),
 });
 
 export function paginatedRfpAgendaItemsFromJSON(

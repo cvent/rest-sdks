@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully retrieved a travel proposal bid.
         /// </summary>
-        public TravelProposalBid? TravelProposalBid { get; set; }
+        public TravelProposalBid2? TravelProposalBid { get; set; }
     }
 }

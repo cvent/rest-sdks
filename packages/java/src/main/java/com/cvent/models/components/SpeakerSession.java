@@ -31,7 +31,7 @@ public class SpeakerSession {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("speaker")
-    private SpeakerLite speaker;
+    private SpeakerLite1 speaker;
 
     /**
      * A Named object
@@ -43,7 +43,7 @@ public class SpeakerSession {
     @JsonCreator
     public SpeakerSession(
             @JsonProperty("id") @Nullable String id,
-            @JsonProperty("speaker") @Nullable SpeakerLite speaker,
+            @JsonProperty("speaker") @Nullable SpeakerLite1 speaker,
             @JsonProperty("category") @Nullable NamedObject category) {
         this.id = id;
         this.speaker = speaker;
@@ -64,7 +64,7 @@ public class SpeakerSession {
     /**
      * The unique identifier of a speaker.
      */
-    public Optional<SpeakerLite> speaker() {
+    public Optional<SpeakerLite1> speaker() {
         return Optional.ofNullable(this.speaker);
     }
 
@@ -90,7 +90,7 @@ public class SpeakerSession {
     /**
      * The unique identifier of a speaker.
      */
-    public SpeakerSession withSpeaker(@Nullable SpeakerLite speaker) {
+    public SpeakerSession withSpeaker(@Nullable SpeakerLite1 speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -132,7 +132,7 @@ public class SpeakerSession {
 
         private String id;
 
-        private SpeakerLite speaker;
+        private SpeakerLite1 speaker;
 
         private NamedObject category;
 
@@ -151,7 +151,7 @@ public class SpeakerSession {
         /**
          * The unique identifier of a speaker.
          */
-        public Builder speaker(@Nullable SpeakerLite speaker) {
+        public Builder speaker(@Nullable SpeakerLite1 speaker) {
             this.speaker = speaker;
             return this;
         }

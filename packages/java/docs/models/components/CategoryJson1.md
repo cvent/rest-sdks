@@ -1,13 +1,13 @@
 # CategoryJson1
 
-A category of items.
+A survey category.
 
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `type`                                                 | *Optional\<String>*                                    | :heavy_minus_sign:                                     | The category type.                                     | AVProduction                                           |
-| `name`                                                 | *Optional\<String>*                                    | :heavy_minus_sign:                                     | The name of the category.                              | Audio Video Production                                 |
-| `totalCost`                                            | *Optional\<Double>*                                    | :heavy_minus_sign:                                     | Total cost for all items within this category.         | 10000.99                                               |
-| `items`                                                | List\<[ItemJson](../../models/components/ItemJson.md)> | :heavy_minus_sign:                                     | List of items in this category.                        |                                                        |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `id`                                                            | *Optional\<String>*                                             | :heavy_minus_sign:                                              | Text field ID.                                                  |                                                                 |
+| `text`                                                          | *Optional\<String>*                                             | :heavy_minus_sign:                                              | text Value of the Field                                         | Field value                                                     |
+| `shortText`                                                     | *Optional\<String>*                                             | :heavy_minus_sign:                                              | Reporting value of the Category, Its like a custom abbreviation | Category 1 Reporting value                                      |
+| `required`                                                      | *Optional\<Boolean>*                                            | :heavy_minus_sign:                                              | is the category mandatory for answer                            | true                                                            |

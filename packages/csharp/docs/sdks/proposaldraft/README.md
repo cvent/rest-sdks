@@ -93,8 +93,8 @@ ProposalRequest req = new ProposalRequest() {
         FoodAndBeverageMinimum = 10D,
         Notes = "Estimated cost includes taxes.",
     },
-    Contacts = new List<ContactJson1>() {
-        new ContactJson1() {
+    Contacts = new List<ContactJson>() {
+        new ContactJson() {
             FirstName = "Saurabh",
             LastName = "Sachdeva",
             OrganizationWebsite = "www.cvent.com",
@@ -113,8 +113,8 @@ ProposalRequest req = new ProposalRequest() {
             Notes = "Available between 8am - 5pm.",
         },
     },
-    PlannerContacts = new List<ContactJson1>() {
-        new ContactJson1() {
+    PlannerContacts = new List<ContactJson>() {
+        new ContactJson() {
             FirstName = "Saurabh",
             LastName = "Sachdeva",
             OrganizationWebsite = "www.cvent.com",
