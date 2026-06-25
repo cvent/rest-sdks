@@ -15,9 +15,9 @@ import {
   CompositeValueJson$inboundSchema,
 } from "./compositevaluejson.js";
 import {
-  QuestionTypeJson1,
-  QuestionTypeJson1$inboundSchema,
-} from "./questiontypejson1.js";
+  QuestionTypeJson,
+  QuestionTypeJson$inboundSchema,
+} from "./questiontypejson.js";
 
 /**
  * A question and its answer for a meeting request. Some questions have fixed, well-known IDs that are the same across all accounts. Use the `type` field or the question `id` to determine the format of the `value` array.
@@ -42,7 +42,7 @@ export type MeetingRequestQuestionJson = {
   /**
    * Denotes the type of data collected by a question.
    */
-  type?: QuestionTypeJson1 | undefined;
+  type?: QuestionTypeJson | undefined;
   /**
    * An array of non-null answers to the question. The format of each item depends on the question `type`.
    *
@@ -89,7 +89,7 @@ export const MeetingRequestQuestionJson$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   name: z.string().optional(),
-  type: QuestionTypeJson1$inboundSchema.optional(),
+  type: QuestionTypeJson$inboundSchema.optional(),
   value: z.array(z.string()),
   answerType: AnswerTypeJson$inboundSchema.optional(),
   secondaryValue: z.string().optional(),

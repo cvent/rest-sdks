@@ -102,7 +102,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 429         | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 429         | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getResourceTypes
@@ -188,7 +188,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 401, 403, 429              | application/json           |
+| errors.ErrorResponseJson12 | 401, 403, 429              | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getResourceType
@@ -279,7 +279,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 404, 429    | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 404, 429    | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getSchemas
@@ -365,7 +365,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 401, 403, 429              | application/json           |
+| errors.ErrorResponseJson12 | 401, 403, 429              | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getSchema
@@ -456,7 +456,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 404, 429    | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 404, 429    | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getServiceProviderConfig
@@ -542,7 +542,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 401, 403, 429              | application/json           |
+| errors.ErrorResponseJson12 | 401, 403, 429              | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## createUser
@@ -703,7 +703,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 409, 429    | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 409, 429    | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## listUsers
@@ -794,7 +794,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 429         | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 429         | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## getUser
@@ -885,7 +885,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 404, 429    | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 404, 429    | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## updateUser
@@ -1062,7 +1062,7 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 400, 401, 403, 404, 429    | application/json           |
+| errors.ErrorResponseJson12 | 400, 401, 403, 404, 429    | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## deleteUser
@@ -1153,5 +1153,5 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorResponseJson17 | 401, 403, 404, 429         | application/json           |
+| errors.ErrorResponseJson12 | 401, 403, 404, 429         | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |

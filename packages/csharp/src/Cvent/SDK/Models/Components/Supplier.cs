@@ -18,19 +18,19 @@ namespace Cvent.SDK.Models.Components
     using System.Numerics;
     using System.Reflection;
 
-    public class SupplierType
+    public class SupplierUnionType
     {
-        private SupplierType(string value)
+        private SupplierUnionType(string value)
         {
             Value = value;
         }
 
         public string Value { get; private set; }
 
-        public static SupplierType Venue
+        public static SupplierUnionType Venue
         {
             get {
-                return new SupplierType("VENUE");
+                return new SupplierUnionType("VENUE");
             }
         }
 
@@ -38,18 +38,18 @@ namespace Cvent.SDK.Models.Components
         {
             return Value;
         }
-        public static implicit operator String(SupplierType v)
+        public static implicit operator String(SupplierUnionType v)
         {
             return v.Value;
         }
-        public static SupplierType FromString(string v)
+        public static SupplierUnionType FromString(string v)
         {
             switch (v)
             {
                 case "VENUE":
                     return Venue;
                 default:
-                    throw new ArgumentException("Invalid value for SupplierType");
+                    throw new ArgumentException("Invalid value for SupplierUnionType");
             }
         }
         public override bool Equals(object? obj)
@@ -58,7 +58,7 @@ namespace Cvent.SDK.Models.Components
             {
                 return false;
             }
-            return Value.Equals(((SupplierType)obj).Value);
+            return Value.Equals(((SupplierUnionType)obj).Value);
         }
 
         public override int GetHashCode()
@@ -73,7 +73,7 @@ namespace Cvent.SDK.Models.Components
     [JsonConverter(typeof(Supplier.SupplierConverter))]
     public class Supplier
     {
-        public Supplier(SupplierType type)
+        public Supplier(SupplierUnionType type)
         {
             Type = type;
         }
@@ -81,13 +81,13 @@ namespace Cvent.SDK.Models.Components
         [SpeakeasyMetadata("form:explode=true")]
         public VenueSummary? VenueSummary { get; set; }
 
-        public SupplierType Type { get; set; }
+        public SupplierUnionType Type { get; set; }
 
         public static Supplier CreateVenue(VenueSummary venue)
         {
-            SupplierType typ = SupplierType.Venue;
-            string typStr = SupplierType.Venue.ToString();
-            venue.Type = SupplierTypeJson1Extension.ToEnum(SupplierType.Venue.ToString());
+            SupplierUnionType typ = SupplierUnionType.Venue;
+            string typStr = SupplierUnionType.Venue.ToString();
+            venue.Type = SupplierTypeJsonExtension.ToEnum(SupplierUnionType.Venue.ToString());
             Supplier res = new Supplier(typ);
             res.VenueSummary = venue;
             return res;
@@ -108,7 +108,7 @@ namespace Cvent.SDK.Models.Components
 
                 JObject jo = JObject.Load(reader);
                 string discriminator = jo.GetValue("type")?.ToString() ?? throw new ArgumentNullException("Could not find discriminator field.");
-                if (discriminator == SupplierType.Venue.ToString())
+                if (discriminator == SupplierUnionType.Venue.ToString())
                 {
                     VenueSummary venueSummary = ResponseBodyDeserializer.DeserializeNotNull<VenueSummary>(jo.ToString());
                     return CreateVenue(venueSummary);

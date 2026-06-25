@@ -8,52 +8,43 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  BillingDetailsJson0,
-  BillingDetailsJson0$inboundSchema,
-} from "./billingdetailsjson0.js";
+  BillingDetails1,
+  BillingDetails1$inboundSchema,
+} from "./billingdetails1.js";
 import {
-  CancellationDetailsJson,
-  CancellationDetailsJson$inboundSchema,
-} from "./cancellationdetailsjson.js";
-import { ContactJson0, ContactJson0$inboundSchema } from "./contactjson0.js";
+  CancellationDetails,
+  CancellationDetails$inboundSchema,
+} from "./cancellationdetails.js";
+import { Contact1, Contact1$inboundSchema } from "./contact1.js";
 import {
-  DateRequirementsJson0,
-  DateRequirementsJson0$inboundSchema,
-} from "./daterequirementsjson0.js";
+  DateRequirements1,
+  DateRequirements1$inboundSchema,
+} from "./daterequirements1.js";
 import {
-  LeadSourceJson,
-  LeadSourceJson$inboundSchema,
-} from "./leadsourcejson.js";
+  EventOrganization1,
+  EventOrganization1$inboundSchema,
+} from "./eventorganization1.js";
+import { LeadSource, LeadSource$inboundSchema } from "./leadsource.js";
 import {
-  MeasurementUnitJson0,
-  MeasurementUnitJson0$inboundSchema,
-} from "./measurementunitjson0.js";
+  MeasurementUnit,
+  MeasurementUnit$inboundSchema,
+} from "./measurementunit.js";
 import {
-  OfferingCostTypeJson0,
-  OfferingCostTypeJson0$inboundSchema,
-} from "./offeringcosttypejson0.js";
+  OfferingCostType1,
+  OfferingCostType1$inboundSchema,
+} from "./offeringcosttype1.js";
 import {
-  PackagePricingPreferenceJson,
-  PackagePricingPreferenceJson$inboundSchema,
-} from "./packagepricingpreferencejson.js";
+  PackagePricingPreference,
+  PackagePricingPreference$inboundSchema,
+} from "./packagepricingpreference.js";
+import { RecipientInfo, RecipientInfo$inboundSchema } from "./recipientinfo.js";
+import { RfpEvent, RfpEvent$inboundSchema } from "./rfpevent.js";
+import { RfpStatus1, RfpStatus1$inboundSchema } from "./rfpstatus1.js";
+import { RfpType1, RfpType1$inboundSchema } from "./rfptype1.js";
 import {
-  RecipientInfoJson0,
-  RecipientInfoJson0$inboundSchema,
-} from "./recipientinfojson0.js";
-import { RfpEventJson, RfpEventJson$inboundSchema } from "./rfpeventjson.js";
-import {
-  RfpEventOrganizationJson,
-  RfpEventOrganizationJson$inboundSchema,
-} from "./rfpeventorganizationjson.js";
-import {
-  RfpStatusJson0,
-  RfpStatusJson0$inboundSchema,
-} from "./rfpstatusjson0.js";
-import { RfpTypeJson0, RfpTypeJson0$inboundSchema } from "./rfptypejson0.js";
-import {
-  WeddingDetailsJson0,
-  WeddingDetailsJson0$inboundSchema,
-} from "./weddingdetailsjson0.js";
+  WeddingDetails1,
+  WeddingDetails1$inboundSchema,
+} from "./weddingdetails1.js";
 
 /**
  * Basic RFP details
@@ -90,11 +81,11 @@ export type Rfp = {
   /**
    * Date requirements for the event.
    */
-  dateRequirements?: DateRequirementsJson0 | undefined;
+  dateRequirements?: DateRequirements1 | undefined;
   /**
    * RFP event details.
    */
-  rfpEvent?: RfpEventJson | undefined;
+  rfpEvent?: RfpEvent | undefined;
   /**
    * The ISO 8601 date representing the start date of agenda.
    */
@@ -102,11 +93,11 @@ export type Rfp = {
   /**
    * Contact details of planner.
    */
-  contact?: ContactJson0 | undefined;
+  contact?: Contact1 | undefined;
   /**
    * Details of organization which is hosting the event.
    */
-  rfpEventOrganization?: RfpEventOrganizationJson | undefined;
+  rfpEventOrganization?: EventOrganization1 | undefined;
   /**
    * Decision factors based on which RFP will be awarded. These can be price, location, or quality of service.
    */
@@ -126,7 +117,7 @@ export type Rfp = {
   /**
    * Billing details for RFP.
    */
-  billingDetails?: BillingDetailsJson0 | undefined;
+  billingDetails?: BillingDetails1 | undefined;
   /**
    * Internal note for planners. This note is not shared with suppliers.
    */
@@ -136,17 +127,23 @@ export type Rfp = {
    */
   currencyCode?: string | undefined;
   /**
-   * Measurement unit.
+   * Unit of measurement for area or space.
+   *
+   * @remarks
+   *
+   * Values:
+   * - `SQUARE_FEET` — Square Feet
+   * - `SQUARE_METERS` — Square Meters
    */
-  measurementUnit?: MeasurementUnitJson0 | undefined;
+  measurementUnit?: MeasurementUnit | undefined;
   /**
    * This contains cost items which are marked as required for suppliers in the RFP.
    */
-  requiredCostItems?: Array<OfferingCostTypeJson0> | undefined;
+  requiredCostItems?: Array<OfferingCostType1> | undefined;
   /**
    * This contains cost items which are marked as not needed for suppliers in the RFP.
    */
-  hiddenCostItems?: Array<OfferingCostTypeJson0> | undefined;
+  hiddenCostItems?: Array<OfferingCostType1> | undefined;
   /**
    * True indicates suppliers added on the RFP should be allowed to forward the RFP.
    */
@@ -162,7 +159,7 @@ export type Rfp = {
   /**
    * This contains recipients who would get notified every time a new response is received back from the suppliers
    */
-  notificationRecipients?: Array<RecipientInfoJson0> | undefined;
+  notificationRecipients?: Array<RecipientInfo> | undefined;
   /**
    * True indicates award details can be shared with other suppliers added in RFP.
    */
@@ -170,7 +167,7 @@ export type Rfp = {
   /**
    * Lead source details.
    */
-  leadSource?: LeadSourceJson | undefined;
+  leadSource?: LeadSource | undefined;
   /**
    * Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.
    */
@@ -190,7 +187,7 @@ export type Rfp = {
   /**
    * Wedding details.
    */
-  weddingDetails?: WeddingDetailsJson0 | undefined;
+  weddingDetails?: WeddingDetails1 | undefined;
   /**
    * True indicates catering is required.
    */
@@ -198,7 +195,7 @@ export type Rfp = {
   /**
    * Represents different preferences by planner for pricing packages response that supplier has to provide. NO_PREFERENCE means no pricing package information is need, OPTIONAL means it's not mandatory to provide pricing preference, and REQUIRED means package information is mandatory to be provided by supplier.
    */
-  packagePricingPreference: PackagePricingPreferenceJson;
+  packagePricingPreference: PackagePricingPreference;
   /**
    * True indicates RFP was created with fee transparency enabled.
    */
@@ -214,11 +211,11 @@ export type Rfp = {
   /**
    * Represents state of the RFP.
    */
-  status?: RfpStatusJson0 | undefined;
+  status?: RfpStatus1 | undefined;
   /**
    * RFP types based on event requirements.
    */
-  type?: RfpTypeJson0 | undefined;
+  type?: RfpType1 | undefined;
   /**
    * Details of the user who approved the RFP.
    */
@@ -234,7 +231,7 @@ export type Rfp = {
   /**
    * Information about cancellation of RFP.
    */
-  cancellationDetails?: CancellationDetailsJson | undefined;
+  cancellationDetails?: CancellationDetails | undefined;
   /**
    * The ISO 8601 date time (in UTC) when RFP was last sent.
    */
@@ -282,47 +279,47 @@ export const Rfp$inboundSchema: z.ZodType<Rfp, z.ZodTypeDef, unknown> = z
     needsMeetingSpace: z.boolean(),
     needsGuestRooms: z.boolean(),
     description: z.string().optional(),
-    dateRequirements: DateRequirementsJson0$inboundSchema.optional(),
-    rfpEvent: RfpEventJson$inboundSchema.optional(),
+    dateRequirements: DateRequirements1$inboundSchema.optional(),
+    rfpEvent: RfpEvent$inboundSchema.optional(),
     agendaStartDate: z.string().transform(v => new RFCDate(v)).optional(),
-    contact: ContactJson0$inboundSchema.optional(),
-    rfpEventOrganization: RfpEventOrganizationJson$inboundSchema.optional(),
+    contact: Contact1$inboundSchema.optional(),
+    rfpEventOrganization: EventOrganization1$inboundSchema.optional(),
     decisionFactors: z.string().optional(),
     citywideEvent: z.boolean().optional(),
     responseDueDate: z.string().transform(v => new RFCDate(v)).optional(),
     decisionDate: z.string().transform(v => new RFCDate(v)).optional(),
-    billingDetails: BillingDetailsJson0$inboundSchema.optional(),
+    billingDetails: BillingDetails1$inboundSchema.optional(),
     internalNote: z.string().optional(),
     currencyCode: z.string().optional(),
-    measurementUnit: MeasurementUnitJson0$inboundSchema.optional(),
-    requiredCostItems: z.array(OfferingCostTypeJson0$inboundSchema).optional(),
-    hiddenCostItems: z.array(OfferingCostTypeJson0$inboundSchema).optional(),
+    measurementUnit: MeasurementUnit$inboundSchema.optional(),
+    requiredCostItems: z.array(OfferingCostType1$inboundSchema).optional(),
+    hiddenCostItems: z.array(OfferingCostType1$inboundSchema).optional(),
     forwardable: z.boolean().optional(),
     cvbForwardLimit: z.number().int().optional(),
     allowEmailNotifications: z.boolean().optional(),
-    notificationRecipients: z.array(RecipientInfoJson0$inboundSchema)
-      .optional(),
+    notificationRecipients: z.array(RecipientInfo$inboundSchema).optional(),
     shareAwardDetails: z.boolean().optional(),
-    leadSource: LeadSourceJson$inboundSchema.optional(),
+    leadSource: LeadSource$inboundSchema.optional(),
     sourceId: z.string().optional(),
     showcaseEnabled: z.boolean().optional(),
     autoAddToShowcaseEnabled: z.boolean().optional(),
     destinationExpertsRequiredOnProposal: z.boolean().optional(),
-    weddingDetails: WeddingDetailsJson0$inboundSchema.optional(),
+    weddingDetails: WeddingDetails1$inboundSchema.optional(),
     needsCatering: z.boolean().default(false),
-    packagePricingPreference: PackagePricingPreferenceJson$inboundSchema
-      .default("NO_PREFERENCE"),
+    packagePricingPreference: PackagePricingPreference$inboundSchema.default(
+      "NO_PREFERENCE",
+    ),
     feeTransparencyEnabled: z.boolean().default(false),
     id: z.string(),
     code: z.string().optional(),
-    status: RfpStatusJson0$inboundSchema.optional(),
-    type: RfpTypeJson0$inboundSchema.optional(),
+    status: RfpStatus1$inboundSchema.optional(),
+    type: RfpType1$inboundSchema.optional(),
     approvedBy: z.string().optional(),
     approvedDateTime: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ).optional(),
     approved: z.boolean().optional(),
-    cancellationDetails: CancellationDetailsJson$inboundSchema.optional(),
+    cancellationDetails: CancellationDetails$inboundSchema.optional(),
     lastSentDateTime: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ).optional(),

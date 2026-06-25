@@ -15,8 +15,8 @@ import {
   CategoryItemsCostJson,
   CategoryItemsCostJson$inboundSchema,
 } from "./categoryitemscostjson.js";
-import { ContactJson1, ContactJson1$inboundSchema } from "./contactjson1.js";
-import { CurrencyJson1, CurrencyJson1$inboundSchema } from "./currencyjson1.js";
+import { ContactJson, ContactJson$inboundSchema } from "./contactjson.js";
+import { CurrencyJson2, CurrencyJson2$inboundSchema } from "./currencyjson2.js";
 import {
   EstimatedCostJson,
   EstimatedCostJson$inboundSchema,
@@ -172,7 +172,7 @@ export type ProposalResponse = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: CurrencyJson1 | undefined;
+  currencyCode?: CurrencyJson2 | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -214,11 +214,11 @@ export type ProposalResponse = {
   /**
    * List of all contacts.
    */
-  contacts?: Array<ContactJson1> | undefined;
+  contacts?: Array<ContactJson> | undefined;
   /**
    * List of all planner contacts.
    */
-  plannerContacts?: Array<ContactJson1> | undefined;
+  plannerContacts?: Array<ContactJson> | undefined;
   /**
    * The meeting room.
    */
@@ -305,7 +305,7 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   statusSummary: StatusSummaryJson$inboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: CurrencyJson1$inboundSchema.optional(),
+  currencyCode: CurrencyJson2$inboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),
@@ -315,8 +315,8 @@ export const ProposalResponse$inboundSchema: z.ZodType<
   categoryItemsCost: CategoryItemsCostJson$inboundSchema.optional(),
   aggregatedCost: AggregatedCostJson$inboundSchema.optional(),
   estimatedCost: EstimatedCostJson$inboundSchema.optional(),
-  contacts: z.array(ContactJson1$inboundSchema).optional(),
-  plannerContacts: z.array(ContactJson1$inboundSchema).optional(),
+  contacts: z.array(ContactJson$inboundSchema).optional(),
+  plannerContacts: z.array(ContactJson$inboundSchema).optional(),
   meetingRoom: MeetingRoomJson$inboundSchema.optional(),
   transaction: TransactionJson$inboundSchema.optional(),
   id: z.string(),

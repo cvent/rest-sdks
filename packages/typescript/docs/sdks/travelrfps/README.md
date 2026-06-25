@@ -766,7 +766,7 @@ run();
 
 ### Response
 
-**Promise\<[components.TravelProposalBid](../../models/components/travelproposalbid.md)\>**
+**Promise\<[components.TravelProposalBid2](../../models/components/travelproposalbid2.md)\>**
 
 ### Errors
 

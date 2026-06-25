@@ -97,7 +97,7 @@ namespace Cvent.SDK.Models.Components
         /// The ISO 4217 standard format currency code used for RFPs.
         /// </summary>
         [JsonProperty("currencyCode")]
-        public CurrencyJson1? CurrencyCode { get; set; }
+        public CurrencyJson2? CurrencyCode { get; set; }
 
         /// <summary>
         /// True indicates this is a commissionable bid.
@@ -158,13 +158,13 @@ namespace Cvent.SDK.Models.Components
         /// List of all contacts.
         /// </summary>
         [JsonProperty("contacts")]
-        public List<ContactJson1>? Contacts { get; set; }
+        public List<ContactJson>? Contacts { get; set; }
 
         /// <summary>
         /// List of all planner contacts.
         /// </summary>
         [JsonProperty("plannerContacts")]
-        public List<ContactJson1>? PlannerContacts { get; set; }
+        public List<ContactJson>? PlannerContacts { get; set; }
 
         /// <summary>
         /// The meeting room.

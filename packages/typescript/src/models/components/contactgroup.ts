@@ -7,13 +7,13 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ContactGroupTypeJson,
-  ContactGroupTypeJson$inboundSchema,
-} from "./contactgrouptypejson.js";
+  ContactGroupType,
+  ContactGroupType$inboundSchema,
+} from "./contactgrouptype.js";
 import {
-  DistributionListInfoJson,
-  DistributionListInfoJson$inboundSchema,
-} from "./distributionlistinfojson.js";
+  DistributionListInfo,
+  DistributionListInfo$inboundSchema,
+} from "./distributionlistinfo.js";
 
 /**
  * A group of contacts.
@@ -54,7 +54,7 @@ export type ContactGroup = {
   /**
    * Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events. `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to. `STANDARD` is a multi-purpose group for organizing contacts.
    */
-  type: ContactGroupTypeJson;
+  type: ContactGroupType;
   /**
    * Moved to internalNote in the DistributionListInfo object. The note field only applies to Distribution List.
    *
@@ -64,7 +64,7 @@ export type ContactGroup = {
   /**
    * Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
    */
-  distributionListInfo?: DistributionListInfoJson | undefined;
+  distributionListInfo?: DistributionListInfo | undefined;
 };
 
 /** @internal */
@@ -84,9 +84,9 @@ export const ContactGroup$inboundSchema: z.ZodType<
   name: z.string(),
   shortDescription: z.string().optional(),
   description: z.string().optional(),
-  type: ContactGroupTypeJson$inboundSchema.default("STANDARD"),
+  type: ContactGroupType$inboundSchema.default("STANDARD"),
   note: z.string().optional(),
-  distributionListInfo: DistributionListInfoJson$inboundSchema.optional(),
+  distributionListInfo: DistributionListInfo$inboundSchema.optional(),
 });
 
 export function contactGroupFromJSON(

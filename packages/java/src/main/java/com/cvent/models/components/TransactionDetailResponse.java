@@ -77,7 +77,7 @@ public class TransactionDetailResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee attendee;
 
     /**
      * This denotes the order IDs corresponding to this transaction.
@@ -193,7 +193,7 @@ public class TransactionDetailResponse {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("processorTransactionId") @Nullable String processorTransactionId,
             @JsonProperty("event") @Nullable Event2 event,
-            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("orders") @Nullable List<Order> orders,
             @JsonProperty("journalNumber") @Nullable String journalNumber,
             @JsonProperty("paymentType") @Nullable PaymentType1 paymentType,
@@ -310,7 +310,7 @@ public class TransactionDetailResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<Attendee2> attendee() {
+    public Optional<Attendee> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -482,7 +482,7 @@ public class TransactionDetailResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public TransactionDetailResponse withAttendee(@Nullable Attendee2 attendee) {
+    public TransactionDetailResponse withAttendee(@Nullable Attendee attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -734,7 +734,7 @@ public class TransactionDetailResponse {
 
         private Event2 event;
 
-        private Attendee2 attendee;
+        private Attendee attendee;
 
         private List<Order> orders;
 
@@ -827,7 +827,7 @@ public class TransactionDetailResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable Attendee2 attendee) {
+        public Builder attendee(@Nullable Attendee attendee) {
             this.attendee = attendee;
             return this;
         }

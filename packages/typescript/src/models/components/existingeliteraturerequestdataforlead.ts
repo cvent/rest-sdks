@@ -10,7 +10,7 @@ import {
   ELiteratureDocument,
   ELiteratureDocument$inboundSchema,
 } from "./eliteraturedocument.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Lead2, Lead2$inboundSchema } from "./lead2.js";
 
@@ -37,7 +37,7 @@ export type ExistingELiteratureRequestDataForLead = {
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
   /**
    * The Associated Exhibitor.
    */
@@ -69,7 +69,7 @@ export const ExistingELiteratureRequestDataForLead$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: Event21$inboundSchema,
+  event: Event3$inboundSchema,
   exhibitor: Exhibitor$inboundSchema,
   lead: Lead2$inboundSchema,
   documents: z.array(ELiteratureDocument$inboundSchema),

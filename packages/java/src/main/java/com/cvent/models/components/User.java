@@ -90,7 +90,7 @@ public class User {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("addresses")
-    private List<AddressJson4> addresses;
+    private List<AddressJson2> addresses;
 
     /**
      * The type of the user.
@@ -140,7 +140,7 @@ public class User {
             @JsonProperty("emails") @Nonnull List<EmailJson1> emails,
             @JsonProperty("title") @Nullable String title,
             @JsonProperty("phoneNumbers") @Nullable List<PhoneNumberJson1> phoneNumbers,
-            @JsonProperty("addresses") @Nullable List<AddressJson4> addresses,
+            @JsonProperty("addresses") @Nullable List<AddressJson2> addresses,
             @JsonProperty("userType") @Nonnull UserTypeJson userType,
             @JsonProperty("timezone") @Nullable String timezone,
             @JsonProperty("locale") @Nonnull String locale,
@@ -264,7 +264,7 @@ public class User {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public Optional<List<AddressJson4>> addresses() {
+    public Optional<List<AddressJson2>> addresses() {
         return Optional.ofNullable(this.addresses);
     }
 
@@ -389,7 +389,7 @@ public class User {
      * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
      * the sequence
      */
-    public User withAddresses(@Nullable List<AddressJson4> addresses) {
+    public User withAddresses(@Nullable List<AddressJson2> addresses) {
         this.addresses = addresses;
         return this;
     }
@@ -547,7 +547,7 @@ public class User {
 
         private List<PhoneNumberJson1> phoneNumbers;
 
-        private List<AddressJson4> addresses;
+        private List<AddressJson2> addresses;
 
         private UserTypeJson userType;
 
@@ -640,7 +640,7 @@ public class User {
          * <p>One address is selected based on the following sequence of criteria: primary, work type, first in
          * the sequence
          */
-        public Builder addresses(@Nullable List<AddressJson4> addresses) {
+        public Builder addresses(@Nullable List<AddressJson2> addresses) {
             this.addresses = addresses;
             return this;
         }

@@ -4,17 +4,13 @@
 
 import * as z from "zod/v3";
 import {
-  Attendee11,
-  Attendee11$Outbound,
-  Attendee11$outboundSchema,
-} from "./attendee11.js";
+  Attendee12,
+  Attendee12$Outbound,
+  Attendee12$outboundSchema,
+} from "./attendee12.js";
 import { BadgeStatus, BadgeStatus$outboundSchema } from "./badgestatus.js";
 import { BadgeType, BadgeType$outboundSchema } from "./badgetype.js";
-import {
-  Event21,
-  Event21$Outbound,
-  Event21$outboundSchema,
-} from "./event21.js";
+import { Event3, Event3$Outbound, Event3$outboundSchema } from "./event3.js";
 
 /**
  * A JSON Schema for Badge object.
@@ -35,11 +31,11 @@ export type BadgeInput = {
   /**
    * The associated Attendee.
    */
-  attendee: Attendee11;
+  attendee: Attendee12;
   /**
    * The Associated Event.
    */
-  event: Event21;
+  event: Event3;
 };
 
 /** @internal */
@@ -47,8 +43,8 @@ export type BadgeInput$Outbound = {
   id: string;
   status: string;
   type: string;
-  attendee: Attendee11$Outbound;
-  event: Event21$Outbound;
+  attendee: Attendee12$Outbound;
+  event: Event3$Outbound;
 };
 
 /** @internal */
@@ -60,8 +56,8 @@ export const BadgeInput$outboundSchema: z.ZodType<
   id: z.string(),
   status: BadgeStatus$outboundSchema,
   type: BadgeType$outboundSchema,
-  attendee: Attendee11$outboundSchema,
-  event: Event21$outboundSchema,
+  attendee: Attendee12$outboundSchema,
+  event: Event3$outboundSchema,
 });
 
 export function badgeInputToJSON(badgeInput: BadgeInput): string {

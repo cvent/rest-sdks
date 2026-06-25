@@ -1,0 +1,22 @@
+# RecipientInfo
+
+Represents the details of the RFP recipient.
+
+## Example Usage
+
+```typescript
+import { RecipientInfo } from "@cvent/sdk/models/components";
+
+let value: RecipientInfo = {
+  order: 2,
+  value: "janeDoe@example.com",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                 | Type                                                                                                                                                                  | Required                                                                                                                                                              | Description                                                                                                                                                           | Example                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `order`                                                                                                                                                               | *number*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | The position at which this recipient will be displayed.                                                                                                               | 2                                                                                                                                                                     |
+| `type`                                                                                                                                                                | [components.RecipientType](../../models/components/recipienttype.md)                                                                                                  | :heavy_minus_sign:                                                                                                                                                    | Type of Recipient                                                                                                                                                     |                                                                                                                                                                       |
+| `value`                                                                                                                                                               | *string*                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                    | If the recipient is ACCOUNT_USER or ACCOUNT_USER_GROUP, this field holds their unique ID. If the recipient is EMAIL, this field holds the email provided by the user. | janeDoe@example.com                                                                                                                                                   |

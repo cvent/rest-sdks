@@ -8,13 +8,17 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Contains text of additional choice
+ * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
  */
 export type AdditionalChoice = {
   /**
-   * Text Value of additional choice
+   * Display text of additional choice.
    */
   text?: string | undefined;
+  /**
+   * Name of additional choice text in reporting.
+   */
+  shortText?: string | undefined;
 };
 
 /** @internal */
@@ -24,6 +28,7 @@ export const AdditionalChoice$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   text: z.string().optional(),
+  shortText: z.string().optional(),
 });
 
 export function additionalChoiceFromJSON(

@@ -54,7 +54,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event21? Event { get; set; }
+        public Event3? Event { get; set; }
 
         /// <summary>
         /// The Associated Exhibitor.
@@ -78,19 +78,19 @@ namespace Cvent.SDK.Models.Components
         /// List of available choices for the question.
         /// </summary>
         [JsonProperty("choices")]
-        public List<Choice>? Choices { get; set; }
+        public List<Choice1>? Choices { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("notApplicableAnswer")]
-        public AdditionalChoice? NotApplicableAnswer { get; set; }
+        public AdditionalChoice1? NotApplicableAnswer { get; set; }
 
         /// <summary>
         /// Contains text of additional choice.
         /// </summary>
         [JsonProperty("otherAnswers")]
-        public AdditionalChoice? OtherAnswers { get; set; }
+        public AdditionalChoice1? OtherAnswers { get; set; }
 
         /// <summary>
         /// A boolean indicating whether the question is mandatory or not.

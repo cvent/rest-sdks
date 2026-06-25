@@ -25,19 +25,19 @@ public class PaginatedRfpAgendaItemsSchedule {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of agenda items schedule attached to an RFP.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RfpAgendaItemScheduleWithIdJson> data;
+    private List<RfpAgendaItemScheduleWithId> data;
 
     @JsonCreator
     public PaginatedRfpAgendaItemsSchedule(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<RfpAgendaItemScheduleWithIdJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<RfpAgendaItemScheduleWithId> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class PaginatedRfpAgendaItemsSchedule {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of agenda items schedule attached to an RFP.
      */
-    public Optional<List<RfpAgendaItemScheduleWithIdJson>> data() {
+    public Optional<List<RfpAgendaItemScheduleWithId>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class PaginatedRfpAgendaItemsSchedule {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedRfpAgendaItemsSchedule withPaging(@Nullable PagingJson paging) {
+    public PaginatedRfpAgendaItemsSchedule withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class PaginatedRfpAgendaItemsSchedule {
     /**
      * List of agenda items schedule attached to an RFP.
      */
-    public PaginatedRfpAgendaItemsSchedule withData(@Nullable List<RfpAgendaItemScheduleWithIdJson> data) {
+    public PaginatedRfpAgendaItemsSchedule withData(@Nullable List<RfpAgendaItemScheduleWithId> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class PaginatedRfpAgendaItemsSchedule {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RfpAgendaItemScheduleWithIdJson> data;
+        private List<RfpAgendaItemScheduleWithId> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class PaginatedRfpAgendaItemsSchedule {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class PaginatedRfpAgendaItemsSchedule {
         /**
          * List of agenda items schedule attached to an RFP.
          */
-        public Builder data(@Nullable List<RfpAgendaItemScheduleWithIdJson> data) {
+        public Builder data(@Nullable List<RfpAgendaItemScheduleWithId> data) {
             this.data = data;
             return this;
         }

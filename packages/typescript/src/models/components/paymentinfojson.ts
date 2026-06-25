@@ -7,11 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AddressJson2,
-  AddressJson2$inboundSchema,
-  AddressJson2$Outbound,
-  AddressJson2$outboundSchema,
-} from "./addressjson2.js";
+  AddressJson,
+  AddressJson$inboundSchema,
+  AddressJson$Outbound,
+  AddressJson$outboundSchema,
+} from "./addressjson.js";
 import {
   OtherPaymentJson,
   OtherPaymentJson$inboundSchema,
@@ -39,7 +39,7 @@ export type PaymentInfoJson = {
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  address?: AddressJson2 | undefined;
+  address?: AddressJson | undefined;
   /**
    * Phone number.
    */
@@ -58,7 +58,7 @@ export const PaymentInfoJson$inboundSchema: z.ZodType<
 > = z.object({
   paymentType: PaymentTypesJson$inboundSchema.optional(),
   fullName: z.string().optional(),
-  address: AddressJson2$inboundSchema.optional(),
+  address: AddressJson$inboundSchema.optional(),
   phone: z.string().optional(),
   other: OtherPaymentJson$inboundSchema.optional(),
 });
@@ -66,7 +66,7 @@ export const PaymentInfoJson$inboundSchema: z.ZodType<
 export type PaymentInfoJson$Outbound = {
   paymentType?: string | undefined;
   fullName?: string | undefined;
-  address?: AddressJson2$Outbound | undefined;
+  address?: AddressJson$Outbound | undefined;
   phone?: string | undefined;
   other?: OtherPaymentJson$Outbound | undefined;
 };
@@ -79,7 +79,7 @@ export const PaymentInfoJson$outboundSchema: z.ZodType<
 > = z.object({
   paymentType: PaymentTypesJson$outboundSchema.optional(),
   fullName: z.string().optional(),
-  address: AddressJson2$outboundSchema.optional(),
+  address: AddressJson$outboundSchema.optional(),
   phone: z.string().optional(),
   other: OtherPaymentJson$outboundSchema.optional(),
 });

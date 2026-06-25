@@ -28,12 +28,12 @@ public class QuestionsPaginatedResponse {
      * Collection of questions for surveys.
      */
     @JsonProperty("data")
-    private List<QuestionJson2> data;
+    private List<QuestionJson1> data;
 
     @JsonCreator
     public QuestionsPaginatedResponse(
             @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<QuestionJson2> data) {
+            @JsonProperty("data") @Nonnull List<QuestionJson1> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -49,7 +49,7 @@ public class QuestionsPaginatedResponse {
     /**
      * Collection of questions for surveys.
      */
-    public List<QuestionJson2> data() {
+    public List<QuestionJson1> data() {
         return this.data;
     }
 
@@ -68,7 +68,7 @@ public class QuestionsPaginatedResponse {
     /**
      * Collection of questions for surveys.
      */
-    public QuestionsPaginatedResponse withData(@Nonnull List<QuestionJson2> data) {
+    public QuestionsPaginatedResponse withData(@Nonnull List<QuestionJson1> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -100,7 +100,7 @@ public class QuestionsPaginatedResponse {
 
         private PagingJson paging;
 
-        private List<QuestionJson2> data;
+        private List<QuestionJson1> data;
 
         private Builder() {
             // force use of static builder() method
@@ -117,7 +117,7 @@ public class QuestionsPaginatedResponse {
         /**
          * Collection of questions for surveys.
          */
-        public Builder data(@Nonnull List<QuestionJson2> data) {
+        public Builder data(@Nonnull List<QuestionJson1> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

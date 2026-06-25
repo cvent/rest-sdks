@@ -6,30 +6,21 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Question Type.
+ * This object represents the type of a question
  */
 export const QuestionTypeJson2 = {
   SingleChoice: "SingleChoice",
   MultiChoice: "MultiChoice",
-  MatrixSingleChoice: "MatrixSingleChoice",
-  MatrixMultiChoice: "MatrixMultiChoice",
-  MatrixSideBySide: "MatrixSideBySide",
-  MatrixSpreadSheet: "MatrixSpreadSheet",
-  DateTime: "DateTime",
-  Number: "Number",
-  Text: "Text",
-  CommentBox: "CommentBox",
-  Form: "Form",
-  RankOrder: "RankOrder",
+  OpenEndedDateTime: "OpenEndedDateTime",
+  OpenEndedTextOneLine: "OpenEndedTextOneLine",
+  OpenEndedTextCommentBox: "OpenEndedTextCommentBox",
+  OpenEndedNumeric: "OpenEndedNumeric",
   FileUpload: "FileUpload",
-  NetPromoter: "NetPromoter",
-  Rating: "Rating",
-  MatrixRating: "MatrixRating",
-  NumberAllocation: "NumberAllocation",
-  LargeChoices: "LargeChoices",
+  MatrixSinglePerRow: "MatrixSinglePerRow",
+  MatrixMultiPerRow: "MatrixMultiPerRow",
 } as const;
 /**
- * Question Type.
+ * This object represents the type of a question
  */
 export type QuestionTypeJson2 = ClosedEnum<typeof QuestionTypeJson2>;
 

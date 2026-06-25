@@ -31,7 +31,7 @@ public class SleepingRoomBlockJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("proposalDateType")
-    private DateTypeJson1 proposalDateType;
+    private DateTypeJson proposalDateType;
 
     /**
      * Sleeping room type
@@ -63,7 +63,7 @@ public class SleepingRoomBlockJson {
 
     @JsonCreator
     public SleepingRoomBlockJson(
-            @JsonProperty("proposalDateType") @Nullable DateTypeJson1 proposalDateType,
+            @JsonProperty("proposalDateType") @Nullable DateTypeJson proposalDateType,
             @JsonProperty("sleepingRoomType") @Nullable SleepingRoomTypeJson sleepingRoomType,
             @JsonProperty("date") @Nullable LocalDate date,
             @JsonProperty("quantity") @Nullable Long quantity,
@@ -85,7 +85,7 @@ public class SleepingRoomBlockJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public Optional<DateTypeJson1> proposalDateType() {
+    public Optional<DateTypeJson> proposalDateType() {
         return Optional.ofNullable(this.proposalDateType);
     }
 
@@ -126,7 +126,7 @@ public class SleepingRoomBlockJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public SleepingRoomBlockJson withProposalDateType(@Nullable DateTypeJson1 proposalDateType) {
+    public SleepingRoomBlockJson withProposalDateType(@Nullable DateTypeJson proposalDateType) {
         this.proposalDateType = proposalDateType;
         return this;
     }
@@ -203,7 +203,7 @@ public class SleepingRoomBlockJson {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private DateTypeJson1 proposalDateType;
+        private DateTypeJson proposalDateType;
 
         private SleepingRoomTypeJson sleepingRoomType;
 
@@ -222,7 +222,7 @@ public class SleepingRoomBlockJson {
          * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
          * so on).
          */
-        public Builder proposalDateType(@Nullable DateTypeJson1 proposalDateType) {
+        public Builder proposalDateType(@Nullable DateTypeJson proposalDateType) {
             this.proposalDateType = proposalDateType;
             return this;
         }
@@ -263,7 +263,7 @@ public class SleepingRoomBlockJson {
             return new SleepingRoomBlockJson(proposalDateType, sleepingRoomType, date, quantity, rate);
         }
 
-        private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_ProposalDateType =
-                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
+        private static final LazySingletonValue<DateTypeJson> _SINGLETON_VALUE_ProposalDateType =
+                new LazySingletonValue<>("proposalDateType", "\"PREFERRED\"", new TypeReference<DateTypeJson>() {});
     }
 }

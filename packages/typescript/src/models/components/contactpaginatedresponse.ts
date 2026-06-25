@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import { ZeroAllOf7, ZeroAllOf7$inboundSchema } from "./zeroallof7.js";
+import { Contact, Contact$inboundSchema } from "./contact.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the list of contacts.  This includes the paging object as well as the collection of contacts.
@@ -16,11 +16,11 @@ export type ContactPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of contacts.
    */
-  data: Array<ZeroAllOf7>;
+  data: Array<Contact>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const ContactPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(ZeroAllOf7$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(Contact$inboundSchema),
 });
 
 export function contactPaginatedResponseFromJSON(

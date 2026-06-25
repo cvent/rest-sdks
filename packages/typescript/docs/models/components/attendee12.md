@@ -1,6 +1,6 @@
 # Attendee12
 
-A JSON schema representing the Attendee object
+The associated Attendee.
 
 ## Example Usage
 
@@ -16,4 +16,4 @@ let value: Attendee12 = {
 
 | Field                                | Type                                 | Required                             | Description                          | Example                              |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_minus_sign:                   | Attendee id                          | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3 |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | Attendee id                          | 04ca6ae2-0dc3-487b-953e-86d6abbdf7d3 |

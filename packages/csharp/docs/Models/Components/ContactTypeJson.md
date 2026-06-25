@@ -1,14 +1,19 @@
 # ContactTypeJson
 
-This entity represents a contact type at contact level.
+The contact types used for the proposal.
+
+## Example Usage
+
+```csharp
+using Cvent.SDK.Models.Components;
+
+var value = ContactTypeJson.Primary;
+```
 
 
-## Fields
+## Values
 
-| Field                                                 | Type                                                  | Required                                              | Description                                           | Example                                               |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `Id`                                                  | *string*                                              | :heavy_check_mark:                                    | The ID of the contact type.                           |                                                       |
-| `Code`                                                | *string*                                              | :heavy_check_mark:                                    | The contact type code. Must be unique in the account. | VIP                                                   |
-| `Name`                                                | *string*                                              | :heavy_check_mark:                                    | Name of the contact type.                             | VIP Attendee                                          |
-| `Description`                                         | *string*                                              | :heavy_minus_sign:                                    | Description of the contact type.                      | Very important attendee.                              |
-| `Active`                                              | *bool*                                                | :heavy_minus_sign:                                    | Indicates whether the contact type is active.         | true                                                  |
+| Name        | Value       |
+| ----------- | ----------- |
+| `Primary`   | PRIMARY     |
+| `Secondary` | SECONDARY   |

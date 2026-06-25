@@ -43,23 +43,24 @@ public class GetVideoViewsRequest {
     private String token;
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * The filter query supports maximum three fields in filter expression.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * contact.id (eq)
-     * * solution (eq)
-     * * device.type (eq) [deprecated]
-     * * device.operatingSystem (eq) [deprecated]
-     * * video.id (eq)
-     * * type (eq)
+     * <p>| Field                  | Operators | Notes      |
+     * |------------------------|-----------|------------|
+     * | contact.id             | `eq`      |            |
+     * | solution               | `eq`      |            |
+     * | device.type            | `eq`      | deprecated |
+     * | device.operatingSystem | `eq`      | deprecated |
+     * | video.id               | `eq`      |            |
+     * | type                   | `eq`      |            |
      *
-     * <p>The following operators are available:
+     * <p>The filter query supports maximum three fields in a filter expression.
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=filter")
@@ -114,23 +115,24 @@ public class GetVideoViewsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * The filter query supports maximum three fields in filter expression.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * contact.id (eq)
-     * * solution (eq)
-     * * device.type (eq) [deprecated]
-     * * device.operatingSystem (eq) [deprecated]
-     * * video.id (eq)
-     * * type (eq)
+     * <p>| Field                  | Operators | Notes      |
+     * |------------------------|-----------|------------|
+     * | contact.id             | `eq`      |            |
+     * | solution               | `eq`      |            |
+     * | device.type            | `eq`      | deprecated |
+     * | device.operatingSystem | `eq`      | deprecated |
+     * | video.id               | `eq`      |            |
+     * | type                   | `eq`      |            |
      *
-     * <p>The following operators are available:
+     * <p>The filter query supports maximum three fields in a filter expression.
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public Optional<String> filter() {
@@ -176,23 +178,24 @@ public class GetVideoViewsRequest {
     }
 
     /**
-     * A filter query string narrows search results and supports the combination of logical and comparison
-     * operators.
-     * The filter adheres to the pattern filter='field' comparisonType 'value'.
-     * The filter query supports maximum three fields in filter expression.
+     * Use filter query parameters to limit results
+     * to data that matches your criteria. See
+     * [Filters](/docs/rest-api/reference/filters) for details.
      *
-     * <p>There is one comparison type that can be used in filter expressions:
-     * * equal: eq
+     * <p>Supported fields and operators are listed below:
      *
-     * <p>The following fields are filterable:
-     * * contact.id (eq)
-     * * solution (eq)
-     * * device.type (eq) [deprecated]
-     * * device.operatingSystem (eq) [deprecated]
-     * * video.id (eq)
-     * * type (eq)
+     * <p>| Field                  | Operators | Notes      |
+     * |------------------------|-----------|------------|
+     * | contact.id             | `eq`      |            |
+     * | solution               | `eq`      |            |
+     * | device.type            | `eq`      | deprecated |
+     * | device.operatingSystem | `eq`      | deprecated |
+     * | video.id               | `eq`      |            |
+     * | type                   | `eq`      |            |
      *
-     * <p>The following operators are available:
+     * <p>The filter query supports maximum three fields in a filter expression.
+     *
+     * <p>The following logical operators are supported for combining filters:
      * * and
      */
     public GetVideoViewsRequest withFilter(@Nullable String filter) {
@@ -289,23 +292,24 @@ public class GetVideoViewsRequest {
         }
 
         /**
-         * A filter query string narrows search results and supports the combination of logical and comparison
-         * operators.
-         * The filter adheres to the pattern filter='field' comparisonType 'value'.
-         * The filter query supports maximum three fields in filter expression.
+         * Use filter query parameters to limit results
+         * to data that matches your criteria. See
+         * [Filters](/docs/rest-api/reference/filters) for details.
          *
-         * <p>There is one comparison type that can be used in filter expressions:
-         * * equal: eq
+         * <p>Supported fields and operators are listed below:
          *
-         * <p>The following fields are filterable:
-         * * contact.id (eq)
-         * * solution (eq)
-         * * device.type (eq) [deprecated]
-         * * device.operatingSystem (eq) [deprecated]
-         * * video.id (eq)
-         * * type (eq)
+         * <p>| Field                  | Operators | Notes      |
+         * |------------------------|-----------|------------|
+         * | contact.id             | `eq`      |            |
+         * | solution               | `eq`      |            |
+         * | device.type            | `eq`      | deprecated |
+         * | device.operatingSystem | `eq`      | deprecated |
+         * | video.id               | `eq`      |            |
+         * | type                   | `eq`      |            |
          *
-         * <p>The following operators are available:
+         * <p>The filter query supports maximum three fields in a filter expression.
+         *
+         * <p>The following logical operators are supported for combining filters:
          * * and
          */
         public Builder filter(@Nullable String filter) {

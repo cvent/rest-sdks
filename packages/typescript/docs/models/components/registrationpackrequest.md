@@ -22,6 +22,6 @@ let value: RegistrationPackRequest = {
 
 | Field                                                        | Type                                                         | Required                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `event`                                                      | [components.Event21](../../models/components/event21.md)     | :heavy_check_mark:                                           | The Associated Event.                                        |
+| `event`                                                      | [components.Event3](../../models/components/event3.md)       | :heavy_check_mark:                                           | The Associated Event.                                        |
 | `exhibitor`                                                  | [components.Exhibitor](../../models/components/exhibitor.md) | :heavy_check_mark:                                           | The Associated Exhibitor.                                    |
 | `capacities`                                                 | [components.Capacity](../../models/components/capacity.md)[] | :heavy_check_mark:                                           | An array of capacities for the registration pack.            |

@@ -27,7 +27,7 @@ public class VenueSummary implements Supplier {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private SupplierTypeJson1 type;
+    private SupplierTypeJson type;
 
     /**
      * The unique ID of the venue.
@@ -45,7 +45,7 @@ public class VenueSummary implements Supplier {
 
     @JsonCreator
     public VenueSummary(
-            @JsonProperty("type") @Nullable SupplierTypeJson1 type,
+            @JsonProperty("type") @Nullable SupplierTypeJson type,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name) {
         this.type = Optional.ofNullable(type).orElse(Builder._SINGLETON_VALUE_Type.value());
@@ -88,7 +88,7 @@ public class VenueSummary implements Supplier {
      * The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an
      * event.
      */
-    public VenueSummary withType(@Nullable SupplierTypeJson1 type) {
+    public VenueSummary withType(@Nullable SupplierTypeJson type) {
         this.type = type;
         return this;
     }
@@ -136,7 +136,7 @@ public class VenueSummary implements Supplier {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private SupplierTypeJson1 type;
+        private SupplierTypeJson type;
 
         private String id;
 
@@ -150,7 +150,7 @@ public class VenueSummary implements Supplier {
          * The supplier's type. VENUE: A hotel, convention and visitors bureau (CVB), or other location for an
          * event.
          */
-        public Builder type(@Nullable SupplierTypeJson1 type) {
+        public Builder type(@Nullable SupplierTypeJson type) {
             this.type = type;
             return this;
         }
@@ -175,7 +175,7 @@ public class VenueSummary implements Supplier {
             return new VenueSummary(type, id, name);
         }
 
-        private static final LazySingletonValue<SupplierTypeJson1> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<SupplierTypeJson1>() {});
+        private static final LazySingletonValue<SupplierTypeJson> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"VENUE\"", new TypeReference<SupplierTypeJson>() {});
     }
 }

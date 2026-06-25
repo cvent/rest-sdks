@@ -22,3 +22,6 @@ export type Gender = ClosedEnum<typeof Gender>;
 /** @internal */
 export const Gender$inboundSchema: z.ZodNativeEnum<typeof Gender> = z
   .nativeEnum(Gender);
+/** @internal */
+export const Gender$outboundSchema: z.ZodNativeEnum<typeof Gender> =
+  Gender$inboundSchema;

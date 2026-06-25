@@ -21,3 +21,6 @@ ExistingDurationType value = ExistingDurationType.RFID;
 | `LIVE`      | LIVE        |
 | `ON_DEMAND` | ON_DEMAND   |
 | `API`       | API         |
+| `MANUAL`    | MANUAL      |
+| `IMPORT`    | IMPORT      |
+| `EVENTAPP`  | EVENTAPP    |

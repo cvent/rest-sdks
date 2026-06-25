@@ -16,159 +16,144 @@ import java.util.Optional;
 /**
  * AddressJson
  *
- * <p>Contact address details.
+ * <p>Address details. Required to create/update a guest's reservation if the hotel/event requires an
+ * address in reservations.
  */
 public class AddressJson {
     /**
-     * The first line of an address.
+     * Address line 1.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address1")
     private String address1;
 
     /**
-     * The second line of an address.
+     * Address line 2.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address2")
     private String address2;
 
     /**
-     * The third line of an address.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("address3")
-    private String address3;
-
-    /**
-     * The name of the city.
+     * City name.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("city")
     private String city;
 
     /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("countryCode")
-    private String countryCode;
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("postalCode")
-    private String postalCode;
-
-    /**
-     * The name of the state/province/region of the address.
+     * Region name.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("region")
     private String region;
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Region code.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("regionCode")
     private String regionCode;
 
     /**
-     * Name of the country of the address.
+     * Postal code.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("postalCode")
+    private String postalCode;
+
+    /**
+     * Country name.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
     private String country;
 
+    /**
+     * ISO 3166 alpha-2 country code.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("countryCode")
+    private String countryCode;
+
     @JsonCreator
     public AddressJson(
             @JsonProperty("address1") @Nullable String address1,
             @JsonProperty("address2") @Nullable String address2,
-            @JsonProperty("address3") @Nullable String address3,
             @JsonProperty("city") @Nullable String city,
-            @JsonProperty("countryCode") @Nullable String countryCode,
-            @JsonProperty("postalCode") @Nullable String postalCode,
             @JsonProperty("region") @Nullable String region,
             @JsonProperty("regionCode") @Nullable String regionCode,
-            @JsonProperty("country") @Nullable String country) {
+            @JsonProperty("postalCode") @Nullable String postalCode,
+            @JsonProperty("country") @Nullable String country,
+            @JsonProperty("countryCode") @Nullable String countryCode) {
         this.address1 = address1;
         this.address2 = address2;
-        this.address3 = address3;
         this.city = city;
-        this.countryCode = countryCode;
-        this.postalCode = postalCode;
         this.region = region;
         this.regionCode = regionCode;
+        this.postalCode = postalCode;
         this.country = country;
+        this.countryCode = countryCode;
     }
 
     public AddressJson() {
-        this(null, null, null, null, null, null, null, null, null);
+        this(null, null, null, null, null, null, null, null);
     }
 
     /**
-     * The first line of an address.
+     * Address line 1.
      */
     public Optional<String> address1() {
         return Optional.ofNullable(this.address1);
     }
 
     /**
-     * The second line of an address.
+     * Address line 2.
      */
     public Optional<String> address2() {
         return Optional.ofNullable(this.address2);
     }
 
     /**
-     * The third line of an address.
-     */
-    public Optional<String> address3() {
-        return Optional.ofNullable(this.address3);
-    }
-
-    /**
-     * The name of the city.
+     * City name.
      */
     public Optional<String> city() {
         return Optional.ofNullable(this.city);
     }
 
     /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    public Optional<String> countryCode() {
-        return Optional.ofNullable(this.countryCode);
-    }
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    public Optional<String> postalCode() {
-        return Optional.ofNullable(this.postalCode);
-    }
-
-    /**
-     * The name of the state/province/region of the address.
+     * Region name.
      */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Region code.
      */
     public Optional<String> regionCode() {
         return Optional.ofNullable(this.regionCode);
     }
 
     /**
-     * Name of the country of the address.
+     * Postal code.
+     */
+    public Optional<String> postalCode() {
+        return Optional.ofNullable(this.postalCode);
+    }
+
+    /**
+     * Country name.
      */
     public Optional<String> country() {
         return Optional.ofNullable(this.country);
+    }
+
+    /**
+     * ISO 3166 alpha-2 country code.
+     */
+    public Optional<String> countryCode() {
+        return Optional.ofNullable(this.countryCode);
     }
 
     public static Builder builder() {
@@ -176,7 +161,7 @@ public class AddressJson {
     }
 
     /**
-     * The first line of an address.
+     * Address line 1.
      */
     public AddressJson withAddress1(@Nullable String address1) {
         this.address1 = address1;
@@ -184,7 +169,7 @@ public class AddressJson {
     }
 
     /**
-     * The second line of an address.
+     * Address line 2.
      */
     public AddressJson withAddress2(@Nullable String address2) {
         this.address2 = address2;
@@ -192,15 +177,7 @@ public class AddressJson {
     }
 
     /**
-     * The third line of an address.
-     */
-    public AddressJson withAddress3(@Nullable String address3) {
-        this.address3 = address3;
-        return this;
-    }
-
-    /**
-     * The name of the city.
+     * City name.
      */
     public AddressJson withCity(@Nullable String city) {
         this.city = city;
@@ -208,23 +185,7 @@ public class AddressJson {
     }
 
     /**
-     * ISO 3166 two-letter (alpha-2) country code.
-     */
-    public AddressJson withCountryCode(@Nullable String countryCode) {
-        this.countryCode = countryCode;
-        return this;
-    }
-
-    /**
-     * Postal code (also known as zipcode) of the address.
-     */
-    public AddressJson withPostalCode(@Nullable String postalCode) {
-        this.postalCode = postalCode;
-        return this;
-    }
-
-    /**
-     * The name of the state/province/region of the address.
+     * Region name.
      */
     public AddressJson withRegion(@Nullable String region) {
         this.region = region;
@@ -232,7 +193,7 @@ public class AddressJson {
     }
 
     /**
-     * The abbreviation of the state/province/region of the address.
+     * Region code.
      */
     public AddressJson withRegionCode(@Nullable String regionCode) {
         this.regionCode = regionCode;
@@ -240,10 +201,26 @@ public class AddressJson {
     }
 
     /**
-     * Name of the country of the address.
+     * Postal code.
+     */
+    public AddressJson withPostalCode(@Nullable String postalCode) {
+        this.postalCode = postalCode;
+        return this;
+    }
+
+    /**
+     * Country name.
      */
     public AddressJson withCountry(@Nullable String country) {
         this.country = country;
+        return this;
+    }
+
+    /**
+     * ISO 3166 alpha-2 country code.
+     */
+    public AddressJson withCountryCode(@Nullable String countryCode) {
+        this.countryCode = countryCode;
         return this;
     }
 
@@ -258,19 +235,17 @@ public class AddressJson {
         AddressJson other = (AddressJson) o;
         return Utils.enhancedDeepEquals(this.address1, other.address1)
                 && Utils.enhancedDeepEquals(this.address2, other.address2)
-                && Utils.enhancedDeepEquals(this.address3, other.address3)
                 && Utils.enhancedDeepEquals(this.city, other.city)
-                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode)
-                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
                 && Utils.enhancedDeepEquals(this.region, other.region)
                 && Utils.enhancedDeepEquals(this.regionCode, other.regionCode)
-                && Utils.enhancedDeepEquals(this.country, other.country);
+                && Utils.enhancedDeepEquals(this.postalCode, other.postalCode)
+                && Utils.enhancedDeepEquals(this.country, other.country)
+                && Utils.enhancedDeepEquals(this.countryCode, other.countryCode);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(
-                address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+        return Utils.enhancedHash(address1, address2, city, region, regionCode, postalCode, country, countryCode);
     }
 
     @Override
@@ -281,20 +256,18 @@ public class AddressJson {
                 address1,
                 "address2",
                 address2,
-                "address3",
-                address3,
                 "city",
                 city,
-                "countryCode",
-                countryCode,
-                "postalCode",
-                postalCode,
                 "region",
                 region,
                 "regionCode",
                 regionCode,
+                "postalCode",
+                postalCode,
                 "country",
-                country);
+                country,
+                "countryCode",
+                countryCode);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -304,26 +277,24 @@ public class AddressJson {
 
         private String address2;
 
-        private String address3;
-
         private String city;
-
-        private String countryCode;
-
-        private String postalCode;
 
         private String region;
 
         private String regionCode;
 
+        private String postalCode;
+
         private String country;
+
+        private String countryCode;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The first line of an address.
+         * Address line 1.
          */
         public Builder address1(@Nullable String address1) {
             this.address1 = address1;
@@ -331,7 +302,7 @@ public class AddressJson {
         }
 
         /**
-         * The second line of an address.
+         * Address line 2.
          */
         public Builder address2(@Nullable String address2) {
             this.address2 = address2;
@@ -339,15 +310,7 @@ public class AddressJson {
         }
 
         /**
-         * The third line of an address.
-         */
-        public Builder address3(@Nullable String address3) {
-            this.address3 = address3;
-            return this;
-        }
-
-        /**
-         * The name of the city.
+         * City name.
          */
         public Builder city(@Nullable String city) {
             this.city = city;
@@ -355,23 +318,7 @@ public class AddressJson {
         }
 
         /**
-         * ISO 3166 two-letter (alpha-2) country code.
-         */
-        public Builder countryCode(@Nullable String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-        /**
-         * Postal code (also known as zipcode) of the address.
-         */
-        public Builder postalCode(@Nullable String postalCode) {
-            this.postalCode = postalCode;
-            return this;
-        }
-
-        /**
-         * The name of the state/province/region of the address.
+         * Region name.
          */
         public Builder region(@Nullable String region) {
             this.region = region;
@@ -379,7 +326,7 @@ public class AddressJson {
         }
 
         /**
-         * The abbreviation of the state/province/region of the address.
+         * Region code.
          */
         public Builder regionCode(@Nullable String regionCode) {
             this.regionCode = regionCode;
@@ -387,16 +334,31 @@ public class AddressJson {
         }
 
         /**
-         * Name of the country of the address.
+         * Postal code.
+         */
+        public Builder postalCode(@Nullable String postalCode) {
+            this.postalCode = postalCode;
+            return this;
+        }
+
+        /**
+         * Country name.
          */
         public Builder country(@Nullable String country) {
             this.country = country;
             return this;
         }
 
+        /**
+         * ISO 3166 alpha-2 country code.
+         */
+        public Builder countryCode(@Nullable String countryCode) {
+            this.countryCode = countryCode;
+            return this;
+        }
+
         public AddressJson build() {
-            return new AddressJson(
-                    address1, address2, address3, city, countryCode, postalCode, region, regionCode, country);
+            return new AddressJson(address1, address2, city, region, regionCode, postalCode, country, countryCode);
         }
     }
 }

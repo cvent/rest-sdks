@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 import {
-  RfpRecipientLogEntryJson,
-  RfpRecipientLogEntryJson$inboundSchema,
-} from "./rfprecipientlogentryjson.js";
+  RfpRecipientLogEntry,
+  RfpRecipientLogEntry$inboundSchema,
+} from "./rfprecipientlogentry.js";
 
 /**
  * Paginated response containing logs of all the recipients that were copied on an RFP.
@@ -19,11 +19,11 @@ export type PaginatedRfpRecipientsHistory = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * List of RFP recipient logs.
    */
-  data: Array<RfpRecipientLogEntryJson>;
+  data: Array<RfpRecipientLogEntry>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const PaginatedRfpRecipientsHistory$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(RfpRecipientLogEntryJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(RfpRecipientLogEntry$inboundSchema),
 });
 
 export function paginatedRfpRecipientsHistoryFromJSON(

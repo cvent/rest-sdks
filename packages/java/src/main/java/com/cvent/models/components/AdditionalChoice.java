@@ -16,30 +16,46 @@ import java.util.Optional;
 /**
  * AdditionalChoice
  *
- * <p>Contains text of additional choice
+ * <p>Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
  */
 public class AdditionalChoice {
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
+    /**
+     * Name of additional choice text in reporting.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("shortText")
+    private String shortText;
+
     @JsonCreator
-    public AdditionalChoice(@JsonProperty("text") @Nullable String text) {
+    public AdditionalChoice(
+            @JsonProperty("text") @Nullable String text, @JsonProperty("shortText") @Nullable String shortText) {
         this.text = text;
+        this.shortText = shortText;
     }
 
     public AdditionalChoice() {
-        this(null);
+        this(null, null);
     }
 
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
+    }
+
+    /**
+     * Name of additional choice text in reporting.
+     */
+    public Optional<String> shortText() {
+        return Optional.ofNullable(this.shortText);
     }
 
     public static Builder builder() {
@@ -47,10 +63,18 @@ public class AdditionalChoice {
     }
 
     /**
-     * Text Value of additional choice
+     * Display text of additional choice.
      */
     public AdditionalChoice withText(@Nullable String text) {
         this.text = text;
+        return this;
+    }
+
+    /**
+     * Name of additional choice text in reporting.
+     */
+    public AdditionalChoice withShortText(@Nullable String shortText) {
+        this.shortText = shortText;
         return this;
     }
 
@@ -63,17 +87,17 @@ public class AdditionalChoice {
             return false;
         }
         AdditionalChoice other = (AdditionalChoice) o;
-        return Utils.enhancedDeepEquals(this.text, other.text);
+        return Utils.enhancedDeepEquals(this.text, other.text) && Utils.enhancedDeepEquals(this.shortText, other.shortText);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(text);
+        return Utils.enhancedHash(text, shortText);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(AdditionalChoice.class, "text", text);
+        return Utils.toString(AdditionalChoice.class, "text", text, "shortText", shortText);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -81,20 +105,30 @@ public class AdditionalChoice {
 
         private String text;
 
+        private String shortText;
+
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Text Value of additional choice
+         * Display text of additional choice.
          */
         public Builder text(@Nullable String text) {
             this.text = text;
             return this;
         }
 
+        /**
+         * Name of additional choice text in reporting.
+         */
+        public Builder shortText(@Nullable String shortText) {
+            this.shortText = shortText;
+            return this;
+        }
+
         public AdditionalChoice build() {
-            return new AdditionalChoice(text);
+            return new AdditionalChoice(text, shortText);
         }
     }
 }

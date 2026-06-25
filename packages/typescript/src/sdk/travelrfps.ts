@@ -162,7 +162,7 @@ export class TravelRFPs extends ClientSDK {
   async getTravelProposalBid(
     request: operations.GetTravelProposalBidRequest,
     options?: RequestOptions,
-  ): Promise<components.TravelProposalBid> {
+  ): Promise<components.TravelProposalBid2> {
     return unwrapAsync(travelRFPsGetTravelProposalBid(
       this,
       request,

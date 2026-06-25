@@ -8,12 +8,12 @@ The unique identifier of a speaker.
 import { SpeakerLite } from "@cvent/sdk/models/components";
 
 let value: SpeakerLite = {
-  id: "db38da6b-acf7-4fc3-8bd1-0f1887002160",
+  id: "6077a9f1-a230-40cd-9e32-b493a84aaa80",
 };
 ```
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_check_mark:                   | The unique identifier for a speaker. |
+| Field                                | Type                                 | Required                             | Description                          | Example                              |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `id`                                 | *string*                             | :heavy_check_mark:                   | The unique identifier for a speaker. | 6077a9f1-a230-40cd-9e32-b493a84aaa80 |

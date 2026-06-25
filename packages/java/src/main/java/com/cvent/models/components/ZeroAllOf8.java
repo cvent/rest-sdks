@@ -5,90 +5,148 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 /**
  * ZeroAllOf8
  *
- * <p>Represents an error response for the checkin APIs that includes a unique id.
+ * <p>Information about housing event with key information, providing a summarized view.
  */
 public class ZeroAllOf8 {
     /**
-     * The unique identifier for the error response.
+     * The unique ID of the housing event.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
-    private String id;
+    private long id;
 
     /**
-     * The HTTP status code representing the error.
+     * Event name.
      */
-    @JsonProperty("code")
-    private long code;
+    @JsonProperty("name")
+    private String name;
 
     /**
-     * A brief description of the error.
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
      */
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("start")
+    private OffsetDateTime start;
 
     /**
-     * The target resource of the error.
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
      */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("target")
-    private String target;
+    @JsonProperty("end")
+    private OffsetDateTime end;
+
+    /**
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
+     */
+    @JsonProperty("cutOff")
+    private OffsetDateTime cutOff;
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    @JsonProperty("timeZone")
+    private String timeZone;
+
+    /**
+     * Event venue details.
+     */
+    @JsonProperty("venue")
+    private VenueJson1 venue;
+
+    /**
+     * Housing event status.
+     */
+    @JsonProperty("status")
+    private HousingEventStatusesJson status;
 
     @JsonCreator
     public ZeroAllOf8(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("code") long code,
-            @JsonProperty("message") @Nonnull String message,
-            @JsonProperty("target") @Nullable String target) {
+            @JsonProperty("id") long id,
+            @JsonProperty("name") @Nonnull String name,
+            @JsonProperty("start") @Nonnull OffsetDateTime start,
+            @JsonProperty("end") @Nonnull OffsetDateTime end,
+            @JsonProperty("cutOff") @Nonnull OffsetDateTime cutOff,
+            @JsonProperty("timeZone") @Nonnull String timeZone,
+            @JsonProperty("venue") @Nonnull VenueJson1 venue,
+            @JsonProperty("status") @Nonnull HousingEventStatusesJson status) {
         this.id = id;
-        this.code = code;
-        this.message =
-                Optional.ofNullable(message).orElseThrow(() -> new IllegalArgumentException("message cannot be null"));
-        this.target = target;
-    }
-
-    public ZeroAllOf8(long code, @Nonnull String message) {
-        this(null, code, message, null);
-    }
-
-    /**
-     * The unique identifier for the error response.
-     */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+        this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
+        this.start = Optional.ofNullable(start).orElseThrow(() -> new IllegalArgumentException("start cannot be null"));
+        this.end = Optional.ofNullable(end).orElseThrow(() -> new IllegalArgumentException("end cannot be null"));
+        this.cutOff =
+                Optional.ofNullable(cutOff).orElseThrow(() -> new IllegalArgumentException("cutOff cannot be null"));
+        this.timeZone = Optional.ofNullable(timeZone)
+                .orElseThrow(() -> new IllegalArgumentException("timeZone cannot be null"));
+        this.venue = Optional.ofNullable(venue).orElseThrow(() -> new IllegalArgumentException("venue cannot be null"));
+        this.status =
+                Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
     }
 
     /**
-     * The HTTP status code representing the error.
+     * The unique ID of the housing event.
      */
-    public long code() {
-        return this.code;
+    public long id() {
+        return this.id;
     }
 
     /**
-     * A brief description of the error.
+     * Event name.
      */
-    public String message() {
-        return this.message;
+    public String name() {
+        return this.name;
     }
 
     /**
-     * The target resource of the error.
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
      */
-    public Optional<String> target() {
-        return Optional.ofNullable(this.target);
+    public OffsetDateTime start() {
+        return this.start;
+    }
+
+    /**
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
+     */
+    public OffsetDateTime end() {
+        return this.end;
+    }
+
+    /**
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
+     */
+    public OffsetDateTime cutOff() {
+        return this.cutOff;
+    }
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    public String timeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Event venue details.
+     */
+    public VenueJson1 venue() {
+        return this.venue;
+    }
+
+    /**
+     * Housing event status.
+     */
+    public HousingEventStatusesJson status() {
+        return this.status;
     }
 
     public static Builder builder() {
@@ -96,34 +154,68 @@ public class ZeroAllOf8 {
     }
 
     /**
-     * The unique identifier for the error response.
+     * The unique ID of the housing event.
      */
-    public ZeroAllOf8 withId(@Nullable String id) {
+    public ZeroAllOf8 withId(long id) {
         this.id = id;
         return this;
     }
 
     /**
-     * The HTTP status code representing the error.
+     * Event name.
      */
-    public ZeroAllOf8 withCode(long code) {
-        this.code = code;
+    public ZeroAllOf8 withName(@Nonnull String name) {
+        this.name = Utils.checkNotNull(name, "name");
         return this;
     }
 
     /**
-     * A brief description of the error.
+     * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+     * days.
      */
-    public ZeroAllOf8 withMessage(@Nonnull String message) {
-        this.message = Utils.checkNotNull(message, "message");
+    public ZeroAllOf8 withStart(@Nonnull OffsetDateTime start) {
+        this.start = Utils.checkNotNull(start, "start");
         return this;
     }
 
     /**
-     * The target resource of the error.
+     * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
      */
-    public ZeroAllOf8 withTarget(@Nullable String target) {
-        this.target = target;
+    public ZeroAllOf8 withEnd(@Nonnull OffsetDateTime end) {
+        this.end = Utils.checkNotNull(end, "end");
+        return this;
+    }
+
+    /**
+     * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+     * business rules, like releasing reserved room blocks back to general availability.
+     */
+    public ZeroAllOf8 withCutOff(@Nonnull OffsetDateTime cutOff) {
+        this.cutOff = Utils.checkNotNull(cutOff, "cutOff");
+        return this;
+    }
+
+    /**
+     * The event timezone from the Olson specification.
+     */
+    public ZeroAllOf8 withTimeZone(@Nonnull String timeZone) {
+        this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
+        return this;
+    }
+
+    /**
+     * Event venue details.
+     */
+    public ZeroAllOf8 withVenue(@Nonnull VenueJson1 venue) {
+        this.venue = Utils.checkNotNull(venue, "venue");
+        return this;
+    }
+
+    /**
+     * Housing event status.
+     */
+    public ZeroAllOf8 withStatus(@Nonnull HousingEventStatusesJson status) {
+        this.status = Utils.checkNotNull(status, "status");
         return this;
     }
 
@@ -137,70 +229,133 @@ public class ZeroAllOf8 {
         }
         ZeroAllOf8 other = (ZeroAllOf8) o;
         return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.code, other.code)
-                && Utils.enhancedDeepEquals(this.message, other.message)
-                && Utils.enhancedDeepEquals(this.target, other.target);
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.start, other.start)
+                && Utils.enhancedDeepEquals(this.end, other.end)
+                && Utils.enhancedDeepEquals(this.cutOff, other.cutOff)
+                && Utils.enhancedDeepEquals(this.timeZone, other.timeZone)
+                && Utils.enhancedDeepEquals(this.venue, other.venue)
+                && Utils.enhancedDeepEquals(this.status, other.status);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, code, message, target);
+        return Utils.enhancedHash(id, name, start, end, cutOff, timeZone, venue, status);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ZeroAllOf8.class, "id", id, "code", code, "message", message, "target", target);
+        return Utils.toString(
+                ZeroAllOf8.class,
+                "id",
+                id,
+                "name",
+                name,
+                "start",
+                start,
+                "end",
+                end,
+                "cutOff",
+                cutOff,
+                "timeZone",
+                timeZone,
+                "venue",
+                venue,
+                "status",
+                status);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
+        private long id;
 
-        private long code;
+        private String name;
 
-        private String message;
+        private OffsetDateTime start;
 
-        private String target;
+        private OffsetDateTime end;
+
+        private OffsetDateTime cutOff;
+
+        private String timeZone;
+
+        private VenueJson1 venue;
+
+        private HousingEventStatusesJson status;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * The unique identifier for the error response.
+         * The unique ID of the housing event.
          */
-        public Builder id(@Nullable String id) {
+        public Builder id(long id) {
             this.id = id;
             return this;
         }
 
         /**
-         * The HTTP status code representing the error.
+         * Event name.
          */
-        public Builder code(long code) {
-            this.code = code;
+        public Builder name(@Nonnull String name) {
+            this.name = Utils.checkNotNull(name, "name");
             return this;
         }
 
         /**
-         * A brief description of the error.
+         * The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder
+         * days.
          */
-        public Builder message(@Nonnull String message) {
-            this.message = Utils.checkNotNull(message, "message");
+        public Builder start(@Nonnull OffsetDateTime start) {
+            this.start = Utils.checkNotNull(start, "start");
             return this;
         }
 
         /**
-         * The target resource of the error.
+         * The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
          */
-        public Builder target(@Nullable String target) {
-            this.target = target;
+        public Builder end(@Nonnull OffsetDateTime end) {
+            this.end = Utils.checkNotNull(end, "end");
+            return this;
+        }
+
+        /**
+         * The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable
+         * business rules, like releasing reserved room blocks back to general availability.
+         */
+        public Builder cutOff(@Nonnull OffsetDateTime cutOff) {
+            this.cutOff = Utils.checkNotNull(cutOff, "cutOff");
+            return this;
+        }
+
+        /**
+         * The event timezone from the Olson specification.
+         */
+        public Builder timeZone(@Nonnull String timeZone) {
+            this.timeZone = Utils.checkNotNull(timeZone, "timeZone");
+            return this;
+        }
+
+        /**
+         * Event venue details.
+         */
+        public Builder venue(@Nonnull VenueJson1 venue) {
+            this.venue = Utils.checkNotNull(venue, "venue");
+            return this;
+        }
+
+        /**
+         * Housing event status.
+         */
+        public Builder status(@Nonnull HousingEventStatusesJson status) {
+            this.status = Utils.checkNotNull(status, "status");
             return this;
         }
 
         public ZeroAllOf8 build() {
-            return new ZeroAllOf8(id, code, message, target);
+            return new ZeroAllOf8(id, name, start, end, cutOff, timeZone, venue, status);
         }
     }
 }

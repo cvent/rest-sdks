@@ -66,19 +66,19 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the travel program type.
         /// </summary>
         [JsonProperty("type")]
-        public TravelProgramTypeJson? Type { get; set; }
+        public TravelProgramType? Type { get; set; }
 
         /// <summary>
         /// Code representing the format of the travel program.
         /// </summary>
         [JsonProperty("format")]
-        public TravelProgramFormatTypeJson? Format { get; set; }
+        public TravelProgramFormatType? Format { get; set; }
 
         /// <summary>
         /// Code representing the status of the travel program.
         /// </summary>
         [JsonProperty("status")]
-        public TravelProgramStatusJson? Status { get; set; }
+        public TravelProgramStatus? Status { get; set; }
 
         /// <summary>
         /// Travel account that the program belongs to.
@@ -90,7 +90,7 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the stay types requested by the program.  Programs can accept daily only, or daily and extended stay proposals.
         /// </summary>
         [JsonProperty("stayType")]
-        public TravelProgramStayTypeJson? StayType { get; set; }
+        public TravelProgramStayType? StayType { get; set; }
 
         /// <summary>
         /// The ISO 8601 formatted start date (in GMT) of the travel program.
@@ -120,6 +120,6 @@ namespace Cvent.SDK.Models.Components
         /// A list of program specific questions for the supplier to answer as part of their proposal.
         /// </summary>
         [JsonProperty("questions")]
-        public List<TravelProgramQuestionJson>? Questions { get; set; }
+        public List<TravelProgramQuestion1>? Questions { get; set; }
     }
 }

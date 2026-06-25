@@ -25,7 +25,7 @@ export type ErrorResponse2Data = {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ErrorResponseBase> | undefined;
+  details?: Array<components.ZeroAllOf1> | undefined;
 };
 
 /**
@@ -43,7 +43,7 @@ export class ErrorResponse2 extends CventSDKError {
   /**
    * Additional details of cascading error messages.
    */
-  details?: Array<components.ErrorResponseBase> | undefined;
+  details?: Array<components.ZeroAllOf1> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: ErrorResponse2Data;
@@ -72,7 +72,7 @@ export const ErrorResponse2$inboundSchema: z.ZodType<
   code: z.number().int(),
   message: z.string(),
   target: z.string().optional(),
-  details: z.array(components.ErrorResponseBase$inboundSchema).optional(),
+  details: z.array(components.ZeroAllOf1$inboundSchema).optional(),
   request$: z.instanceof(Request),
   response$: z.instanceof(Response),
   body$: z.string(),

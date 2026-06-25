@@ -6,11 +6,11 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ContactIdJson, ContactIdJson$inboundSchema } from "./contactidjson.js";
+import { ContactId, ContactId$inboundSchema } from "./contactid.js";
 import {
-  ContactObfuscationStatusTypeJson,
-  ContactObfuscationStatusTypeJson$inboundSchema,
-} from "./contactobfuscationstatustypejson.js";
+  ContactObfuscationStatusType,
+  ContactObfuscationStatusType$inboundSchema,
+} from "./contactobfuscationstatustype.js";
 
 /**
  * Model representing an obfuscation status of a contact.
@@ -31,7 +31,7 @@ export type ContactObfuscationStatus = {
    *
    * FAILED - The obfuscation request failed due to an error.
    */
-  status?: ContactObfuscationStatusTypeJson | undefined;
+  status?: ContactObfuscationStatusType | undefined;
   /**
    * The obfuscation job identifier.
    */
@@ -39,7 +39,7 @@ export type ContactObfuscationStatus = {
   /**
    * A contact id.
    */
-  contact?: ContactIdJson | undefined;
+  contact?: ContactId | undefined;
 };
 
 /** @internal */
@@ -48,9 +48,9 @@ export const ContactObfuscationStatus$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status: ContactObfuscationStatusTypeJson$inboundSchema.optional(),
+  status: ContactObfuscationStatusType$inboundSchema.optional(),
   obfuscateId: z.string().optional(),
-  contact: ContactIdJson$inboundSchema.optional(),
+  contact: ContactId$inboundSchema.optional(),
 });
 
 export function contactObfuscationStatusFromJSON(

@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { NamedObject, NamedObject$inboundSchema } from "./namedobject.js";
-import { SpeakerLite, SpeakerLite$inboundSchema } from "./speakerlite.js";
+import { SpeakerLite1, SpeakerLite1$inboundSchema } from "./speakerlite1.js";
 
 /**
  * A speaker to session relationship.
@@ -20,7 +20,7 @@ export type SpeakerSession = {
   /**
    * The unique identifier of a speaker.
    */
-  speaker?: SpeakerLite | undefined;
+  speaker?: SpeakerLite1 | undefined;
   /**
    * A Named object
    */
@@ -34,7 +34,7 @@ export const SpeakerSession$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  speaker: SpeakerLite$inboundSchema.optional(),
+  speaker: SpeakerLite1$inboundSchema.optional(),
   category: NamedObject$inboundSchema.optional(),
 });
 

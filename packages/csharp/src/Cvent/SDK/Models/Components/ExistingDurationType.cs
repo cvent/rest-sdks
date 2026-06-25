@@ -24,6 +24,9 @@ namespace Cvent.SDK.Models.Components
         [JsonProperty("LIVE")] Live,
         [JsonProperty("ON_DEMAND")] OnDemand,
         [JsonProperty("API")] Api,
+        [JsonProperty("MANUAL")] Manual,
+        [JsonProperty("IMPORT")] Import,
+        [JsonProperty("EVENTAPP")] Eventapp,
     }
 
     public static class ExistingDurationTypeExtension

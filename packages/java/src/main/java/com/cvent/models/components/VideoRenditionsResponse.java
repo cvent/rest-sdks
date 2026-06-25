@@ -25,10 +25,10 @@ public class VideoRenditionsResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<VideoRenditionJson> data;
+    private List<VideoRendition> data;
 
     @JsonCreator
-    public VideoRenditionsResponse(@JsonProperty("data") @Nullable List<VideoRenditionJson> data) {
+    public VideoRenditionsResponse(@JsonProperty("data") @Nullable List<VideoRendition> data) {
         this.data = data;
     }
 
@@ -39,7 +39,7 @@ public class VideoRenditionsResponse {
     /**
      * Collection of video renditions.
      */
-    public Optional<List<VideoRenditionJson>> data() {
+    public Optional<List<VideoRendition>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -50,7 +50,7 @@ public class VideoRenditionsResponse {
     /**
      * Collection of video renditions.
      */
-    public VideoRenditionsResponse withData(@Nullable List<VideoRenditionJson> data) {
+    public VideoRenditionsResponse withData(@Nullable List<VideoRendition> data) {
         this.data = data;
         return this;
     }
@@ -80,7 +80,7 @@ public class VideoRenditionsResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<VideoRenditionJson> data;
+        private List<VideoRendition> data;
 
         private Builder() {
             // force use of static builder() method
@@ -89,7 +89,7 @@ public class VideoRenditionsResponse {
         /**
          * Collection of video renditions.
          */
-        public Builder data(@Nullable List<VideoRenditionJson> data) {
+        public Builder data(@Nullable List<VideoRendition> data) {
             this.data = data;
             return this;
         }

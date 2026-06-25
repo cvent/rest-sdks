@@ -100,7 +100,7 @@ CustomField3 req = new CustomField3() {
     Category = CustomFieldCategoryJson.Contact,
     Name = "What is a your favorite color?",
     Code = "FAVORITE_COLOR_CODE",
-    Type = CustomFieldTypeJson1.OpenEndedTextOneLine,
+    Type = CustomFieldTypeJson.OpenEndedTextOneLine,
     Details = CustomField3Details.CreateOpenEndedOneLine(
         new OpenEndedOneLine() {
             AnswerFormat = "General",
@@ -165,11 +165,11 @@ UpdateCustomFieldRequest req = new UpdateCustomFieldRequest() {
         Category = CustomFieldCategoryJson.Contact,
         Name = "What is a your favorite color?",
         Code = "FAVORITE_COLOR_CODE",
-        Type = CustomFieldTypeJson1.OpenEndedTextOneLine,
+        Type = CustomFieldTypeJson.OpenEndedTextOneLine,
         Details = ExistingCustomFieldDetailsInput.CreateThreeInput(
             new ThreeInput() {
-                Choices = new List<ChoiceJson3Input>() {
-                    new ChoiceJson3Input() {
+                Choices = new List<ChoiceJson2Input>() {
+                    new ChoiceJson2Input() {
                         Text = "What is your current designation?",
                     },
                 },

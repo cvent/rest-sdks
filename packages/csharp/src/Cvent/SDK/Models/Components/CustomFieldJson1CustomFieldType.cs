@@ -14,29 +14,15 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The type of data collected by a custom field.
+    /// This is used to denote the type of data collected by a custom field.
     /// </summary>
     public enum CustomFieldJson1CustomFieldType
     {
-        [JsonProperty("AutoIncrement")] AutoIncrement,
-        [JsonProperty("ConsentQuestion")] ConsentQuestion,
-        [JsonProperty("Currency")] Currency,
-        [JsonProperty("Decimal")] Decimal,
-        [JsonProperty("Date")] Date,
-        [JsonProperty("DateTime")] DateTime,
-        [JsonProperty("Email")] Email,
-        [JsonProperty("FileUpload")] FileUpload,
-        [JsonProperty("FreeText")] FreeText,
-        [JsonProperty("General")] General,
-        [JsonProperty("MultiChoice")] MultiChoice,
-        [JsonProperty("MultiSelect")] MultiSelect,
-        [JsonProperty("Number")] Number,
-        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
-        [JsonProperty("OpenEndedText")] OpenEndedText,
-        [JsonProperty("SingleChoice")] SingleChoice,
-        [JsonProperty("SingleSelect")] SingleSelect,
-        [JsonProperty("USPhoneNumber")] USPhoneNumber,
-        [JsonProperty("Unknown")] Unknown,
+        [JsonProperty("Open Ended Text - Date/Time")] OpenEndedTextDateTime,
+        [JsonProperty("Open Ended Text - One Line")] OpenEndedTextOneLine,
+        [JsonProperty("Open Ended Text - Comment Box")] OpenEndedTextCommentBox,
+        [JsonProperty("Choice - Single Answer")] ChoiceSingleAnswer,
+        [JsonProperty("Choice - Multiple Answers")] ChoiceMultipleAnswers,
     }
 
     public static class CustomFieldJson1CustomFieldTypeExtension

@@ -71,7 +71,7 @@ public class CreateTransactionResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("attendee")
-    private Attendee2 attendee;
+    private Attendee attendee;
 
     /**
      * This denotes the order IDs corresponding to this transaction.
@@ -173,7 +173,7 @@ public class CreateTransactionResponse {
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("event") @Nullable Event2 event,
-            @JsonProperty("attendee") @Nullable Attendee2 attendee,
+            @JsonProperty("attendee") @Nullable Attendee attendee,
             @JsonProperty("orders") @Nullable List<Order> orders,
             @JsonProperty("journalNumber") @Nullable String journalNumber,
             @JsonProperty("paymentType") @Nonnull PaymentType paymentType,
@@ -278,7 +278,7 @@ public class CreateTransactionResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public Optional<Attendee2> attendee() {
+    public Optional<Attendee> attendee() {
         return Optional.ofNullable(this.attendee);
     }
 
@@ -432,7 +432,7 @@ public class CreateTransactionResponse {
     /**
      * The reference to the attendee. Contains only the ID of the attendee.
      */
-    public CreateTransactionResponse withAttendee(@Nullable Attendee2 attendee) {
+    public CreateTransactionResponse withAttendee(@Nullable Attendee attendee) {
         this.attendee = attendee;
         return this;
     }
@@ -657,7 +657,7 @@ public class CreateTransactionResponse {
 
         private Event2 event;
 
-        private Attendee2 attendee;
+        private Attendee attendee;
 
         private List<Order> orders;
 
@@ -738,7 +738,7 @@ public class CreateTransactionResponse {
         /**
          * The reference to the attendee. Contains only the ID of the attendee.
          */
-        public Builder attendee(@Nullable Attendee2 attendee) {
+        public Builder attendee(@Nullable Attendee attendee) {
             this.attendee = attendee;
             return this;
         }

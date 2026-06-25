@@ -24,13 +24,13 @@ namespace Cvent.SDK.Models.Components
         public string? Id { get; set; }
 
         /// <summary>
-        /// Text value of the field. Displays to users in the UI.
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
         [JsonProperty("shortText")]
         public string? ShortText { get; set; }

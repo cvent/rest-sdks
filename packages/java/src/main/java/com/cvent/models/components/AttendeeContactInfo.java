@@ -180,7 +180,7 @@ public class AttendeeContactInfo {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
-    private Address11 homeAddress;
+    private Address3 homeAddress;
 
     /**
      * Home phone number
@@ -201,7 +201,7 @@ public class AttendeeContactInfo {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
-    private Address11 workAddress;
+    private Address3 workAddress;
 
     /**
      * Work phone number
@@ -339,10 +339,10 @@ public class AttendeeContactInfo {
             @JsonProperty("type") @Nullable AttendeeContactType type,
             @JsonProperty("membership") @Nullable AttendeeContactMembership membership,
             @JsonProperty("primaryAddressType") @Nullable AddressType primaryAddressType,
-            @JsonProperty("homeAddress") @Nullable Address11 homeAddress,
+            @JsonProperty("homeAddress") @Nullable Address3 homeAddress,
             @JsonProperty("homePhone") @Nullable String homePhone,
             @JsonProperty("homeFax") @Nullable String homeFax,
-            @JsonProperty("workAddress") @Nullable Address11 workAddress,
+            @JsonProperty("workAddress") @Nullable Address3 workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("optOut") @Nullable OptOut optOut,
@@ -594,7 +594,7 @@ public class AttendeeContactInfo {
     /**
      * Address details
      */
-    public Optional<Address11> homeAddress() {
+    public Optional<Address3> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
@@ -615,7 +615,7 @@ public class AttendeeContactInfo {
     /**
      * Address details
      */
-    public Optional<Address11> workAddress() {
+    public Optional<Address3> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
@@ -910,7 +910,7 @@ public class AttendeeContactInfo {
     /**
      * Address details
      */
-    public AttendeeContactInfo withHomeAddress(@Nullable Address11 homeAddress) {
+    public AttendeeContactInfo withHomeAddress(@Nullable Address3 homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
@@ -934,7 +934,7 @@ public class AttendeeContactInfo {
     /**
      * Address details
      */
-    public AttendeeContactInfo withWorkAddress(@Nullable Address11 workAddress) {
+    public AttendeeContactInfo withWorkAddress(@Nullable Address3 workAddress) {
         this.workAddress = workAddress;
         return this;
     }
@@ -1289,13 +1289,13 @@ public class AttendeeContactInfo {
 
         private AddressType primaryAddressType;
 
-        private Address11 homeAddress;
+        private Address3 homeAddress;
 
         private String homePhone;
 
         private String homeFax;
 
-        private Address11 workAddress;
+        private Address3 workAddress;
 
         private String workPhone;
 
@@ -1505,7 +1505,7 @@ public class AttendeeContactInfo {
         /**
          * Address details
          */
-        public Builder homeAddress(@Nullable Address11 homeAddress) {
+        public Builder homeAddress(@Nullable Address3 homeAddress) {
             this.homeAddress = homeAddress;
             return this;
         }
@@ -1529,7 +1529,7 @@ public class AttendeeContactInfo {
         /**
          * Address details
          */
-        public Builder workAddress(@Nullable Address11 workAddress) {
+        public Builder workAddress(@Nullable Address3 workAddress) {
             this.workAddress = workAddress;
             return this;
         }

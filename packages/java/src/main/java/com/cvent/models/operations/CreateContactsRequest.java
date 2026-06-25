@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.ContactCreateRequestJson;
+import com.cvent.models.components.ContactCreate;
 import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.SpeakeasyMetadata;
 import com.cvent.utils.Utils;
@@ -38,16 +38,16 @@ public class CreateContactsRequest {
      * List of contacts to be created. Up to **10 contacts** can be created per call.
      */
     @SpeakeasyMetadata("request:mediaType=application/json")
-    private List<ContactCreateRequestJson> requestBody;
+    private List<ContactCreate> requestBody;
 
     @JsonCreator
-    public CreateContactsRequest(@Nullable Boolean upsert, @Nonnull List<ContactCreateRequestJson> requestBody) {
+    public CreateContactsRequest(@Nullable Boolean upsert, @Nonnull List<ContactCreate> requestBody) {
         this.upsert = Optional.ofNullable(upsert).orElse(Builder._SINGLETON_VALUE_Upsert.value());
         this.requestBody = Optional.ofNullable(requestBody)
                 .orElseThrow(() -> new IllegalArgumentException("requestBody cannot be null"));
     }
 
-    public CreateContactsRequest(@Nonnull List<ContactCreateRequestJson> requestBody) {
+    public CreateContactsRequest(@Nonnull List<ContactCreate> requestBody) {
         this(null, requestBody);
     }
 
@@ -71,7 +71,7 @@ public class CreateContactsRequest {
     /**
      * List of contacts to be created. Up to **10 contacts** can be created per call.
      */
-    public List<ContactCreateRequestJson> requestBody() {
+    public List<ContactCreate> requestBody() {
         return this.requestBody;
     }
 
@@ -100,7 +100,7 @@ public class CreateContactsRequest {
     /**
      * List of contacts to be created. Up to **10 contacts** can be created per call.
      */
-    public CreateContactsRequest withRequestBody(@Nonnull List<ContactCreateRequestJson> requestBody) {
+    public CreateContactsRequest withRequestBody(@Nonnull List<ContactCreate> requestBody) {
         this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
         return this;
     }
@@ -133,7 +133,7 @@ public class CreateContactsRequest {
 
         private Boolean upsert;
 
-        private List<ContactCreateRequestJson> requestBody;
+        private List<ContactCreate> requestBody;
 
         private Builder() {
             // force use of static builder() method
@@ -160,7 +160,7 @@ public class CreateContactsRequest {
         /**
          * List of contacts to be created. Up to **10 contacts** can be created per call.
          */
-        public Builder requestBody(@Nonnull List<ContactCreateRequestJson> requestBody) {
+        public Builder requestBody(@Nonnull List<ContactCreate> requestBody) {
             this.requestBody = Utils.checkNotNull(requestBody, "requestBody");
             return this;
         }

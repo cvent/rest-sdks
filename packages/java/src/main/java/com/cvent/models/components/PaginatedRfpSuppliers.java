@@ -22,18 +22,17 @@ public class PaginatedRfpSuppliers {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of RFP suppliers.
      */
     @JsonProperty("data")
-    private List<RfpSupplierJson> data;
+    private List<RfpSupplier> data;
 
     @JsonCreator
     public PaginatedRfpSuppliers(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<RfpSupplierJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging, @JsonProperty("data") @Nonnull List<RfpSupplier> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +41,14 @@ public class PaginatedRfpSuppliers {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * List of RFP suppliers.
      */
-    public List<RfpSupplierJson> data() {
+    public List<RfpSupplier> data() {
         return this.data;
     }
 
@@ -60,7 +59,7 @@ public class PaginatedRfpSuppliers {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PaginatedRfpSuppliers withPaging(@Nonnull PagingJson paging) {
+    public PaginatedRfpSuppliers withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +67,7 @@ public class PaginatedRfpSuppliers {
     /**
      * List of RFP suppliers.
      */
-    public PaginatedRfpSuppliers withData(@Nonnull List<RfpSupplierJson> data) {
+    public PaginatedRfpSuppliers withData(@Nonnull List<RfpSupplier> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +97,9 @@ public class PaginatedRfpSuppliers {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<RfpSupplierJson> data;
+        private List<RfpSupplier> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +108,7 @@ public class PaginatedRfpSuppliers {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +116,7 @@ public class PaginatedRfpSuppliers {
         /**
          * List of RFP suppliers.
          */
-        public Builder data(@Nonnull List<RfpSupplierJson> data) {
+        public Builder data(@Nonnull List<RfpSupplier> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

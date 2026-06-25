@@ -3,55 +3,25 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * This entity represents a contact type at contact level.
+ * The contact types used for the proposal.
  */
-export type ContactTypeJson = {
-  /**
-   * The ID of the contact type.
-   */
-  id: string;
-  /**
-   * The contact type code. Must be unique in the account.
-   */
-  code: string;
-  /**
-   * Name of the contact type.
-   */
-  name: string;
-  /**
-   * Description of the contact type.
-   */
-  description?: string | undefined;
-  /**
-   * Indicates whether the contact type is active.
-   */
-  active?: boolean | undefined;
-};
+export const ContactTypeJson = {
+  Primary: "PRIMARY",
+  Secondary: "SECONDARY",
+} as const;
+/**
+ * The contact types used for the proposal.
+ */
+export type ContactTypeJson = ClosedEnum<typeof ContactTypeJson>;
 
 /** @internal */
-export const ContactTypeJson$inboundSchema: z.ZodType<
-  ContactTypeJson,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  code: z.string(),
-  name: z.string(),
-  description: z.string().optional(),
-  active: z.boolean().optional(),
-});
-
-export function contactTypeJsonFromJSON(
-  jsonString: string,
-): SafeParseResult<ContactTypeJson, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ContactTypeJson$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ContactTypeJson' from JSON`,
-  );
-}
+export const ContactTypeJson$inboundSchema: z.ZodNativeEnum<
+  typeof ContactTypeJson
+> = z.nativeEnum(ContactTypeJson);
+/** @internal */
+export const ContactTypeJson$outboundSchema: z.ZodNativeEnum<
+  typeof ContactTypeJson
+> = ContactTypeJson$inboundSchema;

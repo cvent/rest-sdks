@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class Attendee2 {
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * Attendee ID.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class Attendee2 {
     }
 
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * Attendee ID.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class Attendee2 {
     }
 
     /**
-     * Unique identifier of the primary invitee for the current attendee's registration.
+     * Attendee ID.
      */
     public Attendee2 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class Attendee2 {
         }
 
         /**
-         * Unique identifier of the primary invitee for the current attendee's registration.
+         * Attendee ID.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

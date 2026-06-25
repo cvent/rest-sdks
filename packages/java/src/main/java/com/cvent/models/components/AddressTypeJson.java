@@ -11,11 +11,11 @@ import java.util.Optional;
 /**
  * AddressTypeJson
  *
- * <p>The type of address.
+ * <p>The type of the address.
  */
 public enum AddressTypeJson {
-    HOME("Home"),
-    WORK("Work");
+    WORK("work"),
+    HOME("home");
 
     @JsonValue
     private final String value;

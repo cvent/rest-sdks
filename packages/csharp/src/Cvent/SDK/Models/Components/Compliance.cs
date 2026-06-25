@@ -29,18 +29,18 @@ namespace Cvent.SDK.Models.Components
         /// Scope of privacy compliance.
         /// </summary>
         [JsonProperty("complianceScope")]
-        public ComplianceComplianceScope? ComplianceScope { get; set; }
+        public ComplianceScope? ComplianceScope { get; set; }
 
         /// <summary>
         /// Action to take for a compliance request.
         /// </summary>
         [JsonProperty("action")]
-        public ComplianceAction? Action { get; set; }
+        public Action? Action { get; set; }
 
         /// <summary>
         /// Denotes how the compliance request was created.
         /// </summary>
         [JsonProperty("createdBy")]
-        public ComplianceCreatedBy? CreatedBy { get; set; }
+        public CreatedBy? CreatedBy { get; set; }
     }
 }

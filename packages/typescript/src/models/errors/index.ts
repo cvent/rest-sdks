@@ -6,7 +6,7 @@ export * from "./apierror.js";
 export * from "./cventsdkerror.js";
 export * from "./errorresponse1.js";
 export * from "./errorresponse2.js";
-export * from "./errorresponsejson17.js";
+export * from "./errorresponsejson12.js";
 export * from "./httpclienterrors.js";
 export * from "./oauth2token.js";
 export * from "./responsevalidationerror.js";

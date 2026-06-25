@@ -34,10 +34,10 @@ namespace Cvent.SDK.Models.Components
             }
         }
 
-        public static AttendeeAddBulkItemJsonDataType ErrorResponse1
+        public static AttendeeAddBulkItemJsonDataType ErrorResponse2
         {
             get {
-                return new AttendeeAddBulkItemJsonDataType("error-response_1");
+                return new AttendeeAddBulkItemJsonDataType("error-response_2");
             }
         }
 
@@ -55,8 +55,8 @@ namespace Cvent.SDK.Models.Components
             {
                 case "0_OneOf_2":
                     return ZeroOneOf2;
-                case "error-response_1":
-                    return ErrorResponse1;
+                case "error-response_2":
+                    return ErrorResponse2;
                 default:
                     throw new ArgumentException("Invalid value for AttendeeAddBulkItemJsonDataType");
             }
@@ -88,7 +88,7 @@ namespace Cvent.SDK.Models.Components
         public ZeroOneOf2? ZeroOneOf2 { get; set; }
 
         [SpeakeasyMetadata("form:explode=true")]
-        public Models.Components.ErrorResponse1? ErrorResponse1 { get; set; }
+        public Models.Components.ErrorResponse2? ErrorResponse2 { get; set; }
 
         public AttendeeAddBulkItemJsonDataType Type { get; set; }
         public static AttendeeAddBulkItemJsonData CreateZeroOneOf2(ZeroOneOf2 zeroOneOf2)
@@ -99,12 +99,12 @@ namespace Cvent.SDK.Models.Components
             res.ZeroOneOf2 = zeroOneOf2;
             return res;
         }
-        public static AttendeeAddBulkItemJsonData CreateErrorResponse1(Models.Components.ErrorResponse1 errorResponse1)
+        public static AttendeeAddBulkItemJsonData CreateErrorResponse2(Models.Components.ErrorResponse2 errorResponse2)
         {
-            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ErrorResponse1;
+            AttendeeAddBulkItemJsonDataType typ = AttendeeAddBulkItemJsonDataType.ErrorResponse2;
 
             AttendeeAddBulkItemJsonData res = new AttendeeAddBulkItemJsonData(typ);
-            res.ErrorResponse1 = errorResponse1;
+            res.ErrorResponse2 = errorResponse2;
             return res;
         }
 
@@ -145,13 +145,13 @@ namespace Cvent.SDK.Models.Components
 
                 try
                 {
-                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse1) {
-                        ErrorResponse1 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse1>(json)
+                    return new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse2) {
+                        ErrorResponse2 = ResponseBodyDeserializer.DeserializeUndiscriminatedUnionMember<Models.Components.ErrorResponse2>(json)
                     };
                 }
                 catch (ResponseBodyDeserializer.MissingMemberException)
                 {
-                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse1), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse1), "ErrorResponse1"));
+                    fallbackCandidates.Add((typeof(Models.Components.ErrorResponse2), new AttendeeAddBulkItemJsonData(AttendeeAddBulkItemJsonDataType.ErrorResponse2), "ErrorResponse2"));
                 }
                 catch (ResponseBodyDeserializer.DeserializationException)
                 {
@@ -200,9 +200,9 @@ namespace Cvent.SDK.Models.Components
                     return;
                 }
 
-                if (res.ErrorResponse1 != null)
+                if (res.ErrorResponse2 != null)
                 {
-                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse1));
+                    writer.WriteRawValue(Utilities.SerializeJSON(res.ErrorResponse2));
                     return;
                 }
             }

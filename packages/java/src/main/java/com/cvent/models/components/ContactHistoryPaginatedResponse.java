@@ -25,19 +25,19 @@ public class ContactHistoryPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of change histories for a specific contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<ContactHistoryJson> data;
+    private List<ContactHistory> data;
 
     @JsonCreator
     public ContactHistoryPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<ContactHistoryJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<ContactHistory> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class ContactHistoryPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Collection of change histories for a specific contact.
      */
-    public Optional<List<ContactHistoryJson>> data() {
+    public Optional<List<ContactHistory>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class ContactHistoryPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public ContactHistoryPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public ContactHistoryPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class ContactHistoryPaginatedResponse {
     /**
      * Collection of change histories for a specific contact.
      */
-    public ContactHistoryPaginatedResponse withData(@Nullable List<ContactHistoryJson> data) {
+    public ContactHistoryPaginatedResponse withData(@Nullable List<ContactHistory> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class ContactHistoryPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<ContactHistoryJson> data;
+        private List<ContactHistory> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class ContactHistoryPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class ContactHistoryPaginatedResponse {
         /**
          * Collection of change histories for a specific contact.
          */
-        public Builder data(@Nullable List<ContactHistoryJson> data) {
+        public Builder data(@Nullable List<ContactHistory> data) {
             this.data = data;
             return this;
         }

@@ -103,7 +103,7 @@ public class EmailHistoryJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private EmailTypeJson3 type;
+    private EmailTypeJson1 type;
 
     /**
      * The ISO 8601 zoned date time when this email was sent.
@@ -174,7 +174,7 @@ public class EmailHistoryJson {
             @JsonProperty("subject") @Nullable String subject,
             @JsonProperty("from") @Nullable String from,
             @JsonProperty("to") @Nullable String to,
-            @JsonProperty("type") @Nullable EmailTypeJson3 type,
+            @JsonProperty("type") @Nullable EmailTypeJson1 type,
             @JsonProperty("sent") @Nullable OffsetDateTime sent,
             @JsonProperty("status") @Nullable EmailStatusJson status,
             @JsonProperty("undeliverable") @Nullable Boolean undeliverable,
@@ -309,7 +309,7 @@ public class EmailHistoryJson {
     /**
      * Denotes the type of the email.
      */
-    public Optional<EmailTypeJson3> type() {
+    public Optional<EmailTypeJson1> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -464,7 +464,7 @@ public class EmailHistoryJson {
     /**
      * Denotes the type of the email.
      */
-    public EmailHistoryJson withType(@Nullable EmailTypeJson3 type) {
+    public EmailHistoryJson withType(@Nullable EmailTypeJson1 type) {
         this.type = type;
         return this;
     }
@@ -660,7 +660,7 @@ public class EmailHistoryJson {
 
         private String to;
 
-        private EmailTypeJson3 type;
+        private EmailTypeJson1 type;
 
         private OffsetDateTime sent;
 
@@ -773,7 +773,7 @@ public class EmailHistoryJson {
         /**
          * Denotes the type of the email.
          */
-        public Builder type(@Nullable EmailTypeJson3 type) {
+        public Builder type(@Nullable EmailTypeJson1 type) {
             this.type = type;
             return this;
         }

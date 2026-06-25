@@ -37,6 +37,6 @@ namespace Cvent.SDK.Models.Components
         /// List of categories.
         /// </summary>
         [JsonProperty("categories")]
-        public List<CategoryJson1>? Categories { get; set; }
+        public List<CategoryJson>? Categories { get; set; }
     }
 }

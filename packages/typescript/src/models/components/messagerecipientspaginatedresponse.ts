@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  MessageRecipientsResponseJson,
-  MessageRecipientsResponseJson$inboundSchema,
-} from "./messagerecipientsresponsejson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+  MessageRecipientResponse,
+  MessageRecipientResponse$inboundSchema,
+} from "./messagerecipientresponse.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response matching the filter criteria for the list of channel members.
@@ -19,11 +19,11 @@ export type MessageRecipientsPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of channel members.
    */
-  data: Array<MessageRecipientsResponseJson>;
+  data: Array<MessageRecipientResponse>;
 };
 
 /** @internal */
@@ -32,8 +32,8 @@ export const MessageRecipientsPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(MessageRecipientsResponseJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(MessageRecipientResponse$inboundSchema),
 });
 
 export function messageRecipientsPaginatedResponseFromJSON(

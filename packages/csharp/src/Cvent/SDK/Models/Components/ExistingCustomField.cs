@@ -71,7 +71,7 @@ namespace Cvent.SDK.Models.Components
         /// This is used to denote the type of data collected by a custom field. Auto-Increment custom fields are read only.
         /// </summary>
         [JsonProperty("type")]
-        public CustomFieldTypeJson1 Type { get; set; } = default!;
+        public CustomFieldTypeJson Type { get; set; } = default!;
 
         /// <summary>
         /// Type-specific details of the custom-field.

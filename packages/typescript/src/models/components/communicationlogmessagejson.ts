@@ -29,7 +29,7 @@ import {
   CommunicationLogMessageTypeJson,
   CommunicationLogMessageTypeJson$inboundSchema,
 } from "./communicationlogmessagetypejson.js";
-import { QuestionJson1, QuestionJson1$inboundSchema } from "./questionjson1.js";
+import { QuestionJson, QuestionJson$inboundSchema } from "./questionjson.js";
 import {
   SessionQaActionTypeJson,
   SessionQaActionTypeJson$inboundSchema,
@@ -57,7 +57,7 @@ export type SessionQaMessage = {
   /**
    * Question details
    */
-  question: QuestionJson1;
+  question: QuestionJson;
 };
 
 /**
@@ -147,7 +147,7 @@ export const SessionQaMessage$inboundSchema: z.ZodType<
 > = z.object({
   actionType: SessionQaActionTypeJson$inboundSchema,
   attendee: AttendeeJson$inboundSchema,
-  question: QuestionJson1$inboundSchema,
+  question: QuestionJson$inboundSchema,
 });
 
 export function sessionQaMessageFromJSON(

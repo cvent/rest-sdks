@@ -122,7 +122,10 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "ListTravelAccounts",
-    oAuth2Scopes: ["business-transient/travel-accounts:read"],
+    oAuth2Scopes: [
+      "business-transient/travel-accounts:read",
+      "business-travel/travel-accounts:read",
+    ],
 
     resolvedSecurity: requestSecurity,
 

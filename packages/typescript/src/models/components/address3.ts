@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Address of the hotel.
+ * Address details
  */
 export type Address3 = {
   /**
@@ -44,9 +44,17 @@ export type Address3 = {
    */
   regionCode?: string | undefined;
   /**
-   * Name of the country.
+   * Name of the country of the address.
    */
   country?: string | undefined;
+  /**
+   * The geo latitude of the address.
+   */
+  latitude?: number | undefined;
+  /**
+   * The geo longitude of the address.
+   */
+  longitude?: number | undefined;
 };
 
 /** @internal */
@@ -64,6 +72,8 @@ export const Address3$inboundSchema: z.ZodType<
   region: z.string().optional(),
   regionCode: z.string().optional(),
   country: z.string().optional(),
+  latitude: z.number().int().optional(),
+  longitude: z.number().int().optional(),
 });
 
 export function address3FromJSON(

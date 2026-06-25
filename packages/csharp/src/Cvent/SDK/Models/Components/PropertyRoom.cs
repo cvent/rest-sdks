@@ -78,7 +78,7 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the bed type.
         /// </summary>
         [JsonProperty("bedTypeCode")]
-        public RoomBedTypeJson1? BedTypeCode { get; set; }
+        public RoomBedTypeJson? BedTypeCode { get; set; }
 
         /// <summary>
         /// The number of beds in the room.

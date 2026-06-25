@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event21 Event { get; set; } = default!;
+        public Event3 Event { get; set; } = default!;
 
         /// <summary>
         /// Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal results.
@@ -58,7 +58,7 @@ namespace Cvent.SDK.Models.Components
         /// An object representing an address with various properties.
         /// </summary>
         [JsonProperty("address")]
-        public Address2? Address { get; set; }
+        public Address4? Address { get; set; }
 
         /// <summary>
         /// Email address of the exhibitor.

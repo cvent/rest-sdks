@@ -32,7 +32,7 @@ public class SupplierResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("reason")
-    private RfpResponseReasonJson reason;
+    private RfpResponseReason reason;
 
     /**
      * Comment for the response reason.
@@ -44,7 +44,7 @@ public class SupplierResponse {
     @JsonCreator
     public SupplierResponse(
             @JsonProperty("dateTime") @Nullable OffsetDateTime dateTime,
-            @JsonProperty("reason") @Nullable RfpResponseReasonJson reason,
+            @JsonProperty("reason") @Nullable RfpResponseReason reason,
             @JsonProperty("comment") @Nullable String comment) {
         this.dateTime = dateTime;
         this.reason = reason;
@@ -65,7 +65,7 @@ public class SupplierResponse {
     /**
      * Reason given for a response to an RFP.
      */
-    public Optional<RfpResponseReasonJson> reason() {
+    public Optional<RfpResponseReason> reason() {
         return Optional.ofNullable(this.reason);
     }
 
@@ -91,7 +91,7 @@ public class SupplierResponse {
     /**
      * Reason given for a response to an RFP.
      */
-    public SupplierResponse withReason(@Nullable RfpResponseReasonJson reason) {
+    public SupplierResponse withReason(@Nullable RfpResponseReason reason) {
         this.reason = reason;
         return this;
     }
@@ -133,7 +133,7 @@ public class SupplierResponse {
 
         private OffsetDateTime dateTime;
 
-        private RfpResponseReasonJson reason;
+        private RfpResponseReason reason;
 
         private String comment;
 
@@ -152,7 +152,7 @@ public class SupplierResponse {
         /**
          * Reason given for a response to an RFP.
          */
-        public Builder reason(@Nullable RfpResponseReasonJson reason) {
+        public Builder reason(@Nullable RfpResponseReason reason) {
             this.reason = reason;
             return this;
         }

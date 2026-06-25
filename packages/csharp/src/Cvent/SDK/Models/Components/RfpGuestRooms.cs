@@ -36,7 +36,7 @@ namespace Cvent.SDK.Models.Components
         /// Occupancies for every room type.
         /// </summary>
         [JsonProperty("occupancies")]
-        public List<GuestRoomOccupancyPerRoomTypeJson>? Occupancies { get; set; }
+        public List<GuestRoomOccupancyPerRoomType>? Occupancies { get; set; }
 
         /// <summary>
         /// The ISO 8601 check-in date.
@@ -48,7 +48,7 @@ namespace Cvent.SDK.Models.Components
         /// List of room blocks required.
         /// </summary>
         [JsonProperty("roomBlocks")]
-        public List<RoomBlockJson>? RoomBlocks { get; set; }
+        public List<RoomBlock>? RoomBlocks { get; set; }
 
         /// <summary>
         /// Additional Info (if any).

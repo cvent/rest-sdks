@@ -32,7 +32,7 @@ let value: ContactIdPaginatedResponse = {
 
 ## Fields
 
-| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `paging`                                                         | [components.PagingJson](../../models/components/pagingjson.md)   | :heavy_check_mark:                                               | Represents pagination information for a collection of resources. |
-| `data`                                                           | [components.IdJson](../../models/components/idjson.md)[]         | :heavy_check_mark:                                               | Collection of contact ids.                                       |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `paging`                                                             | [components.Paging](../../models/components/paging.md)               | :heavy_check_mark:                                                   | Represents pagination information for a collection of resources.     |
+| `data`                                                               | [components.IdOnlyEntity](../../models/components/idonlyentity.md)[] | :heavy_check_mark:                                                   | Collection of contact ids.                                           |

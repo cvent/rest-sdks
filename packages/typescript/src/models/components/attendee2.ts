@@ -12,7 +12,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  */
 export type Attendee2 = {
   /**
-   * Unique identifier of the primary invitee for the current attendee's registration.
+   * Attendee ID.
    */
   id: string;
 };
@@ -25,23 +25,7 @@ export const Attendee2$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
 });
-/** @internal */
-export type Attendee2$Outbound = {
-  id: string;
-};
 
-/** @internal */
-export const Attendee2$outboundSchema: z.ZodType<
-  Attendee2$Outbound,
-  z.ZodTypeDef,
-  Attendee2
-> = z.object({
-  id: z.string(),
-});
-
-export function attendee2ToJSON(attendee2: Attendee2): string {
-  return JSON.stringify(Attendee2$outboundSchema.parse(attendee2));
-}
 export function attendee2FromJSON(
   jsonString: string,
 ): SafeParseResult<Attendee2, SDKValidationError> {

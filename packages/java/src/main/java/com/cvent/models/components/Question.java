@@ -77,21 +77,21 @@ public class Question {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responseType")
-    private QuestionResponseTypeJson responseType;
+    private QuestionResponseType responseType;
 
     /**
      * Code representing the expected data type of the question response.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responseDataType")
-    private QuestionResponseDataTypeJson responseDataType;
+    private QuestionResponseDataType responseDataType;
 
     /**
      * Code representing the format the text of the response will be in.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("responseFormat")
-    private QuestionResponseFormatJson responseFormat;
+    private QuestionResponseFormat responseFormat;
 
     /**
      * A list of options for the question. This only applies when responseType is 'choice'
@@ -109,9 +109,9 @@ public class Question {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("text") @Nullable String text,
             @JsonProperty("required") @Nullable Boolean required,
-            @JsonProperty("responseType") @Nullable QuestionResponseTypeJson responseType,
-            @JsonProperty("responseDataType") @Nullable QuestionResponseDataTypeJson responseDataType,
-            @JsonProperty("responseFormat") @Nullable QuestionResponseFormatJson responseFormat,
+            @JsonProperty("responseType") @Nullable QuestionResponseType responseType,
+            @JsonProperty("responseDataType") @Nullable QuestionResponseDataType responseDataType,
+            @JsonProperty("responseFormat") @Nullable QuestionResponseFormat responseFormat,
             @JsonProperty("responseChoices") @Nullable List<String> responseChoices) {
         this.created = created;
         this.createdBy = createdBy;
@@ -183,21 +183,21 @@ public class Question {
      * Code representing the type of response supported. Single represents a simple single value response,
      * and choice means the user will be given a set of options for selection.
      */
-    public Optional<QuestionResponseTypeJson> responseType() {
+    public Optional<QuestionResponseType> responseType() {
         return Optional.ofNullable(this.responseType);
     }
 
     /**
      * Code representing the expected data type of the question response.
      */
-    public Optional<QuestionResponseDataTypeJson> responseDataType() {
+    public Optional<QuestionResponseDataType> responseDataType() {
         return Optional.ofNullable(this.responseDataType);
     }
 
     /**
      * Code representing the format the text of the response will be in.
      */
-    public Optional<QuestionResponseFormatJson> responseFormat() {
+    public Optional<QuestionResponseFormat> responseFormat() {
         return Optional.ofNullable(this.responseFormat);
     }
 
@@ -272,7 +272,7 @@ public class Question {
      * Code representing the type of response supported. Single represents a simple single value response,
      * and choice means the user will be given a set of options for selection.
      */
-    public Question withResponseType(@Nullable QuestionResponseTypeJson responseType) {
+    public Question withResponseType(@Nullable QuestionResponseType responseType) {
         this.responseType = responseType;
         return this;
     }
@@ -280,7 +280,7 @@ public class Question {
     /**
      * Code representing the expected data type of the question response.
      */
-    public Question withResponseDataType(@Nullable QuestionResponseDataTypeJson responseDataType) {
+    public Question withResponseDataType(@Nullable QuestionResponseDataType responseDataType) {
         this.responseDataType = responseDataType;
         return this;
     }
@@ -288,7 +288,7 @@ public class Question {
     /**
      * Code representing the format the text of the response will be in.
      */
-    public Question withResponseFormat(@Nullable QuestionResponseFormatJson responseFormat) {
+    public Question withResponseFormat(@Nullable QuestionResponseFormat responseFormat) {
         this.responseFormat = responseFormat;
         return this;
     }
@@ -384,11 +384,11 @@ public class Question {
 
         private Boolean required;
 
-        private QuestionResponseTypeJson responseType;
+        private QuestionResponseType responseType;
 
-        private QuestionResponseDataTypeJson responseDataType;
+        private QuestionResponseDataType responseDataType;
 
-        private QuestionResponseFormatJson responseFormat;
+        private QuestionResponseFormat responseFormat;
 
         private List<String> responseChoices;
 
@@ -456,7 +456,7 @@ public class Question {
          * Code representing the type of response supported. Single represents a simple single value response,
          * and choice means the user will be given a set of options for selection.
          */
-        public Builder responseType(@Nullable QuestionResponseTypeJson responseType) {
+        public Builder responseType(@Nullable QuestionResponseType responseType) {
             this.responseType = responseType;
             return this;
         }
@@ -464,7 +464,7 @@ public class Question {
         /**
          * Code representing the expected data type of the question response.
          */
-        public Builder responseDataType(@Nullable QuestionResponseDataTypeJson responseDataType) {
+        public Builder responseDataType(@Nullable QuestionResponseDataType responseDataType) {
             this.responseDataType = responseDataType;
             return this;
         }
@@ -472,7 +472,7 @@ public class Question {
         /**
          * Code representing the format the text of the response will be in.
          */
-        public Builder responseFormat(@Nullable QuestionResponseFormatJson responseFormat) {
+        public Builder responseFormat(@Nullable QuestionResponseFormat responseFormat) {
             this.responseFormat = responseFormat;
             return this;
         }

@@ -20,7 +20,7 @@ import java.util.Optional;
 /**
  * FieldJson
  *
- * <p>A question field.
+ * <p>A survey field.
  */
 public class FieldJson {
     /**
@@ -31,26 +31,21 @@ public class FieldJson {
     private String id;
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shortText")
     private String shortText;
 
     /**
-     * Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`:
-     * Data is one or more options from a list.
-     *
-     * <p>`Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is
-     * free-text input.
+     * Field Type
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
@@ -61,24 +56,24 @@ public class FieldJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("choices")
-    private List<ChoiceJson> choices;
+    private List<ChoiceJson1> choices;
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("notApplicableAnswer")
-    private AdditionalChoiceJson2 notApplicableAnswer;
+    private AdditionalChoiceJson notApplicableAnswer;
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("otherAnswer")
-    private AdditionalChoiceJson2 otherAnswer;
+    private AdditionalChoiceJson otherAnswer;
 
     /**
-     * True indicates this is a mandatory question field.
+     * Is this a mandatory field
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("required")
@@ -90,9 +85,9 @@ public class FieldJson {
             @JsonProperty("text") @Nullable String text,
             @JsonProperty("shortText") @Nullable String shortText,
             @JsonProperty("type") @Nullable FieldTypeJson type,
-            @JsonProperty("choices") @Nullable List<ChoiceJson> choices,
-            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson2 notApplicableAnswer,
-            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson2 otherAnswer,
+            @JsonProperty("choices") @Nullable List<ChoiceJson1> choices,
+            @JsonProperty("notApplicableAnswer") @Nullable AdditionalChoiceJson notApplicableAnswer,
+            @JsonProperty("otherAnswer") @Nullable AdditionalChoiceJson otherAnswer,
             @JsonProperty("required") @Nullable Boolean required) {
         this.id = id;
         this.text = text;
@@ -116,26 +111,21 @@ public class FieldJson {
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     public Optional<String> shortText() {
         return Optional.ofNullable(this.shortText);
     }
 
     /**
-     * Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`:
-     * Data is one or more options from a list.
-     *
-     * <p>`Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is
-     * free-text input.
+     * Field Type
      */
     public Optional<FieldTypeJson> type() {
         return Optional.ofNullable(this.type);
@@ -144,26 +134,26 @@ public class FieldJson {
     /**
      * List of choices for this field.
      */
-    public Optional<List<ChoiceJson>> choices() {
+    public Optional<List<ChoiceJson1>> choices() {
         return Optional.ofNullable(this.choices);
     }
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson2> notApplicableAnswer() {
+    public Optional<AdditionalChoiceJson> notApplicableAnswer() {
         return Optional.ofNullable(this.notApplicableAnswer);
     }
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public Optional<AdditionalChoiceJson2> otherAnswer() {
+    public Optional<AdditionalChoiceJson> otherAnswer() {
         return Optional.ofNullable(this.otherAnswer);
     }
 
     /**
-     * True indicates this is a mandatory question field.
+     * Is this a mandatory field
      */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
@@ -182,7 +172,7 @@ public class FieldJson {
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     public FieldJson withText(@Nullable String text) {
         this.text = text;
@@ -190,8 +180,7 @@ public class FieldJson {
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     public FieldJson withShortText(@Nullable String shortText) {
         this.shortText = shortText;
@@ -199,11 +188,7 @@ public class FieldJson {
     }
 
     /**
-     * Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`:
-     * Data is one or more options from a list.
-     *
-     * <p>`Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is
-     * free-text input.
+     * Field Type
      */
     public FieldJson withType(@Nullable FieldTypeJson type) {
         this.type = type;
@@ -213,29 +198,29 @@ public class FieldJson {
     /**
      * List of choices for this field.
      */
-    public FieldJson withChoices(@Nullable List<ChoiceJson> choices) {
+    public FieldJson withChoices(@Nullable List<ChoiceJson1> choices) {
         this.choices = choices;
         return this;
     }
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public FieldJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
+    public FieldJson withNotApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
         this.notApplicableAnswer = notApplicableAnswer;
         return this;
     }
 
     /**
-     * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+     * Contains text of additional choice i.e N/A choice or otherAnswer choice
      */
-    public FieldJson withOtherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
+    public FieldJson withOtherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
         this.otherAnswer = otherAnswer;
         return this;
     }
 
     /**
-     * True indicates this is a mandatory question field.
+     * Is this a mandatory field
      */
     public FieldJson withRequired(@Nullable Boolean required) {
         this.required = required;
@@ -299,11 +284,11 @@ public class FieldJson {
 
         private FieldTypeJson type;
 
-        private List<ChoiceJson> choices;
+        private List<ChoiceJson1> choices;
 
-        private AdditionalChoiceJson2 notApplicableAnswer;
+        private AdditionalChoiceJson notApplicableAnswer;
 
-        private AdditionalChoiceJson2 otherAnswer;
+        private AdditionalChoiceJson otherAnswer;
 
         private Boolean required;
 
@@ -320,7 +305,7 @@ public class FieldJson {
         }
 
         /**
-         * Text value of the field. Displays to users in the UI.
+         * text Value of the Field
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -328,8 +313,7 @@ public class FieldJson {
         }
 
         /**
-         * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-         * the question in reports.
+         * Reporting value of the Category, Its like a custom abbreviation
          */
         public Builder shortText(@Nullable String shortText) {
             this.shortText = shortText;
@@ -337,11 +321,7 @@ public class FieldJson {
         }
 
         /**
-         * Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`:
-         * Data is one or more options from a list.
-         *
-         * <p>`Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is
-         * free-text input.
+         * Field Type
          */
         public Builder type(@Nullable FieldTypeJson type) {
             this.type = type;
@@ -351,29 +331,29 @@ public class FieldJson {
         /**
          * List of choices for this field.
          */
-        public Builder choices(@Nullable List<ChoiceJson> choices) {
+        public Builder choices(@Nullable List<ChoiceJson1> choices) {
             this.choices = choices;
             return this;
         }
 
         /**
-         * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+         * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson2 notApplicableAnswer) {
+        public Builder notApplicableAnswer(@Nullable AdditionalChoiceJson notApplicableAnswer) {
             this.notApplicableAnswer = notApplicableAnswer;
             return this;
         }
 
         /**
-         * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+         * Contains text of additional choice i.e N/A choice or otherAnswer choice
          */
-        public Builder otherAnswer(@Nullable AdditionalChoiceJson2 otherAnswer) {
+        public Builder otherAnswer(@Nullable AdditionalChoiceJson otherAnswer) {
             this.otherAnswer = otherAnswer;
             return this;
         }
 
         /**
-         * True indicates this is a mandatory question field.
+         * Is this a mandatory field
          */
         public Builder required(@Nullable Boolean required) {
             this.required = required;

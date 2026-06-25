@@ -577,10 +577,10 @@ PostBadgeRequest req = new PostBadgeRequest() {
         Id = "abc123",
         Status = BadgeStatus.Active,
         Type = BadgeType.Epc,
-        Attendee = new Attendee11() {
+        Attendee = new Attendee12() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },
@@ -755,10 +755,10 @@ UpdateBadgeRequest req = new UpdateBadgeRequest() {
         Id = "abc123",
         Status = BadgeStatus.Active,
         Type = BadgeType.Epc,
-        Attendee = new Attendee11() {
+        Attendee = new Attendee12() {
             Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
     },

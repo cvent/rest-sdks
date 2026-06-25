@@ -47,7 +47,7 @@ namespace Cvent.SDK.Models.Components
         /// Video that this asset was created with.
         /// </summary>
         [JsonProperty("video")]
-        public VideoAssetIdJson? Video { get; set; }
+        public VideoAssetID? Video { get; set; }
 
         /// <summary>
         /// Name of the text track.
@@ -65,7 +65,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the kind of video text track. Only subtitles are supported.
         /// </summary>
         [JsonProperty("kind")]
-        public VideoTextTrackKindJson Kind { get; set; } = default!;
+        public VideoTextTrackKind Kind { get; set; } = default!;
 
         /// <summary>
         /// True means that this text track has been published for your client.
@@ -83,7 +83,7 @@ namespace Cvent.SDK.Models.Components
         /// Denotes the status of a video text track (VTT). Started indicates a request to upload in the API, and the URL to upload to was returned. Uploaded indicates that the upload was completed. Available indicates the VTT is available for use. Rejected indicates a failed virus scan. Error indicates there was a problem processing the VTT.
         /// </summary>
         [JsonProperty("status")]
-        public VideoTextTrackStatusJson Status { get; set; } = default!;
+        public VideoTextTrackStatus Status { get; set; } = default!;
 
         /// <summary>
         /// True indicates this text track was generated via machine transcription of the audio.
@@ -101,7 +101,7 @@ namespace Cvent.SDK.Models.Components
         /// A URL associated with the asset.
         /// </summary>
         [JsonProperty("url")]
-        public AssetLocationJson? Url { get; set; }
+        public AssetLocation? Url { get; set; }
 
         /// <summary>
         /// A message indicating the error processing the text track, if any.

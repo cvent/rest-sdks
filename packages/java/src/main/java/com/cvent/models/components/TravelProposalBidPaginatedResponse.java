@@ -25,19 +25,19 @@ public class TravelProposalBidPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Paginated list of business transient proposal bids.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<TravelProposalBid> data;
+    private List<TravelProposalBid2> data;
 
     @JsonCreator
     public TravelProposalBidPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<TravelProposalBid> data) {
+            @JsonProperty("paging") @Nullable Paging paging,
+            @JsonProperty("data") @Nullable List<TravelProposalBid2> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +49,14 @@ public class TravelProposalBidPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * Paginated list of business transient proposal bids.
      */
-    public Optional<List<TravelProposalBid>> data() {
+    public Optional<List<TravelProposalBid2>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +67,7 @@ public class TravelProposalBidPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public TravelProposalBidPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public TravelProposalBidPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +75,7 @@ public class TravelProposalBidPaginatedResponse {
     /**
      * Paginated list of business transient proposal bids.
      */
-    public TravelProposalBidPaginatedResponse withData(@Nullable List<TravelProposalBid> data) {
+    public TravelProposalBidPaginatedResponse withData(@Nullable List<TravelProposalBid2> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +105,9 @@ public class TravelProposalBidPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<TravelProposalBid> data;
+        private List<TravelProposalBid2> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +116,7 @@ public class TravelProposalBidPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +124,7 @@ public class TravelProposalBidPaginatedResponse {
         /**
          * Paginated list of business transient proposal bids.
          */
-        public Builder data(@Nullable List<TravelProposalBid> data) {
+        public Builder data(@Nullable List<TravelProposalBid2> data) {
             this.data = data;
             return this;
         }

@@ -11,7 +11,7 @@ import {
   AttendeeResponseJson$inboundSchema,
 } from "./attendeeresponsejson.js";
 import { EmailJson2, EmailJson2$inboundSchema } from "./emailjson2.js";
-import { EventJson8, EventJson8$inboundSchema } from "./eventjson8.js";
+import { EventJson6, EventJson6$inboundSchema } from "./eventjson6.js";
 import {
   SendEmailRequestStatusJson,
   SendEmailRequestStatusJson$inboundSchema,
@@ -52,7 +52,7 @@ export type SendEmailEventResponse = {
   /**
    * Details of the event.
    */
-  event: EventJson8;
+  event: EventJson6;
   /**
    * Details of an email to be send.
    */
@@ -83,7 +83,7 @@ export const SendEmailEventResponse$inboundSchema: z.ZodType<
   requestId: z.string(),
   status: SendEmailRequestStatusJson$inboundSchema.optional(),
   description: z.string().optional(),
-  event: EventJson8$inboundSchema,
+  event: EventJson6$inboundSchema,
   email: EmailJson2$inboundSchema,
   resendToPreviousRecipients: z.boolean(),
   attendeeResponses: z.array(AttendeeResponseJson$inboundSchema).optional(),

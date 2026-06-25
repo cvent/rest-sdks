@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.TravelProposalBid;
+import com.cvent.models.components.TravelProposalBid2;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,14 +34,14 @@ public class GetTravelProposalBidResponse implements Response {
     /**
      * Successfully retrieved a travel proposal bid.
      */
-    private TravelProposalBid travelProposalBid;
+    private TravelProposalBid2 travelProposalBid;
 
     @JsonCreator
     public GetTravelProposalBidResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable TravelProposalBid travelProposalBid) {
+            @Nullable TravelProposalBid2 travelProposalBid) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -79,7 +79,7 @@ public class GetTravelProposalBidResponse implements Response {
     /**
      * Successfully retrieved a travel proposal bid.
      */
-    public Optional<TravelProposalBid> travelProposalBid() {
+    public Optional<TravelProposalBid2> travelProposalBid() {
         return Optional.ofNullable(this.travelProposalBid);
     }
 
@@ -114,7 +114,7 @@ public class GetTravelProposalBidResponse implements Response {
     /**
      * Successfully retrieved a travel proposal bid.
      */
-    public GetTravelProposalBidResponse withTravelProposalBid(@Nullable TravelProposalBid travelProposalBid) {
+    public GetTravelProposalBidResponse withTravelProposalBid(@Nullable TravelProposalBid2 travelProposalBid) {
         this.travelProposalBid = travelProposalBid;
         return this;
     }
@@ -162,7 +162,7 @@ public class GetTravelProposalBidResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private TravelProposalBid travelProposalBid;
+        private TravelProposalBid2 travelProposalBid;
 
         private Builder() {
             // force use of static builder() method
@@ -195,7 +195,7 @@ public class GetTravelProposalBidResponse implements Response {
         /**
          * Successfully retrieved a travel proposal bid.
          */
-        public Builder travelProposalBid(@Nullable TravelProposalBid travelProposalBid) {
+        public Builder travelProposalBid(@Nullable TravelProposalBid2 travelProposalBid) {
             this.travelProposalBid = travelProposalBid;
             return this;
         }

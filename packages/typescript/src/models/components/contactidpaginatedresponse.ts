@@ -6,8 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { IdJson, IdJson$inboundSchema } from "./idjson.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
+import { IdOnlyEntity, IdOnlyEntity$inboundSchema } from "./idonlyentity.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
 
 /**
  * The response from a request to get the ids of contacts in a contact group or relationship. This includes the paging object as well as the collection of contact ids.
@@ -16,11 +16,11 @@ export type ContactIdPaginatedResponse = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * Collection of contact ids.
    */
-  data: Array<IdJson>;
+  data: Array<IdOnlyEntity>;
 };
 
 /** @internal */
@@ -29,8 +29,8 @@ export const ContactIdPaginatedResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(IdJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(IdOnlyEntity$inboundSchema),
 });
 
 export function contactIdPaginatedResponseFromJSON(

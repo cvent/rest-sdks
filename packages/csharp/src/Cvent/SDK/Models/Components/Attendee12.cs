@@ -13,7 +13,7 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// A JSON schema representing the Attendee object.
+    /// The associated Attendee.
     /// </summary>
     public class Attendee12
     {
@@ -21,6 +21,6 @@ namespace Cvent.SDK.Models.Components
         /// Attendee id.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public string Id { get; set; } = default!;
     }
 }

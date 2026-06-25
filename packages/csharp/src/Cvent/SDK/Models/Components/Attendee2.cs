@@ -18,7 +18,7 @@ namespace Cvent.SDK.Models.Components
     public class Attendee2
     {
         /// <summary>
-        /// Unique identifier of the primary invitee for the current attendee's registration.
+        /// Attendee ID.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

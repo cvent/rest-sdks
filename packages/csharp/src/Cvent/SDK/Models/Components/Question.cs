@@ -66,19 +66,19 @@ namespace Cvent.SDK.Models.Components
         /// Code representing the type of response supported.  Single represents a simple single value response, and choice means the user will be given a set of options for selection.
         /// </summary>
         [JsonProperty("responseType")]
-        public QuestionResponseTypeJson? ResponseType { get; set; }
+        public QuestionResponseType? ResponseType { get; set; }
 
         /// <summary>
         /// Code representing the expected data type of the question response.
         /// </summary>
         [JsonProperty("responseDataType")]
-        public QuestionResponseDataTypeJson? ResponseDataType { get; set; }
+        public QuestionResponseDataType? ResponseDataType { get; set; }
 
         /// <summary>
         /// Code representing the format the text of the response will be in.
         /// </summary>
         [JsonProperty("responseFormat")]
-        public QuestionResponseFormatJson? ResponseFormat { get; set; }
+        public QuestionResponseFormat? ResponseFormat { get; set; }
 
         /// <summary>
         /// A list of options for the question.  This only applies when responseType is 'choice'

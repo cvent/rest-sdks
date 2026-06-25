@@ -89,7 +89,7 @@ actions:
             title: Supplier
             properties:
               type:
-                $ref: "#/components/schemas/supplier-type.json1"
+                $ref: "#/components/schemas/supplier-type.json"
         properties:
           id:
             type: string
@@ -117,3 +117,16 @@ actions:
   - target: $["components"]["schemas"]["CustomField"]
     update:
       x-speakeasy-name-override: "CustomFieldSchema"
+  # TypeScript barrel fix: renaming the "Attendee" schema key to "Attendee2" in June 17-18 release
+  # shifted Speakeasy's collision slot numbering, orphaning attendee1.ts from the barrel index.
+  # Pinning "attendee" to class "Attendee1" (its prior stable name) restores the barrel entry.
+  # Safe (class name): "Attendee1" was already the published class name up to SDK Release June 3-4 —
+  # the collision resolver had naturally assigned it that name. This pin preserves the existing
+  # name rather than introducing a breaking rename for SDK consumers.
+  # Safe (no property renames): x-speakeasy-name-override also renames any *property* in a
+  # parent schema that references this schema via a named $ref (e.g. properties.attendee.$ref).
+  # Since all refs to "attendee" are response body schemas or array item $refs (not named
+  # properties), there are no property renames as a side effect — only the class name is affected.
+  - target: $["components"]["schemas"]["attendee"]
+    update:
+      x-speakeasy-name-override: "Attendee1"

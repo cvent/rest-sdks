@@ -62,7 +62,7 @@ ContactGroupInput req = new ContactGroupInput() {
     Name = "group name",
     ShortDescription = "short description",
     Description = "long description",
-    DistributionListInfo = new DistributionListInfoJsonInput() {
+    DistributionListInfo = new DistributionListInfoInput() {
         InternalNote = "Sample distribution list internal note",
     },
 };
@@ -228,7 +228,7 @@ UpdateContactGroupRequest req = new UpdateContactGroupRequest() {
         Name = "group name",
         ShortDescription = "short description",
         Description = "long description",
-        DistributionListInfo = new DistributionListInfoJsonInput() {
+        DistributionListInfo = new DistributionListInfoInput() {
             InternalNote = "Sample distribution list internal note",
         },
     },
@@ -673,12 +673,12 @@ List<ContactPatch> req = new List<ContactPatch>() {
         Email = "h.potterfield@test.com",
         CcEmail = "h.porter@tesing.com",
         Designation = "CPA",
-        Type = new AttendeeContactTypeJsonInput() {
+        Type = new AttendeeContactTypeInput() {
             Id = "861B51EC-AA7E-475F-B38D-4C8E35C47D63",
         },
-        PrimaryAddressType = AddressTypeJson.Home,
+        PrimaryAddressType = AddressType.Home,
         HomeFax = "555-555-5555",
-        WorkAddress = new AddressJsonInput() {
+        WorkAddress = new AddressInput() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             Address3 = "PO Box 123",
@@ -693,9 +693,9 @@ List<ContactPatch> req = new List<ContactPatch>() {
         MobilePhone = "555-555-5555",
         Prefix = "Mr.",
         Pager = "555-555-5555",
-        OptOut = new OptOutJsonInput() {},
+        OptOut = new ContactOptOutInput() {},
         Npi = "5555555555",
-        Passport = new PassportJsonInput() {
+        Passport = new PassportInput() {
             Number = "123456789",
             CountryCode = "GB",
         },
@@ -760,23 +760,23 @@ var sdk = new CventSDK(security: new Security() {
 
 CreateContactsRequest req = new CreateContactsRequest() {
     Upsert = true,
-    RequestBody = new List<ContactCreateRequestJson>() {
-        new ContactCreateRequestJson() {
+    RequestBody = new List<ContactCreate>() {
+        new ContactCreate() {
             FirstName = "Henry",
             LastName = "Potterfield",
             MiddleName = "A",
             Nickname = "Harry",
             Email = "h.potterfield@test.com",
             CcEmail = "h.porter@tesing.com",
-            Gender = GenderJson.Male,
+            Gender = Gender.Male,
             Company = "Cvent Inc.",
             Designation = "CPA",
             Title = "Event Planner",
-            Type = new AttendeeContactTypeJsonInput() {
+            Type = new AttendeeContactTypeInput() {
                 Id = "861B51EC-AA7E-475F-B38D-4C8E35C47D63",
             },
-            PrimaryAddressType = AddressTypeJson.Home,
-            HomeAddress = new AddressJsonInput() {
+            PrimaryAddressType = AddressType.Home,
+            HomeAddress = new AddressInput() {
                 Address1 = "Cvent Inc.",
                 Address2 = "4001 West Parmer Lane",
                 Address3 = "PO Box 123",
@@ -787,7 +787,7 @@ CreateContactsRequest req = new CreateContactsRequest() {
             },
             HomePhone = "555-555-5555",
             HomeFax = "555-555-5555",
-            WorkAddress = new AddressJsonInput() {
+            WorkAddress = new AddressInput() {
                 Address1 = "Cvent Inc.",
                 Address2 = "4001 West Parmer Lane",
                 Address3 = "PO Box 123",
@@ -802,21 +802,21 @@ CreateContactsRequest req = new CreateContactsRequest() {
             MobilePhone = "555-555-5555",
             Prefix = "Mr.",
             Pager = "555-555-5555",
-            OptOut = new OptOutJsonInput() {},
+            OptOut = new ContactOptOutInput() {},
             Npi = "5555555555",
-            Links = new ContactLinksJsonInput() {
-                TwitterUrl = new LinkJson() {
+            Links = new ContactLinksInput() {
+                TwitterUrl = new Link() {
                     Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
                 },
-                FacebookUrl = new LinkJson() {
+                FacebookUrl = new Link() {
                     Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
                 },
-                LinkedInUrl = new LinkJson() {
+                LinkedInUrl = new Link() {
                     Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
                 },
             },
             DateOfBirth = DateOnly.Parse("1990-01-01"),
-            Passport = new PassportJsonInput() {
+            Passport = new PassportInput() {
                 Number = "123456789",
                 CountryCode = "GB",
             },
@@ -1122,15 +1122,15 @@ UpdateContactByIdRequest req = new UpdateContactByIdRequest() {
         Nickname = "Harry",
         Email = "h.potterfield@test.com",
         CcEmail = "h.porter@tesing.com",
-        Gender = GenderJson.Male,
+        Gender = Gender.Male,
         Company = "Cvent Inc.",
         Designation = "CPA",
         Title = "Event Planner",
-        Type = new AttendeeContactTypeJsonInput() {
+        Type = new AttendeeContactTypeInput() {
             Id = "861B51EC-AA7E-475F-B38D-4C8E35C47D63",
         },
-        PrimaryAddressType = AddressTypeJson.Home,
-        HomeAddress = new AddressJsonInput() {
+        PrimaryAddressType = AddressType.Home,
+        HomeAddress = new AddressInput() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             Address3 = "PO Box 123",
@@ -1141,7 +1141,7 @@ UpdateContactByIdRequest req = new UpdateContactByIdRequest() {
         },
         HomePhone = "555-555-5555",
         HomeFax = "555-555-5555",
-        WorkAddress = new AddressJsonInput() {
+        WorkAddress = new AddressInput() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             Address3 = "PO Box 123",
@@ -1156,21 +1156,21 @@ UpdateContactByIdRequest req = new UpdateContactByIdRequest() {
         MobilePhone = "555-555-5555",
         Prefix = "Mr.",
         Pager = "555-555-5555",
-        OptOut = new OptOutJsonInput() {},
+        OptOut = new ContactOptOutInput() {},
         Npi = "5555555555",
-        Links = new ContactLinksJsonInput() {
-            TwitterUrl = new LinkJson() {
+        Links = new ContactLinksInput() {
+            TwitterUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            FacebookUrl = new LinkJson() {
+            FacebookUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
-            LinkedInUrl = new LinkJson() {
+            LinkedInUrl = new Link() {
                 Href = "?token=90c5f062-76ad-4ea4-aa53-00eb698d9262",
             },
         },
         DateOfBirth = DateOnly.Parse("1990-01-01"),
-        Passport = new PassportJsonInput() {
+        Passport = new PassportInput() {
             Number = "123456789",
             CountryCode = "GB",
         },
@@ -1246,12 +1246,12 @@ PatchContactByIdRequest req = new PatchContactByIdRequest() {
         Email = "h.potterfield@test.com",
         CcEmail = "h.porter@tesing.com",
         Designation = "CPA",
-        Type = new AttendeeContactTypeJsonInput() {
+        Type = new AttendeeContactTypeInput() {
             Id = "861B51EC-AA7E-475F-B38D-4C8E35C47D63",
         },
-        PrimaryAddressType = AddressTypeJson.Home,
+        PrimaryAddressType = AddressType.Home,
         HomeFax = "555-555-5555",
-        WorkAddress = new AddressJsonInput() {
+        WorkAddress = new AddressInput() {
             Address1 = "Cvent Inc.",
             Address2 = "4001 West Parmer Lane",
             Address3 = "PO Box 123",
@@ -1266,9 +1266,9 @@ PatchContactByIdRequest req = new PatchContactByIdRequest() {
         MobilePhone = "555-555-5555",
         Prefix = "Mr.",
         Pager = "555-555-5555",
-        OptOut = new OptOutJsonInput() {},
+        OptOut = new ContactOptOutInput() {},
         Npi = "5555555555",
-        Passport = new PassportJsonInput() {
+        Passport = new PassportInput() {
             Number = "123456789",
             CountryCode = "GB",
         },
@@ -1442,8 +1442,8 @@ MergeContactsRequest req = new MergeContactsRequest() {
             "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
         },
         ConflictResolution = new ConflictResolution() {
-            ContactFields = new List<ContactMergeFieldJson>() {
-                new ContactMergeFieldJson() {
+            ContactFields = new List<ContactMergeField>() {
+                new ContactMergeField() {
                     FieldName = "firstName",
                     ContactId = "a45a3341-d30f-4bd9-bfd8-fbcdae37f0f2",
                 },

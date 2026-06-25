@@ -57,13 +57,13 @@ public class ExistingAudioTrack {
      * Video that this asset was created with.
      */
     @JsonProperty("video")
-    private VideoAssetIdJson video;
+    private VideoAssetID video;
 
     /**
      * Denotes the file format of the audio track.
      */
     @JsonProperty("type")
-    private AudioTrackTypeJson type;
+    private AudioTrackType type;
 
     /**
      * IETF language tag for the audio track.
@@ -82,7 +82,7 @@ public class ExistingAudioTrack {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("variant")
-    private AudioTrackVariantJson variant;
+    private AudioTrackVariant variant;
 
     /**
      * True indicates this is the default audio track.
@@ -112,7 +112,7 @@ public class ExistingAudioTrack {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private AudioTrackStatusJson status;
+    private AudioTrackStatus status;
 
     /**
      * The identifier of an audio track.
@@ -125,7 +125,7 @@ public class ExistingAudioTrack {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("url")
-    private AssetLocationJson url;
+    private AssetLocation url;
 
     @JsonCreator
     public ExistingAudioTrack(
@@ -133,15 +133,15 @@ public class ExistingAudioTrack {
             @JsonProperty("createdBy") @Nullable String createdBy,
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
-            @JsonProperty("video") @Nonnull VideoAssetIdJson video,
-            @JsonProperty("type") @Nonnull AudioTrackTypeJson type,
+            @JsonProperty("video") @Nonnull VideoAssetID video,
+            @JsonProperty("type") @Nonnull AudioTrackType type,
             @JsonProperty("language") @Nonnull String language,
-            @JsonProperty("variant") @Nullable AudioTrackVariantJson variant,
+            @JsonProperty("variant") @Nullable AudioTrackVariant variant,
             @JsonProperty("default") @Nullable Boolean default_,
             @JsonProperty("duration") @Nullable Long duration,
-            @JsonProperty("status") @Nullable AudioTrackStatusJson status,
+            @JsonProperty("status") @Nullable AudioTrackStatus status,
             @JsonProperty("id") @Nonnull String id,
-            @JsonProperty("url") @Nullable AssetLocationJson url) {
+            @JsonProperty("url") @Nullable AssetLocation url) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -159,10 +159,7 @@ public class ExistingAudioTrack {
     }
 
     public ExistingAudioTrack(
-            @Nonnull VideoAssetIdJson video,
-            @Nonnull AudioTrackTypeJson type,
-            @Nonnull String language,
-            @Nonnull String id) {
+            @Nonnull VideoAssetID video, @Nonnull AudioTrackType type, @Nonnull String language, @Nonnull String id) {
         this(null, null, null, null, video, type, language, null, null, null, null, id, null);
     }
 
@@ -197,14 +194,14 @@ public class ExistingAudioTrack {
     /**
      * Video that this asset was created with.
      */
-    public VideoAssetIdJson video() {
+    public VideoAssetID video() {
         return this.video;
     }
 
     /**
      * Denotes the file format of the audio track.
      */
-    public AudioTrackTypeJson type() {
+    public AudioTrackType type() {
         return this.type;
     }
 
@@ -224,7 +221,7 @@ public class ExistingAudioTrack {
      *
      * <p>Descriptive is an audio description of a video track.
      */
-    public Optional<AudioTrackVariantJson> variant() {
+    public Optional<AudioTrackVariant> variant() {
         return Optional.ofNullable(this.variant);
     }
 
@@ -254,7 +251,7 @@ public class ExistingAudioTrack {
      * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
      * is available for use.
      */
-    public Optional<AudioTrackStatusJson> status() {
+    public Optional<AudioTrackStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -268,7 +265,7 @@ public class ExistingAudioTrack {
     /**
      * A URL associated with the asset.
      */
-    public Optional<AssetLocationJson> url() {
+    public Optional<AssetLocation> url() {
         return Optional.ofNullable(this.url);
     }
 
@@ -311,7 +308,7 @@ public class ExistingAudioTrack {
     /**
      * Video that this asset was created with.
      */
-    public ExistingAudioTrack withVideo(@Nonnull VideoAssetIdJson video) {
+    public ExistingAudioTrack withVideo(@Nonnull VideoAssetID video) {
         this.video = Utils.checkNotNull(video, "video");
         return this;
     }
@@ -319,7 +316,7 @@ public class ExistingAudioTrack {
     /**
      * Denotes the file format of the audio track.
      */
-    public ExistingAudioTrack withType(@Nonnull AudioTrackTypeJson type) {
+    public ExistingAudioTrack withType(@Nonnull AudioTrackType type) {
         this.type = Utils.checkNotNull(type, "type");
         return this;
     }
@@ -341,7 +338,7 @@ public class ExistingAudioTrack {
      *
      * <p>Descriptive is an audio description of a video track.
      */
-    public ExistingAudioTrack withVariant(@Nullable AudioTrackVariantJson variant) {
+    public ExistingAudioTrack withVariant(@Nullable AudioTrackVariant variant) {
         this.variant = variant;
         return this;
     }
@@ -374,7 +371,7 @@ public class ExistingAudioTrack {
      * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
      * is available for use.
      */
-    public ExistingAudioTrack withStatus(@Nullable AudioTrackStatusJson status) {
+    public ExistingAudioTrack withStatus(@Nullable AudioTrackStatus status) {
         this.status = status;
         return this;
     }
@@ -390,7 +387,7 @@ public class ExistingAudioTrack {
     /**
      * A URL associated with the asset.
      */
-    public ExistingAudioTrack withUrl(@Nullable AssetLocationJson url) {
+    public ExistingAudioTrack withUrl(@Nullable AssetLocation url) {
         this.url = url;
         return this;
     }
@@ -480,23 +477,23 @@ public class ExistingAudioTrack {
 
         private String lastModifiedBy;
 
-        private VideoAssetIdJson video;
+        private VideoAssetID video;
 
-        private AudioTrackTypeJson type;
+        private AudioTrackType type;
 
         private String language;
 
-        private AudioTrackVariantJson variant;
+        private AudioTrackVariant variant;
 
         private Boolean default_;
 
         private Long duration;
 
-        private AudioTrackStatusJson status;
+        private AudioTrackStatus status;
 
         private String id;
 
-        private AssetLocationJson url;
+        private AssetLocation url;
 
         private Builder() {
             // force use of static builder() method
@@ -537,7 +534,7 @@ public class ExistingAudioTrack {
         /**
          * Video that this asset was created with.
          */
-        public Builder video(@Nonnull VideoAssetIdJson video) {
+        public Builder video(@Nonnull VideoAssetID video) {
             this.video = Utils.checkNotNull(video, "video");
             return this;
         }
@@ -545,7 +542,7 @@ public class ExistingAudioTrack {
         /**
          * Denotes the file format of the audio track.
          */
-        public Builder type(@Nonnull AudioTrackTypeJson type) {
+        public Builder type(@Nonnull AudioTrackType type) {
             this.type = Utils.checkNotNull(type, "type");
             return this;
         }
@@ -567,7 +564,7 @@ public class ExistingAudioTrack {
          *
          * <p>Descriptive is an audio description of a video track.
          */
-        public Builder variant(@Nullable AudioTrackVariantJson variant) {
+        public Builder variant(@Nullable AudioTrackVariant variant) {
             this.variant = variant;
             return this;
         }
@@ -600,7 +597,7 @@ public class ExistingAudioTrack {
          * <p>Error indicates there was a problem processing the audio track. Available indicates the audio track
          * is available for use.
          */
-        public Builder status(@Nullable AudioTrackStatusJson status) {
+        public Builder status(@Nullable AudioTrackStatus status) {
             this.status = status;
             return this;
         }
@@ -616,7 +613,7 @@ public class ExistingAudioTrack {
         /**
          * A URL associated with the asset.
          */
-        public Builder url(@Nullable AssetLocationJson url) {
+        public Builder url(@Nullable AssetLocation url) {
             this.url = url;
             return this;
         }
@@ -638,8 +635,8 @@ public class ExistingAudioTrack {
                     url);
         }
 
-        private static final LazySingletonValue<AudioTrackVariantJson> _SINGLETON_VALUE_Variant =
-                new LazySingletonValue<>("variant", "\"Alternate\"", new TypeReference<AudioTrackVariantJson>() {});
+        private static final LazySingletonValue<AudioTrackVariant> _SINGLETON_VALUE_Variant =
+                new LazySingletonValue<>("variant", "\"Alternate\"", new TypeReference<AudioTrackVariant>() {});
 
         private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Default =
                 new LazySingletonValue<>("default", "false", new TypeReference<Boolean>() {});

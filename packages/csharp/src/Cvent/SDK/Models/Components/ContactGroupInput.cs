@@ -41,7 +41,7 @@ namespace Cvent.SDK.Models.Components
         /// Type of contact group. `BLACKLIST` are contacts that are not allowed to register for your events. `DISTRIBUTION_LIST` is a group of contacts you plan to send eMarketing emails to. `STANDARD` is a multi-purpose group for organizing contacts.
         /// </summary>
         [JsonProperty("type")]
-        public ContactGroupTypeJson? Type { get; set; } = Cvent.SDK.Models.Components.ContactGroupTypeJson.Standard;
+        public ContactGroupType? Type { get; set; } = Cvent.SDK.Models.Components.ContactGroupType.Standard;
 
         /// <summary>
         /// Moved to internalNote in the DistributionListInfo object. The note field only applies to Distribution List.
@@ -54,6 +54,6 @@ namespace Cvent.SDK.Models.Components
         /// Model representing a distribution list info. Only required if the contact group type is DISTRIBUTION_LIST.
         /// </summary>
         [JsonProperty("distributionListInfo")]
-        public DistributionListInfoJsonInput? DistributionListInfo { get; set; }
+        public DistributionListInfoInput? DistributionListInfo { get; set; }
     }
 }

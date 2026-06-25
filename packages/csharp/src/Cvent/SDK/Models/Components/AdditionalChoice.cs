@@ -13,14 +13,20 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// Contains text of additional choice.
+    /// Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
     /// </summary>
     public class AdditionalChoice
     {
         /// <summary>
-        /// Text Value of additional choice.
+        /// Display text of additional choice.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
+
+        /// <summary>
+        /// Name of additional choice text in reporting.
+        /// </summary>
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
     }
 }

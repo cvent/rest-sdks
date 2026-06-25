@@ -5,10 +5,8 @@ package com.cvent.models.components;
 
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.annotation.Nullable;
+import jakarta.annotation.Nonnull;
 import java.lang.Override;
 import java.lang.String;
 import java.util.Optional;
@@ -16,30 +14,25 @@ import java.util.Optional;
 /**
  * Attendee12
  *
- * <p>A JSON schema representing the Attendee object
+ * <p>The associated Attendee.
  */
 public class Attendee12 {
     /**
      * Attendee id
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     @JsonCreator
-    public Attendee12(@JsonProperty("id") @Nullable String id) {
-        this.id = id;
-    }
-
-    public Attendee12() {
-        this(null);
+    public Attendee12(@JsonProperty("id") @Nonnull String id) {
+        this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
     }
 
     /**
      * Attendee id
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public String id() {
+        return this.id;
     }
 
     public static Builder builder() {
@@ -49,8 +42,8 @@ public class Attendee12 {
     /**
      * Attendee id
      */
-    public Attendee12 withId(@Nullable String id) {
-        this.id = id;
+    public Attendee12 withId(@Nonnull String id) {
+        this.id = Utils.checkNotNull(id, "id");
         return this;
     }
 
@@ -88,8 +81,8 @@ public class Attendee12 {
         /**
          * Attendee id
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder id(@Nonnull String id) {
+            this.id = Utils.checkNotNull(id, "id");
             return this;
         }
 

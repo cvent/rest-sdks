@@ -34,7 +34,7 @@ namespace Cvent.SDK.Models.Components
         /// Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
         /// </summary>
         [JsonProperty("address")]
-        public AddressJson2? Address { get; set; }
+        public AddressJson? Address { get; set; }
 
         /// <summary>
         /// Phone number.

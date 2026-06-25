@@ -1,17 +1,17 @@
 # QuestionTypeJson
 
-The type of question. See [this article](https://support.cvent.com/s/communityarticle/Survey-Adding-Questions) for details on each enum.
+Denotes the type of data collected by a question.
 
 ## Example Usage
 
 ```typescript
 import { QuestionTypeJson } from "@cvent/sdk/models/components";
 
-let value: QuestionTypeJson = "SingleChoice";
+let value: QuestionTypeJson = "SingleSelect";
 ```
 
 ## Values
 
 ```typescript
-"CommentBox" | "DateTime" | "FileUpload" | "Form" | "LargeChoices" | "MatrixMultiChoice" | "MatrixRating" | "MatrixSideBySide" | "MatrixSingleChoice" | "MatrixSpreadSheet" | "MultiChoice" | "NetPromoter" | "Number" | "NumberAllocation" | "OpenEndedDateTime" | "OpenEndedNumeric" | "OpenEndedTextCommentBox" | "OpenEndedTextOneLine" | "RankOrder" | "Rating" | "SingleChoice" | "Text"
+"AutoIncrement" | "BudgetEstimates" | "ConsentQuestion" | "Country" | "Currency" | "Decimal" | "Date" | "DateTime" | "Email" | "FileUpload" | "FreeText" | "General" | "Number" | "MeetingRoomRequirements" | "MultiSelect" | "SingleSelect" | "SleepingRoomRequirements" | "USPhoneNumber" | "Unknown"
 ```

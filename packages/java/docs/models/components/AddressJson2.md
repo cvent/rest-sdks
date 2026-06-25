@@ -1,17 +1,16 @@
 # AddressJson2
 
-Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
+Address
 
 
 ## Fields
 
-| Field                          | Type                           | Required                       | Description                    | Example                        |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `address1`                     | *Optional\<String>*            | :heavy_minus_sign:             | Address line 1.                | West St. 1                     |
-| `address2`                     | *Optional\<String>*            | :heavy_minus_sign:             | Address line 2.                | Apt. 16                        |
-| `city`                         | *Optional\<String>*            | :heavy_minus_sign:             | City name.                     | Austin                         |
-| `region`                       | *Optional\<String>*            | :heavy_minus_sign:             | Region name.                   | Texas                          |
-| `regionCode`                   | *Optional\<String>*            | :heavy_minus_sign:             | Region code.                   | TX                             |
-| `postalCode`                   | *Optional\<String>*            | :heavy_minus_sign:             | Postal code.                   | 23452AB                        |
-| `country`                      | *Optional\<String>*            | :heavy_minus_sign:             | Country name.                  | United States of America       |
-| `countryCode`                  | *Optional\<String>*            | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `type`                                                        | [AddressTypeJson](../../models/components/AddressTypeJson.md) | :heavy_check_mark:                                            | The type of the address.                                      | work                                                          |
+| `streetAddress`                                               | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The street address of the user.                               | 100 Universal City Plaza                                      |
+| `locality`                                                    | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The locality/city of the user.                                | Hollywood                                                     |
+| `region`                                                      | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The region/state/province of the user.                        | CA                                                            |
+| `postalCode`                                                  | *Optional\<String>*                                           | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the user.              | 91608                                                         |
+| `country`                                                     | *Optional\<String>*                                           | :heavy_minus_sign:                                            | The country of the user.                                      | USA                                                           |
+| `primary`                                                     | *Optional\<Boolean>*                                          | :heavy_minus_sign:                                            | True indicates the address is primary.                        | true                                                          |

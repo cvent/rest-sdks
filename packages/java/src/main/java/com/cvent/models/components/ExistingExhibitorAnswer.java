@@ -60,7 +60,7 @@ public class ExistingExhibitorAnswer {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * The Associated Exhibitor.
@@ -87,7 +87,7 @@ public class ExistingExhibitorAnswer {
             @JsonProperty("lastModified") @Nullable OffsetDateTime lastModified,
             @JsonProperty("lastModifiedBy") @Nullable String lastModifiedBy,
             @JsonProperty("question") @Nonnull Uuid question,
-            @JsonProperty("event") @Nonnull Event21 event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("exhibitor") @Nonnull Exhibitor exhibitor,
             @JsonProperty("answers") @Nonnull List<Answer2> answers,
             @JsonProperty("id") @Nonnull String id) {
@@ -107,7 +107,7 @@ public class ExistingExhibitorAnswer {
 
     public ExistingExhibitorAnswer(
             @Nonnull Uuid question,
-            @Nonnull Event21 event,
+            @Nonnull Event3 event,
             @Nonnull Exhibitor exhibitor,
             @Nonnull List<Answer2> answers,
             @Nonnull String id) {
@@ -152,7 +152,7 @@ public class ExistingExhibitorAnswer {
     /**
      * The Associated Event.
      */
-    public Event21 event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -224,7 +224,7 @@ public class ExistingExhibitorAnswer {
     /**
      * The Associated Event.
      */
-    public ExistingExhibitorAnswer withEvent(@Nonnull Event21 event) {
+    public ExistingExhibitorAnswer withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -316,7 +316,7 @@ public class ExistingExhibitorAnswer {
 
         private Uuid question;
 
-        private Event21 event;
+        private Event3 event;
 
         private Exhibitor exhibitor;
 
@@ -371,7 +371,7 @@ public class ExistingExhibitorAnswer {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event21 event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

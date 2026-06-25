@@ -6,7 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { ChoiceJson3, ChoiceJson3$inboundSchema } from "./choicejson3.js";
+import { ChoiceJson2, ChoiceJson2$inboundSchema } from "./choicejson2.js";
 import {
   ChoicesDisplayTypeJson,
   ChoicesDisplayTypeJson$inboundSchema,
@@ -19,7 +19,7 @@ export type Three = {
   /**
    * Choices of custom fields.
    */
-  choices?: Array<ChoiceJson3> | undefined;
+  choices?: Array<ChoiceJson2> | undefined;
   /**
    * Display type indicating how to display the choices on UI. For 'Choice - Single Answer' custom field type, this defaults to Dropdown. For 'Choice - Multiple Answers' custom field type, this defaults to MultiSelectBox.
    */
@@ -29,7 +29,7 @@ export type Three = {
 /** @internal */
 export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
   .object({
-    choices: z.array(ChoiceJson3$inboundSchema).optional(),
+    choices: z.array(ChoiceJson2$inboundSchema).optional(),
     displayType: ChoicesDisplayTypeJson$inboundSchema.optional(),
   });
 

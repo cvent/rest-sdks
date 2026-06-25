@@ -22,7 +22,7 @@ namespace Cvent.SDK.Models.Components
         /// Distance information.
         /// </summary>
         [JsonProperty("distance")]
-        public DistanceJson1? Distance { get; set; }
+        public DistanceJson? Distance { get; set; }
 
         /// <summary>
         /// Message shown on map.

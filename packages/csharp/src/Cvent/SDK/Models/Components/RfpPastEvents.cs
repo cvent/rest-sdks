@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// List of past events saved on RFP by planner.
         /// </summary>
         [JsonProperty("data")]
-        public List<RfpPastEventJson>? Data { get; set; }
+        public List<RfpPastEvent>? Data { get; set; }
     }
 }

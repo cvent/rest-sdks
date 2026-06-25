@@ -14,11 +14,11 @@ import java.util.Optional;
 /**
  * EventJson6
  *
- * <p>An event reference used in attendee insights to identify the event context for engagement data
+ * <p>Details of the event.
  */
 public class EventJson6 {
     /**
-     * A unique identifier (UUID) for the event where the engagement score applies
+     * The unique ID of the event.
      */
     @JsonProperty("id")
     private String id;
@@ -29,7 +29,7 @@ public class EventJson6 {
     }
 
     /**
-     * A unique identifier (UUID) for the event where the engagement score applies
+     * The unique ID of the event.
      */
     public String id() {
         return this.id;
@@ -40,7 +40,7 @@ public class EventJson6 {
     }
 
     /**
-     * A unique identifier (UUID) for the event where the engagement score applies
+     * The unique ID of the event.
      */
     public EventJson6 withId(@Nonnull String id) {
         this.id = Utils.checkNotNull(id, "id");
@@ -79,7 +79,7 @@ public class EventJson6 {
         }
 
         /**
-         * A unique identifier (UUID) for the event where the engagement score applies
+         * The unique ID of the event.
          */
         public Builder id(@Nonnull String id) {
             this.id = Utils.checkNotNull(id, "id");

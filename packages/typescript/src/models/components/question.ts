@@ -7,17 +7,17 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  QuestionResponseDataTypeJson,
-  QuestionResponseDataTypeJson$inboundSchema,
-} from "./questionresponsedatatypejson.js";
+  QuestionResponseDataType,
+  QuestionResponseDataType$inboundSchema,
+} from "./questionresponsedatatype.js";
 import {
-  QuestionResponseFormatJson,
-  QuestionResponseFormatJson$inboundSchema,
-} from "./questionresponseformatjson.js";
+  QuestionResponseFormat,
+  QuestionResponseFormat$inboundSchema,
+} from "./questionresponseformat.js";
 import {
-  QuestionResponseTypeJson,
-  QuestionResponseTypeJson$inboundSchema,
-} from "./questionresponsetypejson.js";
+  QuestionResponseType,
+  QuestionResponseType$inboundSchema,
+} from "./questionresponsetype.js";
 
 /**
  * A question, defined by the program, for the supplier to answer as part of their proposal.
@@ -54,15 +54,15 @@ export type Question = {
   /**
    * Code representing the type of response supported.  Single represents a simple single value response, and choice means the user will be given a set of options for selection.
    */
-  responseType?: QuestionResponseTypeJson | undefined;
+  responseType?: QuestionResponseType | undefined;
   /**
    * Code representing the expected data type of the question response.
    */
-  responseDataType?: QuestionResponseDataTypeJson | undefined;
+  responseDataType?: QuestionResponseDataType | undefined;
   /**
    * Code representing the format the text of the response will be in.
    */
-  responseFormat?: QuestionResponseFormatJson | undefined;
+  responseFormat?: QuestionResponseFormat | undefined;
   /**
    * A list of options for the question.  This only applies when responseType is 'choice'
    */
@@ -85,9 +85,9 @@ export const Question$inboundSchema: z.ZodType<
   id: z.string().optional(),
   text: z.string().optional(),
   required: z.boolean().optional(),
-  responseType: QuestionResponseTypeJson$inboundSchema.optional(),
-  responseDataType: QuestionResponseDataTypeJson$inboundSchema.optional(),
-  responseFormat: QuestionResponseFormatJson$inboundSchema.optional(),
+  responseType: QuestionResponseType$inboundSchema.optional(),
+  responseDataType: QuestionResponseDataType$inboundSchema.optional(),
+  responseFormat: QuestionResponseFormat$inboundSchema.optional(),
   responseChoices: z.array(z.string()).optional(),
 });
 

@@ -9,8 +9,8 @@
 AttendeeAddBulkItemJsonData.CreateZeroOneOf2(/* values here */);
 ```
 
-### ErrorResponse1
+### ErrorResponse2
 
 ```csharp
-AttendeeAddBulkItemJsonData.CreateErrorResponse1(/* values here */);
+AttendeeAddBulkItemJsonData.CreateErrorResponse2(/* values here */);
 ```

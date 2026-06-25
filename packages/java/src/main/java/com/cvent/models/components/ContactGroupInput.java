@@ -51,7 +51,7 @@ public class ContactGroupInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private ContactGroupTypeJson type;
+    private ContactGroupType type;
 
     /**
      * Moved to internalNote in the DistributionListInfo object. The note field only applies to
@@ -70,16 +70,16 @@ public class ContactGroupInput {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("distributionListInfo")
-    private DistributionListInfoJsonInput distributionListInfo;
+    private DistributionListInfoInput distributionListInfo;
 
     @JsonCreator
     public ContactGroupInput(
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("shortDescription") @Nullable String shortDescription,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("type") @Nullable ContactGroupTypeJson type,
+            @JsonProperty("type") @Nullable ContactGroupType type,
             @JsonProperty("note") @Nullable String note,
-            @JsonProperty("distributionListInfo") @Nullable DistributionListInfoJsonInput distributionListInfo) {
+            @JsonProperty("distributionListInfo") @Nullable DistributionListInfoInput distributionListInfo) {
         this.name = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("name cannot be null"));
         this.shortDescription = shortDescription;
         this.description = description;
@@ -119,7 +119,7 @@ public class ContactGroupInput {
      *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
-    public Optional<ContactGroupTypeJson> type() {
+    public Optional<ContactGroupType> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -138,7 +138,7 @@ public class ContactGroupInput {
      * Model representing a distribution list info. Only required if the contact group type is
      * DISTRIBUTION_LIST.
      */
-    public Optional<DistributionListInfoJsonInput> distributionListInfo() {
+    public Optional<DistributionListInfoInput> distributionListInfo() {
         return Optional.ofNullable(this.distributionListInfo);
     }
 
@@ -176,7 +176,7 @@ public class ContactGroupInput {
      *
      * <p>`STANDARD` is a multi-purpose group for organizing contacts.
      */
-    public ContactGroupInput withType(@Nullable ContactGroupTypeJson type) {
+    public ContactGroupInput withType(@Nullable ContactGroupType type) {
         this.type = type;
         return this;
     }
@@ -197,7 +197,7 @@ public class ContactGroupInput {
      * Model representing a distribution list info. Only required if the contact group type is
      * DISTRIBUTION_LIST.
      */
-    public ContactGroupInput withDistributionListInfo(@Nullable DistributionListInfoJsonInput distributionListInfo) {
+    public ContactGroupInput withDistributionListInfo(@Nullable DistributionListInfoInput distributionListInfo) {
         this.distributionListInfo = distributionListInfo;
         return this;
     }
@@ -251,12 +251,12 @@ public class ContactGroupInput {
 
         private String description;
 
-        private ContactGroupTypeJson type;
+        private ContactGroupType type;
 
         @Deprecated
         private String note;
 
-        private DistributionListInfoJsonInput distributionListInfo;
+        private DistributionListInfoInput distributionListInfo;
 
         private Builder() {
             // force use of static builder() method
@@ -292,7 +292,7 @@ public class ContactGroupInput {
          *
          * <p>`STANDARD` is a multi-purpose group for organizing contacts.
          */
-        public Builder type(@Nullable ContactGroupTypeJson type) {
+        public Builder type(@Nullable ContactGroupType type) {
             this.type = type;
             return this;
         }
@@ -313,7 +313,7 @@ public class ContactGroupInput {
          * Model representing a distribution list info. Only required if the contact group type is
          * DISTRIBUTION_LIST.
          */
-        public Builder distributionListInfo(@Nullable DistributionListInfoJsonInput distributionListInfo) {
+        public Builder distributionListInfo(@Nullable DistributionListInfoInput distributionListInfo) {
             this.distributionListInfo = distributionListInfo;
             return this;
         }
@@ -322,7 +322,7 @@ public class ContactGroupInput {
             return new ContactGroupInput(name, shortDescription, description, type, note, distributionListInfo);
         }
 
-        private static final LazySingletonValue<ContactGroupTypeJson> _SINGLETON_VALUE_Type =
-                new LazySingletonValue<>("type", "\"STANDARD\"", new TypeReference<ContactGroupTypeJson>() {});
+        private static final LazySingletonValue<ContactGroupType> _SINGLETON_VALUE_Type =
+                new LazySingletonValue<>("type", "\"STANDARD\"", new TypeReference<ContactGroupType>() {});
     }
 }

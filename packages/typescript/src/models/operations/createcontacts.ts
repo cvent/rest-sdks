@@ -20,13 +20,13 @@ export type CreateContactsRequest = {
   /**
    * List of contacts to be created. Up to **10 contacts** can be created per call.
    */
-  requestBody: Array<components.ContactCreateRequestJson>;
+  requestBody: Array<components.ContactCreate>;
 };
 
 /** @internal */
 export type CreateContactsRequest$Outbound = {
   upsert: boolean;
-  RequestBody: Array<components.ContactCreateRequestJson$Outbound>;
+  RequestBody: Array<components.ContactCreate$Outbound>;
 };
 
 /** @internal */
@@ -36,7 +36,7 @@ export const CreateContactsRequest$outboundSchema: z.ZodType<
   CreateContactsRequest
 > = z.object({
   upsert: z.boolean().default(false),
-  requestBody: z.array(components.ContactCreateRequestJson$outboundSchema),
+  requestBody: z.array(components.ContactCreate$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     requestBody: "RequestBody",

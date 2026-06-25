@@ -29,7 +29,7 @@ public class ProposalDateJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dateType")
-    private DateTypeJson1 dateType;
+    private DateTypeJson dateType;
 
     /**
      * The start date of the event.
@@ -47,7 +47,7 @@ public class ProposalDateJson {
 
     @JsonCreator
     public ProposalDateJson(
-            @JsonProperty("dateType") @Nullable DateTypeJson1 dateType,
+            @JsonProperty("dateType") @Nullable DateTypeJson dateType,
             @JsonProperty("startDate") @Nullable LocalDate startDate,
             @JsonProperty("endDate") @Nullable LocalDate endDate) {
         this.dateType = Optional.ofNullable(dateType).orElse(Builder._SINGLETON_VALUE_DateType.value());
@@ -64,7 +64,7 @@ public class ProposalDateJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public Optional<DateTypeJson1> dateType() {
+    public Optional<DateTypeJson> dateType() {
         return Optional.ofNullable(this.dateType);
     }
 
@@ -91,7 +91,7 @@ public class ProposalDateJson {
      * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
      * so on).
      */
-    public ProposalDateJson withDateType(@Nullable DateTypeJson1 dateType) {
+    public ProposalDateJson withDateType(@Nullable DateTypeJson dateType) {
         this.dateType = dateType;
         return this;
     }
@@ -139,7 +139,7 @@ public class ProposalDateJson {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private DateTypeJson1 dateType;
+        private DateTypeJson dateType;
 
         private LocalDate startDate;
 
@@ -154,7 +154,7 @@ public class ProposalDateJson {
          * 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and
          * so on).
          */
-        public Builder dateType(@Nullable DateTypeJson1 dateType) {
+        public Builder dateType(@Nullable DateTypeJson dateType) {
             this.dateType = dateType;
             return this;
         }
@@ -179,7 +179,7 @@ public class ProposalDateJson {
             return new ProposalDateJson(dateType, startDate, endDate);
         }
 
-        private static final LazySingletonValue<DateTypeJson1> _SINGLETON_VALUE_DateType =
-                new LazySingletonValue<>("dateType", "\"PREFERRED\"", new TypeReference<DateTypeJson1>() {});
+        private static final LazySingletonValue<DateTypeJson> _SINGLETON_VALUE_DateType =
+                new LazySingletonValue<>("dateType", "\"PREFERRED\"", new TypeReference<DateTypeJson>() {});
     }
 }

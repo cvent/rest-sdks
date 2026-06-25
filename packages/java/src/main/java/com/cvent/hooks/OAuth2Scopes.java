@@ -187,6 +187,16 @@ public final class OAuth2Scopes {
         BudgetTransactionsWrite("budget/transactions:write"),
 
         /**
+         * Allows the reading of BT Bid data
+         */
+        BusinessTransientBidsRead("business-transient/bids:read"),
+
+        /**
+         * Allows the reading of BT Proposal data
+         */
+        BusinessTransientProposalsRead("business-transient/proposals:read"),
+
+        /**
          * Allows the reading of communication compliance
          */
         ComplianceCommunicationsRead("compliance/communications:read"),
@@ -640,6 +650,11 @@ public final class OAuth2Scopes {
          * Allows the creation/updating of video data.
          */
         EventVideosWrite("event/videos:write"),
+
+        /**
+         * Allows reading of event vouchers and their associated attendees.
+         */
+        EventVouchersRead("event/vouchers:read"),
 
         /**
          * Allows the deletion of webcast
@@ -1249,6 +1264,21 @@ public final class OAuth2Scopes {
         BusinessTransientTravelSupplierAccountsRead("business-transient/travel-supplier-accounts:read"),
 
         /**
+         * Allows the reading of business travel account data.
+         */
+        BusinessTravelTravelAccountsRead("business-travel/travel-accounts:read"),
+
+        /**
+         * Allows the reading of business travel program question data.
+         */
+        BusinessTravelTravelProgramQuestionsRead("business-travel/travel-program-questions:read"),
+
+        /**
+         * Allows the reading of business travel program data.
+         */
+        BusinessTravelTravelProgramsRead("business-travel/travel-programs:read"),
+
+        /**
          * Allows the reading of communication compliance
          */
         ComplianceCommunicationsRead("compliance/communications:read"),
@@ -1702,6 +1732,11 @@ public final class OAuth2Scopes {
          * Allows the creation/updating of video data.
          */
         EventVideosWrite("event/videos:write"),
+
+        /**
+         * Allows reading of event vouchers.
+         */
+        EventVouchersRead("event/vouchers:read"),
 
         /**
          * Allows the deletion of webcast

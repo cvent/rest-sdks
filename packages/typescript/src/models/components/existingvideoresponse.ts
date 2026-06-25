@@ -6,39 +6,24 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { AssetLocation, AssetLocation$inboundSchema } from "./assetlocation.js";
 import {
-  AssetLocationJson,
-  AssetLocationJson$inboundSchema,
-} from "./assetlocationjson.js";
+  EncodingProfile,
+  EncodingProfile$inboundSchema,
+} from "./encodingprofile.js";
 import {
-  EncodingProfileJson,
-  EncodingProfileJson$inboundSchema,
-} from "./encodingprofilejson.js";
+  HlsInputWithClips,
+  HlsInputWithClips$inboundSchema,
+} from "./hlsinputwithclips.js";
+import { VideoError, VideoError$inboundSchema } from "./videoerror.js";
+import { VideoSource, VideoSource$inboundSchema } from "./videosource.js";
+import { VideoStatus, VideoStatus$inboundSchema } from "./videostatus.js";
 import {
-  HlsInputWithClipsJson,
-  HlsInputWithClipsJson$inboundSchema,
-} from "./hlsinputwithclipsjson.js";
-import {
-  VideoErrorJson,
-  VideoErrorJson$inboundSchema,
-} from "./videoerrorjson.js";
-import {
-  VideoSourceJson,
-  VideoSourceJson$inboundSchema,
-} from "./videosourcejson.js";
-import {
-  VideoStatusJson,
-  VideoStatusJson$inboundSchema,
-} from "./videostatusjson.js";
-import {
-  VideoThumbnailJson,
-  VideoThumbnailJson$inboundSchema,
-} from "./videothumbnailjson.js";
-import { VideoTypeJson, VideoTypeJson$inboundSchema } from "./videotypejson.js";
-import {
-  VideoWarningJson,
-  VideoWarningJson$inboundSchema,
-} from "./videowarningjson.js";
+  VideoThumbnail,
+  VideoThumbnail$inboundSchema,
+} from "./videothumbnail.js";
+import { VideoType, VideoType$inboundSchema } from "./videotype.js";
+import { VideoWarning, VideoWarning$inboundSchema } from "./videowarning.js";
 
 /**
  * Event video asset was created with. This field has been deprecated. Use events instead.
@@ -105,19 +90,19 @@ export type ExistingVideoResponse = {
   /**
    * Video thumbnail
    */
-  thumbnail?: VideoThumbnailJson | undefined;
+  thumbnail?: VideoThumbnail | undefined;
   /**
    * Video thumbnail
    */
-  generatedThumbnail?: VideoThumbnailJson | undefined;
+  generatedThumbnail?: VideoThumbnail | undefined;
   /**
    * Denotes the status of a video. Started indicates the request to upload in the API was submitted, and the URL to upload to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the video. Available indicates the video is available for use.
    */
-  status?: VideoStatusJson | undefined;
+  status?: VideoStatus | undefined;
   /**
    * Source of video.
    */
-  source?: VideoSourceJson | undefined;
+  source?: VideoSource | undefined;
   /**
    * A list of tags associated with this video.  This feature is a developer extensability framework to add data to videos.
    */
@@ -125,7 +110,7 @@ export type ExistingVideoResponse = {
   /**
    * This is used to denote type of a video
    */
-  type?: VideoTypeJson | undefined;
+  type?: VideoType | undefined;
   /**
    * Event video asset was created with. This field has been deprecated. Use events instead.
    *
@@ -141,7 +126,7 @@ export type ExistingVideoResponse = {
   /**
    * A list of input object locations & clip information for HTTP Live Streaming (HLS) recordings. Used to trim & stitch all inputs together to form a new video.
    */
-  hlsInputsWithClips?: Array<HlsInputWithClipsJson> | undefined;
+  hlsInputsWithClips?: Array<HlsInputWithClips> | undefined;
   /**
    * Recording details of video to be transcoded
    */
@@ -149,7 +134,7 @@ export type ExistingVideoResponse = {
   /**
    * Denotes the profile to use when encoding the video. Planner profile is for encoding high-quality event content, like session videos. Attendee profile is for encoding lower-quality content intended to go on attendee profiles and social feeds in the event.
    */
-  encodingProfile: EncodingProfileJson;
+  encodingProfile: EncodingProfile;
   /**
    * The identifier of a video.
    */
@@ -157,7 +142,7 @@ export type ExistingVideoResponse = {
   /**
    * A URL associated with the asset.
    */
-  url?: AssetLocationJson | undefined;
+  url?: AssetLocation | undefined;
   /**
    * File size in bytes for the video asset.
    */
@@ -189,11 +174,11 @@ export type ExistingVideoResponse = {
   /**
    * This is used to denote the errors for a video entity.
    */
-  errors?: Array<VideoErrorJson> | undefined;
+  errors?: Array<VideoError> | undefined;
   /**
    * This is used to denote the warnings for a video entity.
    */
-  warnings?: Array<VideoWarningJson> | undefined;
+  warnings?: Array<VideoWarning> | undefined;
 };
 
 /** @internal */
@@ -252,19 +237,19 @@ export const ExistingVideoResponse$inboundSchema: z.ZodType<
   filename: z.string().optional(),
   events: z.array(z.string()).optional(),
   duration: z.number().int().optional(),
-  thumbnail: VideoThumbnailJson$inboundSchema.optional(),
-  generatedThumbnail: VideoThumbnailJson$inboundSchema.optional(),
-  status: VideoStatusJson$inboundSchema.optional(),
-  source: VideoSourceJson$inboundSchema.optional(),
+  thumbnail: VideoThumbnail$inboundSchema.optional(),
+  generatedThumbnail: VideoThumbnail$inboundSchema.optional(),
+  status: VideoStatus$inboundSchema.optional(),
+  source: VideoSource$inboundSchema.optional(),
   tags: z.array(z.string()).optional(),
-  type: VideoTypeJson$inboundSchema.optional(),
+  type: VideoType$inboundSchema.optional(),
   event: z.lazy(() => ExistingVideoResponseUUID$inboundSchema).optional(),
   hlsInputs: z.array(z.string()).optional(),
-  hlsInputsWithClips: z.array(HlsInputWithClipsJson$inboundSchema).optional(),
+  hlsInputsWithClips: z.array(HlsInputWithClips$inboundSchema).optional(),
   recording: z.lazy(() => RecordingDetails$inboundSchema).optional(),
-  encodingProfile: EncodingProfileJson$inboundSchema.default("Planner"),
+  encodingProfile: EncodingProfile$inboundSchema.default("Planner"),
   id: z.string(),
-  url: AssetLocationJson$inboundSchema.optional(),
+  url: AssetLocation$inboundSchema.optional(),
   size: z.number().int().optional(),
   sessions: z.array(z.string()).optional(),
   exhibitors: z.array(z.string()).optional(),
@@ -276,8 +261,8 @@ export const ExistingVideoResponse$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   parent: z.string().optional(),
-  errors: z.array(VideoErrorJson$inboundSchema).optional(),
-  warnings: z.array(VideoWarningJson$inboundSchema).optional(),
+  errors: z.array(VideoError$inboundSchema).optional(),
+  warnings: z.array(VideoWarning$inboundSchema).optional(),
 });
 
 export function existingVideoResponseFromJSON(

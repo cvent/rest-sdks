@@ -40,7 +40,7 @@ public class TravelAccountSupplierAccount {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("managementLevel")
-    private ManagementLevelTypeJson1 managementLevel;
+    private ManagementLevelType1 managementLevel;
 
     /**
      * Is this account active for the supplier's hotels.
@@ -75,7 +75,7 @@ public class TravelAccountSupplierAccount {
     public TravelAccountSupplierAccount(
             @JsonProperty("travelAccount") @Nullable TravelAccountSupplierAccountTravelAccount travelAccount,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("managementLevel") @Nullable ManagementLevelTypeJson1 managementLevel,
+            @JsonProperty("managementLevel") @Nullable ManagementLevelType1 managementLevel,
             @JsonProperty("active") @Nullable Boolean active,
             @JsonProperty("crmId") @Nullable String crmId,
             @JsonProperty("chainDefinedId") @Nullable String chainDefinedId,
@@ -110,7 +110,7 @@ public class TravelAccountSupplierAccount {
     /**
      * The management level of the travel account. Defined by the supply-side.
      */
-    public Optional<ManagementLevelTypeJson1> managementLevel() {
+    public Optional<ManagementLevelType1> managementLevel() {
         return Optional.ofNullable(this.managementLevel);
     }
 
@@ -167,7 +167,7 @@ public class TravelAccountSupplierAccount {
     /**
      * The management level of the travel account. Defined by the supply-side.
      */
-    public TravelAccountSupplierAccount withManagementLevel(@Nullable ManagementLevelTypeJson1 managementLevel) {
+    public TravelAccountSupplierAccount withManagementLevel(@Nullable ManagementLevelType1 managementLevel) {
         this.managementLevel = managementLevel;
         return this;
     }
@@ -256,7 +256,7 @@ public class TravelAccountSupplierAccount {
 
         private String name;
 
-        private ManagementLevelTypeJson1 managementLevel;
+        private ManagementLevelType1 managementLevel;
 
         private Boolean active;
 
@@ -289,7 +289,7 @@ public class TravelAccountSupplierAccount {
         /**
          * The management level of the travel account. Defined by the supply-side.
          */
-        public Builder managementLevel(@Nullable ManagementLevelTypeJson1 managementLevel) {
+        public Builder managementLevel(@Nullable ManagementLevelType1 managementLevel) {
             this.managementLevel = managementLevel;
             return this;
         }

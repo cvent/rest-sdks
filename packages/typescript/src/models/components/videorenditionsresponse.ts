@@ -7,9 +7,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  VideoRenditionJson,
-  VideoRenditionJson$inboundSchema,
-} from "./videorenditionjson.js";
+  VideoRendition,
+  VideoRendition$inboundSchema,
+} from "./videorendition.js";
 
 /**
  * The response from a request to get the list of video renditions.
@@ -18,7 +18,7 @@ export type VideoRenditionsResponse = {
   /**
    * Collection of video renditions.
    */
-  data?: Array<VideoRenditionJson> | undefined;
+  data?: Array<VideoRendition> | undefined;
 };
 
 /** @internal */
@@ -27,7 +27,7 @@ export const VideoRenditionsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(VideoRenditionJson$inboundSchema).optional(),
+  data: z.array(VideoRendition$inboundSchema).optional(),
 });
 
 export function videoRenditionsResponseFromJSON(

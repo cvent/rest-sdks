@@ -6,14 +6,14 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * The type of address.
+ * The type of the address.
  */
 export const AddressTypeJson = {
-  Home: "Home",
-  Work: "Work",
+  Work: "work",
+  Home: "home",
 } as const;
 /**
- * The type of address.
+ * The type of the address.
  */
 export type AddressTypeJson = ClosedEnum<typeof AddressTypeJson>;
 

@@ -44,7 +44,7 @@ The samples below show how a published SDK artifact is used:
 
 Gradle:
 ```groovy
-implementation 'com.cvent:sdk:1.4.0'
+implementation 'com.cvent:sdk:1.5.0'
 ```
 
 Maven:
@@ -52,7 +52,7 @@ Maven:
 <dependency>
     <groupId>com.cvent</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
 </dependency>
 ```
 
@@ -609,6 +609,9 @@ public class Application {
 * [listEventUserGroups](docs/sdks/events/README.md#listeventusergroups) - List Event User Groups
 * [associateEventUserGroup](docs/sdks/events/README.md#associateeventusergroup) - Associate User Group to Event
 * [disassociateEventUserGroup](docs/sdks/events/README.md#disassociateeventusergroup) - Disassociate Group from Event
+* [listEventVouchers](docs/sdks/events/README.md#listeventvouchers) - List Event Vouchers
+* [listEventVouchersPostFilter](docs/sdks/events/README.md#listeventvoucherspostfilter) - List Event Vouchers (Filter)
+* [listEventVoucherAttendees](docs/sdks/events/README.md#listeventvoucherattendees) - List Voucher Attendees
 * [updateQuantityItemRegistrationForAttendee](docs/sdks/events/README.md#updatequantityitemregistrationforattendee) - Update Quantity Item
 * [listSessionsAttendance](docs/sdks/events/README.md#listsessionsattendance) - Session Attendance
 * [listSessionsEnrollment](docs/sdks/events/README.md#listsessionsenrollment) - List Session Registrants
@@ -1294,10 +1297,10 @@ public class Application {
 many more subclasses in the JDK platform).
 
 **Inherit from [`CventSDKError`](./src/main/java/models/errors/CventSDKError.java)**:
-* [`com.cvent.models.errors.ErrorResponseJson17`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson17.java): The error response. Applicable to 11 of 445 methods.*
-* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): Represents an error response with additional details of cascading error messages. Applicable to 6 of 445 methods.*
-* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 445 methods.*
-* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 445 methods.*
+* [`com.cvent.models.errors.ErrorResponse2`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponse2.java): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
+* [`com.cvent.models.errors.ErrorResponseJson12`](./src/main/java/models/errors/com.cvent.models.errors.ErrorResponseJson12.java): The error response. Applicable to 11 of 448 methods.*
+* [`com.cvent.models.errors.SegmentsErrorResponse`](./src/main/java/models/errors/com.cvent.models.errors.SegmentsErrorResponse.java): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
+* [`com.cvent.models.errors.BadRequestException`](./src/main/java/models/errors/com.cvent.models.errors.BadRequestException.java): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
 
 
 </details>

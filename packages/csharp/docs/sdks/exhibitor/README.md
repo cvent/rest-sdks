@@ -131,7 +131,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorCategoryRequest req = new CreateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -191,7 +191,7 @@ UpdateExhibitorCategoryRequest req = new UpdateExhibitorCategoryRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorCategoryId = "534a465b-b4cb-471d-9498-4bf3917ad8bf",
     ExhibitorCategoryRequest = new ExhibitorCategoryRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Automobile",
@@ -679,7 +679,7 @@ var sdk = new CventSDK(security: new Security() {
 CreateExhibitorRequest req = new CreateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -687,9 +687,9 @@ CreateExhibitorRequest req = new CreateExhibitorRequest() {
         Code = "abc123",
         SourceId = "software",
         Location = "Taj Mahal",
-        Address = new Address2() {
+        Address = new Address4() {
             Address1 = "Cvent Inc.",
-            Address2Value = "4001 West Parmer Lane",
+            Address2 = "4001 West Parmer Lane",
             City = "Austin",
             Region = "Texas",
             PostalCode = "78727",
@@ -821,7 +821,7 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     ExhibitorRequest = new ExhibitorRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Name = "Potterfield Harry",
@@ -829,9 +829,9 @@ UpdateExhibitorRequest req = new UpdateExhibitorRequest() {
         Code = "abc123",
         SourceId = "software",
         Location = "Taj Mahal",
-        Address = new Address2() {
+        Address = new Address4() {
             Address1 = "Cvent Inc.",
-            Address2Value = "4001 West Parmer Lane",
+            Address2 = "4001 West Parmer Lane",
             City = "Austin",
             Region = "Texas",
             PostalCode = "78727",
@@ -1127,7 +1127,7 @@ UpdateExhibitorAnswersRequest req = new UpdateExhibitorAnswersRequest() {
                 Question = new Uuid() {
                     Id = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
                 },
-                Event = new Event21() {
+                Event = new Event3() {
                     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
                 },
                 Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -1410,7 +1410,7 @@ PostRegistrationPackRequest req = new PostRegistrationPackRequest() {
     Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -1446,7 +1446,8 @@ var res = await sdk.Exhibitor.PostRegistrationPackAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 409, 429           | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetExhibitorRegistrationPacks
@@ -1584,7 +1585,7 @@ UpdateRegistrationPackRequest req = new UpdateRegistrationPackRequest() {
     ExhibitorId = "4888db54-db22-11eb-8d19-0242ac130003",
     RegistrationPackId = "50f4f0df-0c2d-4e6b-8e68-e1413b6917f5",
     RegistrationPackRequest = new RegistrationPackRequest() {
-        Event = new Event21() {
+        Event = new Event3() {
             Id = "3db28cfc-db22-11eb-8d19-0242ac130003",
         },
         Exhibitor = new Cvent.SDK.Models.Components.Exhibitor() {
@@ -1672,7 +1673,8 @@ var res = await sdk.Exhibitor.DeleteRegistrationPackAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 409, 429                | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 409                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 401, 403, 404, 429                     | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## GetSponsorshipLevels

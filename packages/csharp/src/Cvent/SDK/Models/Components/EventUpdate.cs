@@ -193,7 +193,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom fields.
         /// </summary>
         [JsonProperty("customFields")]
-        public List<CustomFieldJson3>? CustomFields { get; set; }
+        public List<CustomFieldJson2>? CustomFields { get; set; }
 
         /// <summary>
         /// The category to which this event belongs (no longer supported).
@@ -206,7 +206,7 @@ namespace Cvent.SDK.Models.Components
         /// Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
         /// </summary>
         [JsonProperty("type")]
-        public EventTypeJson1 Type { get; set; } = default!;
+        public EventTypeJson Type { get; set; } = default!;
 
         /// <summary>
         /// Represents the links associated with an event.

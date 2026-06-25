@@ -5,29 +5,26 @@
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import {
-  AddressJsonInput,
-  AddressJsonInput$Outbound,
-  AddressJsonInput$outboundSchema,
-} from "./addressjsoninput.js";
+  AddressInput,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
+import { AddressType, AddressType$outboundSchema } from "./addresstype.js";
 import {
-  AddressTypeJson,
-  AddressTypeJson$outboundSchema,
-} from "./addresstypejson.js";
+  AttendeeContactTypeInput,
+  AttendeeContactTypeInput$Outbound,
+  AttendeeContactTypeInput$outboundSchema,
+} from "./attendeecontacttypeinput.js";
 import {
-  AttendeeContactTypeJsonInput,
-  AttendeeContactTypeJsonInput$Outbound,
-  AttendeeContactTypeJsonInput$outboundSchema,
-} from "./attendeecontacttypejsoninput.js";
+  ContactOptOutInput,
+  ContactOptOutInput$Outbound,
+  ContactOptOutInput$outboundSchema,
+} from "./contactoptoutinput.js";
 import {
-  OptOutJsonInput,
-  OptOutJsonInput$Outbound,
-  OptOutJsonInput$outboundSchema,
-} from "./optoutjsoninput.js";
-import {
-  PassportJsonInput,
-  PassportJsonInput$Outbound,
-  PassportJsonInput$outboundSchema,
-} from "./passportjsoninput.js";
+  PassportInput,
+  PassportInput$Outbound,
+  PassportInput$outboundSchema,
+} from "./passportinput.js";
 
 export type HomeAddress = {
   address3?: any | undefined;
@@ -80,11 +77,11 @@ export type ContactPatch = {
   /**
    * Contains details related to the attendee's contact type.
    */
-  type?: AttendeeContactTypeJsonInput | undefined;
+  type?: AttendeeContactTypeInput | undefined;
   /**
    * The type of address.
    */
-  primaryAddressType?: AddressTypeJson | undefined;
+  primaryAddressType?: AddressType | undefined;
   homeAddress?: HomeAddress | undefined;
   homePhone?: any | undefined;
   /**
@@ -94,7 +91,7 @@ export type ContactPatch = {
   /**
    * Contact address details.
    */
-  workAddress?: AddressJsonInput | undefined;
+  workAddress?: AddressInput | undefined;
   /**
    * The phone number of the contact at their place of work.
    */
@@ -122,7 +119,7 @@ export type ContactPatch = {
   /**
    * Details of an opt-out for a Contact.
    */
-  optOut?: OptOutJsonInput | undefined;
+  optOut?: ContactOptOutInput | undefined;
   /**
    * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
    */
@@ -142,7 +139,7 @@ export type ContactPatch = {
   /**
    * This entity represents a contact's passport information.
    */
-  passport?: PassportJsonInput | undefined;
+  passport?: PassportInput | undefined;
   socialSecurityNumber?: any | undefined;
   /**
    * The national identification number of the contact.
@@ -246,24 +243,24 @@ export type ContactPatch$Outbound = {
   company?: any | undefined;
   designation?: string | undefined;
   title?: any | undefined;
-  type?: AttendeeContactTypeJsonInput$Outbound | undefined;
+  type?: AttendeeContactTypeInput$Outbound | undefined;
   primaryAddressType?: string | undefined;
   homeAddress?: HomeAddress$Outbound | undefined;
   homePhone?: any | undefined;
   homeFax?: string | undefined;
-  workAddress?: AddressJsonInput$Outbound | undefined;
+  workAddress?: AddressInput$Outbound | undefined;
   workPhone?: string | undefined;
   workFax?: string | undefined;
   sourceId?: string | undefined;
   mobilePhone?: string | undefined;
   prefix?: string | undefined;
   pager?: string | undefined;
-  optOut?: OptOutJsonInput$Outbound | undefined;
+  optOut?: ContactOptOutInput$Outbound | undefined;
   npi?: string | undefined;
   _links?: ContactPatchLinks$Outbound | undefined;
   dateOfBirth?: any | undefined;
   passportNumber?: string | undefined;
-  passport?: PassportJsonInput$Outbound | undefined;
+  passport?: PassportInput$Outbound | undefined;
   socialSecurityNumber?: any | undefined;
   nationalIdentificationNumber?: string | undefined;
   headline?: string | undefined;
@@ -289,24 +286,24 @@ export const ContactPatch$outboundSchema: z.ZodType<
   company: z.any().optional(),
   designation: z.string().optional(),
   title: z.any().optional(),
-  type: AttendeeContactTypeJsonInput$outboundSchema.optional(),
-  primaryAddressType: AddressTypeJson$outboundSchema.optional(),
+  type: AttendeeContactTypeInput$outboundSchema.optional(),
+  primaryAddressType: AddressType$outboundSchema.optional(),
   homeAddress: z.lazy(() => HomeAddress$outboundSchema).optional(),
   homePhone: z.any().optional(),
   homeFax: z.string().optional(),
-  workAddress: AddressJsonInput$outboundSchema.optional(),
+  workAddress: AddressInput$outboundSchema.optional(),
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
   sourceId: z.string().optional(),
   mobilePhone: z.string().optional(),
   prefix: z.string().optional(),
   pager: z.string().optional(),
-  optOut: OptOutJsonInput$outboundSchema.optional(),
+  optOut: ContactOptOutInput$outboundSchema.optional(),
   npi: z.string().optional(),
   links: z.lazy(() => ContactPatchLinks$outboundSchema).optional(),
   dateOfBirth: z.any().optional(),
   passportNumber: z.string().optional(),
-  passport: PassportJsonInput$outboundSchema.optional(),
+  passport: PassportInput$outboundSchema.optional(),
   socialSecurityNumber: z.any().optional(),
   nationalIdentificationNumber: z.string().optional(),
   headline: z.string().optional(),

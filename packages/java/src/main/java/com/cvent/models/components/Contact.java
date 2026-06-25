@@ -101,7 +101,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("gender")
-    private GenderJson gender;
+    private Gender gender;
 
     /**
      * The company/organization the contact belongs to.
@@ -129,28 +129,28 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private AttendeeContactTypeJson type;
+    private AttendeeContactType type;
 
     /**
      * Contact Membership information
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("membership")
-    private MembershipJson membership;
+    private ContactMembership membership;
 
     /**
      * The type of address.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("primaryAddressType")
-    private AddressTypeJson primaryAddressType;
+    private AddressType primaryAddressType;
 
     /**
      * Contact address details.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("homeAddress")
-    private AddressJson homeAddress;
+    private Address homeAddress;
 
     /**
      * The phone number of the contact at their place of residence.
@@ -171,7 +171,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("workAddress")
-    private AddressJson workAddress;
+    private Address workAddress;
 
     /**
      * The phone number of the contact at their place of work.
@@ -214,7 +214,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("compliance")
-    private List<ComplianceJson> compliance;
+    private List<Compliance> compliance;
 
     /**
      * Denotes what is traditionally a title of an individual.
@@ -251,7 +251,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("optOut")
-    private OptOutJson optOut;
+    private ContactOptOut optOut;
 
     /**
      * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for
@@ -266,7 +266,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("_links")
-    private ContactLinksJson links;
+    private ContactLinks links;
 
     /**
      * The date of birth of the contact.
@@ -297,7 +297,7 @@ public class Contact {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("passport")
-    private PassportJson passport;
+    private Passport passport;
 
     /**
      * The social security number of the contact.
@@ -380,33 +380,33 @@ public class Contact {
             @JsonProperty("nickname") @Nullable String nickname,
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("ccEmail") @Nullable String ccEmail,
-            @JsonProperty("gender") @Nullable GenderJson gender,
+            @JsonProperty("gender") @Nullable Gender gender,
             @JsonProperty("company") @Nullable String company,
             @JsonProperty("designation") @Nullable String designation,
             @JsonProperty("title") @Nullable String title,
-            @JsonProperty("type") @Nullable AttendeeContactTypeJson type,
-            @JsonProperty("membership") @Nullable MembershipJson membership,
-            @JsonProperty("primaryAddressType") @Nullable AddressTypeJson primaryAddressType,
-            @JsonProperty("homeAddress") @Nullable AddressJson homeAddress,
+            @JsonProperty("type") @Nullable AttendeeContactType type,
+            @JsonProperty("membership") @Nullable ContactMembership membership,
+            @JsonProperty("primaryAddressType") @Nullable AddressType primaryAddressType,
+            @JsonProperty("homeAddress") @Nullable Address homeAddress,
             @JsonProperty("homePhone") @Nullable String homePhone,
             @JsonProperty("homeFax") @Nullable String homeFax,
-            @JsonProperty("workAddress") @Nullable AddressJson workAddress,
+            @JsonProperty("workAddress") @Nullable Address workAddress,
             @JsonProperty("workPhone") @Nullable String workPhone,
             @JsonProperty("workFax") @Nullable String workFax,
             @JsonProperty("customFields") @Nullable List<CustomField> customFields,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
-            @JsonProperty("compliance") @Nullable List<ComplianceJson> compliance,
+            @JsonProperty("compliance") @Nullable List<Compliance> compliance,
             @JsonProperty("prefix") @Nullable String prefix,
             @JsonProperty("pager") @Nullable String pager,
             @JsonProperty("deleted") @Nullable Boolean deleted,
             @JsonProperty("purged") @Nullable Boolean purged,
-            @JsonProperty("optOut") @Nullable OptOutJson optOut,
+            @JsonProperty("optOut") @Nullable ContactOptOut optOut,
             @JsonProperty("npi") @Nullable String npi,
-            @JsonProperty("_links") @Nullable ContactLinksJson links,
+            @JsonProperty("_links") @Nullable ContactLinks links,
             @JsonProperty("dateOfBirth") @Nullable LocalDate dateOfBirth,
             @JsonProperty("passportNumber") @Nullable String passportNumber,
-            @JsonProperty("passport") @Nullable PassportJson passport,
+            @JsonProperty("passport") @Nullable Passport passport,
             @JsonProperty("socialSecurityNumber") @Nullable String socialSecurityNumber,
             @JsonProperty("nationalIdentificationNumber") @Nullable String nationalIdentificationNumber,
             @JsonProperty("headline") @Nullable String headline,
@@ -587,7 +587,7 @@ public class Contact {
     /**
      * The gender of the contact.
      */
-    public Optional<GenderJson> gender() {
+    public Optional<Gender> gender() {
         return Optional.ofNullable(this.gender);
     }
 
@@ -615,28 +615,28 @@ public class Contact {
     /**
      * Contains details related to the attendee's contact type.
      */
-    public Optional<AttendeeContactTypeJson> type() {
+    public Optional<AttendeeContactType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * Contact Membership information
      */
-    public Optional<MembershipJson> membership() {
+    public Optional<ContactMembership> membership() {
         return Optional.ofNullable(this.membership);
     }
 
     /**
      * The type of address.
      */
-    public Optional<AddressTypeJson> primaryAddressType() {
+    public Optional<AddressType> primaryAddressType() {
         return Optional.ofNullable(this.primaryAddressType);
     }
 
     /**
      * Contact address details.
      */
-    public Optional<AddressJson> homeAddress() {
+    public Optional<Address> homeAddress() {
         return Optional.ofNullable(this.homeAddress);
     }
 
@@ -657,7 +657,7 @@ public class Contact {
     /**
      * Contact address details.
      */
-    public Optional<AddressJson> workAddress() {
+    public Optional<Address> workAddress() {
         return Optional.ofNullable(this.workAddress);
     }
 
@@ -700,7 +700,7 @@ public class Contact {
     /**
      * Detail related to compliance with the contact's privacy rights under various legislation.
      */
-    public Optional<List<ComplianceJson>> compliance() {
+    public Optional<List<Compliance>> compliance() {
         return Optional.ofNullable(this.compliance);
     }
 
@@ -737,7 +737,7 @@ public class Contact {
     /**
      * Details of an opt-out for a Contact.
      */
-    public Optional<OptOutJson> optOut() {
+    public Optional<ContactOptOut> optOut() {
         return Optional.ofNullable(this.optOut);
     }
 
@@ -752,7 +752,7 @@ public class Contact {
     /**
      * Collection of social media links for the contact.
      */
-    public Optional<ContactLinksJson> links() {
+    public Optional<ContactLinks> links() {
         return Optional.ofNullable(this.links);
     }
 
@@ -783,7 +783,7 @@ public class Contact {
     /**
      * This entity represents a contact's passport information.
      */
-    public Optional<PassportJson> passport() {
+    public Optional<Passport> passport() {
         return Optional.ofNullable(this.passport);
     }
 
@@ -943,7 +943,7 @@ public class Contact {
     /**
      * The gender of the contact.
      */
-    public Contact withGender(@Nullable GenderJson gender) {
+    public Contact withGender(@Nullable Gender gender) {
         this.gender = gender;
         return this;
     }
@@ -975,7 +975,7 @@ public class Contact {
     /**
      * Contains details related to the attendee's contact type.
      */
-    public Contact withType(@Nullable AttendeeContactTypeJson type) {
+    public Contact withType(@Nullable AttendeeContactType type) {
         this.type = type;
         return this;
     }
@@ -983,7 +983,7 @@ public class Contact {
     /**
      * Contact Membership information
      */
-    public Contact withMembership(@Nullable MembershipJson membership) {
+    public Contact withMembership(@Nullable ContactMembership membership) {
         this.membership = membership;
         return this;
     }
@@ -991,7 +991,7 @@ public class Contact {
     /**
      * The type of address.
      */
-    public Contact withPrimaryAddressType(@Nullable AddressTypeJson primaryAddressType) {
+    public Contact withPrimaryAddressType(@Nullable AddressType primaryAddressType) {
         this.primaryAddressType = primaryAddressType;
         return this;
     }
@@ -999,7 +999,7 @@ public class Contact {
     /**
      * Contact address details.
      */
-    public Contact withHomeAddress(@Nullable AddressJson homeAddress) {
+    public Contact withHomeAddress(@Nullable Address homeAddress) {
         this.homeAddress = homeAddress;
         return this;
     }
@@ -1023,7 +1023,7 @@ public class Contact {
     /**
      * Contact address details.
      */
-    public Contact withWorkAddress(@Nullable AddressJson workAddress) {
+    public Contact withWorkAddress(@Nullable Address workAddress) {
         this.workAddress = workAddress;
         return this;
     }
@@ -1072,7 +1072,7 @@ public class Contact {
     /**
      * Detail related to compliance with the contact's privacy rights under various legislation.
      */
-    public Contact withCompliance(@Nullable List<ComplianceJson> compliance) {
+    public Contact withCompliance(@Nullable List<Compliance> compliance) {
         this.compliance = compliance;
         return this;
     }
@@ -1114,7 +1114,7 @@ public class Contact {
     /**
      * Details of an opt-out for a Contact.
      */
-    public Contact withOptOut(@Nullable OptOutJson optOut) {
+    public Contact withOptOut(@Nullable ContactOptOut optOut) {
         this.optOut = optOut;
         return this;
     }
@@ -1131,7 +1131,7 @@ public class Contact {
     /**
      * Collection of social media links for the contact.
      */
-    public Contact withLinks(@Nullable ContactLinksJson links) {
+    public Contact withLinks(@Nullable ContactLinks links) {
         this.links = links;
         return this;
     }
@@ -1165,7 +1165,7 @@ public class Contact {
     /**
      * This entity represents a contact's passport information.
      */
-    public Contact withPassport(@Nullable PassportJson passport) {
+    public Contact withPassport(@Nullable Passport passport) {
         this.passport = passport;
         return this;
     }
@@ -1477,7 +1477,7 @@ public class Contact {
 
         private String ccEmail;
 
-        private GenderJson gender;
+        private Gender gender;
 
         private String company;
 
@@ -1485,19 +1485,19 @@ public class Contact {
 
         private String title;
 
-        private AttendeeContactTypeJson type;
+        private AttendeeContactType type;
 
-        private MembershipJson membership;
+        private ContactMembership membership;
 
-        private AddressTypeJson primaryAddressType;
+        private AddressType primaryAddressType;
 
-        private AddressJson homeAddress;
+        private Address homeAddress;
 
         private String homePhone;
 
         private String homeFax;
 
-        private AddressJson workAddress;
+        private Address workAddress;
 
         private String workPhone;
 
@@ -1509,7 +1509,7 @@ public class Contact {
 
         private String mobilePhone;
 
-        private List<ComplianceJson> compliance;
+        private List<Compliance> compliance;
 
         private String prefix;
 
@@ -1519,18 +1519,18 @@ public class Contact {
 
         private Boolean purged;
 
-        private OptOutJson optOut;
+        private ContactOptOut optOut;
 
         private String npi;
 
-        private ContactLinksJson links;
+        private ContactLinks links;
 
         private LocalDate dateOfBirth;
 
         @Deprecated
         private String passportNumber;
 
-        private PassportJson passport;
+        private Passport passport;
 
         private String socialSecurityNumber;
 
@@ -1637,7 +1637,7 @@ public class Contact {
         /**
          * The gender of the contact.
          */
-        public Builder gender(@Nullable GenderJson gender) {
+        public Builder gender(@Nullable Gender gender) {
             this.gender = gender;
             return this;
         }
@@ -1669,7 +1669,7 @@ public class Contact {
         /**
          * Contains details related to the attendee's contact type.
          */
-        public Builder type(@Nullable AttendeeContactTypeJson type) {
+        public Builder type(@Nullable AttendeeContactType type) {
             this.type = type;
             return this;
         }
@@ -1677,7 +1677,7 @@ public class Contact {
         /**
          * Contact Membership information
          */
-        public Builder membership(@Nullable MembershipJson membership) {
+        public Builder membership(@Nullable ContactMembership membership) {
             this.membership = membership;
             return this;
         }
@@ -1685,7 +1685,7 @@ public class Contact {
         /**
          * The type of address.
          */
-        public Builder primaryAddressType(@Nullable AddressTypeJson primaryAddressType) {
+        public Builder primaryAddressType(@Nullable AddressType primaryAddressType) {
             this.primaryAddressType = primaryAddressType;
             return this;
         }
@@ -1693,7 +1693,7 @@ public class Contact {
         /**
          * Contact address details.
          */
-        public Builder homeAddress(@Nullable AddressJson homeAddress) {
+        public Builder homeAddress(@Nullable Address homeAddress) {
             this.homeAddress = homeAddress;
             return this;
         }
@@ -1717,7 +1717,7 @@ public class Contact {
         /**
          * Contact address details.
          */
-        public Builder workAddress(@Nullable AddressJson workAddress) {
+        public Builder workAddress(@Nullable Address workAddress) {
             this.workAddress = workAddress;
             return this;
         }
@@ -1766,7 +1766,7 @@ public class Contact {
         /**
          * Detail related to compliance with the contact's privacy rights under various legislation.
          */
-        public Builder compliance(@Nullable List<ComplianceJson> compliance) {
+        public Builder compliance(@Nullable List<Compliance> compliance) {
             this.compliance = compliance;
             return this;
         }
@@ -1808,7 +1808,7 @@ public class Contact {
         /**
          * Details of an opt-out for a Contact.
          */
-        public Builder optOut(@Nullable OptOutJson optOut) {
+        public Builder optOut(@Nullable ContactOptOut optOut) {
             this.optOut = optOut;
             return this;
         }
@@ -1825,7 +1825,7 @@ public class Contact {
         /**
          * Collection of social media links for the contact.
          */
-        public Builder links(@Nullable ContactLinksJson links) {
+        public Builder links(@Nullable ContactLinks links) {
             this.links = links;
             return this;
         }
@@ -1859,7 +1859,7 @@ public class Contact {
         /**
          * This entity represents a contact's passport information.
          */
-        public Builder passport(@Nullable PassportJson passport) {
+        public Builder passport(@Nullable Passport passport) {
             this.passport = passport;
             return this;
         }

@@ -13,12 +13,12 @@ namespace Cvent.SDK.Models.Components
     using Newtonsoft.Json;
 
     /// <summary>
-    /// An event reference used in attendee insights to identify the event context for engagement data.
+    /// Details of the event.
     /// </summary>
     public class EventJson6
     {
         /// <summary>
-        /// A unique identifier (UUID) for the event where the engagement score applies.
+        /// The unique ID of the event.
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; } = default!;

@@ -6,27 +6,33 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ItemJson,
+  ItemJson$inboundSchema,
+  ItemJson$Outbound,
+  ItemJson$outboundSchema,
+} from "./itemjson.js";
 
 /**
- * A question category.
+ * A category of items.
  */
 export type CategoryJson = {
   /**
-   * Text field ID.
+   * The category type.
    */
-  id?: string | undefined;
+  type?: string | undefined;
   /**
-   * Text value of the field. Displays to users in the UI.
+   * The name of the category.
    */
-  text?: string | undefined;
+  name?: string | undefined;
   /**
-   * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+   * Total cost for all items within this category.
    */
-  shortText?: string | undefined;
+  totalCost?: number | undefined;
   /**
-   * True indicates the category is mandatory for answer.
+   * List of items in this category.
    */
-  required: boolean;
+  items?: Array<ItemJson> | undefined;
 };
 
 /** @internal */
@@ -35,12 +41,34 @@ export const CategoryJson$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  text: z.string().optional(),
-  shortText: z.string().optional(),
-  required: z.boolean().default(false),
+  type: z.string().optional(),
+  name: z.string().optional(),
+  totalCost: z.number().optional(),
+  items: z.array(ItemJson$inboundSchema).optional(),
+});
+/** @internal */
+export type CategoryJson$Outbound = {
+  type?: string | undefined;
+  name?: string | undefined;
+  totalCost?: number | undefined;
+  items?: Array<ItemJson$Outbound> | undefined;
+};
+
+/** @internal */
+export const CategoryJson$outboundSchema: z.ZodType<
+  CategoryJson$Outbound,
+  z.ZodTypeDef,
+  CategoryJson
+> = z.object({
+  type: z.string().optional(),
+  name: z.string().optional(),
+  totalCost: z.number().optional(),
+  items: z.array(ItemJson$outboundSchema).optional(),
 });
 
+export function categoryJsonToJSON(categoryJson: CategoryJson): string {
+  return JSON.stringify(CategoryJson$outboundSchema.parse(categoryJson));
+}
 export function categoryJsonFromJSON(
   jsonString: string,
 ): SafeParseResult<CategoryJson, SDKValidationError> {

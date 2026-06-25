@@ -77,21 +77,21 @@ public class TravelProgram {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private TravelProgramTypeJson type;
+    private TravelProgramType type;
 
     /**
      * Code representing the format of the travel program.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("format")
-    private TravelProgramFormatTypeJson format;
+    private TravelProgramFormatType format;
 
     /**
      * Code representing the status of the travel program.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    private TravelProgramStatusJson status;
+    private TravelProgramStatus status;
 
     /**
      * Travel account that the program belongs to.
@@ -106,7 +106,7 @@ public class TravelProgram {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("stayType")
-    private TravelProgramStayTypeJson stayType;
+    private TravelProgramStayType stayType;
 
     /**
      * The ISO 8601 formatted start date (in GMT) of the travel program.
@@ -141,7 +141,7 @@ public class TravelProgram {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("questions")
-    private List<TravelProgramQuestionJson> questions;
+    private List<TravelProgramQuestion1> questions;
 
     @JsonCreator
     public TravelProgram(
@@ -152,16 +152,16 @@ public class TravelProgram {
             @JsonProperty("id") @Nullable String id,
             @JsonProperty("name") @Nullable String name,
             @JsonProperty("contractPeriod") @Nullable Long contractPeriod,
-            @JsonProperty("type") @Nullable TravelProgramTypeJson type,
-            @JsonProperty("format") @Nullable TravelProgramFormatTypeJson format,
-            @JsonProperty("status") @Nullable TravelProgramStatusJson status,
+            @JsonProperty("type") @Nullable TravelProgramType type,
+            @JsonProperty("format") @Nullable TravelProgramFormatType format,
+            @JsonProperty("status") @Nullable TravelProgramStatus status,
             @JsonProperty("travelAccount") @Nullable TravelProgramTravelAccount travelAccount,
-            @JsonProperty("stayType") @Nullable TravelProgramStayTypeJson stayType,
+            @JsonProperty("stayType") @Nullable TravelProgramStayType stayType,
             @JsonProperty("startDate") @Nullable LocalDate startDate,
             @JsonProperty("endDate") @Nullable LocalDate endDate,
             @JsonProperty("dueDate") @Nullable LocalDate dueDate,
             @JsonProperty("closeoutDate") @Nullable LocalDate closeoutDate,
-            @JsonProperty("questions") @Nullable List<TravelProgramQuestionJson> questions) {
+            @JsonProperty("questions") @Nullable List<TravelProgramQuestion1> questions) {
         this.created = created;
         this.createdBy = createdBy;
         this.lastModified = lastModified;
@@ -237,21 +237,21 @@ public class TravelProgram {
     /**
      * Code representing the travel program type.
      */
-    public Optional<TravelProgramTypeJson> type() {
+    public Optional<TravelProgramType> type() {
         return Optional.ofNullable(this.type);
     }
 
     /**
      * Code representing the format of the travel program.
      */
-    public Optional<TravelProgramFormatTypeJson> format() {
+    public Optional<TravelProgramFormatType> format() {
         return Optional.ofNullable(this.format);
     }
 
     /**
      * Code representing the status of the travel program.
      */
-    public Optional<TravelProgramStatusJson> status() {
+    public Optional<TravelProgramStatus> status() {
         return Optional.ofNullable(this.status);
     }
 
@@ -266,7 +266,7 @@ public class TravelProgram {
      * Code representing the stay types requested by the program. Programs can accept daily only, or daily
      * and extended stay proposals.
      */
-    public Optional<TravelProgramStayTypeJson> stayType() {
+    public Optional<TravelProgramStayType> stayType() {
         return Optional.ofNullable(this.stayType);
     }
 
@@ -301,7 +301,7 @@ public class TravelProgram {
     /**
      * A list of program specific questions for the supplier to answer as part of their proposal.
      */
-    public Optional<List<TravelProgramQuestionJson>> questions() {
+    public Optional<List<TravelProgramQuestion1>> questions() {
         return Optional.ofNullable(this.questions);
     }
 
@@ -368,7 +368,7 @@ public class TravelProgram {
     /**
      * Code representing the travel program type.
      */
-    public TravelProgram withType(@Nullable TravelProgramTypeJson type) {
+    public TravelProgram withType(@Nullable TravelProgramType type) {
         this.type = type;
         return this;
     }
@@ -376,7 +376,7 @@ public class TravelProgram {
     /**
      * Code representing the format of the travel program.
      */
-    public TravelProgram withFormat(@Nullable TravelProgramFormatTypeJson format) {
+    public TravelProgram withFormat(@Nullable TravelProgramFormatType format) {
         this.format = format;
         return this;
     }
@@ -384,7 +384,7 @@ public class TravelProgram {
     /**
      * Code representing the status of the travel program.
      */
-    public TravelProgram withStatus(@Nullable TravelProgramStatusJson status) {
+    public TravelProgram withStatus(@Nullable TravelProgramStatus status) {
         this.status = status;
         return this;
     }
@@ -401,7 +401,7 @@ public class TravelProgram {
      * Code representing the stay types requested by the program. Programs can accept daily only, or daily
      * and extended stay proposals.
      */
-    public TravelProgram withStayType(@Nullable TravelProgramStayTypeJson stayType) {
+    public TravelProgram withStayType(@Nullable TravelProgramStayType stayType) {
         this.stayType = stayType;
         return this;
     }
@@ -441,7 +441,7 @@ public class TravelProgram {
     /**
      * A list of program specific questions for the supplier to answer as part of their proposal.
      */
-    public TravelProgram withQuestions(@Nullable List<TravelProgramQuestionJson> questions) {
+    public TravelProgram withQuestions(@Nullable List<TravelProgramQuestion1> questions) {
         this.questions = questions;
         return this;
     }
@@ -553,15 +553,15 @@ public class TravelProgram {
 
         private Long contractPeriod;
 
-        private TravelProgramTypeJson type;
+        private TravelProgramType type;
 
-        private TravelProgramFormatTypeJson format;
+        private TravelProgramFormatType format;
 
-        private TravelProgramStatusJson status;
+        private TravelProgramStatus status;
 
         private TravelProgramTravelAccount travelAccount;
 
-        private TravelProgramStayTypeJson stayType;
+        private TravelProgramStayType stayType;
 
         private LocalDate startDate;
 
@@ -571,7 +571,7 @@ public class TravelProgram {
 
         private LocalDate closeoutDate;
 
-        private List<TravelProgramQuestionJson> questions;
+        private List<TravelProgramQuestion1> questions;
 
         private Builder() {
             // force use of static builder() method
@@ -636,7 +636,7 @@ public class TravelProgram {
         /**
          * Code representing the travel program type.
          */
-        public Builder type(@Nullable TravelProgramTypeJson type) {
+        public Builder type(@Nullable TravelProgramType type) {
             this.type = type;
             return this;
         }
@@ -644,7 +644,7 @@ public class TravelProgram {
         /**
          * Code representing the format of the travel program.
          */
-        public Builder format(@Nullable TravelProgramFormatTypeJson format) {
+        public Builder format(@Nullable TravelProgramFormatType format) {
             this.format = format;
             return this;
         }
@@ -652,7 +652,7 @@ public class TravelProgram {
         /**
          * Code representing the status of the travel program.
          */
-        public Builder status(@Nullable TravelProgramStatusJson status) {
+        public Builder status(@Nullable TravelProgramStatus status) {
             this.status = status;
             return this;
         }
@@ -669,7 +669,7 @@ public class TravelProgram {
          * Code representing the stay types requested by the program. Programs can accept daily only, or daily
          * and extended stay proposals.
          */
-        public Builder stayType(@Nullable TravelProgramStayTypeJson stayType) {
+        public Builder stayType(@Nullable TravelProgramStayType stayType) {
             this.stayType = stayType;
             return this;
         }
@@ -709,7 +709,7 @@ public class TravelProgram {
         /**
          * A list of program specific questions for the supplier to answer as part of their proposal.
          */
-        public Builder questions(@Nullable List<TravelProgramQuestionJson> questions) {
+        public Builder questions(@Nullable List<TravelProgramQuestion1> questions) {
             this.questions = questions;
             return this;
         }

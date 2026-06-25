@@ -14,32 +14,29 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// The type of question. See <a href="https://support.cvent.com/s/communityarticle/Survey-Adding-Questions">this article</a> for details on each enum.
+    /// Denotes the type of data collected by a question.
     /// </summary>
     public enum QuestionTypeJson
     {
-        [JsonProperty("CommentBox")] CommentBox,
+        [JsonProperty("AutoIncrement")] AutoIncrement,
+        [JsonProperty("BudgetEstimates")] BudgetEstimates,
+        [JsonProperty("ConsentQuestion")] ConsentQuestion,
+        [JsonProperty("Country")] Country,
+        [JsonProperty("Currency")] Currency,
+        [JsonProperty("Decimal")] Decimal,
+        [JsonProperty("Date")] Date,
         [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Email")] Email,
         [JsonProperty("FileUpload")] FileUpload,
-        [JsonProperty("Form")] Form,
-        [JsonProperty("LargeChoices")] LargeChoices,
-        [JsonProperty("MatrixMultiChoice")] MatrixMultiChoice,
-        [JsonProperty("MatrixRating")] MatrixRating,
-        [JsonProperty("MatrixSideBySide")] MatrixSideBySide,
-        [JsonProperty("MatrixSingleChoice")] MatrixSingleChoice,
-        [JsonProperty("MatrixSpreadSheet")] MatrixSpreadSheet,
-        [JsonProperty("MultiChoice")] MultiChoice,
-        [JsonProperty("NetPromoter")] NetPromoter,
+        [JsonProperty("FreeText")] FreeText,
+        [JsonProperty("General")] General,
         [JsonProperty("Number")] Number,
-        [JsonProperty("NumberAllocation")] NumberAllocation,
-        [JsonProperty("OpenEndedDateTime")] OpenEndedDateTime,
-        [JsonProperty("OpenEndedNumeric")] OpenEndedNumeric,
-        [JsonProperty("OpenEndedTextCommentBox")] OpenEndedTextCommentBox,
-        [JsonProperty("OpenEndedTextOneLine")] OpenEndedTextOneLine,
-        [JsonProperty("RankOrder")] RankOrder,
-        [JsonProperty("Rating")] Rating,
-        [JsonProperty("SingleChoice")] SingleChoice,
-        [JsonProperty("Text")] Text,
+        [JsonProperty("MeetingRoomRequirements")] MeetingRoomRequirements,
+        [JsonProperty("MultiSelect")] MultiSelect,
+        [JsonProperty("SingleSelect")] SingleSelect,
+        [JsonProperty("SleepingRoomRequirements")] SleepingRoomRequirements,
+        [JsonProperty("USPhoneNumber")] USPhoneNumber,
+        [JsonProperty("Unknown")] Unknown,
     }
 
     public static class QuestionTypeJsonExtension

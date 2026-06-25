@@ -19,7 +19,10 @@ public enum ExistingDurationType {
     EDIT("EDIT"),
     LIVE("LIVE"),
     ON_DEMAND("ON_DEMAND"),
-    API("API");
+    API("API"),
+    MANUAL("MANUAL"),
+    IMPORT("IMPORT"),
+    EVENTAPP("EVENTAPP");
 
     @JsonValue
     private final String value;

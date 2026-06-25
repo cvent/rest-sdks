@@ -66,13 +66,13 @@ namespace Cvent.SDK.Models.Components
         /// Date requirements for the event.
         /// </summary>
         [JsonProperty("dateRequirements")]
-        public DateRequirementsJson0? DateRequirements { get; set; }
+        public DateRequirements1? DateRequirements { get; set; }
 
         /// <summary>
         /// RFP event details.
         /// </summary>
         [JsonProperty("rfpEvent")]
-        public RfpEventJson? RfpEvent { get; set; }
+        public RfpEvent? RfpEvent { get; set; }
 
         /// <summary>
         /// The ISO 8601 date representing the start date of agenda.
@@ -84,13 +84,13 @@ namespace Cvent.SDK.Models.Components
         /// Contact details of planner.
         /// </summary>
         [JsonProperty("contact")]
-        public ContactJson0? Contact { get; set; }
+        public Contact1? Contact { get; set; }
 
         /// <summary>
         /// Details of organization which is hosting the event.
         /// </summary>
         [JsonProperty("rfpEventOrganization")]
-        public RfpEventOrganizationJson? RfpEventOrganization { get; set; }
+        public EventOrganization1? RfpEventOrganization { get; set; }
 
         /// <summary>
         /// Decision factors based on which RFP will be awarded. These can be price, location, or quality of service.
@@ -120,7 +120,7 @@ namespace Cvent.SDK.Models.Components
         /// Billing details for RFP.
         /// </summary>
         [JsonProperty("billingDetails")]
-        public BillingDetailsJson0? BillingDetails { get; set; }
+        public BillingDetails1? BillingDetails { get; set; }
 
         /// <summary>
         /// Internal note for planners. This note is not shared with suppliers.
@@ -135,22 +135,26 @@ namespace Cvent.SDK.Models.Components
         public string? CurrencyCode { get; set; }
 
         /// <summary>
-        /// Measurement unit.
+        /// Unit of measurement for area or space.<br/>
+        /// <br/>
+        /// Values:<br/>
+        /// - `SQUARE_FEET` — Square Feet<br/>
+        /// - `SQUARE_METERS` — Square Meters.
         /// </summary>
         [JsonProperty("measurementUnit")]
-        public MeasurementUnitJson0? MeasurementUnit { get; set; }
+        public MeasurementUnit? MeasurementUnit { get; set; }
 
         /// <summary>
         /// This contains cost items which are marked as required for suppliers in the RFP.
         /// </summary>
         [JsonProperty("requiredCostItems")]
-        public List<OfferingCostTypeJson0>? RequiredCostItems { get; set; }
+        public List<OfferingCostType1>? RequiredCostItems { get; set; }
 
         /// <summary>
         /// This contains cost items which are marked as not needed for suppliers in the RFP.
         /// </summary>
         [JsonProperty("hiddenCostItems")]
-        public List<OfferingCostTypeJson0>? HiddenCostItems { get; set; }
+        public List<OfferingCostType1>? HiddenCostItems { get; set; }
 
         /// <summary>
         /// True indicates suppliers added on the RFP should be allowed to forward the RFP.
@@ -174,7 +178,7 @@ namespace Cvent.SDK.Models.Components
         /// This contains recipients who would get notified every time a new response is received back from the suppliers.
         /// </summary>
         [JsonProperty("notificationRecipients")]
-        public List<RecipientInfoJson0>? NotificationRecipients { get; set; }
+        public List<RecipientInfo>? NotificationRecipients { get; set; }
 
         /// <summary>
         /// True indicates award details can be shared with other suppliers added in RFP.
@@ -186,7 +190,7 @@ namespace Cvent.SDK.Models.Components
         /// Lead source details.
         /// </summary>
         [JsonProperty("leadSource")]
-        public LeadSourceJson? LeadSource { get; set; }
+        public LeadSource? LeadSource { get; set; }
 
         /// <summary>
         /// Unique identifier for RFPs originating from outside Cvent network provided by source system where RFP was created.
@@ -216,7 +220,7 @@ namespace Cvent.SDK.Models.Components
         /// Wedding details.
         /// </summary>
         [JsonProperty("weddingDetails")]
-        public WeddingDetailsJson0? WeddingDetails { get; set; }
+        public WeddingDetails1? WeddingDetails { get; set; }
 
         /// <summary>
         /// True indicates catering is required.
@@ -228,7 +232,7 @@ namespace Cvent.SDK.Models.Components
         /// Represents different preferences by planner for pricing packages response that supplier has to provide. NO_PREFERENCE means no pricing package information is need, OPTIONAL means it's not mandatory to provide pricing preference, and REQUIRED means package information is mandatory to be provided by supplier.
         /// </summary>
         [JsonProperty("packagePricingPreference")]
-        public PackagePricingPreferenceJson? PackagePricingPreference { get; set; } = Cvent.SDK.Models.Components.PackagePricingPreferenceJson.NoPreference;
+        public PackagePricingPreference? PackagePricingPreference { get; set; } = Cvent.SDK.Models.Components.PackagePricingPreference.NoPreference;
 
         /// <summary>
         /// True indicates RFP was created with fee transparency enabled.
@@ -252,13 +256,13 @@ namespace Cvent.SDK.Models.Components
         /// Represents state of the RFP.
         /// </summary>
         [JsonProperty("status")]
-        public RfpStatusJson0? Status { get; set; }
+        public RfpStatus1? Status { get; set; }
 
         /// <summary>
         /// RFP types based on event requirements.
         /// </summary>
         [JsonProperty("type")]
-        public RfpTypeJson0? Type { get; set; }
+        public RfpType1? Type { get; set; }
 
         /// <summary>
         /// Details of the user who approved the RFP.
@@ -282,7 +286,7 @@ namespace Cvent.SDK.Models.Components
         /// Information about cancellation of RFP.
         /// </summary>
         [JsonProperty("cancellationDetails")]
-        public CancellationDetailsJson? CancellationDetails { get; set; }
+        public CancellationDetails? CancellationDetails { get; set; }
 
         /// <summary>
         /// The ISO 8601 date time (in UTC) when RFP was last sent.

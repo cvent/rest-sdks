@@ -8,9 +8,9 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  CustomFieldJson3,
-  CustomFieldJson3$inboundSchema,
-} from "./customfieldjson3.js";
+  CustomFieldJson2,
+  CustomFieldJson2$inboundSchema,
+} from "./customfieldjson2.js";
 import {
   EventFormatJson,
   EventFormatJson$inboundSchema,
@@ -27,10 +27,7 @@ import {
   EventStatusJson,
   EventStatusJson$inboundSchema,
 } from "./eventstatusjson.js";
-import {
-  EventTypeJson1,
-  EventTypeJson1$inboundSchema,
-} from "./eventtypejson1.js";
+import { EventTypeJson, EventTypeJson$inboundSchema } from "./eventtypejson.js";
 import { PlannerJson2, PlannerJson2$inboundSchema } from "./plannerjson2.js";
 import {
   RegistrationStatusJson,
@@ -183,7 +180,7 @@ export type EventUpdate = {
   /**
    * Collection of custom fields.
    */
-  customFields?: Array<CustomFieldJson3> | undefined;
+  customFields?: Array<CustomFieldJson2> | undefined;
   /**
    * The category to which this event belongs (no longer supported).
    *
@@ -193,7 +190,7 @@ export type EventUpdate = {
   /**
    * Type of event being created. The following event types are not supported: Cvent Webinar, Cvent Essentials.
    */
-  type: EventTypeJson1;
+  type: EventTypeJson;
   /**
    * Represents the links associated with an event.
    */
@@ -281,9 +278,9 @@ export const EventUpdate$inboundSchema: z.ZodType<
   capacity: z.number().int().optional(),
   planners: z.array(PlannerJson2$inboundSchema),
   stakeholders: z.array(StakeholderJson$inboundSchema).optional(),
-  customFields: z.array(CustomFieldJson3$inboundSchema).optional(),
+  customFields: z.array(CustomFieldJson2$inboundSchema).optional(),
   category: z.lazy(() => EventUpdateLookup$inboundSchema).optional(),
-  type: EventTypeJson1$inboundSchema,
+  type: EventTypeJson$inboundSchema,
   _links: EventLinksJson$inboundSchema.optional(),
   created: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),

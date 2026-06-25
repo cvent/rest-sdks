@@ -101,7 +101,7 @@ public class Application {
                     .notes("Estimated cost includes taxes.")
                     .build())
                 .contacts(List.of(
-                    ContactJson1.builder()
+                    ContactJson.builder()
                         .firstName("Saurabh")
                         .lastName("Sachdeva")
                         .organizationWebsite("www.cvent.com")
@@ -120,7 +120,7 @@ public class Application {
                         .notes("Available between 8am - 5pm.")
                         .build()))
                 .plannerContacts(List.of(
-                    ContactJson1.builder()
+                    ContactJson.builder()
                         .firstName("Saurabh")
                         .lastName("Sachdeva")
                         .organizationWebsite("www.cvent.com")

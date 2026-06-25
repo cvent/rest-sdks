@@ -22,18 +22,18 @@ public class MessageRecipientsPaginatedResponse {
      * Represents pagination information for a collection of resources.
      */
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * Collection of channel members.
      */
     @JsonProperty("data")
-    private List<MessageRecipientsResponseJson> data;
+    private List<MessageRecipientResponse> data;
 
     @JsonCreator
     public MessageRecipientsPaginatedResponse(
-            @JsonProperty("paging") @Nonnull PagingJson paging,
-            @JsonProperty("data") @Nonnull List<MessageRecipientsResponseJson> data) {
+            @JsonProperty("paging") @Nonnull Paging paging,
+            @JsonProperty("data") @Nonnull List<MessageRecipientResponse> data) {
         this.paging =
                 Optional.ofNullable(paging).orElseThrow(() -> new IllegalArgumentException("paging cannot be null"));
         this.data = Optional.ofNullable(data).orElseThrow(() -> new IllegalArgumentException("data cannot be null"));
@@ -42,14 +42,14 @@ public class MessageRecipientsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public PagingJson paging() {
+    public Paging paging() {
         return this.paging;
     }
 
     /**
      * Collection of channel members.
      */
-    public List<MessageRecipientsResponseJson> data() {
+    public List<MessageRecipientResponse> data() {
         return this.data;
     }
 
@@ -60,7 +60,7 @@ public class MessageRecipientsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public MessageRecipientsPaginatedResponse withPaging(@Nonnull PagingJson paging) {
+    public MessageRecipientsPaginatedResponse withPaging(@Nonnull Paging paging) {
         this.paging = Utils.checkNotNull(paging, "paging");
         return this;
     }
@@ -68,7 +68,7 @@ public class MessageRecipientsPaginatedResponse {
     /**
      * Collection of channel members.
      */
-    public MessageRecipientsPaginatedResponse withData(@Nonnull List<MessageRecipientsResponseJson> data) {
+    public MessageRecipientsPaginatedResponse withData(@Nonnull List<MessageRecipientResponse> data) {
         this.data = Utils.checkNotNull(data, "data");
         return this;
     }
@@ -98,9 +98,9 @@ public class MessageRecipientsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<MessageRecipientsResponseJson> data;
+        private List<MessageRecipientResponse> data;
 
         private Builder() {
             // force use of static builder() method
@@ -109,7 +109,7 @@ public class MessageRecipientsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nonnull PagingJson paging) {
+        public Builder paging(@Nonnull Paging paging) {
             this.paging = Utils.checkNotNull(paging, "paging");
             return this;
         }
@@ -117,7 +117,7 @@ public class MessageRecipientsPaginatedResponse {
         /**
          * Collection of channel members.
          */
-        public Builder data(@Nonnull List<MessageRecipientsResponseJson> data) {
+        public Builder data(@Nonnull List<MessageRecipientResponse> data) {
             this.data = Utils.checkNotNull(data, "data");
             return this;
         }

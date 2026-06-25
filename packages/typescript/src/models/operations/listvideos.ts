@@ -30,32 +30,30 @@ export type ListVideosRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * There are six comparison types that can be used in filter expressions:
-   *   * equal: eq
-   *   * not equal: ne
-   *   * greater than: gt
-   *   * greater or equal: ge
-   *   * less than: lt
-   *   * less than or equal: le
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   *   * id (eq|ne)
-   *   * events (eq|ne)
-   *   * sessions (eq|ne)
-   *   * exhibitors (eq|ne)
-   *   * speakers (eq|ne)
-   *   * source.id (eq|ne)
-   *   * status (eq|ne)
-   *   * tags (eq|ne)
-   *   * recording.id (eq|ne)
+   * | Field        | Operators  | Notes                            |
+   * |--------------|------------|----------------------------------|
+   * | id           | `eq`, `ne` |                                  |
+   * | events       | `eq`, `ne` |                                  |
+   * | sessions     | `eq`, `ne` |                                  |
+   * | exhibitors   | `eq`, `ne` |                                  |
+   * | speakers     | `eq`, `ne` |                                  |
+   * | source.id    | `eq`, `ne` |                                  |
+   * | status       | `eq`, `ne` |                                  |
+   * | tags         | `eq`, `ne` |                                  |
+   * | recording.id | `eq`, `ne` |                                  |
+   * | event.id     | `eq`, `ne` | deprecated, use `events` instead |
    *
-   * The following filterable fields have been deprecated, use the plural form above:
-   *   * event.id (eq|ne)
+   * The following logical operators are supported for combining filters:
+   * * and
+   * * or
    */
   filter?: string | undefined;
   /**

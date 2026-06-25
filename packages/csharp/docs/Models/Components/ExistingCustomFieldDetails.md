@@ -11,10 +11,10 @@ Type-specific details of the custom-field.
 ExistingCustomFieldDetails.CreateZeroOneOf1(/* values here */);
 ```
 
-### OneOneOf
+### One
 
 ```csharp
-ExistingCustomFieldDetails.CreateOneOneOf(/* values here */);
+ExistingCustomFieldDetails.CreateOne(/* values here */);
 ```
 
 ### Two

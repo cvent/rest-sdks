@@ -191,6 +191,16 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("budget/transactions:write")] BudgetTransactionsWrite,
 
         /// <summary>
+        /// Allows the reading of BT Bid data.
+        /// </summary>
+        [JsonProperty("business-transient/bids:read")] BusinessTransientBidsRead,
+
+        /// <summary>
+        /// Allows the reading of BT Proposal data.
+        /// </summary>
+        [JsonProperty("business-transient/proposals:read")] BusinessTransientProposalsRead,
+
+        /// <summary>
         /// Allows the reading of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:read")] ComplianceCommunicationsRead,
@@ -644,6 +654,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the creation/updating of video data.
         /// </summary>
         [JsonProperty("event/videos:write")] EventVideosWrite,
+
+        /// <summary>
+        /// Allows reading of event vouchers and their associated attendees.
+        /// </summary>
+        [JsonProperty("event/vouchers:read")] EventVouchersRead,
 
         /// <summary>
         /// Allows the deletion of webcast.
@@ -1268,6 +1283,21 @@ namespace Cvent.SDK.Hooks
         [JsonProperty("business-transient/travel-supplier-accounts:read")] BusinessTransientTravelSupplierAccountsRead,
 
         /// <summary>
+        /// Allows the reading of business travel account data.
+        /// </summary>
+        [JsonProperty("business-travel/travel-accounts:read")] BusinessTravelTravelAccountsRead,
+
+        /// <summary>
+        /// Allows the reading of business travel program question data.
+        /// </summary>
+        [JsonProperty("business-travel/travel-program-questions:read")] BusinessTravelTravelProgramQuestionsRead,
+
+        /// <summary>
+        /// Allows the reading of business travel program data.
+        /// </summary>
+        [JsonProperty("business-travel/travel-programs:read")] BusinessTravelTravelProgramsRead,
+
+        /// <summary>
         /// Allows the reading of communication compliance.
         /// </summary>
         [JsonProperty("compliance/communications:read")] ComplianceCommunicationsRead,
@@ -1721,6 +1751,11 @@ namespace Cvent.SDK.Hooks
         /// Allows the creation/updating of video data.
         /// </summary>
         [JsonProperty("event/videos:write")] EventVideosWrite,
+
+        /// <summary>
+        /// Allows reading of event vouchers.
+        /// </summary>
+        [JsonProperty("event/vouchers:read")] EventVouchersRead,
 
         /// <summary>
         /// Allows the deletion of webcast.

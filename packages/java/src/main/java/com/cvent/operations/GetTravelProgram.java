@@ -86,7 +86,8 @@ public class GetTravelProgram {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "getTravelProgram",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-programs:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-programs:read", "business-travel/travel-programs:read")),
                     securitySource());
         }
 
@@ -95,7 +96,8 @@ public class GetTravelProgram {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "getTravelProgram",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-programs:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-programs:read", "business-travel/travel-programs:read")),
                     securitySource());
         }
 
@@ -104,7 +106,8 @@ public class GetTravelProgram {
                     this.sdkConfiguration,
                     this.baseUrl,
                     "getTravelProgram",
-                    java.util.Optional.of(java.util.List.of("business-transient/travel-programs:read")),
+                    java.util.Optional.of(java.util.List.of(
+                            "business-transient/travel-programs:read", "business-travel/travel-programs:read")),
                     securitySource());
         }
 

@@ -1,39 +1,36 @@
 # QuestionTypeJson
 
-The type of question. See [this article](https://support.cvent.com/s/communityarticle/Survey-Adding-Questions) for details on each enum.
+Denotes the type of data collected by a question.
 
 ## Example Usage
 
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = QuestionTypeJson.CommentBox;
+var value = QuestionTypeJson.AutoIncrement;
 ```
 
 
 ## Values
 
-| Name                      | Value                     |
-| ------------------------- | ------------------------- |
-| `CommentBox`              | CommentBox                |
-| `DateTime`                | DateTime                  |
-| `FileUpload`              | FileUpload                |
-| `Form`                    | Form                      |
-| `LargeChoices`            | LargeChoices              |
-| `MatrixMultiChoice`       | MatrixMultiChoice         |
-| `MatrixRating`            | MatrixRating              |
-| `MatrixSideBySide`        | MatrixSideBySide          |
-| `MatrixSingleChoice`      | MatrixSingleChoice        |
-| `MatrixSpreadSheet`       | MatrixSpreadSheet         |
-| `MultiChoice`             | MultiChoice               |
-| `NetPromoter`             | NetPromoter               |
-| `Number`                  | Number                    |
-| `NumberAllocation`        | NumberAllocation          |
-| `OpenEndedDateTime`       | OpenEndedDateTime         |
-| `OpenEndedNumeric`        | OpenEndedNumeric          |
-| `OpenEndedTextCommentBox` | OpenEndedTextCommentBox   |
-| `OpenEndedTextOneLine`    | OpenEndedTextOneLine      |
-| `RankOrder`               | RankOrder                 |
-| `Rating`                  | Rating                    |
-| `SingleChoice`            | SingleChoice              |
-| `Text`                    | Text                      |
+| Name                       | Value                      |
+| -------------------------- | -------------------------- |
+| `AutoIncrement`            | AutoIncrement              |
+| `BudgetEstimates`          | BudgetEstimates            |
+| `ConsentQuestion`          | ConsentQuestion            |
+| `Country`                  | Country                    |
+| `Currency`                 | Currency                   |
+| `Decimal`                  | Decimal                    |
+| `Date`                     | Date                       |
+| `DateTime`                 | DateTime                   |
+| `Email`                    | Email                      |
+| `FileUpload`               | FileUpload                 |
+| `FreeText`                 | FreeText                   |
+| `General`                  | General                    |
+| `Number`                   | Number                     |
+| `MeetingRoomRequirements`  | MeetingRoomRequirements    |
+| `MultiSelect`              | MultiSelect                |
+| `SingleSelect`             | SingleSelect               |
+| `SleepingRoomRequirements` | SleepingRoomRequirements   |
+| `USPhoneNumber`            | USPhoneNumber              |
+| `Unknown`                  | Unknown                    |

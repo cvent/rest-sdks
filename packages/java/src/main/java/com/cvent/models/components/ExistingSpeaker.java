@@ -119,14 +119,14 @@ public class ExistingSpeaker {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("category")
-    private CategoryIdNameJson category;
+    private SpeakerCategory1 category;
 
     /**
      * Collection of social media links for the contact.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("links")
-    private ContactLinksJson links;
+    private ContactLinks links;
 
     /**
      * Indicates if a given speaker should be displayed on Event Website
@@ -203,8 +203,8 @@ public class ExistingSpeaker {
             @JsonProperty("designation") @Nullable String designation,
             @JsonProperty("company") @Nullable String company,
             @JsonProperty("title") @Nullable String title,
-            @JsonProperty("category") @Nullable CategoryIdNameJson category,
-            @JsonProperty("links") @Nullable ContactLinksJson links,
+            @JsonProperty("category") @Nullable SpeakerCategory1 category,
+            @JsonProperty("links") @Nullable ContactLinks links,
             @JsonProperty("visibility") @Nullable Boolean visibility,
             @JsonProperty("biography") @Nullable String biography,
             @JsonProperty("internalNote") @Nullable String internalNote,
@@ -361,14 +361,14 @@ public class ExistingSpeaker {
     /**
      * A defined speaker category.
      */
-    public Optional<CategoryIdNameJson> category() {
+    public Optional<SpeakerCategory1> category() {
         return Optional.ofNullable(this.category);
     }
 
     /**
      * Collection of social media links for the contact.
      */
-    public Optional<ContactLinksJson> links() {
+    public Optional<ContactLinks> links() {
         return Optional.ofNullable(this.links);
     }
 
@@ -543,7 +543,7 @@ public class ExistingSpeaker {
     /**
      * A defined speaker category.
      */
-    public ExistingSpeaker withCategory(@Nullable CategoryIdNameJson category) {
+    public ExistingSpeaker withCategory(@Nullable SpeakerCategory1 category) {
         this.category = category;
         return this;
     }
@@ -551,7 +551,7 @@ public class ExistingSpeaker {
     /**
      * Collection of social media links for the contact.
      */
-    public ExistingSpeaker withLinks(@Nullable ContactLinksJson links) {
+    public ExistingSpeaker withLinks(@Nullable ContactLinks links) {
         this.links = links;
         return this;
     }
@@ -767,9 +767,9 @@ public class ExistingSpeaker {
 
         private String title;
 
-        private CategoryIdNameJson category;
+        private SpeakerCategory1 category;
 
-        private ContactLinksJson links;
+        private ContactLinks links;
 
         private Boolean visibility;
 
@@ -898,7 +898,7 @@ public class ExistingSpeaker {
         /**
          * A defined speaker category.
          */
-        public Builder category(@Nullable CategoryIdNameJson category) {
+        public Builder category(@Nullable SpeakerCategory1 category) {
             this.category = category;
             return this;
         }
@@ -906,7 +906,7 @@ public class ExistingSpeaker {
         /**
          * Collection of social media links for the contact.
          */
-        public Builder links(@Nullable ContactLinksJson links) {
+        public Builder links(@Nullable ContactLinks links) {
             this.links = links;
             return this;
         }

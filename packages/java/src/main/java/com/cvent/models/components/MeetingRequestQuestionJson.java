@@ -47,7 +47,7 @@ public class MeetingRequestQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private QuestionTypeJson1 type;
+    private QuestionTypeJson type;
 
     /**
      * An array of non-null answers to the question. The format of each item depends on the question
@@ -106,7 +106,7 @@ public class MeetingRequestQuestionJson {
     public MeetingRequestQuestionJson(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("name") @Nullable String name,
-            @JsonProperty("type") @Nullable QuestionTypeJson1 type,
+            @JsonProperty("type") @Nullable QuestionTypeJson type,
             @JsonProperty("value") @Nonnull List<String> value,
             @JsonProperty("answerType") @Nullable AnswerTypeJson answerType,
             @JsonProperty("secondaryValue") @Nullable String secondaryValue,
@@ -147,7 +147,7 @@ public class MeetingRequestQuestionJson {
     /**
      * Denotes the type of data collected by a question.
      */
-    public Optional<QuestionTypeJson1> type() {
+    public Optional<QuestionTypeJson> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -234,7 +234,7 @@ public class MeetingRequestQuestionJson {
     /**
      * Denotes the type of data collected by a question.
      */
-    public MeetingRequestQuestionJson withType(@Nullable QuestionTypeJson1 type) {
+    public MeetingRequestQuestionJson withType(@Nullable QuestionTypeJson type) {
         this.type = type;
         return this;
     }
@@ -347,7 +347,7 @@ public class MeetingRequestQuestionJson {
 
         private String name;
 
-        private QuestionTypeJson1 type;
+        private QuestionTypeJson type;
 
         private List<String> value;
 
@@ -386,7 +386,7 @@ public class MeetingRequestQuestionJson {
         /**
          * Denotes the type of data collected by a question.
          */
-        public Builder type(@Nullable QuestionTypeJson1 type) {
+        public Builder type(@Nullable QuestionTypeJson type) {
             this.type = type;
             return this;
         }

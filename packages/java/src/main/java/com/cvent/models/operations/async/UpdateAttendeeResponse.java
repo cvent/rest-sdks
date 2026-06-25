@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.Attendee1;
+import com.cvent.models.components.Attendee11;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -35,20 +35,20 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    private Attendee1 attendee;
+    private Attendee11 attendee1;
 
     @JsonCreator
     public UpdateAttendeeResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable Attendee1 attendee) {
+            @Nullable Attendee11 attendee1) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
         this.rawResponse = Optional.ofNullable(rawResponse)
                 .orElseThrow(() -> new IllegalArgumentException("rawResponse cannot be null"));
-        this.attendee = attendee;
+        this.attendee1 = attendee1;
     }
 
     public UpdateAttendeeResponse(
@@ -80,8 +80,8 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    public Optional<Attendee1> attendee() {
-        return Optional.ofNullable(this.attendee);
+    public Optional<Attendee11> attendee1() {
+        return Optional.ofNullable(this.attendee1);
     }
 
     public static Builder builder() {
@@ -115,8 +115,8 @@ public class UpdateAttendeeResponse implements AsyncResponse {
     /**
      * Successfully updated the attendee.
      */
-    public UpdateAttendeeResponse withAttendee(@Nullable Attendee1 attendee) {
-        this.attendee = attendee;
+    public UpdateAttendeeResponse withAttendee1(@Nullable Attendee11 attendee1) {
+        this.attendee1 = attendee1;
         return this;
     }
 
@@ -132,12 +132,12 @@ public class UpdateAttendeeResponse implements AsyncResponse {
         return Utils.enhancedDeepEquals(this.contentType, other.contentType)
                 && Utils.enhancedDeepEquals(this.statusCode, other.statusCode)
                 && Utils.enhancedDeepEquals(this.rawResponse, other.rawResponse)
-                && Utils.enhancedDeepEquals(this.attendee, other.attendee);
+                && Utils.enhancedDeepEquals(this.attendee1, other.attendee1);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendee);
+        return Utils.enhancedHash(contentType, statusCode, rawResponse, attendee1);
     }
 
     @Override
@@ -150,8 +150,8 @@ public class UpdateAttendeeResponse implements AsyncResponse {
                 statusCode,
                 "rawResponse",
                 rawResponse,
-                "attendee",
-                attendee);
+                "attendee1",
+                attendee1);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -163,7 +163,7 @@ public class UpdateAttendeeResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private Attendee1 attendee;
+        private Attendee11 attendee1;
 
         private Builder() {
             // force use of static builder() method
@@ -196,13 +196,13 @@ public class UpdateAttendeeResponse implements AsyncResponse {
         /**
          * Successfully updated the attendee.
          */
-        public Builder attendee(@Nullable Attendee1 attendee) {
-            this.attendee = attendee;
+        public Builder attendee1(@Nullable Attendee11 attendee1) {
+            this.attendee1 = attendee1;
             return this;
         }
 
         public UpdateAttendeeResponse build() {
-            return new UpdateAttendeeResponse(contentType, statusCode, rawResponse, attendee);
+            return new UpdateAttendeeResponse(contentType, statusCode, rawResponse, attendee1);
         }
     }
 }

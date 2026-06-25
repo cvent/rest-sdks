@@ -27,15 +27,14 @@ public class TextFieldJson {
     private String id;
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shortText")
@@ -63,15 +62,14 @@ public class TextFieldJson {
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     public Optional<String> text() {
         return Optional.ofNullable(this.text);
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     public Optional<String> shortText() {
         return Optional.ofNullable(this.shortText);
@@ -90,7 +88,7 @@ public class TextFieldJson {
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * text Value of the Field
      */
     public TextFieldJson withText(@Nullable String text) {
         this.text = text;
@@ -98,8 +96,7 @@ public class TextFieldJson {
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Reporting value of the Category, Its like a custom abbreviation
      */
     public TextFieldJson withShortText(@Nullable String shortText) {
         this.shortText = shortText;
@@ -152,7 +149,7 @@ public class TextFieldJson {
         }
 
         /**
-         * Text value of the field. Displays to users in the UI.
+         * text Value of the Field
          */
         public Builder text(@Nullable String text) {
             this.text = text;
@@ -160,8 +157,7 @@ public class TextFieldJson {
         }
 
         /**
-         * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-         * the question in reports.
+         * Reporting value of the Category, Its like a custom abbreviation
          */
         public Builder shortText(@Nullable String shortText) {
             this.shortText = shortText;

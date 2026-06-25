@@ -20,3 +20,6 @@ export type AddressType = ClosedEnum<typeof AddressType>;
 /** @internal */
 export const AddressType$inboundSchema: z.ZodNativeEnum<typeof AddressType> = z
   .nativeEnum(AddressType);
+/** @internal */
+export const AddressType$outboundSchema: z.ZodNativeEnum<typeof AddressType> =
+  AddressType$inboundSchema;

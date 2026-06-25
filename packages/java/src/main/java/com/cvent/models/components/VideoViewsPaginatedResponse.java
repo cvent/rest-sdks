@@ -25,19 +25,18 @@ public class VideoViewsPaginatedResponse {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("paging")
-    private PagingJson paging;
+    private Paging paging;
 
     /**
      * List of unique video views.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<VideoViewJson> data;
+    private List<VideoView> data;
 
     @JsonCreator
     public VideoViewsPaginatedResponse(
-            @JsonProperty("paging") @Nullable PagingJson paging,
-            @JsonProperty("data") @Nullable List<VideoViewJson> data) {
+            @JsonProperty("paging") @Nullable Paging paging, @JsonProperty("data") @Nullable List<VideoView> data) {
         this.paging = paging;
         this.data = data;
     }
@@ -49,14 +48,14 @@ public class VideoViewsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public Optional<PagingJson> paging() {
+    public Optional<Paging> paging() {
         return Optional.ofNullable(this.paging);
     }
 
     /**
      * List of unique video views.
      */
-    public Optional<List<VideoViewJson>> data() {
+    public Optional<List<VideoView>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -67,7 +66,7 @@ public class VideoViewsPaginatedResponse {
     /**
      * Represents pagination information for a collection of resources.
      */
-    public VideoViewsPaginatedResponse withPaging(@Nullable PagingJson paging) {
+    public VideoViewsPaginatedResponse withPaging(@Nullable Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -75,7 +74,7 @@ public class VideoViewsPaginatedResponse {
     /**
      * List of unique video views.
      */
-    public VideoViewsPaginatedResponse withData(@Nullable List<VideoViewJson> data) {
+    public VideoViewsPaginatedResponse withData(@Nullable List<VideoView> data) {
         this.data = data;
         return this;
     }
@@ -105,9 +104,9 @@ public class VideoViewsPaginatedResponse {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private PagingJson paging;
+        private Paging paging;
 
-        private List<VideoViewJson> data;
+        private List<VideoView> data;
 
         private Builder() {
             // force use of static builder() method
@@ -116,7 +115,7 @@ public class VideoViewsPaginatedResponse {
         /**
          * Represents pagination information for a collection of resources.
          */
-        public Builder paging(@Nullable PagingJson paging) {
+        public Builder paging(@Nullable Paging paging) {
             this.paging = paging;
             return this;
         }
@@ -124,7 +123,7 @@ public class VideoViewsPaginatedResponse {
         /**
          * List of unique video views.
          */
-        public Builder data(@Nullable List<VideoViewJson> data) {
+        public Builder data(@Nullable List<VideoView> data) {
             this.data = data;
             return this;
         }

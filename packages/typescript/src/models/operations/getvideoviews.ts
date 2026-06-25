@@ -30,24 +30,26 @@ export type GetVideoViewsRequest = {
    */
   token?: string | undefined;
   /**
-   * A filter query string narrows search results and supports the combination of logical and comparison operators.
+   * Use filter query parameters to limit results
    *
    * @remarks
-   * The filter adheres to the pattern filter='field' comparisonType 'value'.
-   * The filter query supports maximum three fields in filter expression.
+   * to data that matches your criteria. See
+   * [Filters](/docs/rest-api/reference/filters) for details.
    *
-   * There is one comparison type that can be used in filter expressions:
-   * * equal: eq
+   * Supported fields and operators are listed below:
    *
-   * The following fields are filterable:
-   * * contact.id (eq)
-   * * solution (eq)
-   * * device.type (eq) [deprecated]
-   * * device.operatingSystem (eq) [deprecated]
-   * * video.id (eq)
-   * * type (eq)
+   * | Field                  | Operators | Notes      |
+   * |------------------------|-----------|------------|
+   * | contact.id             | `eq`      |            |
+   * | solution               | `eq`      |            |
+   * | device.type            | `eq`      | deprecated |
+   * | device.operatingSystem | `eq`      | deprecated |
+   * | video.id               | `eq`      |            |
+   * | type                   | `eq`      |            |
    *
-   * The following operators are available:
+   * The filter query supports maximum three fields in a filter expression.
+   *
+   * The following logical operators are supported for combining filters:
    * * and
    */
   filter?: string | undefined;

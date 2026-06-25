@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations.async;
 
-import com.cvent.models.components.ContactBulkItemJson;
+import com.cvent.models.components.ContactBulkResponseItem;
 import com.cvent.utils.AsyncResponse;
 import com.cvent.utils.Blob;
 import com.cvent.utils.Utils;
@@ -36,14 +36,14 @@ public class PatchContactsResponse implements AsyncResponse {
     /**
      * Successfully updated a list of contacts.
      */
-    private List<ContactBulkItemJson> contactBulkResponse;
+    private List<ContactBulkResponseItem> contactBulkResponse;
 
     @JsonCreator
     public PatchContactsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<Blob> rawResponse,
-            @Nullable List<ContactBulkItemJson> contactBulkResponse) {
+            @Nullable List<ContactBulkResponseItem> contactBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class PatchContactsResponse implements AsyncResponse {
     /**
      * Successfully updated a list of contacts.
      */
-    public Optional<List<ContactBulkItemJson>> contactBulkResponse() {
+    public Optional<List<ContactBulkResponseItem>> contactBulkResponse() {
         return Optional.ofNullable(this.contactBulkResponse);
     }
 
@@ -115,7 +115,7 @@ public class PatchContactsResponse implements AsyncResponse {
     /**
      * Successfully updated a list of contacts.
      */
-    public PatchContactsResponse withContactBulkResponse(@Nullable List<ContactBulkItemJson> contactBulkResponse) {
+    public PatchContactsResponse withContactBulkResponse(@Nullable List<ContactBulkResponseItem> contactBulkResponse) {
         this.contactBulkResponse = contactBulkResponse;
         return this;
     }
@@ -163,7 +163,7 @@ public class PatchContactsResponse implements AsyncResponse {
 
         private HttpResponse<Blob> rawResponse;
 
-        private List<ContactBulkItemJson> contactBulkResponse;
+        private List<ContactBulkResponseItem> contactBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class PatchContactsResponse implements AsyncResponse {
         /**
          * Successfully updated a list of contacts.
          */
-        public Builder contactBulkResponse(@Nullable List<ContactBulkItemJson> contactBulkResponse) {
+        public Builder contactBulkResponse(@Nullable List<ContactBulkResponseItem> contactBulkResponse) {
             this.contactBulkResponse = contactBulkResponse;
             return this;
         }

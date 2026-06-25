@@ -22,6 +22,6 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Successfully created a list of contacts.
         /// </summary>
-        public List<ContactBulkItemJson>? ContactBulkResponse { get; set; }
+        public List<ContactBulkResponseItem>? ContactBulkResponse { get; set; }
     }
 }

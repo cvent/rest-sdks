@@ -105,7 +105,7 @@ public class EventQuestionJson {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
-    private QuestionTypeJson3 type;
+    private QuestionTypeJson2 type;
 
     /**
      * Optional description to provide additional context of the question.
@@ -127,7 +127,7 @@ public class EventQuestionJson {
             @JsonProperty("tag") @Nullable String tag,
             @JsonProperty("session") @Nullable EventQuestionJsonSession session,
             @JsonProperty("admissionItem") @Nullable EventQuestionJsonAdmissionItem admissionItem,
-            @JsonProperty("type") @Nullable QuestionTypeJson3 type,
+            @JsonProperty("type") @Nullable QuestionTypeJson2 type,
             @JsonProperty("internalNote") @Nullable String internalNote) {
         this.created = created;
         this.createdBy = createdBy;
@@ -231,7 +231,7 @@ public class EventQuestionJson {
     /**
      * This object represents the type of a question
      */
-    public Optional<QuestionTypeJson3> type() {
+    public Optional<QuestionTypeJson2> type() {
         return Optional.ofNullable(this.type);
     }
 
@@ -340,7 +340,7 @@ public class EventQuestionJson {
     /**
      * This object represents the type of a question
      */
-    public EventQuestionJson withType(@Nullable QuestionTypeJson3 type) {
+    public EventQuestionJson withType(@Nullable QuestionTypeJson2 type) {
         this.type = type;
         return this;
     }
@@ -452,7 +452,7 @@ public class EventQuestionJson {
 
         private EventQuestionJsonAdmissionItem admissionItem;
 
-        private QuestionTypeJson3 type;
+        private QuestionTypeJson2 type;
 
         private String internalNote;
 
@@ -554,7 +554,7 @@ public class EventQuestionJson {
         /**
          * This object represents the type of a question
          */
-        public Builder type(@Nullable QuestionTypeJson3 type) {
+        public Builder type(@Nullable QuestionTypeJson2 type) {
             this.type = type;
             return this;
         }

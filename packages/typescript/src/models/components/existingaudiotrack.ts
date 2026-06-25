@@ -6,26 +6,20 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import { AssetLocation, AssetLocation$inboundSchema } from "./assetlocation.js";
 import {
-  AssetLocationJson,
-  AssetLocationJson$inboundSchema,
-} from "./assetlocationjson.js";
+  AudioTrackStatus,
+  AudioTrackStatus$inboundSchema,
+} from "./audiotrackstatus.js";
 import {
-  AudioTrackStatusJson,
-  AudioTrackStatusJson$inboundSchema,
-} from "./audiotrackstatusjson.js";
+  AudioTrackType,
+  AudioTrackType$inboundSchema,
+} from "./audiotracktype.js";
 import {
-  AudioTrackTypeJson,
-  AudioTrackTypeJson$inboundSchema,
-} from "./audiotracktypejson.js";
-import {
-  AudioTrackVariantJson,
-  AudioTrackVariantJson$inboundSchema,
-} from "./audiotrackvariantjson.js";
-import {
-  VideoAssetIdJson,
-  VideoAssetIdJson$inboundSchema,
-} from "./videoassetidjson.js";
+  AudioTrackVariant,
+  AudioTrackVariant$inboundSchema,
+} from "./audiotrackvariant.js";
+import { VideoAssetID, VideoAssetID$inboundSchema } from "./videoassetid.js";
 
 /**
  * Existing audio track.
@@ -50,11 +44,11 @@ export type ExistingAudioTrack = {
   /**
    * Video that this asset was created with.
    */
-  video: VideoAssetIdJson;
+  video: VideoAssetID;
   /**
    * Denotes the file format of the audio track.
    */
-  type: AudioTrackTypeJson;
+  type: AudioTrackType;
   /**
    * IETF language tag for the audio track.
    */
@@ -62,7 +56,7 @@ export type ExistingAudioTrack = {
   /**
    * Denotes the variant of an audio track. Main is the primary audio track for this video. Alternate is a possible alternative to the main track. Commentary is a commentary on the primary audio or video track, e.g. a director's commentary. Dub is a translated version of the main audio track. Descriptive is an audio description of a video track.
    */
-  variant: AudioTrackVariantJson;
+  variant: AudioTrackVariant;
   /**
    * True indicates this is the default audio track.
    */
@@ -74,7 +68,7 @@ export type ExistingAudioTrack = {
   /**
    * Denotes the status of an audio track. Started indicates the request to upload in the API was submitted, and the URL you'll upload an audio track to was returned. Uploaded indicates that the upload was completed. Scanning indicates a virus scan is happening in a quarantine location; Scanned indicates a successful virus scan. Syncing indicates a complete virus scan, and now transcoding has begun. Rejected indicates a failed virus scan. Error indicates there was a problem processing the audio track. Available indicates the audio track is available for use.
    */
-  status?: AudioTrackStatusJson | undefined;
+  status?: AudioTrackStatus | undefined;
   /**
    * The identifier of an audio track.
    */
@@ -82,7 +76,7 @@ export type ExistingAudioTrack = {
   /**
    * A URL associated with the asset.
    */
-  url?: AssetLocationJson | undefined;
+  url?: AssetLocation | undefined;
 };
 
 /** @internal */
@@ -98,15 +92,15 @@ export const ExistingAudioTrack$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  video: VideoAssetIdJson$inboundSchema,
-  type: AudioTrackTypeJson$inboundSchema,
+  video: VideoAssetID$inboundSchema,
+  type: AudioTrackType$inboundSchema,
   language: z.string(),
-  variant: AudioTrackVariantJson$inboundSchema.default("Alternate"),
+  variant: AudioTrackVariant$inboundSchema.default("Alternate"),
   default: z.boolean().default(false),
   duration: z.number().int().optional(),
-  status: AudioTrackStatusJson$inboundSchema.optional(),
+  status: AudioTrackStatus$inboundSchema.optional(),
   id: z.string(),
-  url: AssetLocationJson$inboundSchema.optional(),
+  url: AssetLocation$inboundSchema.optional(),
 });
 
 export function existingAudioTrackFromJSON(

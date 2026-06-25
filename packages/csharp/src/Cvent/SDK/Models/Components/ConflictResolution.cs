@@ -23,13 +23,13 @@ namespace Cvent.SDK.Models.Components
         /// For each event (designated by event id), choose a contact id whose linked attendee will be associated with the resulting merged contact. Use whenever at least two contacts exist as attendees in a single event.
         /// </summary>
         [JsonProperty("events")]
-        public List<EventContactIdJson>? Events { get; set; }
+        public List<EventContactId>? Events { get; set; }
 
         /// <summary>
         /// For each survey (designated by survey id), choose a contact id whose linked respondent will be associated with the resulting merged contact. Use whenever at least two contacts exist as respondents in a single survey.
         /// </summary>
         [JsonProperty("surveys")]
-        public List<SurveyContactIdJson>? Surveys { get; set; }
+        public List<SurveyContactId>? Surveys { get; set; }
 
         /// <summary>
         /// The id of the contact to keep the relationships of in the resulting merged contact. Only one contact can be chosen, and relationships of the other contact(s) will be discarded.
@@ -41,6 +41,6 @@ namespace Cvent.SDK.Models.Components
         /// Specify which contact to use values from for any contact field.
         /// </summary>
         [JsonProperty("contactFields")]
-        public List<ContactMergeFieldJson>? ContactFields { get; set; }
+        public List<ContactMergeField>? ContactFields { get; set; }
     }
 }

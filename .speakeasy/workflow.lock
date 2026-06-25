@@ -2,8 +2,8 @@ speakeasyVersion: 1.752.0
 sources:
     Public:
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c422cb0b4b22af7921782ebe78e0f17092f7b0f3e4dfe6a1a8367366d72462aa
-        sourceBlobDigest: sha256:a9f07f00e14f09eb970fb1311cb3b8e3ad95f85a09c6f72b3c938039bb100093
+        sourceRevisionDigest: sha256:7ffd2d116e23fc13f4a47363fdb2522a2c3899f632615bfc6bc9f2b2f1f7513d
+        sourceBlobDigest: sha256:659ff5fb3d3647046a7414ac9019e47613d4967f8a0bf609a09802752a027b02
         tags:
             - latest
             - ea
@@ -11,18 +11,24 @@ targets:
     public-csharp:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c422cb0b4b22af7921782ebe78e0f17092f7b0f3e4dfe6a1a8367366d72462aa
-        sourceBlobDigest: sha256:a9f07f00e14f09eb970fb1311cb3b8e3ad95f85a09c6f72b3c938039bb100093
+        sourceRevisionDigest: sha256:7ffd2d116e23fc13f4a47363fdb2522a2c3899f632615bfc6bc9f2b2f1f7513d
+        sourceBlobDigest: sha256:659ff5fb3d3647046a7414ac9019e47613d4967f8a0bf609a09802752a027b02
+        codeSamplesNamespace: csharp
+        codeSamplesRevisionDigest: sha256:834c3f21a3332342953ee75bb0e38eedf8120cfa77722e723d13a07526d3af71
     public-java:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c422cb0b4b22af7921782ebe78e0f17092f7b0f3e4dfe6a1a8367366d72462aa
-        sourceBlobDigest: sha256:a9f07f00e14f09eb970fb1311cb3b8e3ad95f85a09c6f72b3c938039bb100093
+        sourceRevisionDigest: sha256:7ffd2d116e23fc13f4a47363fdb2522a2c3899f632615bfc6bc9f2b2f1f7513d
+        sourceBlobDigest: sha256:659ff5fb3d3647046a7414ac9019e47613d4967f8a0bf609a09802752a027b02
+        codeSamplesNamespace: java
+        codeSamplesRevisionDigest: sha256:605d0ed9ef151021de6321c923dc4024fb5875e22bb552dbc474c86763deeb11
     public-typescript:
         source: Public
         sourceNamespace: public
-        sourceRevisionDigest: sha256:c422cb0b4b22af7921782ebe78e0f17092f7b0f3e4dfe6a1a8367366d72462aa
-        sourceBlobDigest: sha256:a9f07f00e14f09eb970fb1311cb3b8e3ad95f85a09c6f72b3c938039bb100093
+        sourceRevisionDigest: sha256:7ffd2d116e23fc13f4a47363fdb2522a2c3899f632615bfc6bc9f2b2f1f7513d
+        sourceBlobDigest: sha256:659ff5fb3d3647046a7414ac9019e47613d4967f8a0bf609a09802752a027b02
+        codeSamplesNamespace: typescript
+        codeSamplesRevisionDigest: sha256:3a3216a4b07624b60abecac693acb09b84d1043dcff9a17c031d9846c47d94d6
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: 1.752.0

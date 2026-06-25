@@ -3,7 +3,7 @@
  */
 package com.cvent.models.operations;
 
-import com.cvent.models.components.ContactBulkItemJson;
+import com.cvent.models.components.ContactBulkResponseItem;
 import com.cvent.utils.Response;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,14 +35,14 @@ public class UpdateContactsResponse implements Response {
     /**
      * Successfully updated a list of Contacts.
      */
-    private List<ContactBulkItemJson> contactBulkResponse;
+    private List<ContactBulkResponseItem> contactBulkResponse;
 
     @JsonCreator
     public UpdateContactsResponse(
             @Nonnull String contentType,
             int statusCode,
             @Nonnull HttpResponse<InputStream> rawResponse,
-            @Nullable List<ContactBulkItemJson> contactBulkResponse) {
+            @Nullable List<ContactBulkResponseItem> contactBulkResponse) {
         this.contentType = Optional.ofNullable(contentType)
                 .orElseThrow(() -> new IllegalArgumentException("contentType cannot be null"));
         this.statusCode = statusCode;
@@ -80,7 +80,7 @@ public class UpdateContactsResponse implements Response {
     /**
      * Successfully updated a list of Contacts.
      */
-    public Optional<List<ContactBulkItemJson>> contactBulkResponse() {
+    public Optional<List<ContactBulkResponseItem>> contactBulkResponse() {
         return Optional.ofNullable(this.contactBulkResponse);
     }
 
@@ -115,7 +115,7 @@ public class UpdateContactsResponse implements Response {
     /**
      * Successfully updated a list of Contacts.
      */
-    public UpdateContactsResponse withContactBulkResponse(@Nullable List<ContactBulkItemJson> contactBulkResponse) {
+    public UpdateContactsResponse withContactBulkResponse(@Nullable List<ContactBulkResponseItem> contactBulkResponse) {
         this.contactBulkResponse = contactBulkResponse;
         return this;
     }
@@ -163,7 +163,7 @@ public class UpdateContactsResponse implements Response {
 
         private HttpResponse<InputStream> rawResponse;
 
-        private List<ContactBulkItemJson> contactBulkResponse;
+        private List<ContactBulkResponseItem> contactBulkResponse;
 
         private Builder() {
             // force use of static builder() method
@@ -196,7 +196,7 @@ public class UpdateContactsResponse implements Response {
         /**
          * Successfully updated a list of Contacts.
          */
-        public Builder contactBulkResponse(@Nullable List<ContactBulkItemJson> contactBulkResponse) {
+        public Builder contactBulkResponse(@Nullable List<ContactBulkResponseItem> contactBulkResponse) {
             this.contactBulkResponse = contactBulkResponse;
             return this;
         }

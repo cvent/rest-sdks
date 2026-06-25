@@ -14,14 +14,14 @@ namespace Cvent.SDK.Models.Components
     using System;
 
     /// <summary>
-    /// Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`: Data is one or more options from a list. `Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is free-text input.
+    /// Field Type.
     /// </summary>
     public enum FieldTypeJson
     {
-        [JsonProperty("DateTime")] DateTime,
-        [JsonProperty("MultiChoice")] MultiChoice,
-        [JsonProperty("Number")] Number,
         [JsonProperty("SingleChoice")] SingleChoice,
+        [JsonProperty("MultiChoice")] MultiChoice,
+        [JsonProperty("DateTime")] DateTime,
+        [JsonProperty("Number")] Number,
         [JsonProperty("Text")] Text,
     }
 

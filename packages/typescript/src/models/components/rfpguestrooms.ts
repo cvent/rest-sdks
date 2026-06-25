@@ -8,10 +8,10 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  GuestRoomOccupancyPerRoomTypeJson,
-  GuestRoomOccupancyPerRoomTypeJson$inboundSchema,
-} from "./guestroomoccupancyperroomtypejson.js";
-import { RoomBlockJson, RoomBlockJson$inboundSchema } from "./roomblockjson.js";
+  GuestRoomOccupancyPerRoomType,
+  GuestRoomOccupancyPerRoomType$inboundSchema,
+} from "./guestroomoccupancyperroomtype.js";
+import { RoomBlock, RoomBlock$inboundSchema } from "./roomblock.js";
 
 /**
  * Guest Room Requirements
@@ -28,7 +28,7 @@ export type RfpGuestRooms = {
   /**
    * Occupancies for every room type.
    */
-  occupancies?: Array<GuestRoomOccupancyPerRoomTypeJson> | undefined;
+  occupancies?: Array<GuestRoomOccupancyPerRoomType> | undefined;
   /**
    * The ISO 8601 check-in date.
    */
@@ -36,7 +36,7 @@ export type RfpGuestRooms = {
   /**
    * List of room blocks required.
    */
-  roomBlocks?: Array<RoomBlockJson> | undefined;
+  roomBlocks?: Array<RoomBlock> | undefined;
   /**
    * Additional Info (if any).
    */
@@ -51,10 +51,9 @@ export const RfpGuestRooms$inboundSchema: z.ZodType<
 > = z.object({
   totalRooms: z.number().int().optional(),
   peakRooms: z.number().int().optional(),
-  occupancies: z.array(GuestRoomOccupancyPerRoomTypeJson$inboundSchema)
-    .optional(),
+  occupancies: z.array(GuestRoomOccupancyPerRoomType$inboundSchema).optional(),
   checkInDate: z.string().transform(v => new RFCDate(v)).optional(),
-  roomBlocks: z.array(RoomBlockJson$inboundSchema).optional(),
+  roomBlocks: z.array(RoomBlock$inboundSchema).optional(),
   additionalInformation: z.string().optional(),
 });
 

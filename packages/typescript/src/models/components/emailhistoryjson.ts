@@ -11,9 +11,9 @@ import {
   EmailStatusJson$inboundSchema,
 } from "./emailstatusjson.js";
 import {
-  EmailTypeJson3,
-  EmailTypeJson3$inboundSchema,
-} from "./emailtypejson3.js";
+  EmailTypeJson1,
+  EmailTypeJson1$inboundSchema,
+} from "./emailtypejson1.js";
 
 /**
  * Event Id for email history record.
@@ -96,7 +96,7 @@ export type EmailHistoryJson = {
   /**
    * Denotes the type of the email.
    */
-  type?: EmailTypeJson3 | undefined;
+  type?: EmailTypeJson1 | undefined;
   /**
    * The ISO 8601 zoned date time when this email was sent.
    */
@@ -208,7 +208,7 @@ export const EmailHistoryJson$inboundSchema: z.ZodType<
   subject: z.string().optional(),
   from: z.string().optional(),
   to: z.string().optional(),
-  type: EmailTypeJson3$inboundSchema.optional(),
+  type: EmailTypeJson1$inboundSchema.optional(),
   sent: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   status: EmailStatusJson$inboundSchema.optional(),

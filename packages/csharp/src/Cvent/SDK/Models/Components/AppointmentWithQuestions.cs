@@ -139,6 +139,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of custom questions asked to participants of the appointment.
         /// </summary>
         [JsonProperty("questions")]
-        public List<CustomFieldJson1>? Questions { get; set; }
+        public List<CustomFieldJson>? Questions { get; set; }
     }
 }

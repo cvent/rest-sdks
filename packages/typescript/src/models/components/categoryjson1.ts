@@ -6,33 +6,27 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ItemJson,
-  ItemJson$inboundSchema,
-  ItemJson$Outbound,
-  ItemJson$outboundSchema,
-} from "./itemjson.js";
 
 /**
- * A category of items.
+ * A survey category.
  */
 export type CategoryJson1 = {
   /**
-   * The category type.
+   * Text field ID.
    */
-  type?: string | undefined;
+  id?: string | undefined;
   /**
-   * The name of the category.
+   * text Value of the Field
    */
-  name?: string | undefined;
+  text?: string | undefined;
   /**
-   * Total cost for all items within this category.
+   * Reporting value of the Category, Its like a custom abbreviation
    */
-  totalCost?: number | undefined;
+  shortText?: string | undefined;
   /**
-   * List of items in this category.
+   * is the category mandatory for answer
    */
-  items?: Array<ItemJson> | undefined;
+  required: boolean;
 };
 
 /** @internal */
@@ -41,34 +35,12 @@ export const CategoryJson1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.string().optional(),
-  name: z.string().optional(),
-  totalCost: z.number().optional(),
-  items: z.array(ItemJson$inboundSchema).optional(),
-});
-/** @internal */
-export type CategoryJson1$Outbound = {
-  type?: string | undefined;
-  name?: string | undefined;
-  totalCost?: number | undefined;
-  items?: Array<ItemJson$Outbound> | undefined;
-};
-
-/** @internal */
-export const CategoryJson1$outboundSchema: z.ZodType<
-  CategoryJson1$Outbound,
-  z.ZodTypeDef,
-  CategoryJson1
-> = z.object({
-  type: z.string().optional(),
-  name: z.string().optional(),
-  totalCost: z.number().optional(),
-  items: z.array(ItemJson$outboundSchema).optional(),
+  id: z.string().optional(),
+  text: z.string().optional(),
+  shortText: z.string().optional(),
+  required: z.boolean().default(false),
 });
 
-export function categoryJson1ToJSON(categoryJson1: CategoryJson1): string {
-  return JSON.stringify(CategoryJson1$outboundSchema.parse(categoryJson1));
-}
 export function categoryJson1FromJSON(
   jsonString: string,
 ): SafeParseResult<CategoryJson1, SDKValidationError> {

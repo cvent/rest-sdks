@@ -53,24 +53,24 @@ namespace Cvent.SDK.Models.Components
         /// The unique identifier of an event.
         /// </summary>
         [JsonProperty("event")]
-        public EventLiteJson Event { get; set; } = default!;
+        public EventLite Event { get; set; } = default!;
 
         /// <summary>
         /// The unique identifier of a session.
         /// </summary>
         [JsonProperty("session")]
-        public SessionLiteJson Session { get; set; } = default!;
+        public SessionLite Session { get; set; } = default!;
 
         /// <summary>
         /// The unique identifier of a speaker.
         /// </summary>
         [JsonProperty("speaker")]
-        public SpeakerLiteJson Speaker { get; set; } = default!;
+        public SpeakerLite Speaker { get; set; } = default!;
 
         /// <summary>
         /// The unique identifier of a program item.
         /// </summary>
         [JsonProperty("programItem")]
-        public ProgramItemLiteJson ProgramItem { get; set; } = default!;
+        public ProgramItemLite ProgramItem { get; set; } = default!;
     }
 }

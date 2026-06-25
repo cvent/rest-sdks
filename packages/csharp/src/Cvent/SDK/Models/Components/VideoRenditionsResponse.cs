@@ -23,6 +23,6 @@ namespace Cvent.SDK.Models.Components
         /// Collection of video renditions.
         /// </summary>
         [JsonProperty("data")]
-        public List<VideoRenditionJson>? Data { get; set; }
+        public List<VideoRendition>? Data { get; set; }
     }
 }

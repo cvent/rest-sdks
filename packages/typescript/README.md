@@ -449,6 +449,9 @@ run();
 * [listEventUserGroups](docs/sdks/events/README.md#listeventusergroups) - List Event User Groups
 * [associateEventUserGroup](docs/sdks/events/README.md#associateeventusergroup) - Associate User Group to Event
 * [disassociateEventUserGroup](docs/sdks/events/README.md#disassociateeventusergroup) - Disassociate Group from Event
+* [listEventVouchers](docs/sdks/events/README.md#listeventvouchers) - List Event Vouchers
+* [listEventVouchersPostFilter](docs/sdks/events/README.md#listeventvoucherspostfilter) - List Event Vouchers (Filter)
+* [listEventVoucherAttendees](docs/sdks/events/README.md#listeventvoucherattendees) - List Voucher Attendees
 * [updateQuantityItemRegistrationForAttendee](docs/sdks/events/README.md#updatequantityitemregistrationforattendee) - Update Quantity Item
 * [listSessionsAttendance](docs/sdks/events/README.md#listsessionsattendance) - Session Attendance
 * [listSessionsEnrollment](docs/sdks/events/README.md#listsessionsenrollment) - List Session Registrants
@@ -989,6 +992,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsListDonationItemsPostFilter`](docs/sdks/events/README.md#listdonationitemspostfilter) - List Donation Items
 - [`eventsListEventEmails`](docs/sdks/events/README.md#listeventemails) - List Event Emails
 - [`eventsListEventUserGroups`](docs/sdks/events/README.md#listeventusergroups) - List Event User Groups
+- [`eventsListEventVoucherAttendees`](docs/sdks/events/README.md#listeventvoucherattendees) - List Voucher Attendees
+- [`eventsListEventVouchers`](docs/sdks/events/README.md#listeventvouchers) - List Event Vouchers
+- [`eventsListEventVouchersPostFilter`](docs/sdks/events/README.md#listeventvoucherspostfilter) - List Event Vouchers (Filter)
 - [`eventsListFeeItems`](docs/sdks/events/README.md#listfeeitems) - List Fee Items
 - [`eventsListMembershipItems`](docs/sdks/events/README.md#listmembershipitems) - List Membership Items
 - [`eventsListMembershipItemsPostFilter`](docs/sdks/events/README.md#listmembershipitemspostfilter) - List Membership Items
@@ -1484,7 +1490,7 @@ async function run() {
         console.log(error.data$.code); // number
         console.log(error.data$.message); // string
         console.log(error.data$.target); // string
-        console.log(error.data$.details); // ZeroAllOf1[]
+        console.log(error.data$.details); // ErrorResponseBase[]
       }
     }
   }
@@ -1512,10 +1518,10 @@ run();
 
 
 **Inherit from [`CventSDKError`](./src/models/errors/cventsdkerror.ts)**:
-* [`ErrorResponseJson17`](./src/models/errors/errorresponsejson17.ts): The error response. Applicable to 11 of 445 methods.*
-* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): Represents an error response with additional details of cascading error messages. Applicable to 6 of 445 methods.*
-* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 445 methods.*
-* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 445 methods.*
+* [`ErrorResponse2`](./src/models/errors/errorresponse2.ts): Represents an error response with additional details of cascading error messages. Applicable to 18 of 448 methods.*
+* [`ErrorResponseJson12`](./src/models/errors/errorresponsejson12.ts): The error response. Applicable to 11 of 448 methods.*
+* [`SegmentsErrorResponse`](./src/models/errors/segmentserrorresponse.ts): Segments error response details. Status code `400`. Applicable to 2 of 448 methods.*
+* [`BadRequestError`](./src/models/errors/badrequesterror.ts): A bad token response. Status code `400`. Applicable to 1 of 448 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

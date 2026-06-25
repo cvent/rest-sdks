@@ -9,36 +9,38 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// A question category.
+    /// A category of items.
     /// </summary>
     public class CategoryJson
     {
         /// <summary>
-        /// Text field ID.
+        /// The category type.
         /// </summary>
-        [JsonProperty("id")]
-        public string? Id { get; set; }
+        [JsonProperty("type")]
+        public string? Type { get; set; }
 
         /// <summary>
-        /// Text value of the field. Displays to users in the UI.
+        /// The name of the category.
         /// </summary>
-        [JsonProperty("text")]
-        public string? Text { get; set; }
+        [JsonProperty("name")]
+        public string? Name { get; set; }
 
         /// <summary>
-        /// Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+        /// Total cost for all items within this category.
         /// </summary>
-        [JsonProperty("shortText")]
-        public string? ShortText { get; set; }
+        [JsonProperty("totalCost")]
+        public double? TotalCost { get; set; }
 
         /// <summary>
-        /// True indicates the category is mandatory for answer.
+        /// List of items in this category.
         /// </summary>
-        [JsonProperty("required")]
-        public bool? Required { get; set; } = false;
+        [JsonProperty("items")]
+        public List<ItemJson>? Items { get; set; }
     }
 }

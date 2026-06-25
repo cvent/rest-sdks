@@ -9,36 +9,62 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
 
     /// <summary>
-    /// Represents an error response for the checkin APIs that includes a unique id.
+    /// Information about housing event with key information, providing a summarized view.
     /// </summary>
     public class ZeroAllOf8
     {
         /// <summary>
-        /// The unique identifier for the error response.
+        /// The unique ID of the housing event.
         /// </summary>
         [JsonProperty("id")]
-        public string? Id { get; set; }
+        public long Id { get; set; } = default!;
 
         /// <summary>
-        /// The HTTP status code representing the error.
+        /// Event name.
         /// </summary>
-        [JsonProperty("code")]
-        public long Code { get; set; } = default!;
+        [JsonProperty("name")]
+        public string Name { get; set; } = default!;
 
         /// <summary>
-        /// A brief description of the error.
+        /// The ISO 8601 formatted date and time of the first attended day of the event, excluding shoulder days.
         /// </summary>
-        [JsonProperty("message")]
-        public string Message { get; set; } = default!;
+        [JsonProperty("start")]
+        public DateTime Start { get; set; } = default!;
 
         /// <summary>
-        /// The target resource of the error.
+        /// The ISO 8601 date and time of the last attended day of the event, excluding shoulder days.
         /// </summary>
-        [JsonProperty("target")]
-        public string? Target { get; set; }
+        [JsonProperty("end")]
+        public DateTime End { get; set; } = default!;
+
+        /// <summary>
+        /// The ISO 8601 formatted date and time of a contractually agreed date which triggers configurable business rules, like releasing reserved room blocks back to general availability.
+        /// </summary>
+        [JsonProperty("cutOff")]
+        public DateTime CutOff { get; set; } = default!;
+
+        /// <summary>
+        /// The event timezone from the Olson specification.
+        /// </summary>
+        [JsonProperty("timeZone")]
+        public string TimeZone { get; set; } = default!;
+
+        /// <summary>
+        /// Event venue details.
+        /// </summary>
+        [JsonProperty("venue")]
+        public VenueJson1 Venue { get; set; } = default!;
+
+        /// <summary>
+        /// Housing event status.
+        /// </summary>
+        [JsonProperty("status")]
+        public HousingEventStatusesJson Status { get; set; } = default!;
     }
 }

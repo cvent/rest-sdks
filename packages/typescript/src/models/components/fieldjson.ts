@@ -7,14 +7,14 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AdditionalChoiceJson2,
-  AdditionalChoiceJson2$inboundSchema,
-} from "./additionalchoicejson2.js";
-import { ChoiceJson, ChoiceJson$inboundSchema } from "./choicejson.js";
+  AdditionalChoiceJson,
+  AdditionalChoiceJson$inboundSchema,
+} from "./additionalchoicejson.js";
+import { ChoiceJson1, ChoiceJson1$inboundSchema } from "./choicejson1.js";
 import { FieldTypeJson, FieldTypeJson$inboundSchema } from "./fieldtypejson.js";
 
 /**
- * A question field.
+ * A survey field.
  */
 export type FieldJson = {
   /**
@@ -22,31 +22,31 @@ export type FieldJson = {
    */
   id?: string | undefined;
   /**
-   * Text value of the field. Displays to users in the UI.
+   * text Value of the Field
    */
   text?: string | undefined;
   /**
-   * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of the question in reports.
+   * Reporting value of the Category, Its like a custom abbreviation
    */
   shortText?: string | undefined;
   /**
-   * Determines the required format for a field. `DateTime`: Data is in date-time format. `MultiChoice`: Data is one or more options from a list. `Number`: Data is a number. `SingleChoice`: Data is a a single option from a list. `Text`: Data is free-text input.
+   * Field Type
    */
   type?: FieldTypeJson | undefined;
   /**
    * List of choices for this field.
    */
-  choices?: Array<ChoiceJson> | undefined;
+  choices?: Array<ChoiceJson1> | undefined;
   /**
-   * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+   * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  notApplicableAnswer?: AdditionalChoiceJson2 | undefined;
+  notApplicableAnswer?: AdditionalChoiceJson | undefined;
   /**
-   * Contains text of additional choice i.e notApplicableAnswer choice or otherAnswer choice.
+   * Contains text of additional choice i.e N/A choice or otherAnswer choice
    */
-  otherAnswer?: AdditionalChoiceJson2 | undefined;
+  otherAnswer?: AdditionalChoiceJson | undefined;
   /**
-   * True indicates this is a mandatory question field.
+   * Is this a mandatory field
    */
   required: boolean;
 };
@@ -61,9 +61,9 @@ export const FieldJson$inboundSchema: z.ZodType<
   text: z.string().optional(),
   shortText: z.string().optional(),
   type: FieldTypeJson$inboundSchema.optional(),
-  choices: z.array(ChoiceJson$inboundSchema).optional(),
-  notApplicableAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
-  otherAnswer: AdditionalChoiceJson2$inboundSchema.optional(),
+  choices: z.array(ChoiceJson1$inboundSchema).optional(),
+  notApplicableAnswer: AdditionalChoiceJson$inboundSchema.optional(),
+  otherAnswer: AdditionalChoiceJson$inboundSchema.optional(),
   required: z.boolean().default(false),
 });
 

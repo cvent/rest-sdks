@@ -8,11 +8,11 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AddressJson2,
-  AddressJson2$inboundSchema,
-  AddressJson2$Outbound,
-  AddressJson2$outboundSchema,
-} from "./addressjson2.js";
+  AddressJson,
+  AddressJson$inboundSchema,
+  AddressJson$Outbound,
+  AddressJson$outboundSchema,
+} from "./addressjson.js";
 import {
   PaymentInfoJson,
   PaymentInfoJson$inboundSchema,
@@ -75,7 +75,7 @@ export type GuestJson = {
   /**
    * Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
    */
-  homeAddress?: AddressJson2 | undefined;
+  homeAddress?: AddressJson | undefined;
   /**
    * Payment information.
    */
@@ -100,7 +100,7 @@ export const GuestJson$inboundSchema: z.ZodType<
   email: z.string().optional(),
   homePhone: z.string().optional(),
   workPhone: z.string().optional(),
-  homeAddress: AddressJson2$inboundSchema.optional(),
+  homeAddress: AddressJson$inboundSchema.optional(),
   paymentInfo: PaymentInfoJson$inboundSchema.optional(),
 });
 /** @internal */
@@ -117,7 +117,7 @@ export type GuestJson$Outbound = {
   email?: string | undefined;
   homePhone?: string | undefined;
   workPhone?: string | undefined;
-  homeAddress?: AddressJson2$Outbound | undefined;
+  homeAddress?: AddressJson$Outbound | undefined;
   paymentInfo?: PaymentInfoJson$Outbound | undefined;
 };
 
@@ -139,7 +139,7 @@ export const GuestJson$outboundSchema: z.ZodType<
   email: z.string().optional(),
   homePhone: z.string().optional(),
   workPhone: z.string().optional(),
-  homeAddress: AddressJson2$outboundSchema.optional(),
+  homeAddress: AddressJson$outboundSchema.optional(),
   paymentInfo: PaymentInfoJson$outboundSchema.optional(),
 });
 

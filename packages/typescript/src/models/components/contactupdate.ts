@@ -6,35 +6,32 @@ import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import {
-  AddressJsonInput,
-  AddressJsonInput$Outbound,
-  AddressJsonInput$outboundSchema,
-} from "./addressjsoninput.js";
+  AddressInput,
+  AddressInput$Outbound,
+  AddressInput$outboundSchema,
+} from "./addressinput.js";
+import { AddressType, AddressType$outboundSchema } from "./addresstype.js";
 import {
-  AddressTypeJson,
-  AddressTypeJson$outboundSchema,
-} from "./addresstypejson.js";
+  AttendeeContactTypeInput,
+  AttendeeContactTypeInput$Outbound,
+  AttendeeContactTypeInput$outboundSchema,
+} from "./attendeecontacttypeinput.js";
 import {
-  AttendeeContactTypeJsonInput,
-  AttendeeContactTypeJsonInput$Outbound,
-  AttendeeContactTypeJsonInput$outboundSchema,
-} from "./attendeecontacttypejsoninput.js";
+  ContactLinksInput,
+  ContactLinksInput$Outbound,
+  ContactLinksInput$outboundSchema,
+} from "./contactlinksinput.js";
 import {
-  ContactLinksJsonInput,
-  ContactLinksJsonInput$Outbound,
-  ContactLinksJsonInput$outboundSchema,
-} from "./contactlinksjsoninput.js";
-import { GenderJson, GenderJson$outboundSchema } from "./genderjson.js";
+  ContactOptOutInput,
+  ContactOptOutInput$Outbound,
+  ContactOptOutInput$outboundSchema,
+} from "./contactoptoutinput.js";
+import { Gender, Gender$outboundSchema } from "./gender.js";
 import {
-  OptOutJsonInput,
-  OptOutJsonInput$Outbound,
-  OptOutJsonInput$outboundSchema,
-} from "./optoutjsoninput.js";
-import {
-  PassportJsonInput,
-  PassportJsonInput$Outbound,
-  PassportJsonInput$outboundSchema,
-} from "./passportjsoninput.js";
+  PassportInput,
+  PassportInput$Outbound,
+  PassportInput$outboundSchema,
+} from "./passportinput.js";
 
 /**
  * This entity is used to represent a single item that is requested for a contact update
@@ -67,7 +64,7 @@ export type ContactUpdate = {
   /**
    * The gender of the contact.
    */
-  gender?: GenderJson | undefined;
+  gender?: Gender | undefined;
   /**
    * The company/organization the contact belongs to.
    */
@@ -83,15 +80,15 @@ export type ContactUpdate = {
   /**
    * Contains details related to the attendee's contact type.
    */
-  type?: AttendeeContactTypeJsonInput | undefined;
+  type?: AttendeeContactTypeInput | undefined;
   /**
    * The type of address.
    */
-  primaryAddressType?: AddressTypeJson | undefined;
+  primaryAddressType?: AddressType | undefined;
   /**
    * Contact address details.
    */
-  homeAddress?: AddressJsonInput | undefined;
+  homeAddress?: AddressInput | undefined;
   /**
    * The phone number of the contact at their place of residence.
    */
@@ -103,7 +100,7 @@ export type ContactUpdate = {
   /**
    * Contact address details.
    */
-  workAddress?: AddressJsonInput | undefined;
+  workAddress?: AddressInput | undefined;
   /**
    * The phone number of the contact at their place of work.
    */
@@ -131,7 +128,7 @@ export type ContactUpdate = {
   /**
    * Details of an opt-out for a Contact.
    */
-  optOut?: OptOutJsonInput | undefined;
+  optOut?: ContactOptOutInput | undefined;
   /**
    * Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
    */
@@ -139,7 +136,7 @@ export type ContactUpdate = {
   /**
    * Collection of social media links for the contact.
    */
-  links?: ContactLinksJsonInput | undefined;
+  links?: ContactLinksInput | undefined;
   /**
    * The date of birth of the contact.
    *
@@ -161,7 +158,7 @@ export type ContactUpdate = {
   /**
    * This entity represents a contact's passport information.
    */
-  passport?: PassportJsonInput | undefined;
+  passport?: PassportInput | undefined;
   /**
    * The social security number of the contact.
    *
@@ -212,24 +209,24 @@ export type ContactUpdate$Outbound = {
   company?: string | undefined;
   designation?: string | undefined;
   title?: string | undefined;
-  type?: AttendeeContactTypeJsonInput$Outbound | undefined;
+  type?: AttendeeContactTypeInput$Outbound | undefined;
   primaryAddressType?: string | undefined;
-  homeAddress?: AddressJsonInput$Outbound | undefined;
+  homeAddress?: AddressInput$Outbound | undefined;
   homePhone?: string | undefined;
   homeFax?: string | undefined;
-  workAddress?: AddressJsonInput$Outbound | undefined;
+  workAddress?: AddressInput$Outbound | undefined;
   workPhone?: string | undefined;
   workFax?: string | undefined;
   sourceId?: string | undefined;
   mobilePhone?: string | undefined;
   prefix?: string | undefined;
   pager?: string | undefined;
-  optOut?: OptOutJsonInput$Outbound | undefined;
+  optOut?: ContactOptOutInput$Outbound | undefined;
   npi?: string | undefined;
-  _links?: ContactLinksJsonInput$Outbound | undefined;
+  _links?: ContactLinksInput$Outbound | undefined;
   dateOfBirth?: string | undefined;
   passportNumber?: string | undefined;
-  passport?: PassportJsonInput$Outbound | undefined;
+  passport?: PassportInput$Outbound | undefined;
   socialSecurityNumber?: string | undefined;
   nationalIdentificationNumber?: string | undefined;
   headline?: string | undefined;
@@ -251,28 +248,28 @@ export const ContactUpdate$outboundSchema: z.ZodType<
   nickname: z.string().optional(),
   email: z.string().optional(),
   ccEmail: z.string().optional(),
-  gender: GenderJson$outboundSchema.optional(),
+  gender: Gender$outboundSchema.optional(),
   company: z.string().optional(),
   designation: z.string().optional(),
   title: z.string().optional(),
-  type: AttendeeContactTypeJsonInput$outboundSchema.optional(),
-  primaryAddressType: AddressTypeJson$outboundSchema.optional(),
-  homeAddress: AddressJsonInput$outboundSchema.optional(),
+  type: AttendeeContactTypeInput$outboundSchema.optional(),
+  primaryAddressType: AddressType$outboundSchema.optional(),
+  homeAddress: AddressInput$outboundSchema.optional(),
   homePhone: z.string().optional(),
   homeFax: z.string().optional(),
-  workAddress: AddressJsonInput$outboundSchema.optional(),
+  workAddress: AddressInput$outboundSchema.optional(),
   workPhone: z.string().optional(),
   workFax: z.string().optional(),
   sourceId: z.string().optional(),
   mobilePhone: z.string().optional(),
   prefix: z.string().optional(),
   pager: z.string().optional(),
-  optOut: OptOutJsonInput$outboundSchema.optional(),
+  optOut: ContactOptOutInput$outboundSchema.optional(),
   npi: z.string().optional(),
-  links: ContactLinksJsonInput$outboundSchema.optional(),
+  links: ContactLinksInput$outboundSchema.optional(),
   dateOfBirth: z.instanceof(RFCDate).transform(v => v.toString()).optional(),
   passportNumber: z.string().optional(),
-  passport: PassportJsonInput$outboundSchema.optional(),
+  passport: PassportInput$outboundSchema.optional(),
   socialSecurityNumber: z.string().optional(),
   nationalIdentificationNumber: z.string().optional(),
   headline: z.string().optional(),

@@ -1,6 +1,6 @@
 # AddressJson
 
-Contact address details.
+Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
 
 ## Example Usage
 
@@ -8,28 +8,26 @@ Contact address details.
 import { AddressJson } from "@cvent/sdk/models/components";
 
 let value: AddressJson = {
-  address1: "Cvent Inc.",
-  address2: "4001 West Parmer Lane",
-  address3: "PO Box 123",
+  address1: "West St. 1",
+  address2: "Apt. 16",
   city: "Austin",
-  countryCode: "US",
-  postalCode: "78727",
   region: "Texas",
   regionCode: "TX",
+  postalCode: "23452AB",
   country: "United States of America",
+  countryCode: "US",
 };
 ```
 
 ## Fields
 
-| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `address1`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The first line of an address.                                 | Cvent Inc.                                                    |
-| `address2`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The second line of an address.                                | 4001 West Parmer Lane                                         |
-| `address3`                                                    | *string*                                                      | :heavy_minus_sign:                                            | The third line of an address.                                 | PO Box 123                                                    |
-| `city`                                                        | *string*                                                      | :heavy_minus_sign:                                            | The name of the city.                                         | Austin                                                        |
-| `countryCode`                                                 | *string*                                                      | :heavy_minus_sign:                                            | ISO 3166 two-letter (alpha-2) country code.                   | US                                                            |
-| `postalCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | Postal code (also known as zipcode) of the address.           | 78727                                                         |
-| `region`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The name of the state/province/region of the address.         | Texas                                                         |
-| `regionCode`                                                  | *string*                                                      | :heavy_minus_sign:                                            | The abbreviation of the state/province/region of the address. | TX                                                            |
-| `country`                                                     | *string*                                                      | :heavy_minus_sign:                                            | Name of the country of the address.                           | United States of America                                      |
+| Field                          | Type                           | Required                       | Description                    | Example                        |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | West St. 1                     |
+| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Apt. 16                        |
+| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Austin                         |
+| `region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
+| `regionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
+| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 23452AB                        |
+| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States of America       |
+| `countryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |

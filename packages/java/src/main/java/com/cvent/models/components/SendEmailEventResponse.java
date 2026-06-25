@@ -75,7 +75,7 @@ public class SendEmailEventResponse {
      * Details of the event.
      */
     @JsonProperty("event")
-    private EventJson8 event;
+    private EventJson6 event;
 
     /**
      * Details of an email to be send.
@@ -106,7 +106,7 @@ public class SendEmailEventResponse {
             @JsonProperty("requestId") @Nonnull String requestId,
             @JsonProperty("status") @Nullable SendEmailRequestStatusJson status,
             @JsonProperty("description") @Nullable String description,
-            @JsonProperty("event") @Nonnull EventJson8 event,
+            @JsonProperty("event") @Nonnull EventJson6 event,
             @JsonProperty("email") @Nonnull EmailJson2 email,
             @JsonProperty("resendToPreviousRecipients") boolean resendToPreviousRecipients,
             @JsonProperty("attendeeResponses") @Nullable List<AttendeeResponseJson> attendeeResponses) {
@@ -126,7 +126,7 @@ public class SendEmailEventResponse {
 
     public SendEmailEventResponse(
             @Nonnull String requestId,
-            @Nonnull EventJson8 event,
+            @Nonnull EventJson6 event,
             @Nonnull EmailJson2 email,
             boolean resendToPreviousRecipients) {
         this(null, null, null, null, requestId, null, null, event, email, resendToPreviousRecipients, null);
@@ -185,7 +185,7 @@ public class SendEmailEventResponse {
     /**
      * Details of the event.
      */
-    public EventJson8 event() {
+    public EventJson6 event() {
         return this.event;
     }
 
@@ -275,7 +275,7 @@ public class SendEmailEventResponse {
     /**
      * Details of the event.
      */
-    public SendEmailEventResponse withEvent(@Nonnull EventJson8 event) {
+    public SendEmailEventResponse withEvent(@Nonnull EventJson6 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -388,7 +388,7 @@ public class SendEmailEventResponse {
 
         private String description;
 
-        private EventJson8 event;
+        private EventJson6 event;
 
         private EmailJson2 email;
 
@@ -460,7 +460,7 @@ public class SendEmailEventResponse {
         /**
          * Details of the event.
          */
-        public Builder event(@Nonnull EventJson8 event) {
+        public Builder event(@Nonnull EventJson6 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

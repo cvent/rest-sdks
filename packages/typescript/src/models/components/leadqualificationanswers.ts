@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import { Answer1, Answer1$inboundSchema } from "./answer1.js";
-import { Event21, Event21$inboundSchema } from "./event21.js";
+import { Event3, Event3$inboundSchema } from "./event3.js";
 import { Exhibitor, Exhibitor$inboundSchema } from "./exhibitor.js";
 import { Lead2, Lead2$inboundSchema } from "./lead2.js";
 import { Uuid, Uuid$inboundSchema } from "./uuid.js";
@@ -43,7 +43,7 @@ export type LeadQualificationAnswers = {
   /**
    * The Associated Event.
    */
-  event?: Event21 | undefined;
+  event?: Event3 | undefined;
   /**
    * The Associated Exhibitor.
    */
@@ -73,7 +73,7 @@ export const LeadQualificationAnswers$inboundSchema: z.ZodType<
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
   question: Uuid$inboundSchema.optional(),
-  event: Event21$inboundSchema.optional(),
+  event: Event3$inboundSchema.optional(),
   exhibitor: Exhibitor$inboundSchema.optional(),
   lead: Lead2$inboundSchema.optional(),
   answers: z.array(Answer1$inboundSchema).optional(),

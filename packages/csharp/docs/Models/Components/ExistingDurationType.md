@@ -21,3 +21,6 @@ var value = ExistingDurationType.Rfid;
 | `Live`     | LIVE       |
 | `OnDemand` | ON_DEMAND  |
 | `Api`      | API        |
+| `Manual`   | MANUAL     |
+| `Import`   | IMPORT     |
+| `Eventapp` | EVENTAPP   |

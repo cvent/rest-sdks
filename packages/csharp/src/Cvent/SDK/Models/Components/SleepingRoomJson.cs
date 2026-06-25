@@ -24,7 +24,7 @@ namespace Cvent.SDK.Models.Components
         /// The date types used for the proposal, 'PREFERRED' have the highest priority. Values prefixed with 'ALTERNATE_' are decreasing in priority (e.g., ALTERNATE_1 has higher priority than 'ALTERNATE_2 and so on).
         /// </summary>
         [JsonProperty("proposalDateType")]
-        public DateTypeJson1? ProposalDateType { get; set; } = Cvent.SDK.Models.Components.DateTypeJson1.Preferred;
+        public DateTypeJson? ProposalDateType { get; set; } = Cvent.SDK.Models.Components.DateTypeJson.Preferred;
 
         /// <summary>
         /// The check in date for attendees.

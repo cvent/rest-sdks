@@ -60,7 +60,7 @@ namespace Cvent.SDK.Models.Components
         /// The Associated Event.
         /// </summary>
         [JsonProperty("event")]
-        public Event21? Event { get; set; }
+        public Event3? Event { get; set; }
 
         /// <summary>
         /// The Associated Exhibitor.

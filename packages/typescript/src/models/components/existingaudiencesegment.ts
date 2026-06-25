@@ -10,7 +10,7 @@ import {
   AudienceSegmentCreationTypeJson,
   AudienceSegmentCreationTypeJson$inboundSchema,
 } from "./audiencesegmentcreationtypejson.js";
-import { EventJson1, EventJson1$inboundSchema } from "./eventjson1.js";
+import { EventJson, EventJson$inboundSchema } from "./eventjson.js";
 
 /**
  * Details of an audience segment.
@@ -35,7 +35,7 @@ export type ExistingAudienceSegment = {
   /**
    * ID of the event.
    */
-  event: EventJson1;
+  event: EventJson;
   /**
    * Name of the audience segment. Must be unique in the event where the segment exists.
    */
@@ -71,7 +71,7 @@ export const ExistingAudienceSegment$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   lastModifiedBy: z.string().optional(),
-  event: EventJson1$inboundSchema,
+  event: EventJson$inboundSchema,
   name: z.string(),
   description: z.string().optional(),
   id: z.string().optional(),

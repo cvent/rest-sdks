@@ -9,42 +9,147 @@
 #nullable enable
 namespace Cvent.SDK.Models.Components
 {
+    using Cvent.SDK.Models.Components;
     using Cvent.SDK.Utils;
     using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// Question details.
+    /// A survey question.
     /// </summary>
     public class QuestionJson1
     {
         /// <summary>
-        /// The question ID.
+        /// The ISO 8601 zoned date time when this record was created.
         /// </summary>
-        [JsonProperty("id")]
-        public string Id { get; set; } = default!;
+        [JsonProperty("created")]
+        public DateTime? Created { get; set; }
 
         /// <summary>
-        /// The question text.
+        /// The identifier of the user that created this record.
+        /// </summary>
+        [JsonProperty("createdBy")]
+        public string? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The ISO 8601 zoned date time when this record was updated.
+        /// </summary>
+        [JsonProperty("lastModified")]
+        public DateTime? LastModified { get; set; }
+
+        /// <summary>
+        /// The identifier of the user that last updated this record.
+        /// </summary>
+        [JsonProperty("lastModifiedBy")]
+        public string? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// Text field ID.
+        /// </summary>
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// text Value of the Field.
         /// </summary>
         [JsonProperty("text")]
         public string? Text { get; set; }
 
         /// <summary>
-        /// The status of the question.
+        /// Reporting value of the Category, Its like a custom abbreviation.
         /// </summary>
-        [JsonProperty("status")]
-        public string? Status { get; set; }
+        [JsonProperty("shortText")]
+        public string? ShortText { get; set; }
 
         /// <summary>
-        /// Whether question is asked anonymously.
+        /// Html of the question.
         /// </summary>
-        [JsonProperty("anonymous")]
-        public bool? Anonymous { get; set; }
+        [JsonProperty("htmlText")]
+        public string? HtmlText { get; set; }
 
         /// <summary>
-        /// The answer text.
+        /// Question Code.
         /// </summary>
-        [JsonProperty("answer")]
-        public string? Answer { get; set; }
+        [JsonProperty("code")]
+        public string? Code { get; set; }
+
+        /// <summary>
+        /// Question Type.
+        /// </summary>
+        [JsonProperty("type")]
+        public QuestionTypeJson1? Type { get; set; }
+
+        /// <summary>
+        /// List of choices for the question.
+        /// </summary>
+        [JsonProperty("choices")]
+        public List<ChoiceJson1>? Choices { get; set; }
+
+        /// <summary>
+        /// List of categories for the question.
+        /// </summary>
+        [JsonProperty("categories")]
+        public List<CategoryJson1>? Categories { get; set; }
+
+        /// <summary>
+        /// List of sub categories for matrix side-by-side questions.
+        /// </summary>
+        [JsonProperty("subCategories")]
+        public List<TextFieldJson>? SubCategories { get; set; }
+
+        /// <summary>
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
+        /// </summary>
+        [JsonProperty("notApplicableAnswer")]
+        public AdditionalChoiceJson? NotApplicableAnswer { get; set; }
+
+        /// <summary>
+        /// Contains text of additional choice i.e N/A choice or otherAnswer choice.
+        /// </summary>
+        [JsonProperty("otherAnswer")]
+        public AdditionalChoiceJson? OtherAnswer { get; set; }
+
+        /// <summary>
+        /// Text Value of Comments Input box placeholder.
+        /// </summary>
+        [JsonProperty("comments")]
+        public string? Comments { get; set; }
+
+        /// <summary>
+        /// Is this a mandatory question.
+        /// </summary>
+        [JsonProperty("required")]
+        public bool? Required { get; set; } = false;
+
+        /// <summary>
+        /// List of fields for form/matrix questions.
+        /// </summary>
+        [JsonProperty("fields")]
+        public List<FieldJson>? Fields { get; set; }
+
+        /// <summary>
+        /// Max possible score.
+        /// </summary>
+        [JsonProperty("maxScore")]
+        public double? MaxScore { get; set; }
+
+        /// <summary>
+        /// Total configured sum of all choices for number allocation question.
+        /// </summary>
+        [JsonProperty("totalSum")]
+        public long? TotalSum { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("survey")]
+        public UuidJson? Survey { get; set; }
+
+        /// <summary>
+        /// The reference to the related entity. Contains only the ID of the related entity.
+        /// </summary>
+        [JsonProperty("chapter")]
+        public UuidJson? Chapter { get; set; }
     }
 }

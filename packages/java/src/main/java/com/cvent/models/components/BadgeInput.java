@@ -39,21 +39,21 @@ public class BadgeInput {
      * The associated Attendee.
      */
     @JsonProperty("attendee")
-    private Attendee11 attendee;
+    private Attendee12 attendee;
 
     /**
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     @JsonCreator
     public BadgeInput(
             @JsonProperty("id") @Nonnull String id,
             @JsonProperty("status") @Nonnull BadgeStatus status,
             @JsonProperty("type") @Nonnull BadgeType type,
-            @JsonProperty("attendee") @Nonnull Attendee11 attendee,
-            @JsonProperty("event") @Nonnull Event21 event) {
+            @JsonProperty("attendee") @Nonnull Attendee12 attendee,
+            @JsonProperty("event") @Nonnull Event3 event) {
         this.id = Optional.ofNullable(id).orElseThrow(() -> new IllegalArgumentException("id cannot be null"));
         this.status =
                 Optional.ofNullable(status).orElseThrow(() -> new IllegalArgumentException("status cannot be null"));
@@ -87,14 +87,14 @@ public class BadgeInput {
     /**
      * The associated Attendee.
      */
-    public Attendee11 attendee() {
+    public Attendee12 attendee() {
         return this.attendee;
     }
 
     /**
      * The Associated Event.
      */
-    public Event21 event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -129,7 +129,7 @@ public class BadgeInput {
     /**
      * The associated Attendee.
      */
-    public BadgeInput withAttendee(@Nonnull Attendee11 attendee) {
+    public BadgeInput withAttendee(@Nonnull Attendee12 attendee) {
         this.attendee = Utils.checkNotNull(attendee, "attendee");
         return this;
     }
@@ -137,7 +137,7 @@ public class BadgeInput {
     /**
      * The Associated Event.
      */
-    public BadgeInput withEvent(@Nonnull Event21 event) {
+    public BadgeInput withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -178,9 +178,9 @@ public class BadgeInput {
 
         private BadgeType type;
 
-        private Attendee11 attendee;
+        private Attendee12 attendee;
 
-        private Event21 event;
+        private Event3 event;
 
         private Builder() {
             // force use of static builder() method
@@ -213,7 +213,7 @@ public class BadgeInput {
         /**
          * The associated Attendee.
          */
-        public Builder attendee(@Nonnull Attendee11 attendee) {
+        public Builder attendee(@Nonnull Attendee12 attendee) {
             this.attendee = Utils.checkNotNull(attendee, "attendee");
             return this;
         }
@@ -221,7 +221,7 @@ public class BadgeInput {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event21 event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }

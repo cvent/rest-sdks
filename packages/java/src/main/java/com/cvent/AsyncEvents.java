@@ -37,6 +37,9 @@ import com.cvent.models.operations.ListDonationItemsPostFilterRequest;
 import com.cvent.models.operations.ListDonationItemsRequest;
 import com.cvent.models.operations.ListEventEmailsRequest;
 import com.cvent.models.operations.ListEventUserGroupsRequest;
+import com.cvent.models.operations.ListEventVoucherAttendeesRequest;
+import com.cvent.models.operations.ListEventVouchersPostFilterRequest;
+import com.cvent.models.operations.ListEventVouchersRequest;
 import com.cvent.models.operations.ListFeeItemsRequest;
 import com.cvent.models.operations.ListMembershipItemsPostFilterRequest;
 import com.cvent.models.operations.ListMembershipItemsRequest;
@@ -116,6 +119,12 @@ import com.cvent.models.operations.async.ListEventEmailsRequestBuilder;
 import com.cvent.models.operations.async.ListEventEmailsResponse;
 import com.cvent.models.operations.async.ListEventUserGroupsRequestBuilder;
 import com.cvent.models.operations.async.ListEventUserGroupsResponse;
+import com.cvent.models.operations.async.ListEventVoucherAttendeesRequestBuilder;
+import com.cvent.models.operations.async.ListEventVoucherAttendeesResponse;
+import com.cvent.models.operations.async.ListEventVouchersPostFilterRequestBuilder;
+import com.cvent.models.operations.async.ListEventVouchersPostFilterResponse;
+import com.cvent.models.operations.async.ListEventVouchersRequestBuilder;
+import com.cvent.models.operations.async.ListEventVouchersResponse;
 import com.cvent.models.operations.async.ListFeeItemsRequestBuilder;
 import com.cvent.models.operations.async.ListFeeItemsResponse;
 import com.cvent.models.operations.async.ListMembershipItemsPostFilterRequestBuilder;
@@ -183,6 +192,9 @@ import com.cvent.operations.ListDonationItems;
 import com.cvent.operations.ListDonationItemsPostFilter;
 import com.cvent.operations.ListEventEmails;
 import com.cvent.operations.ListEventUserGroups;
+import com.cvent.operations.ListEventVoucherAttendees;
+import com.cvent.operations.ListEventVouchers;
+import com.cvent.operations.ListEventVouchersPostFilter;
 import com.cvent.operations.ListFeeItems;
 import com.cvent.operations.ListMembershipItems;
 import com.cvent.operations.ListMembershipItemsPostFilter;
@@ -2068,6 +2080,128 @@ public class AsyncEvents {
             @Nonnull DisassociateEventUserGroupRequest request, @Nullable Options options) {
         AsyncRequestOperation<DisassociateEventUserGroupRequest, DisassociateEventUserGroupResponse> operation =
                 new DisassociateEventUserGroup.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @return The async call builder
+     */
+    public ListEventVouchersRequestBuilder listEventVouchers() {
+        return new ListEventVouchersRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListEventVouchersResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVouchersResponse> listEventVouchers(@Nonnull ListEventVouchersRequest request) {
+        return listEventVouchers(request, null);
+    }
+
+    /**
+     * List Event Vouchers
+     *
+     * <p>Retrieves a paginated list of vouchers set up for a specific event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventVouchersResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVouchersResponse> listEventVouchers(
+            @Nonnull ListEventVouchersRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListEventVouchersRequest, ListEventVouchersResponse> operation =
+                new ListEventVouchers.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @return The async call builder
+     */
+    public ListEventVouchersPostFilterRequestBuilder listEventVouchersPostFilter() {
+        return new ListEventVouchersPostFilterRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListEventVouchersPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVouchersPostFilterResponse> listEventVouchersPostFilter(
+            @Nonnull ListEventVouchersPostFilterRequest request) {
+        return listEventVouchersPostFilter(request, null);
+    }
+
+    /**
+     * List Event Vouchers (Filter)
+     *
+     * <p>Retrieves a paginated list of vouchers configured for an event using a filter provided in the body
+     * of the request.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventVouchersPostFilterResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVouchersPostFilterResponse> listEventVouchersPostFilter(
+            @Nonnull ListEventVouchersPostFilterRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListEventVouchersPostFilterRequest, ListEventVouchersPostFilterResponse> operation =
+                new ListEventVouchersPostFilter.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
+        return operation.doRequest(request).thenCompose(operation::handleResponse);
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @return The async call builder
+     */
+    public ListEventVoucherAttendeesRequestBuilder listEventVoucherAttendees() {
+        return new ListEventVoucherAttendeesRequestBuilder(sdkConfiguration);
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @return {@code CompletableFuture<ListEventVoucherAttendeesResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVoucherAttendeesResponse> listEventVoucherAttendees(
+            @Nonnull ListEventVoucherAttendeesRequest request) {
+        return listEventVoucherAttendees(request, null);
+    }
+
+    /**
+     * List Voucher Attendees
+     *
+     * <p>Retrieves a paginated list of attendees who have redeemed a specific voucher for the given event.
+     *
+     * @param request The request object containing all the parameters for the API call.
+     * @param options additional options
+     * @return {@code CompletableFuture<ListEventVoucherAttendeesResponse>} - The async response
+     */
+    public CompletableFuture<ListEventVoucherAttendeesResponse> listEventVoucherAttendees(
+            @Nonnull ListEventVoucherAttendeesRequest request, @Nullable Options options) {
+        AsyncRequestOperation<ListEventVoucherAttendeesRequest, ListEventVoucherAttendeesResponse> operation =
+                new ListEventVoucherAttendees.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }
 

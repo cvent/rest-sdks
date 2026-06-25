@@ -6,7 +6,7 @@ package com.cvent;
 import static com.cvent.operations.Operations.AsyncRequestOperation;
 
 import com.cvent.models.components.Speaker;
-import com.cvent.models.components.SpeakerCategory;
+import com.cvent.models.components.SpeakerCategory2;
 import com.cvent.models.operations.AddSpeakerDocRequest;
 import com.cvent.models.operations.AssignSpeakerProfileImageRequest;
 import com.cvent.models.operations.CreateSessionProgramSpeakerRequest;
@@ -390,7 +390,7 @@ public class AsyncSpeakers {
      * @param request The request object containing all the parameters for the API call.
      * @return {@code CompletableFuture<AddSpeakerCategoryResponse>} - The async response
      */
-    public CompletableFuture<AddSpeakerCategoryResponse> addSpeakerCategory(@Nonnull SpeakerCategory request) {
+    public CompletableFuture<AddSpeakerCategoryResponse> addSpeakerCategory(@Nonnull SpeakerCategory2 request) {
         return addSpeakerCategory(request, null);
     }
 
@@ -406,8 +406,8 @@ public class AsyncSpeakers {
      * @return {@code CompletableFuture<AddSpeakerCategoryResponse>} - The async response
      */
     public CompletableFuture<AddSpeakerCategoryResponse> addSpeakerCategory(
-            @Nonnull SpeakerCategory request, @Nullable Options options) {
-        AsyncRequestOperation<SpeakerCategory, AddSpeakerCategoryResponse> operation =
+            @Nonnull SpeakerCategory2 request, @Nullable Options options) {
+        AsyncRequestOperation<SpeakerCategory2, AddSpeakerCategoryResponse> operation =
                 new AddSpeakerCategory.Async(sdkConfiguration, options, sdkConfiguration.retryScheduler(), _headers);
         return operation.doRequest(request).thenCompose(operation::handleResponse);
     }

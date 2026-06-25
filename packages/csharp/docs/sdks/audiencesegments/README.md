@@ -215,7 +215,7 @@ var sdk = new CventSDK(security: new Security() {
 });
 
 AudienceSegmentCreate req = new AudienceSegmentCreate() {
-    Event = new EventJson1() {
+    Event = new EventJson() {
         Id = "103097a4-143d-11e5-9f99-d0a637ee0032",
     },
     Name = "VIP Attendees",
@@ -242,7 +242,8 @@ var res = await sdk.AudienceSegments.CreateAudienceSegmentAsync(req);
 | Error Type                                    | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
-| Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 422, 429                            | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse2        | 422                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 429                                 | application/json                              |
 | Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 
 ## ListAudienceSegments
@@ -453,7 +454,7 @@ var sdk = new CventSDK(security: new Security() {
 UpdateAudienceSegmentRequest req = new UpdateAudienceSegmentRequest() {
     AudienceSegmentId = "04ca6ae2-0dc3-487b-953e-86d6abbdf7d3",
     AudienceSegment = new AudienceSegment() {
-        Event = new EventJson1() {
+        Event = new EventJson() {
             Id = "103097a4-143d-11e5-9f99-d0a637ee0032",
         },
         Name = "VIP Attendees",
@@ -480,7 +481,8 @@ var res = await sdk.AudienceSegments.UpdateAudienceSegmentAsync(req);
 
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 422, 429           | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse2 | 422                                    | application/json                       |
+| Cvent.SDK.Models.Errors.ErrorResponse1 | 400, 401, 403, 404, 429                | application/json                       |
 | Cvent.SDK.Models.Errors.APIException   | 4XX, 5XX                               | \*/\*                                  |
 
 ## DeleteAudienceSegment
@@ -644,7 +646,8 @@ var res = await sdk.AudienceSegments.AssociateAttendeeToSegmentAsync(req);
 | Error Type                                    | Status Code                                   | Content Type                                  |
 | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
 | Cvent.SDK.Models.Errors.SegmentsErrorResponse | 400                                           | application/json                              |
-| Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 404, 422, 429                       | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse2        | 422                                           | application/json                              |
+| Cvent.SDK.Models.Errors.ErrorResponse1        | 401, 403, 404, 429                            | application/json                              |
 | Cvent.SDK.Models.Errors.APIException          | 4XX, 5XX                                      | \*/\*                                         |
 
 ## DisassociateAttendeeFromAudienceSegment

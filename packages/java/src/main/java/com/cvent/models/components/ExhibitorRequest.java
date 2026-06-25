@@ -27,7 +27,7 @@ public class ExhibitorRequest {
      * The Associated Event.
      */
     @JsonProperty("event")
-    private Event21 event;
+    private Event3 event;
 
     /**
      * Name of the exhibitor. Cvent suggests limiting this to a maximum of 200 characters for optimal
@@ -69,7 +69,7 @@ public class ExhibitorRequest {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("address")
-    private Address2 address;
+    private Address4 address;
 
     /**
      * Email address of the exhibitor
@@ -150,13 +150,13 @@ public class ExhibitorRequest {
 
     @JsonCreator
     public ExhibitorRequest(
-            @JsonProperty("event") @Nonnull Event21 event,
+            @JsonProperty("event") @Nonnull Event3 event,
             @JsonProperty("name") @Nonnull String name,
             @JsonProperty("description") @Nullable String description,
             @JsonProperty("code") @Nullable String code,
             @JsonProperty("sourceId") @Nullable String sourceId,
             @JsonProperty("location") @Nullable String location,
-            @JsonProperty("address") @Nullable Address2 address,
+            @JsonProperty("address") @Nullable Address4 address,
             @JsonProperty("email") @Nullable String email,
             @JsonProperty("mobilePhone") @Nullable String mobilePhone,
             @JsonProperty("workPhone") @Nullable String workPhone,
@@ -188,7 +188,7 @@ public class ExhibitorRequest {
         this.sponsorshipLevel = sponsorshipLevel;
     }
 
-    public ExhibitorRequest(@Nonnull Event21 event, @Nonnull String name) {
+    public ExhibitorRequest(@Nonnull Event3 event, @Nonnull String name) {
         this(
                 event,
                 name,
@@ -213,7 +213,7 @@ public class ExhibitorRequest {
     /**
      * The Associated Event.
      */
-    public Event21 event() {
+    public Event3 event() {
         return this.event;
     }
 
@@ -256,7 +256,7 @@ public class ExhibitorRequest {
     /**
      * An object representing an address with various properties.
      */
-    public Optional<Address2> address() {
+    public Optional<Address4> address() {
         return Optional.ofNullable(this.address);
     }
 
@@ -344,7 +344,7 @@ public class ExhibitorRequest {
     /**
      * The Associated Event.
      */
-    public ExhibitorRequest withEvent(@Nonnull Event21 event) {
+    public ExhibitorRequest withEvent(@Nonnull Event3 event) {
         this.event = Utils.checkNotNull(event, "event");
         return this;
     }
@@ -393,7 +393,7 @@ public class ExhibitorRequest {
     /**
      * An object representing an address with various properties.
      */
-    public ExhibitorRequest withAddress(@Nullable Address2 address) {
+    public ExhibitorRequest withAddress(@Nullable Address4 address) {
         this.address = address;
         return this;
     }
@@ -583,7 +583,7 @@ public class ExhibitorRequest {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private Event21 event;
+        private Event3 event;
 
         private String name;
 
@@ -595,7 +595,7 @@ public class ExhibitorRequest {
 
         private String location;
 
-        private Address2 address;
+        private Address4 address;
 
         private String email;
 
@@ -626,7 +626,7 @@ public class ExhibitorRequest {
         /**
          * The Associated Event.
          */
-        public Builder event(@Nonnull Event21 event) {
+        public Builder event(@Nonnull Event3 event) {
             this.event = Utils.checkNotNull(event, "event");
             return this;
         }
@@ -675,7 +675,7 @@ public class ExhibitorRequest {
         /**
          * An object representing an address with various properties.
          */
-        public Builder address(@Nullable Address2 address) {
+        public Builder address(@Nullable Address4 address) {
             this.address = address;
             return this;
         }

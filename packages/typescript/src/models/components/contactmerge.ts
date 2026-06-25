@@ -4,20 +4,20 @@
 
 import * as z from "zod/v3";
 import {
-  ContactMergeFieldJson,
-  ContactMergeFieldJson$Outbound,
-  ContactMergeFieldJson$outboundSchema,
-} from "./contactmergefieldjson.js";
+  ContactMergeField,
+  ContactMergeField$Outbound,
+  ContactMergeField$outboundSchema,
+} from "./contactmergefield.js";
 import {
-  EventContactIdJson,
-  EventContactIdJson$Outbound,
-  EventContactIdJson$outboundSchema,
-} from "./eventcontactidjson.js";
+  EventContactId,
+  EventContactId$Outbound,
+  EventContactId$outboundSchema,
+} from "./eventcontactid.js";
 import {
-  SurveyContactIdJson,
-  SurveyContactIdJson$Outbound,
-  SurveyContactIdJson$outboundSchema,
-} from "./surveycontactidjson.js";
+  SurveyContactId,
+  SurveyContactId$Outbound,
+  SurveyContactId$outboundSchema,
+} from "./surveycontactid.js";
 
 /**
  * Represents choices in resolving conflicts in the contacts to be merged or to optionally select fields to keep from a secondary contact, overriding default behavior.
@@ -26,11 +26,11 @@ export type ConflictResolution = {
   /**
    * For each event (designated by event id), choose a contact id whose linked attendee will be associated with the resulting merged contact. Use whenever at least two contacts exist as attendees in a single event.
    */
-  events?: Array<EventContactIdJson> | undefined;
+  events?: Array<EventContactId> | undefined;
   /**
    * For each survey (designated by survey id), choose a contact id whose linked respondent will be associated with the resulting merged contact. Use whenever at least two contacts exist as respondents in a single survey.
    */
-  surveys?: Array<SurveyContactIdJson> | undefined;
+  surveys?: Array<SurveyContactId> | undefined;
   /**
    * The id of the contact to keep the relationships of in the resulting merged contact. Only one contact can be chosen, and relationships of the other contact(s) will be discarded.
    */
@@ -38,7 +38,7 @@ export type ConflictResolution = {
   /**
    * Specify which contact to use values from for any contact field.
    */
-  contactFields?: Array<ContactMergeFieldJson> | undefined;
+  contactFields?: Array<ContactMergeField> | undefined;
 };
 
 /**
@@ -57,10 +57,10 @@ export type ContactMerge = {
 
 /** @internal */
 export type ConflictResolution$Outbound = {
-  events?: Array<EventContactIdJson$Outbound> | undefined;
-  surveys?: Array<SurveyContactIdJson$Outbound> | undefined;
+  events?: Array<EventContactId$Outbound> | undefined;
+  surveys?: Array<SurveyContactId$Outbound> | undefined;
   relatedContacts?: string | undefined;
-  contactFields?: Array<ContactMergeFieldJson$Outbound> | undefined;
+  contactFields?: Array<ContactMergeField$Outbound> | undefined;
 };
 
 /** @internal */
@@ -69,10 +69,10 @@ export const ConflictResolution$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ConflictResolution
 > = z.object({
-  events: z.array(EventContactIdJson$outboundSchema).optional(),
-  surveys: z.array(SurveyContactIdJson$outboundSchema).optional(),
+  events: z.array(EventContactId$outboundSchema).optional(),
+  surveys: z.array(SurveyContactId$outboundSchema).optional(),
   relatedContacts: z.string().optional(),
-  contactFields: z.array(ContactMergeFieldJson$outboundSchema).optional(),
+  contactFields: z.array(ContactMergeField$outboundSchema).optional(),
 });
 
 export function conflictResolutionToJSON(

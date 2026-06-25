@@ -1,36 +1,22 @@
 # CustomFieldJson1CustomFieldType
 
-The type of data collected by a custom field.
+This is used to denote the type of data collected by a custom field.
 
 ## Example Usage
 
 ```csharp
 using Cvent.SDK.Models.Components;
 
-var value = CustomFieldJson1CustomFieldType.AutoIncrement;
+var value = CustomFieldJson1CustomFieldType.OpenEndedTextDateTime;
 ```
 
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `AutoIncrement`     | AutoIncrement       |
-| `ConsentQuestion`   | ConsentQuestion     |
-| `Currency`          | Currency            |
-| `Decimal`           | Decimal             |
-| `Date`              | Date                |
-| `DateTime`          | DateTime            |
-| `Email`             | Email               |
-| `FileUpload`        | FileUpload          |
-| `FreeText`          | FreeText            |
-| `General`           | General             |
-| `MultiChoice`       | MultiChoice         |
-| `MultiSelect`       | MultiSelect         |
-| `Number`            | Number              |
-| `OpenEndedDateTime` | OpenEndedDateTime   |
-| `OpenEndedText`     | OpenEndedText       |
-| `SingleChoice`      | SingleChoice        |
-| `SingleSelect`      | SingleSelect        |
-| `USPhoneNumber`     | USPhoneNumber       |
-| `Unknown`           | Unknown             |
+| Name                          | Value                         |
+| ----------------------------- | ----------------------------- |
+| `OpenEndedTextDateTime`       | Open Ended Text - Date/Time   |
+| `OpenEndedTextOneLine`        | Open Ended Text - One Line    |
+| `OpenEndedTextCommentBox`     | Open Ended Text - Comment Box |
+| `ChoiceSingleAnswer`          | Choice - Single Answer        |
+| `ChoiceMultipleAnswers`       | Choice - Multiple Answers     |

@@ -6,19 +6,13 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { EventLiteJson, EventLiteJson$inboundSchema } from "./eventlitejson.js";
+import { EventLite, EventLite$inboundSchema } from "./eventlite.js";
 import {
-  ProgramItemLiteJson,
-  ProgramItemLiteJson$inboundSchema,
-} from "./programitemlitejson.js";
-import {
-  SessionLiteJson,
-  SessionLiteJson$inboundSchema,
-} from "./sessionlitejson.js";
-import {
-  SpeakerLiteJson,
-  SpeakerLiteJson$inboundSchema,
-} from "./speakerlitejson.js";
+  ProgramItemLite,
+  ProgramItemLite$inboundSchema,
+} from "./programitemlite.js";
+import { SessionLite, SessionLite$inboundSchema } from "./sessionlite.js";
+import { SpeakerLite, SpeakerLite$inboundSchema } from "./speakerlite.js";
 
 /**
  * Represents a program item object that will be added to a speaker.
@@ -47,19 +41,19 @@ export type SpeakerProgramItem = {
   /**
    * The unique identifier of an event.
    */
-  event: EventLiteJson;
+  event: EventLite;
   /**
    * The unique identifier of a session.
    */
-  session: SessionLiteJson;
+  session: SessionLite;
   /**
    * The unique identifier of a speaker.
    */
-  speaker: SpeakerLiteJson;
+  speaker: SpeakerLite;
   /**
    * The unique identifier of a program item.
    */
-  programItem: ProgramItemLiteJson;
+  programItem: ProgramItemLite;
 };
 
 /** @internal */
@@ -76,10 +70,10 @@ export const SpeakerProgramItem$inboundSchema: z.ZodType<
   ).optional(),
   lastModifiedBy: z.string().optional(),
   id: z.string().optional(),
-  event: EventLiteJson$inboundSchema,
-  session: SessionLiteJson$inboundSchema,
-  speaker: SpeakerLiteJson$inboundSchema,
-  programItem: ProgramItemLiteJson$inboundSchema,
+  event: EventLite$inboundSchema,
+  session: SessionLite$inboundSchema,
+  speaker: SpeakerLite$inboundSchema,
+  programItem: ProgramItemLite$inboundSchema,
 });
 
 export function speakerProgramItemFromJSON(

@@ -3,64 +3,62 @@
  */
 package com.cvent.models.components;
 
-import com.cvent.utils.LazySingletonValue;
 import com.cvent.utils.Utils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
 import jakarta.annotation.Nullable;
-import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Override;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * CategoryJson
  *
- * <p>A question category.
+ * <p>A category of items.
  */
 public class CategoryJson {
     /**
-     * Text field ID.
+     * The category type.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("type")
+    private String type;
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * The name of the category.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("name")
+    private String name;
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Total cost for all items within this category.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("shortText")
-    private String shortText;
+    @JsonProperty("totalCost")
+    private Double totalCost;
 
     /**
-     * True indicates the category is mandatory for answer.
+     * List of items in this category.
      */
     @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("required")
-    private Boolean required;
+    @JsonProperty("items")
+    private List<ItemJson> items;
 
     @JsonCreator
     public CategoryJson(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text,
-            @JsonProperty("shortText") @Nullable String shortText,
-            @JsonProperty("required") @Nullable Boolean required) {
-        this.id = id;
-        this.text = text;
-        this.shortText = shortText;
-        this.required = Optional.ofNullable(required).orElse(Builder._SINGLETON_VALUE_Required.value());
+            @JsonProperty("type") @Nullable String type,
+            @JsonProperty("name") @Nullable String name,
+            @JsonProperty("totalCost") @Nullable Double totalCost,
+            @JsonProperty("items") @Nullable List<ItemJson> items) {
+        this.type = type;
+        this.name = name;
+        this.totalCost = totalCost;
+        this.items = items;
     }
 
     public CategoryJson() {
@@ -68,32 +66,31 @@ public class CategoryJson {
     }
 
     /**
-     * Text field ID.
+     * The category type.
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
+    public Optional<String> type() {
+        return Optional.ofNullable(this.type);
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * The name of the category.
      */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Total cost for all items within this category.
      */
-    public Optional<String> shortText() {
-        return Optional.ofNullable(this.shortText);
+    public Optional<Double> totalCost() {
+        return Optional.ofNullable(this.totalCost);
     }
 
     /**
-     * True indicates the category is mandatory for answer.
+     * List of items in this category.
      */
-    public Optional<Boolean> required() {
-        return Optional.ofNullable(this.required);
+    public Optional<List<ItemJson>> items() {
+        return Optional.ofNullable(this.items);
     }
 
     public static Builder builder() {
@@ -101,35 +98,34 @@ public class CategoryJson {
     }
 
     /**
-     * Text field ID.
+     * The category type.
      */
-    public CategoryJson withId(@Nullable String id) {
-        this.id = id;
+    public CategoryJson withType(@Nullable String type) {
+        this.type = type;
         return this;
     }
 
     /**
-     * Text value of the field. Displays to users in the UI.
+     * The name of the category.
      */
-    public CategoryJson withText(@Nullable String text) {
-        this.text = text;
+    public CategoryJson withName(@Nullable String name) {
+        this.name = name;
         return this;
     }
 
     /**
-     * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-     * the question in reports.
+     * Total cost for all items within this category.
      */
-    public CategoryJson withShortText(@Nullable String shortText) {
-        this.shortText = shortText;
+    public CategoryJson withTotalCost(@Nullable Double totalCost) {
+        this.totalCost = totalCost;
         return this;
     }
 
     /**
-     * True indicates the category is mandatory for answer.
+     * List of items in this category.
      */
-    public CategoryJson withRequired(@Nullable Boolean required) {
-        this.required = required;
+    public CategoryJson withItems(@Nullable List<ItemJson> items) {
+        this.items = items;
         return this;
     }
 
@@ -142,75 +138,71 @@ public class CategoryJson {
             return false;
         }
         CategoryJson other = (CategoryJson) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.text, other.text)
-                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
-                && Utils.enhancedDeepEquals(this.required, other.required);
+        return Utils.enhancedDeepEquals(this.type, other.type)
+                && Utils.enhancedDeepEquals(this.name, other.name)
+                && Utils.enhancedDeepEquals(this.totalCost, other.totalCost)
+                && Utils.enhancedDeepEquals(this.items, other.items);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, shortText, required);
+        return Utils.enhancedHash(type, name, totalCost, items);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(CategoryJson.class, "id", id, "text", text, "shortText", shortText, "required", required);
+        return Utils.toString(CategoryJson.class, "type", type, "name", name, "totalCost", totalCost, "items", items);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private String id;
+        private String type;
 
-        private String text;
+        private String name;
 
-        private String shortText;
+        private Double totalCost;
 
-        private Boolean required;
+        private List<ItemJson> items;
 
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Text field ID.
+         * The category type.
          */
-        public Builder id(@Nullable String id) {
-            this.id = id;
+        public Builder type(@Nullable String type) {
+            this.type = type;
             return this;
         }
 
         /**
-         * Text value of the field. Displays to users in the UI.
+         * The name of the category.
          */
-        public Builder text(@Nullable String text) {
-            this.text = text;
+        public Builder name(@Nullable String name) {
+            this.name = name;
             return this;
         }
 
         /**
-         * Concise version or abbreviation of the question text. Set by the planner to simplify presentation of
-         * the question in reports.
+         * Total cost for all items within this category.
          */
-        public Builder shortText(@Nullable String shortText) {
-            this.shortText = shortText;
+        public Builder totalCost(@Nullable Double totalCost) {
+            this.totalCost = totalCost;
             return this;
         }
 
         /**
-         * True indicates the category is mandatory for answer.
+         * List of items in this category.
          */
-        public Builder required(@Nullable Boolean required) {
-            this.required = required;
+        public Builder items(@Nullable List<ItemJson> items) {
+            this.items = items;
             return this;
         }
 
         public CategoryJson build() {
-            return new CategoryJson(id, text, shortText, required);
+            return new CategoryJson(type, name, totalCost, items);
         }
-
-        private static final LazySingletonValue<Boolean> _SINGLETON_VALUE_Required =
-                new LazySingletonValue<>("required", "false", new TypeReference<Boolean>() {});
     }
 }

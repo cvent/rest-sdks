@@ -14,14 +14,14 @@ import {
   CategoryItemsCostJson$outboundSchema,
 } from "./categoryitemscostjson.js";
 import {
-  ContactJson1,
-  ContactJson1$Outbound,
-  ContactJson1$outboundSchema,
-} from "./contactjson1.js";
+  ContactJson,
+  ContactJson$Outbound,
+  ContactJson$outboundSchema,
+} from "./contactjson.js";
 import {
-  CurrencyJson1,
-  CurrencyJson1$outboundSchema,
-} from "./currencyjson1.js";
+  CurrencyJson2,
+  CurrencyJson2$outboundSchema,
+} from "./currencyjson2.js";
 import {
   EstimatedCostJson,
   EstimatedCostJson$Outbound,
@@ -108,7 +108,7 @@ export type ProposalRequest = {
   /**
    * The ISO 4217 standard format currency code used for RFPs.
    */
-  currencyCode?: CurrencyJson1 | undefined;
+  currencyCode?: CurrencyJson2 | undefined;
   /**
    * True indicates this is a commissionable bid.
    */
@@ -150,11 +150,11 @@ export type ProposalRequest = {
   /**
    * List of all contacts.
    */
-  contacts?: Array<ContactJson1> | undefined;
+  contacts?: Array<ContactJson> | undefined;
   /**
    * List of all planner contacts.
    */
-  plannerContacts?: Array<ContactJson1> | undefined;
+  plannerContacts?: Array<ContactJson> | undefined;
   /**
    * The meeting room.
    */
@@ -181,8 +181,8 @@ export type ProposalRequest$Outbound = {
   categoryItemsCost?: CategoryItemsCostJson$Outbound | undefined;
   aggregatedCost?: AggregatedCostJson$Outbound | undefined;
   estimatedCost?: EstimatedCostJson$Outbound | undefined;
-  contacts?: Array<ContactJson1$Outbound> | undefined;
-  plannerContacts?: Array<ContactJson1$Outbound> | undefined;
+  contacts?: Array<ContactJson$Outbound> | undefined;
+  plannerContacts?: Array<ContactJson$Outbound> | undefined;
   meetingRoom?: MeetingRoomJson$Outbound | undefined;
 };
 
@@ -200,7 +200,7 @@ export const ProposalRequest$outboundSchema: z.ZodType<
   statusSummary: StatusSummaryJson$outboundSchema.optional(),
   introduction: z.string().optional(),
   billingContractualResponse: z.string().optional(),
-  currencyCode: CurrencyJson1$outboundSchema.optional(),
+  currencyCode: CurrencyJson2$outboundSchema.optional(),
   commissionableBid: z.boolean().optional(),
   commissionRate: z.number().optional(),
   name: z.string().optional(),
@@ -210,8 +210,8 @@ export const ProposalRequest$outboundSchema: z.ZodType<
   categoryItemsCost: CategoryItemsCostJson$outboundSchema.optional(),
   aggregatedCost: AggregatedCostJson$outboundSchema.optional(),
   estimatedCost: EstimatedCostJson$outboundSchema.optional(),
-  contacts: z.array(ContactJson1$outboundSchema).optional(),
-  plannerContacts: z.array(ContactJson1$outboundSchema).optional(),
+  contacts: z.array(ContactJson$outboundSchema).optional(),
+  plannerContacts: z.array(ContactJson$outboundSchema).optional(),
   meetingRoom: MeetingRoomJson$outboundSchema.optional(),
 });
 

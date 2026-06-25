@@ -15,9 +15,9 @@ import {
   AppointmentStatusJson$inboundSchema,
 } from "./appointmentstatusjson.js";
 import {
-  CustomFieldJson1,
-  CustomFieldJson1$inboundSchema,
-} from "./customfieldjson1.js";
+  CustomFieldJson,
+  CustomFieldJson$inboundSchema,
+} from "./customfieldjson.js";
 import { UuidJson, UuidJson$inboundSchema } from "./uuidjson.js";
 
 /**
@@ -125,7 +125,7 @@ export type AppointmentWithQuestions = {
   /**
    * Collection of custom questions asked to participants of the appointment.
    */
-  questions?: Array<CustomFieldJson1> | undefined;
+  questions?: Array<CustomFieldJson> | undefined;
 };
 
 /** @internal */
@@ -196,7 +196,7 @@ export const AppointmentWithQuestions$inboundSchema: z.ZodType<
   modified: z.string().datetime({ offset: true }).transform(v => new Date(v))
     .optional(),
   deleted: z.boolean().optional(),
-  questions: z.array(CustomFieldJson1$inboundSchema).optional(),
+  questions: z.array(CustomFieldJson$inboundSchema).optional(),
 });
 
 export function appointmentWithQuestionsFromJSON(

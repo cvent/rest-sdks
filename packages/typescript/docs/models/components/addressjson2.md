@@ -1,6 +1,6 @@
 # AddressJson2
 
-Address details. Required to create/update a guest's reservation if the hotel/event requires an address in reservations.
+Address
 
 ## Example Usage
 
@@ -8,26 +8,24 @@ Address details. Required to create/update a guest's reservation if the hotel/ev
 import { AddressJson2 } from "@cvent/sdk/models/components";
 
 let value: AddressJson2 = {
-  address1: "West St. 1",
-  address2: "Apt. 16",
-  city: "Austin",
-  region: "Texas",
-  regionCode: "TX",
-  postalCode: "23452AB",
-  country: "United States of America",
-  countryCode: "US",
+  type: "work",
+  streetAddress: "100 Universal City Plaza",
+  locality: "Hollywood",
+  region: "CA",
+  postalCode: "91608",
+  country: "USA",
+  primary: true,
 };
 ```
 
 ## Fields
 
-| Field                          | Type                           | Required                       | Description                    | Example                        |
-| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
-| `address1`                     | *string*                       | :heavy_minus_sign:             | Address line 1.                | West St. 1                     |
-| `address2`                     | *string*                       | :heavy_minus_sign:             | Address line 2.                | Apt. 16                        |
-| `city`                         | *string*                       | :heavy_minus_sign:             | City name.                     | Austin                         |
-| `region`                       | *string*                       | :heavy_minus_sign:             | Region name.                   | Texas                          |
-| `regionCode`                   | *string*                       | :heavy_minus_sign:             | Region code.                   | TX                             |
-| `postalCode`                   | *string*                       | :heavy_minus_sign:             | Postal code.                   | 23452AB                        |
-| `country`                      | *string*                       | :heavy_minus_sign:             | Country name.                  | United States of America       |
-| `countryCode`                  | *string*                       | :heavy_minus_sign:             | ISO 3166 alpha-2 country code. | US                             |
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              | Example                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `type`                                                                   | [components.AddressTypeJson](../../models/components/addresstypejson.md) | :heavy_check_mark:                                                       | The type of the address.                                                 | work                                                                     |
+| `streetAddress`                                                          | *string*                                                                 | :heavy_minus_sign:                                                       | The street address of the user.                                          | 100 Universal City Plaza                                                 |
+| `locality`                                                               | *string*                                                                 | :heavy_minus_sign:                                                       | The locality/city of the user.                                           | Hollywood                                                                |
+| `region`                                                                 | *string*                                                                 | :heavy_minus_sign:                                                       | The region/state/province of the user.                                   | CA                                                                       |
+| `postalCode`                                                             | *string*                                                                 | :heavy_minus_sign:                                                       | Postal code (also known as zipcode) of the user.                         | 91608                                                                    |
+| `country`                                                                | *string*                                                                 | :heavy_minus_sign:                                                       | The country of the user.                                                 | USA                                                                      |
+| `primary`                                                                | *boolean*                                                                | :heavy_minus_sign:                                                       | True indicates the address is primary.                                   | true                                                                     |

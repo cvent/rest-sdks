@@ -25,10 +25,10 @@ public class RfpPastEvents {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
-    private List<RfpPastEventJson> data;
+    private List<RfpPastEvent> data;
 
     @JsonCreator
-    public RfpPastEvents(@JsonProperty("data") @Nullable List<RfpPastEventJson> data) {
+    public RfpPastEvents(@JsonProperty("data") @Nullable List<RfpPastEvent> data) {
         this.data = data;
     }
 
@@ -39,7 +39,7 @@ public class RfpPastEvents {
     /**
      * List of past events saved on RFP by planner.
      */
-    public Optional<List<RfpPastEventJson>> data() {
+    public Optional<List<RfpPastEvent>> data() {
         return Optional.ofNullable(this.data);
     }
 
@@ -50,7 +50,7 @@ public class RfpPastEvents {
     /**
      * List of past events saved on RFP by planner.
      */
-    public RfpPastEvents withData(@Nullable List<RfpPastEventJson> data) {
+    public RfpPastEvents withData(@Nullable List<RfpPastEvent> data) {
         this.data = data;
         return this;
     }
@@ -80,7 +80,7 @@ public class RfpPastEvents {
     @SuppressWarnings("UnusedReturnValue")
     public static final class Builder {
 
-        private List<RfpPastEventJson> data;
+        private List<RfpPastEvent> data;
 
         private Builder() {
             // force use of static builder() method
@@ -89,7 +89,7 @@ public class RfpPastEvents {
         /**
          * List of past events saved on RFP by planner.
          */
-        public Builder data(@Nullable List<RfpPastEventJson> data) {
+        public Builder data(@Nullable List<RfpPastEvent> data) {
             this.data = data;
             return this;
         }

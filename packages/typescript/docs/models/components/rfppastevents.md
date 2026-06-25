@@ -27,6 +27,6 @@ let value: RfpPastEvents = {
 
 ## Fields
 
-| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `data`                                                                       | [components.RfpPastEventJson](../../models/components/rfppasteventjson.md)[] | :heavy_minus_sign:                                                           | List of past events saved on RFP by planner.                                 |
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `data`                                                               | [components.RfpPastEvent](../../models/components/rfppastevent.md)[] | :heavy_minus_sign:                                                   | List of past events saved on RFP by planner.                         |

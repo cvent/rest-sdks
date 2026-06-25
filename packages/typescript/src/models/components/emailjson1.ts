@@ -7,10 +7,10 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  EmailTypeJson1,
-  EmailTypeJson1$inboundSchema,
-  EmailTypeJson1$outboundSchema,
-} from "./emailtypejson1.js";
+  EmailTypeJson,
+  EmailTypeJson$inboundSchema,
+  EmailTypeJson$outboundSchema,
+} from "./emailtypejson.js";
 
 /**
  * Email
@@ -19,7 +19,7 @@ export type EmailJson1 = {
   /**
    * The type of the email.
    */
-  type?: EmailTypeJson1 | undefined;
+  type?: EmailTypeJson | undefined;
   /**
    * The email of the user.
    */
@@ -36,7 +36,7 @@ export const EmailJson1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: EmailTypeJson1$inboundSchema.default("work"),
+  type: EmailTypeJson$inboundSchema.default("work"),
   value: z.string(),
   primary: z.boolean().default(false),
 });
@@ -53,7 +53,7 @@ export const EmailJson1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EmailJson1
 > = z.object({
-  type: EmailTypeJson1$outboundSchema.default("work"),
+  type: EmailTypeJson$outboundSchema.default("work"),
   value: z.string(),
   primary: z.boolean().default(false),
 });

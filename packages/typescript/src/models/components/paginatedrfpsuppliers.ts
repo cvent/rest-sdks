@@ -6,11 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import { PagingJson, PagingJson$inboundSchema } from "./pagingjson.js";
-import {
-  RfpSupplierJson,
-  RfpSupplierJson$inboundSchema,
-} from "./rfpsupplierjson.js";
+import { Paging, Paging$inboundSchema } from "./paging.js";
+import { RfpSupplier, RfpSupplier$inboundSchema } from "./rfpsupplier.js";
 
 /**
  * Paginated response containing suppliers associated with an RFP.
@@ -19,11 +16,11 @@ export type PaginatedRfpSuppliers = {
   /**
    * Represents pagination information for a collection of resources.
    */
-  paging: PagingJson;
+  paging: Paging;
   /**
    * List of RFP suppliers.
    */
-  data: Array<RfpSupplierJson>;
+  data: Array<RfpSupplier>;
 };
 
 /** @internal */
@@ -32,8 +29,8 @@ export const PaginatedRfpSuppliers$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  paging: PagingJson$inboundSchema,
-  data: z.array(RfpSupplierJson$inboundSchema),
+  paging: Paging$inboundSchema,
+  data: z.array(RfpSupplier$inboundSchema),
 });
 
 export function paginatedRfpSuppliersFromJSON(

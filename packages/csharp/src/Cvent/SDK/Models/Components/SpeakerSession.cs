@@ -28,7 +28,7 @@ namespace Cvent.SDK.Models.Components
         /// The unique identifier of a speaker.
         /// </summary>
         [JsonProperty("speaker")]
-        public SpeakerLite? Speaker { get; set; }
+        public SpeakerLite1? Speaker { get; set; }
 
         /// <summary>
         /// A Named object.

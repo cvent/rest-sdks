@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
 import java.lang.Override;
 import java.lang.String;
@@ -16,79 +17,48 @@ import java.util.Optional;
 /**
  * ChoiceJson2
  *
- * <p>A survey choice.
+ * <p>This is used to denote the choice of custom field.
  */
 public class ChoiceJson2 {
     /**
-     * Text field ID.
+     * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice
+     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
+     * this choice text will be replaced with the text supplied, and a new choice ID is created.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     private String id;
 
     /**
-     * text Value of the Field
+     * The text for the custom field choice.
      */
-    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("text")
     private String text;
 
-    /**
-     * Reporting value of the Category, Its like a custom abbreviation
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("shortText")
-    private String shortText;
-
-    /**
-     * Label of choice
-     */
-    @JsonInclude(Include.NON_ABSENT)
-    @JsonProperty("label")
-    private String label;
-
     @JsonCreator
-    public ChoiceJson2(
-            @JsonProperty("id") @Nullable String id,
-            @JsonProperty("text") @Nullable String text,
-            @JsonProperty("shortText") @Nullable String shortText,
-            @JsonProperty("label") @Nullable String label) {
+    public ChoiceJson2(@JsonProperty("id") @Nullable String id, @JsonProperty("text") @Nonnull String text) {
         this.id = id;
-        this.text = text;
-        this.shortText = shortText;
-        this.label = label;
+        this.text = Optional.ofNullable(text).orElseThrow(() -> new IllegalArgumentException("text cannot be null"));
     }
 
-    public ChoiceJson2() {
-        this(null, null, null, null);
+    public ChoiceJson2(@Nonnull String text) {
+        this(null, text);
     }
 
     /**
-     * Text field ID.
+     * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice
+     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
+     * this choice text will be replaced with the text supplied, and a new choice ID is created.
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
     /**
-     * text Value of the Field
+     * The text for the custom field choice.
      */
-    public Optional<String> text() {
-        return Optional.ofNullable(this.text);
-    }
-
-    /**
-     * Reporting value of the Category, Its like a custom abbreviation
-     */
-    public Optional<String> shortText() {
-        return Optional.ofNullable(this.shortText);
-    }
-
-    /**
-     * Label of choice
-     */
-    public Optional<String> label() {
-        return Optional.ofNullable(this.label);
+    public String text() {
+        return this.text;
     }
 
     public static Builder builder() {
@@ -96,7 +66,9 @@ public class ChoiceJson2 {
     }
 
     /**
-     * Text field ID.
+     * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice
+     * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
+     * this choice text will be replaced with the text supplied, and a new choice ID is created.
      */
     public ChoiceJson2 withId(@Nullable String id) {
         this.id = id;
@@ -104,26 +76,10 @@ public class ChoiceJson2 {
     }
 
     /**
-     * text Value of the Field
+     * The text for the custom field choice.
      */
-    public ChoiceJson2 withText(@Nullable String text) {
-        this.text = text;
-        return this;
-    }
-
-    /**
-     * Reporting value of the Category, Its like a custom abbreviation
-     */
-    public ChoiceJson2 withShortText(@Nullable String shortText) {
-        this.shortText = shortText;
-        return this;
-    }
-
-    /**
-     * Label of choice
-     */
-    public ChoiceJson2 withLabel(@Nullable String label) {
-        this.label = label;
+    public ChoiceJson2 withText(@Nonnull String text) {
+        this.text = Utils.checkNotNull(text, "text");
         return this;
     }
 
@@ -136,20 +92,17 @@ public class ChoiceJson2 {
             return false;
         }
         ChoiceJson2 other = (ChoiceJson2) o;
-        return Utils.enhancedDeepEquals(this.id, other.id)
-                && Utils.enhancedDeepEquals(this.text, other.text)
-                && Utils.enhancedDeepEquals(this.shortText, other.shortText)
-                && Utils.enhancedDeepEquals(this.label, other.label);
+        return Utils.enhancedDeepEquals(this.id, other.id) && Utils.enhancedDeepEquals(this.text, other.text);
     }
 
     @Override
     public int hashCode() {
-        return Utils.enhancedHash(id, text, shortText, label);
+        return Utils.enhancedHash(id, text);
     }
 
     @Override
     public String toString() {
-        return Utils.toString(ChoiceJson2.class, "id", id, "text", text, "shortText", shortText, "label", label);
+        return Utils.toString(ChoiceJson2.class, "id", id, "text", text);
     }
 
     @SuppressWarnings("UnusedReturnValue")
@@ -159,16 +112,14 @@ public class ChoiceJson2 {
 
         private String text;
 
-        private String shortText;
-
-        private String label;
-
         private Builder() {
             // force use of static builder() method
         }
 
         /**
-         * Text field ID.
+         * The ID of the custom field choice. If you supply the choice's existing ID in a PUT call, the choice
+         * keeps its current ID and the choice text is updated. If this `id` field is left blank in a PUT call,
+         * this choice text will be replaced with the text supplied, and a new choice ID is created.
          */
         public Builder id(@Nullable String id) {
             this.id = id;
@@ -176,31 +127,15 @@ public class ChoiceJson2 {
         }
 
         /**
-         * text Value of the Field
+         * The text for the custom field choice.
          */
-        public Builder text(@Nullable String text) {
-            this.text = text;
-            return this;
-        }
-
-        /**
-         * Reporting value of the Category, Its like a custom abbreviation
-         */
-        public Builder shortText(@Nullable String shortText) {
-            this.shortText = shortText;
-            return this;
-        }
-
-        /**
-         * Label of choice
-         */
-        public Builder label(@Nullable String label) {
-            this.label = label;
+        public Builder text(@Nonnull String text) {
+            this.text = Utils.checkNotNull(text, "text");
             return this;
         }
 
         public ChoiceJson2 build() {
-            return new ChoiceJson2(id, text, shortText, label);
+            return new ChoiceJson2(id, text);
         }
     }
 }

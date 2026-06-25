@@ -6,10 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  RfpPastEventJson,
-  RfpPastEventJson$inboundSchema,
-} from "./rfppasteventjson.js";
+import { RfpPastEvent, RfpPastEvent$inboundSchema } from "./rfppastevent.js";
 
 /**
  * List of past RFP events.
@@ -18,7 +15,7 @@ export type RfpPastEvents = {
   /**
    * List of past events saved on RFP by planner.
    */
-  data?: Array<RfpPastEventJson> | undefined;
+  data?: Array<RfpPastEvent> | undefined;
 };
 
 /** @internal */
@@ -27,7 +24,7 @@ export const RfpPastEvents$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  data: z.array(RfpPastEventJson$inboundSchema).optional(),
+  data: z.array(RfpPastEvent$inboundSchema).optional(),
 });
 
 export function rfpPastEventsFromJSON(

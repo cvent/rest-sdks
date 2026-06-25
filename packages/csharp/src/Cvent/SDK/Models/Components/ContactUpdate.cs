@@ -59,7 +59,7 @@ namespace Cvent.SDK.Models.Components
         /// The gender of the contact.
         /// </summary>
         [JsonProperty("gender")]
-        public GenderJson? Gender { get; set; }
+        public Gender? Gender { get; set; }
 
         /// <summary>
         /// The company/organization the contact belongs to.
@@ -83,19 +83,19 @@ namespace Cvent.SDK.Models.Components
         /// Contains details related to the attendee's contact type.
         /// </summary>
         [JsonProperty("type")]
-        public AttendeeContactTypeJsonInput? Type { get; set; }
+        public AttendeeContactTypeInput? Type { get; set; }
 
         /// <summary>
         /// The type of address.
         /// </summary>
         [JsonProperty("primaryAddressType")]
-        public AddressTypeJson? PrimaryAddressType { get; set; }
+        public AddressType? PrimaryAddressType { get; set; }
 
         /// <summary>
         /// Contact address details.
         /// </summary>
         [JsonProperty("homeAddress")]
-        public AddressJsonInput? HomeAddress { get; set; }
+        public AddressInput? HomeAddress { get; set; }
 
         /// <summary>
         /// The phone number of the contact at their place of residence.
@@ -113,7 +113,7 @@ namespace Cvent.SDK.Models.Components
         /// Contact address details.
         /// </summary>
         [JsonProperty("workAddress")]
-        public AddressJsonInput? WorkAddress { get; set; }
+        public AddressInput? WorkAddress { get; set; }
 
         /// <summary>
         /// The phone number of the contact at their place of work.
@@ -155,7 +155,7 @@ namespace Cvent.SDK.Models.Components
         /// Details of an opt-out for a Contact.
         /// </summary>
         [JsonProperty("optOut")]
-        public OptOutJsonInput? OptOut { get; set; }
+        public ContactOptOutInput? OptOut { get; set; }
 
         /// <summary>
         /// Unique 10-digit identification number issued by the Centers for Medicare and Medicaid Services for health care providers in the United States.
@@ -167,7 +167,7 @@ namespace Cvent.SDK.Models.Components
         /// Collection of social media links for the contact.
         /// </summary>
         [JsonProperty("_links")]
-        public ContactLinksJsonInput? Links { get; set; }
+        public ContactLinksInput? Links { get; set; }
 
         /// <summary>
         /// The date of birth of the contact.<br/>
@@ -190,7 +190,7 @@ namespace Cvent.SDK.Models.Components
         /// This entity represents a contact's passport information.
         /// </summary>
         [JsonProperty("passport")]
-        public PassportJsonInput? Passport { get; set; }
+        public PassportInput? Passport { get; set; }
 
         /// <summary>
         /// The social security number of the contact.<br/>
