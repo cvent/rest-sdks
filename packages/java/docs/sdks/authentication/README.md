@@ -81,7 +81,7 @@ public class Application {
 
 ## oauth2Token
 
-Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](/docs/rest-api/tutorials/developer-quickstart) for an example request.
+Obtains an Access Token, an ID Token, and optionally, a Refresh Token. Read the [Developer Quickstart](https://developers.cvent.com/docs/rest-api/tutorials/developer-quickstart) for an example request.
 
 **Note:** The token endpoint returns refresh_token only when the grant_type is authorization_code.
 

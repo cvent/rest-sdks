@@ -36,7 +36,7 @@ namespace Cvent.SDK
     /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
     /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
     /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-    /// * **Callback.** <a href="/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
     /// </summary>
     public interface IHousing
     {
@@ -387,7 +387,7 @@ namespace Cvent.SDK
         /// Get Reservation.
         /// </summary>
         /// <remarks>
-        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="/docs/passkey/REST/callbacks">passkey callbacks</a>.
+        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">passkey callbacks</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>
@@ -455,7 +455,7 @@ namespace Cvent.SDK
     /// * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.<br/>
     /// * **Reservation Request.** Represents a request to book rooms in the housing event.<br/>
     /// * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.<br/>
-    /// * **Callback.** <a href="/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+    /// * **Callback.** <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">Passkey's callback system</a> allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
     /// </summary>
     public class Housing : IHousing
     {
@@ -3466,7 +3466,7 @@ namespace Cvent.SDK
         /// Get Reservation.
         /// </summary>
         /// <remarks>
-        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="/docs/passkey/REST/callbacks">passkey callbacks</a>.
+        /// Get reservation details for the given reservation ID. Commonly used in response to <a href="https://developers.cvent.com/docs/passkey/REST/callbacks">passkey callbacks</a>.
         /// </remarks>
         /// <param name="request">A <see cref="GetReservationRequest"/> parameter.</param>
         /// <param name="retryConfig">The retry configuration to use for this operation.</param>

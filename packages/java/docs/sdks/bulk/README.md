@@ -11,7 +11,7 @@ Consumers of the bulk API will do the following:
 * Use [get bulk job](#operation/getBulkJobById) to track status
 * Use [list bulk job results](#operation/listBulkJobResult) to get details of items uploaded
 
-For more details, see the [Bulk Job User Guide](/docs/rest-api/guides/bulk-api-user-guide).
+For more details, see the [Bulk Job User Guide](https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide).
 
 **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire
 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job

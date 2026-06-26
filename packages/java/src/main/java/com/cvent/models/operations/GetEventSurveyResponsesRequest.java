@@ -46,7 +46,7 @@ public class GetEventSurveyResponsesRequest {
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
-     * [Filters](/docs/rest-api/reference/filters) for details.
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
@@ -129,7 +129,7 @@ public class GetEventSurveyResponsesRequest {
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
-     * [Filters](/docs/rest-api/reference/filters) for details.
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
@@ -200,7 +200,7 @@ public class GetEventSurveyResponsesRequest {
     /**
      * Use filter query parameters to limit results
      * to data that matches your criteria. See
-     * [Filters](/docs/rest-api/reference/filters) for details.
+     * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
      *
      * <p>Supported fields and operators are listed below:
      *
@@ -334,7 +334,7 @@ public class GetEventSurveyResponsesRequest {
         /**
          * Use filter query parameters to limit results
          * to data that matches your criteria. See
-         * [Filters](/docs/rest-api/reference/filters) for details.
+         * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
          *
          * <p>Supported fields and operators are listed below:
          *

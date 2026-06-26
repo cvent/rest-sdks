@@ -57,7 +57,8 @@ public class EventInput {
     private OffsetDateTime end;
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     @JsonProperty("timezone")
     private String timezone;
@@ -192,7 +193,8 @@ public class EventInput {
     }
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     public String timezone() {
         return this.timezone;
@@ -296,7 +298,8 @@ public class EventInput {
     }
 
     /**
-     * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+     * List of supported
+     * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
      */
     public EventInput withTimezone(@Nonnull String timezone) {
         this.timezone = Utils.checkNotNull(timezone, "timezone");
@@ -511,7 +514,8 @@ public class EventInput {
         }
 
         /**
-         * List of supported [timezones](/docs/rest-api/reference/api-standards#time-zones).
+         * List of supported
+         * [timezones](https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones).
          */
         public Builder timezone(@Nonnull String timezone) {
             this.timezone = Utils.checkNotNull(timezone, "timezone");

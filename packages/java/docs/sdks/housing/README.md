@@ -15,7 +15,7 @@ If you need authentication credentials or have any questions regarding the RegLi
 * **Housing Event.** An Passkey event where invitees will be able to register and book rooms.
 * **Reservation Request.** Represents a request to book rooms in the housing event.
 * **RegLink.** A feature that links Passkey events to your registration events, enabling you to sync data between the two events.
-* **Callback.** [Passkey's callback system](/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
+* **Callback.** [Passkey's callback system](https://developers.cvent.com/docs/passkey/REST/callbacks) allows for a push notification to be sent to your system when a reservation is created, modified or cancelled.
 
 
 ### Available Operations
@@ -1451,7 +1451,7 @@ public class Application {
 
 ## getReservation
 
-Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](/docs/passkey/REST/callbacks). 
+Get reservation details for the given reservation ID. Commonly used in response to [passkey callbacks](https://developers.cvent.com/docs/passkey/REST/callbacks). 
 
 ### Example Usage
 

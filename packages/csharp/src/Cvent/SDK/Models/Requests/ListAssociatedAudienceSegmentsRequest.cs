@@ -36,7 +36,7 @@ namespace Cvent.SDK.Models.Requests
         /// <summary>
         /// Use the filter property in the request body to limit results<br/>
         /// to data that matches your criteria. See<br/>
-        /// <a href="/docs/rest-api/reference/filters">Filters</a> for details.<br/>
+        /// <a href="https://developers.cvent.com/docs/rest-api/reference/filters">Filters</a> for details.<br/>
         /// <br/>
         /// Supported fields and operators are listed below:<br/>
         /// <br/>

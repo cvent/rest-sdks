@@ -27,8 +27,10 @@ import java.util.Optional;
 public class AttendeeContactInfo {
     /**
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -39,8 +41,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
-     * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -51,8 +55,10 @@ public class AttendeeContactInfo {
 
     /**
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -63,8 +69,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -443,8 +451,10 @@ public class AttendeeContactInfo {
 
     /**
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -455,8 +465,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
-     * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -467,8 +479,10 @@ public class AttendeeContactInfo {
 
     /**
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -479,8 +493,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -741,8 +757,10 @@ public class AttendeeContactInfo {
 
     /**
      * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -754,8 +772,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
-     * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -767,8 +787,10 @@ public class AttendeeContactInfo {
 
     /**
      * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -780,8 +802,10 @@ public class AttendeeContactInfo {
 
     /**
      * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
-     * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-     * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+     * Please use the [Get
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+     * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+     * for contact audit details.
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
@@ -1336,8 +1360,10 @@ public class AttendeeContactInfo {
 
         /**
          * The ISO 8601 zoned date time when an attendee record was created. Note: This field is deprecated.
-         * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-         * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+         * Please use the [Get
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+         * for contact audit details.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -1349,8 +1375,10 @@ public class AttendeeContactInfo {
 
         /**
          * The identifier of the user that created this attendee record. Note: This field is deprecated. Please
-         * use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-         * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+         * use the [Get
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+         * for contact audit details.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -1362,8 +1390,10 @@ public class AttendeeContactInfo {
 
         /**
          * The ISO 8601 zoned date time when this attendee record was updated. Note: This field is deprecated.
-         * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-         * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+         * Please use the [Get
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+         * for contact audit details.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */
@@ -1375,8 +1405,10 @@ public class AttendeeContactInfo {
 
         /**
          * The identifier of the user that last updated this attendee record. Note: This field is deprecated.
-         * Please use the [Get Contact](/documentation#tag/Contacts/operation/getContactById) or [List
-         * Contact](/documentation#tag/Contacts/operation/listContacts) endpoints for contact audit details.
+         * Please use the [Get
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/getContactById) or [List
+         * Contact](https://developers.cvent.com/documentation#tag/Contacts/operation/listContacts) endpoints
+         * for contact audit details.
          *
          * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
          */

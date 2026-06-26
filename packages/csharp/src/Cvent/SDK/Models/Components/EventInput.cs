@@ -51,7 +51,7 @@ namespace Cvent.SDK.Models.Components
         public DateTime? End { get; set; }
 
         /// <summary>
-        /// List of supported <a href="/docs/rest-api/reference/api-standards#time-zones">timezones</a>.
+        /// List of supported <a href="https://developers.cvent.com/docs/rest-api/reference/api-standards#time-zones">timezones</a>.
         /// </summary>
         [JsonProperty("timezone")]
         public string Timezone { get; set; } = default!;

@@ -34,7 +34,7 @@ namespace Cvent.SDK
     /// * Use <a href="#operation/getBulkJobById">get bulk job</a> to track status<br/>
     /// * Use <a href="#operation/listBulkJobResult">list bulk job results</a> to get details of items uploaded<br/>
     /// <br/>
-    /// For more details, see the <a href="/docs/rest-api/guides/bulk-api-user-guide">Bulk Job User Guide</a>.<br/>
+    /// For more details, see the <a href="https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide">Bulk Job User Guide</a>.<br/>
     /// <br/>
     /// **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire<br/>
     /// 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job<br/>
@@ -181,7 +181,7 @@ namespace Cvent.SDK
     /// * Use <a href="#operation/getBulkJobById">get bulk job</a> to track status<br/>
     /// * Use <a href="#operation/listBulkJobResult">list bulk job results</a> to get details of items uploaded<br/>
     /// <br/>
-    /// For more details, see the <a href="/docs/rest-api/guides/bulk-api-user-guide">Bulk Job User Guide</a>.<br/>
+    /// For more details, see the <a href="https://developers.cvent.com/docs/rest-api/guides/bulk-api-user-guide">Bulk Job User Guide</a>.<br/>
     /// <br/>
     /// **Note:** These bulk jobs have a TTL and will expire once they are complete or never ran. Bulk jobs will expire<br/>
     /// 1 week after creation, and this one week is refreshed when data is uploaded and the job is run. The Bulk Job<br/>

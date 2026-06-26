@@ -54,7 +54,7 @@ export type ListDurationsRequest = {
    *
    * @remarks
    * to data that matches your criteria. See
-   * [Filters](/docs/rest-api/reference/filters) for details.
+   * [Filters](https://developers.cvent.com/docs/rest-api/reference/filters) for details.
    *
    * Supported fields and operators are listed below:
    *
